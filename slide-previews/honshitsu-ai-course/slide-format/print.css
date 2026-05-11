@@ -1,0 +1,33 @@
+@page {
+  size: 13.333in 7.5in;
+  margin: 0;
+}
+
+html,
+body {
+  width: 13.333in;
+  margin: 0;
+  background: #fff;
+}
+
+.deck {
+  display: block;
+  padding: 0;
+}
+
+.slide {
+  width: 13.333in;
+  height: 7.5in;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  break-after: page;
+  page-break-after: always;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.slide:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
