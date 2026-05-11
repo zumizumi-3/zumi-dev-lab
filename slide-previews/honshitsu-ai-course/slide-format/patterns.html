@@ -3,401 +3,118 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>本質のAI講座 構図パターン集</title>
+    <title>講義スライド 構図パターン集</title>
     <link rel="stylesheet" href="./assets/fonts/noto-sans-jp/noto_sans_jp_regular/css.css">
     <link rel="stylesheet" href="./assets/fonts/noto-sans-jp/noto_sans_jp_bold/css.css">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./slides.css">
-    <link rel="stylesheet" href="./patterns.css">
-    <link rel="stylesheet" href="./print.css" media="print">
+    <link rel="stylesheet" href="./base-format.css">
+    <script src="./deck-controller.js" defer></script>
   </head>
   <body>
-    <main class="deck" aria-label="本質のAI講座 構図パターン集">
-      <section id="P-01" class="slide slide-pattern pattern-hero-visual slide-visual" data-slide="P-01" aria-labelledby="p-01-title">
+    <main class="deck" aria-label="講義スライド 構図パターン集">
+      <section id="PAT-00" class="slide cover" data-slide="PAT-00" aria-labelledby="pat-00-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern 01</p>
-          <h2 id="p-01-title">大きな結論 + 右側ビジュアル</h2>
+          <span class="kicker">Pattern Catalog</span>
+          <span class="label">Reusable layouts</span>
         </header>
-        <div class="hero-visual-layout">
-          <div>
-            <p class="pattern-main-copy">AIに聞く前に、まず目的を決める</p>
-            <p class="pattern-sub-copy">1枚で持ち帰る判断を大きく見せる構図</p>
-          </div>
-          <figure class="visual-illustration-card" aria-label="目的を決めるイラスト">
-            <svg viewBox="0 0 360 280" role="img">
-              <rect x="48" y="54" width="264" height="150" rx="18"></rect>
-              <path d="M92 104 H238 M92 142 H202"></path>
-              <circle cx="260" cy="98" r="28"></circle>
-              <path d="M248 98 L258 108 L276 84"></path>
-              <path d="M94 232 C132 202 220 202 266 232"></path>
-            </svg>
-          </figure>
+        <h1 id="pat-00-title">講義で使う<br>構図パターン集</h1>
+        <p class="lead">スライドを作るたびに迷わないための、再利用可能なレイアウト一覧。</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><strong>Big Message</strong><p>大きな結論を残す</p></article>
+          <article class="pattern-card"><strong>Choice</strong><p>自己診断を作る</p></article>
+          <article class="pattern-card"><strong>Formula</strong><p>構成要素を見せる</p></article>
+          <article class="pattern-card"><strong>AI Diagram</strong><p>図解を主役にする</p></article>
         </div>
         <footer class="slide-footer">
-          <span>用途: 章の冒頭、重要判断の提示</span>
-          <span>P-01</span>
+          <span>catalog</span>
+          <span>PAT-00</span>
         </footer>
       </section>
 
-      <section id="P-02" class="slide slide-pattern pattern-choice-grid slide-visual" data-slide="P-02" aria-labelledby="p-02-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 02</p>
-          <h2 id="p-02-title">質問 + 6択カード</h2>
-        </header>
-        <p class="pattern-question">現在の状況に一番近いものは?</p>
+      <section id="PAT-01" class="slide" data-slide="PAT-01" aria-labelledby="pat-01-title">
+        <header class="slide-header"><span class="kicker">01</span><span class="label">結論提示</span></header>
+        <div class="grid-2">
+          <div><h2 id="pat-01-title">大きな結論 + 図解</h2><p class="lead">新しい章、重要な考え方、講義の立場を示す。</p></div>
+          <figure class="visual"><svg viewBox="0 0 460 320"><rect x="74" y="70" width="280" height="168" rx="24"></rect><path d="M116 124 H278 M116 174 H226"></path><circle class="fill" cx="342" cy="104" r="44"></circle><path class="blue" d="M116 270 C194 226 274 226 350 270"></path></svg></figure>
+        </div>
+        <footer class="slide-footer"><span>use: opener</span><span>PAT-01</span></footer>
+      </section>
+
+      <section id="PAT-02" class="slide" data-slide="PAT-02" aria-labelledby="pat-02-title">
+        <header class="slide-header"><span class="kicker">02</span><span class="label">選択式</span></header>
+        <h2 id="pat-02-title">問い + 6択カード</h2>
         <div class="choice-grid">
-          <article><span>1</span><svg viewBox="0 0 120 80"><circle cx="44" cy="38" r="20"></circle><path d="M72 25 H98 M72 40 H92 M72 55 H86"></path></svg><p>情報を追っている</p></article>
-          <article><span>2</span><svg viewBox="0 0 120 80"><rect x="28" y="16" width="42" height="48" rx="8"></rect><path d="M39 32 H60 M39 46 H56"></path><circle cx="86" cy="30" r="15"></circle></svg><p>真似ても合わない</p></article>
-          <article><span>3</span><svg viewBox="0 0 120 80"><path d="M28 58 L50 38 L64 50 L92 20"></path><path d="M28 22 H54 M28 38 H44 M28 68 H94"></path></svg><p>直し方が分からない</p></article>
-          <article><span>4</span><svg viewBox="0 0 120 80"><circle cx="42" cy="32" r="17"></circle><path d="M20 70 C24 54 60 54 64 70"></path><rect x="76" y="24" width="24" height="34" rx="6"></rect></svg><p>任せすぎている</p></article>
-          <article><span>5</span><svg viewBox="0 0 120 80"><rect x="24" y="20" width="72" height="42" rx="9"></rect><path d="M40 42 H80 M48 62 L60 72 L72 62"></path></svg><p>文脈を渡せていない</p></article>
-          <article><span>6</span><svg viewBox="0 0 120 80"><path d="M34 26 H88 M34 42 H76 M34 58 H92"></path><circle cx="24" cy="26" r="7"></circle><circle cx="24" cy="42" r="7"></circle><circle cx="24" cy="58" r="7"></circle></svg><p>基準がない</p></article>
+          <article class="choice"><span class="number">1</span><div><strong>状況A</strong><p>短い説明</p></div></article>
+          <article class="choice"><span class="number">2</span><div><strong>状況B</strong><p>短い説明</p></div></article>
+          <article class="choice"><span class="number">3</span><div><strong>状況C</strong><p>短い説明</p></div></article>
+          <article class="choice"><span class="number">4</span><div><strong>状況D</strong><p>短い説明</p></div></article>
+          <article class="choice"><span class="number">5</span><div><strong>状況E</strong><p>短い説明</p></div></article>
+          <article class="choice"><span class="number">6</span><div><strong>状況F</strong><p>短い説明</p></div></article>
         </div>
-        <footer class="slide-footer">
-          <span>用途: アイスブレイク、自己診断</span>
-          <span>P-02</span>
-        </footer>
+        <footer class="slide-footer"><span>use: ice break</span><span>PAT-02</span></footer>
       </section>
 
-      <section id="P-03" class="slide slide-pattern pattern-formula slide-visual" data-slide="P-03" aria-labelledby="p-03-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 03</p>
-          <h2 id="p-03-title">カードを足し合わせる数式図解</h2>
-        </header>
-        <div class="formula-row" aria-label="目的、文脈、基準を足すと使える素材になる">
-          <article><p>目的</p><small>何のため</small></article>
-          <span>+</span>
-          <article><p>文脈</p><small>背景情報</small></article>
-          <span>+</span>
-          <article><p>基準</p><small>良し悪し</small></article>
-          <span>=</span>
-          <article class="is-result"><p>使える素材</p><small>直せる出力</small></article>
+      <section id="PAT-03" class="slide" data-slide="PAT-03" aria-labelledby="pat-03-title">
+        <header class="slide-header"><span class="kicker">03</span><span class="label">構成要素</span></header>
+        <h2 id="pat-03-title">数式型フレーム</h2>
+        <div class="formula">
+          <article class="card"><strong>要素A</strong><p>説明</p></article><span class="operator">+</span>
+          <article class="card"><strong>要素B</strong><p>説明</p></article><span class="operator">+</span>
+          <article class="card"><strong>要素C</strong><p>説明</p></article><span class="operator">=</span>
+          <article class="card"><strong>成果</strong><p>説明</p></article>
         </div>
-        <footer class="slide-footer">
-          <span>用途: 条件、構成要素、因果の説明</span>
-          <span>P-03</span>
-        </footer>
+        <footer class="slide-footer"><span>use: framework</span><span>PAT-03</span></footer>
       </section>
 
-      <section id="P-04" class="slide slide-pattern pattern-before-after slide-visual" data-slide="P-04" aria-labelledby="p-04-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 04</p>
-          <h2 id="p-04-title">Before / After 比較</h2>
-        </header>
-        <div class="before-after-layout">
-          <article class="before-card">
-            <span>Before</span>
-            <h3>AIに丸投げする</h3>
-            <p>読めるが、仕事に残らない一般論になる</p>
-          </article>
-          <div class="transition-arrow">→</div>
-          <article class="after-card">
-            <span>After</span>
-            <h3>条件を渡して素材化する</h3>
-            <p>目的に照らして直せる出力になる</p>
-          </article>
+      <section id="PAT-04" class="slide" data-slide="PAT-04" aria-labelledby="pat-04-title">
+        <header class="slide-header"><span class="kicker">04</span><span class="label">AI図解</span></header>
+        <h2 id="pat-04-title">AI生成図解 + 読み取り3点</h2>
+        <div class="ai-layout">
+          <figure class="ai-panel"><svg viewBox="0 0 680 360"><path class="blue" d="M92 222 C174 92 306 88 364 184 C430 292 526 188 594 92"></path><circle class="fill" cx="116" cy="214" r="54"></circle><circle class="fill" cx="348" cy="174" r="70"></circle><circle class="fill" cx="574" cy="112" r="56"></circle><path d="M188 218 H272 M428 166 H508"></path></svg></figure>
+          <div class="reading-list"><article class="note-card"><strong>見る</strong><p>中心概念</p></article><article class="note-card"><strong>比べる</strong><p>変化点</p></article><article class="note-card"><strong>使う</strong><p>次の行動</p></article></div>
         </div>
-        <footer class="slide-footer">
-          <span>用途: 誤解から理解への転換</span>
-          <span>P-04</span>
-        </footer>
+        <footer class="slide-footer"><span>use: concept diagram</span><span>PAT-04</span></footer>
       </section>
 
-      <section id="P-05" class="slide slide-pattern pattern-step-flow slide-visual" data-slide="P-05" aria-labelledby="p-05-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 05</p>
-          <h2 id="p-05-title">横一列のステップフロー</h2>
-        </header>
-        <div class="step-flow">
-          <article><span>1</span><p>目的</p></article>
-          <article><span>2</span><p>文脈</p></article>
-          <article><span>3</span><p>基準</p></article>
-          <article><span>4</span><p>依頼</p></article>
-          <article><span>5</span><p>修正</p></article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 講義の流れ、ワーク手順</span>
-          <span>P-05</span>
-        </footer>
+      <section id="PAT-05" class="slide" data-slide="PAT-05" aria-labelledby="pat-05-title">
+        <header class="slide-header"><span class="kicker">05</span><span class="label">比較</span></header>
+        <h2 id="pat-05-title">Before / After</h2>
+        <div class="compare"><article class="card"><span class="kicker">Before</span><strong>誤解</strong><p>変える前の状態</p></article><div class="arrow">→</div><article class="card"><span class="kicker">After</span><strong>理解</strong><p>変えた後の状態</p></article></div>
+        <footer class="slide-footer"><span>use: reframe</span><span>PAT-05</span></footer>
       </section>
 
-      <section id="P-06" class="slide slide-pattern pattern-center-map slide-visual" data-slide="P-06" aria-labelledby="p-06-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 06</p>
-          <h2 id="p-06-title">中央概念 + 周辺カード</h2>
-        </header>
-        <div class="center-map">
-          <article class="center-card">判断軸</article>
-          <article>目的</article>
-          <article>相手</article>
-          <article>文脈</article>
-          <article>基準</article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 概念整理、全体像の提示</span>
-          <span>P-06</span>
-        </footer>
+      <section id="PAT-06" class="slide" data-slide="PAT-06" aria-labelledby="pat-06-title">
+        <header class="slide-header"><span class="kicker">06</span><span class="label">手順</span></header>
+        <h2 id="pat-06-title">5ステップフロー</h2>
+        <div class="steps"><article class="step"><span class="number">1</span><strong>準備</strong></article><article class="step"><span class="number">2</span><strong>入力</strong></article><article class="step"><span class="number">3</span><strong>生成</strong></article><article class="step"><span class="number">4</span><strong>修正</strong></article><article class="step"><span class="number">5</span><strong>共有</strong></article></div>
+        <footer class="slide-footer"><span>use: process</span><span>PAT-06</span></footer>
       </section>
 
-      <section id="P-07" class="slide slide-pattern pattern-case slide-visual" data-slide="P-07" aria-labelledby="p-07-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 07</p>
-          <h2 id="p-07-title">ケース人物 + 状況カード</h2>
-        </header>
-        <div class="case-layout">
-          <figure class="persona-card" aria-label="受講者の状況">
-            <svg viewBox="0 0 220 180" role="img">
-              <circle cx="110" cy="58" r="30"></circle>
-              <path d="M62 154 C70 106 150 106 158 154"></path>
-              <rect x="36" y="130" width="148" height="34" rx="9"></rect>
-            </svg>
-            <figcaption>講座生Aさん</figcaption>
-          </figure>
-          <div class="case-cards">
-            <article><span>状況</span><p>AIで資料を作るが、直しが多い</p></article>
-            <article><span>原因</span><p>相手と目的を渡していない</p></article>
-            <article><span>次の一手</span><p>依頼前に条件を3つ書く</p></article>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 具体例、受講者の自己投影</span>
-          <span>P-07</span>
-        </footer>
+      <section id="PAT-07" class="slide" data-slide="PAT-07" aria-labelledby="pat-07-title">
+        <header class="slide-header"><span class="kicker">07</span><span class="label">ワーク</span></header>
+        <div class="work-layout"><article class="work-card"><span class="kicker">問い</span><strong id="pat-07-title">参加者に考えてほしい問いを書く</strong><p>問いは1つ。完了条件は右に分ける。</p></article><div class="reading-list"><article class="note-card"><strong>時間</strong><p>5分</p></article><article class="note-card"><strong>共有</strong><p>3分</p></article><article class="note-card"><strong>完了</strong><p>1つ選ぶ</p></article></div></div>
+        <footer class="slide-footer"><span>use: workshop</span><span>PAT-07</span></footer>
       </section>
 
-      <section id="P-08" class="slide slide-pattern pattern-work-prompt slide-visual" data-slide="P-08" aria-labelledby="p-08-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 08</p>
-          <h2 id="p-08-title">ワーク問い + 条件カード</h2>
-        </header>
-        <div class="work-prompt-layout">
-          <article class="big-question">
-            <span>問い</span>
-            <p>最近AIを使って、仕事に残らなかった場面はどこか</p>
-          </article>
-          <div class="work-condition-cards">
-            <article><span>時間</span><p>7分記入</p></article>
-            <article><span>共有</span><p>3分ペア</p></article>
-            <article><span>完了</span><p>つまずき1つ</p></article>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: ワーク導入、入力前の確認</span>
-          <span>P-08</span>
-        </footer>
+      <section id="PAT-08" class="slide" data-slide="PAT-08" aria-labelledby="pat-08-title">
+        <header class="slide-header"><span class="kicker">08</span><span class="label">3列整理</span></header>
+        <h2 id="pat-08-title">3つの役割を並べる</h2>
+        <div class="grid-3"><article class="card"><span class="number">A</span><strong>任せる</strong><p>AIが担当</p></article><article class="card"><span class="number">B</span><strong>渡す</strong><p>人が入力</p></article><article class="card"><span class="number">C</span><strong>判断する</strong><p>人が責任を持つ</p></article></div>
+        <footer class="slide-footer"><span>use: role split</span><span>PAT-08</span></footer>
       </section>
 
-      <section id="P-09" class="slide slide-pattern pattern-ladder slide-visual" data-slide="P-09" aria-labelledby="p-09-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 09</p>
-          <h2 id="p-09-title">階段型の理解ステップ</h2>
-        </header>
-        <div class="ladder-layout">
-          <article><span>01</span><p>目的を言う</p></article>
-          <article><span>02</span><p>文脈を足す</p></article>
-          <article><span>03</span><p>基準で直す</p></article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 成長段階、学習到達点</span>
-          <span>P-09</span>
-        </footer>
+      <section id="PAT-09" class="slide" data-slide="PAT-09" aria-labelledby="pat-09-title">
+        <header class="slide-header"><span class="kicker">09</span><span class="label">強調</span></header>
+        <div class="quote-panel"><blockquote id="pat-09-title">一番残したい言葉を、画面の主役にする。</blockquote><p>短い言葉で章末や転換点を作る。</p></div>
+        <footer class="slide-footer"><span>use: quote</span><span>PAT-09</span></footer>
       </section>
 
-      <section id="P-10" class="slide slide-pattern pattern-reframe slide-visual" data-slide="P-10" aria-labelledby="p-10-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 10</p>
-          <h2 id="p-10-title">誤解とリフレーム</h2>
-        </header>
-        <div class="reframe-layout">
-          <article class="misunderstanding">
-            <span>誤解</span>
-            <p>良いAIツールを探せば解決する</p>
-          </article>
-          <article class="reframe">
-            <span>リフレーム</span>
-            <p>AIに渡す条件を整えると、出力を直せる</p>
-          </article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 講座の立場、認識転換</span>
-          <span>P-10</span>
-        </footer>
-      </section>
-
-      <section id="P-11" class="slide slide-pattern pattern-matrix slide-visual" data-slide="P-11" aria-labelledby="p-11-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 11</p>
-          <h2 id="p-11-title">3列比較カード</h2>
-        </header>
-        <div class="matrix-cards">
-          <article><span>任せる</span><p>下書き、整理、言い換え</p></article>
-          <article><span>渡す</span><p>目的、相手、制約</p></article>
-          <article><span>判断する</span><p>採用、修正、責任</p></article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 役割分担、比較整理</span>
-          <span>P-11</span>
-        </footer>
-      </section>
-
-      <section id="P-12" class="slide slide-pattern pattern-takeaway slide-visual" data-slide="P-12" aria-labelledby="p-12-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 12</p>
-          <h2 id="p-12-title">まとめ + 持ち帰り3点</h2>
-        </header>
-        <div class="takeaway-layout">
-          <p class="takeaway-main">AI活用は、ツール選びの前に条件づくりから始める</p>
-          <div>
-            <article><span>1</span><p>目的を決める</p></article>
-            <article><span>2</span><p>文脈を渡す</p></article>
-            <article><span>3</span><p>基準で直す</p></article>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 章末、Day末、次回への接続</span>
-          <span>P-12</span>
-        </footer>
-      </section>
-
-      <section id="P-13" class="slide slide-pattern pattern-checklist slide-visual" data-slide="P-13" aria-labelledby="p-13-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 13</p>
-          <h2 id="p-13-title">チェックリスト + 判定</h2>
-        </header>
-        <div class="checklist-layout">
-          <article><span>✓</span><p>目的は1文で言えるか</p></article>
-          <article><span>✓</span><p>相手と前提は渡したか</p></article>
-          <article><span>✓</span><p>良し悪しの基準はあるか</p></article>
-          <aside>3つ揃ったら<br>AIに依頼する</aside>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 依頼前チェック、ワーク完了条件</span>
-          <span>P-13</span>
-        </footer>
-      </section>
-
-      <section id="P-14" class="slide slide-pattern pattern-branch slide-visual" data-slide="P-14" aria-labelledby="p-14-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 14</p>
-          <h2 id="p-14-title">判断分岐フロー</h2>
-        </header>
-        <div class="branch-flow">
-          <article class="branch-question">目的は明確?</article>
-          <div class="branch-path">
-            <article><span>Yes</span><p>文脈を足して依頼</p></article>
-            <article><span>No</span><p>先に目的を書き直す</p></article>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 判断基準、次の行動の分岐</span>
-          <span>P-14</span>
-        </footer>
-      </section>
-
-      <section id="P-15" class="slide slide-pattern pattern-anatomy slide-visual" data-slide="P-15" aria-labelledby="p-15-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 15</p>
-          <h2 id="p-15-title">プロンプトの分解図</h2>
-        </header>
-        <div class="anatomy-layout">
-          <article class="prompt-box">営業資料の構成案を、初心者向けに3案ください。</article>
-          <div>
-            <article><span>目的</span><p>営業資料の構成案</p></article>
-            <article><span>相手</span><p>初心者向け</p></article>
-            <article><span>出力</span><p>3案ください</p></article>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 文の分解、プロンプト添削</span>
-          <span>P-15</span>
-        </footer>
-      </section>
-
-      <section id="P-16" class="slide slide-pattern pattern-pitfall slide-visual" data-slide="P-16" aria-labelledby="p-16-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 16</p>
-          <h2 id="p-16-title">よくある失敗の積み上げ</h2>
-        </header>
-        <div class="pitfall-stack">
-          <article><span>失敗 01</span><p>目的が曖昧</p></article>
-          <article><span>失敗 02</span><p>背景を渡していない</p></article>
-          <article><span>失敗 03</span><p>直す基準がない</p></article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 失敗例、注意喚起</span>
-          <span>P-16</span>
-        </footer>
-      </section>
-
-      <section id="P-17" class="slide slide-pattern pattern-review slide-visual" data-slide="P-17" aria-labelledby="p-17-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 17</p>
-          <h2 id="p-17-title">出力レビュー観点</h2>
-        </header>
-        <div class="review-board">
-          <article><span>見る</span><p>目的に合っているか</p></article>
-          <article><span>直す</span><p>相手に合わせる</p></article>
-          <article><span>残す</span><p>使える素材を選ぶ</p></article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: AI出力のレビュー、改善手順</span>
-          <span>P-17</span>
-        </footer>
-      </section>
-
-      <section id="P-18" class="slide slide-pattern pattern-roadmap slide-visual" data-slide="P-18" aria-labelledby="p-18-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 18</p>
-          <h2 id="p-18-title">Dayロードマップ</h2>
-        </header>
-        <div class="roadmap-line">
-          <article><span>Day 1</span><p>判断軸を作る</p></article>
-          <article><span>Day 2</span><p>課題に適用する</p></article>
-          <article><span>Day 3</span><p>業務に残す</p></article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 講座全体像、次回接続</span>
-          <span>P-18</span>
-        </footer>
-      </section>
-
-      <section id="P-19" class="slide slide-pattern pattern-quote slide-visual" data-slide="P-19" aria-labelledby="p-19-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 19</p>
-          <h2 id="p-19-title">強い一言 + 補足</h2>
-        </header>
-        <div class="quote-layout">
-          <p>AIの答えを良くする前に、問いを良くする。</p>
-          <article>講師が強調したい言葉を、1枚の主役として見せる構図</article>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 重要メッセージ、章の締め</span>
-          <span>P-19</span>
-        </footer>
-      </section>
-
-      <section id="P-20" class="slide slide-pattern pattern-demo slide-visual" data-slide="P-20" aria-labelledby="p-20-title">
-        <header class="slide-header">
-          <p class="eyebrow">Pattern 20</p>
-          <h2 id="p-20-title">デモ画面 + 観察ポイント</h2>
-        </header>
-        <div class="demo-layout">
-          <article class="demo-window">
-            <span></span><span></span><span></span>
-            <p>AIへの依頼文</p>
-            <small>目的 / 文脈 / 基準を入れて書く</small>
-          </article>
-          <div>
-            <article><span>1</span><p>どの条件を足したか</p></article>
-            <article><span>2</span><p>出力がどう変わったか</p></article>
-            <article><span>3</span><p>どこを直すか</p></article>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>用途: 実演、画面共有前の観察視点</span>
-          <span>P-20</span>
-        </footer>
+      <section id="PAT-10" class="slide" data-slide="PAT-10" aria-labelledby="pat-10-title">
+        <header class="slide-header"><span class="kicker">10</span><span class="label">まとめ</span></header>
+        <div class="grid-2"><div><h2 id="pat-10-title">持ち帰りは3点だけ</h2><p class="lead">聞いた内容を行動に変えるための締め方。</p></div><div class="reading-list"><article class="note-card"><strong>1</strong><p>要点</p></article><article class="note-card"><strong>2</strong><p>判断</p></article><article class="note-card"><strong>3</strong><p>行動</p></article></div></div>
+        <footer class="slide-footer"><span>use: takeaway</span><span>PAT-10</span></footer>
       </section>
     </main>
+    <div class="progress" aria-hidden="true"></div>
+    <div class="slide-index" aria-live="polite"></div>
   </body>
 </html>

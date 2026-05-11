@@ -8,7 +8,6 @@ import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(scriptDir, "..");
-const indexPath = path.join(rootDir, "index.html");
 const tmpDir = path.join(rootDir, "_preview_work");
 
 const args = new Map();
@@ -19,6 +18,7 @@ for (let i = 2; i < process.argv.length; i += 1) {
   }
 }
 
+const indexPath = path.join(rootDir, args.get("file") ?? "index.html");
 const outputDir = path.resolve(rootDir, args.get("out") ?? "preview-output");
 const slidesDir = path.join(outputDir, "slides");
 const slideIds = parseSlideArg(args.get("slides") ?? "D1-00..D1-70");
@@ -28,7 +28,7 @@ const rawHead = html.match(/<head>([\s\S]*?)<\/head>/)?.[1];
 if (!rawHead) {
   throw new Error("Could not find <head> in index.html");
 }
-const head = rawHead.replaceAll('href="./', 'href="../');
+const head = rawHead.replaceAll('href="./', 'href="../').replaceAll('src="./', 'src="../');
 
 await rm(tmpDir, { recursive: true, force: true });
 await mkdir(tmpDir, { recursive: true });

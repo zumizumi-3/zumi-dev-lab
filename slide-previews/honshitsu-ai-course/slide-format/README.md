@@ -1,29 +1,28 @@
-# 本質のAI講座 Slide Format
+# 講義スライド Base Format
 
-Reusable HTML/CSS slide format for the course.
+White-background, orange-accent HTML slide format for seminars, lectures, and workshops.
 
 ## Design Baseline
 
-- 16:9 slide canvas
-- White slide background
-- Orange as the primary accent color
-- Large typography for seminars and lectures
-- Reusable layouts for conclusion, choices, formulas, AI-generated diagrams, before/after, flows, work prompts, comparisons, quotes, and takeaways
+- 16:9 slide canvas for desktop previews
+- White slide background with orange as the primary accent
+- Large typography for online seminars and lectures
+- Reusable layouts for message slides, choice slides, formulas, AI-generated diagrams, before/after comparisons, flows, work prompts, role splits, quotes, and takeaways
+- Keyboard, wheel, and touch navigation with progress indicator
 
 ## Files
 
-- `index.html`: reusable base-format sample deck
-- `patterns.html`: 20-slide composition pattern gallery
-- `styles.css`: base slide canvas, typography, colors, and navigation-safe layout
-- `slides.css`: course slide components and diagram layouts
-- `patterns.css`: composition pattern gallery styles
+- `index.html`: new reusable base-format sample deck
+- `patterns.html`: new composition pattern gallery
+- `base-format.css`: complete visual system, layout patterns, viewport-safe slide base
+- `deck-controller.js`: keyboard, wheel, touch navigation, active-slide reveal, progress indicator
 - `print.css`: print/PDF styles
 - `assets/fonts/noto-sans-jp/`: local Noto Sans JP font files
 - `tools/`: static preview render and preview server helpers
 
 ## Reuse
 
-Copy a slide section from `index.html` or `patterns.html`, change the slide id and text, then keep the same class structure. Use the AI figure layout when inserting AI-generated diagrams or concept visuals.
+Copy a slide section from `index.html` or `patterns.html`, change the slide id and text, then keep the same class structure. Use `.ai-layout` and `.ai-panel` when inserting AI-generated diagrams or concept visuals.
 
 ## Preview
 

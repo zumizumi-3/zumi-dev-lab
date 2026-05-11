@@ -3,274 +3,278 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>本質のAI講座 スライドベースフォーマット</title>
+    <title>講義スライド ベースフォーマット</title>
     <link rel="stylesheet" href="./assets/fonts/noto-sans-jp/noto_sans_jp_regular/css.css">
     <link rel="stylesheet" href="./assets/fonts/noto-sans-jp/noto_sans_jp_bold/css.css">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./slides.css">
-    <link rel="stylesheet" href="./patterns.css">
-    <link rel="stylesheet" href="./print.css" media="print">
+    <link rel="stylesheet" href="./base-format.css">
+    <script src="./deck-controller.js" defer></script>
   </head>
   <body>
-    <main class="deck" aria-label="本質のAI講座 スライドベースフォーマット">
-      <section id="FMT-00" class="slide slide-cover format-cover" data-slide="FMT-00" aria-labelledby="fmt-00-title">
-        <header class="slide-kicker">
-          <span>Base Format</span>
-          <span>16:9 / White / Orange</span>
+    <main class="deck" aria-label="講義スライド ベースフォーマット">
+      <section id="FMT-00" class="slide cover" data-slide="FMT-00" aria-labelledby="fmt-00-title">
+        <header class="slide-header">
+          <span class="kicker">Base Format</span>
+          <span class="label">16:9 / White / Orange</span>
         </header>
-        <div class="format-cover-layout">
-          <div class="cover-content">
-            <p class="eyebrow">Reusable HTML slide system</p>
-            <h1 id="fmt-00-title">講義スライド<br>ベースフォーマット</h1>
-            <p class="cover-lead">大きく、視覚的に、直観的に伝える</p>
+        <div class="grid-2">
+          <div class="cover-copy">
+            <h1 id="fmt-00-title">講義スライドの<br>新しい標準形</h1>
+            <p class="lead">大きく見せる。図で理解させる。あとから再利用できる。</p>
+            <div class="theme-strip" aria-label="テーマカラー">
+              <span class="swatch orange"></span>
+              <span class="swatch white"></span>
+              <span class="swatch charcoal"></span>
+              <span class="swatch blue"></span>
+            </div>
           </div>
-          <figure class="format-key-visual" aria-label="講義スライドの構成要素">
-            <svg viewBox="0 0 520 430" role="img">
-              <rect x="54" y="52" width="412" height="260" rx="22"></rect>
-              <path d="M92 108 H302 M92 154 H384 M92 200 H286"></path>
-              <circle cx="372" cy="110" r="36"></circle>
-              <path d="M344 250 C390 222 424 224 454 252"></path>
-              <path d="M96 354 H424"></path>
-              <path d="M160 332 L96 354 L160 376"></path>
-              <path d="M360 332 L424 354 L360 376"></path>
+          <figure class="cover-mark" aria-label="講義スライドの抽象図">
+            <svg viewBox="0 0 520 390" role="img">
+              <rect x="76" y="74" width="368" height="206" rx="26"></rect>
+              <path d="M118 130 H306 M118 178 H380 M118 226 H250"></path>
+              <circle class="fill" cx="374" cy="132" r="42"></circle>
+              <path d="M154 326 H366"></path>
+              <path d="M204 300 L154 326 L204 352"></path>
+              <path d="M316 300 L366 326 L316 352"></path>
             </svg>
           </figure>
         </div>
         <footer class="slide-footer">
-          <span>講座、セミナー、ワークショップ用</span>
+          <span>seminar / lecture / workshop</span>
           <span>FMT-00</span>
         </footer>
       </section>
 
-      <section id="FMT-01" class="slide slide-pattern format-principles" data-slide="FMT-01" aria-labelledby="fmt-01-title">
+      <section id="FMT-01" class="slide" data-slide="FMT-01" aria-labelledby="fmt-01-title">
         <header class="slide-header">
-          <p class="eyebrow">Design Rules</p>
-          <h2 id="fmt-01-title">全体の統一感を作る基本ルール</h2>
-          <p class="statement">白背景、オレンジの強調、太い見出し、少ない情報量でそろえる</p>
+          <span class="kicker">Principle</span>
+          <span class="label">資料全体の統一ルール</span>
         </header>
-        <div class="format-rule-grid">
-          <article><span>16:9</span><p>1枚は横長キャンバス固定</p></article>
-          <article><span>White</span><p>背景は白、装飾は薄く使う</p></article>
-          <article><span>Orange</span><p>強調と導線をオレンジに統一</p></article>
-          <article><span>Large</span><p>講義で読める大きめフォント</p></article>
+        <h2 id="fmt-01-title">このフォーマットで守ること</h2>
+        <p class="lead">講義中に読めること、ひと目で構造が分かること、別テーマでも使い回せること。</p>
+        <div class="grid-4">
+          <article class="card reveal"><span class="number">1</span><strong>白背景</strong><p>本文を読みやすく、図解を主役にする。</p></article>
+          <article class="card reveal"><span class="number">2</span><strong>オレンジ軸</strong><p>強調、誘導、完了条件を同じ色で示す。</p></article>
+          <article class="card reveal"><span class="number">3</span><strong>大きい文字</strong><p>セミナー視聴でも見えるサイズを基準にする。</p></article>
+          <article class="card reveal"><span class="number">4</span><strong>少ない要素</strong><p>1枚1メッセージで講師の話を支える。</p></article>
         </div>
         <footer class="slide-footer">
-          <span>使い回すほど見た目がそろうルール</span>
+          <span>rule set</span>
           <span>FMT-01</span>
         </footer>
       </section>
 
-      <section id="FMT-02" class="slide slide-pattern pattern-hero-visual" data-slide="FMT-02" aria-labelledby="fmt-02-title">
+      <section id="FMT-02" class="slide" data-slide="FMT-02" aria-labelledby="fmt-02-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern A</p>
-          <h2 id="fmt-02-title">大きな結論 + 右側ビジュアル</h2>
+          <span class="kicker">Big Message</span>
+          <span class="label">主張を1つに絞る</span>
         </header>
-        <div class="hero-visual-layout">
+        <div class="grid-2">
           <div>
-            <p class="pattern-main-copy">AIに聞く前に、まず目的を決める</p>
-            <p class="pattern-sub-copy">章の冒頭や重要な考え方を、1枚で印象づける</p>
+            <h2 id="fmt-02-title">AIに聞く前に、まず目的を決める</h2>
+            <p class="lead">章の冒頭、重要メッセージ、受講者に残したい判断軸に使う。</p>
           </div>
-          <figure class="visual-illustration-card" aria-label="目的を決める図解">
-            <svg viewBox="0 0 360 280" role="img">
-              <rect x="48" y="54" width="264" height="150" rx="18"></rect>
-              <path d="M92 104 H238 M92 142 H202"></path>
-              <circle cx="260" cy="98" r="28"></circle>
-              <path d="M248 98 L258 108 L276 84"></path>
-              <path d="M94 232 C132 202 220 202 266 232"></path>
+          <figure class="visual" aria-label="目的を決める図解">
+            <svg viewBox="0 0 460 320" role="img">
+              <rect x="64" y="74" width="214" height="150" rx="22"></rect>
+              <path d="M102 124 H232 M102 166 H204"></path>
+              <circle class="fill" cx="328" cy="128" r="48"></circle>
+              <path d="M306 128 L324 146 L356 104"></path>
+              <path class="blue" d="M112 258 C180 218 278 218 348 258"></path>
             </svg>
           </figure>
         </div>
         <footer class="slide-footer">
-          <span>用途: 章の冒頭、重要判断の提示</span>
+          <span>use: chapter opener</span>
           <span>FMT-02</span>
         </footer>
       </section>
 
-      <section id="FMT-03" class="slide slide-pattern pattern-choice-grid" data-slide="FMT-03" aria-labelledby="fmt-03-title">
+      <section id="FMT-03" class="slide" data-slide="FMT-03" aria-labelledby="fmt-03-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern B</p>
-          <h2 id="fmt-03-title">質問 + 選択カード</h2>
+          <span class="kicker">Choice</span>
+          <span class="label">自己診断・アイスブレイク</span>
         </header>
-        <p class="pattern-question">現在の状況に一番近いものは?</p>
+        <h2 id="fmt-03-title">今の状態に一番近いものは?</h2>
         <div class="choice-grid">
-          <article><span>1</span><svg viewBox="0 0 120 80"><circle cx="44" cy="38" r="20"></circle><path d="M72 25 H98 M72 40 H92 M72 55 H86"></path></svg><p>情報を追っている</p></article>
-          <article><span>2</span><svg viewBox="0 0 120 80"><rect x="28" y="16" width="42" height="48" rx="8"></rect><path d="M39 32 H60 M39 46 H56"></path><circle cx="86" cy="30" r="15"></circle></svg><p>真似ても合わない</p></article>
-          <article><span>3</span><svg viewBox="0 0 120 80"><path d="M28 58 L50 38 L64 50 L92 20"></path><path d="M28 22 H54 M28 38 H44 M28 68 H94"></path></svg><p>直し方が分からない</p></article>
-          <article><span>4</span><svg viewBox="0 0 120 80"><circle cx="42" cy="32" r="17"></circle><path d="M20 70 C24 54 60 54 64 70"></path><rect x="76" y="24" width="24" height="34" rx="6"></rect></svg><p>任せすぎている</p></article>
-          <article><span>5</span><svg viewBox="0 0 120 80"><rect x="24" y="20" width="72" height="42" rx="9"></rect><path d="M40 42 H80 M48 62 L60 72 L72 62"></path></svg><p>文脈が少ない</p></article>
-          <article><span>6</span><svg viewBox="0 0 120 80"><path d="M34 26 H88 M34 42 H76 M34 58 H92"></path><circle cx="24" cy="26" r="7"></circle><circle cx="24" cy="42" r="7"></circle><circle cx="24" cy="58" r="7"></circle></svg><p>基準がない</p></article>
+          <article class="choice reveal"><span class="number">1</span><div><strong>情報を追っている</strong><p>最新ツールは見るが使い分けが曖昧</p></div></article>
+          <article class="choice reveal"><span class="number">2</span><div><strong>真似ても合わない</strong><p>例文を使っても自分の仕事に残らない</p></div></article>
+          <article class="choice reveal"><span class="number">3</span><div><strong>直し方がない</strong><p>出力を見ても判断基準が持てない</p></div></article>
+          <article class="choice reveal"><span class="number">4</span><div><strong>任せすぎている</strong><p>AIの答えをそのまま採用しがち</p></div></article>
+          <article class="choice reveal"><span class="number">5</span><div><strong>文脈が少ない</strong><p>背景や相手を渡せていない</p></div></article>
+          <article class="choice reveal"><span class="number">6</span><div><strong>次に進めない</strong><p>使ったあと業務フローに戻せない</p></div></article>
         </div>
         <footer class="slide-footer">
-          <span>用途: アイスブレイク、自己診断</span>
+          <span>use: diagnosis</span>
           <span>FMT-03</span>
         </footer>
       </section>
 
-      <section id="FMT-04" class="slide slide-pattern pattern-formula" data-slide="FMT-04" aria-labelledby="fmt-04-title">
+      <section id="FMT-04" class="slide" data-slide="FMT-04" aria-labelledby="fmt-04-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern C</p>
-          <h2 id="fmt-04-title">カードを足し合わせる数式図解</h2>
+          <span class="kicker">Formula</span>
+          <span class="label">構成要素の説明</span>
         </header>
-        <div class="formula-row" aria-label="目的、文脈、基準を足すと使える素材になる">
-          <article><p>目的</p><small>何のため</small></article>
-          <span>+</span>
-          <article><p>文脈</p><small>背景情報</small></article>
-          <span>+</span>
-          <article><p>基準</p><small>良し悪し</small></article>
-          <span>=</span>
-          <article class="is-result"><p>使える素材</p><small>直せる出力</small></article>
+        <h2 id="fmt-04-title">成果物は、条件の足し算で変わる</h2>
+        <div class="formula">
+          <article class="card"><strong>目的</strong><p>何のために作るか</p></article>
+          <span class="operator">+</span>
+          <article class="card"><strong>文脈</strong><p>誰に、どんな前提で</p></article>
+          <span class="operator">+</span>
+          <article class="card"><strong>基準</strong><p>良し悪しの判断</p></article>
+          <span class="operator">=</span>
+          <article class="card"><strong>使える素材</strong><p>直せる、渡せる、残せる</p></article>
         </div>
         <footer class="slide-footer">
-          <span>用途: 条件、構成要素、因果の説明</span>
+          <span>use: framework</span>
           <span>FMT-04</span>
         </footer>
       </section>
 
-      <section id="FMT-05" class="slide slide-pattern format-ai-figure" data-slide="FMT-05" aria-labelledby="fmt-05-title">
+      <section id="FMT-05" class="slide" data-slide="FMT-05" aria-labelledby="fmt-05-title">
         <header class="slide-header">
-          <p class="eyebrow">AI Figure</p>
-          <h2 id="fmt-05-title">AI生成図解を入れる専用レイアウト</h2>
-          <p class="statement">図解は主役として大きく置き、右側に読み取りポイントを3つだけ残す</p>
+          <span class="kicker">AI Diagram</span>
+          <span class="label">AI生成図解の配置</span>
         </header>
-        <div class="ai-diagram-layout">
-          <figure class="ai-diagram-card" aria-label="AI生成図解サンプル">
-            <svg viewBox="0 0 700 420" role="img">
-              <path d="M78 244 C144 120 252 88 342 150 C424 207 512 198 622 92" class="ai-curve"></path>
-              <circle cx="112" cy="220" r="54"></circle>
-              <circle cx="342" cy="150" r="64"></circle>
-              <circle cx="586" cy="120" r="54"></circle>
-              <path d="M184 242 H270 M414 150 H506"></path>
-              <rect x="66" y="302" width="150" height="58" rx="18"></rect>
-              <rect x="276" y="254" width="150" height="58" rx="18"></rect>
-              <rect x="486" y="300" width="150" height="58" rx="18"></rect>
+        <h2 id="fmt-05-title">図解を主役にして、読み取りだけ添える</h2>
+        <div class="ai-layout">
+          <figure class="ai-panel" aria-label="AI生成図解の例">
+            <svg viewBox="0 0 680 360" role="img">
+              <path class="blue" d="M92 222 C174 92 306 88 364 184 C430 292 526 188 594 92"></path>
+              <circle class="fill" cx="116" cy="214" r="54"></circle>
+              <circle class="fill" cx="348" cy="174" r="70"></circle>
+              <circle class="fill" cx="574" cy="112" r="56"></circle>
+              <path d="M188 218 H272 M428 166 H508"></path>
+              <rect x="58" y="288" width="154" height="48" rx="16"></rect>
+              <rect x="274" y="266" width="154" height="48" rx="16"></rect>
+              <rect x="490" y="242" width="154" height="48" rx="16"></rect>
             </svg>
-            <figcaption>AIで作成した概念図・手順図・比較図を配置</figcaption>
           </figure>
-          <div class="ai-reading-points">
-            <article><span>見る</span><p>何が中心概念か</p></article>
-            <article><span>比べる</span><p>どこが変化点か</p></article>
-            <article><span>使う</span><p>次に何をすればよいか</p></article>
+          <div class="reading-list">
+            <article class="note-card reveal"><strong>見る</strong><p>中心概念は何か</p></article>
+            <article class="note-card reveal"><strong>比べる</strong><p>何が変化したか</p></article>
+            <article class="note-card reveal"><strong>使う</strong><p>次の行動は何か</p></article>
           </div>
         </div>
         <footer class="slide-footer">
-          <span>用途: AI生成図解、概念図、ワークの説明</span>
+          <span>use: generated concept visual</span>
           <span>FMT-05</span>
         </footer>
       </section>
 
-      <section id="FMT-06" class="slide slide-pattern pattern-before-after" data-slide="FMT-06" aria-labelledby="fmt-06-title">
+      <section id="FMT-06" class="slide" data-slide="FMT-06" aria-labelledby="fmt-06-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern D</p>
-          <h2 id="fmt-06-title">Before / After 比較</h2>
+          <span class="kicker">Before / After</span>
+          <span class="label">誤解から理解への転換</span>
         </header>
-        <div class="before-after-layout">
-          <article class="before-card">
-            <span>Before</span>
-            <h3>AIに丸投げする</h3>
-            <p>読めるが、仕事に残らない一般論になる</p>
-          </article>
-          <div class="transition-arrow">→</div>
-          <article class="after-card">
-            <span>After</span>
-            <h3>条件を渡して素材化する</h3>
-            <p>目的に照らして直せる出力になる</p>
-          </article>
+        <h2 id="fmt-06-title">同じAIでも、渡す条件で結果が変わる</h2>
+        <div class="compare">
+          <article class="card"><span class="kicker">Before</span><strong>AIに丸投げする</strong><p>読めるが、仕事に残らない一般論になる。</p></article>
+          <div class="arrow">→</div>
+          <article class="card"><span class="kicker">After</span><strong>条件を渡して素材化する</strong><p>目的に照らして直せる出力になる。</p></article>
         </div>
         <footer class="slide-footer">
-          <span>用途: 誤解から理解への転換</span>
+          <span>use: contrast</span>
           <span>FMT-06</span>
         </footer>
       </section>
 
-      <section id="FMT-07" class="slide slide-pattern pattern-step-flow" data-slide="FMT-07" aria-labelledby="fmt-07-title">
+      <section id="FMT-07" class="slide" data-slide="FMT-07" aria-labelledby="fmt-07-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern E</p>
-          <h2 id="fmt-07-title">横一列のステップフロー</h2>
+          <span class="kicker">Flow</span>
+          <span class="label">手順・講義進行</span>
         </header>
-        <div class="step-flow">
-          <article><span>1</span><p>目的</p></article>
-          <article><span>2</span><p>文脈</p></article>
-          <article><span>3</span><p>基準</p></article>
-          <article><span>4</span><p>依頼</p></article>
-          <article><span>5</span><p>修正</p></article>
+        <h2 id="fmt-07-title">講義の流れは、横一列で見せる</h2>
+        <div class="steps">
+          <article class="step"><span class="number">1</span><strong>目的</strong></article>
+          <article class="step"><span class="number">2</span><strong>文脈</strong></article>
+          <article class="step"><span class="number">3</span><strong>基準</strong></article>
+          <article class="step"><span class="number">4</span><strong>依頼</strong></article>
+          <article class="step"><span class="number">5</span><strong>修正</strong></article>
         </div>
         <footer class="slide-footer">
-          <span>用途: 講義の流れ、ワーク手順</span>
+          <span>use: process</span>
           <span>FMT-07</span>
         </footer>
       </section>
 
-      <section id="FMT-08" class="slide slide-pattern pattern-work-prompt" data-slide="FMT-08" aria-labelledby="fmt-08-title">
+      <section id="FMT-08" class="slide" data-slide="FMT-08" aria-labelledby="fmt-08-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern F</p>
-          <h2 id="fmt-08-title">ワーク問い + 条件カード</h2>
+          <span class="kicker">Workshop</span>
+          <span class="label">問いと完了条件</span>
         </header>
-        <div class="work-prompt-layout">
-          <article class="big-question">
-            <span>問い</span>
-            <p>最近AIを使って、仕事に残らなかった場面はどこか</p>
+        <div class="work-layout">
+          <article class="work-card">
+            <span class="kicker">問い</span>
+            <strong id="fmt-08-title">最近AIを使って、仕事に残らなかった場面はどこか</strong>
+            <p>参加者が手を動かせるサイズまで問いを小さくする。</p>
           </article>
-          <div class="work-condition-cards">
-            <article><span>時間</span><p>7分記入</p></article>
-            <article><span>共有</span><p>3分ペア</p></article>
-            <article><span>完了</span><p>つまずき1つ</p></article>
+          <div class="reading-list">
+            <article class="note-card"><strong>時間</strong><p>7分記入</p></article>
+            <article class="note-card"><strong>共有</strong><p>3分ペア</p></article>
+            <article class="note-card"><strong>完了</strong><p>つまずき1つ</p></article>
           </div>
         </div>
         <footer class="slide-footer">
-          <span>用途: ワーク導入、入力前の確認</span>
+          <span>use: work prompt</span>
           <span>FMT-08</span>
         </footer>
       </section>
 
-      <section id="FMT-09" class="slide slide-pattern pattern-matrix" data-slide="FMT-09" aria-labelledby="fmt-09-title">
+      <section id="FMT-09" class="slide" data-slide="FMT-09" aria-labelledby="fmt-09-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern G</p>
-          <h2 id="fmt-09-title">3列比較カード</h2>
+          <span class="kicker">Role Split</span>
+          <span class="label">3列比較</span>
         </header>
-        <div class="matrix-cards">
-          <article><span>任せる</span><p>下書き、整理、言い換え</p></article>
-          <article><span>渡す</span><p>目的、相手、制約</p></article>
-          <article><span>判断する</span><p>採用、修正、責任</p></article>
+        <h2 id="fmt-09-title">AIに任せること、人が判断すること</h2>
+        <div class="grid-3">
+          <article class="card"><span class="number">A</span><strong>任せる</strong><p>下書き、整理、言い換え</p></article>
+          <article class="card"><span class="number">B</span><strong>渡す</strong><p>目的、相手、制約</p></article>
+          <article class="card"><span class="number">C</span><strong>判断する</strong><p>採用、修正、責任</p></article>
         </div>
         <footer class="slide-footer">
-          <span>用途: 役割分担、比較整理</span>
+          <span>use: comparison</span>
           <span>FMT-09</span>
         </footer>
       </section>
 
-      <section id="FMT-10" class="slide slide-pattern pattern-quote" data-slide="FMT-10" aria-labelledby="fmt-10-title">
+      <section id="FMT-10" class="slide" data-slide="FMT-10" aria-labelledby="fmt-10-title">
         <header class="slide-header">
-          <p class="eyebrow">Pattern H</p>
-          <h2 id="fmt-10-title">強い一言 + 補足</h2>
+          <span class="kicker">Quote</span>
+          <span class="label">強い一言</span>
         </header>
-        <div class="quote-layout">
-          <p>AIの答えを良くする前に、問いを良くする。</p>
-          <article>講師が強調したい言葉を、1枚の主役として見せる構図</article>
+        <div class="quote-panel">
+          <blockquote id="fmt-10-title">AIの答えを良くする前に、問いを良くする。</blockquote>
+          <p>章の締めや、講師が強調したい立場を1枚の主役として見せる。</p>
         </div>
         <footer class="slide-footer">
-          <span>用途: 重要メッセージ、章の締め</span>
+          <span>use: key phrase</span>
           <span>FMT-10</span>
         </footer>
       </section>
 
-      <section id="FMT-11" class="slide slide-pattern pattern-takeaway" data-slide="FMT-11" aria-labelledby="fmt-11-title">
+      <section id="FMT-11" class="slide" data-slide="FMT-11" aria-labelledby="fmt-11-title">
         <header class="slide-header">
-          <p class="eyebrow">Takeaway</p>
-          <h2 id="fmt-11-title">まとめ + 持ち帰り3点</h2>
+          <span class="kicker">Takeaway</span>
+          <span class="label">まとめ</span>
         </header>
-        <div class="takeaway-layout">
-          <p class="takeaway-main">資料は読むものではない<br>思い出す地図にする</p>
+        <div class="grid-2">
           <div>
-            <article><span>1</span><p>主張を1つに絞る</p></article>
-            <article><span>2</span><p>図解で関係を見せる</p></article>
-            <article><span>3</span><p>次の行動に接続する</p></article>
+            <h2 id="fmt-11-title" class="compact-title">読む資料ではなく<br>思い出す地図にする</h2>
+            <p class="lead">最後は3点だけ。受講者が次に何をすればいいかまで落とす。</p>
+          </div>
+          <div class="reading-list">
+            <article class="note-card"><strong>1</strong><p>主張を1つに絞る</p></article>
+            <article class="note-card"><strong>2</strong><p>図解で関係を見せる</p></article>
+            <article class="note-card"><strong>3</strong><p>次の行動に接続する</p></article>
           </div>
         </div>
         <footer class="slide-footer">
-          <span>用途: 章末、Day末、次回への接続</span>
+          <span>use: summary</span>
           <span>FMT-11</span>
         </footer>
       </section>
     </main>
+    <div class="progress" aria-hidden="true"></div>
+    <div class="slide-index" aria-live="polite"></div>
   </body>
 </html>
