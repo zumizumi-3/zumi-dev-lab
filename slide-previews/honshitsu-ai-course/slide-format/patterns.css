@@ -792,267 +792,113 @@
   font-weight: 800;
 }
 
-/* Base format theme overrides. Keep these at the end so the existing pattern
-   gallery inherits the same white/orange lecture style. */
-.slide,
-.slide-visual,
-.slide-cover,
-.slide-chapter {
-  background:
-    radial-gradient(circle at 92% 14%, rgba(249, 115, 22, 0.08), transparent 18%),
-    linear-gradient(135deg, rgba(255, 247, 237, 0.82), transparent 44%),
-    #fff;
-  color: var(--ink);
-}
-
-.slide::before,
-.slide-cover::before,
-.slide-chapter::before {
-  background-image:
-    linear-gradient(rgba(234, 88, 12, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
-  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 100%);
-}
-
-.slide-cover .slide-kicker,
-.slide-cover .slide-footer,
-.slide-chapter .slide-footer {
-  color: var(--muted);
-}
-
-.slide-cover h1,
-.slide-chapter,
-.slide-chapter .chapter-question {
-  color: var(--ink);
-}
-
-.slide-cover .eyebrow,
-.slide-chapter .eyebrow,
-.eyebrow,
-.before-card span,
-.after-card span,
-.case-cards span,
-.big-question span,
-.work-condition-cards span,
-.reframe-layout span,
-.matrix-cards span,
-.branch-path span,
-.pitfall-stack span,
-.review-board span,
-.roadmap-line span,
-.demo-layout > div article span {
-  background: var(--amber);
-  color: #111827;
-}
-
-.cover-lead,
-.cover-sub {
-  color: var(--ink);
-}
-
-.format-cover-layout {
+.generated-image-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 430px;
-  gap: 42px;
-  align-items: center;
+  grid-template-columns: 1fr 360px;
+  gap: 34px;
+  align-items: stretch;
+  margin-top: 26px;
 }
 
-.format-cover h1 {
-  font-size: 68px;
-  line-height: 1.14;
-}
-
-.format-key-visual,
-.ai-diagram-card {
+.generated-image-stage {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 48px 1fr;
+  min-height: 398px;
   margin: 0;
-  padding: 32px;
-  border: 3px solid var(--line);
-  border-bottom: 10px solid var(--amber);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
-}
-
-.format-key-visual svg,
-.ai-diagram-card svg {
-  display: block;
-  width: 100%;
-}
-
-.format-key-visual rect,
-.format-key-visual circle,
-.format-key-visual path,
-.ai-diagram-card rect,
-.ai-diagram-card circle,
-.ai-diagram-card path {
-  fill: none;
-  stroke: var(--amber);
-  stroke-width: 10;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.format-key-visual circle,
-.ai-diagram-card circle {
-  fill: var(--amber-soft);
-}
-
-.format-rule-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
-  margin-top: 48px;
-}
-
-.format-rule-grid article {
-  display: grid;
-  gap: 22px;
-  align-content: start;
-  min-height: 250px;
-  padding: 30px;
   border: 2px solid var(--line);
-  border-bottom: 9px solid var(--amber);
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.13);
 }
 
-.format-rule-grid span {
-  display: inline-grid;
-  width: max-content;
-  min-width: 86px;
-  min-height: 54px;
+.stage-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  background: var(--navy);
+}
+
+.stage-toolbar span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.image-fit-frame {
+  display: grid;
   place-items: center;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: var(--amber);
-  color: #111827;
-  font-size: 23px;
+  padding: 28px;
+  background:
+    linear-gradient(0deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+    #fff;
+  background-size: 30px 30px;
+}
+
+.image-placeholder {
+  display: grid;
+  width: min(100%, 610px);
+  aspect-ratio: 16 / 9;
+  place-items: center;
+  padding: 28px;
+  border: 3px dashed rgba(15, 139, 127, 0.36);
+  background:
+    radial-gradient(circle at 24% 28%, rgba(15, 139, 127, 0.18), transparent 27%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(245, 158, 11, 0.18)),
+    #fff;
+  text-align: center;
+}
+
+.image-placeholder span {
+  align-self: start;
+  justify-self: start;
+  padding: 7px 14px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 17px;
   font-weight: 900;
 }
 
-.format-rule-grid p {
+.image-placeholder strong {
+  color: var(--ink);
+  font-size: 40px;
+  line-height: 1.22;
+}
+
+.image-brief-panel {
+  display: grid;
+  align-content: center;
+  gap: 20px;
+  padding: 30px;
+  border: 2px solid var(--line);
+  border-left: 10px solid var(--teal);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.13);
+}
+
+.image-brief-panel span {
+  width: max-content;
+  padding: 8px 16px;
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.image-brief-panel p {
   margin: 0;
-  font-size: 30px;
+  font-size: 31px;
   font-weight: 900;
   line-height: 1.3;
 }
 
-.ai-diagram-layout {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 34px;
-  align-items: stretch;
-  margin-top: 0;
-}
-
-.ai-diagram-card {
-  display: grid;
-  align-content: center;
-  gap: 18px;
-}
-
-.ai-diagram-card figcaption {
+.image-brief-panel small {
   color: var(--muted);
-  font-size: 20px;
-  font-weight: 900;
-  line-height: 1.35;
-  text-align: center;
-}
-
-.format-ai-figure h2 {
-  margin-bottom: 16px;
-  font-size: 46px;
-}
-
-.format-ai-figure .statement {
-  margin-bottom: 18px;
-  font-size: 27px;
-  line-height: 1.34;
-}
-
-.format-ai-figure .ai-diagram-card {
-  padding: 24px;
-}
-
-.format-ai-figure .ai-diagram-card svg {
-  height: 270px;
-}
-
-.pattern-takeaway .takeaway-main {
-  font-size: 48px;
-}
-
-.ai-diagram-card .ai-curve {
-  stroke: var(--blue);
-  stroke-width: 12;
-}
-
-.ai-reading-points {
-  display: grid;
-  gap: 18px;
-}
-
-.ai-reading-points article {
-  display: grid;
-  gap: 12px;
-  align-content: center;
-  min-height: 118px;
-  padding: 20px 26px;
-  border: 2px solid var(--line);
-  border-left: 10px solid var(--amber);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
-}
-
-.ai-reading-points span {
-  color: var(--amber);
-  font-size: 22px;
-  font-weight: 900;
-}
-
-.ai-reading-points p {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1.28;
-}
-
-.visual-illustration-card,
-.persona-card,
-.big-question,
-.before-card,
-.after-card,
-.formula-row article,
-.choice-grid article,
-.center-map article,
-.case-cards article,
-.work-condition-cards article,
-.ladder-layout article,
-.reframe-layout article,
-.matrix-cards article,
-.takeaway-layout article,
-.checklist-layout article,
-.checklist-layout aside,
-.branch-flow article,
-.anatomy-layout article,
-.pitfall-stack article,
-.review-board article,
-.roadmap-line article,
-.quote-layout article,
-.demo-layout article {
-  background: #fff;
-}
-
-.visual-illustration-card rect,
-.visual-illustration-card circle,
-.visual-illustration-card path,
-.persona-card rect,
-.persona-card circle,
-.persona-card path,
-.choice-grid rect,
-.choice-grid circle,
-.choice-grid path {
-  stroke: var(--amber);
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.45;
 }
