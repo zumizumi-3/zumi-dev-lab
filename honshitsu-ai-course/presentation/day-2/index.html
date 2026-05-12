@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>本質のAI講座 Day 2</title>
+    <link rel="stylesheet" href="../assets/fonts/noto-sans-jp/noto_sans_jp_regular/css.css">
+    <link rel="stylesheet" href="../assets/fonts/noto-sans-jp/noto_sans_jp_bold/css.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../slides.css">
+    <link rel="stylesheet" href="../presenter.css">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script src="../deck-controller.js" defer></script>
+  </head>
+  <body class="presentation-mode">
+    <nav class="deck-toolbar" aria-label="プレゼン操作">
+      <a class="deck-link" href="../../">一覧</a>
+      <a class="deck-link" href="../day-1/">Day 1</a>
+      <a class="deck-link" href="/work/">ワーク</a>
+      <div class="deck-spacer"></div>
+      <button class="deck-button" type="button" data-deck-action="prev" aria-label="前のスライド">‹</button>
+      <span class="deck-counter" aria-live="polite">1 / 42</span>
+      <button class="deck-button" type="button" data-deck-action="next" aria-label="次のスライド">›</button>
+      <button class="deck-button deck-notes-toggle" type="button" data-deck-action="notes" aria-pressed="false">Notes</button>
+    </nav>
+    <div class="deck-progress" aria-hidden="true"><span></span></div>
+    <div class="deck-stage">
+      <main class="deck presentation-deck" aria-label="本質のAI講座 Day 2">
+        <section id="D2-00" class="slide slide-cover generated-cover d2-cover" data-slide="D2-00" aria-labelledby="d2-00-title">
+                <div class="cover-bg" aria-hidden="true">
+                  <svg viewBox="0 0 1920 1080" role="img">
+                    <path d="M1210 190 C1360 210 1430 310 1510 430 C1600 566 1724 620 1810 770" fill="none" stroke="#0f766e" stroke-opacity="0.22" stroke-width="30" stroke-linecap="round"></path>
+                    <path d="M1170 820 C1338 724 1478 754 1580 600 C1660 480 1608 360 1748 260" fill="none" stroke="#2563eb" stroke-opacity="0.18" stroke-width="22" stroke-linecap="round"></path>
+                    <g fill="none" stroke="#ffffff" stroke-width="4" opacity="0.22">
+                      <rect x="1288" y="374" width="178" height="104" rx="8"></rect>
+                      <rect x="1512" y="520" width="214" height="124" rx="8"></rect>
+                      <path d="M1466 426 L1512 580"></path>
+                    </g>
+                  </svg>
+                </div>
+                <header class="slide-kicker">
+                  <span>Day 2</span>
+                  <span>Hands-on Workshop</span>
+                </header>
+                <div class="cover-content">
+                  <p class="eyebrow">今日は自分の課題を形にする</p>
+                  <h1 id="d2-00-title">本質のAI講座 Day 2</h1>
+                  <p class="cover-lead">自分の業務課題を、繰り返し使える形にする</p>
+                  <p class="cover-sub">AI活用フローまたは簡易ツールの試作へ進む</p>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-00 本質のAI講座 Day 2
+
+        - Day 2は講義より作業時間が長いと伝える。
+        - 完成品を作る日ではなく、実務で試せる形にする日と位置づける。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>今日は自分の課題を形にする</span>
+                  <span>D2-00</span>
+                </footer>
+              </section>
+        <section id="D2-01" class="slide generated-standard generated-summary d2-goals" data-slide="D2-01" aria-labelledby="d2-01-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Day導入 / 5分</p>
+                  <h2 id="d2-01-title">今日のゴール</h2>
+                  <p class="statement">完成品より、実務に戻せる試作品を作る</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>課題を1つ選ぶ</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>AI活用の流れを作る</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>明日から回す一歩を決める</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-01 今日のゴール
+
+        - 成果物の選択肢は、AI活用フロー、テンプレート、チェックリスト、簡易ツール。
+        - 全員がツールを作る必要はない。自分の課題に合う形を選ぶ。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>完成品より、実務に戻せる試作品を作る</span>
+                  <span>D2-01</span>
+                </footer>
+              </section>
+        <section id="D2-02" class="slide generated-visual-diagram slide-visual diagram-d2-02" data-slide="D2-02" aria-labelledby="d2-02-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 3分</p>
+                  <h2 id="d2-02-title">今日の前半</h2>
+                  <p class="statement">前半で、試作前の判断軸をそろえる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="今日の前半">
+                  <div class="d2-morning-flow">
+                    <div class="diagram-node step"><span>課題選定</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node step"><span>AI活用フロー</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node step"><span>依頼文と<br>レビュー基準</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-02 今日の前半
+
+        - 前半では、課題選定、AI活用フロー、依頼文とレビュー基準を整える。
+        - いきなり作り始めるのではなく、何を作るかとどう見るかを決める時間だと伝える。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>前半で、試作前の判断軸をそろえる</span>
+                  <span>D2-02</span>
+                </footer>
+              </section>
+        <section id="D2-03" class="slide generated-visual-diagram slide-visual diagram-d2-03" data-slide="D2-03" aria-labelledby="d2-03-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 2分</p>
+                  <h2 id="d2-03-title">今日の後半</h2>
+                  <p class="statement">後半で、作って直し、実務へ戻す</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="今日の後半">
+                  <div class="d2-afternoon-flow">
+                    <div class="d2-build-block">試作</div>
+                    <div class="d2-review-loop" aria-hidden="true">確認<br>修正</div>
+                    <div class="d2-return-block">実務に戻す</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-03 今日の後半
+
+        - 後半では、試作して、レビューして、実務に戻す一歩まで決める。
+        - 完成品ではなく、明日試せる形を目指す。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>後半で、作って直し、実務へ戻す</span>
+                  <span>D2-03</span>
+                </footer>
+              </section>
+        <section id="D2-04" class="slide slide-chapter generated-chapter" data-slide="D2-04" aria-labelledby="d2-04-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-04-title">1. 今日扱う課題と完成ラインを決める</h2>
+                  <p class="chapter-question">問い: 4時間で、どこまでできれば十分か</p>
+                  <p class="chapter-time">25分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <rect x="128" y="156" width="244" height="188" rx="18" fill="none" stroke="#0f766e" stroke-width="18"></rect>
+                    <path d="M162 226 H338 M162 276 H286" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round"></path>
+                    <path d="M322 130 L378 186 L322 242" fill="none" stroke="#d97706" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-04 1. 今日扱う課題と完成ラインを決める
+
+        - Day 1で選んだ課題候補を出してもらう。
+        - ここで完成ラインと対象外を決める。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>今日扱う課題と完成ラインを決める</span>
+                  <span>D2-04</span>
+                </footer>
+              </section>
+        <section id="D2-05" class="slide generated-standard d2-selection" data-slide="D2-05" aria-labelledby="d2-05-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 7分</p>
+                  <h2 id="d2-05-title">今日扱う課題の条件</h2>
+                  <p class="statement">課題は大きさより、試せる形に切れるかで選ぶ</p>
+                </header>
+                <figure class="diagram-canvas d2-task-filter" aria-label="今日扱う課題の条件">
+                  <div class="task-filter-large">大きな課題</div>
+                  <div class="task-filter-list">
+                    <div><span>01</span><strong>繰り返し発生する</strong></div>
+                    <div><span>02</span><strong>入力と出力を言える</strong></div>
+                    <div><span>03</span><strong>4時間で試せる範囲に切る</strong></div>
+                  </div>
+                  <div class="task-filter-result">今日扱う<br>1工程</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-05 今日扱う課題の条件
+
+        - 課題が大きい場合は、業務全体ではなく1工程に切る。
+        - 入力と出力が言えるものは試作しやすい。
+        - 判断が重すぎるもの、機密性が高すぎるものはサンプル化または対象外にする。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>課題は大きさより、試せる形に切れるかで選ぶ</span>
+                  <span>D2-05</span>
+                </footer>
+              </section>
+        <section id="D2-06" class="slide slide-work generated-work" data-slide="D2-06" aria-labelledby="d2-06-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 11分</p>
+                  <h2 id="d2-06-title">ワーク: 今日扱う課題を1つ選ぶ</h2>
+                  <p class="statement">完成ラインを決めると、試作の迷いが減る</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>試作対象と完成ラインを決める</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>8分記入、3分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>今日は何を、どこまで作れたらよいか</p>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-06 ワーク: 今日扱う課題を1つ選ぶ
+
+        - 完成ラインは「今日の終わりに何が手元にあればよいか」で書かせる。
+        - 対象外にする範囲も書かせる。これにより作り込みすぎを防ぐ。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>完成ラインを決めると、試作の迷いが減る</span>
+                  <span>D2-06</span>
+                </footer>
+              </section>
+        <section id="D2-07" class="slide slide-chapter generated-chapter" data-slide="D2-07" aria-labelledby="d2-07-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-07-title">2. 課題をAI活用の流れに落とし込む</h2>
+                  <p class="chapter-question">問い: 一回の依頼ではなく、どんな流れにするか</p>
+                  <p class="chapter-time">40分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <path d="M120 170 H250 C330 170 370 220 370 250 C370 310 316 340 250 340 H120" fill="none" stroke="#0f766e" stroke-width="18" stroke-linecap="round"></path>
+                    <path d="M286 214 L372 250 L286 286" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-07 2. 課題をAI活用の流れに落とし込む
+
+        - ここから一回の依頼ではなく、業務の流れとして考える。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>課題をAI活用の流れに落とす</span>
+                  <span>D2-07</span>
+                </footer>
+              </section>
+        <section id="D2-08" class="slide generated-visual-diagram slide-visual diagram-d2-08" data-slide="D2-08" aria-labelledby="d2-08-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d2-08-title">AI活用フローの入口</h2>
+                  <p class="statement">入力、依頼、確認観点を先に決める</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="AI活用フローの入口">
+                  <div class="d2-input-gate">
+                    <div class="diagram-node input"><span>入力情報</span></div>
+                    <div class="diagram-node request"><span>AIへの依頼</span></div>
+                    <div class="diagram-node criteria"><span>確認観点</span></div>
+                    <div class="d2-gate-label">入口をそろえる</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-08 AI活用フローの入口
+
+        - 入力、依頼、確認観点の3つで、AIに渡す前の準備を見る。
+        - 入力が曖昧だと出力も揺れる。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>入力、依頼、確認観点を先に決める</span>
+                  <span>D2-08</span>
+                </footer>
+              </section>
+        <section id="D2-09" class="slide generated-visual-diagram slide-visual diagram-d2-09" data-slide="D2-09" aria-labelledby="d2-09-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d2-09-title">AI活用フローの出口</h2>
+                  <p class="statement">出力形式と次アクションまで決めると、仕事に戻しやすい</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="AI活用フローの出口">
+                  <div class="d2-output-gate">
+                    <div class="d2-output-card">出力形式</div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="d2-action-card">次のアクション</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-09 AI活用フローの出口
+
+        - 出力形式と次アクションを決めることで、業務に戻しやすくなる。
+        - 次アクションまで決めることで、使いっぱなしを避ける。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>出力形式と次アクションまで決めると、仕事に戻しやすい</span>
+                  <span>D2-09</span>
+                </footer>
+              </section>
+        <section id="D2-10" class="slide generated-standard d2-repeat-flow" data-slide="D2-10" aria-labelledby="d2-10-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 7分</p>
+                  <h2 id="d2-10-title">その場限りの時短で終わらせない</h2>
+                  <p class="statement">点の時短で終わらせず、繰り返し使える流れにする</p>
+                </header>
+                <div class="d2-system-map" aria-label="繰り返し使える流れにする">
+                  <div class="system-problem">毎回ゼロから<br>考えない</div>
+                  <div class="system-rail">
+                    <div><span>集める</span><strong>毎回集める情報を決める</strong></div>
+                    <div><span>見る</span><strong>確認する基準を固定する</strong></div>
+                    <div><span>戻す</span><strong>次に何をするかまで決める</strong></div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-10 その場限りの時短で終わらせない
+
+        - AI活用が続かない理由は、毎回ゼロから考えるから。
+        - 繰り返し使う情報、確認観点、出力形式を固定すると続きやすい。
+        - 仕組み化は大きなシステムを作ることではなく、手順を残すことから始まる。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>点の時短で終わらせず、繰り返し使える流れにする</span>
+                  <span>D2-10</span>
+                </footer>
+              </section>
+        <section id="D2-11" class="slide slide-work generated-work d2-flow-work" data-slide="D2-11" aria-labelledby="d2-11-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 18分</p>
+                  <h2 id="d2-11-title">ワーク: AI活用フローを作る</h2>
+                  <p class="statement">流れにすると、AIを日々の業務へ戻しやすい</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>自分の課題を繰り返し使える流れにする</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>14分記入、4分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>入力、依頼、確認、出力、次アクションは何か</p>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-11 ワーク: AI活用フローを作る
+
+        - 5つの枠を埋める。完璧でなくてよい。
+        - 入力情報がまだない場合は、講座後に集める情報として書く。
+        - 共有では、次アクションまで書けているかを見る。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>流れにすると、AIを日々の業務へ戻しやすい</span>
+                  <span>D2-11</span>
+                </footer>
+              </section>
+        <section id="D2-12" class="slide slide-chapter generated-chapter" data-slide="D2-12" aria-labelledby="d2-12-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-12-title">3. 依頼文とレビュー基準を作る</h2>
+                  <p class="chapter-question">問い: AIに何を頼み、何を人間が確認するか</p>
+                  <p class="chapter-time">30分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <path d="M130 150 H340 C362 150 380 168 380 190 V292 C380 314 362 332 340 332 H220 L156 384 V332 H130 C108 332 90 314 90 292 V190 C90 168 108 150 130 150 Z" fill="none" stroke="#0f766e" stroke-width="18" stroke-linejoin="round"></path>
+                    <path d="M156 212 H308 M156 256 H282" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round"></path>
+                    <path d="M330 330 L376 376 L430 286" fill="none" stroke="#d97706" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-12 3. 依頼文とレビュー基準を作る
+
+        - 依頼文とレビュー基準は別々に作らない。セットで作る。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>依頼文とレビュー基準をセットで作る</span>
+                  <span>D2-12</span>
+                </footer>
+              </section>
+        <section id="D2-13" class="slide generated-standard d2-prompt-sheet" data-slide="D2-13" aria-labelledby="d2-13-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d2-13-title">依頼文に入れる前提</h2>
+                  <p class="statement">良い依頼は、作業指示の前に判断材料を渡す</p>
+                </header>
+                <div class="d2-sheet-layout" aria-label="依頼文に入れる前提">
+                  <div class="d2-sheet-rail">
+                    <span>前提</span>
+                    <span>作業指示</span>
+                  </div>
+                  <div class="d2-prompt-paper">
+                    <p class="sheet-label">判断材料</p>
+                    <div class="sheet-row purpose"><strong>目的</strong><span>何のために作るか</span></div>
+                    <div class="sheet-row context"><strong>背景、制約</strong><span>守る条件と避けたいこと</span></div>
+                    <div class="sheet-row task"><strong>依頼する作業</strong><span>AIに任せる範囲</span></div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-13 依頼文に入れる前提
+
+        - 依頼文は長ければよいわけではない。必要な判断材料が入っているかを見る。
+        - 目的、背景、制約、依頼する作業がそろうと、AIが何をすればよいか分かりやすくなる。
+        - ここではまず、作業指示の前に前提を渡すことを強調する。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>良い依頼は、作業指示の前に判断材料を渡す</span>
+                  <span>D2-13</span>
+                </footer>
+              </section>
+        <section id="D2-14" class="slide generated-standard d2-output-spec" data-slide="D2-14" aria-labelledby="d2-14-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d2-14-title">出力条件まで指定する</h2>
+                  <p class="statement">出力形式と避けたい方向を決めると、使える形に近づく</p>
+                </header>
+                <div class="d2-spec-layout" aria-label="出力条件">
+                  <div class="d2-spec-panel">
+                    <div><span>01</span><strong>出力形式</strong></div>
+                    <div><span>02</span><strong>避けたい方向</strong></div>
+                    <div><span>03</span><strong>確認してほしい観点</strong></div>
+                  </div>
+                  <div class="d2-spec-output">
+                    <p>使える出力</p>
+                    <div class="spec-line wide"></div>
+                    <div class="spec-line"></div>
+                    <div class="spec-line short"></div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-14 出力条件まで指定する
+
+        - 出力形式は、表、箇条書き、メール文、チェックリストなど具体化する。
+        - 避けたい方向を書くと、出力のズレが減る。
+        - 確認してほしい観点まで入れると、後続のレビュー基準につながる。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>出力形式と避けたい方向を決めると、使える形に近づく</span>
+                  <span>D2-14</span>
+                </footer>
+              </section>
+        <section id="D2-15" class="slide generated-visual-diagram d2-review-chain" data-slide="D2-15" aria-labelledby="d2-15-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 6分</p>
+                  <h2 id="d2-15-title">依頼とレビューをつなげる</h2>
+                  <p class="statement">依頼文とレビュー基準を同時に作ると、直しやすい</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="依頼とレビューの対応">
+                  <div class="d2-chain-board">
+                    <div class="chain-lane request"><span>依頼</span><strong>何を作るか</strong></div>
+                    <div class="chain-line" aria-hidden="true"></div>
+                    <div class="chain-lane criteria"><span>基準</span><strong>何に照らして見るか</strong></div>
+                    <div class="chain-line" aria-hidden="true"></div>
+                    <div class="chain-lane revise"><span>修正</span><strong>何を追加して頼み直すか</strong></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-15 依頼とレビューをつなげる
+
+        - 依頼文で指定した目的や制約は、レビュー時の基準になる。
+        - レビュー基準がないと、AI出力の良し悪しが雰囲気判断になる。
+        - 修正依頼まで含めて1セットと考える。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>依頼文とレビュー基準を同時に作ると、直しやすい</span>
+                  <span>D2-15</span>
+                </footer>
+              </section>
+        <section id="D2-16" class="slide slide-work generated-work d2-prompt-work" data-slide="D2-16" aria-labelledby="d2-16-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 13分</p>
+                  <h2 id="d2-16-title">ワーク: 依頼文とレビュー基準を作る</h2>
+                  <p class="statement">出力を直す前提まで作ってからAIに投げる</p>
+                </header>
+                <div class="d2-prompt-workbench" aria-label="依頼文とレビュー基準ワーク">
+                  <div class="bench-meta">
+                    <div><span>目的</span><strong>AIに渡す内容と<br>人間が見る基準をそろえる</strong></div>
+                    <div><span>時間</span><strong>10分記入、3分共有</strong></div>
+                  </div>
+                  <div class="bench-paper">
+                    <div class="bench-column prompt">
+                      <span>依頼文</span>
+                      <p>何を頼むか</p>
+                    </div>
+                    <div class="bench-column review">
+                      <span>レビュー基準</span>
+                      <p>何に照らして見るか</p>
+                    </div>
+                    <div class="bench-question">どんな依頼文なら、目的に合う出力を確認できるか</div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-16 ワーク: 依頼文とレビュー基準を作る
+
+        - まず依頼文の粗い版を書かせる。
+        - 次に「この出力を何に照らして見るか」を3つ書かせる。
+        - 時間があれば、修正依頼の例も1つ作る。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>出力を直す前提まで作ってからAIに投げる</span>
+                  <span>D2-16</span>
+                </footer>
+              </section>
+        <section id="D2-17" class="slide d2-break" data-slide="D2-17" aria-labelledby="d2-17-title">
+                <div class="d2-break-time">10分</div>
+                <div class="d2-break-copy">
+                  <p class="eyebrow">休憩</p>
+                  <h2 id="d2-17-title">休憩</h2>
+                  <p>10分後に再開します</p>
+                  <p>再開後は、必要なら簡易ツール化の判断へ進みます</p>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-17 休憩
+
+        - 休憩後はツール化判断と試作に入るため、作業環境を整えてもらう。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>試作前に前提を整える</span>
+                  <span>D2-17</span>
+                </footer>
+              </section>
+        <section id="D2-18" class="slide slide-chapter generated-chapter" data-slide="D2-18" aria-labelledby="d2-18-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-18-title">4. 必要なら簡易ツールとして形にする</h2>
+                  <p class="chapter-question">問い: これはツール化するべきか、フローで十分か</p>
+                  <p class="chapter-time">30分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <rect x="100" y="150" width="300" height="210" rx="24" fill="none" stroke="#0f766e" stroke-width="18"></rect>
+                    <path d="M142 214 H232 M142 260 H204 M294 214 H358 M294 260 H358" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round"></path>
+                    <path d="M238 328 L266 328 M252 328 V388 M198 388 H306" fill="none" stroke="#d97706" stroke-width="18" stroke-linecap="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-18 4. 必要なら簡易ツールとして形にする
+
+        - Vibe Codingは目的ではなく選択肢だと最初に置く。
+        - フローやテンプレートで十分な課題も多い。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>必要なら簡易ツールとして形にする</span>
+                  <span>D2-18</span>
+                </footer>
+              </section>
+        <section id="D2-19" class="slide generated-visual-diagram d2-tool-fit" data-slide="D2-19" aria-labelledby="d2-19-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d2-19-title">ツール化に向いている課題</h2>
+                  <p class="statement">入力と出力が安定している作業は、簡易ツール化しやすい</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="ツール化に向いている課題">
+                  <div class="d2-machine">
+                    <div class="machine-input">入力と出力が<br>決まっている</div>
+                    <div class="machine-body">
+                      <span>同じ作業を繰り返す</span>
+                      <span>手作業ミスが起きやすい</span>
+                    </div>
+                    <div class="machine-output">簡易ツール化</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-19 ツール化に向いている課題
+
+        - ツール化に向くのは、入力、処理、出力がある程度固定できる作業。
+        - 同じ作業を繰り返す、手作業ミスが多い、出力形式が決まっているものは候補になる。
+        - ここでは「ツール化した方が楽になる条件」だけを見る。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>入力と出力が安定している作業は、簡易ツール化しやすい</span>
+                  <span>D2-19</span>
+                </footer>
+              </section>
+        <section id="D2-20" class="slide generated-standard d2-not-tool" data-slide="D2-20" aria-labelledby="d2-20-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d2-20-title">まだツール化しない方がよい課題</h2>
+                  <p class="statement">判断が揺れる段階では、先にフローやテンプレートで試す</p>
+                </header>
+                <div class="d2-stop-layout">
+                  <div class="d2-stop-sign">まだ<br>固めない</div>
+                  <div class="d2-stop-list">
+                    <p>判断が毎回違う</p>
+                    <p>情報がまだ揺れている</p>
+                    <p>まず考え方を試したい</p>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-20 まだツール化しない方がよい課題
+
+        - まだ考え方が固まっていない場合は、先にチェックリストやテンプレートで試す。
+        - 判断が毎回違う、入力情報が揺れる、何を良しとするか決まっていない場合は、すぐツールにしない。
+        - 「作れるから作る」ではなく「繰り返しが楽になるから作る」と説明する。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>判断が揺れる段階では、先にフローやテンプレートで試す</span>
+                  <span>D2-20</span>
+                </footer>
+              </section>
+        <section id="D2-21" class="slide generated-visual-diagram d2-demo-cycle" data-slide="D2-21" aria-labelledby="d2-21-title">
+                <header class="slide-header">
+                  <p class="eyebrow">実演 / 10分</p>
+                  <h2 id="d2-21-title">実演: 自然言語で試作品を作る流れ</h2>
+                  <p class="statement">完成品を一発で作るのではなく、要件を伝え、動かし、直す</p>
+                </header>
+                <figure class="diagram-canvas generated-image-stage generated-image-prototype" aria-label="自然言語で試作品を作る流れ">
+                  <img src="../assets/generated/d2-21-prototype-flow.png" width="2172" height="724" alt="自然言語の要件から小さな試作品を作り、確認して直す流れの図">
+                  <div class="prototype-step-overlay">
+                    <div><span>1</span><strong>要件を短く伝える</strong></div>
+                    <div><span>2</span><strong>動かして確認する</strong></div>
+                    <div><span>3</span><strong>違和感を追加依頼で直す</strong></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-21 実演: 自然言語で試作品を作る流れ
+
+        - 使うツール名は未決なので、実施時の環境に合わせる。
+        - 講師は一発完成ではなく、要件、実行、確認、修正のサイクルを見せる。
+        - うまくいかない場面も、直し方の教材として扱う。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>完成品を一発で作るのではなく、要件を伝え、動かし、直す</span>
+                  <span>D2-21</span>
+                </footer>
+              </section>
+        <section id="D2-22" class="slide slide-work generated-work d2-choice-work" data-slide="D2-22" aria-labelledby="d2-22-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 10分</p>
+                  <h2 id="d2-22-title">ワーク: 簡易ツール化するか決める</h2>
+                  <p class="statement">作るか作らないかを決めるだけでも前進になる</p>
+                </header>
+                <div class="d2-choice-matrix" aria-label="試作の形を選ぶ">
+                  <div class="matrix-meta">
+                    <div><span>目的</span><strong>試作の形を選ぶ</strong></div>
+                    <div><span>時間</span><strong>7分記入、3分共有</strong></div>
+                  </div>
+                  <div class="matrix-options">
+                    <div class="option-flow">フロー</div>
+                    <div class="option-template">テンプレート</div>
+                    <div class="option-check">チェックリスト</div>
+                    <div class="option-tool">簡易ツール</div>
+                    <p>今回はどれで持ち帰るか</p>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-22 ワーク: 簡易ツール化するか決める
+
+        - 選択肢は4つ: フロー、テンプレート、チェックリスト、簡易ツール。
+        - ツール化しない判断も正解として扱う。
+        - 理由を書かせることで、後で見直せる。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>作るか作らないかを決めるだけでも前進になる</span>
+                  <span>D2-22</span>
+                </footer>
+              </section>
+        <section id="D2-23" class="slide slide-chapter generated-chapter" data-slide="D2-23" aria-labelledby="d2-23-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-23-title">5. 自分の課題で試作する</h2>
+                  <p class="chapter-question">問い: 今日のうちに、実務で試せる形まで作るには</p>
+                  <p class="chapter-time">65分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <path d="M100 318 C160 248 200 220 250 220 C300 220 340 248 400 318" fill="none" stroke="#0f766e" stroke-width="18" stroke-linecap="round"></path>
+                    <circle cx="250" cy="210" r="62" fill="none" stroke="#2563eb" stroke-width="18"></circle>
+                    <path d="M210 210 H290 M250 170 V250" fill="none" stroke="#d97706" stroke-width="18" stroke-linecap="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-23 5. 自分の課題で試作する
+
+        - ここから最も長い個人作業時間に入る。
+        - 進め方、質問の仕方、途中確認のタイミングを明確にする。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>自分の課題で試作する</span>
+                  <span>D2-23</span>
+                </footer>
+              </section>
+        <section id="D2-24" class="slide generated-visual-diagram d2-time-plan" data-slide="D2-24" aria-labelledby="d2-24-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d2-24-title">試作時間の使い方</h2>
+                  <p class="statement">試作は、作る時間と直す時間を分ける</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="試作時間の使い方">
+                  <div class="d2-timebar">
+                    <div class="time-segment build"><span>まず小さく<br>作る</span></div>
+                    <div class="time-segment test"><span>一度動かす、<br>読んでみる</span></div>
+                    <div class="time-segment fix"><span>違和感を1つずつ直す</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-24 試作時間の使い方
+
+        - 最初の10分で最低限の形を作り、残りで直すイメージを持たせる。
+        - 完成度より、実務で試すための最低限を優先する。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>試作は、作る時間と直す時間を分ける</span>
+                  <span>D2-24</span>
+                </footer>
+              </section>
+        <section id="D2-25" class="slide generated-standard d2-stuck-brief" data-slide="D2-25" aria-labelledby="d2-25-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d2-25-title">詰まったときに出す情報</h2>
+                  <p class="statement">詰まったら、目的、入力、出力、違和感を言葉にする</p>
+                </header>
+                <div class="d2-support-packet" aria-label="詰まったときに出す情報">
+                  <div class="support-packet-main">相談<br>パケット</div>
+                  <div class="support-packet-fields">
+                    <div><span>目的</span><strong>何を作りたいか</strong></div>
+                    <div><span>入力</span><strong>何を入れたか</strong></div>
+                    <div><span>出力</span><strong>何が返ってきたか</strong></div>
+                    <div><span>違和感</span><strong>何が期待と違うか</strong></div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-25 詰まったときに出す情報
+
+        - 講師に質問するときもAIに頼むときも、目的、入力、出力、違和感を出す。
+        - 「うまくいきません」だけでは支援しにくいことを説明する。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>詰まったら、目的、入力、出力、違和感を言葉にする</span>
+                  <span>D2-25</span>
+                </footer>
+              </section>
+        <section id="D2-26" class="slide slide-work generated-work d2-long-work" data-slide="D2-26" aria-labelledby="d2-26-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 53分</p>
+                  <h2 id="d2-26-title">ワーク: 自分の課題で試作する</h2>
+                  <p class="statement">完璧より、明日試せる形を優先する</p>
+                </header>
+                <div class="d2-sprint-board" aria-label="自分の課題で試作する">
+                  <div class="sprint-time">
+                    <span>45分</span>
+                    <strong>試作</strong>
+                  </div>
+                  <div class="sprint-lane">
+                    <div class="sprint-goal">
+                      <span>目的</span>
+                      <strong>AI活用フロー、テンプレート、<br>チェックリスト、簡易ツールのいずれかを作る</strong>
+                    </div>
+                    <div class="sprint-check">
+                      <span>8分</span>
+                      <strong>途中確認</strong>
+                    </div>
+                    <p>明日使うには、最低限どこまで必要か</p>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-26 ワーク: 自分の課題で試作する
+
+        - 講師は巡回し、課題が大きすぎる人を小さく切る。
+        - AI出力が出た人には、レビュー基準で確認させる。
+        - 簡易ツール組は、入力、処理、出力が動くかを最優先にする。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>完璧より、明日試せる形を優先する</span>
+                  <span>D2-26</span>
+                </footer>
+              </section>
+        <section id="D2-27" class="slide slide-chapter generated-chapter" data-slide="D2-27" aria-labelledby="d2-27-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-27-title">6. 実務で使えるかをレビューする</h2>
+                  <p class="chapter-question">問い: これは自分の業務に戻せるか</p>
+                  <p class="chapter-time">25分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <rect x="128" y="130" width="244" height="244" rx="26" fill="none" stroke="#0f766e" stroke-width="18"></rect>
+                    <path d="M176 228 L226 278 L324 178" fill="none" stroke="#2563eb" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M164 336 H336" fill="none" stroke="#d97706" stroke-width="18" stroke-linecap="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-27 6. 実務で使えるかをレビューする
+
+        - 試作品は完成度ではなく、実務に戻せるかで見る。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>実務で使えるかをレビューする</span>
+                  <span>D2-27</span>
+                </footer>
+              </section>
+        <section id="D2-28" class="slide generated-visual-diagram d2-usable-review" data-slide="D2-28" aria-labelledby="d2-28-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d2-28-title">試作品レビュー: 使えるか</h2>
+                  <p class="statement">試作品は、見た目より実務の目的と入出力で見る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="試作品レビュー: 使えるか">
+                  <div class="d2-review-board">
+                    <div class="review-artifact">試作品</div>
+                    <div class="review-check purpose">目的に合うか</div>
+                    <div class="review-check input">入力しやすいか</div>
+                    <div class="review-check output">出力を使えるか</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-28 試作品レビュー: 使えるか
+
+        - 見た目や機能数より、目的に合うか、入力しやすいか、出力を使えるかを見る。
+        - 出力を見たあとに次の行動が決まるかも重要。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>試作品は、見た目より実務の目的と入出力で見る</span>
+                  <span>D2-28</span>
+                </footer>
+              </section>
+        <section id="D2-29" class="slide generated-visual-diagram d2-repeat-review" data-slide="D2-29" aria-labelledby="d2-29-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 3分</p>
+                  <h2 id="d2-29-title">試作品レビュー: 続けられるか</h2>
+                  <p class="statement">続けられない形は、実務に戻りにくい</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="試作品レビュー: 続けられるか">
+                  <div class="d2-repeat-check">
+                    <div class="repeat-meter"><span>手間が増えすぎないか</span></div>
+                    <div class="repeat-path"><span>次回も同じ手順でできるか</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-29 試作品レビュー: 続けられるか
+
+        - 手間が増えすぎるもの、次回の手順が再現できないものは続かない。
+        - 毎回判断に迷う部分があれば、テンプレートやチェックリストへ戻す。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>続けられない形は、実務に戻りにくい</span>
+                  <span>D2-29</span>
+                </footer>
+              </section>
+        <section id="D2-30" class="slide slide-work generated-work d2-share-work" data-slide="D2-30" aria-labelledby="d2-30-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 10分</p>
+                  <h2 id="d2-30-title">ワーク: 試作品を共有してレビューする</h2>
+                  <p class="statement">人に説明すると、続かない部分が見える</p>
+                </header>
+                <div class="d2-peer-review" aria-label="試作品を共有してレビューする">
+                  <div class="peer-left">
+                    <span>共有 7分</span>
+                    <strong>実務で使う前の<br>違和感を見つける</strong>
+                  </div>
+                  <div class="peer-dialogue">
+                    <div class="speech speaker">何に困っていて、どう使う想定か</div>
+                    <div class="speech listener">分かりにくい点、使いにくそうな点</div>
+                    <p>どこを直せば、明日使いやすくなるか</p>
+                  </div>
+                  <div class="peer-note">
+                    <span>メモ 3分</span>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-30 ワーク: 試作品を共有してレビューする
+
+        - 共有相手には、成果物の説明より「何に困っていて、どう使う想定か」を先に伝えさせる。
+        - 聞く側は改善案を出しすぎず、分かりにくい点、使いにくそうな点を返す。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>人に説明すると、続かない部分が見える</span>
+                  <span>D2-30</span>
+                </footer>
+              </section>
+        <section id="D2-31" class="slide generated-standard d2-next-step" data-slide="D2-31" aria-labelledby="d2-31-title">
+                <header class="slide-header">
+                  <p class="eyebrow">まとめ / 6分</p>
+                  <h2 id="d2-31-title">改善点は、次の一手に落とす</h2>
+                  <p class="statement">直す点を1つに絞ると、講座後に動きやすい</p>
+                </header>
+                <div class="d2-next-action-board" aria-label="改善点を次の一手に落とす">
+                  <div class="next-action focus"><span>今やる</span><strong>すぐ直すこと</strong></div>
+                  <div class="next-action"><span>次に回す</span><strong>後で試すこと</strong></div>
+                  <div class="next-action muted"><span>外す</span><strong>今回はやらないこと</strong></div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-31 改善点は、次の一手に落とす
+
+        - 改善点は多く出るため、すぐ直すことを1つに絞る。
+        - 後で試すこと、今回はやらないことを分けると、講座後に動きやすい。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>直す点を1つに絞ると、講座後に動きやすい</span>
+                  <span>D2-31</span>
+                </footer>
+              </section>
+        <section id="D2-32" class="slide slide-chapter generated-chapter" data-slide="D2-32" aria-labelledby="d2-32-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d2-32-title">7. アンケートと明日から回す一歩</h2>
+                  <p class="chapter-question">問い: 講座後、最初に何を試すか</p>
+                  <p class="chapter-time">15分</p>
+                </div>
+                <div class="chapter-mark d2-chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <path d="M130 154 H370 V330 H236 L164 386 V330 H130 Z" fill="none" stroke="#0f766e" stroke-width="18" stroke-linejoin="round"></path>
+                    <path d="M176 214 H324 M176 258 H292" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round"></path>
+                    <path d="M330 330 L382 278" fill="none" stroke="#d97706" stroke-width="18" stroke-linecap="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-32 7. アンケートと明日から回す一歩
+
+        - 最後はアンケートと次アクション。講座を受けて終わりにしない。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>アンケートと明日からの一歩へ進む</span>
+                  <span>D2-32</span>
+                </footer>
+              </section>
+        <section id="D2-33" class="slide slide-work generated-work d2-tomorrow-work" data-slide="D2-33" aria-labelledby="d2-33-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 6分</p>
+                  <h2 id="d2-33-title">ワーク: 明日からの一歩を決める</h2>
+                  <p class="statement">明日の一歩を決めることで、試作品を業務に戻す</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>講座後に最初に試す行動を決める</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>5分記入、1分確認</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <div class="d2-when-strip" aria-hidden="true"><span>いつ</span><span>どの作業で</span><span>何を試すか</span></div>
+                    <p>いつ、どの作業で、何を試すか</p>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-33 ワーク: 明日からの一歩を決める
+
+        - 具体的に「いつ、どの作業で、何を試すか」を書かせる。
+        - 例: 明日の朝、顧客返信前に、今日作った返信チェックリストを使う。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>明日の一歩を決めることで、試作品を業務に戻す</span>
+                  <span>D2-33</span>
+                </footer>
+              </section>
+        <section id="D2-34" class="slide slide-work generated-work d2-survey" data-slide="D2-34" aria-labelledby="d2-34-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / 5分</p>
+                  <h2 id="d2-34-title">アンケート</h2>
+                  <p class="statement">回答は本人の振り返りと講座改善の両方に使う</p>
+                </header>
+                <div class="d2-survey-sheet" aria-label="アンケート">
+                  <div class="survey-question">
+                    <span>01</span>
+                    <strong>理解できたこと</strong>
+                    <i></i>
+                  </div>
+                  <div class="survey-question">
+                    <span>02</span>
+                    <strong>実務に戻せそうなこと</strong>
+                    <i></i>
+                  </div>
+                  <div class="survey-question">
+                    <span>03</span>
+                    <strong>もっと知りたいこと</strong>
+                    <i></i>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-34 アンケート
+
+        - アンケートは満足度だけでなく、本人の振り返りとしても使う。
+        - 分かりにくかった点、もっと知りたい点は次回改善に使うと伝える。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>回答は本人の振り返りと講座改善の両方に使う</span>
+                  <span>D2-34</span>
+                </footer>
+              </section>
+        <section id="D2-35" class="slide generated-summary d2-final-summary" data-slide="D2-35" aria-labelledby="d2-35-title">
+                <header class="slide-header">
+                  <p class="eyebrow">まとめ / 5分</p>
+                  <h2 id="d2-35-title">最後に持ち帰ること</h2>
+                  <p class="statement">AI活用は、目的から始め、業務に戻して続ける</p>
+                </header>
+                <div class="d2-final-cycle" aria-label="最後に持ち帰ること">
+                  <div class="final-cycle-center">業務に<br>戻して続ける</div>
+                  <div class="final-cycle-step choose"><span>選ぶ</span><strong>追う情報を選ぶ</strong></div>
+                  <div class="final-cycle-step prepare"><span>整える</span><strong>AIに渡す文脈を整える</strong></div>
+                  <div class="final-cycle-step keep"><span>残す</span><strong>小さく試し、仕組みに残す</strong></div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-35 最後に持ち帰ること
+
+        - 中心メッセージへ戻す。「AIに振り回される側から、目的に照らしてAIを選び、使い、判断する側へ」。
+        - 最新ツールを追い続けるのではなく、自分の仕事に戻すことを強調する。
+        - 講座後の最初の一歩を実行するよう促す。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AI活用は、目的から始め、業務に戻して続ける</span>
+                  <span>D2-35</span>
+                </footer>
+              </section>
+        <section id="D2-36" class="slide generated-standard d2-appendix-kit" data-slide="D2-36" aria-labelledby="d2-36-title">
+                <header class="slide-header">
+                  <p class="eyebrow">付録 / 2分</p>
+                  <h2 id="d2-36-title">付録: 講座で提供するもの</h2>
+                  <p class="statement">講座後に使える素材を、実務で試すために使う</p>
+                </header>
+                <div class="appendix-kit-board" aria-label="講座で提供するもの">
+                  <div class="kit-main">8時間<br><span>講義 + ハンズオン</span></div>
+                  <div class="kit-list">
+                    <div><span>資料</span><strong>スライド資料 +<br>ワークシートPDF</strong></div>
+                    <div><span>録画</span><strong>講座録画アーカイブ</strong></div>
+                    <div><span>教材</span><strong>Vibe Codingハンズオン教材</strong></div>
+                    <div><span>相談</span><strong>受講後チャットサポート1ヶ月</strong></div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-36 付録: 講座で提供するもの
+
+        - 事前告知していた提供物を、講座後に使うものとして整理する。
+        - 録画、ワークシート、ハンズオン教材、チャットサポートは「受け取るもの」ではなく「実務で試すための補助線」として位置づける。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>講座後に使える素材を、実務で試すために使う</span>
+                  <span>D2-36</span>
+                </footer>
+              </section>
+        <section id="D2-37" class="slide generated-visual-diagram d2-appendix-review" data-slide="D2-37" aria-labelledby="d2-37-title">
+                <header class="slide-header">
+                  <p class="eyebrow">付録 / 2分</p>
+                  <h2 id="d2-37-title">復習と実践の進め方</h2>
+                  <p class="statement">復習は見るだけでなく、業務で1回試してから戻る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="復習と実践の進め方">
+                  <div class="appendix-review-loop">
+                    <div class="review-step watch"><span>録画</span><strong>詰まった箇所を<br>確認する</strong></div>
+                    <div class="review-step sheet"><span>ワークシート</span><strong>業務用<br>テンプレートへ育てる</strong></div>
+                    <div class="review-step try"><span>実務</span><strong>1回試して、違和感を1つ直す</strong></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-37 復習と実践の進め方
+
+        - 録画を最初から見直すより、詰まった箇所を確認する使い方を勧める。
+        - ワークシートは講座中の提出物で終わらせず、自分の業務用テンプレートへ育てると伝える。
+        - 実務で1回試してから、違和感を1つ直す流れを強調する。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>復習は見るだけでなく、業務で1回試してから戻る</span>
+                  <span>D2-37</span>
+                </footer>
+              </section>
+        <section id="D2-38" class="slide generated-standard d2-appendix-vibe" data-slide="D2-38" aria-labelledby="d2-38-title">
+                <header class="slide-header">
+                  <p class="eyebrow">付録 / 2分</p>
+                  <h2 id="d2-38-title">Vibe Codingハンズオン教材の使い方</h2>
+                  <p class="statement">教材は完成品作りではなく、要件、確認、修正の練習台として使う</p>
+                </header>
+                <div class="appendix-vibe-console" aria-label="Vibe Codingハンズオン教材の使い方">
+                  <div class="console-header"><span></span><span></span><span></span></div>
+                  <div class="console-flow">
+                    <div><span>01</span><strong>Day 2の流れをもう一度なぞる</strong></div>
+                    <div><span>02</span><strong>要件を伝え、動かし、直す練習をする</strong></div>
+                    <div><span>03</span><strong>自分の業務課題に置き換える前に試す</strong></div>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-38 Vibe Codingハンズオン教材の使い方
+
+        - Day 2で見た流れを、教材で再現できるようにする。
+        - 完成品を作る教材ではなく、要件を伝える、動かす、直す練習台だと説明する。
+        - 自分の業務課題に置き換える前の安全な練習として扱う。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>教材は完成品作りではなく、要件、確認、修正の練習台として使う</span>
+                  <span>D2-38</span>
+                </footer>
+              </section>
+        <section id="D2-39" class="slide generated-standard d2-appendix-youtube" data-slide="D2-39" aria-labelledby="d2-39-title">
+                <header class="slide-header">
+                  <p class="eyebrow">付録 / 1分</p>
+                  <h2 id="d2-39-title">おすすめYouTubeコンテンツ</h2>
+                  <p class="statement">講座後の復習は、実装の流れが見える中級者向け動画で補う</p>
+                </header>
+                <div class="appendix-youtube-grid" aria-label="おすすめYouTubeコンテンツ">
+                  <a class="youtube-slot" href="https://www.youtube.com/@programming_tutorial_youtube" target="_blank" rel="noopener" aria-label="Shin Coding TutorialのYouTubeチャンネルを開く">
+                    <div class="youtube-thumb">
+                      <img class="youtube-video-thumb" src="../assets/youtube/shin-coding-thumb.jpg" width="480" height="360" alt="Shin Coding Tutorialの動画サムネイル">
+                      <img class="youtube-channel-avatar" src="../assets/youtube/shin-coding-avatar.jpg" width="900" height="900" alt="">
+                      <span class="youtube-play-mark" aria-hidden="true"></span>
+                    </div>
+                    <div class="youtube-copy">
+                      <span>中級者向け</span>
+                      <strong>Shin Coding Tutorial</strong>
+                      <p>実装の流れを見て、作る・動かす・直す感覚を補う</p>
+                      <small>youtube.com/@programming_tutorial_youtube</small>
+                    </div>
+                  </a>
+                  <a class="youtube-slot" href="https://www.youtube.com/@webshokutv" target="_blank" rel="noopener" aria-label="ウェブ職TVのYouTubeチャンネルを開く">
+                    <div class="youtube-thumb">
+                      <img class="youtube-video-thumb" src="../assets/youtube/webshoku-thumb.jpg" width="480" height="360" alt="ウェブ職TVの動画サムネイル">
+                      <img class="youtube-channel-avatar" src="../assets/youtube/webshoku-avatar.jpg" width="900" height="900" alt="">
+                      <span class="youtube-play-mark" aria-hidden="true"></span>
+                    </div>
+                    <div class="youtube-copy">
+                      <span>中級者向け</span>
+                      <strong>ウェブ職TV</strong>
+                      <p>Web制作寄りの視点で、実務への置き換えを補う</p>
+                      <small>youtube.com/@webshokutv</small>
+                    </div>
+                  </a>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-39 おすすめYouTubeコンテンツ
+
+        - 講座後の追加学習として、2つの中級者向けYouTubeチャンネルを紹介する。
+        - 本編の代替ではなく、Day 2で扱った「要件を伝える、動かす、直す」流れを別の実装例で見直す位置づけにする。
+        - Shin Coding Tutorial: https://www.youtube.com/@programming_tutorial_youtube
+        - ウェブ職TV: https://www.youtube.com/@webshokutv</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>実装の流れが見える中級者向け動画で補う</span>
+                  <span>D2-39</span>
+                </footer>
+              </section>
+        <section id="D2-40" class="slide generated-standard d2-appendix-support" data-slide="D2-40" aria-labelledby="d2-40-title">
+                <header class="slide-header">
+                  <p class="eyebrow">付録 / 2分</p>
+                  <h2 id="d2-40-title">受講後チャットサポートの使い方</h2>
+                  <p class="statement">相談時は、目的、入力、出力、違和感を添えると解決しやすい</p>
+                </header>
+                <div class="appendix-support-form" aria-label="受講後チャットサポートの使い方">
+                  <div class="support-period"><span>1ヶ月</span><strong>相談期間</strong></div>
+                  <div class="support-fields">
+                    <div>目的</div>
+                    <div>入力</div>
+                    <div>出力</div>
+                    <div>違和感</div>
+                  </div>
+                  <p>実務で1回試した結果を、次の改善につなげる</p>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-40 受講後チャットサポートの使い方
+
+        - 相談時は「うまくいきません」だけでなく、目的、入力、出力、違和感を添えてもらう。
+        - 1ヶ月間のサポートは、試作品を実務へ戻すために使うものとして案内する。
+        - 実務で1回試した結果を共有してもらうと、具体的な支援につながる。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>相談時は、目的、入力、出力、違和感を添えると解決しやすい</span>
+                  <span>D2-40</span>
+                </footer>
+              </section>
+        <section id="D2-41" class="slide generated-visual-diagram d2-homework-repo" data-slide="D2-41" aria-labelledby="d2-41-title">
+                <header class="slide-header">
+                  <p class="eyebrow">宿題 / 2分</p>
+                  <h2 id="d2-41-title">可能であれば: 試作品を残す場所を作る</h2>
+                  <p class="statement">試作品と学習メモを、次に開ける場所へ残す</p>
+                </header>
+                <div class="repo-homework-flow" aria-label="試作品を残す場所を作る">
+                  <article class="repo-folder">
+                    <span>local folder</span>
+                    <strong>試作品<br>メモ<br>プロンプト</strong>
+                  </article>
+                  <div class="repo-arrows" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="repo-actions">
+                    <article><span>GitHub</span><p>練習用リポジトリを作る</p></article>
+                    <article><span>Antigravity</span><p>同じフォルダを開く</p></article>
+                    <article><span>Claude Code 任意</span><p>ターミナルから続きを試す</p></article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D2-41 可能であれば: 試作品を残す場所を作る
+
+        - Day 2で作ったものを、講座中の一時ファイルで終わらせないための任意課題。
+        - GitHubの練習用リポジトリ、Antigravityで開けるローカルフォルダ、任意のClaude Code利用をつなげる。
+        - 目的は開発者になることではなく、次に同じ課題を開ける状態にすることだと伝える。
+
+        #### 台本ドラフト
+
+        講座後の任意課題です。
+
+        今日作った試作品やメモは、できれば次に開ける場所へ残してください。講座中の一時ファイルだけにしてしまうと、数日後にどこから再開すればよいか分からなくなります。
+
+        GitHubに練習用リポジトリを1つ作り、そこへメモ、プロンプト、試作品のファイルを置くのがおすすめです。Antigravityでは、そのフォルダを開いて、続きを編集できる状態にします。
+
+        Claude Codeを入れている人は、同じフォルダをClaude Codeから開いてみても構いません。ただし、これは任意です。大事なのは、試作品を残し、もう一度開ける状態にしておくことです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>試作品と学習メモを、次に開ける場所へ残す</span>
+                  <span>D2-41</span>
+                </footer>
+              </section>
+      </main>
+    </div>
+    <aside class="notes-drawer" aria-label="講師ノート" aria-hidden="true">
+      <header>
+        <strong>Day 2 講師ノート</strong>
+        <button class="deck-button" type="button" data-deck-action="notes-close" aria-label="講師ノートを閉じる">×</button>
+      </header>
+      <pre class="notes-content"></pre>
+    </aside>
+    <div class="deck-meta" aria-hidden="true">
+      <span>Day 2</span>
+      <span>自分の業務に戻せるAI活用フローを試作する</span>
+    </div>
+  </body>
+</html>

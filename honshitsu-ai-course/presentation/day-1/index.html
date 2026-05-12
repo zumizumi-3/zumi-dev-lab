@@ -1,0 +1,2915 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>本質のAI講座 Day 1</title>
+    <link rel="stylesheet" href="../assets/fonts/noto-sans-jp/noto_sans_jp_regular/css.css">
+    <link rel="stylesheet" href="../assets/fonts/noto-sans-jp/noto_sans_jp_bold/css.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../slides.css">
+    <link rel="stylesheet" href="../presenter.css">
+    <link rel="stylesheet" href="../print.css" media="print">
+    <script src="../deck-controller.js" defer></script>
+  </head>
+  <body class="presentation-mode">
+    <nav class="deck-toolbar" aria-label="プレゼン操作">
+      <a class="deck-link" href="../../">一覧</a>
+      <a class="deck-link" href="../day-2/">Day 2</a>
+      <a class="deck-link" href="/work/">ワーク</a>
+      <div class="deck-spacer"></div>
+      <button class="deck-button" type="button" data-deck-action="prev" aria-label="前のスライド">‹</button>
+      <span class="deck-counter" aria-live="polite">1 / 72</span>
+      <button class="deck-button" type="button" data-deck-action="next" aria-label="次のスライド">›</button>
+      <button class="deck-button deck-notes-toggle" type="button" data-deck-action="notes" aria-pressed="false">Notes</button>
+    </nav>
+    <div class="deck-progress" aria-hidden="true"><span></span></div>
+    <div class="deck-stage">
+      <main class="deck presentation-deck" aria-label="本質のAI講座 Day 1">
+        <section id="D1-00" class="slide slide-cover generated-cover" data-slide="D1-00" aria-labelledby="d1-00-title">
+                <div class="cover-bg" aria-hidden="true">
+                  <svg viewBox="0 0 1920 1080" role="img">
+                    <defs>
+                      <linearGradient id="coverLineGenerated" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#0f766e" stop-opacity="0.22"></stop>
+                        <stop offset="1" stop-color="#2563eb" stop-opacity="0.14"></stop>
+                      </linearGradient>
+                    </defs>
+                    <path d="M1200 130 C1390 228 1514 198 1640 310 C1772 428 1726 592 1810 724" fill="none" stroke="url(#coverLineGenerated)" stroke-width="34" stroke-linecap="round"></path>
+                    <path d="M1130 784 C1354 692 1472 780 1600 640 C1696 536 1652 428 1760 330" fill="none" stroke="#0f766e" stroke-opacity="0.16" stroke-width="22" stroke-linecap="round"></path>
+                    <g fill="none" stroke="#ffffff" stroke-width="4" opacity="0.22">
+                      <rect x="1308" y="392" width="170" height="102" rx="8"></rect>
+                      <rect x="1532" y="524" width="204" height="122" rx="8"></rect>
+                      <path d="M1478 442 L1532 580"></path>
+                    </g>
+                  </svg>
+                </div>
+                <header class="slide-kicker">
+                  <span>Day 1</span>
+                  <span>Online Live Workshop</span>
+                </header>
+                <div class="cover-content">
+                  <p class="eyebrow">AIに振り回される側から、判断する側へ</p>
+                  <h1 id="d1-00-title">本質のAI講座 Day 1</h1>
+                  <p class="cover-lead">AIに任せる前に、自分の課題を整える</p>
+                  <p class="cover-sub">目的、文脈、判断基準からAI活用を始める</p>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-00 本質のAI講座 Day 1
+
+        - 表紙では説明を始めすぎない。講座名、Day 1、場の切り替えだけにする。
+        - 本文は置かず、次の講座全体導入で前提を話す。
+        - 画面上は講座名を主役にし、サブコピーや詳細説明を詰め込まない。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>ここから「本質のAI講座」を始める</span>
+                  <span>D1-00</span>
+                </footer>
+              </section>
+        <section id="D1-01" class="slide generated-standard generated-emphasis" data-slide="D1-01" aria-labelledby="d1-01-title">
+                <header class="slide-header">
+                  <p class="eyebrow">共感 / 6分</p>
+                  <h2 id="d1-01-title">AIを学んでいるのに、仕事が変わりきらない</h2>
+                  <p class="statement">AIは使っているのに、仕事が変わりきらない感覚から始める</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="32"></circle><path d="M34 50 H62 M50 34 C66 48 66 58 50 66 M46 34 C30 48 30 58 46 66"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>情報は追っている</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>ツールも触っている</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>でも、自分の業務へのつなげ方が見えない</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-01 AIを学んでいるのに、仕事が変わりきらない
+
+        - 最初に講座説明へ入りすぎず、受講者の実感に寄せる。
+        - 「AIに興味はある」「ツールも触っている」「でも自分の仕事にどう残すかが難しい」という状態を言葉にする。
+        - ここで共感を取る。受講者に「自分のことだ」と思ってもらってから講座の差分へ進む。
+        - 失敗や停滞を受講者の努力不足にしない。情報量が多く、ツール変化も速いので迷うのは自然だと伝える。
+
+        #### 台本ドラフト
+
+        みなさん、AIについてはすでにかなり情報を見ていると思います。ChatGPT、Claude、Gemini、画像生成、コード生成、いろいろなツールがあります。XやYouTubeでも「これを使えば仕事が一気に変わる」という話を毎日のように見ます。
+
+        ただ、実際に自分の仕事に戻してみると、意外と難しいところがあります。ツールは触っている。プロンプトも試している。便利だと思う瞬間もある。でも、日々の仕事の進め方そのものが変わったかというと、そこまでは行っていない。作ったものが業務に残らない。毎回その場限りで終わってしまう。そういう感覚がある人も多いはずです。
+
+        この講座では、その状態を「努力不足」とは見ません。AIの情報量は多いですし、ツールの変化も速いです。迷うのは自然です。まずは、そのモヤモヤから始めます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIは使っているのに、仕事が変わりきらない感覚から始める</span>
+                  <span>D1-01</span>
+                </footer>
+              </section>
+        <section id="D1-02" class="slide generated-standard generated-emphasis" data-slide="D1-02" aria-labelledby="d1-02-title">
+                <header class="slide-header">
+                  <p class="eyebrow">動機 / 7分</p>
+                  <h2 id="d1-02-title">なぜ、この講座をやるのか</h2>
+                  <p class="statement">誇大な便利さや枝葉のツール論ではなく、AIを仕事に活かす本質を扱う</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="32"></circle><path d="M34 50 H62 M50 34 C66 48 66 58 50 66 M46 34 C30 48 30 58 46 66"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>AIで何でもできる、という話が増えている</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>枝葉のツール操作だけが目立ちやすい</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>だから、本質を学べる場をつくりたい</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-02 なぜ、この講座をやるのか
+
+        - ここでは講師自身の動機を話す。単なるカリキュラム説明ではなく、なぜこの場を作ったのかを伝える。
+        - Xなどでは「AIで何でもできる」「このツールを使えば勝てる」という誇大広告に近い発信が多い。
+        - 枝葉のツール操作や最新機能の見せ方で、知っている人が知らない人にマウントを取るように見える発信も少なくない。
+        - もちろん、ツールの使い方自体に価値はある。ただ、それだけでは自分の仕事にどう戻すか、どこをAIに任せるか、何を人間が判断するかが残りにくい。
+        - だからこの講座では、表面的な便利さやツール紹介ではなく、AIを実務で使い続けるための本質を学べる場にする、という動機を伝える。
+        - 実際に業務でAIを使いこなしている人はまだ少ない。より多くの会社員や副業に取り組む人に、流行に振り回されず自分の仕事をブーストする道具としてAIを使ってほしい。
+        - 講師自身も日々AIを使いながら難しさを感じている。AIに触れやすい環境で得た失敗、試行錯誤、気づきを共有することで、受講者がよりスムーズに成長できるようにしたい、と話す。
+
+        #### 台本ドラフト
+
+        この講座をやろうと思った理由を、最初に少し話します。
+
+        今のAI発信は、便利なものもたくさんあります。一方で、「AIで何でもできます」「このツールを使えば勝てます」のような、少し誇大広告に近いものも多いと感じています。さらに、枝葉のツール操作や最新機能を知っていること自体で、知らない人にマウントを取るように見える発信もあります。
+
+        もちろん、ツールの使い方には価値があります。新しい機能を知ることも大事です。ただ、それだけだと、自分の仕事にどう戻すのかが残りません。何をAIに任せるのか。何を人間が判断するのか。出てきたものをどう直し、どう次回に残すのか。そこが抜けると、結局「すごそうだけど、自分の仕事では使い切れない」で終わってしまいます。
+
+        だからこの講座では、表面的な便利さではなく、AIを実務で使い続けるための本質を扱います。私自身も、AIを日々使いながら何度もつまずいています。その失敗や試行錯誤も含めて共有することで、みなさんがより早く、より実務に近い形でAIを使えるようになることを目指します。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>誇大な便利さや枝葉のツール論ではなく、AIを仕事に活かす本質を扱う</span>
+                  <span>D1-02</span>
+                </footer>
+              </section>
+        <section id="D1-03" class="slide generated-visual-diagram slide-visual diagram-d1-03" data-slide="D1-03" aria-labelledby="d1-03-title">
+                <header class="slide-header">
+                  <p class="eyebrow">比較 / 6分</p>
+                  <h2 id="d1-03-title">普通のAI講座と、この講座の違い</h2>
+                  <p class="statement">この講座は、操作方法ではなくAIを使いこなすための土台を作る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="普通のAI講座と、この講座の違い">
+                  <div class="diagram-compare">
+                    <div class="diagram-node muted"><span>普通の講座</span><small>ツール / 機能 / プロンプト</small></div>
+                    <div class="diagram-vs">VS</div>
+                    <div class="diagram-node accent"><span>この講座</span><small>目的 / 文脈 / 判断 / 業務への戻し方</small></div>
+                  </div>
+                  <div class="diagram-bottom-message">覚える講座ではなく、使いこなすための土台作り</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-03 普通のAI講座と、この講座の違い
+
+        - 普通のAI講座を否定するのではなく、扱う階層が違うと説明する。
+        - ツールの使い方、便利プロンプト、最新機能は役に立つ。ただし、それだけでは自分の業務に戻す判断が残りにくい。
+        - この講座は「どのツールを押すか」ではなく「何のために使い、何を渡し、何を見て直すか」を扱う。
+        - 表現は「覚える講座」ではなく、「使いこなすための基礎を作る講座」「土台作りの講座」に寄せる。
+        - ここで「普通の講座との差分」を明確に置く。受講者がこの講座に参加する理由を理解できるようにする。
+
+        #### 台本ドラフト
+
+        普通のAI講座では、ツールの使い方、便利なプロンプト、最新機能を学ぶことが多いです。それ自体は役に立ちます。ここでそれを否定したいわけではありません。
+
+        ただ、この講座で扱いたい階層は少し違います。どのボタンを押すか、どのプロンプトを暗記するかではなく、そもそも何のためにAIを使うのか。AIに何を渡すのか。出てきたものを何に照らして判断するのか。仕事に戻すには何を残すのか。そこを扱います。
+
+        つまり、この講座は「覚える講座」ではなく、AIを使いこなすための基礎を作る講座です。もう少し言うと、土台作りの講座です。
+
+        家を建てるときに、いきなり内装や家具から決めても、土台が弱ければ長く使えません。AI活用も同じです。ツールやプロンプトは家具に近いです。もちろん大事ですが、その前に、目的、文脈、判断、レビューという土台が必要です。この講座では、その土台を作ります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>この講座は、操作方法ではなくAIを使いこなすための土台を作る</span>
+                  <span>D1-03</span>
+                </footer>
+              </section>
+        <section id="D1-04" class="slide generated-standard" data-slide="D1-04" aria-labelledby="d1-04-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 7分</p>
+                  <h2 id="d1-04-title">この講座でいう「本質」</h2>
+                  <p class="statement">本質とは、AIを実務の成果につなげるための判断軸である</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="32"></circle><path d="M34 50 H62 M50 34 C66 48 66 58 50 66 M46 34 C30 48 30 58 46 66"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>何のためにAIを使うか</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>何をAIに任せ、何を人間が判断するか</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>出力をどう直し、業務に残すか</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-04 この講座でいう「本質」
+
+        - 「本質」という言葉を抽象的なままにしない。
+        - 本質とは、AIそのものの技術理論でも、プロンプト暗記でもなく、AIを実務の成果につなげるための判断軸だと定義する。
+        - 3つの問いで話す。何のために使うか、何を任せて何を判断するか、出力をどう直して業務に残すか。
+        - このスライドが講座全体の芯になる。以後の章はすべてこの定義に戻る。
+
+        #### 台本ドラフト
+
+        ここで、この講座でいう「本質」を定義しておきます。
+
+        本質という言葉は抽象的なので、ふわっと使うと分からなくなります。この講座では、本質を「AIを実務の成果につなげるための判断軸」として扱います。
+
+        具体的には3つです。1つ目は、何のためにAIを使うのか。2つ目は、何をAIに任せて、何を人間が判断するのか。3つ目は、出てきたものをどう直し、どう業務に残すのか。
+
+        今日と明日の内容は、全部この3つに戻ってきます。ツールの話になっても、プロンプトの話になっても、最後はこの判断軸に戻します。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>本質とは、AIを実務の成果につなげるための判断軸である</span>
+                  <span>D1-04</span>
+                </footer>
+              </section>
+        <section id="D1-05" class="slide generated-visual-diagram slide-visual diagram-d1-05" data-slide="D1-05" aria-labelledby="d1-05-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 6分</p>
+                  <h2 id="d1-05-title">本質を3つに分けて見る</h2>
+                  <p class="statement">情報、仕組み、乗りこなしを押さえると、ツールに振り回されにくくなる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="本質を3つに分けて見る">
+                  <div class="diagram-orbit">
+                    <div class="orbit-core">本質</div>
+                    <div class="diagram-node orbit-item one"><span>情報の取り扱い</span></div>
+                    <div class="diagram-node orbit-item two"><span>AI周りの<br>仕組みの全体像</span></div>
+                    <div class="diagram-node orbit-item three"><span>自分の業務に合わせて乗りこなす</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-05 本質を3つに分けて見る
+
+        - 「本質」をさらに分解して、受講者が掴める形にする。
+        - 情報の取り扱い: AIに何を渡し、何を検証するか。
+        - AI周りの仕組みの全体像: AIチャット、プロンプト、コンテキスト、業務フロー、簡易ツールがどうつながるか。
+        - 乗りこなす: 新しいツールに振り回されず、自分の目的に合わせて選び、業務に戻すこと。
+
+        #### 台本ドラフト
+
+        本質をもう少し分けると、3つあります。
+
+        1つ目は、情報の取り扱いです。AIに何を渡すのか。何を渡してはいけないのか。出てきたものをどう確認するのか。ここが弱いと、AIは便利でも仕事には戻りません。
+
+        2つ目は、AI周りの仕組みの全体像です。LLM、AIエージェント、データ、人間、プロンプト、コンテキスト、業務フロー。これらがどうつながるかを理解しておく必要があります。
+
+        3つ目は、乗りこなしです。新しいツールはこれからも増えます。全部追うのではなく、自分の目的に合わせて選び、使い、業務に戻す。その力を作ります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>情報、仕組み、乗りこなしを押さえると、ツールに振り回されにくくなる</span>
+                  <span>D1-05</span>
+                </footer>
+              </section>
+        <section id="D1-06" class="slide generated-visual-diagram slide-visual diagram-d1-06" data-slide="D1-06" aria-labelledby="d1-06-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 5分</p>
+                  <h2 id="d1-06-title">2日間の流れ</h2>
+                  <p class="statement">Day 1で判断軸を作り、Day 2で自分の課題を形にする</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="2日間の流れ">
+                  <div class="diagram-roadmap">
+                    <div class="diagram-node step current"><span>Day 1: 現在地を見て、判断軸を作る</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node step"><span>Day 2: 自分の課題で試作する</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node step final"><span>最後は日々の業務に戻す</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-06 2日間の流れ
+
+        - Day 1は「判断軸を作る日」、Day 2は「自分の課題で形にする日」と説明する。
+        - この時点で講座の地図を渡し、受講者が「今どこにいるか」を見失わないようにする。
+        - Day 1は、現在地を見る、AIの構造を知る、目的と役割を決める、文脈とレビューで業務に戻す、という順で進む。
+        - 途中でツール名の話が出ても、目的、文脈、判断、業務への戻し方へ戻す進行にする。
+
+        #### 台本ドラフト
+
+        ここで、2日間の全体像を先に置きます。
+
+        Day 1は、判断軸を作る日です。いきなり便利プロンプトやツール操作を覚えるのではなく、自分のAI活用の現在地を見て、なぜうまくいく時とうまくいかない時があるのかを整理します。そのうえで、目的、役割分担、文脈、レビュー、残し方を整えます。
+
+        Day 2は、自分の課題で形にする日です。Day 1で作った判断軸を使って、自分の業務課題をAI活用フローや簡易ツールの試作へ落とします。
+
+        今日の話は、全部Day 2の試作のための土台です。知識として聞くだけではなく、自分の仕事に戻す前提を作る時間だと思ってください。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>Day 1で判断軸を作り、Day 2で自分の課題を形にする</span>
+                  <span>D1-06</span>
+                </footer>
+              </section>
+        <section id="D1-07" class="slide generated-visual-diagram slide-visual diagram-d1-07" data-slide="D1-07" aria-labelledby="d1-07-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Day導入 / 5分</p>
+                  <h2 id="d1-07-title">今日のゴール</h2>
+                  <p class="statement">Day 1では、ツール操作より前の判断軸を作る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="今日のゴール">
+                  <div class="diagram-goals">
+                    <div class="diagram-node goal g1"><span>AIを使う目的を言える</span></div><div class="diagram-node goal g2"><span>任せる作業と自分が判断する作業を分けられる</span></div><div class="diagram-node goal g3"><span>Day 2で扱う課題候補を選べる</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-07 今日のゴール
+
+        - 今日の到達状態は、うまいプロンプトを覚えることではない。
+        - 「何のために使うか」「どこを任せるか」「何を確認するか」を言える状態を目指す。
+        - Day 2で自分の課題を試作するため、Day 1の最後に課題候補を選ぶことを予告する。
+
+        #### 台本ドラフト
+
+        今日のゴールは、すごいプロンプトを1つ覚えることではありません。
+
+        今日の終わりに、AIを何のために使うのか、どこをAIに任せてどこを自分が判断するのか、出てきたものを何に照らして確認するのかを言える状態にします。
+
+        それが言えると、AIに頼む内容が変わります。出力の見方も変わります。そしてDay 2で、自分の課題を形にする時に迷いにくくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>Day 1では、ツール操作より前の判断軸を作る</span>
+                  <span>D1-07</span>
+                </footer>
+              </section>
+        <section id="D1-08" class="slide slide-chapter generated-chapter" data-slide="D1-08" aria-labelledby="d1-08-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-08-title">1. まず、今のモヤモヤを<br>言語化する</h2>
+                  <p class="chapter-question">問い: AI活用は、なぜ仕事に残る時と<br>残らない時があるのか</p>
+
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-08 1. まず、今のモヤモヤを言語化する
+
+        - 本格的な説明に入る前に、受講者自身の違和感を置く章だと伝える。
+        - 「AIを使って仕事に残った体験」と「使ったのに残らなかった体験」を並べて外に出す。
+        - ここではまだ解決しようとしない。まず自分の現在地を見えるようにする。
+
+        #### 台本ドラフト
+
+        最初の章では、今のモヤモヤを言葉にします。
+
+        ここでいきなり正解を探しません。まず、自分がAIを使ってうまくいった場面と、うまくいかなかった場面を並べます。うまくいった時には何があったのか。うまくいかなかった時には何が足りなかったのか。
+
+        この差分が、今日学ぶ内容の入口になります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>最初のワークで、自分のAI活用の差分を見る</span>
+                  <span>D1-08</span>
+                </footer>
+              </section>
+        <section id="D1-09" class="slide slide-work generated-work" data-slide="D1-09" aria-labelledby="d1-09-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-01 / 10分</p>
+                  <h2 id="d1-09-title">ワーク: AI活用の現在地を<br>確認する</h2>
+                  <p class="statement">うまくいった場面とうまくいかなかった場面を比べると、<br>学ぶべき軸が見える</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>うまくいった使い方と止まった使い方を比べる</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>7分記入、3分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>最近のAI活用で、<br>うまくいったこと、<br>うまくいかなかったことは何か</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-09 ワーク: AI活用の現在地を確認する
+
+        - うまくいかなかった体験だけを書かせると、AI活用が苦手診断のように見える。うまくいった場面も必ず書かせる。
+        - うまくいった場面では、目的が明確だった、素材があった、出力形式が決まっていた、確認基準があった、など再現できる要素を探す。
+        - うまくいかなかった場面では、どこで止まったかを見て、後続の目的、分解、文脈、レビューへ接続する。
+        - 書けない人には「最近AIに聞いたこと」「AIで作って使ったもの、使わなかったもの」から選ばせる。
+        - 共有は1人30秒程度で、講師が原因を断定しすぎない。
+        - 共有では、成功体験を自慢にしない、失敗体験を反省会にしない。差分から学ぶ場として扱う。
+
+        #### 台本ドラフト
+
+        ここでは、最近のAI活用を2つ思い出してください。
+
+        1つは、うまくいった場面です。AIで作ったものが実際に役に立った、考えが進んだ、時間が短くなった、誰かに見せられた。小さなことで構いません。
+
+        もう1つは、うまくいかなかった場面です。出力が一般論だった、使えなかった、何を頼めばいいか分からなかった、直し方が分からなかった。これも小さくて大丈夫です。
+
+        大事なのは、成功と失敗を比べることです。うまくいった時には何がそろっていたのか。うまくいかなかった時には何が足りなかったのか。その差分を見ると、今日学ぶべきポイントが見えてきます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>うまくいった場面とうまくいかなかった場面を比べると、学ぶべき軸が見える</span>
+                  <span>D1-09</span>
+                </footer>
+              </section>
+        <section id="D1-10" class="slide slide-chapter generated-chapter" data-slide="D1-10" aria-labelledby="d1-10-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-10-title">2. なぜうまくいかなかったのかを<br>分ける</h2>
+                  <p class="chapter-question">問い: 止まった理由は、<br>AIの能力不足だけなのか</p>
+
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-10 2. なぜうまくいかなかったのかを分ける
+
+        - 自己診断で出た差分を、いきなり講師側で解説しない。受講者自身に「なぜ止まったのか」を一度仮説化してもらう。
+        - ここではAIの能力不足に短絡しない。多くの場合、目的、データ、作業粒度、役割分担、レビュー基準のどこかが不足している。
+        - この章は、うまくいかなかった体験を責める場ではなく、後続の解説を受け取るための地図を作る場だと伝える。
+
+        #### 台本ドラフト
+
+        自己診断で、うまくいった場面とうまくいかなかった場面が出ました。
+
+        ここで大事なのは、「AIがダメだった」で終わらせないことです。もちろんAIの能力が足りない場面もあります。ただ、実務で止まる理由の多くは、AIの能力だけではありません。
+
+        目的が曖昧だった。AIに渡す材料が足りなかった。依頼が大きすぎた。AIに任せる部分と自分が判断する部分が混ざっていた。出てきたものを何で見ればいいか分からなかった。こういう理由で止まることが多いです。
+
+        なので、ここから一度、うまくいかなかった理由を分けます。理由を分けてからAIの仕組みを見ると、この後の話がかなり入りやすくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>自己診断の差分を、原因の仮説に変える</span>
+                  <span>D1-10</span>
+                </footer>
+              </section>
+        <section id="D1-11" class="slide generated-visual-diagram slide-visual diagram-d1-11" data-slide="D1-11" aria-labelledby="d1-11-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-11-title">まず、前提が足りない</h2>
+                  <p class="statement">AIの能力不足に見える失敗の多くは、<br>目的やデータの不足から起きる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="まず、前提が足りない">
+                  <div class="diagram-cause-flow">
+                    <div class="cause-stack"><div class="diagram-node warning"><span>目的が曖昧</span></div><div class="diagram-node warning"><span>データや文脈が足りない</span></div></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node result"><span>AIが推測で補っている</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-11 まず、前提が足りない
+
+        - 5分類のうち、まず前提不足にあたる2つを扱う。
+        - 目的が曖昧: D1-32以降の目的整理へつなぐ。
+        - データや文脈が足りない: D1-18、D1-19、D1-52以降へつなぐ。
+        - AIが推測で埋めるから、出力がそれらしくてもズレると伝える。
+
+        #### 台本ドラフト
+
+        AI活用がうまくいかない理由は、まず前提不足から見ます。
+
+        1つ目は、目的が曖昧なことです。たとえば「いい感じの提案文を作って」と頼むと、AIは何かを書いてくれます。でも、誰に向けた提案なのか、何を通したいのか、どこまで固い表現にするのかが決まっていなければ、出力はぼんやりします。
+
+        2つ目は、データや文脈が足りないことです。外部の優秀な人に仕事を頼む場面を想像してください。その人がどれだけ優秀でも、顧客の状況、社内の制約、過去の経緯を知らなければ、一般論になります。AIも同じです。
+
+        ここで大事なのは、AIが何も返せないわけではないことです。AIは足りない前提を推測で埋めて、それらしい答えを返します。だからこそ、前提不足に気づきにくい。まずここを押さえます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIの能力不足に見える失敗の多くは、目的やデータの不足から起きる</span>
+                  <span>D1-11</span>
+                </footer>
+              </section>
+        <section id="D1-12" class="slide generated-visual-diagram slide-visual diagram-d1-12" data-slide="D1-12" aria-labelledby="d1-12-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-12-title">もう一つは、進め方の問題</h2>
+                  <p class="statement">目的と材料があっても、<br>粒度、役割、レビュー基準が曖昧だと止まる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="もう一つは、進め方の問題">
+                  <div class="diagram-process-blockers">
+                    <div class="diagram-node blocker"><span>作業が大きすぎる</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node blocker"><span>役割が<br>混ざっている</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node blocker final"><span>レビュー基準が<br>ない</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-12 もう一つは、進め方の問題
+
+        - 5分類のうち、進め方にあたる3つを扱う。
+        - 作業の粒度が大きい: D1-45以降の課題分解へつなぐ。
+        - 役割が混ざる: D1-38以降の役割分担へつなぐ。
+        - レビュー基準がない: D1-58以降の出力レビューへつなぐ。
+        - ここでは「能力が足りない」ではなく「頼み方と進め方が大きすぎる」と整理する。
+
+        #### 台本ドラフト
+
+        もう一つは、進め方の問題です。前提が多少そろっていても、進め方が大きすぎるとAI活用は止まります。
+
+        3つ目は、作業の粒度が大きすぎることです。「売上を上げたい」とそのまま投げると、AIは一般論を返しやすいです。顧客を整理する、課題を仮説化する、提案文を作る、というように分ける必要があります。
+
+        4つ目は、役割が混ざっていることです。下書きはAIに任せやすいですが、顧客に出してよいか、会社として言ってよいか、どこまでを良しとするかは人間が持つ必要があります。
+
+        5つ目は、レビュー基準がないことです。AIの出力を見ても、良いのか悪いのか分からない。そうなると、結局使えません。何に照らして直すかを持つ必要があります。
+
+        つまり、うまくいかない理由は、目的、データ、粒度、役割、レビュー基準に分けられます。今日の後半は、この5つを順番に整えていく時間です。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>目的と材料があっても、粒度、役割、レビュー基準が曖昧だと止まる</span>
+                  <span>D1-12</span>
+                </footer>
+              </section>
+        <section id="D1-13" class="slide slide-work generated-work" data-slide="D1-13" aria-labelledby="d1-13-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-02 / 10分</p>
+                  <h2 id="d1-13-title">ワーク: うまくいかなかった理由を<br>特定する</h2>
+                  <p class="statement">理由を1つ選ぶと、この後の解説を自分ごとで聞ける</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>止まった理由を仮説化する</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>7分記入、3分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>うまくいかなかった場面では、<br>何が足りなかったのか</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-13 ワーク: うまくいかなかった理由を特定する
+
+        - D1-09の自己診断で書いた「うまくいかなかった場面」を1つ選ばせる。
+        - その場面が、5分類のどれに近いかを選ばせる。複数あってもよいが、まず主因を1つ決める。
+        - ここで出した理由を、以後の章で回収していくと予告する。
+        - 共有では、理由の正解を判定しない。「その見立てなら、後で目的整理／文脈／分解で戻ってくる」と接続する。
+
+        #### 台本ドラフト
+
+        ここで短いワークを挟みます。
+
+        さっき書いた、うまくいかなかったAI活用を1つ選んでください。そのうえで、止まった理由がどれに近いかを考えます。
+
+        目的が曖昧だったのか。データや文脈が足りなかったのか。依頼が大きすぎたのか。AIと人間の役割が混ざっていたのか。レビュー基準がなかったのか。
+
+        複数あると思いますが、まず主な理由を1つ選んでください。ここで完璧に当てる必要はありません。仮説で大丈夫です。この仮説を持った状態で次の話を聞くと、AIの仕組みやデータの話が、自分の仕事に結びつきやすくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>理由を1つ選ぶと、この後の解説を自分ごとで聞ける</span>
+                  <span>D1-13</span>
+                </footer>
+              </section>
+        <section id="D1-14" class="slide generated-visual-diagram slide-visual diagram-d1-14" data-slide="D1-14" aria-labelledby="d1-14-title">
+                <header class="slide-header">
+                  <p class="eyebrow">接続 / 3分</p>
+                  <h2 id="d1-14-title">理由の背景: AIが知っていること、<br>知らないこと</h2>
+                  <p class="statement">失敗理由の背景を、AI、データ、人間、Agentの関係から見る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="理由の背景: AIが知っていること、知らないこと">
+                  <div class="diagram-bridge">
+                    <div class="diagram-node known"><span>AIの強さ</span></div>
+                    <div class="diagram-node unknown"><span>AIが知らない自分の現場</span></div>
+                    <div class="bridge-line"><span>つなぐ</span></div>
+                    <div class="diagram-node judge"><span>データと人間の判断</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-14 理由の背景: AIが知っていること、知らないこと
+
+        - 原因整理ワークで出た差分を、AI、データ、人間、Agentの関係から見直す接続スライド。
+        - ここは短く流さない。受講者が「AI」「ChatGPT」「Claude」「Claude Code」「Agent」を同じものとして捉えている可能性が高い。
+        - ツール名を覚える前に、LLM、AIエージェント、データ、人間の役割を分ける。
+        - 特にデータは、単なる材料ではなくAI活用の質を決める中心に置く。
+
+        #### 台本ドラフト
+
+        自己診断と原因整理で、うまくいった場面、うまくいかなかった場面、そして止まった理由の仮説が出ました。
+
+        次に見るのは、その差分がなぜ起きるのかです。ここでAI周りの関係を整理します。AI、ChatGPT、Claude、Claude Code、Agent、LLMという言葉は、かなり混ざって使われています。
+
+        この章では、それらを一度分けます。人間、データ、LLM、Agent。この4つに分けると、AIに何を渡すべきか、何を人間が持つべきか、なぜデータがコアなのかが見えやすくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>失敗理由の背景を、AI、データ、人間、Agentの関係から見る</span>
+                  <span>D1-14</span>
+                </footer>
+              </section>
+        <section id="D1-15" class="slide generated-visual-diagram slide-visual diagram-d1-15" data-slide="D1-15" aria-labelledby="d1-15-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 5分</p>
+                  <h2 id="d1-15-title">AI活用を4つに分ける</h2>
+                  <p class="statement">AI活用は、LLMだけでなく、<br>人間、データ、道具の組み合わせで動く</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="AI活用を4つに分ける">
+                  <div class="diagram-system-map">
+                    <div class="system-core">AI活用</div>
+                    <div class="diagram-node system-node human"><span>人間: 目的と判断を持つ</span></div>
+                    <div class="diagram-node system-node data"><span>データ: 判断材料になる</span></div>
+                    <div class="diagram-node system-node model"><span>LLMとAgent: 生成と行動を担う</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-15 AI活用を4つに分ける
+
+        - 人間は、目的、判断、責任、業務文脈を持つ。
+        - データは、AIが参照する材料。社内資料、顧客情報、過去のやり取り、作業対象のファイル、成功や失敗の記録も含む。
+        - LLMは、渡された文脈をもとに言葉を生成するエンジン。単体では業務の目的や責任を持たない。
+        - AIエージェントは、LLMを使いながら、ツール操作、ファイル操作、検索、実行などを組み合わせて作業を進める仕組み。
+
+        #### 台本ドラフト
+
+        AI活用を、4つに分けて見ます。
+
+        1つ目は人間です。人間は目的を持ちます。何を良くしたいのか、何を成果とするのか、どこまでならOKなのかを判断します。責任も人間が持ちます。
+
+        2つ目はデータです。これはAIが参照する材料です。社内資料、顧客情報、過去のやり取り、作業対象のファイル、過去にうまくいった判断、失敗の記録も含みます。
+
+        3つ目はLLMです。LLMは、渡された文脈をもとに言葉を生成するエンジンです。広い知識はありますが、それ単体であなたの業務目的や責任を持っているわけではありません。
+
+        4つ目はAIエージェントです。Agentは、LLMを使いながら、ツール操作、ファイル操作、検索、実行などを組み合わせて作業を進める仕組みです。
+
+        この4つに分けて見られると、何を人間が持ち、何をデータとして渡し、何をAgentに任せるかが整理できます。
+
+        たとえば、優秀なアシスタントに資料作成を頼む場面で考えると分かりやすいです。人間は「何のための資料か」を決めます。データは、過去資料、顧客情報、議事録、売上数字です。LLMは、それをもとに文章や構成を作ります。Agentは、ファイルを読んだり、資料を更新したり、コマンドを実行したりする実行役です。全部をまとめて「AI」と呼ぶと、どこでズレたのかが見えなくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AI活用は、LLMだけでなく、人間、データ、道具の組み合わせで動く</span>
+                  <span>D1-15</span>
+                </footer>
+              </section>
+        <section id="D1-16" class="slide generated-visual-diagram slide-visual diagram-d1-16" data-slide="D1-16" aria-labelledby="d1-16-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-16-title">混ぜると、誤解が起きる</h2>
+                  <p class="statement">AIをひとまとめにすると、<br>何を渡し、何を判断するかが見えなくなる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="混ぜると、誤解が起きる">
+                  <div class="diagram-funnel">
+                    <div class="funnel-inputs"><span class="diagram-pill ">人間の判断が消える</span><span class="diagram-pill ">データ不足に気づけない</span><span class="diagram-pill ">Agent任せになる</span></div>
+                    <div class="funnel-neck">ひとまとめ</div>
+                    <div class="funnel-output">何を渡し、何を判断するかが見えない</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-16 混ぜると、誤解が起きる
+
+        - AIをひとまとめにすると、人間が持つべき判断が見えなくなる。
+        - データ不足が原因なのに、AIの能力不足だと誤解しやすくなる。
+        - Agentに任せるべきではない判断まで、Agentに任せてしまう危険がある。
+        - 次のAIの強さ、知らないこと、データの話への橋渡しにする。
+
+        #### 台本ドラフト
+
+        この4つを混ぜると、誤解が起きます。
+
+        一番多いのは、「AIが勝手に全部やってくれる」という見方です。こう見ると、人間が持つべき目的や判断が見えなくなります。
+
+        次に、データ不足に気づきにくくなります。本当は顧客情報や過去の判断を渡していないだけなのに、「AIが弱い」と感じてしまうことがあります。
+
+        さらに、Agent任せになりすぎることもあります。Agentは作業できますが、何を達成するか、どこまで許容するか、会社として言ってよいかまでは、人間の判断です。
+
+        だから、この講座ではAIをひとまとめにしません。人間、データ、LLM、Agentに分けて見ます。この分け方が、この後のデータの話や実践の型につながります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIをひとまとめにすると、何を渡し、何を判断するかが見えなくなる</span>
+                  <span>D1-16</span>
+                </footer>
+              </section>
+        <section id="D1-17" class="slide generated-visual-diagram slide-visual diagram-d1-17" data-slide="D1-17" aria-labelledby="d1-17-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-17-title">AIは、とても知識があります</h2>
+                  <p class="statement">LLMは広い知識を持ち、文脈をもとに言葉を返す</p>
+                </header>
+                <figure class="diagram-canvas generated-image-stage generated-image-knowledge" aria-label="AIは、とても知識があります">
+                  <img src="../assets/generated/d1-17-knowledge-network.png" width="2172" height="724" alt="広い知識が中心のモデルへ集まり、文脈に沿って言葉として組み立てられていく抽象図">
+                  <div class="generated-image-labels labels-bottom">
+                    <span>広い知識を持つ</span>
+                    <span>文脈に沿って返す</span>
+                    <span>答えらしく組み立てる</span>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-17 AIは、とても知識があります
+
+        - まずAIの強さを認める。LLMは広い知識を持ち、文章、コード、要約、分類、アイデア出しなど多くのことができる。
+        - 受講者には「だから便利なのは本当」と置く。ここを飛ばすと、AIを過小評価しているように聞こえる。
+        - ただし、LLMは入力された文脈から答えらしい言葉を組み立てるエンジンであり、業務の目的や責任を自分で持つわけではない。
+        - 次のスライドで「でも、あなたのことは知らない」へつなげる。
+
+        #### 台本ドラフト
+
+        まず、AIはとても知識があります。これは大前提です。
+
+        文章を書く、要約する、分類する、コードを書く、アイデアを出す。こうしたことはかなり高いレベルでできます。だから便利です。ここは疑う必要はありません。
+
+        イメージとしては、ものすごく大きな百科事典と、文章を組み立てる編集者が一緒になっているようなものです。一般的な知識、よくあるパターン、言葉の組み立てにはかなり強いです。
+
+        ただし、便利だからといって、AIが自分の仕事の目的や責任を持ってくれるわけではありません。LLMは、入力された文脈をもとに、答えらしい言葉を組み立てます。とても賢く見えますが、自分からあなたの業務の背景を知っているわけではありません。
+
+        ここが次の話につながります。AIは知識があります。でも、あなたのことは知りません。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>LLMは広い知識を持ち、文脈をもとに言葉を返す</span>
+                  <span>D1-17</span>
+                </footer>
+              </section>
+        <section id="D1-18" class="slide generated-visual-diagram slide-visual diagram-d1-18" data-slide="D1-18" aria-labelledby="d1-18-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 6分</p>
+                  <h2 id="d1-18-title">でも、あなたのことは知りません</h2>
+                  <p class="statement">AIは一般知識を持つが、<br>あなたの業務や判断は最初から知らない</p>
+                </header>
+                <figure class="diagram-canvas generated-image-stage generated-image-context" aria-label="でも、あなたのことは知りません">
+                  <img src="../assets/generated/d1-18-context-gap.png" width="2172" height="724" alt="一般知識の領域と、顧客や制約を含む現場文脈の領域が、中央の余白で隔てられている図">
+                  <div class="context-image-label context-general">
+                    <span>知っている</span>
+                    <strong>一般知識</strong>
+                  </div>
+                  <div class="context-image-label context-local">
+                    <span>最初は知らない</span>
+                    <strong>あなたの現場</strong>
+                  </div>
+                  <div class="context-gap-caption">つなぐには、文脈とデータを渡す</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-18 でも、あなたのことは知りません
+
+        - ここがデータの話に入るための「なぜ」になる。
+        - AIは世の中の一般知識やよくあるパターンには強いが、受講者の顧客、会社の事情、過去の判断、チームの暗黙知は最初から知らない。
+        - だから、AIがズレる理由は能力不足だけではない。知らないまま答えているからズレる。
+        - 知らない情報を渡さなければ、AIは一般論、推測、無難な答えに寄る。
+        - ここで「あなたのことを知らないから、データを渡す必要がある」と明確につなげる。
+
+        #### 台本ドラフト
+
+        AIは世の中の一般的な知識には強いです。よくある業務、よくある文章、よくある課題にはかなり答えられます。
+
+        でも、あなたのことは知りません。あなたの顧客を知りません。あなたの会社の事情を知りません。過去にどんな判断をしたのか、どんな表現を避けたいのか、どこまでなら社内で通るのかも、最初からは知りません。
+
+        これは、外部から来た非常に優秀な人に近いです。能力は高い。でも、初日にいきなり「いつもの感じで提案書を作って」と言われても、その会社のいつもの感じは分かりません。誰に出すのか、どんな経緯があるのか、社内で避けたい表現は何かを知らなければ、一般的には良くても現場ではズレるものを作ってしまいます。
+
+        AIの出力がズレるとき、それはAIの能力不足だけが原因ではありません。知らないまま答えているからズレることが多いです。知らない情報を渡さなければ、AIは一般論や推測で埋めます。すると、それらしいけれど自分の仕事には合わない出力になります。
+
+        だから、データが必要です。AIが知らないあなたの現場をつなぐものが、データです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIは一般知識を持つが、あなたの業務や判断は最初から知らない</span>
+                  <span>D1-18</span>
+                </footer>
+              </section>
+        <section id="D1-19" class="slide generated-visual-diagram slide-visual diagram-d1-19" data-slide="D1-19" aria-labelledby="d1-19-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-19-title">だから、コアはデータです</h2>
+                  <p class="statement">AIが知らない現場をつなぐものがデータである</p>
+                </header>
+                <figure class="diagram-canvas data-bridge-canvas" aria-label="だから、コアはデータです">
+                  <div class="data-bridge">
+                    <div class="data-source">AIが知らない<br>現場</div>
+                    <div class="data-core">
+                      <strong>データ</strong>
+                      <span>業務の事実</span>
+                      <span>顧客とのやり取り</span>
+                      <span>過去の判断</span>
+                    </div>
+                    <div class="data-result">AI活用に<br>つながる</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-19 だから、コアはデータです
+
+        - ここで初めて「データがコア」と言う。結論だけを先に置かず、AIがあなたを知らないという前段から導く。
+        - データには、業務の事実、顧客とのやり取り、過去の判断、制約、成果物、レビュー結果、失敗の記録も含まれる。
+        - まずは、データはCSVや表だけではないと広く捉えさせる。
+        - AIが知らない現場をつなぐものがデータだと伝える。
+
+        #### 台本ドラフト
+
+        ここで初めて、「コアはデータです」と言えます。
+
+        データというと、表やCSVだけを想像するかもしれません。でも、この講座でいうデータはもっと広いです。業務の事実、顧客とのやり取り、過去の判断、制約、成果物、レビュー結果、失敗の記録。これらも全部データです。
+
+        たとえば、過去に顧客から言われた一言、社内で通らなかった表現、前回うまくいった提案の構成、レビューで直されたポイント。これらは表形式ではないかもしれませんが、次の判断に使える大事なデータです。
+
+        AIが知らない現場をつなぐものがデータです。だから、この講座ではデータをかなり大事に扱います。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIが知らない現場をつなぐものがデータである</span>
+                  <span>D1-19</span>
+                </footer>
+              </section>
+        <section id="D1-20" class="slide generated-visual-diagram slide-visual diagram-d1-20" data-slide="D1-20" aria-labelledby="d1-20-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 4分</p>
+                  <h2 id="d1-20-title">データは、残して育てる</h2>
+                  <p class="statement">レビュー結果や失敗の記録も、<br>次のAI活用に使えるデータになる</p>
+                </header>
+                <figure class="diagram-canvas data-growth-canvas" aria-label="データは、残して育てる">
+                  <div class="data-growth">
+                    <div class="growth-ring" aria-hidden="true"></div>
+                    <div class="growth-step keep">残す</div>
+                    <div class="growth-step review">見直す</div>
+                    <div class="growth-step reuse">次に使う</div>
+                    <div class="growth-materials">
+                      <span>制約と判断基準</span>
+                      <span>成果物とレビュー結果</span>
+                      <span>失敗から得た知識</span>
+                    </div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-20 データは、残して育てる
+
+        - AIはデータがなければ一般論に寄る。現場のデータがあるほど、出力は業務に近づく。
+        - データを「AIに食わせるもの」ではなく、人間とAIが一緒に使う判断材料として扱う。
+        - 文脈、レビュー、ワーク結果、失敗の記録を残す理由を、次回使えるデータとして説明する。
+
+        #### 台本ドラフト
+
+        AIはデータがなければ一般論に寄ります。逆に、現場のデータがあるほど、出力は業務に近づきます。だから、データはAIに食わせるものというより、人間とAIが一緒に使う判断材料です。
+
+        この講座で、文脈を書き出すこと、レビューすること、失敗を残すことを大事にするのは、全部ここにつながっています。毎回ゼロから説明するのではなく、共有フォルダや業務メモに判断材料を残していく感覚です。次回のAI活用に使えるデータを残すためです。
+
+        たとえば、今回のワークで書いた目的、制約、判断基準、レビュー結果も、次回使えるデータです。失敗した出力も、何が足りなかったかを書けば知識になります。
+
+        データは一度渡して終わりではありません。残して、見直して、次に使える形にしていくものです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>レビュー結果や失敗の記録も、次のAI活用に使えるデータになる</span>
+                  <span>D1-20</span>
+                </footer>
+              </section>
+        <section id="D1-21" class="slide generated-visual-diagram slide-visual diagram-d1-21" data-slide="D1-21" aria-labelledby="d1-21-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-21-title">変わるものを追いすぎない</h2>
+                  <p class="statement">AgentやLLMやUIは、これからも変わり続ける</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="変わるものを追いすぎない">
+                  <div class="diagram-moving">
+                    <div class="diagram-node moving"><span>Agentは置き換わる</span></div><div class="diagram-node moving"><span>LLMは進化する</span></div><div class="diagram-node moving"><span>UIや機能は変わる</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-21 変わるものを追いすぎない
+
+        - Agentは変わる。Claude Code、Codex、Antigravityのような道具も、今後より良いものに置き換わっていく。
+        - LLMも進化する。モデルの性能、得意不得意、扱える文脈量は変わっていく。
+        - UIや機能も変わる。特定ツール操作だけを覚えても、すぐに古くなる可能性がある。
+
+        #### 台本ドラフト
+
+        AI周りでは、変わるものと育てるものを分けて考えると分かりやすいです。
+
+        Agentは変わります。Claude Code、Codex、Antigravityのような道具も、今後もっと良いものが出てきます。UIも変わりますし、できることも変わります。
+
+        LLMも変わります。モデルの性能、得意不得意、扱える文脈量は変わっていきます。画面やボタンの位置、機能名も変わります。
+
+        だから、特定ツールの操作だけを覚えても、すぐに古くなる可能性があります。もちろん操作を覚えることは大事です。ただ、それだけを追うと、ツールが変わるたびに振り回されます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AgentやLLMやUIは、これからも変わり続ける</span>
+                  <span>D1-21</span>
+                </footer>
+              </section>
+        <section id="D1-22" class="slide generated-visual-diagram slide-visual diagram-d1-22" data-slide="D1-22" aria-labelledby="d1-22-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-22-title">育てるものに投資する</h2>
+                  <p class="statement">ツールが変わっても、業務データ、判断基準、型は持ち越せる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="育てるものに投資する">
+                  <div class="diagram-foundation">
+                    <div class="diagram-node layer top"><span>うまくいった型</span></div>
+                    <div class="diagram-node layer middle"><span>判断基準</span></div>
+                    <div class="diagram-node layer base"><span>業務データ</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-22 育てるものに投資する
+
+        - 人間は成長する。目的設定、依頼、レビュー、判断の精度は、使うほど上がる。
+        - 業務データ、判断基準、うまくいった型は資産になる。
+        - ツールが変わっても、整理されたデータと判断基準は持ち越せる。
+        - だからこの講座では、特定Agentの操作だけでなく、データをどう扱い、どう残し、どう次回に使うかを重視する。
+
+        #### 台本ドラフト
+
+        一方で、育てるものがあります。
+
+        人間は成長します。目的の立て方、依頼の仕方、レビューの仕方は、使うほど上がっていきます。
+
+        業務データと判断基準の蓄積も資産になります。ツールが変わっても、整理されたデータ、うまくいった型、失敗から得た知識は持ち越せます。
+
+        工具が新しくなっても、設計図や過去の施工記録が残っていれば次の仕事に使えます。AIツールも同じです。Agentは入れ替わっていきますが、自分の業務データ、判断基準、失敗から得た知識は持ち越せます。だから、流行の道具だけを追うより、残るものを育てる方が強いです。
+
+        だからこの講座では、特定のAgent操作だけでなく、データをどう扱い、どう残し、どう次回に使うかを重視します。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>ツールが変わっても、業務データ、判断基準、型は持ち越せる</span>
+                  <span>D1-22</span>
+                </footer>
+              </section>
+        <section id="D1-23" class="slide generated-visual-diagram slide-visual diagram-d1-23" data-slide="D1-23" aria-labelledby="d1-23-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-23-title">LLMとAgentは、別物です</h2>
+                  <p class="statement">LLMとAgentは、同じAIという言葉でまとめず、役割を分けて見る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="LLMとAgentは、別物です">
+                  <div class="diagram-two-roles">
+                    <div class="diagram-node role llm"><span>LLM: 言葉を生成するモデル</span></div>
+                    <div class="diagram-node role agent"><span>Agent: 生成を作業へつなぐ仕組み</span></div>
+                    <div class="role-warning">AIそのものとして、ひとまとめにしない</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-23 LLMとAgentは、別物です
+
+        - Claude Code、Codex、Antigravityなどの話に入る前に、LLMとAgentを分けて見る。
+        - LLMは言葉を生成するモデル。Agentは、LLMの出力を作業や操作につなげる仕組み。
+        - 「AIがやっている」とひとまとめにすると、どこに前提や材料が必要なのかが見えにくくなる。
+        - ここでは細かな技術説明に寄せすぎず、役割の違いを押さえる。
+
+        #### 台本ドラフト
+
+        ここで、LLMとAgentを分けて見ます。
+
+        普段はどちらもまとめて「AI」と呼ぶことが多いです。それで会話としては通じます。ただ、実務で使いこなすには、少し分けて理解した方がよいです。
+
+        LLMは、言葉を生成するモデルです。入力された文脈をもとに、答えらしい文章、案、コード、説明を組み立てます。
+
+        Agentは、そのLLMを使って作業へつなげる仕組みです。考えるだけではなく、ファイルを読んだり、書き換えたり、コマンドを実行したり、結果を見て次の作業を進めたりします。
+
+        ここを全部「AIがやっている」でまとめると、何が足りないとズレるのかが見えにくくなります。LLMには文脈が必要です。Agentには、さらに目的、材料、操作対象、合格基準が必要です。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>LLMとAgentは、同じAIという言葉でまとめず、役割を分けて見る</span>
+                  <span>D1-23</span>
+                </footer>
+              </section>
+        <section id="D1-24" class="slide generated-visual-diagram slide-visual diagram-d1-24" data-slide="D1-24" aria-labelledby="d1-24-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 4分</p>
+                  <h2 id="d1-24-title">コーディングAgentは、作業する道具</h2>
+                  <p class="statement">Claude Code、Codex、Antigravityなどは、<br>LLMを使って作業するAgentである</p>
+                </header>
+                <figure class="diagram-canvas agent-work-canvas" aria-label="コーディングAgentは、作業する道具">
+                  <div class="agent-workflow">
+                    <div class="agent-label">Coding Agent</div>
+                    <div class="agent-step read">ファイルを読む</div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="agent-step write">コードを書き換える</div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="agent-step command">コマンド結果を<br>見て進める</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-24 コーディングAgentは、作業する道具
+
+        - Claude Code、Codex、Antigravityなどは、LLMを使ってコード作業を進めるAgentの例として説明する。
+        - これらは「AIそのもの」ではなく、コードベース、ファイル、コマンド、ユーザーの指示を扱いながら作業を進める道具。
+        - 具体的には、ファイルを読み、コードを書き換え、テストやコマンド結果を見て進める。
+        - Day 2のVibe Codingや簡易ツール試作に向けて、Agentを「作業者」ではなく「作業する道具」として見る。
+
+        #### 台本ドラフト
+
+        具体例で見ると分かりやすいです。
+
+        Claude Code、Codex、Antigravityなどは、全部この枠組みに入ります。どれも「AIそのもの」と言ってしまうと少し雑です。実務で見るなら、LLMを使ってコード作業を進めるAgentの例です。
+
+        これらのAgentは、ファイルを読みます。必要なところを書き換えます。コマンドを実行します。エラーが出たら、その結果を見て次の修正を考えます。
+
+        人間で言えば、優秀な作業者のように見えます。ただし、本当に人間の担当者になったわけではありません。あくまで、LLMを使って作業を進める道具です。
+
+        だから、Agentを使うときも「全部よしなにやってくれる」とは見ません。何を作るのか。どのファイルを見るのか。何を変えてよくて、何を変えてはいけないのか。どうなれば完成なのか。そこを渡す必要があります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>Claude Code、Codex、Antigravityなどは、LLMを使って作業するAgentである</span>
+                  <span>D1-24</span>
+                </footer>
+              </section>
+        <section id="D1-25" class="slide generated-visual-diagram slide-visual diagram-d1-25" data-slide="D1-25" aria-labelledby="d1-25-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 4分</p>
+                  <h2 id="d1-25-title">Agentにも、前提が必要です</h2>
+                  <p class="statement">Agentも、目的、材料、合格基準があるほど動きやすくなる</p>
+                </header>
+                <figure class="diagram-canvas agent-prereq-canvas" aria-label="Agentにも、前提が必要です">
+                  <div class="agent-prereq">
+                    <div class="prereq-agent">Agentが<br>動きやすい</div>
+                    <div class="prereq-item purpose">目的</div>
+                    <div class="prereq-item materials">対象ファイル、<br>材料</div>
+                    <div class="prereq-item criteria">完成状態と<br>レビュー基準</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-25 Agentにも、前提が必要です
+
+        - Agentは行動できる分、前提が曖昧だとズレた作業も進めてしまう。
+        - 目的、対象ファイル、材料、制約、完成状態、レビュー基準を渡すほど使いやすくなる。
+        - 「AIが全部作る」ではなく、「Agentに目的、材料、判断基準を渡して一緒に進める」と理解する。
+        - 次の知識整理と制作物分解へつなぐ橋渡しにする。
+
+        #### 台本ドラフト
+
+        Agentは、ただのチャットより行動できます。だから便利です。一方で、行動できる分、前提が曖昧なままでも作業が進んでしまいます。
+
+        目的が曖昧なら、ズレた方向に進みます。対象ファイルが曖昧なら、見なくてよいところまで触るかもしれません。完成状態が曖昧なら、何をもって終わりにするかが分かりません。
+
+        これは、外部の作業パートナーに依頼する場面と近いです。能力が高い人でも、「いい感じに直しておいて」だけでは、こちらの期待とズレます。目的、材料、制約、完成ラインを渡すから、仕事になります。
+
+        Agentも同じです。目的、対象ファイル、材料、制約、完成状態、レビュー基準があるほど使いやすくなります。
+
+        ここで大事なのは、「AIが全部作る」と見ないことです。Agentに、目的、材料、判断基準を渡して、一緒に進める。この理解があると、Day 2の試作も進めやすくなります。
+
+        では、Agentに動いてもらう前に、何を整理する必要があるのか。次に、知識と制作物の分け方を見ます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>Agentも、目的、材料、合格基準があるほど動きやすくなる</span>
+                  <span>D1-25</span>
+                </footer>
+              </section>
+        <section id="D1-26" class="slide generated-visual-diagram slide-visual diagram-d1-26" data-slide="D1-26" aria-labelledby="d1-26-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-26-title">まず、知識を整理する</h2>
+                  <p class="statement">AIは知識を持つが、<br>良い成果物には知識の整理と構造化が必要である</p>
+                </header>
+                <figure class="diagram-canvas knowledge-structure-canvas" aria-label="まず、知識を整理する">
+                  <div class="knowledge-structure">
+                    <div class="structure-output">良い成果物</div>
+                    <div class="structure-item message">何を伝えたいか</div>
+                    <div class="structure-item material">何を材料にするか</div>
+                    <div class="structure-item criteria">何を判断基準にするか</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-26 まず、知識を整理する
+
+        - 制作物や実行の話に入る前に、まず知識を整理する話を置く。
+        - AIは広い知識を持つが、良い成果物にするには、こちら側の知識、材料、判断基準を整理する必要がある。
+        - 「何を伝えたいか」「何を材料にするか」「何を合格とするか」を分ける。
+        - ここを飛ばすと、画像、資料、動画などでも、それらしいが中身の薄い出力になりやすい。
+
+        #### 台本ドラフト
+
+        ここで、もう一段だけ大事な前提を置きます。制作物の話に入る前に、まず知識の話です。
+
+        AIは広い知識を持っています。ただ、知識があることと、良い成果物が作れることは同じではありません。
+
+        良い成果物を作るには、こちら側で知識を整理する必要があります。何を伝えたいのか。何を材料にするのか。何を合格とするのか。どの情報を入れて、どの情報を捨てるのか。ここを分けます。
+
+        たとえば、画像、資料、動画をAIに適当に頼むと、それらしいものは返ってきます。見た目は整っているかもしれません。ただ、中身が薄かったり、意図と違ったり、フォーマットに合っていなかったりします。
+
+        だから最初に、知識を整理します。何を伝えるのか。何を根拠にするのか。何を見れば良いと言えるのか。ここを持ってから、制作物の話に進みます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIは知識を持つが、良い成果物には知識の整理と構造化が必要である</span>
+                  <span>D1-26</span>
+                </footer>
+              </section>
+        <section id="D1-27" class="slide generated-visual-diagram slide-visual diagram-d1-27" data-slide="D1-27" aria-labelledby="d1-27-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 4分</p>
+                  <h2 id="d1-27-title">制作物は、まず中身から考える</h2>
+                  <p class="statement">画像、資料、動画も、<br>最初に考えるべきは見た目ではなく中身である</p>
+                </header>
+                <figure class="diagram-canvas content-first-canvas" aria-label="制作物は、まず中身から考える">
+                  <div class="content-first">
+                    <div class="content-core">中身</div>
+                    <div class="content-question one">何を伝えるか</div>
+                    <div class="content-question two">どんな順番で<br>理解してほしいか</div>
+                    <div class="content-question three">何を根拠にするか</div>
+                    <div class="format-row" aria-hidden="true">
+                      <span>画像</span>
+                      <span>資料</span>
+                      <span>動画</span>
+                    </div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-27 制作物は、まず中身から考える
+
+        - 画像、資料、動画などの制作物は、まず見た目ではなく中身から考える。
+        - 中身は、何を伝えるか、どんな順番で理解してほしいか、何を根拠にするか。
+        - 中身を決めずに依頼すると、見た目は整っても伝わらない出力になりやすい。
+        - 「いい感じの資料」の前に、「何を理解してほしい資料か」を決める。
+
+        #### 台本ドラフト
+
+        画像、資料、動画のような制作物は、まず中身から考えます。
+
+        ここでいう中身とは、何を伝えるのかです。どんな主張なのか。どんな順番で理解してほしいのか。何を根拠にするのか。どこまで分かれば十分なのか。
+
+        たとえば資料であれば、最初に決めるべきなのはデザインではありません。誰に、何を、どの順番で理解してもらうかです。画像であれば、何を見せたいのか。動画であれば、何をどういう流れで伝えたいのかです。
+
+        ここを決めずに「いい感じの資料を作って」「かっこいい画像を作って」と頼むと、見た目は整うかもしれません。ただ、中身が弱い、伝えたいことと違う、判断材料が薄い、ということが起きます。
+
+        AIはそれらしい形を作るのが得意です。だからこそ、こちら側で中身を持っていないと、それらしさに引っ張られます。まずは中身を決めます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>画像、資料、動画も、最初に考えるべきは見た目ではなく中身である</span>
+                  <span>D1-27</span>
+                </footer>
+              </section>
+        <section id="D1-28" class="slide generated-visual-diagram slide-visual diagram-d1-28" data-slide="D1-28" aria-labelledby="d1-28-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-28-title">次に、フォーマットと合成を分ける</h2>
+                  <p class="statement">中身、フォーマット、合成を混ぜると、<br>それらしいだけの出力になりやすい</p>
+                </header>
+                <figure class="diagram-canvas generated-body-image-canvas" aria-label="中身、フォーマット、合成を分ける生成図解">
+                  <img src="../assets/generated/d1-28-format-composition.png" width="1983" height="793" alt="中身、フォーマット、合成を分ける図解。一発依頼では混ざりやすいことを示す">
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-28 次に、フォーマットと合成を分ける
+
+        - 中身の次に、フォーマットと合成を分ける。
+        - フォーマットは、画像、資料、動画、PowerPoint、Googleスライド、HTMLなどの形。
+        - 合成は、中身をその形へどう落とすか。配置、順番、見せ方、表現の問題。
+        - AIに一発で頼むと、中身、フォーマット、合成が混ざるため、詰めきれていない出力になりやすい。
+
+        #### 台本ドラフト
+
+        中身の次に、フォーマットと合成を分けます。
+
+        フォーマットは、どの形にするかです。画像なのか、スライドなのか、動画なのか。スライドならPowerPointなのか、Googleスライドなのか、HTMLなのか。動画なら尺、構成、字幕、カット割りがあります。
+
+        合成は、中身をそのフォーマットへどう落とすかです。どこに文字を置くのか。どの順番で見せるのか。どの表現なら伝わるのか。図にするのか、箇条書きにするのか、比較表にするのか。
+
+        AIに一発で頼むと、この3つが混ざります。中身も、フォーマットも、合成も、まとめてAIが推測します。だから何かは返ってきますが、それらしいけれど中身が弱い、見た目はあるけれど伝わらない、フォーマットに合っていない、ということが起きます。
+
+        良いものを作るには、中身、フォーマット、合成を分けて詰める必要があります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>中身、フォーマット、合成を混ぜると、それらしいだけの出力になりやすい</span>
+                  <span>D1-28</span>
+                </footer>
+              </section>
+        <section id="D1-29" class="slide generated-visual-diagram slide-visual diagram-d1-29" data-slide="D1-29" aria-labelledby="d1-29-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 4分</p>
+                  <h2 id="d1-29-title">開発は、AIが得意な分解の例</h2>
+                  <p class="statement">開発では、最終アウトプットと合格の定義を先に決める</p>
+                </header>
+                <figure class="diagram-canvas dev-plan-canvas" aria-label="開発は、AIが得意な分解の例">
+                  <div class="dev-plan">
+                    <div class="dev-plan-step">作りたいものを<br>整理する</div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="dev-plan-step output">最終アウトプットを<br>決める</div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="dev-plan-step test">合格の定義、<br>テストを先に作る</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-29 開発は、AIが得意な分解の例
+
+        - エンジニアの開発を、AIが最も得意な分解例として扱う。
+        - 開発では、作りたいものを大枠で整理し、最終アウトプットを決める。
+        - 次に合格の定義、つまりテストや確認基準を先に作る。
+        - AIが開発に強いのは、作るもの、入力、出力、合格条件が比較的はっきりしているから。
+        - この進め方は、画像、資料、動画、業務改善にも応用できる。
+
+        #### 台本ドラフト
+
+        ここで、AIが最も得意な例として、エンジニアの開発を見ます。
+
+        開発では、いきなり全部を作りません。まず、作りたいものを大枠できっちり整理します。何を作るのか。誰が使うのか。最終的に何が動けばよいのか。
+
+        そして、最終アウトプットを先に決めます。さらに、合格の定義を先に作ります。開発で言えばテストです。何ができればOKなのか。どう確認すれば合格なのかを先に決めます。
+
+        AIが開発に強いのは、この分解がしやすいからです。作るもの、入力、出力、合格条件、テストが比較的はっきりしています。
+
+        この時点ではまだ、全部を作っていません。まず何を作るのか、何を合格とするのかを決めています。次に、それを小さな作業に分けます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>開発では、最終アウトプットと合格の定義を先に決める</span>
+                  <span>D1-29</span>
+                </footer>
+              </section>
+        <section id="D1-30" class="slide generated-visual-diagram slide-visual diagram-d1-30" data-slide="D1-30" aria-labelledby="d1-30-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 4分</p>
+                  <h2 id="d1-30-title">開発は、小さく作って確認する</h2>
+                  <p class="statement">AIは、小さく作って確認できる作業ほど力を出しやすい</p>
+                </header>
+                <figure class="diagram-canvas dev-loop-canvas" aria-label="開発は、小さく作って確認する">
+                  <div class="dev-loop">
+                    <div class="loop-ring" aria-hidden="true"></div>
+                    <div class="loop-step split">実行単位に分ける</div>
+                    <div class="loop-step build">作って動かす</div>
+                    <div class="loop-step fix">確認して直す</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-30 開発は、小さく作って確認する
+
+        - 開発では、作業を画面、データ、処理、入力、出力、エラー、確認などに細分化する。
+        - 小さな単位で作り、実行し、確認し、直す。
+        - AIは、実行して確認できる単位ほど力を出しやすい。
+        - この「小さく作って確認する」型を、制作物や業務改善にも持ち込む。
+
+        #### 台本ドラフト
+
+        開発では、次に作業を細分化します。
+
+        画面、データ、処理、入力、出力、エラー、確認。こういう単位に分けます。全部を一気に作るのではなく、小さな単位で作ります。
+
+        作ったら、実行します。動かします。テストします。期待と違えば直します。もう一度確認します。
+
+        AIがこの進め方と相性がよいのは、作業単位が小さいからです。何を変えればよいか、何を見れば合格か、どこがズレたかが分かりやすい。
+
+        これは開発だけの話ではありません。画像、資料、動画、業務改善でも同じです。大きな依頼を一発で投げるのではなく、小さく作って確認するほど、AIは力を出しやすくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIは、小さく作って確認できる作業ほど力を出しやすい</span>
+                  <span>D1-30</span>
+                </footer>
+              </section>
+        <section id="D1-31" class="slide generated-visual-diagram slide-visual diagram-d1-31" data-slide="D1-31" aria-labelledby="d1-31-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 5分</p>
+                  <h2 id="d1-31-title">画像、資料、動画も同じです</h2>
+                  <p class="statement">画像、資料、動画も、<br>作業を落とし込むほどAIが協力しやすくなる</p>
+                </header>
+                <figure class="diagram-canvas production-transfer-canvas" aria-label="画像、資料、動画も同じです">
+                  <div class="production-transfer">
+                    <div class="transfer-stage">大枠を決める</div>
+                    <div class="transfer-stage split">中身、形式、<br>合成に分ける</div>
+                    <div class="transfer-stage finish">小さく作り、<br>確認しながら仕上げる</div>
+                    <div class="transfer-formats">
+                      <span>画像</span>
+                      <span>資料</span>
+                      <span>動画</span>
+                    </div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-31 画像、資料、動画も同じです
+
+        - 開発の進め方を、画像、資料、動画へ一般化する。
+        - まず作りたいものを大枠で整理し、次に中身とフォーマットを分け、作業を細分化する。
+        - 最終アウトプットと合格の定義を先に決め、小さな単位で作って確認する。
+        - 作業単位を小さく落とし込むほど、AIは協力しやすくなる。
+
+        #### 台本ドラフト
+
+        画像、資料、動画も、本来は同じように作っていく必要があります。
+
+        まず、作りたいものを大枠で整理します。誰に何を伝えたいのか。どんな印象を残したいのか。最終的にどんなアウトプットにしたいのか。
+
+        次に、細分化します。中身は何か。構成はどうするか。フォーマットは何か。画像なら構図、色、対象、質感。資料なら見出し、本文、図解、レイアウト。動画なら構成、台本、カット、字幕、音声。こういう単位に分けます。
+
+        そのうえで、最終アウトプットと合格の定義を先に決めます。何ができれば良いのか。どこを見てOKとするのか。誰にとって分かりやすければよいのか。
+
+        そこまで分けると、AIに頼む単位が小さくなります。まず構成案だけ出してもらう。次に見出しだけ詰める。次に図解のラフを作る。次に表現を直す。次にフォーマットへ落とす。
+
+        作業単位を小さく落とし込むほど、AIは強力になります。曖昧な大きな依頼ではなく、小さく分けた作業を一緒に進めるほど、AIは本当の意味で協力者になります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>画像、資料、動画も、作業を落とし込むほどAIが協力しやすくなる</span>
+                  <span>D1-31</span>
+                </footer>
+              </section>
+        <section id="D1-32" class="slide slide-chapter generated-chapter" data-slide="D1-32" aria-labelledby="d1-32-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-32-title">3. 目的が曖昧なまま<br>AIに聞かない</h2>
+                  <p class="chapter-question">問い: AIに聞く前に、<br>何を決めておくべきか</p>
+
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-32 3. 目的が曖昧なままAIに聞かない
+
+        - 自己診断、AI構造、知識と制作物の分解の話を受けて、ここから実践の型へ入る。
+        - 最初の実践テーマは「目的の曖昧さ」を見直すこと。
+        - AI活用の出発点を、ツールやプロンプトから目的へ移す章だと伝える。
+        - 「何を聞くか」ではなく「何を良くしたいか」から始める。
+        - ここでいきなりチェックリストに入らない。先に「なぜAIには前提が必要なのか」を置く。
+
+        #### 台本ドラフト
+
+        ここまでで、AIが何を知っていて、何を知らないのかを見ました。さらに、LLM、Agent、データ、人間の関係も整理しました。
+
+        そのうえで、画像、資料、動画のような制作物も、中身、フォーマット、合成に分ける必要があると見ました。AIに一発で頼むのではなく、作りたいもの、材料、合格条件を分けて考えるという話です。
+
+        ここからは、その考え方を日々のAI依頼に戻します。最初に整えるのは目的です。何を聞くかではなく、何を良くしたいのか。ここが曖昧なままだと、AIはそれらしい答えを返してくれますが、仕事に使える形にはなりにくいです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIに任せる前に目的と条件を決める</span>
+                  <span>D1-32</span>
+                </footer>
+              </section>
+        <section id="D1-33" class="slide generated-visual-diagram slide-visual diagram-d1-33" data-slide="D1-33" aria-labelledby="d1-33-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-33-title">AIは、神ではありません</h2>
+                  <p class="statement">AIは神ではなく、指示と文脈に沿って返す道具である</p>
+                </header>
+                <figure class="diagram-canvas ai-tool-canvas" aria-label="AIは、神ではありません">
+                  <div class="ai-tool-flow">
+                    <div class="tool-input">言われたことに<br>沿って返す</div>
+                    <div class="tool-context">持っている知識と<br>文脈で補う</div>
+                    <div class="tool-warning">足りない前提は<br>推測する</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-33 AIは、神ではありません
+
+        - この講座の重要な前提として、AIを万能の相談相手や正解を出す存在として扱わない。
+        - AIは、言われたこと、渡された文脈、持っている知識やパターンをもとに、もっともらしい返答を作る道具だと説明する。
+        - 指示が曖昧でも何かは返してくれる。ただし、その返答は目的に合っているとは限らない。
+        - 足りない前提はAIが推測で埋めるため、仕事で使うとズレや一般論になりやすい。
+
+        #### 台本ドラフト
+
+        ここでもう一度、AIという道具の前提を置きます。AIは神ではありません。
+
+        AIは、言われたこと、渡された文脈、持っている知識やパターンをもとに、それらしい返答を作る道具です。すごく便利ですが、正解を保証する存在ではありません。
+
+        重要なのは、指示が曖昧でも何かは返してくれることです。これは便利でもありますが、危険でもあります。何かを返してくれるので、正しく見えてしまう。でも、その返答が自分の目的に合っているとは限りません。
+
+        たとえば、新人に「いい感じで会議資料を作って」とだけ頼んだとします。新人は頑張って資料を作るかもしれません。でも、会議の目的、参加者、決めたいこと、避けたい話題を伝えていなければ、こちらが欲しかった資料とはズレます。AIも同じです。何かは返してくれるけれど、前提を渡していないものは推測で埋めます。
+
+        足りない前提はAIが推測で埋めます。だから、仕事で使うときにはズレや一般論が出ます。このズレを減らすために、次に前提を決めます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIは神ではなく、指示と文脈に沿って返す道具である</span>
+                  <span>D1-33</span>
+                </footer>
+              </section>
+        <section id="D1-34" class="slide generated-visual-diagram slide-visual diagram-d1-34" data-slide="D1-34" aria-labelledby="d1-34-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-34-title">だから、先に前提を決める</h2>
+                  <p class="statement">AIに任せる前に、人間が目的と条件を渡す必要がある</p>
+                </header>
+                <figure class="diagram-canvas premise-canvas" aria-label="だから、先に前提を決める">
+                  <div class="premise-grid">
+                    <div class="premise-item">目的が曖昧なら、<br>答えも曖昧になる</div>
+                    <div class="premise-item">読み手が不明なら、<br>一般論になりやすい</div>
+                    <div class="premise-item">完成ラインがないと、<br>直し方も決まらない</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-34 だから、先に前提を決める
+
+        - 前提整理は、きれいなプロンプトを書くためではなく、AIの推測を減らすために行う。
+        - 目的、成果物、読み手、制約、完成ラインは、AIにとっての判断材料になる。
+        - ここを先に決めるから、出力がズレた時にも「何に照らして直すか」が分かる。
+        - 以降のD1-35、D1-36は、この考え方を具体的なチェック項目に落としたものとして扱う。
+
+        #### 台本ドラフト
+
+        前提整理は、きれいなプロンプトを書くためだけにやるものではありません。AIの推測を減らすためにやります。
+
+        目的、成果物、読み手、制約、完成ライン。これらは、AIにとっての判断材料です。人間がここを持たないままAIに聞くと、AIは一般的な答えを返します。
+
+        逆に、ここを先に決めておくと、出力がズレたときにも直しやすくなります。目的と違う。読み手に合っていない。制約を守っていない。完成ラインに届いていない。そうやって判断できます。
+
+        これから見るD1-35とD1-36は、この考え方を具体的なチェック項目にしたものです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIに任せる前に、人間が目的と条件を渡す必要がある</span>
+                  <span>D1-34</span>
+                </footer>
+              </section>
+        <section id="D1-35" class="slide generated-visual-diagram slide-visual diagram-d1-35" data-slide="D1-35" aria-labelledby="d1-35-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-35-title">依頼前に決めること</h2>
+                  <p class="statement">まず、何のために何を作るかを決める</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="依頼前に決めること">
+                  <div class="diagram-inputs-to-output">
+                    <div class="input-cluster"><div class="diagram-node input"><span>目的</span></div><div class="diagram-node input"><span>成果物</span></div><div class="diagram-node input"><span>読み手、<br>使い手</span></div></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node output"><span>AIへの依頼</span><small>何のために何を作るか</small></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-35 依頼前に決めること
+
+        - 5項目は講座全体で繰り返し使うチェックリストとして扱う。
+        - まずは目的、成果物、読み手の3つに絞る。
+        - ここが曖昧だと、この後の制約や完成ラインも決めにくい。
+
+        #### 台本ドラフト
+
+        まず決めるのは、目的、成果物、読み手です。
+
+        目的は「何を良くしたいのか」です。成果物は「何が手元にできればよいのか」です。文章なのか、表なのか、チェックリストなのか、手順なのか。読み手は「誰が使うのか、誰に向けたものなのか」です。
+
+        この3つが曖昧なままだと、AIに何を頼むかも曖昧になります。逆にここが決まると、AIに頼む内容も、出てきたものを見る基準もかなりはっきりします。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>まず、何のために何を作るかを決める</span>
+                  <span>D1-35</span>
+                </footer>
+              </section>
+        <section id="D1-36" class="slide generated-visual-diagram slide-visual diagram-d1-36" data-slide="D1-36" aria-labelledby="d1-36-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 3分</p>
+                  <h2 id="d1-36-title">依頼前にそろえる条件</h2>
+                  <p class="statement">制約と完成ラインがあると、依頼とレビューが近づく</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="依頼前にそろえる条件">
+                  <div class="diagram-gate">
+                    <div class="diagram-node gate-part"><span>制約</span></div>
+                    <div class="gate-symbol">+</div>
+                    <div class="diagram-node gate-part"><span>完成ライン</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node gate-result"><span>依頼とレビューが近づく</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-36 依頼前にそろえる条件
+
+        - 完成ラインは「満点」ではなく「今回はここまででよい」という境界。
+        - 制約には時間、情報量、相手、表現、使ってはいけない情報などを含める。
+        - 制約と完成ラインは、依頼文だけでなくレビュー基準にもそのまま使う。
+
+        #### 台本ドラフト
+
+        次に、制約と完成ラインをそろえます。
+
+        制約とは、守らないといけない条件です。時間、文字数、相手、表現、使ってはいけない情報、社内ルールなどがあります。AIはこうした制約を最初から知りません。だから渡す必要があります。
+
+        完成ラインは、満点の定義ではありません。「今回はここまでできればよい」という境界です。たとえば、最終版まで作るのか、たたき台でよいのか、確認観点が出ればよいのか。ここを決めると、AIの出力を見たときに、十分かどうかを判断できます。
+
+        制約と完成ラインは、依頼文に入れるだけでなく、レビュー基準にもなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>制約と完成ラインがあると、依頼とレビューが近づく</span>
+                  <span>D1-36</span>
+                </footer>
+              </section>
+        <section id="D1-37" class="slide slide-work generated-work" data-slide="D1-37" aria-labelledby="d1-37-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-03 / 12分</p>
+                  <h2 id="d1-37-title">ワーク: AIを使う目的を1つ選ぶ</h2>
+                  <p class="statement">目的を短く書くと、依頼とレビューがそろう</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>AIに聞く前の前提を整える</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>8分記入、4分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>今回AIで良くしたい作業は何か</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-37 ワーク: AIを使う目的を1つ選ぶ
+
+        - 目的は一文で書かせる。長くなったら「何を良くしたいか」へ戻す。
+        - 成果物は、文章、表、アイデア、チェックリスト、手順など具体名にする。
+        - 共有では、目的と成果物がずれていないかを軽く確認する。
+
+        #### 台本ドラフト
+
+        ここで一度、自分の作業に戻します。
+
+        今回AIで良くしたい作業を1つ選んでください。大きすぎなくて大丈夫です。むしろ小さめの方がよいです。メール文を整える、提案準備をする、情報を整理する、チェックリストを作る、そういう粒度で構いません。
+
+        書くときは、まず目的を一文で書きます。長くなったら、「結局何を良くしたいのか」に戻してください。次に、成果物を書きます。文章、表、アイデア、手順、チェックリストなど、できるだけ具体名にします。
+
+        このワークでは、完璧な依頼文を作ることが目的ではありません。AIに聞く前の前提を、人間側で持てるようにすることが目的です。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>目的を短く書くと、依頼とレビューがそろう</span>
+                  <span>D1-37</span>
+                </footer>
+              </section>
+        <section id="D1-38" class="slide slide-chapter generated-chapter" data-slide="D1-38" aria-labelledby="d1-38-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-38-title">4. AIに任せる作業と人間が持つ判断</h2>
+                  <p class="chapter-question">問い: AIに任せてよいこと、人間が持つことは何か</p>
+                  <p class="chapter-time">20分</p>
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-38 4. AIに任せる作業と人間が持つ判断
+
+        - AIに任せる範囲を広げすぎると、責任や品質基準まで曖昧になると導入する。
+
+        #### 台本ドラフト
+
+        ここからは、AIに任せる作業と、人間が持つ判断を分けます。
+
+        AIを使い始めると、便利なので「これも任せられるのではないか」と範囲を広げたくなります。それ自体は悪いことではありません。ただ、任せる範囲を広げすぎると、責任や品質基準まで曖昧になります。
+
+        大事なのは、AIに任せることを増やすことではなく、何を任せて、何を自分が持つのかを分けることです。AIは下書きや整理には強いです。一方で、何を達成したいのか、相手にどう影響するのか、会社として言ってよいのかは、人間が持つ必要があります。
+
+        この章では、AIに任せやすい作業、人間が持つ判断、一緒に確認する領域を分けて見ていきます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIと人間の役割を分ける</span>
+                  <span>D1-38</span>
+                </footer>
+              </section>
+        <section id="D1-39" class="slide generated-standard" data-slide="D1-39" aria-labelledby="d1-39-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 4分</p>
+                  <h2 id="d1-39-title">AIに任せやすい作業</h2>
+                  <p class="statement">AIには、素材を作る作業から任せる</p>
+                </header>
+                <figure class="diagram-canvas role-diagram role-ai-lane" aria-label="AIに任せやすい作業">
+                  <div class="role-lane-label">AIに渡す<br>素材作り</div>
+                  <div class="role-task-track">
+                    <div><span>整理</span><strong>散らかったメモを並べる</strong></div>
+                    <div><span>比較</span><strong>選択肢と違いを出す</strong></div>
+                    <div><span>下書き</span><strong>最初のたたき台を作る</strong></div>
+                  </div>
+                  <div class="role-lane-output">人間が考える材料へ</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-39 AIに任せやすい作業
+
+        - ここではAIに任せやすい作業だけを扱う。
+        - 整理、比較、下書きは、AIの得意領域として理解しやすい。
+        - 変換や試作も補足で触れてよいが、スライド上には載せすぎない。
+        - ポイントは「まず素材作りから任せる」と伝えること。
+
+        #### 台本ドラフト
+
+        まず、AIに任せやすい作業から見ます。
+
+        AIに任せやすいのは、整理する、比較する、下書きする、といった作業です。たとえば、メモを整理する。複数案を比較する。メールや提案文のたたき台を作る。こういう作業は、AIの得意領域です。
+
+        ここでのポイントは、最初から最終判断まで任せないことです。まず素材作りから任せます。人間が考えるための材料を作ってもらう。選択肢を出してもらう。たたき台を作ってもらう。そのくらいの位置づけにすると、AIはかなり使いやすくなります。
+
+        たとえば、「この顧客に送る最終提案を作って」ではなく、「この顧客向けの提案文の下書きを3案出して」「比較観点を整理して」と頼む方が扱いやすいです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIには、素材を作る作業から任せる</span>
+                  <span>D1-39</span>
+                </footer>
+              </section>
+        <section id="D1-40" class="slide generated-standard" data-slide="D1-40" aria-labelledby="d1-40-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 4分</p>
+                  <h2 id="d1-40-title">人間が持つ判断</h2>
+                  <p class="statement">目的、文脈、品質基準は人間が持つ</p>
+                </header>
+                <figure class="diagram-canvas role-diagram human-decision-gate" aria-label="人間が持つ判断">
+                  <div class="decision-core">人間が<br>持つ判断</div>
+                  <div class="decision-spokes">
+                    <div><span>目的</span><strong>何を達成したいか</strong></div>
+                    <div><span>文脈</span><strong>どの場面で使うか</strong></div>
+                    <div><span>品質</span><strong>どこまでを良しとするか</strong></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-40 人間が持つ判断
+
+        - 次に、人間が手放してはいけない判断を扱う。
+        - 目的、文脈、品質基準はAIが最初から持っていない。
+        - AIの出力がそれらしく見えても、何を達成したいか、どの文脈で使うか、どこまで良しとするかは人間が決める。
+
+        #### 台本ドラフト
+
+        次に、人間が持つ判断です。
+
+        AIの出力は、それらしく見えることがあります。文章として自然だったり、構成が整っていたり、もっともらしい提案に見えたりします。ただ、それが本当に目的に合っているかは別です。
+
+        何を達成したいのか。どの文脈で使うのか。どこまでを良しとするのか。ここは人間が持つ必要があります。
+
+        たとえば、顧客向けの提案文であれば、AIは文章を整えられます。でも、今回の提案で何を通したいのか、相手との関係上どこまで踏み込んでよいのか、会社として言ってはいけないことは何か。これは人間側の判断です。
+
+        AIに任せる部分が増えても、目的、文脈、品質基準は手放さない。これが実務でAIを使うときの前提です。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>目的、文脈、品質基準は人間が持つ</span>
+                  <span>D1-40</span>
+                </footer>
+              </section>
+        <section id="D1-41" class="slide generated-standard" data-slide="D1-41" aria-labelledby="d1-41-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 4分</p>
+                  <h2 id="d1-41-title">一緒に確認する領域</h2>
+                  <p class="statement">事実、制約、顧客影響は必ず人間が見る</p>
+                </header>
+                <figure class="diagram-canvas role-diagram shared-check-board" aria-label="一緒に確認する領域">
+                  <div class="check-output">AIの出力</div>
+                  <div class="check-board-line" aria-hidden="true"></div>
+                  <div class="checkpoints">
+                    <div><span>事実</span><strong>正しいか</strong></div>
+                    <div><span>制約</span><strong>守っているか</strong></div>
+                    <div><span>影響</span><strong>相手に影響がないか</strong></div>
+                  </div>
+                  <div class="check-result">人間が<br>最終確認</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-41 一緒に確認する領域
+
+        - ここではAIと人間の共同作業として見る領域を扱う。
+        - 事実、制約、顧客影響は、AIに出してもらうことはできても、任せきりにしない。
+        - 特に実務では、事実誤認、言ってはいけないこと、相手への影響が大きな事故になりやすい。
+
+        #### 台本ドラフト
+
+        AIに任せる、あるいは人間が持つ、という二択だけではなく、一緒に確認する領域もあります。
+
+        代表的なのは、事実、制約、顧客影響です。AIに事実確認の観点を出してもらうことはできます。制約を守っているかをチェックしてもらうこともできます。相手にどう受け取られそうかを考えてもらうこともできます。
+
+        ただし、ここは任せきりにしません。実務で事故になりやすいのは、事実誤認、言ってはいけないこと、相手への影響です。
+
+        AIに確認を手伝ってもらうことは有効です。でも、最後に「これは事実として正しいか」「制約を守っているか」「相手に悪い影響がないか」を見るのは人間です。
+
+        この感覚を持っておくと、AIを怖がりすぎず、かといって丸投げもしない使い方ができます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>事実、制約、顧客影響は必ず人間が見る</span>
+                  <span>D1-41</span>
+                </footer>
+              </section>
+        <section id="D1-42" class="slide generated-standard generated-case slide-visual" data-slide="D1-42" aria-labelledby="d1-42-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 5分</p>
+                  <h2 id="d1-42-title">ケース: 提案文をAIに書かせる前に</h2>
+                  <p class="statement">同じAI出力でも、判断基準がなければ使えない</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="34" cy="34" r="16"></circle><path d="M14 78 C18 58 50 58 54 78"></path><rect x="58" y="24" width="24" height="38" rx="6"></rect><path d="M64 38 H76 M64 50 H72"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>状況: 提案文を作りたい</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>AIには下書きを頼む</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>判断は人間が持つ</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-42 ケース: 提案文をAIに書かせる前に
+
+        - 提案文は受講者に身近な例として使う。
+        - スライド上では細かい分類を繰り返さず、ケースの入口だけを置く。
+        - AIに下書きさせることは有効だが、相手との関係や言えない条件は人間が持つ、と口頭で補足する。
+        - 「AIに任せると楽になる部分」と「任せると危ない部分」を、前の3枚に戻しながら確認する。
+
+        #### 台本ドラフト
+
+        提案文の例で見てみます。
+
+        たとえば、顧客に送る提案文を作りたいとします。このとき、AIに下書きを頼むのはかなり有効です。構成案を出してもらう。表現を整えてもらう。複数パターンを出してもらう。ここは任せやすいです。
+
+        一方で、何を提案の中心にするのか、どこまで強く言うのか、過去の関係性から避けるべき表現は何か、社内でまだ確定していない条件を出してよいのか。ここは人間が持つ判断です。
+
+        さらに、出てきた文章の事実が正しいか、約束してはいけないことを書いていないか、相手に失礼な言い方になっていないかは、一緒に確認する領域です。
+
+        同じ提案文でも、AIに任せる部分、人間が判断する部分、一緒に確認する部分が混ざっています。だから、最初に分けておくことが大事です。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>同じAI出力でも、判断基準がなければ使えない</span>
+                  <span>D1-42</span>
+                </footer>
+              </section>
+        <section id="D1-43" class="slide slide-work generated-work" data-slide="D1-43" aria-labelledby="d1-43-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-04 / 7分</p>
+                  <h2 id="d1-43-title">ワーク: 任せる、判断する、確認する</h2>
+                  <p class="statement">作業を3分類すると、AIの使いどころが見える</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>自分の作業をAI活用の単位へ分ける</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>5分記入、2分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>AIに任せる部分、人間が判断する部分、確認が必要な部分はどこか</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-43 ワーク: 任せる、判断する、確認する
+
+        - 自分の作業を1つ選び、3分類で書かせる。
+        - きれいに分けられなくてよい。迷う部分こそ確認が必要な作業として扱う。
+        - 共有では、AIに任せる部分より、人間が判断する部分が明確になったかを見る。
+
+        #### 台本ドラフト
+
+        ここで、自分の作業に戻します。
+
+        対象にする作業を1つ選んでください。さっき目的整理で選んだ作業でもよいですし、別の身近な作業でも構いません。
+
+        その作業を、3つに分けます。AIに任せられそうな部分。自分が判断すべき部分。確認が必要な部分です。
+
+        きれいに分けられなくて大丈夫です。むしろ迷うところが大事です。迷う部分は、AIに任せきりにするのではなく、確認が必要な領域として扱います。
+
+        共有では、AIに任せる部分をたくさん出すことより、人間が持つべき判断が見えたかを大事にします。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>作業を3分類すると、AIの使いどころが見える</span>
+                  <span>D1-43</span>
+                </footer>
+              </section>
+        <section id="D1-44" class="slide slide-break generated-break" data-slide="D1-44" aria-labelledby="d1-44-title">
+                <div class="break-content">
+                  <p class="eyebrow">休憩 / 10分</p>
+                  <h2 id="d1-44-title">休憩</h2>
+                  <ul class="generated-list break-list">
+                    <li>10分後に再開します</li>
+                    <li>再開後は、自分の課題をAIに相談できる単位へ分けます</li>
+                  </ul>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-44 休憩
+
+        - 再開後は手を動かす時間が増えるため、ワークアプリやメモを開いておくよう促す。
+
+        #### 台本ドラフト
+
+        ここで休憩を入れます。
+
+        ここまでで、AIに任せる前の目的、前提、役割分担まで見てきました。再開後は、自分の課題をAIに相談しやすい単位へ分けていきます。
+
+        休憩中に、ワークアプリやメモを開いておいてください。再開後は、自分の困りごとを具体的に扱っていきます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>ここまでの前提を一度休ませる</span>
+                  <span>D1-44</span>
+                </footer>
+              </section>
+        <section id="D1-45" class="slide slide-chapter generated-chapter" data-slide="D1-45" aria-labelledby="d1-45-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-45-title">5. 大きな悩みをAIに相談できる単位へ分ける</h2>
+                  <p class="chapter-question">問い: その悩みは、どんな作業に分けられるか</p>
+                  <p class="chapter-time">45分</p>
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-45 5. 大きな悩みをAIに相談できる単位へ分ける
+
+        - ここからは受講者自身の課題を扱う。
+        - 大きな悩みをそのままAIに渡すのではなく、作業単位へ分ける。
+
+        #### 台本ドラフト
+
+        ここからは、自分の課題を扱います。
+
+        AIに相談するとき、大きな悩みをそのまま投げたくなることがあります。「売上を上げたい」「集客を改善したい」「業務を効率化したい」のような形です。
+
+        もちろん、それ自体は大事な悩みです。ただ、そのままAIに渡すには大きすぎます。AIは何かを返してくれますが、返ってくるのは一般論になりやすいです。
+
+        この章では、大きな悩みを、AIに相談できる作業単位へ分けます。分けることで、最初にAIへ頼む一手が見えるようにします。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>大きな悩みを作業単位へ分ける</span>
+                  <span>D1-45</span>
+                </footer>
+              </section>
+        <section id="D1-46" class="slide generated-visual-diagram slide-visual diagram-d1-46" data-slide="D1-46" aria-labelledby="d1-46-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-46-title">まず、情報を扱う作業に分ける</h2>
+                  <p class="statement">大きな悩みは、まず情報を扱う作業へ分ける</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="まず、情報を扱う作業に分ける">
+                  <div class="diagram-verb-flow">
+                    <div class="diagram-node verb"><span>調べる</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node verb"><span>整理する</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node verb"><span>考える</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-46 まず、情報を扱う作業に分ける
+
+        - 6つの動詞は厳密な分類ではなく、AIに頼みやすい単位へ分けるための道具。
+        - まずは、調べる、整理する、考えるの3つで、情報を扱う前半の作業を見る。
+        - 1つの悩みの中に、調査、分類、仮説づくりが混ざっていないか確認する。
+
+        #### 台本ドラフト
+
+        大きな悩みは、まず情報を扱う作業に分けます。
+
+        ここでは、調べる、整理する、考えるの3つで見ます。調べるは、必要な情報を集めることです。整理するは、集めた情報を分類したり、並べたり、見やすくすることです。考えるは、そこから仮説や方針を出すことです。
+
+        たとえば「顧客への提案を改善したい」という課題があったとします。この中には、過去の商談情報を調べる、顧客の課題を整理する、次に刺さりそうな提案を考える、という作業が混ざっています。
+
+        混ざったままだと、AIに何を頼めばよいか分かりにくくなります。まずは、情報を扱う作業に分けて見ます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>大きな悩みは、まず情報を扱う作業へ分ける</span>
+                  <span>D1-46</span>
+                </footer>
+              </section>
+        <section id="D1-47" class="slide generated-visual-diagram slide-visual diagram-d1-47" data-slide="D1-47" aria-labelledby="d1-47-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-47-title">次に、形にして直す作業に分ける</h2>
+                  <p class="statement">次に、作って確認し直す作業へ分ける</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="次に、形にして直す作業に分ける">
+                  <div class="artifact-iteration-layout">
+                    <div class="artifact-stage" aria-label="成果物の白紙キャンバス">
+                      <div class="artifact-toolbar"><span></span><span></span><span></span></div>
+                      <div class="artifact-blank-sheet">
+                        <span>白紙</span>
+                        <strong>まず形にする</strong>
+                      </div>
+                      <div class="artifact-output-strip">文章 / 表 / 資料 / チェックリスト</div>
+                    </div>
+                    <div class="artifact-steps">
+                      <article class="artifact-step make"><span>01</span><strong>作る</strong><p>頭の中の材料を、いったん見える形にする</p></article>
+                      <article class="artifact-step review"><span>02</span><strong>確認する</strong><p>目的、読み手、事実に照らして見る</p></article>
+                      <article class="artifact-step revise"><span>03</span><strong>直す</strong><p>ズレを見つけて、もう一度頼み直す</p></article>
+                    </div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-47 次に、形にして直す作業に分ける
+
+        - 次に、作る、確認する、直すの3つで、成果物化と改善の作業を見る。
+        - 1つの業務には複数の動詞が混ざっていることを説明する。
+        - 例: 提案準備は、調べる、整理する、考える、作る、確認する、直すが全部入る。
+
+        #### 台本ドラフト
+
+        次に、形にして直す作業に分けます。
+
+        ここでは、作る、確認する、直すの3つです。作るは、文章、表、資料、チェックリストなどの形にすることです。確認するは、目的や制約に合っているかを見ることです。直すは、ズレた部分を修正することです。
+
+        提案準備を例にすると、提案文を作る、事実や表現を確認する、相手に合わせて直す、という作業があります。
+
+        つまり、1つの業務には、調べる、整理する、考える、作る、確認する、直すが混ざっています。AIに頼むときは、このうちどの作業を頼むのかを分けると、依頼が具体になります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>次に、作って確認し直す作業へ分ける</span>
+                  <span>D1-47</span>
+                </footer>
+              </section>
+        <section id="D1-48" class="slide generated-standard generated-case slide-visual" data-slide="D1-48" aria-labelledby="d1-48-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 4分</p>
+                  <h2 id="d1-48-title">「売上を上げたい」をそのまま投げない</h2>
+                  <p class="statement">抽象的な悩みをそのまま投げると、一般論が返りやすい</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="34" cy="34" r="16"></circle><path d="M14 78 C18 58 50 58 54 78"></path><rect x="58" y="24" width="24" height="38" rx="6"></rect><path d="M64 38 H76 M64 50 H72"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>依頼が大きすぎる</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>作業が混ざっている</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>返ってくる答えが一般論になる</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-48 「売上を上げたい」をそのまま投げない
+
+        - 抽象的な悩みをそのまま投げると、一般論が返りやすい。
+        - 「売上を上げたい」は悪い問いではないが、そのままAIに投げるには大きすぎる。
+        - ここでは、作業が混ざっているとAIの答えもぼやけることを伝える。
+
+        #### 台本ドラフト
+
+        分かりやすい例として、「売上を上げたい」を考えます。
+
+        これは悪い悩みではありません。むしろ仕事ではとても自然な悩みです。ただ、そのままAIに投げるには大きすぎます。
+
+        「売上を上げる方法を教えて」と聞くと、AIはたくさん答えてくれます。新規顧客を増やす、既存顧客に追加提案する、価格を見直す、広告を改善する。どれも間違いではありません。
+
+        でも、それだけでは自分の仕事には戻しにくいです。なぜなら、調べる、整理する、考える、作る、確認する、直すが全部混ざっているからです。
+
+        作業が混ざっていると、AIの答えもぼやけます。だから、次のスライドで具体的に分けます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>抽象的な悩みをそのまま投げると、一般論が返りやすい</span>
+                  <span>D1-48</span>
+                </footer>
+              </section>
+        <section id="D1-49" class="slide generated-standard generated-case slide-visual" data-slide="D1-49" aria-labelledby="d1-49-title">
+                <header class="slide-header">
+                  <p class="eyebrow">ケース / 4分</p>
+                  <h2 id="d1-49-title">分けると、最初の一手が見える</h2>
+                  <p class="statement">作業に分けると、AIに相談する入口が見える</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="34" cy="34" r="16"></circle><path d="M14 78 C18 58 50 58 54 78"></path><rect x="58" y="24" width="24" height="38" rx="6"></rect><path d="M64 38 H76 M64 50 H72"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>顧客を整理する</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>課題を仮説化する</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>提案文を作る</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-49 分けると、最初の一手が見える
+
+        - 分解すると、顧客リスト整理、失注理由の仮説化、提案文作成など、具体的な依頼になる。
+        - 重要なのは、全部を一気に解かせるのではなく、最初に扱う一手を決めること。
+        - この後のワークでは、自分の困りごとを同じように作業単位へ分ける。
+
+        #### 台本ドラフト
+
+        「売上を上げたい」を分けると、最初の一手が見えてきます。
+
+        たとえば、顧客リストを整理する。失注理由を仮説化する。既存顧客への追加提案を考える。提案文の下書きを作る。商談後の振り返り項目を作る。
+
+        こうなると、AIに頼む内容がかなり具体的になります。「売上を上げる方法を教えて」ではなく、「過去の顧客メモをもとに、追加提案できそうな顧客を分類して」「失注理由の仮説を3つ出して」のように頼めます。
+
+        全部を一気に解かせる必要はありません。最初に扱う一手を決めることが大事です。この後のワークでは、自分の困りごとを同じように分けていきます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>作業に分けると、AIに相談する入口が見える</span>
+                  <span>D1-49</span>
+                </footer>
+              </section>
+        <section id="D1-50" class="slide slide-work generated-work" data-slide="D1-50" aria-labelledby="d1-50-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-05 / 20分</p>
+                  <h2 id="d1-50-title">ワーク: 業務課題を作業単位へ分ける</h2>
+                  <p class="statement">困りごとを分けるほど、AIへの相談が具体になる</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>自分の課題をAIに渡せる粒度にする</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>15分記入、5分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>困りごとは、調べる、整理する、考える、作る、確認する、直すのどこに分けられるか</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-50 ワーク: 業務課題を作業単位へ分ける
+
+        - 課題は副業、学習、本業、家事的な事務作業でもよい。
+        - 分解に迷ったら、普段の作業手順を時系列で書かせる。
+        - AIに任せやすい作業には印を付ける。
+
+        #### 台本ドラフト
+
+        ここで、自分の課題を分解します。
+
+        扱う課題は、本業でも、副業でも、学習でも構いません。家事的な事務作業でも大丈夫です。大事なのは、自分が実際に困っていることを選ぶことです。
+
+        まず、その課題を普段どんな手順でやっているかを書いてください。そこから、調べる、整理する、考える、作る、確認する、直すに分けます。
+
+        分けるのが難しい場合は、時系列で書いてください。最初に何を見て、次に何を考えて、最後に何を作るのか。その流れが出れば、あとから6つの動詞に分けられます。
+
+        最後に、AIに任せやすそうな作業に印を付けます。今日の時点では、完璧に分ける必要はありません。AIに相談できそうな入口を1つ見つけることが目的です。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>困りごとを分けるほど、AIへの相談が具体になる</span>
+                  <span>D1-50</span>
+                </footer>
+              </section>
+        <section id="D1-51" class="slide generated-standard generated-summary" data-slide="D1-51" aria-labelledby="d1-51-title">
+                <header class="slide-header">
+                  <p class="eyebrow">共有 / 6分</p>
+                  <h2 id="d1-51-title">共有: どこまで分けると相談しやすいか</h2>
+                  <p class="statement">他の人の分け方を見ると、自分の課題も見直せる</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>1つの課題を短く共有する</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>AIに任せやすそうな単位を1つ選ぶ</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>まだ大きすぎる部分を見つける</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-51 共有: どこまで分けると相談しやすいか
+
+        - 共有では「どの粒度ならAIに頼めそうか」を中心に聞く。
+        - 大きすぎる課題は、講師が1つだけ小さく切る例を見せる。
+
+        #### 台本ドラフト
+
+        分解できたら、少し共有します。
+
+        共有では、課題全体を長く説明する必要はありません。どの作業単位ならAIに頼めそうかを中心に話してください。
+
+        たとえば、「顧客提案を改善したい」という大きな課題なら、「まずは過去の商談メモを整理するところならAIに頼めそうです」という形で十分です。
+
+        もしまだ大きすぎる場合は、その場でさらに小さく切ります。大事なのは、最初にAIへ相談する一手が見えることです。他の人の分け方を見ると、自分の課題も見直しやすくなります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>他の人の分け方を見ると、自分の課題も見直せる</span>
+                  <span>D1-51</span>
+                </footer>
+              </section>
+        <section id="D1-52" class="slide slide-chapter generated-chapter" data-slide="D1-52" aria-labelledby="d1-52-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-52-title">6. AIが知らない自分の文脈を渡す</h2>
+                  <p class="chapter-question">問い: AIのズレは、何を知らないことで起きるか</p>
+                  <p class="chapter-time">40分</p>
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-52 6. AIが知らない自分の文脈を渡す
+
+        - AIの出力がズレる理由を、AIの能力不足だけにしない。
+        - 人間が頭の中で持っている情報を、AIは最初から知らないと伝える。
+
+        #### 台本ドラフト
+
+        ここからは、AIに渡す文脈の話に入ります。
+
+        AIの出力がズレるとき、つい「AIがまだ弱い」と考えたくなります。もちろんAI側の限界もあります。ただ、実務ではそれだけではありません。AIが知らない情報を渡していないからズレている、ということがかなり多いです。
+
+        ここでは、自分の頭の中にある前提を外に出して、AIに渡せる形にしていきます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIが知らない文脈を渡す</span>
+                  <span>D1-52</span>
+                </footer>
+              </section>
+        <section id="D1-53" class="slide generated-standard" data-slide="D1-53" aria-labelledby="d1-53-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 6分</p>
+                  <h2 id="d1-53-title">AIは、あなたの現場を最初から知りません</h2>
+                  <p class="statement">AIの回答がズレる理由は、能力不足だけではない</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="32"></circle><path d="M34 50 H62 M50 34 C66 48 66 58 50 66 M46 34 C30 48 30 58 46 66"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>過去の経緯を知らない</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>相手との関係を<br>知らない</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>細かな制約や<br>避けたい方向を知らない</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-53 AIは、あなたの現場を最初から知りません
+
+        - AIは一般知識は豊富でも、受講者の案件の細部、相手との関係、過去のやり取りを知らない。
+        - 「説明しなくても分かるはず」をAIに期待しない。
+        - 個別情報を渡すことは、プロンプトを長くすることではなく、判断材料を渡すこと。
+
+        #### 台本ドラフト
+
+        AIは一般知識は豊富です。でも、あなたの現場は知りません。
+
+        たとえば、相手との関係性、過去のやり取り、社内で避けたい表現、過去に失敗した提案、顧客が気にしているポイント。こうした情報は、あなたの頭の中やチームの中にはあります。でもAIは最初から知りません。
+
+        だから、「説明しなくても分かるはず」と期待しないことが大事です。文脈を渡すことは、プロンプトを長くすることではありません。AIが判断するための材料を渡すことです。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIの回答がズレる理由は、能力不足だけではない</span>
+                  <span>D1-53</span>
+                </footer>
+              </section>
+        <section id="D1-54" class="slide generated-visual-diagram slide-visual diagram-d1-54" data-slide="D1-54" aria-labelledby="d1-54-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-54-title">AIに渡す基本文脈</h2>
+                  <p class="statement">背景、対象者、制約を渡すと、出力の前提がそろう</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="AIに渡す基本文脈">
+                  <div class="diagram-context-pack">
+                    <div class="context-card">AIに渡す文脈</div>
+                    <div class="context-tabs"><span class="diagram-pill ">背景</span><span class="diagram-pill ">対象者</span><span class="diagram-pill ">制約</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-54 AIに渡す基本文脈
+
+        - 背景、対象者、制約は、AIが回答の前提を合わせるための情報。
+        - 長く書くより、判断に効く情報を短く渡すことを意識させる。
+        - 個人情報や機密情報を渡す場合の注意は、必要に応じて一般論に置き換える。
+
+        #### 台本ドラフト
+
+        まず渡す文脈は、背景、対象者、制約です。
+
+        背景は、なぜそれをやるのか、今どういう状況なのかです。対象者は、誰に向けた出力なのかです。制約は、守るべき条件です。
+
+        ここで大事なのは、長く書けばよいわけではないということです。判断に効く情報を渡します。個人情報や機密情報をそのまま渡す必要はありません。必要に応じて一般化したり、サンプル化したりします。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>背景、対象者、制約を渡すと、出力の前提がそろう</span>
+                  <span>D1-54</span>
+                </footer>
+              </section>
+        <section id="D1-55" class="slide generated-visual-diagram slide-visual diagram-d1-55" data-slide="D1-55" aria-labelledby="d1-55-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-55-title">AIに渡す判断文脈</h2>
+                  <p class="statement">判断基準と避けたい方向を渡すと、ズレを減らせる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="AIに渡す判断文脈">
+                  <div class="diagram-guardrails">
+                    <div class="diagram-node rail good"><span>判断基準</span></div>
+                    <div class="guard-output">ズレを減らす</div>
+                    <div class="diagram-node rail avoid"><span>望まない方向</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-55 AIに渡す判断文脈
+
+        - 判断基準と望まない方向は、AIの出力を実務に寄せるための情報。
+        - 特に「望まない方向」は出力のズレを減らすのに有効。
+        - ここで渡した基準は、後のレビューにもそのまま使える。
+
+        #### 台本ドラフト
+
+        次に、判断基準と望まない方向を渡します。
+
+        判断基準は、「何を良いとするか」です。読みやすさなのか、正確さなのか、相手への配慮なのか、次の行動につながることなのか。これを渡すと、AIの出力はかなり実務に近づきます。
+
+        もう1つ大事なのが、望まない方向です。こういう表現は避けたい。こういう結論には寄せたくない。こういう前提では話したくない。これを伝えると、ズレを減らせます。
+
+        ここで渡した判断基準は、後で出力をレビューするときにもそのまま使います。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>判断基準と避けたい方向を渡すと、ズレを減らせる</span>
+                  <span>D1-55</span>
+                </footer>
+              </section>
+        <section id="D1-56" class="slide generated-standard generated-case slide-visual" data-slide="D1-56" aria-labelledby="d1-56-title">
+                <header class="slide-header">
+                  <p class="eyebrow">実演 / 10分</p>
+                  <h2 id="d1-56-title">実演: 文脈を足す前と後を比べる</h2>
+                  <p class="statement">同じ依頼でも、渡す情報で出力は変わる</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="14" y="18" width="68" height="48" rx="6"></rect><path d="M28 78 H68 M40 66 V78 M56 66 V78"></path><path d="M30 36 H64 M30 50 H54"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>依頼だけの<br>出力を見る</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>背景と制約を<br>足す</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>目的に近づいた点、<br>まだ足りない点を見る</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-56 実演: 文脈を足す前と後を比べる
+
+        - まず短い依頼だけでAI出力を見せる。
+        - 次に背景と制約を足した依頼を見せる。
+        - 出力の良し悪しではなく、何が変わったかを受講者に見てもらう。
+
+        #### 台本ドラフト
+
+        ここでは、文脈を足す前と後を比べます。
+
+        まず、短い依頼だけでAIに出してみます。たとえば、「顧客向けの提案文を作ってください」のような依頼です。AIはそれなりに文章を作ってくれます。ただ、多くの場合、一般的で、誰にでも当てはまるような内容になります。
+
+        次に、背景、対象者、制約、判断基準を足します。たとえば、相手が既存顧客であること、過去に価格面で懸念があったこと、今回は追加提案ではなく継続利用の不安を減らしたいこと、強い売り込み表現は避けたいことを渡します。
+
+        すると、同じ「提案文を作って」でも、出てくる内容が変わります。
+
+        ここで見てほしいのは、どちらが完璧かではありません。渡す情報が変わると、AIの出力がどう変わるかです。AIの能力だけでなく、こちらが渡す文脈が出力を左右します。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>同じ依頼でも、渡す情報で出力は変わる</span>
+                  <span>D1-56</span>
+                </footer>
+              </section>
+        <section id="D1-57" class="slide slide-work generated-work" data-slide="D1-57" aria-labelledby="d1-57-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-06 / 12分</p>
+                  <h2 id="d1-57-title">ワーク: AIに渡す文脈を書き出す</h2>
+                  <p class="statement">自分の頭の中の前提を外に出す</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>AIのズレを減らす前提情報を作る</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>9分記入、3分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>AIが知らない背景、制約、判断基準は何か</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-57 ワーク: AIに渡す文脈を書き出す
+
+        - D1-50で選んだ課題を使って書かせる。
+        - 書けない場合は、過去の経緯、相手、使ってはいけない表現から始める。
+        - 共有では「AIが知らない情報」が出せたかを確認する。
+
+        #### 台本ドラフト
+
+        ここで、自分の課題に対してAIに渡す文脈を書き出します。
+
+        D1-50で分解した課題を使ってください。AIに相談したい作業を1つ選び、その作業について、AIが知らない情報を書きます。
+
+        まず背景です。なぜその作業が必要なのか、今どういう状況なのかを書きます。次に対象者です。誰に向けた出力なのか、誰が使うのかを書きます。次に制約です。守るべき条件、避けたい表現、使ってはいけない情報を書きます。
+
+        最後に、判断基準と望まない方向を書きます。何を良い出力とするのか。どんな方向に寄ってほしくないのか。
+
+        書けない場合は、過去の経緯、相手との関係、言ってはいけないことから始めてください。自分にとって当たり前の情報ほど、AIは知りません。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>自分の頭の中の前提を外に出す</span>
+                  <span>D1-57</span>
+                </footer>
+              </section>
+        <section id="D1-58" class="slide slide-chapter generated-chapter" data-slide="D1-58" aria-labelledby="d1-58-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-58-title">7. 出てきた答えをそのまま使わない</h2>
+                  <p class="chapter-question">問い: 出力を何に照らして直すか</p>
+                  <p class="chapter-time">40分</p>
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-58 7. 出てきた答えをそのまま使わない
+
+        - 出力をそのまま使わないことは、AIを疑うというより、仕事に合わせるという意味で説明する。
+
+        #### 台本ドラフト
+
+        ここからは、出てきた答えをどう扱うかに入ります。
+
+        AIの出力をそのまま使わない、という話をします。ただし、これはAIを疑ってかかるという意味ではありません。AIの出力を、自分の仕事に合わせて直すという意味です。
+
+        AIが出したものは、たたき台としては十分使えることがあります。でも、実務で使うには、目的、読み手、制約、事実、次の行動に照らして見る必要があります。
+
+        この章では、AI出力を完成品としてではなく、素材として扱う練習をします。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AI出力を素材として扱う</span>
+                  <span>D1-58</span>
+                </footer>
+              </section>
+        <section id="D1-59" class="slide generated-standard" data-slide="D1-59" aria-labelledby="d1-59-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 6分</p>
+                  <h2 id="d1-59-title">AIの答えは、最終成果物ではありません</h2>
+                  <p class="statement">AIの出力は完成品ではなく素材である</p>
+                </header>
+                <figure class="diagram-canvas generated-image-stage generated-image-material" aria-label="AIの答えは、最終成果物ではありません">
+                  <img src="../assets/generated/d1-59-output-material.png" width="2172" height="724" alt="AI出力の素材を作業台で並べ、レビューし、使える成果物へ整えていく図">
+                  <div class="generated-image-labels labels-bottom labels-material">
+                    <span>たたき台として見る</span>
+                    <span>目的に合うかを見る</span>
+                    <span>制約と品質基準で直す</span>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-59 AIの答えは、最終成果物ではありません
+
+        - AI出力はたたき台、選択肢、試作品。
+        - 完成品として見ると失望しやすいが、素材として見ると直し方が見える。
+        - 「よさそう」ではなく、目的と制約で見る。
+
+        #### 台本ドラフト
+
+        ここからは、出てきた答えをどう扱うかです。
+
+        AIの答えは、最終成果物ではありません。たたき台であり、選択肢であり、試作品です。最初から完成品として見ると、期待と違ったときに失望しやすくなります。
+
+        でも、素材として見ると直し方が見えます。目的に合っているか。制約を守っているか。読み手に合っているか。次の行動につながるか。そうやって見ていきます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIの出力は完成品ではなく素材である</span>
+                  <span>D1-59</span>
+                </footer>
+              </section>
+        <section id="D1-60" class="slide generated-visual-diagram slide-visual diagram-d1-60" data-slide="D1-60" aria-labelledby="d1-60-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-60-title">出力を見る基本観点</h2>
+                  <p class="statement">まず目的、読み手、事実に照らして見る</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="出力を見る基本観点">
+                  <div class="diagram-review-triangle">
+                    <div class="diagram-node tri top"><span>目的に合うか</span></div>
+                    <div class="diagram-node tri left"><span>読み手に合うか</span></div>
+                    <div class="diagram-node tri right"><span>事実は正しいか</span></div>
+                    <div class="tri-core">出力を見る</div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-60 出力を見る基本観点
+
+        - まず、目的、読み手、事実の3点で見る。
+        - 事実確認は特に重要だが、事実だけ見ても仕事に使えるとは限らない。
+
+        #### 台本ドラフト
+
+        出力を見るときは、まず3つの観点で見ます。
+
+        1つ目は、目的に合っているかです。AIの文章がきれいでも、目的からズレていたら使えません。今回何を良くしたいのか、何を達成したいのかに照らして見ます。
+
+        2つ目は、読み手に合っているかです。自分用なのか、顧客向けなのか、チーム向けなのかで、言い方も情報量も変わります。
+
+        3つ目は、事実が正しいかです。AIはもっともらしく間違えることがあります。数字、固有名詞、過去の経緯、制度、条件は必ず確認します。
+
+        ただし、事実だけ見ればよいわけではありません。事実が正しくても、目的や読み手に合っていなければ、実務では使いにくい出力になります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>まず目的、読み手、事実に照らして見る</span>
+                  <span>D1-60</span>
+                </footer>
+              </section>
+        <section id="D1-61" class="slide generated-visual-diagram slide-visual diagram-d1-61" data-slide="D1-61" aria-labelledby="d1-61-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-61-title">実務に戻す観点</h2>
+                  <p class="statement">最後に、制約と次の行動に照らして直す</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="実務に戻す観点">
+                  <div class="diagram-return-gate">
+                    <div class="diagram-node return-check"><span>制約を守っているか</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node return-check"><span>次の行動につながるか</span></div>
+                    <div class="diagram-arrow" aria-hidden="true"></div>
+                    <div class="diagram-node return-result"><span>実務へ戻す</span></div>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-61 実務に戻す観点
+
+        - 次に、制約を守っているか、次の行動につながるかを見る。
+        - 出力を読んで終わるのではなく、実務で使う形まで直す。
+        - レビュー観点はDay 2の試作レビューにもつなげる。
+
+        #### 台本ドラフト
+
+        次に、実務に戻す観点で見ます。
+
+        まず、制約を守っているかです。文字数、表現、使ってはいけない情報、社内ルール、相手との関係。こうした制約から外れていないかを見ます。
+
+        次に、次の行動につながるかです。AIの出力を読んで「なるほど」で終わるなら、仕事には戻っていません。その出力を見て、次に送れるのか、判断できるのか、誰かに確認を依頼できるのか。そこまで見ます。
+
+        AI出力は、読んで終わりではなく、実務で使う形まで直します。このレビュー観点は、Day 2で試作品を見るときにもそのまま使います。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>最後に、制約と次の行動に照らして直す</span>
+                  <span>D1-61</span>
+                </footer>
+              </section>
+        <section id="D1-62" class="slide slide-work generated-work" data-slide="D1-62" aria-labelledby="d1-62-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-07 / 15分</p>
+                  <h2 id="d1-62-title">ワーク: AI出力をレビューして直す</h2>
+                  <p class="statement">出力を直す練習で、使える形への変換を体験する</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>出力を素材として扱う練習をする</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>10分レビュー、5分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>この出力は、どこを直せば実務で使えるか</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-62 ワーク: AI出力をレビューして直す
+
+        - 講師が用意した短いAI出力例、または受講者の過去出力を使う。
+        - 直す点を全部出させるより、最も重要な修正点を1つ選ばせる。
+        - 修正方針を追加依頼に変換できるとよい。
+
+        #### 台本ドラフト
+
+        ここでは、AI出力をレビューします。
+
+        ポイントは、悪いところを全部探すことではありません。実務で使うために、まずどこを直すべきかを1つ選ぶことです。
+
+        目的に合っているか。読み手に合っているか。事実確認が必要なところはないか。制約に反していないか。次の行動につながるか。これらを見ます。
+
+        そして最後に、AIに頼み直すならどう頼むかを書きます。レビューで終わらず、次の依頼に変換するところまでやります。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>出力を直す練習で、使える形への変換を体験する</span>
+                  <span>D1-62</span>
+                </footer>
+              </section>
+        <section id="D1-63" class="slide generated-standard generated-summary" data-slide="D1-63" aria-labelledby="d1-63-title">
+                <header class="slide-header">
+                  <p class="eyebrow">まとめ / 4分</p>
+                  <h2 id="d1-63-title">直すのは、出力だけではありません</h2>
+                  <p class="statement">悪い出力は捨てるだけでなく、依頼を直す材料にする</p>
+                </header>
+                <figure class="diagram-canvas feedback-loop-canvas" aria-label="直すのは、出力だけではありません">
+                  <div class="feedback-loop">
+                    <div class="loop-card output"><span>出力</span><strong>ズレを見る</strong></div>
+                    <div class="loop-card premise"><span>前提</span><strong>足りないものを<br>見つける</strong></div>
+                    <div class="loop-card request"><span>依頼</span><strong>次の頼み方へ戻す</strong></div>
+                  </div>
+                  <p class="loop-message">悪い出力は、次の依頼をよくする材料になる</p>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-63 直すのは、出力だけではありません
+
+        - 出力が悪いときは、AIを変えるだけでなく、依頼や前提を直す。
+        - まずは、出力のズレから足りない前提を見つけ、依頼に戻す流れを説明する。
+        - 具体的な頼み直しの型は次のスライドに分ける。
+
+        #### 台本ドラフト
+
+        出力が悪かったときに、やることは出力を直すだけではありません。
+
+        依頼や前提も直します。AIの出力がズレたなら、何が足りなかったのかを見ます。追加情報が必要だったのか。制約が曖昧だったのか。例が必要だったのか。依頼が大きすぎたのか。
+
+        つまり、出力のズレは、依頼を直す材料です。出てきたものを見て終わりではなく、何を足すか、何を明確にするか、どこを小さく分けるかに戻します。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>悪い出力は捨てるだけでなく、依頼を直す材料にする</span>
+                  <span>D1-63</span>
+                </footer>
+              </section>
+        <section id="D1-64" class="slide generated-visual-diagram slide-visual diagram-d1-64" data-slide="D1-64" aria-labelledby="d1-64-title">
+                <header class="slide-header">
+                  <p class="eyebrow">図解 / 4分</p>
+                  <h2 id="d1-64-title">頼み直しは、4つに分ける</h2>
+                  <p class="statement">頼み直しは、追加情報、制約、例示、分割で整理できる</p>
+                </header>
+                <figure class="diagram-canvas" aria-label="頼み直しは、4つに分ける">
+                  <div class="diagram-retry-grid">
+                    <span class="diagram-pill ">追加情報を渡す</span>
+                    <span class="diagram-pill ">制約を示す</span>
+                    <span class="diagram-pill ">例を示す</span>
+                    <span class="diagram-pill ">依頼を小さく分ける</span>
+                  </div>
+                  <div class="diagram-bottom-message">制約や例を示す</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-64 頼み直しは、4つに分ける
+
+        - 追加情報、制約、例示、分割依頼の4つを紹介する。
+        - 1枚に詰めず、頼み直しの具体的な型として扱う。
+        - Day 2ではこの考え方を試作に使う。
+
+        #### 台本ドラフト
+
+        よくある直し方は4つです。追加情報を渡す。制約を明確にする。良い例や悪い例を示す。依頼を小さく分ける。
+
+        たとえば、提案文が一般論だったなら、顧客の状況や避けたい表現を足します。文章が長すぎたなら、文字数や構成を指定します。全体がぼやけていたなら、まず見出しだけ作らせる、次に本文を作らせる、というように分けます。
+
+        Day 2では、この考え方を試作にも使います。うまくいかないものを捨てるのではなく、何を足し、何を分け、どう頼み直すかを見ます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>頼み直しは、追加情報、制約、例示、分割で整理できる</span>
+                  <span>D1-64</span>
+                </footer>
+              </section>
+        <section id="D1-65" class="slide generated-standard" data-slide="D1-65" aria-labelledby="d1-65-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-65-title">失敗も、知識として残す</h2>
+                  <p class="statement">失敗した出力も、次にうまく使うための知識になる</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="32"></circle><path d="M34 50 H62 M50 34 C66 48 66 58 50 66 M46 34 C30 48 30 58 46 66"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>何がズレたか</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>何を足せばよかったか</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>次はどう頼むか</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-65 失敗も、知識として残す
+
+        - AI活用では、失敗した出力を捨てて終わりにしない。
+        - 何がズレたか、何を渡していなかったか、どの判断基準が足りなかったかを書き残すと、次回の依頼が良くなる。
+        - 失敗は「AIがダメだった」ではなく、自分の業務知識、制約、判断基準を外に出すための材料として扱う。
+        - ここで、レビュー結果もデータであり、次回のAI活用に使える知識だとつなげる。
+
+        #### 台本ドラフト
+
+        AI活用では、失敗した出力も大事です。
+
+        失敗した出力を見て、「AIはダメだった」で終わるともったいないです。何がズレたのか。何を渡していなかったのか。どの判断基準が足りなかったのか。そこを書き残すと、次回の依頼が良くなります。
+
+        失敗は、自分の業務知識や制約を外に出すための材料です。レビュー結果もデータです。次回のAI活用に使える知識です。
+
+        だから、今日のワークでも「どこを直すか」だけでなく、「次回に何を残すか」まで考えます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>失敗した出力も、次にうまく使うための知識になる</span>
+                  <span>D1-65</span>
+                </footer>
+              </section>
+        <section id="D1-66" class="slide generated-standard" data-slide="D1-66" aria-labelledby="d1-66-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 5分</p>
+                  <h2 id="d1-66-title">うまくいった型は、Skill化する</h2>
+                  <p class="statement">繰り返す判断や手順は、次回使える形に残す</p>
+                </header>
+                <div class="generated-content">
+                  <div class="generated-icon-panel" aria-hidden="true"><svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="32"></circle><path d="M34 50 H62 M50 34 C66 48 66 58 50 66 M46 34 C30 48 30 58 46 66"></path></svg></div>
+                  <div class="generated-card-grid count-3">
+                    <article class="generated-card">
+                      <span class="generated-card-index">01</span>
+                      <p>目的と前提</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">02</span>
+                      <p>判断基準</p>
+                    </article>
+                    <article class="generated-card">
+                      <span class="generated-card-index">03</span>
+                      <p>次回の手順</p>
+                    </article>
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-66 うまくいった型は、Skill化する
+
+        - Skill化は、特定ツールの機能名として狭く扱わず、うまくいった依頼、前提、判断基準、手順を再利用できる形に残すこととして説明する。
+        - 繰り返す作業では、目的、入力データ、制約、レビュー観点、出力形式をセットで残す。
+        - Claude Code、Codex、AntigravityなどのAgentを使う場合は、こうした型をSkillや手順書、テンプレートとして渡せるほど再現性が上がる。
+        - Day 2では、完成品だけでなく「次回も使える型を残せたか」を試作の成果として見る。
+
+        #### 台本ドラフト
+
+        うまくいったものは、型として残します。ここではそれをSkill化と呼びます。
+
+        Skill化というと、特定のツール機能を想像するかもしれません。でもここではもっと広く捉えます。うまくいった依頼、前提、判断基準、手順を、次回も使える形に残すことです。
+
+        たとえば、繰り返す作業なら、目的、入力データ、制約、レビュー観点、出力形式をセットで残します。Claude Code、Codex、AntigravityなどのAgentを使う場合も、この型があるほど再現性が上がります。
+
+        Day 2では、完成品を作るだけでなく、次回も使える型を残せたかを成果として見ます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>繰り返す判断や手順は、次回使える形に残す</span>
+                  <span>D1-66</span>
+                </footer>
+              </section>
+        <section id="D1-67" class="slide slide-chapter generated-chapter" data-slide="D1-67" aria-labelledby="d1-67-title">
+                <div class="chapter-content">
+                  <p class="eyebrow">章扉 / 2分</p>
+                  <h2 id="d1-67-title">8. Day 2に持ち込む課題を決める</h2>
+                  <p class="chapter-question">問い: 明日、どの課題を試作するか</p>
+                  <p class="chapter-time">25分</p>
+                </div>
+                <div class="chapter-mark" aria-hidden="true">
+                  <svg viewBox="0 0 500 500" role="img">
+                    <circle cx="250" cy="250" r="210" fill="#0f766e" opacity="0.08"></circle>
+                    <path d="M164 260 C190 162 306 154 340 236 C372 312 288 376 216 338 C184 321 164 294 164 260Z" fill="none" stroke="#0f766e" stroke-width="18"></path>
+                    <path d="M238 170 L286 250 L224 250 L272 330" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-67 8. Day 2に持ち込む課題を決める
+
+        - Day 2の題材選びに入る。
+        - ここで大きすぎる課題を選ぶとDay 2で詰まりやすいため、小さく切る。
+
+        #### 台本ドラフト
+
+        最後に、Day 2へ持ち込む課題を決めます。
+
+        Day 2では、自分の課題を使って試作します。AI活用フローにするのか、テンプレートにするのか、チェックリストにするのか、簡易ツールにするのかは、課題によって変わります。
+
+        ここで大きすぎる課題を選ぶと、Day 2で詰まりやすくなります。なので、価値があり、繰り返し発生し、小さく試せる課題を選びます。
+
+        完璧な題材を探す必要はありません。明日、自分の手で一度試せるものを選びます。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>Day 2に持ち込む課題を決める</span>
+                  <span>D1-67</span>
+                </footer>
+              </section>
+        <section id="D1-68" class="slide generated-standard" data-slide="D1-68" aria-labelledby="d1-68-title">
+                <header class="slide-header">
+                  <p class="eyebrow">本文 / 6分</p>
+                  <h2 id="d1-68-title">Day 2で扱う課題の選び方</h2>
+                  <p class="statement">Day 2の課題は、価値があり、小さく試せるものを選ぶ</p>
+                </header>
+                <figure class="diagram-canvas selection-gate-canvas" aria-label="Day 2で扱う課題の選び方">
+                  <div class="selection-candidates">課題候補</div>
+                  <div class="selection-gates">
+                    <div><span>01</span><strong>繰り返し発生する</strong></div>
+                    <div><span>02</span><strong>4時間で小さく試せる</strong></div>
+                    <div><span>03</span><strong>フローか簡易ツールにできる</strong></div>
+                  </div>
+                  <div class="selection-result">Day 2で<br>扱う課題</div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-68 Day 2で扱う課題の選び方
+
+        - 「価値がある」「繰り返す」「4時間で試せる」の3条件。
+        - 本番システム化ではなく、業務で試すための小さな試作でよい。
+        - 課題は1つに絞る。複数ある場合は最も今困っているものを選ぶ。
+
+        #### 台本ドラフト
+
+        Day 2で扱う課題は、3つの条件で選びます。
+
+        1つ目は、自分にとって価値があることです。誰かが良いと言っているテーマではなく、自分の仕事が少しでも楽になる、迷いが減る、品質が上がるものを選びます。
+
+        2つ目は、繰り返し発生することです。一回だけの作業より、何度も起きる作業の方が、AI活用の型にする価値があります。
+
+        3つ目は、4時間で小さく試せることです。本番システムを作る必要はありません。AI活用フロー、テンプレート、チェックリスト、簡易ツールのどれかとして、小さく試せれば十分です。
+
+        候補が複数ある場合は、今いちばん困っているもの、あるいは講座後すぐに使う場面があるものを選んでください。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>Day 2の課題は、価値があり、小さく試せるものを選ぶ</span>
+                  <span>D1-68</span>
+                </footer>
+              </section>
+        <section id="D1-69" class="slide slide-work generated-work" data-slide="D1-69" aria-labelledby="d1-69-title">
+                <header class="slide-header">
+                  <p class="eyebrow">Work / W-D1-08 / 12分</p>
+                  <h2 id="d1-69-title">ワーク: Day 2の課題候補を決める</h2>
+                  <p class="statement">課題候補を1つに絞ると、Day 2の試作が始められる</p>
+                </header>
+                <div class="work-layout">
+                  <div class="work-meta">
+                    <article>
+                      <span class="meta-label">目的</span>
+                      <p>明日扱う課題の候補を選ぶ</p>
+                    </article>
+                    <article>
+                      <span class="meta-label">時間</span>
+                      <p>8分記入、4分共有</p>
+                    </article>
+                  </div>
+                  <div class="work-question">
+                    <svg class="generated-icon" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="20" width="60" height="56" rx="8"></rect><path d="M30 38 H66 M30 52 H58 M30 66 H50"></path><circle cx="76" cy="22" r="10"></circle></svg>
+                    <p>どの課題なら、明日小さく試せるか</p>
+
+                  </div>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-69 ワーク: Day 2の課題候補を決める
+
+        - 候補を3つ出してから1つ選ばせると迷いが減る。
+        - 選定理由まで書かせる。
+        - 共有では講師が「大きすぎる」「試せそう」の観点で軽くフィードバックする。
+
+        #### 台本ドラフト
+
+        ここで、Day 2に持ち込む課題候補を決めます。
+
+        まず候補を3つ出してください。最初から1つに絞ろうとすると迷いやすいので、いったん3つ出します。
+
+        次に、その中で繰り返し発生するものはどれかを見ます。さらに、4時間で小さく試せそうなものを見ます。AI活用フロー、テンプレート、チェックリスト、簡易ツールのどれに近そうかも考えます。
+
+        最後に、第一候補を1つ選んでください。選ぶ理由も書きます。理由が書けると、Day 2で迷ったときに戻れます。
+
+        共有では、課題が大きすぎないか、明日試せそうかを軽く確認します。ここで完璧に決めるより、明日作業に入れる状態にすることを優先します。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>課題候補を1つに絞ると、Day 2の試作が始められる</span>
+                  <span>D1-69</span>
+                </footer>
+              </section>
+        <section id="D1-70" class="slide generated-standard generated-summary" data-slide="D1-70" aria-labelledby="d1-70-title">
+                <header class="slide-header">
+                  <p class="eyebrow">まとめ / 5分</p>
+                  <h2 id="d1-70-title">Day 1のまとめ</h2>
+                  <p class="statement">AIを使う前の整理と学習の残し方が、明日の試作の土台になる</p>
+                </header>
+                <figure class="diagram-canvas day1-map-canvas" aria-label="Day 1のまとめ">
+                  <div class="day1-map-track">
+                    <div><span>01</span><strong>目的と役割を決める</strong></div>
+                    <div><span>02</span><strong>文脈とデータを渡す</strong></div>
+                    <div><span>03</span><strong>失敗を知識にし<br>型を残す</strong></div>
+                  </div>
+                  <div class="day1-map-next">
+                    <span>Day 2へ</span>
+                    <strong>今日選んだ課題を、実際に形にする</strong>
+                  </div>
+                </figure>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-70 Day 1のまとめ
+
+        - Day 1の成果物を確認する: 目的整理、役割分担、課題分解、文脈、レビュー観点、学習メモ、Day 2課題候補。
+        - 失敗した出力、直した依頼、うまくいった型も、次回のAI活用に使えるデータとして扱う。
+        - Day 2までに、課題候補に関係する素材やメモを持ってきてもらうとよい。
+
+        #### 台本ドラフト
+
+        Day 1のまとめです。
+
+        今日は、AIの使い方そのものより、AIを使う前に整える土台を扱いました。
+
+        最初に、自分のAI活用の現在地を見ました。うまくいった場面とうまくいかなかった場面を比べ、止まった理由を仮説化しました。
+
+        そのうえで、AI、データ、人間、Agentの関係を見ました。AIは知識がありますが、あなたの現場を最初から知っているわけではありません。だから、データ、文脈、判断基準を渡す必要があります。
+
+        次に、目的を決め、AIに任せる作業と人間が持つ判断を分けました。大きな課題を作業単位へ分け、AIに渡す文脈を書き出し、出力をレビューする観点も見ました。
+
+        最後に大事なのは、失敗も知識として残すことです。うまくいかなかった出力、足りなかった前提、直した依頼、うまくいった型は、すべて次回のAI活用に使えるデータです。
+
+        Day 2では、今日選んだ課題候補を使って、実際に形にしていきます。可能であれば、課題に関係するメモ、過去資料、入力になりそうな情報を持ってきてください。明日は、それを使って実務に戻せる試作へ進みます。
+
+        </pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>AIを使う前の整理と学習の残し方が、明日の試作の土台になる</span>
+                  <span>D1-70</span>
+                </footer>
+              </section>
+        <section id="D1-71" class="slide generated-visual-diagram d1-homework-setup" data-slide="D1-71" aria-labelledby="d1-71-title">
+                <header class="slide-header">
+                  <p class="eyebrow">宿題 / 2分</p>
+                  <h2 id="d1-71-title">可能であれば: Day 2前の環境準備</h2>
+                  <p class="statement">できる人は、GitHubとAntigravityを準備しておくとDay 2の試作が進めやすい</p>
+                </header>
+                <div class="setup-homework-board" aria-label="Day 2前の環境準備">
+                  <article class="setup-main">
+                    <span>必須ではありません</span>
+                    <strong>できる範囲で、<br>試作の入口を作る</strong>
+                  </article>
+                  <div class="setup-checks">
+                    <article><span>01</span><p>GitHubアカウントを作る</p></article>
+                    <article><span>02</span><p>Antigravityを入れて起動する</p></article>
+                    <article><span>03</span><p>任意でClaude Codeも入れておく</p></article>
+                  </div>
+                  <aside>手順: exercises/setup-homework.md</aside>
+                </div>
+                <aside class="speaker-notes" aria-label="講師ノート" data-source="speaker-notes.md">
+                  <pre>### D1-71 可能であれば: Day 2前の環境準備
+
+        - 必須ではなく、できる人向けの準備だと明確に伝える。
+        - GitHubは、試作品やメモを残す場所として使う。
+        - Antigravityは、Day 2でVibe Codingや簡易ツール化に触れる人が手元で試せる入口として案内する。
+        - Claude Codeは任意。コマンドラインに抵抗がない人だけでよい。
+        - 詳細手順は `exercises/setup-homework.md` を見るように案内する。
+
+        #### 台本ドラフト
+
+        最後に、可能であればの宿題です。
+
+        Day 2では、自分の課題を実際に形にしていきます。全員が開発環境を使う必要はありませんが、Vibe Codingや簡易ツール化に興味がある人は、事前に環境を整えておくと試作に入りやすくなります。
+
+        まずGitHubアカウントを作っておいてください。これはコードを書く人だけのものではなく、試作品や学習メモを残す場所として使えます。
+
+        次にAntigravityを入れて、起動できるところまで確認しておくと安心です。もし余裕があれば、Claude Codeも入れておいてください。ただしClaude Codeは任意です。ターミナル操作に抵抗がある場合は、無理に入れなくて大丈夫です。
+
+        詳しい手順は、別紙のセットアップマニュアルにまとめます。今日は、できる範囲で準備しておく、くらいに捉えてください。</pre>
+                </aside>
+                <footer class="slide-footer">
+                  <span>できる範囲で、試作の入口を作る</span>
+                  <span>D1-71</span>
+                </footer>
+              </section>
+      </main>
+    </div>
+    <aside class="notes-drawer" aria-label="講師ノート" aria-hidden="true">
+      <header>
+        <strong>Day 1 講師ノート</strong>
+        <button class="deck-button" type="button" data-deck-action="notes-close" aria-label="講師ノートを閉じる">×</button>
+      </header>
+      <pre class="notes-content"></pre>
+    </aside>
+    <div class="deck-meta" aria-hidden="true">
+      <span>Day 1</span>
+      <span>AIに任せる前に、自分の課題を整える</span>
+    </div>
+  </body>
+</html>
