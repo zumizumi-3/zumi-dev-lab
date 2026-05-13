@@ -34,6 +34,23 @@ Use it when:
 | PN-05 | Process | 3 to 5 step flow |
 | PN-06 | Table | Structured comparison |
 | PN-07 | Closing | Summary or core rule |
+| PN-08 | Agenda | Chapter flow and deck overview |
+| PN-09 | Key numbers | Metric summary with 3 numbers |
+| PN-10 | Callout | Main point plus supporting details |
+| PN-11 | Checklist | Completion criteria and review gates |
+| PN-12 | Decision branch | Yes/No or go/no-go decisions |
+| PN-13 | Timeline | Milestones and staged work |
+| PN-14 | Matrix | 2x2 positioning and prioritization |
+| PN-15 | Hierarchy | Pyramid or layered structure |
+| PN-16 | Anatomy | Break down an object into parts |
+| PN-17 | Visual canvas | Placeholder for screenshots, visuals, or diagrams |
+| PN-18 | Case | Persona plus situation and question |
+| PN-19 | Prompt breakdown | Decompose instructions or scripts |
+| PN-20 | Roadmap | Now / Next / Later execution plan |
+| PN-21 | Q&A | Anticipated questions and answer frame |
+| PN-22 | Do / Don't | Rules, guidelines, or operating principles |
+| PN-23 | Appendix list | References, source links, and open items |
+| PN-24 | Pattern set closing | Format rules and derivation summary |
 
 ## Derivation Rule
 
@@ -47,4 +64,3 @@ When making a purpose-specific format from this base, keep layout and density ru
 - background treatment
 - chart/table style
 - screenshot frame style
-

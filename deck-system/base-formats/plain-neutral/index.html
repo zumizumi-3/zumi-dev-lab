@@ -242,6 +242,321 @@
         font-style: normal;
         font-weight: 700;
       }
+      .rule-list,
+      .checklist,
+      .appendix-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .rule-list li,
+      .checklist li,
+      .appendix-list li {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: clamp(18px, 1.7vw, 25px);
+        font-weight: 650;
+        line-height: 1.45;
+      }
+      .rule-list span,
+      .checklist span,
+      .appendix-list span {
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 800;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        width: 100%;
+      }
+      .stat {
+        padding: clamp(20px, 2.4vw, 30px);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--paper);
+      }
+      .stat strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: clamp(42px, 5.6vw, 82px);
+        line-height: 1;
+      }
+      .stat span {
+        color: var(--muted);
+        font-size: clamp(17px, 1.6vw, 24px);
+        font-weight: 650;
+        line-height: 1.45;
+      }
+      .callout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 24px;
+        align-items: stretch;
+        width: 100%;
+      }
+      .callout-main {
+        display: grid;
+        align-content: center;
+        min-height: 330px;
+        padding: clamp(24px, 3vw, 42px);
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .callout-main strong {
+        display: block;
+        font-size: clamp(34px, 4.2vw, 60px);
+        line-height: 1.16;
+      }
+      .callout-side {
+        display: grid;
+        gap: 14px;
+      }
+      .matrix {
+        display: grid;
+        grid-template-columns: 120px repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto repeat(2, minmax(0, 1fr));
+        width: 100%;
+        min-height: 440px;
+        border: 1px solid var(--line);
+      }
+      .matrix > div {
+        display: grid;
+        align-content: center;
+        padding: 18px;
+        border-right: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+        background: var(--paper);
+      }
+      .matrix > div:nth-child(3n) {
+        border-right: 0;
+      }
+      .matrix .axis {
+        background: var(--surface);
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 800;
+      }
+      .matrix strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: clamp(22px, 2.4vw, 34px);
+      }
+      .matrix p {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(16px, 1.4vw, 22px);
+        line-height: 1.5;
+      }
+      .decision {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 18px;
+        align-items: center;
+        width: 100%;
+      }
+      .decision .node {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--paper);
+      }
+      .decision .question {
+        min-height: 220px;
+        background: var(--surface);
+      }
+      .decision strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: clamp(24px, 2.6vw, 38px);
+        line-height: 1.25;
+      }
+      .decision p {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(17px, 1.5vw, 23px);
+        line-height: 1.5;
+      }
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+        border: 1px solid var(--line);
+      }
+      .timeline article {
+        min-height: 330px;
+        padding: 24px;
+        border-right: 1px solid var(--line-soft);
+        background: var(--paper);
+      }
+      .timeline article:last-child {
+        border-right: 0;
+      }
+      .timeline time {
+        display: block;
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 800;
+      }
+      .timeline strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: clamp(22px, 2.4vw, 34px);
+      }
+      .timeline p {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(16px, 1.4vw, 22px);
+        line-height: 1.5;
+      }
+      .pyramid {
+        display: grid;
+        gap: 12px;
+        width: min(860px, 100%);
+        margin: 0 auto;
+      }
+      .pyramid div {
+        min-height: 88px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        font-size: clamp(20px, 2vw, 30px);
+        font-weight: 750;
+      }
+      .pyramid div:nth-child(1) { width: 45%; margin: 0 auto; }
+      .pyramid div:nth-child(2) { width: 68%; margin: 0 auto; }
+      .pyramid div:nth-child(3) { width: 88%; margin: 0 auto; }
+      .pyramid div:nth-child(4) { width: 100%; }
+      .anatomy {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        width: 100%;
+      }
+      .anatomy-box {
+        min-height: 360px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .anatomy-list {
+        display: grid;
+        gap: 12px;
+      }
+      .canvas {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 24px;
+        width: 100%;
+      }
+      .placeholder {
+        display: grid;
+        min-height: 390px;
+        place-items: center;
+        border: 1px dashed var(--line);
+        background: var(--surface);
+        color: var(--muted);
+        font-size: clamp(18px, 1.8vw, 26px);
+        font-weight: 750;
+      }
+      .case-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+        gap: 22px;
+        width: 100%;
+      }
+      .persona {
+        display: grid;
+        align-content: end;
+        min-height: 360px;
+        padding: 26px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .persona strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: clamp(28px, 3vw, 42px);
+      }
+      .persona span {
+        color: var(--muted);
+        font-size: clamp(16px, 1.5vw, 22px);
+        font-weight: 700;
+      }
+      .prompt-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 20px;
+        width: 100%;
+      }
+      .prompt-box {
+        padding: 24px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        font-size: clamp(18px, 1.65vw, 25px);
+        font-weight: 650;
+        line-height: 1.6;
+      }
+      .roadmap {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        width: 100%;
+      }
+      .roadmap article {
+        min-height: 300px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .roadmap strong {
+        display: block;
+        margin-bottom: 18px;
+        font-size: clamp(24px, 2.5vw, 36px);
+      }
+      .qa {
+        display: grid;
+        gap: 14px;
+        width: 100%;
+      }
+      .qa article {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .qa b {
+        color: var(--muted);
+        font-size: var(--small);
+        letter-spacing: 0.08em;
+      }
+      .qa strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: clamp(20px, 2vw, 30px);
+      }
+      .qa p {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(16px, 1.45vw, 22px);
+        line-height: 1.5;
+      }
       @media (max-width: 760px) {
         .slide {
           width: calc(100vw - 24px);
@@ -251,11 +566,26 @@
         .grid-2,
         .grid-3,
         .grid-4,
+        .stats,
+        .callout,
         .compare,
-        .steps {
+        .steps,
+        .decision,
+        .timeline,
+        .anatomy,
+        .canvas,
+        .case-layout,
+        .prompt-layout,
+        .roadmap {
           grid-template-columns: 1fr;
         }
         .arrow { display: none; }
+        .matrix {
+          grid-template-columns: 1fr;
+        }
+        .matrix > div {
+          border-right: 0;
+        }
       }
       @media print {
         @page {
@@ -428,6 +758,335 @@
         <footer class="slide-footer">
           <span>summary</span>
           <span>PN-07</span>
+        </footer>
+      </section>
+
+      <section id="PN-08" class="slide" data-slide="PN-08" aria-labelledby="pn-08-title">
+        <header class="slide-header">
+          <span class="kicker">Agenda</span>
+          <span>Chapter flow</span>
+        </header>
+        <h2 id="pn-08-title">全体の流れは、章ごとの役割で見せる</h2>
+        <div class="grid-4">
+          <article class="card"><span class="number">1</span><strong>前提</strong><p>何の話かをそろえる。</p></article>
+          <article class="card"><span class="number">2</span><strong>課題</strong><p>なぜ今見るべきかを示す。</p></article>
+          <article class="card"><span class="number">3</span><strong>方法</strong><p>判断軸と進め方を渡す。</p></article>
+          <article class="card"><span class="number">4</span><strong>行動</strong><p>次に取る一歩へ落とす。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>agenda</span>
+          <span>PN-08</span>
+        </footer>
+      </section>
+
+      <section id="PN-09" class="slide" data-slide="PN-09" aria-labelledby="pn-09-title">
+        <header class="slide-header">
+          <span class="kicker">Key Numbers</span>
+          <span>Metric summary</span>
+        </header>
+        <h2 id="pn-09-title">数字は、意味が違うものを3つまで並べる</h2>
+        <div class="stats">
+          <article class="stat"><strong>3</strong><span>意思決定に必要な主要論点</span></article>
+          <article class="stat"><strong>12</strong><span>確認対象にする候補項目</span></article>
+          <article class="stat"><strong>48h</strong><span>初回確認までの目安時間</span></article>
+        </div>
+        <footer class="slide-footer">
+          <span>metrics</span>
+          <span>PN-09</span>
+        </footer>
+      </section>
+
+      <section id="PN-10" class="slide" data-slide="PN-10" aria-labelledby="pn-10-title">
+        <header class="slide-header">
+          <span class="kicker">Callout</span>
+          <span>Main point + detail</span>
+        </header>
+        <h2 id="pn-10-title">強調したい判断を、左側で大きく固定する</h2>
+        <div class="callout">
+          <article class="callout-main"><strong>この1枚は、判断を迷わせないための型</strong></article>
+          <div class="callout-side">
+            <article class="card"><strong>根拠</strong><p>なぜそう言えるかを短く置く。</p></article>
+            <article class="card"><strong>補足</strong><p>条件や例外は小さく分ける。</p></article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>callout</span>
+          <span>PN-10</span>
+        </footer>
+      </section>
+
+      <section id="PN-11" class="slide" data-slide="PN-11" aria-labelledby="pn-11-title">
+        <header class="slide-header">
+          <span class="kicker">Checklist</span>
+          <span>Completion criteria</span>
+        </header>
+        <h2 id="pn-11-title">完了条件は、チェックできる文にする</h2>
+        <ul class="checklist">
+          <li><span>01</span>目的、読み手、次の行動が1文で説明できる</li>
+          <li><span>02</span>本文に載せる情報と話す情報が分かれている</li>
+          <li><span>03</span>事実、仮説、未確認事項が混ざっていない</li>
+          <li><span>04</span>資料を見た人が何を確認すればよいか分かる</li>
+        </ul>
+        <footer class="slide-footer">
+          <span>checklist</span>
+          <span>PN-11</span>
+        </footer>
+      </section>
+
+      <section id="PN-12" class="slide" data-slide="PN-12" aria-labelledby="pn-12-title">
+        <header class="slide-header">
+          <span class="kicker">Decision</span>
+          <span>Branch</span>
+        </header>
+        <h2 id="pn-12-title">判断分岐は、問いを中央に置く</h2>
+        <div class="decision">
+          <article class="node"><strong>Yes</strong><p>次の工程へ進む。条件と責任者を明記する。</p></article>
+          <article class="node question"><strong>この条件は満たしているか?</strong><p>判断軸を1つに絞る。</p></article>
+          <article class="node"><strong>No</strong><p>保留にする。追加で確認する材料を示す。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>decision branch</span>
+          <span>PN-12</span>
+        </footer>
+      </section>
+
+      <section id="PN-13" class="slide" data-slide="PN-13" aria-labelledby="pn-13-title">
+        <header class="slide-header">
+          <span class="kicker">Timeline</span>
+          <span>Milestones</span>
+        </header>
+        <h2 id="pn-13-title">時間軸は、成果物の変化で区切る</h2>
+        <div class="timeline">
+          <article><time>Step 1</time><strong>素材整理</strong><p>入力情報を集めて不足を分ける。</p></article>
+          <article><time>Step 2</time><strong>初稿</strong><p>全体構成と主要メッセージを作る。</p></article>
+          <article><time>Step 3</time><strong>確認</strong><p>事実、論理、見た目を確認する。</p></article>
+          <article><time>Step 4</time><strong>出力</strong><p>PDF、共有リンク、発表版へ整える。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>timeline</span>
+          <span>PN-13</span>
+        </footer>
+      </section>
+
+      <section id="PN-14" class="slide" data-slide="PN-14" aria-labelledby="pn-14-title">
+        <header class="slide-header">
+          <span class="kicker">Matrix</span>
+          <span>2 x 2</span>
+        </header>
+        <h2 id="pn-14-title">2軸で分けると、選択肢の位置づけが見える</h2>
+        <div class="matrix">
+          <div class="axis"></div>
+          <div class="axis">低リスク</div>
+          <div class="axis">高リスク</div>
+          <div class="axis">短期</div>
+          <div><strong>すぐ試す</strong><p>小さく始めて反応を見る。</p></div>
+          <div><strong>保留する</strong><p>確認材料を増やしてから判断する。</p></div>
+          <div class="axis">長期</div>
+          <div><strong>仕組みにする</strong><p>継続運用できる形へ整える。</p></div>
+          <div><strong>別計画へ送る</strong><p>責任者と検討時期を決める。</p></div>
+        </div>
+        <footer class="slide-footer">
+          <span>matrix</span>
+          <span>PN-14</span>
+        </footer>
+      </section>
+
+      <section id="PN-15" class="slide" data-slide="PN-15" aria-labelledby="pn-15-title">
+        <header class="slide-header">
+          <span class="kicker">Hierarchy</span>
+          <span>Pyramid</span>
+        </header>
+        <h2 id="pn-15-title">階層は、上ほど抽象、下ほど具体にする</h2>
+        <div class="pyramid" aria-label="階層構造">
+          <div>結論</div>
+          <div>判断軸</div>
+          <div>根拠・比較</div>
+          <div>事実・素材・ログ</div>
+        </div>
+        <footer class="slide-footer">
+          <span>hierarchy</span>
+          <span>PN-15</span>
+        </footer>
+      </section>
+
+      <section id="PN-16" class="slide" data-slide="PN-16" aria-labelledby="pn-16-title">
+        <header class="slide-header">
+          <span class="kicker">Anatomy</span>
+          <span>Breakdown</span>
+        </header>
+        <h2 id="pn-16-title">構造分解は、対象と部品を左右で対応させる</h2>
+        <div class="anatomy">
+          <article class="anatomy-box">
+            <h3>対象</h3>
+            <p class="lead">ここに文章、画面、業務フロー、提案内容などの対象を置く。</p>
+          </article>
+          <div class="anatomy-list">
+            <article class="card"><strong>部品 A</strong><p>目的や前提。</p></article>
+            <article class="card"><strong>部品 B</strong><p>制約や判断基準。</p></article>
+            <article class="card"><strong>部品 C</strong><p>出力形式や次の行動。</p></article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>anatomy</span>
+          <span>PN-16</span>
+        </footer>
+      </section>
+
+      <section id="PN-17" class="slide" data-slide="PN-17" aria-labelledby="pn-17-title">
+        <header class="slide-header">
+          <span class="kicker">Canvas</span>
+          <span>Visual placeholder</span>
+        </header>
+        <h2 id="pn-17-title">画像や図解は、先に枠と読み方を決める</h2>
+        <div class="canvas">
+          <figure class="placeholder">visual / screenshot / diagram</figure>
+          <div class="callout-side">
+            <article class="card"><strong>見る点</strong><p>何に注目するかを示す。</p></article>
+            <article class="card"><strong>読む順番</strong><p>左から右、上から下などを固定する。</p></article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>visual canvas</span>
+          <span>PN-17</span>
+        </footer>
+      </section>
+
+      <section id="PN-18" class="slide" data-slide="PN-18" aria-labelledby="pn-18-title">
+        <header class="slide-header">
+          <span class="kicker">Case</span>
+          <span>Persona + situation</span>
+        </header>
+        <h2 id="pn-18-title">ケースは、人物と状況を分けて置く</h2>
+        <div class="case-layout">
+          <article class="persona"><strong>営業責任者</strong><span>毎週の報告資料に時間がかかっている</span></article>
+          <div class="callout-side">
+            <article class="card"><strong>状況</strong><p>集計、確認、説明の準備が分断されている。</p></article>
+            <article class="card"><strong>問い</strong><p>どの工程を先に整えるべきか。</p></article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>case</span>
+          <span>PN-18</span>
+        </footer>
+      </section>
+
+      <section id="PN-19" class="slide" data-slide="PN-19" aria-labelledby="pn-19-title">
+        <header class="slide-header">
+          <span class="kicker">Prompt</span>
+          <span>Instruction breakdown</span>
+        </header>
+        <h2 id="pn-19-title">依頼文は、役割ごとに分解して見せる</h2>
+        <div class="prompt-layout">
+          <article class="prompt-box">この資料の読み手は営業部長です。目的は、来月の提案方針を決めることです。3案を比較し、判断材料を表にしてください。</article>
+          <ul class="rule-list">
+            <li><span>読者</span>誰に向けた出力か</li>
+            <li><span>目的</span>何を決めるためか</li>
+            <li><span>形式</span>どういう形で返すか</li>
+          </ul>
+        </div>
+        <footer class="slide-footer">
+          <span>prompt breakdown</span>
+          <span>PN-19</span>
+        </footer>
+      </section>
+
+      <section id="PN-20" class="slide" data-slide="PN-20" aria-labelledby="pn-20-title">
+        <header class="slide-header">
+          <span class="kicker">Roadmap</span>
+          <span>Now / Next / Later</span>
+        </header>
+        <h2 id="pn-20-title">実行計画は、今やることと後で見ることを分ける</h2>
+        <div class="roadmap">
+          <article><strong>Now</strong><p class="lead">今日決める。担当、対象、完了条件を固定する。</p></article>
+          <article><strong>Next</strong><p class="lead">次回確認する。初稿、データ、レビュー結果を見る。</p></article>
+          <article><strong>Later</strong><p class="lead">長期化する。運用、権限、費用、例外を整理する。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>roadmap</span>
+          <span>PN-20</span>
+        </footer>
+      </section>
+
+      <section id="PN-21" class="slide" data-slide="PN-21" aria-labelledby="pn-21-title">
+        <header class="slide-header">
+          <span class="kicker">Q&A</span>
+          <span>Question list</span>
+        </header>
+        <h2 id="pn-21-title">想定質問は、回答より先に論点をそろえる</h2>
+        <div class="qa">
+          <article><b>Q1</b><div><strong>費用はどこまで増えるか?</strong><p>変動要因と確認タイミングを答える。</p></div></article>
+          <article><b>Q2</b><div><strong>誰が運用するか?</strong><p>責任者、確認者、例外対応を分ける。</p></div></article>
+          <article><b>Q3</b><div><strong>失敗時はどう戻すか?</strong><p>停止条件と戻し方を先に決める。</p></div></article>
+        </div>
+        <footer class="slide-footer">
+          <span>q&a</span>
+          <span>PN-21</span>
+        </footer>
+      </section>
+
+      <section id="PN-22" class="slide" data-slide="PN-22" aria-labelledby="pn-22-title">
+        <header class="slide-header">
+          <span class="kicker">Rules</span>
+          <span>Do / Don't</span>
+        </header>
+        <h2 id="pn-22-title">ルールは、やることと避けることを分ける</h2>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Do</h3>
+            <ul class="rule-list">
+              <li><span>01</span>結論から書く</li>
+              <li><span>02</span>根拠を短く添える</li>
+              <li><span>03</span>未確認を明記する</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Don't</h3>
+            <ul class="rule-list">
+              <li><span>01</span>長文をそのまま貼る</li>
+              <li><span>02</span>事実と仮説を混ぜる</li>
+              <li><span>03</span>次の行動を曖昧にする</li>
+            </ul>
+          </article>
+        </div>
+        <footer class="slide-footer">
+          <span>rules</span>
+          <span>PN-22</span>
+        </footer>
+      </section>
+
+      <section id="PN-23" class="slide" data-slide="PN-23" aria-labelledby="pn-23-title">
+        <header class="slide-header">
+          <span class="kicker">Appendix</span>
+          <span>Reference list</span>
+        </header>
+        <h2 id="pn-23-title">補足情報は、参照しやすい一覧にする</h2>
+        <ul class="appendix-list">
+          <li><span>A</span>前提資料: 読み手、目的、決定事項</li>
+          <li><span>B</span>根拠資料: データ、議事録、引用元</li>
+          <li><span>C</span>関連資料: 過去版、参考事例、比較表</li>
+          <li><span>D</span>未確認事項: 確認者、期限、次回扱う論点</li>
+        </ul>
+        <footer class="slide-footer">
+          <span>appendix</span>
+          <span>PN-23</span>
+        </footer>
+      </section>
+
+      <section id="PN-24" class="slide" data-slide="PN-24" aria-labelledby="pn-24-title">
+        <header class="slide-header">
+          <span class="kicker">Pattern Set</span>
+          <span>Plain Neutral</span>
+        </header>
+        <h2 id="pn-24-title">このベースは、目的別フォーマットを作るための構造集</h2>
+        <p class="lead">背景、色、ロゴ、区切り線、写真処理、フッター規則は、この後に作る企業別・用途別フォーマットで追加する。</p>
+        <div class="grid-3">
+          <article class="card"><strong>構造</strong><p>情報の置き方を固定する。</p></article>
+          <article class="card"><strong>密度</strong><p>読める量に制限する。</p></article>
+          <article class="card"><strong>派生</strong><p>装飾は目的別に分ける。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>pattern set</span>
+          <span>PN-24</span>
         </footer>
       </section>
     </main>
