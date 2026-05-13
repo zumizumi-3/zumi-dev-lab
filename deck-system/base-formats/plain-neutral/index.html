@@ -472,6 +472,109 @@
         font-size: clamp(18px, 1.8vw, 26px);
         font-weight: 750;
       }
+      .generated-frame {
+        display: grid;
+        min-height: 430px;
+        place-items: center;
+        padding: 28px;
+        border: 1px dashed var(--line);
+        background: var(--surface);
+        color: var(--muted);
+        text-align: center;
+      }
+      .generated-frame strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--ink);
+        font-size: clamp(28px, 3vw, 44px);
+        line-height: 1.2;
+      }
+      .generated-frame span {
+        display: block;
+        max-width: 760px;
+        font-size: clamp(17px, 1.6vw, 24px);
+        font-weight: 650;
+        line-height: 1.55;
+      }
+      .generated-with-lead {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 8px;
+        flex: 1;
+      }
+      .generated-with-lead .generated-frame {
+        min-height: 330px;
+      }
+      .text-page {
+        display: grid;
+        gap: clamp(18px, 2.4vw, 28px);
+        max-width: 980px;
+      }
+      .text-page p {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(24px, 2.35vw, 36px);
+        font-weight: 650;
+        line-height: 1.55;
+      }
+      .text-page .subtle {
+        color: var(--muted);
+        font-size: clamp(20px, 1.9vw, 28px);
+      }
+      .text-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 34px;
+        width: 100%;
+      }
+      .text-columns p {
+        margin: 0 0 18px;
+        color: var(--ink);
+        font-size: clamp(20px, 1.85vw, 28px);
+        font-weight: 600;
+        line-height: 1.58;
+      }
+      .text-columns p:last-child {
+        margin-bottom: 0;
+      }
+      .separator-slide {
+        justify-content: center;
+      }
+      .separator-line {
+        width: min(720px, 72%);
+        height: 1px;
+        margin: clamp(26px, 4vw, 54px) 0;
+        background: var(--line);
+      }
+      .separator-slide h2 {
+        max-width: 900px;
+        margin-bottom: 0;
+        font-size: clamp(42px, 5vw, 72px);
+      }
+      .separator-note {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(20px, 2vw, 30px);
+        font-weight: 650;
+        line-height: 1.5;
+      }
+      .eof-slide {
+        justify-content: center;
+      }
+      .eof-mark {
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: clamp(16px, 1.4vw, 22px);
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .eof-slide h2 {
+        max-width: 860px;
+        margin-bottom: 24px;
+        font-size: clamp(48px, 6vw, 86px);
+      }
       .case-layout {
         display: grid;
         grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
@@ -576,6 +679,7 @@
         .canvas,
         .case-layout,
         .prompt-layout,
+        .text-columns,
         .roadmap {
           grid-template-columns: 1fr;
         }
@@ -1087,6 +1191,126 @@
         <footer class="slide-footer">
           <span>pattern set</span>
           <span>PN-24</span>
+        </footer>
+      </section>
+
+      <section id="PN-25" class="slide" data-slide="PN-25" aria-labelledby="pn-25-title">
+        <header class="slide-header">
+          <span class="kicker">Generated Image</span>
+          <span>Title only as text</span>
+        </header>
+        <h2 id="pn-25-title">タイトル以外は、1枚の生成画像で伝える</h2>
+        <div class="generated-frame" aria-label="生成画像配置エリア">
+          <div>
+            <strong>generated image area</strong>
+            <span>タイトルだけをHTMLテキストで残し、残りの説明、比喩、構図、雰囲気は生成画像側へ渡す。</span>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>title + generated image</span>
+          <span>PN-25</span>
+        </footer>
+      </section>
+
+      <section id="PN-26" class="slide" data-slide="PN-26" aria-labelledby="pn-26-title">
+        <header class="slide-header">
+          <span class="kicker">Generated Image</span>
+          <span>Title + lead as text</span>
+        </header>
+        <div class="generated-with-lead">
+          <div>
+            <h2 id="pn-26-title">タイトルとリードだけを文字で保持する</h2>
+            <p class="lead">読み手に必ず読ませたい結論はHTMLテキストに残し、背景理解や世界観は生成画像へ寄せる。</p>
+          </div>
+          <div class="generated-frame" aria-label="生成画像配置エリア">
+            <div>
+              <strong>generated image area</strong>
+              <span>生成画像には、具体場面、構図、登場要素、質感、余白、避ける表現を指示する。</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>title + lead + generated image</span>
+          <span>PN-26</span>
+        </footer>
+      </section>
+
+      <section id="PN-27" class="slide" data-slide="PN-27" aria-labelledby="pn-27-title">
+        <header class="slide-header">
+          <span class="kicker">Text Only</span>
+          <span>Narrative page</span>
+        </header>
+        <h2 id="pn-27-title">すべて文章で表現するページ</h2>
+        <div class="text-page">
+          <p>図解や画像を使わず、論理の流れだけで読ませる。登壇中に一文ずつ追ってもらう場合や、配布後に読み返される前提の資料に使う。</p>
+          <p class="subtle">文章だけのページでは、段落ごとに役割を分ける。最初に結論、次に背景、最後に読み手の判断や行動を置く。</p>
+        </div>
+        <footer class="slide-footer">
+          <span>text-only narrative</span>
+          <span>PN-27</span>
+        </footer>
+      </section>
+
+      <section id="PN-28" class="slide" data-slide="PN-28" aria-labelledby="pn-28-title">
+        <header class="slide-header">
+          <span class="kicker">Text Only</span>
+          <span>Two-column memo</span>
+        </header>
+        <h2 id="pn-28-title">長めの文章は、2カラムで論点を分ける</h2>
+        <div class="text-columns">
+          <div>
+            <p>左側には、背景、前提、これまでの経緯を書く。読み手が判断する前に必要な文脈をまとめる。</p>
+            <p>本文は短い段落へ分け、1段落1論点にする。</p>
+          </div>
+          <div>
+            <p>右側には、示唆、判断、次の行動を書く。背景説明と結論が混ざらないようにする。</p>
+            <p>画像やカードを使わない代わりに、余白と段落で読み順を作る。</p>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>text-only two column</span>
+          <span>PN-28</span>
+        </footer>
+      </section>
+
+      <section id="PN-29" class="slide separator-slide" data-slide="PN-29" aria-labelledby="pn-29-title">
+        <header class="slide-header">
+          <span class="kicker">Separator</span>
+          <span>Between slides</span>
+        </header>
+        <h2 id="pn-29-title">ここで視点を切り替える</h2>
+        <div class="separator-line" aria-hidden="true"></div>
+        <p class="separator-note">章扉ほど強くしない。話題転換、演習前後、デモ前後など、スライド間の呼吸を作る。</p>
+        <footer class="slide-footer">
+          <span>light separator</span>
+          <span>PN-29</span>
+        </footer>
+      </section>
+
+      <section id="PN-30" class="slide separator-slide" data-slide="PN-30" aria-labelledby="pn-30-title">
+        <header class="slide-header">
+          <span class="kicker">Break</span>
+          <span>Pause / transition</span>
+        </header>
+        <h2 id="pn-30-title">小休止</h2>
+        <p class="separator-note">次の章へ進む前に、質問、メモ、画面切り替え、ワーク準備の時間を取る。</p>
+        <footer class="slide-footer">
+          <span>pause</span>
+          <span>PN-30</span>
+        </footer>
+      </section>
+
+      <section id="PN-31" class="slide eof-slide" data-slide="PN-31" aria-labelledby="pn-31-title">
+        <header class="slide-header">
+          <span class="kicker">End</span>
+          <span>EOF</span>
+        </header>
+        <div class="eof-mark">EOF</div>
+        <h2 id="pn-31-title">ここで資料を閉じる</h2>
+        <p class="separator-note">最後のメッセージ、連絡先、次アクション、補足資料への導線は、目的別フォーマット側で追加する。</p>
+        <footer class="slide-footer">
+          <span>end of file</span>
+          <span>PN-31</span>
         </footer>
       </section>
     </main>

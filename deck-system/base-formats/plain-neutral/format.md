@@ -51,6 +51,40 @@ Use it when:
 | PN-22 | Do / Don't | Rules, guidelines, or operating principles |
 | PN-23 | Appendix list | References, source links, and open items |
 | PN-24 | Pattern set closing | Format rules and derivation summary |
+| PN-25 | Title + generated image | Keep only the title as text; use an AI-generated image for the remaining message |
+| PN-26 | Title + lead + generated image | Keep title and lead as text; use an AI-generated image for supporting context |
+| PN-27 | Text-only narrative | Express the slide entirely with prose |
+| PN-28 | Text-only two column | Long-form text split into two reading columns |
+| PN-29 | Light separator | Soft transition between topics or slides |
+| PN-30 | Pause / break | Short break, demo setup, or work transition |
+| PN-31 | EOF | End-of-file or final closing slide |
+
+## Image-Generation Patterns
+
+Use PN-25 and PN-26 when the slide should rely on generated imagery for everything beyond the protected text.
+
+- PN-25 keeps only the title as HTML text.
+- PN-26 keeps the title and lead as HTML text.
+- The generated image should carry scene, metaphor, mood, and supporting detail.
+- Do not put precise claims, numbers, legal text, or source citations inside the generated image.
+- If the generated image needs text, place that text in HTML instead unless it is purely incidental.
+
+## Text-Only Patterns
+
+Use PN-27 and PN-28 when the slide should be entirely verbal.
+
+- Use PN-27 for narrative, editorial, or principle-based pages.
+- Use PN-28 when long text needs two reading lanes.
+- Avoid cards, icons, diagrams, and image placeholders in these patterns.
+- Keep paragraph roles clear: conclusion, context, implication, next action.
+
+## Transition Patterns
+
+Use PN-29, PN-30, and PN-31 for pacing.
+
+- PN-29 is a light separator between adjacent topics.
+- PN-30 is a pause or work-break slide.
+- PN-31 is EOF and should be the final slide unless a purpose-specific format adds contact or appendix pages after it.
 
 ## Derivation Rule
 
