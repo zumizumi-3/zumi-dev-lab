@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plain Neutral Base Format</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+        --page-bg: #f8fafc;
+        --paper: #ffffff;
+        --ink: #111827;
+        --muted: #667085;
+        --line: #d0d5dd;
+        --line-soft: #eaecf0;
+        --surface: #f9fafb;
+        --slide-width: min(100vw - 48px, 1280px);
+        --pad-x: clamp(44px, 5vw, 78px);
+        --pad-y: clamp(36px, 4.5vw, 64px);
+        --title: clamp(46px, 6vw, 78px);
+        --h2: clamp(34px, 4.2vw, 56px);
+        --body: clamp(21px, 2vw, 30px);
+        --small: clamp(13px, 1.1vw, 17px);
+      }
+      * { box-sizing: border-box; }
+      html {
+        background: var(--page-bg);
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+      }
+      body {
+        margin: 0;
+        background: var(--page-bg);
+        color: var(--ink);
+      }
+      .format-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        min-height: 48px;
+        padding: 8px 16px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(248, 250, 252, 0.94);
+        backdrop-filter: blur(8px);
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .format-nav a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .deck {
+        display: grid;
+        gap: 28px;
+        justify-items: center;
+        padding: 28px 0;
+      }
+      .slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: var(--slide-width);
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        scroll-snap-align: start;
+        padding: var(--pad-y) var(--pad-x);
+        border: 1px solid var(--line);
+        border-radius: 0;
+        background: var(--paper);
+      }
+      .slide-header,
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .slide-header { margin-bottom: clamp(22px, 3vw, 42px); }
+      .slide-footer {
+        margin-top: auto;
+        padding-top: 20px;
+      }
+      .kicker {
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+      h1 {
+        margin-bottom: clamp(20px, 3vw, 34px);
+        max-width: 960px;
+        font-size: var(--title);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      h2 {
+        margin: 0 0 clamp(18px, 2vw, 28px);
+        max-width: 1040px;
+        font-size: var(--h2);
+        line-height: 1.16;
+        letter-spacing: 0;
+      }
+      h3 {
+        margin-bottom: 10px;
+        font-size: clamp(24px, 2.4vw, 34px);
+        line-height: 1.2;
+      }
+      .lead {
+        max-width: 900px;
+        margin-bottom: clamp(20px, 3vw, 36px);
+        color: var(--muted);
+        font-size: var(--body);
+        font-weight: 650;
+        line-height: 1.5;
+      }
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 20px;
+        width: 100%;
+      }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card,
+      .panel,
+      .step,
+      .table-wrap,
+      .quote {
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--paper);
+      }
+      .card,
+      .panel,
+      .step,
+      .quote {
+        padding: clamp(18px, 2.4vw, 28px);
+      }
+      .card strong,
+      .step strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: clamp(22px, 2.4vw, 34px);
+        line-height: 1.22;
+      }
+      .card p,
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(17px, 1.6vw, 24px);
+        line-height: 1.55;
+      }
+      .number {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 16px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .compare {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+      }
+      .arrow {
+        color: var(--muted);
+        font-size: 42px;
+        font-weight: 400;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .step {
+        min-height: 150px;
+      }
+      .table-wrap {
+        overflow: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: clamp(17px, 1.6vw, 23px);
+      }
+      th,
+      td {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--line-soft);
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: var(--surface);
+        color: #344054;
+        font-weight: 800;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      .quote {
+        display: grid;
+        min-height: 320px;
+        align-content: center;
+      }
+      blockquote {
+        margin: 0;
+        font-size: clamp(34px, 4vw, 56px);
+        font-weight: 750;
+        line-height: 1.22;
+      }
+      cite {
+        display: block;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: var(--small);
+        font-style: normal;
+        font-weight: 700;
+      }
+      @media (max-width: 760px) {
+        .slide {
+          width: calc(100vw - 24px);
+          min-height: calc((100vw - 24px) * 0.5625);
+          padding: 28px;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .compare,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .arrow { display: none; }
+      }
+      @media print {
+        @page {
+          size: 16in 9in;
+          margin: 0;
+        }
+        html,
+        body {
+          background: #fff;
+        }
+        .format-nav {
+          display: none;
+        }
+        .deck {
+          display: block;
+          padding: 0;
+        }
+        .slide {
+          width: 16in;
+          height: 9in;
+          border: 0;
+          break-after: page;
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="format-nav" aria-label="フォーマット操作">
+      <a href="../">Base Formats</a>
+      <span>/</span>
+      <span>Plain Neutral</span>
+    </nav>
+    <main class="deck" aria-label="Plain Neutral Base Format">
+      <section id="PN-00" class="slide" data-slide="PN-00" aria-labelledby="pn-00-title">
+        <header class="slide-header">
+          <span class="kicker">Base Format</span>
+          <span>Plain Neutral</span>
+        </header>
+        <h1 id="pn-00-title">情報を邪魔しない、無地のスライド土台</h1>
+        <p class="lead">背景装飾、ブランド色、ロゴを入れず、企業別・案件別フォーマットへ派生しやすい基本構造だけを持つ。</p>
+        <footer class="slide-footer">
+          <span>cover</span>
+          <span>PN-00</span>
+        </footer>
+      </section>
+
+      <section id="PN-01" class="slide" data-slide="PN-01" aria-labelledby="pn-01-title">
+        <header class="slide-header">
+          <span class="kicker">Section</span>
+          <span>Divider</span>
+        </header>
+        <h2 id="pn-01-title">章の区切りは、文字と余白だけで見せる</h2>
+        <p class="lead">目的別フォーマットでは、この区切りに色、写真、ロゴ、背景帯などを追加できる。</p>
+        <footer class="slide-footer">
+          <span>section divider</span>
+          <span>PN-01</span>
+        </footer>
+      </section>
+
+      <section id="PN-02" class="slide" data-slide="PN-02" aria-labelledby="pn-02-title">
+        <header class="slide-header">
+          <span class="kicker">Message</span>
+          <span>One slide / one message</span>
+        </header>
+        <h2 id="pn-02-title">見出しは、そのスライドで持ち帰る結論を書く</h2>
+        <p class="lead">本文は短く、詳細説明は講師メモや補足資料へ逃がす。文字を小さくして詰め込まない。</p>
+        <div class="grid-3">
+          <article class="card"><span class="number">1</span><strong>結論</strong><p>この1枚で伝える判断を固定する。</p></article>
+          <article class="card"><span class="number">2</span><strong>理由</strong><p>本文は2から3点までに抑える。</p></article>
+          <article class="card"><span class="number">3</span><strong>次の行動</strong><p>聞き手が何を見ればよいかを残す。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>content</span>
+          <span>PN-02</span>
+        </footer>
+      </section>
+
+      <section id="PN-03" class="slide" data-slide="PN-03" aria-labelledby="pn-03-title">
+        <header class="slide-header">
+          <span class="kicker">Split</span>
+          <span>Text / Evidence</span>
+        </header>
+        <h2 id="pn-03-title">左に主張、右に証拠や図解を置く</h2>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>主張</h3>
+            <p class="lead">テキスト側は1つの読み筋に絞る。右側は図、表、スクリーンショット、引用などを置く。</p>
+          </article>
+          <article class="panel">
+            <h3>証拠</h3>
+            <p class="lead">目的別フォーマットでは、この枠にブランド色や画像処理を追加する。</p>
+          </article>
+        </div>
+        <footer class="slide-footer">
+          <span>split layout</span>
+          <span>PN-03</span>
+        </footer>
+      </section>
+
+      <section id="PN-04" class="slide" data-slide="PN-04" aria-labelledby="pn-04-title">
+        <header class="slide-header">
+          <span class="kicker">Compare</span>
+          <span>Before / After</span>
+        </header>
+        <h2 id="pn-04-title">比較は、左右の粒度をそろえる</h2>
+        <div class="compare">
+          <article class="card"><strong>Before</strong><p>現状、課題、誤解、従来案を短く示す。</p></article>
+          <div class="arrow">→</div>
+          <article class="card"><strong>After</strong><p>提案、改善後、理解、次の状態を同じ粒度で示す。</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>comparison</span>
+          <span>PN-04</span>
+        </footer>
+      </section>
+
+      <section id="PN-05" class="slide" data-slide="PN-05" aria-labelledby="pn-05-title">
+        <header class="slide-header">
+          <span class="kicker">Process</span>
+          <span>Steps</span>
+        </header>
+        <h2 id="pn-05-title">手順は5ステップ以内にする</h2>
+        <div class="steps">
+          <article class="step"><span class="number">1</span><strong>入力</strong><p>素材を集める</p></article>
+          <article class="step"><span class="number">2</span><strong>整理</strong><p>目的を決める</p></article>
+          <article class="step"><span class="number">3</span><strong>生成</strong><p>下書きする</p></article>
+          <article class="step"><span class="number">4</span><strong>確認</strong><p>事実を見る</p></article>
+          <article class="step"><span class="number">5</span><strong>出力</strong><p>資料化する</p></article>
+        </div>
+        <footer class="slide-footer">
+          <span>process</span>
+          <span>PN-05</span>
+        </footer>
+      </section>
+
+      <section id="PN-06" class="slide" data-slide="PN-06" aria-labelledby="pn-06-title">
+        <header class="slide-header">
+          <span class="kicker">Table</span>
+          <span>Structured information</span>
+        </header>
+        <h2 id="pn-06-title">表は、比較軸を先に固定する</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>使う場面</th><th>注意点</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>本文</td><td>短い要点</td><td>3点まで</td></tr>
+              <tr><td>図解</td><td>関係性や流れ</td><td>説明文を増やさない</td></tr>
+              <tr><td>表</td><td>比較や条件整理</td><td>列を増やしすぎない</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="slide-footer">
+          <span>table</span>
+          <span>PN-06</span>
+        </footer>
+      </section>
+
+      <section id="PN-07" class="slide" data-slide="PN-07" aria-labelledby="pn-07-title">
+        <header class="slide-header">
+          <span class="kicker">Closing</span>
+          <span>Summary</span>
+        </header>
+        <div class="quote">
+          <blockquote id="pn-07-title">ベースは目立たせない。目的別フォーマットで個性を足す。</blockquote>
+          <cite>Plain Neutral / base rule</cite>
+        </div>
+        <footer class="slide-footer">
+          <span>summary</span>
+          <span>PN-07</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

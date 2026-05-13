@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slide Format Library</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+        --bg: #f8fafc;
+        --paper: #ffffff;
+        --ink: #111827;
+        --muted: #667085;
+        --line: #d0d5dd;
+        --soft: #eef2f6;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      main {
+        width: min(1080px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+      header {
+        margin-bottom: 32px;
+      }
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(32px, 6vw, 64px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.75;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .card {
+        display: block;
+        min-height: 210px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        color: inherit;
+        text-decoration: none;
+      }
+      .card:hover {
+        border-color: #98a2b3;
+      }
+      .tag {
+        display: inline-flex;
+        margin-bottom: 18px;
+        padding: 4px 9px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--soft);
+        color: #344054;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      h2 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      .note {
+        margin-top: 28px;
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      @media (max-width: 760px) {
+        main { padding: 32px 0; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Deck System</p>
+        <h1>Slide Format Library</h1>
+        <p class="lead">ベースフォーマットと、そこから派生した目的別フォーマットを一覧管理するための静的ページです。Cloudflare Pages 等では、このフォルダをそのまま公開対象にできます。</p>
+      </header>
+
+      <section class="grid" aria-label="フォーマット一覧">
+        <a class="card" href="./base-formats/plain-neutral/">
+          <span class="tag">Base Format</span>
+          <h2>Plain Neutral</h2>
+          <p>白背景、薄い罫線、最小限の余白とグリッドだけで構成した汎用ベース。企業別フォーマットを作る前の標準土台です。</p>
+        </a>
+        <a class="card" href="../slide-previews/honshitsu-ai-course/slide-format/">
+          <span class="tag">Current Reference</span>
+          <h2>Honshitsu AI Course Format</h2>
+          <p>現行の講義スライド用フォーマット。ベースというより、セミナー用途に寄った目的別フォーマットとして参照します。</p>
+        </a>
+        <a class="card" href="./base-formats/">
+          <span class="tag">Registry</span>
+          <h2>Base Formats</h2>
+          <p>今後追加するベースフォーマットの一覧。プレーン、報告書向け、講義向け、提案書向けなどをここに増やします。</p>
+        </a>
+        <a class="card" href="./formats/">
+          <span class="tag">Registry</span>
+          <h2>Purpose Formats</h2>
+          <p>企業別、案件別、用途別に派生させたフォーマットパックをここに蓄積します。</p>
+        </a>
+      </section>
+
+      <p class="note">運用ルール: ベースフォーマットは背景装飾、ブランド色、ロゴを持たない。企業別・案件別の色、ロゴ、背景、間仕切り、フッター規則は目的別フォーマット側で追加する。</p>
+    </main>
+  </body>
+</html>
+
