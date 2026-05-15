@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generated Decks</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+        --bg: #f4f2ed;
+        --paper: #fbfaf7;
+        --ink: #3f4140;
+        --muted: #6f706d;
+        --line: #d8d4cc;
+        --orange: #ff7043;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      main {
+        width: min(1040px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 46px 0;
+      }
+      .back {
+        color: var(--muted);
+        font-weight: 760;
+        text-decoration: none;
+      }
+      h1 {
+        margin: 30px 0 16px;
+        font-size: clamp(34px, 6vw, 62px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.75;
+      }
+      .list {
+        display: grid;
+        gap: 14px;
+        margin-top: 30px;
+      }
+      .item {
+        display: block;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-left: 8px solid var(--orange);
+        border-radius: 8px;
+        background: var(--paper);
+        color: inherit;
+        text-decoration: none;
+      }
+      .item strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .item span {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="../">← Deck System</a>
+      <h1>Generated Decks</h1>
+      <p>台本、スライド計画、フォーマットを合成して作成した資料をここに蓄積します。</p>
+      <section class="list" aria-label="生成済みスライド">
+        <a class="item" href="./kikai-collab-seminar/">
+          <strong>Kikai Collab Seminar</strong>
+          <span>Vibe Coding Salon -Kikai- のコラボセミナー用資料。台本生成からKikai企業フォーマットへの合成までを含みます。</span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
