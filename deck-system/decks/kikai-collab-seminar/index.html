@@ -199,6 +199,8 @@
       h3,
       p {
         margin-top: 0;
+        min-width: 0;
+        overflow-wrap: anywhere;
       }
       h1 {
         max-width: 1040px;
@@ -356,6 +358,8 @@
         color: var(--orange);
         font-size: clamp(30px, 5vw, 66px);
         line-height: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
       }
       .stat span {
         display: block;
@@ -363,6 +367,8 @@
         font-size: clamp(12px, 1.25vw, 17px);
         font-weight: 700;
         line-height: 1.35;
+        min-width: 0;
+        overflow-wrap: anywhere;
       }
       .ladder {
         display: grid;
@@ -570,14 +576,197 @@
         font-weight: 860;
         line-height: 0.9;
       }
+      .image-cover {
+        isolation: isolate;
+        background: var(--paper);
+      }
+      .image-cover::after {
+        content: "";
+        position: absolute;
+        inset: 44px 0 0;
+        z-index: 1;
+        background: linear-gradient(90deg, rgba(251, 250, 247, 0.96) 0%, rgba(251, 250, 247, 0.86) 42%, rgba(251, 250, 247, 0.18) 76%);
+        pointer-events: none;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 44px 0 0;
+        z-index: 0;
+        width: 100%;
+        height: calc(100% - 44px);
+        object-fit: cover;
+      }
+      .image-cover .slide-header,
+      .image-cover .slide-footer,
+      .image-cover .content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-copy {
+        width: min(760px, 54vw);
+      }
+      .visual-split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+        gap: clamp(18px, 3vw, 38px);
+        align-items: center;
+        min-height: 0;
+        max-height: 100%;
+      }
+      .visual-split.reverse {
+        grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+      }
+      .visual-split > * {
+        min-width: 0;
+        min-height: 0;
+      }
+      .generated-image {
+        display: block;
+        width: 100%;
+        max-height: min(48vh, 460px);
+        border: 1px solid var(--line);
+        object-fit: cover;
+      }
+      .generated-image.tall {
+        max-height: min(52vh, 500px);
+      }
+      .image-frame {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .image-frame .generated-image {
+        border: 0;
+      }
+      .image-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-left: 8px solid var(--orange);
+        pointer-events: none;
+      }
+      .caption-stack {
+        display: grid;
+        gap: 12px;
+      }
+      .compact-list {
+        display: grid;
+        gap: 9px;
+        margin-top: clamp(12px, 2vw, 22px);
+      }
+      .compact-list span {
+        display: block;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: rgba(248, 246, 241, 0.88);
+        color: var(--muted);
+        font-size: clamp(13px, 1.35vw, 19px);
+        font-weight: 760;
+        line-height: 1.35;
+      }
+      .metric-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .metric-panel .stat:last-child {
+        grid-column: 1 / -1;
+      }
+      #P18 .visual-split.reverse {
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      }
+      #P18 .metric-panel {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      #P18 .metric-panel .stat:last-child {
+        grid-column: auto;
+      }
+      #P18 .stat {
+        padding: clamp(10px, 1.4vw, 18px);
+      }
+      #P18 .stat strong {
+        font-size: clamp(17px, 1.95vw, 28px);
+        white-space: nowrap;
+        overflow-wrap: normal;
+      }
+      #P18 .stat span {
+        font-size: clamp(9px, 0.95vw, 13px);
+      }
       #P01 .logo-wide {
-        width: min(440px, 48vw);
+        width: min(390px, 44vw);
       }
       #P01 h1 {
-        font-size: clamp(34px, 5.4vw, 68px);
+        font-size: clamp(32px, 5vw, 62px);
       }
       #P16 .mock {
         min-height: 190px;
+      }
+      #P28 .logo-wide {
+        width: min(430px, 42vw);
+      }
+      #P28 h1 {
+        font-size: clamp(32px, 4.8vw, 62px);
+      }
+      @media (max-height: 760px) {
+        .visual-split,
+        .visual-split.reverse {
+          gap: clamp(14px, 2vw, 24px);
+        }
+        .generated-image,
+        .generated-image.tall {
+          max-height: min(39vh, 320px);
+        }
+        .card,
+        .panel,
+        .stat,
+        .step,
+        .quote {
+          padding: clamp(10px, 1.5vw, 18px);
+        }
+        .card p,
+        .panel p,
+        .step p,
+        .quote p,
+        li {
+          font-size: clamp(12px, 1.25vw, 18px);
+          line-height: 1.34;
+        }
+        .card strong,
+        .step strong {
+          font-size: clamp(16px, 1.75vw, 24px);
+        }
+        .compact-list {
+          gap: 7px;
+        }
+        .compact-list span {
+          padding: 7px 9px;
+          font-size: clamp(11px, 1.1vw, 15px);
+        }
+        #P01 .logo-wide {
+          width: min(300px, 38vw);
+        }
+        #P01 h1 {
+          font-size: clamp(28px, 4.3vw, 52px);
+        }
+        #P16 .caption-stack,
+        #P26 .caption-stack {
+          gap: 8px;
+        }
+        #P16 .generated-image,
+        #P20 .generated-image {
+          max-height: min(34vh, 270px);
+        }
+        #P16 .card p,
+        #P20 .compact-list span:nth-child(5) {
+          display: none;
+        }
+        #P28 .logo-wide {
+          width: min(320px, 34vw);
+        }
+        #P28 h1 {
+          font-size: clamp(28px, 4.2vw, 50px);
+        }
       }
       @media (max-width: 760px) {
         :root {
@@ -609,6 +798,8 @@
         .grid-2,
         .grid-3,
         .grid-4,
+        .visual-split,
+        .visual-split.reverse,
         .split,
         .split.even,
         .compare,
@@ -656,6 +847,28 @@
         .arrow,
         .mock,
         .market-ui {
+          display: none;
+        }
+        .hero-copy {
+          width: min(100%, 520px);
+        }
+        .image-cover::after {
+          background: linear-gradient(90deg, rgba(251, 250, 247, 0.98) 0%, rgba(251, 250, 247, 0.9) 62%, rgba(251, 250, 247, 0.34) 100%);
+        }
+        .generated-image {
+          max-height: 20vh;
+        }
+        .metric-panel {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        #P18 .stat strong {
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+        #P07 .lead {
+          display: none;
+        }
+        #P20 .compact-list span:nth-child(n+4) {
           display: none;
         }
         .prompt-flow {
@@ -715,7 +928,9 @@
         .compare,
         .prompt-flow,
         .before-after,
-        .market {
+        .market,
+        .visual-split,
+        .visual-split.reverse {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .grid-3 {
@@ -809,6 +1024,28 @@
           min-height: 170px;
           padding: 10px;
         }
+        .generated-image {
+          max-height: 34vh;
+        }
+        .image-cover::after {
+          background: linear-gradient(90deg, rgba(251, 250, 247, 0.98) 0%, rgba(251, 250, 247, 0.88) 58%, rgba(251, 250, 247, 0.22) 100%);
+        }
+        .hero-copy {
+          width: min(60vw, 420px);
+        }
+        #P18 .metric-panel {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        #P18 .metric-panel .stat:last-child {
+          grid-column: auto;
+        }
+        #P18 .stat strong {
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+        #P20 .compact-list span:nth-child(n+4) {
+          display: none;
+        }
         .product-thumb {
           min-height: 38px;
         }
@@ -865,12 +1102,13 @@
     </nav>
 
     <main id="deck">
-      <section class="slide is-active" id="P01" aria-hidden="false">
+      <section class="slide image-cover is-active" id="P01" aria-hidden="false">
+        <img class="hero-bg" src="./assets/generated/hero-service-creation.png" alt="AIサービスづくりを表す抽象的なスタジオビジュアル">
         <div class="slide-header">
           <span>「消費者」から「事業者」へ</span>
           <span>P01</span>
         </div>
-        <div class="content">
+        <div class="content hero-copy">
           <img class="logo-wide" src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon">
           <p class="overline">Collab Seminar</p>
           <h1>AI時代の新しいサービスづくり<br>バイブコーディングの世界</h1>
@@ -962,12 +1200,18 @@
 
       <section class="slide" id="P07" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P07</span></div>
-        <div class="content">
-          <h2>AIは「作る側」の巨大な壁を破壊した</h2>
-          <div class="grid-3">
-            <div class="card"><strong>従来の壁</strong><p>プログラミングスキル / 資金 / 膨大な時間</p></div>
-            <div class="card feature"><strong>AIの橋</strong><p>アイディアを言葉にし、AIと対話しながら形にする。</p></div>
-            <div class="card"><strong>新しい到達点</strong><p>エンジニアでなくても、数日で動くサービスへ。</p></div>
+        <div class="content visual-split">
+          <div>
+            <p class="overline">From idea to product</p>
+            <h2>AIは「作る側」の巨大な壁を破壊した</h2>
+            <p class="lead">プログラミングスキル、資金、時間の壁を越えて、アイディアを動くサービスへ近づける。</p>
+            <div class="compact-list">
+              <span>従来：アイディア → 大きな開発コスト → サービス</span>
+              <span>現在：アイディア → AIとの対話 → 数日でプロトタイプ</span>
+            </div>
+          </div>
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/ai-product-bridge.png" alt="AIがアイディアからプロダクトへの壁を越える抽象ビジュアル">
           </div>
         </div>
         <div class="slide-footer"><span>アイディア → AI → サービス</span><span>P07</span></div>
@@ -1082,19 +1326,26 @@
 
       <section class="slide" id="P16" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Global Cases</span><span>P16</span></div>
-        <div class="content">
-          <h2>海外ではすでに「個人 × AI」のプロダクト開発が常識に</h2>
-          <div class="grid-2">
-            <div class="card"><div class="mock" aria-hidden="true"></div><strong>24時間で開発、翌日300万円売上</strong><p>スタートアップ収益データベースの事例。</p></div>
-            <div class="card"><div class="mock" aria-hidden="true"></div><strong>年間売上6,800万円規模</strong><p>マッチング相手の調査アプリの事例。</p></div>
+        <div class="content visual-split reverse">
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/hero-service-creation.png" alt="個人がAIでサービスを作ることを表す抽象ビジュアル">
+          </div>
+          <div>
+            <p class="overline">Global signal</p>
+            <h2>海外ではすでに「個人 × AI」のプロダクト開発が常識に</h2>
+            <div class="caption-stack">
+              <div class="card"><strong>24時間で開発、翌日300万円売上</strong><p>スタートアップ収益データベースの事例。</p></div>
+              <div class="card feature"><strong>年間売上6,800万円規模</strong><p>マッチング相手の調査アプリの事例。</p></div>
+            </div>
           </div>
         </div>
         <div class="slide-footer"><span>成功事例は、可能性と現実を分けて見る</span><span>P16</span></div>
       </section>
 
-      <section class="slide" id="P17" aria-hidden="true">
+      <section class="slide image-cover" id="P17" aria-hidden="true">
+        <img class="hero-bg" src="./assets/generated/reality-check.png" alt="個人開発の現実と成功の裏側を表す抽象ビジュアル">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Reality Check</span><span>P17</span></div>
-        <div class="content">
+        <div class="content hero-copy">
           <h1>でも、待ってください。</h1>
           <p class="lead">「自分にもできそう」そう感じた直後に、現実も見ておく必要があります。</p>
         </div>
@@ -1103,14 +1354,19 @@
 
       <section class="slide" id="P18" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Reality</span><span>P18</span></div>
-        <div class="content">
-          <h2>moonshot神話の警鐘。数字が語る個人開発の現実</h2>
-          <div class="metric-grid">
+        <div class="content visual-split reverse">
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/reality-check.png" alt="成功事例の裏にある多くの試行を表す抽象ビジュアル">
+          </div>
+          <div>
+            <h2>moonshot神話の警鐘。数字が語る個人開発の現実</h2>
+            <div class="metric-panel">
             <div class="stat"><strong>80.9%</strong><span>$500 MRR未満</span></div>
             <div class="stat"><strong>4.8%</strong><span>$10K MRR以上</span></div>
             <div class="stat"><strong>80-85%</strong><span>AIラッパー失敗率</span></div>
             <div class="stat"><strong>300%</strong><span>AI副業詐欺増</span></div>
             <div class="stat"><strong>$200</strong><span>中央値収入</span></div>
+            </div>
           </div>
         </div>
         <div class="slide-footer"><span>目立つ成功の裏で、多くの人が失敗している</span><span>P18</span></div>
@@ -1131,14 +1387,19 @@
 
       <section class="slide" id="P20" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Route</span><span>P20</span></div>
-        <div class="content">
-          <h2>だから、稼ぐための「黄金ルート」を提案します</h2>
-          <div class="ladder">
-            <div class="step"><strong>1. 学ぶ</strong><p>基礎を作る。</p></div>
-            <div class="step"><strong>2. 動き出す</strong><p>受託で月5〜10万円。</p></div>
-            <div class="step"><strong>3. 広げる</strong><p>月50万円までスケール。</p></div>
-            <div class="step"><strong>4. 磨き込む</strong><p>リピート・紹介で高単価化。</p></div>
-            <div class="step"><strong>5. 創る</strong><p>SaaS化は任意の飛躍。</p></div>
+        <div class="content visual-split">
+          <div>
+            <h2>だから、稼ぐための「黄金ルート」を提案します</h2>
+            <div class="compact-list">
+              <span>1. 学ぶ：基礎を作る</span>
+              <span>2. 動き出す：受託で月5〜10万円</span>
+              <span>3. 広げる：月50万円までスケール</span>
+              <span>4. 磨き込む：リピート・紹介で高単価化</span>
+              <span>5. 創る：SaaS化は任意の飛躍</span>
+            </div>
+          </div>
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/golden-route.png" alt="学習から受託、プロダクト作成までの段階的なルートを表すビジュアル">
           </div>
         </div>
         <div class="slide-footer"><span>どのステップで止めても、すでに稼げている状態へ</span><span>P20</span></div>
@@ -1205,12 +1466,17 @@
 
       <section class="slide" id="P26" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Community</span><span>P26</span></div>
-        <div class="content">
-          <h2>コミュニティ参加者の開発実績</h2>
-          <div class="grid-3">
-            <div class="card feature"><strong>X自動運用ツール</strong><p>toB向け月額サブスク3万円。導入企業あり。</p></div>
-            <div class="card"><strong>AI書類データ抽出</strong><p>受託案件として納品済み。数十万円規模。</p></div>
-            <div class="card"><strong>Gemini AI Bot</strong><p>ナレッジベース自動応答Bot。受託納品済み。</p></div>
+        <div class="content visual-split reverse">
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/community-workspace.png" alt="AIを使ってプロダクト開発に取り組むコミュニティのビジュアル">
+          </div>
+          <div>
+            <h2>コミュニティ参加者の開発実績</h2>
+            <div class="caption-stack">
+              <div class="card feature"><strong>X自動運用ツール</strong><p>toB向け月額サブスク3万円。導入企業あり。</p></div>
+              <div class="card"><strong>AI書類データ抽出</strong><p>受託案件として納品済み。数十万円規模。</p></div>
+              <div class="card"><strong>Gemini AI Bot</strong><p>ナレッジベース自動応答Bot。受託納品済み。</p></div>
+            </div>
           </div>
         </div>
         <div class="slide-footer"><span>3案件すべてマネタイズ済み</span><span>P26</span></div>
@@ -1224,9 +1490,10 @@
         <div class="slide-footer"><span>学習、レビュー、実践、販売導線</span><span>P27</span></div>
       </section>
 
-      <section class="slide" id="P28" aria-hidden="true">
+      <section class="slide image-cover" id="P28" aria-hidden="true">
+        <img class="hero-bg" src="./assets/generated/community-workspace.png" alt="作る人のためのコミュニティを表すワークスペースビジュアル">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P28</span></div>
-        <div class="content">
+        <div class="content hero-copy">
           <img class="logo-wide" src="../../formats/kikai-vibe-coding-salon/assets/vibe-coding-salon-kikai-logo.png" alt="Vibe Coding Salon - Kikai">
           <h1>だから、私たちは<br>Vibe Coding Salon -Kikai- を作りました。</h1>
           <p class="lead">単なるAIスクールではなく、「作る人」のためのコミュニティです。</p>
@@ -1236,14 +1503,16 @@
 
       <section class="slide" id="P29" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P29</span></div>
-        <div class="content">
-          <h2>黄金ルートと Kikai のカバー範囲</h2>
-          <div class="ladder">
-            <div class="step"><strong>1. 学ぶ</strong><p>Kikaiが伴走</p></div>
-            <div class="step"><strong>2. 動き出す</strong><p>Kikaiが伴走</p></div>
-            <div class="step"><strong>3. 広げる</strong><p>Kikaiが伴走</p></div>
-            <div class="step"><strong>4. 磨き込む</strong><p>挑戦を後押し</p></div>
-            <div class="step"><strong>5. 創る</strong><p>市場化へ挑戦</p></div>
+        <div class="content visual-split">
+          <div>
+            <h2>黄金ルートと Kikai のカバー範囲</h2>
+            <div class="grid-2">
+              <div class="card feature"><strong>伴走サポート</strong><p>学ぶ・動き出す・広げるまでを全力で支える。</p></div>
+              <div class="card"><strong>挑戦を後押し</strong><p>磨き込む・創るも、販売と実績の下地で支える。</p></div>
+            </div>
+          </div>
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/golden-route.png" alt="Kikaiのカバー範囲を表す段階的なルートビジュアル">
           </div>
         </div>
         <div class="slide-footer"><span>前半を全力で支え、後半の挑戦も後押しする</span><span>P29</span></div>
@@ -1296,17 +1565,17 @@
 
       <section class="slide" id="P33" aria-hidden="true">
         <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Marketplace</span><span>P33</span></div>
-        <div class="content market">
+        <div class="content visual-split">
           <div>
             <h2>アプリマーケット「Made with Kikai」</h2>
             <p class="lead">最大の壁である「集客・販売」を支援。マーケットプレイス機能で決済まで完結し、Stripeの審査・開設なしに即販売開始できる。</p>
-          </div>
-          <div class="market-ui">
-            <div class="market-top"><div class="market-button">購入履歴</div><div class="market-button">プロジェクト投稿</div></div>
-            <div class="grid-2">
-              <div class="product-tile"><div class="product-thumb"></div><strong>AI</strong><p>業務効率化</p></div>
-              <div class="product-tile"><div class="product-thumb"></div><strong>CRM</strong><p>顧客管理</p></div>
+            <div class="compact-list">
+              <span>「作って満足」ではなく、販売実績を作る</span>
+              <span>市場の反応から、売れるアプリへ修正する</span>
             </div>
+          </div>
+          <div class="image-frame">
+            <img class="generated-image tall" src="./assets/generated/marketplace-ui.png" alt="アプリマーケットプレイスを表す生成UIビジュアル">
           </div>
         </div>
         <div class="slide-footer"><span>「作って満足」から「販売実績を作る」へ</span><span>P33</span></div>
