@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light;
+  --kkv-page-bg: #eeece6;
+  --kkv-paper: #fbfaf7;
+  --kkv-surface: #f4f1eb;
+  --kkv-surface-soft: #f8f6f1;
+  --kkv-ink: #3f4140;
+  --kkv-muted: #6f706d;
+  --kkv-soft: #8b8b86;
+  --kkv-line: #d8d4cc;
+  --kkv-line-soft: #e9e5dc;
+  --kkv-orange: #ff7043;
+  --kkv-orange-soft: #fff0e9;
+  --kkv-shadow: 0 18px 50px rgba(63, 65, 64, 0.10);
+  --kkv-font: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  --kkv-slide-width: min(100vw - 48px, 1280px);
+  --kkv-pad-x: clamp(48px, 5.2vw, 82px);
+  --kkv-pad-y: clamp(40px, 4.6vw, 68px);
+  --kkv-title: clamp(48px, 6vw, 82px);
+  --kkv-h2: clamp(34px, 4.2vw, 58px);
+  --kkv-body: clamp(21px, 2vw, 30px);
+  --kkv-small: clamp(13px, 1.1vw, 17px);
+}

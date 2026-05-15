@@ -6,6 +6,7 @@ Public workspace for shared drafts, slide previews, landing page roughs, and lig
 
 - `docs/` - reference notes and shared documents.
 - `deck-system/` - base slide formats and purpose-specific format registry.
+- `deck-system/workflows/` - repeatable slide production flows such as Plain-to-company-format-to-script-input.
 - `landing-drafts/` - rough landing page drafts and copy experiments.
 - `slide-previews/` - static slide previews that can be opened from GitHub Pages.
 - `assets/` - public images, logos, and other reusable assets.
