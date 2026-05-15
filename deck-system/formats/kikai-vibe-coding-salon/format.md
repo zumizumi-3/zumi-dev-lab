@@ -31,7 +31,7 @@ Keep Plain Neutral's layout discipline:
 - background: warm white or very light warm gray
 - accent: Kikai orange, used sparingly for dots, rules, numbers, and emphasis
 - visual density: medium; avoid crowded slides
-- logo usage: small and consistent; never dominate content slides
+- logo usage: consistent right-top lockup; visible but outside the content argument
 
 ## Brand Tokens
 
@@ -60,9 +60,10 @@ logo:
 - Use orange for one accent per slide, not for full backgrounds.
 - Keep cards and panels flat with thin warm-gray borders.
 - Prefer large whitespace over ornamental backgrounds.
-- Use the icon on cover, closing, section divider, and footer.
-- Use the wide logo only on cover or closing slides.
-- For normal content slides, place a small icon or wordmark in the footer.
+- Fix each page title at the top-left of the slide header.
+- Place the primary Kikai logo lockup at the top-right, separated from the title.
+- Keep the footer stable: deck name on the left, page/time marker on the right.
+- Use large logo treatments only when the slide itself is a cover or brand reveal.
 
 ## Pattern Mapping
 

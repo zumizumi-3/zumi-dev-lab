@@ -172,16 +172,36 @@
         line-height: 1.4;
       }
       .slide-header {
-        min-height: 72px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        min-height: 96px;
         color: var(--ink);
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 860;
         line-height: 1.25;
       }
-      .slide-header > span:last-child {
-        color: var(--muted);
-        font-size: var(--small);
-        font-weight: 820;
+      .page-title {
+        max-width: 920px;
+        padding-top: 8px;
+        color: var(--ink);
+      }
+      .header-logo {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 262px;
+        padding: 10px 12px;
+        border: 1px solid rgba(216, 212, 204, 0.48);
+        background: rgba(251, 250, 247, 0.78);
+        backdrop-filter: blur(5px);
+      }
+      .header-logo img {
+        display: block;
+        width: 224px;
+        max-height: 94px;
+        object-fit: contain;
+        object-position: right top;
       }
       .brand {
         display: inline-flex;
@@ -1228,10 +1248,7 @@
     <main id="deck">
       <section class="slide image-cover is-active" id="P01" aria-hidden="false">
         <img class="hero-bg" src="./assets/generated/hero-service-creation.png" alt="AIサービスづくりを表す抽象的なスタジオビジュアル">
-        <div class="slide-header">
-          <span>「消費者」から「事業者」へ</span>
-          <span>P01</span>
-        </div>
+        <div class="slide-header"><span class="page-title">「消費者」から「事業者」へ</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content hero-copy">
           <img class="logo-wide" src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon">
           <p class="overline">Collab Seminar</p>
@@ -1243,7 +1260,7 @@
       </section>
 
       <section class="slide" id="P02" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P02</span></div>
+        <div class="slide-header"><span class="page-title">自社アプリと受託の両輪</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content split">
           <div>
             <p class="overline">Speaker</p>
@@ -1260,11 +1277,11 @@
             </ul>
           </div>
         </div>
-        <div class="slide-footer"><span>自社アプリと受託の両輪</span><span>P02</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P02</span></div>
       </section>
 
       <section class="slide" id="P03" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Vibe Coding Salon</span><span>P03</span></div>
+        <div class="slide-header"><span class="page-title">セールスではなく、可能性を探る時間</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>今日の45分で、あなたに起きてほしい3つの変化</h2>
           <div class="grid-3">
@@ -1273,11 +1290,11 @@
             <div class="card"><span class="pill">3</span><strong>次の一歩を明確にする</strong><p>何を学び、何を作り、どう収益化するかを見える状態にする。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>セールスではなく、可能性を探る時間</span><span>P03</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P03</span></div>
       </section>
 
       <section class="slide" id="P04" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P04</span></div>
+        <div class="slide-header"><span class="page-title">次の一手はどこにあるのか？</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content split even">
           <div>
             <p class="overline">AI is now default</p>
@@ -1288,11 +1305,11 @@
             <div class="mock-lines"><span style="--w: 84%"></span><span style="--w: 64%"></span><span style="--w: 72%"></span></div>
           </div>
         </div>
-        <div class="slide-footer"><span>次の一手はどこにあるのか？</span><span>P04</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P04</span></div>
       </section>
 
       <section class="slide" id="P05" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P05</span></div>
+        <div class="slide-header"><span class="page-title">どちらも正しい。しかし、個人の勝率は異なる。</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>AIの活用方向は「大きく2つ」に分かれている</h2>
           <div class="compare">
@@ -1301,11 +1318,11 @@
             <div class="card feature"><strong>AI × プロダクト</strong><p>サービス開発・課題解決。「何を作るか」を創造するゲーム。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>どちらも正しい。しかし、個人の勝率は異なる。</span><span>P05</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P05</span></div>
       </section>
 
       <section class="slide" id="P06" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P06</span></div>
+        <div class="slide-header"><span class="page-title">AIマーケはレッドオーシャン化しやすい</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content split">
           <div>
             <h2>AIマーケティングは「ナレッジを持つ人」を伸ばす力</h2>
@@ -1319,11 +1336,11 @@
             <p><strong>伸びにくい人:</strong> ゼロから始める初心者</p>
           </div>
         </div>
-        <div class="slide-footer"><span>AIマーケはレッドオーシャン化しやすい</span><span>P06</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P06</span></div>
       </section>
 
       <section class="slide" id="P07" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P07</span></div>
+        <div class="slide-header"><span class="page-title">アイディア → AI → サービス</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split">
           <div>
             <p class="overline">From idea to product</p>
@@ -1338,11 +1355,11 @@
             <img class="generated-image tall" src="./assets/generated/ai-product-bridge.png" alt="AIがアイディアからプロダクトへの壁を越える抽象ビジュアル">
           </div>
         </div>
-        <div class="slide-footer"><span>アイディア → AI → サービス</span><span>P07</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P07</span></div>
       </section>
 
       <section class="slide" id="P08" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P08</span></div>
+        <div class="slide-header"><span class="page-title">解決策を生み出す側へ</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>情報が無料化する時代、「何を売るか」を持つ人が勝つ</h2>
           <div class="table">
@@ -1357,31 +1374,31 @@
             </table>
           </div>
         </div>
-        <div class="slide-footer"><span>解決策を生み出す側へ</span><span>P08</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P08</span></div>
       </section>
 
       <section class="slide" id="P09" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Mission</span><span>P09</span></div>
+        <div class="slide-header"><span class="page-title">これが、私たちのミッション</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <p class="overline">Why product side</p>
           <p class="large-statement">情報を消費する人ではなく、<br><span class="orange">AIで価値を作る人</span>を増やしたい。</p>
           <p class="lead">本当の意味で逆転可能なのは、プロダクト側。創造の民主化は、ここから始まります。</p>
         </div>
-        <div class="slide-footer"><span>これが、私たちのミッション</span><span>P09</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P09</span></div>
       </section>
 
       <section class="slide" id="P10" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Section</span><span>P10</span></div>
+        <div class="slide-header"><span class="page-title">Vibe Coding</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <div class="section-number">02</div>
           <h1>「作る」の常識が変わる。</h1>
           <p class="lead">バイブコーディングとは何か？</p>
         </div>
-        <div class="slide-footer"><span>Vibe Coding</span><span>P10</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P10</span></div>
       </section>
 
       <section class="slide" id="P11" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Vibe Coding</span><span>P11</span></div>
+        <div class="slide-header"><span class="page-title">パソコンの中に、専属エンジニアがいる感覚</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>「言葉」が、そのまま「形」になる。</h2>
           <div class="prompt-flow">
@@ -1390,20 +1407,20 @@
             <div class="dashboard"><h3>動くアプリへ</h3><div class="dashboard-grid"><div class="bar-stack"><span></span><span></span><span></span></div><div class="chart"><span style="--h:34%"></span><span style="--h:58%"></span><span style="--h:82%"></span></div></div></div>
           </div>
         </div>
-        <div class="slide-footer"><span>パソコンの中に、専属エンジニアがいる感覚</span><span>P11</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P11</span></div>
       </section>
 
       <section class="slide" id="P12" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Vibe Coding</span><span>P12</span></div>
+        <div class="slide-header"><span class="page-title">誤解をほどく</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <p class="question">「でも、簡単なものしか作れないんでしょ？」</p>
           <p class="lead"><span class="orange">いいえ。</span>すでに、実用的なサービスが生まれています。</p>
         </div>
-        <div class="slide-footer"><span>誤解をほどく</span><span>P12</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P12</span></div>
       </section>
 
       <section class="slide" id="P13" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Proof</span><span>P13</span></div>
+        <div class="slide-header"><span class="page-title">業務課題を解くプロダクト</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>非エンジニアによる開発実績</h2>
           <div class="grid-4">
@@ -1413,11 +1430,11 @@
             <div class="card"><strong>AI書類データ抽出</strong><p>スキャンだけで、手作業のデータ入力を減らす。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>業務課題を解くプロダクト</span><span>P13</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P13</span></div>
       </section>
 
       <section class="slide" id="P14" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Vibe Coding</span><span>P14</span></div>
+        <div class="slide-header"><span class="page-title">必要能力の中心が変わった</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>開発の常識は、ここまで破壊された。</h2>
           <div class="table">
@@ -1431,11 +1448,11 @@
             </table>
           </div>
         </div>
-        <div class="slide-footer"><span>必要能力の中心が変わった</span><span>P14</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P14</span></div>
       </section>
 
       <section class="slide" id="P15" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Vibe Coding</span><span>P15</span></div>
+        <div class="slide-header"><span class="page-title">小さく作り、小さく売る</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>バイブコーディングが持つ、4つの可能性</h2>
           <div class="grid-4">
@@ -1445,11 +1462,11 @@
             <div class="card feature"><strong>Business</strong><p>低コストだから、受託でも利益率を高めやすい。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>小さく作り、小さく売る</span><span>P15</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P15</span></div>
       </section>
 
       <section class="slide" id="P16" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Global Cases</span><span>P16</span></div>
+        <div class="slide-header"><span class="page-title">成功事例は、可能性と現実を分けて見る</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split reverse">
           <div class="image-frame">
             <img class="generated-image tall" src="./assets/generated/hero-service-creation.png" alt="個人がAIでサービスを作ることを表す抽象ビジュアル">
@@ -1463,21 +1480,21 @@
             </div>
           </div>
         </div>
-        <div class="slide-footer"><span>成功事例は、可能性と現実を分けて見る</span><span>P16</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P16</span></div>
       </section>
 
       <section class="slide image-cover" id="P17" aria-hidden="true">
         <img class="hero-bg" src="./assets/generated/reality-check.png" alt="個人開発の現実と成功の裏側を表す抽象ビジュアル">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Reality Check</span><span>P17</span></div>
+        <div class="slide-header"><span class="page-title">期待値をリセットする</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content hero-copy">
           <h1>でも、待ってください。</h1>
           <p class="lead">「自分にもできそう」そう感じた直後に、現実も見ておく必要があります。</p>
         </div>
-        <div class="slide-footer"><span>期待値をリセットする</span><span>P17</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P17</span></div>
       </section>
 
       <section class="slide" id="P18" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Reality</span><span>P18</span></div>
+        <div class="slide-header"><span class="page-title">目立つ成功の裏で、多くの人が失敗している</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split reverse">
           <div class="image-frame">
             <img class="generated-image tall" src="./assets/generated/reality-check.png" alt="成功事例の裏にある多くの試行を表す抽象ビジュアル">
@@ -1493,11 +1510,11 @@
             </div>
           </div>
         </div>
-        <div class="slide-footer"><span>目立つ成功の裏で、多くの人が失敗している</span><span>P18</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P18</span></div>
       </section>
 
       <section class="slide" id="P19" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Reality</span><span>P19</span></div>
+        <div class="slide-header"><span class="page-title">サバイバーシップ・バイアスを避ける</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>海外スターにも、見えない蓄積がある</h2>
           <div class="grid-3">
@@ -1506,11 +1523,11 @@
             <div class="card"><strong>Danny Postma</strong><p>16歳から起業。制作・CROの経験を積み上げ。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>サバイバーシップ・バイアスを避ける</span><span>P19</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P19</span></div>
       </section>
 
       <section class="slide" id="P20" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Route</span><span>P20</span></div>
+        <div class="slide-header"><span class="page-title">どのステップで止めても、すでに稼げている状態へ</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split">
           <div>
             <h2>だから、稼ぐための「黄金ルート」を提案します</h2>
@@ -1526,11 +1543,11 @@
             <img class="generated-image tall" src="./assets/generated/golden-route.png" alt="学習から受託、プロダクト作成までの段階的なルートを表すビジュアル">
           </div>
         </div>
-        <div class="slide-footer"><span>どのステップで止めても、すでに稼げている状態へ</span><span>P20</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P20</span></div>
       </section>
 
       <section class="slide" id="P21" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Judgment</span><span>P21</span></div>
+        <div class="slide-header"><span class="page-title">Engineering judgment becomes the job</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>必要なのは「アイディア」ではなく「課題発見力」</h2>
           <div class="compare">
@@ -1539,11 +1556,11 @@
             <div class="card feature"><strong>AI時代に残る人間の領域</strong><p>課題発見、ヒアリング、要件定義、顧客関係構築。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>Engineering judgment becomes the job</span><span>P21</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P21</span></div>
       </section>
 
       <section class="slide" id="P22" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Client Work</span><span>P22</span></div>
+        <div class="slide-header"><span class="page-title">月10〜50万円規模の案件として成立し得る</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>実際の受託案件は、こんなレベルです</h2>
           <div class="grid-3">
@@ -1552,11 +1569,11 @@
             <div class="card"><strong>EC分析ダッシュボード</strong><p>商品候補や売上判断を見える化する。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>月10〜50万円規模の案件として成立し得る</span><span>P22</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P22</span></div>
       </section>
 
       <section class="slide" id="P23" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Proof</span><span>P23</span></div>
+        <div class="slide-header"><span class="page-title">入口に立てることを示す</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>澤田自身も、非エンジニアからのスタートでした。</h2>
           <div class="grid-2">
@@ -1564,11 +1581,11 @@
             <div class="card feature"><span class="pill">Speed</span><strong>開発期間、わずか1週間</strong><p>AIと対話しながら、動くものへ近づける。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>入口に立てることを示す</span><span>P23</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P23</span></div>
       </section>
 
       <section class="slide" id="P24" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Proof</span><span>P24</span></div>
+        <div class="slide-header"><span class="page-title">だから、まず受託からをおすすめする</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>澤田の実績：自社アプリと受託の「両輪」</h2>
           <div class="grid-2">
@@ -1576,20 +1593,20 @@
             <div class="stat"><strong>13万 / 50万</strong><span>受託。1ヶ月で案件を実績化。</span></div>
           </div>
         </div>
-        <div class="slide-footer"><span>だから、まず受託からをおすすめする</span><span>P24</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P24</span></div>
       </section>
 
       <section class="slide" id="P25" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Question</span><span>P25</span></div>
+        <div class="slide-header"><span class="page-title">個人の特殊性から、再現性へ</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <p class="question">「それは、澤田さんだからできたのでは？」</p>
           <p class="lead">その疑問は、当然です。しかし、すでに「次の証明」が生まれています。</p>
         </div>
-        <div class="slide-footer"><span>個人の特殊性から、再現性へ</span><span>P25</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P25</span></div>
       </section>
 
       <section class="slide" id="P26" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Community</span><span>P26</span></div>
+        <div class="slide-header"><span class="page-title">3案件すべてマネタイズ済み</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split reverse">
           <div class="image-frame">
             <img class="generated-image tall" src="./assets/generated/community-workspace.png" alt="AIを使ってプロダクト開発に取り組むコミュニティのビジュアル">
@@ -1603,30 +1620,30 @@
             </div>
           </div>
         </div>
-        <div class="slide-footer"><span>3案件すべてマネタイズ済み</span><span>P26</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P26</span></div>
       </section>
 
       <section class="slide" id="P27" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Mechanism</span><span>P27</span></div>
+        <div class="slide-header"><span class="page-title">学習、レビュー、実践、販売導線</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <p class="large-statement">未経験者を支えるのは、<br>個人の才能ではなく<br><span class="orange">再現性のある仕組み</span>です。</p>
         </div>
-        <div class="slide-footer"><span>学習、レビュー、実践、販売導線</span><span>P27</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P27</span></div>
       </section>
 
       <section class="slide image-cover" id="P28" aria-hidden="true">
         <img class="hero-bg" src="./assets/generated/community-workspace.png" alt="作る人のためのコミュニティを表すワークスペースビジュアル">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P28</span></div>
+        <div class="slide-header"><span class="page-title">作る、磨く、売る、つながる</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content hero-copy">
           <img class="logo-wide" src="../../formats/kikai-vibe-coding-salon/assets/vibe-coding-salon-kikai-logo.png" alt="Vibe Coding Salon - Kikai">
           <h1>だから、私たちは<br>Vibe Coding Salon -Kikai- を作りました。</h1>
           <p class="lead">単なるAIスクールではなく、「作る人」のためのコミュニティです。</p>
         </div>
-        <div class="slide-footer"><span>作る、磨く、売る、つながる</span><span>P28</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P28</span></div>
       </section>
 
       <section class="slide" id="P29" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P29</span></div>
+        <div class="slide-header"><span class="page-title">前半を全力で支え、後半の挑戦も後押しする</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split">
           <div>
             <h2>黄金ルートと Kikai のカバー範囲</h2>
@@ -1639,11 +1656,11 @@
             <img class="generated-image tall" src="./assets/generated/golden-route.png" alt="Kikaiのカバー範囲を表す段階的なルートビジュアル">
           </div>
         </div>
-        <div class="slide-footer"><span>前半を全力で支え、後半の挑戦も後押しする</span><span>P29</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P29</span></div>
       </section>
 
       <section class="slide" id="P30" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Kikai</span><span>P30</span></div>
+        <div class="slide-header"><span class="page-title">学ぶ・作る・売る・繋がるを一つにする</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>Kikai を支える「5位一体パッケージ」</h2>
           <div class="table">
@@ -1659,11 +1676,11 @@
             </table>
           </div>
         </div>
-        <div class="slide-footer"><span>学ぶ・作る・売る・繋がるを一つにする</span><span>P30</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P30</span></div>
       </section>
 
       <section class="slide" id="P31" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Quality</span><span>P31</span></div>
+        <div class="slide-header"><span class="page-title">受託先への営業材料にもなる品質保証</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content split even">
           <div>
             <h2>プロエンジニア品質チェック</h2>
@@ -1671,11 +1688,11 @@
           </div>
           <div class="card feature"><strong>Kikai の解決策</strong><p>希望者向けに、プロエンジニアによる品質チェックをオプション利用可能にする。</p></div>
         </div>
-        <div class="slide-footer"><span>受託先への営業材料にもなる品質保証</span><span>P31</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P31</span></div>
       </section>
 
       <section class="slide" id="P32" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Future</span><span>P32</span></div>
+        <div class="slide-header"><span class="page-title">自分で取る + 運営から降りてくる</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>クローズド案件供給へ。将来の拡張</h2>
           <div class="compare">
@@ -1684,11 +1701,11 @@
             <div class="card feature"><strong>将来</strong><p>運営が獲得した5〜50万円帯の案件を会員へ供給する。</p></div>
           </div>
         </div>
-        <div class="slide-footer"><span>自分で取る + 運営から降りてくる</span><span>P32</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P32</span></div>
       </section>
 
       <section class="slide" id="P33" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Marketplace</span><span>P33</span></div>
+        <div class="slide-header"><span class="page-title">「作って満足」から「販売実績を作る」へ</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content visual-split">
           <div>
             <h2>アプリマーケット「Made with Kikai」</h2>
@@ -1702,11 +1719,11 @@
             <img class="generated-image tall" src="./assets/generated/marketplace-ui.png" alt="アプリマーケットプレイスを表す生成UIビジュアル">
           </div>
         </div>
-        <div class="slide-footer"><span>「作って満足」から「販売実績を作る」へ</span><span>P33</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P33</span></div>
       </section>
 
       <section class="slide" id="P34" aria-hidden="true">
-        <div class="slide-header"><span class="brand"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-icon-light.png" alt="">Closing</span><span>P34</span></div>
+        <div class="slide-header"><span class="page-title">消費者から、創り手へ</span><span class="header-logo"><img src="../../formats/kikai-vibe-coding-salon/assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="content">
           <h2>Kikai に入る前 vs 入った後</h2>
           <div class="before-after">
@@ -1730,7 +1747,7 @@
             </div>
           </div>
         </div>
-        <div class="slide-footer"><span>消費者から、創り手へ</span><span>P34</span></div>
+        <div class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P34</span></div>
       </section>
     </main>
 

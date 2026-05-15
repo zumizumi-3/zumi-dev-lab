@@ -82,11 +82,38 @@
         line-height: 1.4;
       }
       .slide-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
         margin-bottom: clamp(20px, 3vw, 40px);
+        color: var(--kkv-ink);
+        font-size: clamp(18px, 1.8vw, 24px);
+        font-weight: 860;
       }
       .slide-footer {
         margin-top: auto;
         padding-top: 22px;
+      }
+      .page-title {
+        max-width: 720px;
+        padding-top: 8px;
+      }
+      .header-logo {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 250px;
+        padding: 10px 12px;
+        border: 1px solid rgba(216, 212, 204, 0.48);
+        background: rgba(251, 250, 247, 0.78);
+        backdrop-filter: blur(5px);
+      }
+      .header-logo img {
+        display: block;
+        width: 224px;
+        max-height: 94px;
+        object-fit: contain;
+        object-position: right top;
       }
       .brand-mark {
         display: inline-flex;
@@ -351,17 +378,11 @@
           <h1>落ち着いた熱量で、つくる力を伝える。</h1>
           <p class="lead">濃いグレーの文字、控えめなオレンジ、余白を広く取った構成で、講座・提案・ワークショップに使える企業フォーマット。</p>
         </div>
-        <div class="slide-footer">
-          <span>Kikai / Vibe Coding Salon</span>
-          <span>KKV-00</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-00</span></div>
       </section>
 
       <section class="slide section-divider" id="KKV-01" aria-label="Section divider">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Vibe Coding Salon</span>
-          <span>Section</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Section</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div>
           <div class="section-index">01</div>
           <h2>まず、何を変えるのかを揃える。</h2>
@@ -370,10 +391,7 @@
       </section>
 
       <section class="slide" id="KKV-02" aria-label="Three cards">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Kikai</span>
-          <span>Three Signals</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Three Signals</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <h2>スライドは、説明量よりも判断しやすさを優先する。</h2>
         <div class="grid-3">
           <article class="card">
@@ -392,17 +410,11 @@
             <p>背景装飾ではなく、間と整列でシックな印象をつくる。</p>
           </article>
         </div>
-        <div class="slide-footer">
-          <span>Derived pattern: PN-02</span>
-          <span>KKV-02</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-02</span></div>
       </section>
 
       <section class="slide" id="KKV-03" aria-label="Split proof">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Vibe Coding Salon</span>
-          <span>Split Proof</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Split Proof</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <h2>主張と証拠を、同じ重さで並べる。</h2>
         <div class="split-body">
           <div class="panel">
@@ -413,17 +425,11 @@
             <img src="./assets/kikai-icon-light.png" alt="Kikai icon">
           </div>
         </div>
-        <div class="slide-footer">
-          <span>Derived pattern: PN-03</span>
-          <span>KKV-03</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-03</span></div>
       </section>
 
       <section class="slide" id="KKV-04" aria-label="Comparison">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Kikai</span>
-          <span>Before / After</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Before / After</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <h2>作業を置き換える前に、工程を見える化する。</h2>
         <div class="compare">
           <article class="card">
@@ -436,17 +442,11 @@
             <p>機能、工程、テンプレートを分けて蓄積し、次の案件に転用する。</p>
           </article>
         </div>
-        <div class="slide-footer">
-          <span>Derived pattern: PN-04</span>
-          <span>KKV-04</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-04</span></div>
       </section>
 
       <section class="slide" id="KKV-05" aria-label="Process">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Vibe Coding Salon</span>
-          <span>Process</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Process</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <h2>Plainから企業フォーマット、台本入力へ進める。</h2>
         <div class="steps">
           <article class="step">
@@ -470,17 +470,11 @@
             <p>本文、ノート、視覚要件を当てる。</p>
           </article>
         </div>
-        <div class="slide-footer">
-          <span>Derived pattern: PN-05</span>
-          <span>KKV-05</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-05</span></div>
       </section>
 
       <section class="slide" id="KKV-06" aria-label="Quiet table">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Kikai</span>
-          <span>Quiet Table</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Quiet Table</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <h2>表は装飾せず、判断軸を揃える。</h2>
         <div class="table-wrap">
           <table>
@@ -510,39 +504,24 @@
             </tbody>
           </table>
         </div>
-        <div class="slide-footer">
-          <span>Derived pattern: PN-06</span>
-          <span>KKV-06</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-06</span></div>
       </section>
 
       <section class="slide" id="KKV-27" aria-label="Text-only narrative">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Vibe Coding Salon</span>
-          <span>Text Only</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Text Only</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <div class="quote">
           <blockquote>AIで速くする前に、仕事を再利用できる単位に分ける。</blockquote>
           <cite>講義・提案・ワークショップで使う原則スライド</cite>
         </div>
-        <div class="slide-footer">
-          <span>Derived pattern: PN-27</span>
-          <span>KKV-27</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-27</span></div>
       </section>
 
       <section class="slide" id="KKV-07" aria-label="Closing">
-        <div class="slide-header">
-          <span class="brand-mark"><img src="./assets/kikai-icon-light.png" alt=""> Kikai</span>
-          <span>Closing</span>
-        </div>
+        <div class="slide-header"><span class="page-title">Closing</span><span class="header-logo"><img src="./assets/kikai-vibe-coding-salon-logo.png" alt="Kikai Vibe Coding Salon"></span></div>
         <h2>静かに整えて、強く伝える。</h2>
         <p class="lead">企業フォーマットは、派手さではなく一貫性で信頼感を作る。台本入力後もこの密度と余白を守る。</p>
         <img class="closing-logo" src="./assets/vibe-coding-salon-kikai-logo.png" alt="Vibe Coding Salon - Kikai">
-        <div class="slide-footer">
-          <span>Derived pattern: PN-07</span>
-          <span>KKV-07</span>
-        </div>
+        <div class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KKV-07</span></div>
       </section>
     </main>
   </body>

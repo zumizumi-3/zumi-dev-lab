@@ -25,8 +25,11 @@
   - 667x375 / P18
 - Direct hash load check:
   - `#P07` activates only P07, with P01 cleared from active state
-- Brand header check:
-  - enlarged common top-left Kikai lockup reviewed on P07 at 1280x720
+- Header system check:
+  - page title fixed at top-left
+  - Kikai logo lockup moved to top-right
+  - common deck footer restored across slides
+  - reviewed P01, P07, P18, P28, and P34 at 1280x720
 - Representative screenshots after visual upgrade:
   - P01 cover with generated hero visual
   - P07 AI wall/bridge visual
@@ -40,7 +43,7 @@
 - secret scan: pass
 - fixed 1600x900 canvas overflow: pass for 34 slides at 1920x1080, 1280x720, 768x1024, 375x667, and 667x375
 - direct hash load: pass
-- enlarged brand header: pass
+- title-left / logo-right header system: pass
 - representative visual review: pass
 - generated image assets: 6 project-local PNG files under `assets/generated/`
 
