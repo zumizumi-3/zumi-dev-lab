@@ -28,6 +28,10 @@
         --h3: clamp(18px, 2.4vw, 30px);
         --body: clamp(15px, 1.85vw, 24px);
         --small: clamp(11px, 1.1vw, 15px);
+        --nav-h: 44px;
+        --stage-h: calc(100dvh - var(--nav-h));
+        --slide-w: min(100vw, calc(var(--stage-h) * 16 / 9));
+        --slide-h: min(var(--stage-h), calc(100vw * 9 / 16));
       }
       * { box-sizing: border-box; }
       html,
@@ -123,12 +127,14 @@
       }
       .slide {
         position: absolute;
-        inset: 0;
+        inset: var(--nav-h) 0 0;
+        width: var(--slide-w);
+        height: var(--slide-h);
+        margin: auto;
         display: grid;
         grid-template-rows: auto minmax(0, 1fr) auto;
         gap: clamp(10px, 2vw, 22px);
-        height: 100vh;
-        height: 100dvh;
+        aspect-ratio: 16 / 9;
         overflow: hidden;
         padding: var(--pad-y) var(--pad-x) clamp(42px, 5vw, 64px);
         background: var(--paper);
@@ -146,7 +152,7 @@
       .slide::before {
         content: "";
         position: absolute;
-        inset: 44px auto 0 0;
+        inset: 0 auto 0 0;
         width: 8px;
         background: var(--orange);
       }
@@ -583,17 +589,17 @@
       .image-cover::after {
         content: "";
         position: absolute;
-        inset: 44px 0 0;
+        inset: 0;
         z-index: 1;
         background: linear-gradient(90deg, rgba(251, 250, 247, 0.96) 0%, rgba(251, 250, 247, 0.86) 42%, rgba(251, 250, 247, 0.18) 76%);
         pointer-events: none;
       }
       .hero-bg {
         position: absolute;
-        inset: 44px 0 0;
+        inset: 0;
         z-index: 0;
         width: 100%;
-        height: calc(100% - 44px);
+        height: 100%;
         object-fit: cover;
       }
       .image-cover .slide-header,
@@ -755,7 +761,10 @@
         }
         #P16 .generated-image,
         #P20 .generated-image {
-          max-height: min(34vh, 270px);
+          max-height: min(30vh, 230px);
+        }
+        #P16 h2 {
+          font-size: clamp(20px, 3.2vw, 38px);
         }
         #P16 .card p,
         #P20 .compact-list span:nth-child(5) {
@@ -767,15 +776,106 @@
         #P28 h1 {
           font-size: clamp(28px, 4.2vw, 50px);
         }
+        #P07 .compact-list span:nth-child(2),
+        #P16 .card p,
+        #P20 .compact-list span:nth-child(n+4),
+        #P26 .card p,
+        #P33 .compact-list {
+          display: none;
+        }
+      }
+      @media (max-width: 900px) {
+        :root {
+          --pad-x: 24px;
+          --pad-y: 24px;
+          --h1: clamp(20px, 5vw, 34px);
+          --h2: clamp(16px, 4.2vw, 28px);
+          --h3: clamp(12px, 2.6vw, 18px);
+          --body: 11px;
+          --small: 8px;
+        }
+        .slide {
+          gap: 6px;
+          padding-bottom: 24px;
+        }
+        .slide-header,
+        .slide-footer {
+          display: none;
+        }
+        .card,
+        .panel,
+        .stat,
+        .step,
+        .quote {
+          padding: 8px;
+        }
+        .card p,
+        .panel p,
+        .step p,
+        .quote p,
+        li,
+        td,
+        th {
+          font-size: 9px;
+          line-height: 1.22;
+        }
+        .card strong,
+        .step strong {
+          font-size: 12px;
+        }
+        .lead {
+          font-size: 11px;
+          line-height: 1.3;
+        }
+        .generated-image,
+        .generated-image.tall {
+          max-height: 18vh;
+        }
+        .logo-wide {
+          width: min(250px, 36vw);
+        }
+        .compact-list {
+          gap: 5px;
+        }
+        .compact-list span {
+          padding: 5px 7px;
+          font-size: 9px;
+          line-height: 1.18;
+        }
+        .question {
+          font-size: clamp(20px, 5.4vw, 36px);
+        }
+        .large-statement {
+          font-size: clamp(18px, 4.8vw, 34px);
+        }
+        .section-number {
+          font-size: clamp(44px, 10vw, 80px);
+        }
+        #P01 .logo-wide,
+        #P28 .logo-wide {
+          width: min(220px, 34vw);
+        }
+        #P01 h1,
+        #P28 h1 {
+          font-size: clamp(20px, 5vw, 34px);
+        }
+        #P07 .lead,
+        #P16 .card p,
+        #P20 .compact-list span:nth-child(n+4),
+        #P26 .card p,
+        #P33 .compact-list {
+          display: none;
+        }
       }
       @media (max-width: 760px) {
         :root {
           --pad-x: 28px;
-          --pad-y: 58px;
-          --h1: clamp(34px, 10vw, 46px);
-          --h2: clamp(25px, 7.5vw, 36px);
-          --body: 16px;
-          --small: 11px;
+          --pad-y: 20px;
+          --h1: clamp(16px, 5.8vw, 26px);
+          --h2: clamp(13px, 4.8vw, 22px);
+          --h3: clamp(10px, 3.8vw, 16px);
+          --body: 9px;
+          --small: 7px;
         }
         .topbar {
           gap: 8px;
@@ -786,14 +886,14 @@
         }
         .slide {
           gap: 8px;
-          padding-bottom: 50px;
+          padding-bottom: 20px;
         }
         .slide::before {
           width: 6px;
         }
         .slide-header,
         .slide-footer {
-          gap: 10px;
+          display: none;
         }
         .grid-2,
         .grid-3,
@@ -826,12 +926,12 @@
         .step p,
         .quote p,
         li {
-          font-size: 12px;
-          line-height: 1.34;
+          font-size: 8px;
+          line-height: 1.18;
         }
         .card strong,
         .step strong {
-          font-size: 17px;
+          font-size: 10px;
         }
         .step {
           min-height: auto;
@@ -856,7 +956,7 @@
           background: linear-gradient(90deg, rgba(251, 250, 247, 0.98) 0%, rgba(251, 250, 247, 0.9) 62%, rgba(251, 250, 247, 0.34) 100%);
         }
         .generated-image {
-          max-height: 20vh;
+          max-height: 12vh;
         }
         .metric-panel {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -896,6 +996,7 @@
       }
       @media (max-height: 480px) and (orientation: landscape) {
         :root {
+          --nav-h: 36px;
           --pad-x: 26px;
           --pad-y: 46px;
           --h1: clamp(26px, 5vw, 38px);
@@ -920,8 +1021,8 @@
           margin-bottom: 10px;
         }
         .lead {
-          font-size: 13px;
-          line-height: 1.34;
+          font-size: 8px;
+          line-height: 1.2;
         }
         .grid-2,
         .grid-3,
@@ -991,7 +1092,7 @@
           width: min(240px, 38vw);
         }
         #P01 h1 {
-          font-size: clamp(26px, 5vw, 36px);
+          font-size: clamp(24px, 4.6vw, 34px);
         }
         .question {
           font-size: clamp(26px, 6vw, 42px);
@@ -1053,9 +1154,6 @@
           min-height: 36px;
           padding: 6px 12px;
         }
-        .slide::before {
-          top: 36px;
-        }
       }
       @media (prefers-reduced-motion: reduce) {
         *,
@@ -1065,6 +1163,10 @@
           transition: none !important;
           animation: none !important;
         }
+      }
+      @page {
+        size: 16in 9in;
+        margin: 0;
       }
       @media print {
         html,
@@ -1084,6 +1186,10 @@
         }
         .slide {
           position: relative;
+          inset: auto;
+          width: 16in;
+          height: 9in;
+          margin: 0;
           page-break-after: always;
           opacity: 1;
           transform: none;
