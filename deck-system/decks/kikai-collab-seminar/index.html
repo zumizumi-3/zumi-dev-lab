@@ -21,17 +21,18 @@
         --green: #5f8a71;
         --teal: #4d8a8a;
         --font: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
-        --pad-x: clamp(26px, 6vw, 86px);
-        --pad-y: clamp(42px, 7vw, 84px);
-        --h1: clamp(38px, 6.8vw, 82px);
-        --h2: clamp(28px, 4.9vw, 60px);
-        --h3: clamp(18px, 2.4vw, 30px);
-        --body: clamp(15px, 1.85vw, 24px);
-        --small: clamp(11px, 1.1vw, 15px);
+        --slide-w: 1600px;
+        --slide-h: 900px;
+        --deck-scale: 1;
+        --frame-pad: 28px;
+        --pad-x: 86px;
+        --pad-y: 84px;
+        --h1: 82px;
+        --h2: 60px;
+        --h3: 30px;
+        --body: 24px;
+        --small: 15px;
         --nav-h: 44px;
-        --stage-h: calc(100dvh - var(--nav-h));
-        --slide-w: min(100vw, calc(var(--stage-h) * 16 / 9));
-        --slide-h: min(var(--stage-h), calc(100vw * 9 / 16));
       }
       * { box-sizing: border-box; }
       html,
@@ -127,27 +128,30 @@
       }
       .slide {
         position: absolute;
-        inset: var(--nav-h) 0 0;
+        top: calc(var(--nav-h) + ((100dvh - var(--nav-h)) / 2));
+        left: 50%;
         width: var(--slide-w);
         height: var(--slide-h);
-        margin: auto;
+        margin: 0;
         display: grid;
         grid-template-rows: auto minmax(0, 1fr) auto;
-        gap: clamp(10px, 2vw, 22px);
+        gap: 22px;
         aspect-ratio: 16 / 9;
         overflow: hidden;
-        padding: var(--pad-y) var(--pad-x) clamp(42px, 5vw, 64px);
+        padding: var(--pad-y) var(--pad-x) 64px;
         background: var(--paper);
         color: var(--ink);
         opacity: 0;
         pointer-events: none;
-        transform: translateY(16px) scale(0.985);
-        transition: opacity 240ms ease, transform 240ms ease;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
+        transform-origin: center center;
+        transition: none;
+        box-shadow: 0 18px 55px rgba(63, 65, 64, 0.13);
       }
       .slide.is-active {
         opacity: 1;
         pointer-events: auto;
-        transform: none;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
       }
       .slide::before {
         content: "";
@@ -179,7 +183,7 @@
         object-fit: contain;
       }
       .logo-wide {
-        width: min(560px, 58vw);
+        width: 560px;
         height: auto;
         object-fit: contain;
       }
@@ -192,7 +196,7 @@
         align-content: start;
       }
       .overline {
-        margin: 0 0 clamp(10px, 1.4vw, 18px);
+        margin: 0 0 18px;
         color: var(--muted);
         font-size: var(--small);
         font-weight: 860;
@@ -210,7 +214,7 @@
       }
       h1 {
         max-width: 1040px;
-        margin-bottom: clamp(14px, 2vw, 24px);
+        margin-bottom: 24px;
         font-size: var(--h1);
         font-weight: 830;
         line-height: 1.05;
@@ -218,7 +222,7 @@
       }
       h2 {
         max-width: 1080px;
-        margin-bottom: clamp(14px, 2vw, 24px);
+        margin-bottom: 24px;
         font-size: var(--h2);
         font-weight: 820;
         line-height: 1.12;
@@ -241,7 +245,7 @@
       .large-statement {
         max-width: 980px;
         color: var(--ink);
-        font-size: clamp(30px, 5.2vw, 72px);
+        font-size: 72px;
         font-weight: 830;
         line-height: 1.12;
       }
@@ -255,7 +259,7 @@
       .grid-3,
       .grid-4 {
         display: grid;
-        gap: clamp(10px, 1.6vw, 18px);
+        gap: 18px;
         width: 100%;
       }
       .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -275,7 +279,7 @@
       .stat,
       .step,
       .quote {
-        padding: clamp(14px, 2.2vw, 26px);
+        padding: 26px;
       }
       .card strong,
       .step strong,
@@ -283,7 +287,7 @@
         display: block;
         margin-bottom: 7px;
         color: var(--ink);
-        font-size: clamp(18px, 2.15vw, 30px);
+        font-size: 30px;
         line-height: 1.18;
       }
       .card p,
@@ -293,7 +297,7 @@
       li {
         margin: 0;
         color: var(--muted);
-        font-size: clamp(13px, 1.55vw, 22px);
+        font-size: 22px;
         line-height: 1.48;
       }
       .card.feature {
@@ -310,7 +314,7 @@
       .split {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
-        gap: clamp(18px, 3vw, 38px);
+        gap: 38px;
         align-items: center;
       }
       .split.even {
@@ -319,12 +323,12 @@
       .compare {
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-        gap: clamp(12px, 1.8vw, 24px);
+        gap: 24px;
         align-items: center;
       }
       .arrow {
         color: var(--orange);
-        font-size: clamp(28px, 5vw, 58px);
+        font-size: 58px;
         font-weight: 760;
       }
       .table {
@@ -339,10 +343,10 @@
       }
       th,
       td {
-        padding: clamp(9px, 1.5vw, 18px);
+        padding: 18px;
         border-bottom: 1px solid var(--line-soft);
         color: var(--muted);
-        font-size: clamp(12px, 1.35vw, 19px);
+        font-size: 19px;
         line-height: 1.38;
         text-align: left;
         vertical-align: top;
@@ -358,11 +362,11 @@
       .metric-grid {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: clamp(9px, 1.4vw, 16px);
+        gap: 16px;
       }
       .stat strong {
         color: var(--orange);
-        font-size: clamp(30px, 5vw, 66px);
+        font-size: 66px;
         line-height: 1;
         min-width: 0;
         overflow-wrap: anywhere;
@@ -370,7 +374,7 @@
       .stat span {
         display: block;
         color: var(--muted);
-        font-size: clamp(12px, 1.25vw, 17px);
+        font-size: 17px;
         font-weight: 700;
         line-height: 1.35;
         min-width: 0;
@@ -380,7 +384,7 @@
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         align-items: end;
-        gap: clamp(8px, 1.4vw, 16px);
+        gap: 16px;
       }
       .step {
         min-height: calc(96px + var(--rise, 0px));
@@ -443,7 +447,7 @@
       .prompt-flow {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
-        gap: clamp(12px, 2vw, 24px);
+        gap: 24px;
         align-items: center;
       }
       .prompt,
@@ -504,19 +508,19 @@
       }
       .profile-avatar {
         display: grid;
-        width: clamp(108px, 15vw, 180px);
-        height: clamp(108px, 15vw, 180px);
+        width: 180px;
+        height: 180px;
         place-items: center;
         border: 1px solid var(--line);
         border-radius: 50%;
         background: var(--surface);
         color: var(--orange);
-        font-size: clamp(34px, 5vw, 62px);
+        font-size: 62px;
         font-weight: 840;
       }
       .question {
         max-width: 920px;
-        font-size: clamp(42px, 7vw, 92px);
+        font-size: 92px;
         font-weight: 820;
         line-height: 1.04;
       }
@@ -526,7 +530,7 @@
       .before-after {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(12px, 1.8vw, 22px);
+        gap: 22px;
       }
       .before-after .panel:first-child {
         background: #454642;
@@ -542,7 +546,7 @@
       .market {
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
-        gap: clamp(14px, 2vw, 24px);
+        gap: 24px;
         align-items: center;
       }
       .market-ui {
@@ -578,7 +582,7 @@
       }
       .section-number {
         color: var(--orange);
-        font-size: clamp(88px, 16vw, 180px);
+        font-size: 180px;
         font-weight: 860;
         line-height: 0.9;
       }
@@ -609,12 +613,12 @@
         z-index: 2;
       }
       .hero-copy {
-        width: min(760px, 54vw);
+        width: 760px;
       }
       .visual-split {
         display: grid;
         grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-        gap: clamp(18px, 3vw, 38px);
+        gap: 38px;
         align-items: center;
         min-height: 0;
         max-height: 100%;
@@ -629,12 +633,12 @@
       .generated-image {
         display: block;
         width: 100%;
-        max-height: min(48vh, 460px);
+        max-height: 460px;
         border: 1px solid var(--line);
         object-fit: cover;
       }
       .generated-image.tall {
-        max-height: min(52vh, 500px);
+        max-height: 500px;
       }
       .image-frame {
         position: relative;
@@ -659,7 +663,7 @@
       .compact-list {
         display: grid;
         gap: 9px;
-        margin-top: clamp(12px, 2vw, 22px);
+        margin-top: 22px;
       }
       .compact-list span {
         display: block;
@@ -667,7 +671,7 @@
         border: 1px solid var(--line);
         background: rgba(248, 246, 241, 0.88);
         color: var(--muted);
-        font-size: clamp(13px, 1.35vw, 19px);
+        font-size: 19px;
         font-weight: 760;
         line-height: 1.35;
       }
@@ -689,32 +693,33 @@
         grid-column: auto;
       }
       #P18 .stat {
-        padding: clamp(10px, 1.4vw, 18px);
+        padding: 18px;
       }
       #P18 .stat strong {
-        font-size: clamp(17px, 1.95vw, 28px);
+        font-size: 28px;
         white-space: nowrap;
         overflow-wrap: normal;
       }
       #P18 .stat span {
-        font-size: clamp(9px, 0.95vw, 13px);
+        font-size: 13px;
       }
       #P01 .logo-wide {
-        width: min(390px, 44vw);
+        width: 390px;
       }
       #P01 h1 {
-        font-size: clamp(32px, 5vw, 62px);
+        font-size: 62px;
       }
       #P16 .mock {
         min-height: 190px;
       }
       #P28 .logo-wide {
-        width: min(430px, 42vw);
+        width: 430px;
       }
       #P28 h1 {
-        font-size: clamp(32px, 4.8vw, 62px);
+        font-size: 62px;
       }
-      @media (max-height: 760px) {
+      /* Fixed-canvas deck: smaller screens scale the whole slide, not the slide layout. */
+      @media not all {
         .visual-split,
         .visual-split.reverse {
           gap: clamp(14px, 2vw, 24px);
@@ -784,7 +789,7 @@
           display: none;
         }
       }
-      @media (max-width: 900px) {
+      @media not all {
         :root {
           --pad-x: 24px;
           --pad-y: 24px;
@@ -867,7 +872,7 @@
           display: none;
         }
       }
-      @media (max-width: 760px) {
+      @media not all {
         :root {
           --pad-x: 28px;
           --pad-y: 20px;
@@ -994,9 +999,10 @@
           height: 34px;
         }
       }
-      @media (max-height: 480px) and (orientation: landscape) {
+      @media not all {
         :root {
           --nav-h: 36px;
+          --stage-pad: 10px;
           --pad-x: 26px;
           --pad-y: 46px;
           --h1: clamp(26px, 5vw, 38px);
@@ -1729,12 +1735,27 @@
           this.slides = Array.from(document.querySelectorAll(".slide"));
           this.counter = document.querySelector(".counter");
           this.progress = document.querySelector(".progress span");
+          this.deckWidth = 1600;
+          this.deckHeight = 900;
           this.index = this.getInitialIndex();
           this.lastWheelAt = 0;
           this.touchStartX = 0;
           this.touchStartY = 0;
+          this.updateScale();
           this.bind();
           this.show(this.index, false);
+        }
+
+        updateScale() {
+          const root = document.documentElement;
+          const styles = getComputedStyle(root);
+          const viewport = window.visualViewport || window;
+          const navHeight = parseFloat(styles.getPropertyValue("--nav-h")) || 44;
+          const framePad = parseFloat(styles.getPropertyValue("--frame-pad")) || 28;
+          const availableWidth = Math.max(1, viewport.width - framePad * 2);
+          const availableHeight = Math.max(1, viewport.height - navHeight - framePad * 2);
+          const scale = Math.min(1, availableWidth / this.deckWidth, availableHeight / this.deckHeight);
+          root.style.setProperty("--deck-scale", scale.toFixed(4));
         }
 
         getInitialIndex() {
@@ -1758,6 +1779,8 @@
             if (event.key === "Home") this.show(0);
             if (event.key === "End") this.show(this.slides.length - 1);
           });
+          window.addEventListener("resize", () => this.updateScale());
+          window.visualViewport?.addEventListener("resize", () => this.updateScale());
           window.addEventListener("wheel", (event) => {
             const now = Date.now();
             if (now - this.lastWheelAt < 520 || Math.abs(event.deltaY) < 40) return;
@@ -1789,12 +1812,13 @@
 
         show(nextIndex, updateHash = true) {
           const bounded = Math.max(0, Math.min(nextIndex, this.slides.length - 1));
-          this.slides[this.index]?.classList.remove("is-active");
-          this.slides[this.index]?.setAttribute("aria-hidden", "true");
           this.index = bounded;
           const active = this.slides[this.index];
-          active.classList.add("is-active");
-          active.setAttribute("aria-hidden", "false");
+          this.slides.forEach((slide) => {
+            const isActive = slide === active;
+            slide.classList.toggle("is-active", isActive);
+            slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+          });
           this.counter.textContent = `${this.index + 1} / ${this.slides.length}`;
           this.progress.style.width = `${((this.index + 1) / this.slides.length) * 100}%`;
           if (updateHash) history.replaceState(null, "", `#${active.id}`);

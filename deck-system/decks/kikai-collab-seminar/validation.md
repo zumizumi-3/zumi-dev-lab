@@ -13,11 +13,18 @@
   - 1920x1080
   - 1280x720
   - 768x1024
+  - 375x667
   - 667x375
+- Fixed canvas behavior:
+  - logical slide size fixed at 1600x900
+  - browser display uses uniform whole-slide scaling only
+  - responsive layout rewrites disabled
 - Fixed 16:9 HTML screenshots:
-  - 1440x900 / P01
-  - 1440x900 / P18
-  - 768x1024 / P33
+  - 1920x1080 / P01
+  - 1280x720 / P07
+  - 667x375 / P18
+- Direct hash load check:
+  - `#P07` activates only P07, with P01 cleared from active state
 - Representative screenshots after visual upgrade:
   - P01 cover with generated hero visual
   - P07 AI wall/bridge visual
@@ -29,7 +36,8 @@
 - HTML parse: pass
 - whitespace: pass
 - secret scan: pass
-- fixed 16:9 viewport overflow: pass for 34 slides at 1920x1080, 1280x720, 768x1024, and 667x375
+- fixed 1600x900 canvas overflow: pass for 34 slides at 1920x1080, 1280x720, 768x1024, 375x667, and 667x375
+- direct hash load: pass
 - representative visual review: pass
 - generated image assets: 6 project-local PNG files under `assets/generated/`
 
