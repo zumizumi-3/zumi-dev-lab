@@ -111,6 +111,21 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 | PB-47 Icon grid | S09, S10, S16-S17 | Multi-item catalog for benefits, modules, support, or features |
 | PB-48 Case quote | S05, S09, S17 | Photo/screenshot placeholder paired with quote or implication |
 | PB-49 Decision tree | S07, S12, S15, S16-S17 | Condition branches that connect to actions |
+| PB-50 Evaluation grid | S01, S12, S13, S14, S17 | Option cards assessed by repeated criteria |
+| PB-51 Risk heatmap | S07, S08, S15, S17 | Priority map using impact and likelihood dimensions |
+| PB-52 RACI matrix | S07, S08, S15 | Responsibility table with accountable/consulted/informed roles |
+| PB-53 Waterfall bridge | S05, S06, S08 | Beginning value, positive/negative factors, ending value |
+| PB-54 Value chain | S04, S07, S10, S16-S17 | Sequential business functions with bottleneck points |
+| PB-55 Fishbone cause | S03, S12, S13, S16-S17 | Root-cause categories converging on a key issue |
+| PB-56 Logic tree | S03, S11, S13, S16-S17 | Issue decomposition from major problem to drivers |
+| PB-57 Stakeholder map | S01, S07, S09, S15 | Actors arranged around a central decision or rollout |
+| PB-58 Customer journey | S03, S09, S10, S17 | Experience stages with needs and friction points |
+| PB-59 OKR alignment | S04, S08, S11, S15 | Objective, key results, and action linkage |
+| PB-60 Business model canvas | S04, S11, S17 | Multi-field one-page business or service model |
+| PB-61 Cost breakdown | S06, S11, S12 | Cost categories shown as proportional bars |
+| PB-62 Roadmap flags | S07, S08, S10 | Phase flags with milestone outcomes |
+| PB-63 Scoring matrix | S01, S12, S14, S17 | Weighted decision score table |
+| PB-64 Checklist review | S07, S08, S15 | Readiness checklist with status and remaining issues |
 
 ## Extraction Rules Kept
 
@@ -119,3 +134,4 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 - Main slides stay decision-oriented; dense backup material moves to PB-15.
 - Tables need captions or unit/footnote slots so figures do not become untyped body text.
 - The main body group is vertically centered inside the space between lead and footer, or between title and footer when the lead is omitted.
+- Body components should be sized to occupy the available body zone; sparse body groups should be enlarged instead of leaving excessive blank paper.

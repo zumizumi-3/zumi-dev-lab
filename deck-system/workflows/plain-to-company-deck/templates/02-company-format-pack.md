@@ -88,12 +88,28 @@ logo:
 | PB-47 Icon grid |  |  |
 | PB-48 Case quote |  |  |
 | PB-49 Decision tree |  |  |
+| PB-50 Evaluation grid |  |  |
+| PB-51 Risk heatmap |  |  |
+| PB-52 RACI matrix |  |  |
+| PB-53 Waterfall bridge |  |  |
+| PB-54 Value chain |  |  |
+| PB-55 Fishbone cause |  |  |
+| PB-56 Logic tree |  |  |
+| PB-57 Stakeholder map |  |  |
+| PB-58 Customer journey |  |  |
+| PB-59 OKR alignment |  |  |
+| PB-60 Business model canvas |  |  |
+| PB-61 Cost breakdown |  |  |
+| PB-62 Roadmap flags |  |  |
+| PB-63 Scoring matrix |  |  |
+| PB-64 Checklist review |  |  |
 
 ## Derivation Metadata
 
 - Keep parent slot roles in `data-role`, `data-source-slot`, and `data-corporate-role` attributes.
 - Preserve the header, title, optional lead, centered body, and footer structure.
 - Center the body inside the available body zone between lead/title and footer, not inside the full slide canvas.
+- Keep body components large enough to occupy the available body zone; do not leave a small body group floating in a wide blank page.
 - Do not print helper role labels such as title/body/lead markers in the visible slide.
 - For `image2` body variants, keep the slide title and short body context as editable text and mark the generated body region with `data-renderer="image2"`.
 

@@ -152,6 +152,21 @@ The basic structure is header, title, optional lead, body, and footer.
 | PB-47 | Icon grid | Feature, support, or module catalog |
 | PB-48 | Case quote | Photo/screenshot frame plus quote or voice |
 | PB-49 | Decision tree | Branching conditions and actions |
+| PB-50 | Evaluation grid | Criteria-by-option assessment cards |
+| PB-51 | Risk heatmap | Impact and likelihood priority map |
+| PB-52 | RACI matrix | Responsibility and approval split |
+| PB-53 | Waterfall bridge | Increase/decrease factor breakdown |
+| PB-54 | Value chain | Sequential business functions |
+| PB-55 | Fishbone cause | Cause-and-effect analysis |
+| PB-56 | Logic tree | Issue or hypothesis decomposition |
+| PB-57 | Stakeholder map | Actors around a central issue |
+| PB-58 | Customer journey | Experience stages and needs |
+| PB-59 | OKR alignment | Objective, key results, and actions |
+| PB-60 | Business model canvas | One-page business model fields |
+| PB-61 | Cost breakdown | Cost structure bars and ratios |
+| PB-62 | Roadmap flags | Milestones and checkpoints |
+| PB-63 | Scoring matrix | Weighted decision scoring |
+| PB-64 | Checklist review | Readiness or control checklist |
 
 ## Image2 Body Variants
 
@@ -167,6 +182,7 @@ Use `image2` only for the body area when:
 ## Density Rules
 
 - Normal slides use 1 title, optional lead, and 1 centered primary body structure.
+- Body structures should use enough of the available body zone to avoid sparse paper-like whitespace. Prefer increasing the body component height before shrinking titles or moving content upward.
 - Do not mix a large table and a large diagram on the same slide.
 - For lane comparisons, keep each lane to 1 label, 1 short claim, and up to 3 evidence rows.
 - For cards, use 3 cards by default; 4 cards only when each card is short.
