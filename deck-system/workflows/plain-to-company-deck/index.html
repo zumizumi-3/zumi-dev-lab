@@ -79,14 +79,14 @@
       <header>
         <p class="eyebrow">Workflow</p>
         <h1>Plain to Company Deck</h1>
-        <p class="lead">Plain Neutralを親フォーマットとして選び、企業フォーマットを作成し、最後に台本入力からスライド化するための標準工程です。用途別フォーマットを増やす前に、この企業別派生フローを固定します。</p>
+        <p class="lead">用途に合うPlain系ベースを親フォーマットとして選び、企業フォーマットを作成し、最後に台本入力からスライド化するための標準工程です。</p>
       </header>
 
       <section class="steps" aria-label="工程">
         <article class="step">
           <span class="num">1</span>
           <h2>Plainを選ぶ</h2>
-          <p>親フォーマットは <code>Plain Neutral</code>。白背景、グレー罫線、ロゴなし、ブランド色なしの状態で構造だけを使います。</p>
+          <p><code>Plain Neutral</code> は疎な汎用資料、<code>Plain Business PPT</code> は提案・報告・会議・KPI・表中心の業務資料に使います。</p>
         </article>
         <article class="step">
           <span class="num">2</span>
@@ -136,7 +136,7 @@
         <ul>
           <li>企業フォーマット: <code>deck-system/formats/&lt;company-format-id&gt;/</code></li>
           <li>台本から作るデッキ: <code>deck-system/decks/&lt;deck-id&gt;/</code></li>
-          <li>親フォーマット: <code>deck-system/base-formats/plain-neutral/</code></li>
+          <li>親フォーマット: <code>deck-system/base-formats/plain-neutral/</code> または <code>deck-system/base-formats/plain-business-ppt/</code></li>
         </ul>
       </section>
     </main>

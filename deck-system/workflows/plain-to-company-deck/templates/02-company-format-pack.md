@@ -4,7 +4,7 @@
 
 - format_id:
 - display_name:
-- parent_base_format: `plain-neutral`
+- parent_base_format: `plain-neutral` or `plain-business-ppt`
 - purpose:
 - output_path: `deck-system/formats/<format-id>/`
 - version: 1
@@ -43,7 +43,7 @@ logo:
 
 ## Pattern Mapping
 
-| Plain Neutral Pattern | Company Variant | Use When |
+| Parent Base Pattern | Company Variant | Use When |
 |---|---|---|
 | PN-00 Cover |  |  |
 | PN-01 Section divider |  |  |
@@ -52,6 +52,12 @@ logo:
 | PN-05 Process |  |  |
 | PN-06 Table |  |  |
 | PN-07 Closing |  |  |
+| PB-01 Agenda |  |  |
+| PB-02 Executive summary |  |  |
+| PB-06 Data table |  |  |
+| PB-07 Progress summary |  |  |
+| PB-10 Competitor comparison |  |  |
+| PB-12 Action plan |  |  |
 
 ## Source Evidence
 
@@ -63,6 +69,6 @@ logo:
 
 ## Completion Gate
 
-- Brand tokens are separated from Plain Neutral.
+- Brand tokens are separated from the selected Plain base format.
 - Reusable pattern variants are listed.
 - Missing assets or unconfirmed brand rules are documented.

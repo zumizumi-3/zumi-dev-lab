@@ -4,7 +4,7 @@
 
 - company_format_id:
 - company_or_project_name:
-- parent_base_format: `plain-neutral`
+- parent_base_format: `plain-neutral` or `plain-business-ppt`
 - output_path: `deck-system/formats/<company-format-id>/`
 
 ## Source Evidence
@@ -43,7 +43,9 @@
 
 ## Completion Gate
 
-- Parent base format is Plain Neutral.
+- Parent base format is selected intentionally:
+  - `plain-neutral` for sparse general presentations.
+  - `plain-business-ppt` for dense business PPT, proposal, report, meeting, KPI, budget, schedule, or comparison decks.
 - Source evidence is listed, even if some items are missing.
 - Brand-specific choices are recorded only in the company format pack.
 - Private or client-sensitive materials are not committed to the public repo.

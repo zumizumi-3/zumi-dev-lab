@@ -2,13 +2,15 @@
 
 ## Purpose
 
-Plain Neutralを親フォーマットにして、企業別フォーマットを作成し、その企業フォーマットに台本を流し込んでスライド化する。
+用途に合うPlain系ベースフォーマットを親にして、企業別フォーマットを作成し、その企業フォーマットに台本を流し込んでスライド化する。
 
 ## Flow
 
 1. **Select Base Format**
-   - Parent: `deck-system/base-formats/plain-neutral/`
-   - Gate: Plain Neutralの構造・密度・基本パターンを親として使うことを確認する。
+   - Parent options:
+     - `deck-system/base-formats/plain-neutral/`: sparse, general-purpose, seminar or simple narrative decks
+     - `deck-system/base-formats/plain-business-ppt/`: dense business PPT, proposal, report, meeting, KPI, budget, schedule, comparison
+   - Gate: deck purpose, density, and source evidence match the selected parent base format.
 
 2. **Create Company Format Pack**
    - Input: `templates/01-company-format-intake.md`
@@ -40,7 +42,7 @@ Plain Neutralを親フォーマットにして、企業別フォーマットを�
 
 ## Do Not
 
-- 企業ロゴやブランドカラーをPlain Neutralに直接入れない。
+- 企業ロゴやブランドカラーをPlain系ベースフォーマットに直接入れない。
 - 台本の細かい説明をすべてスライド本文に入れない。
 - 未確認の数字、実績、導入事例、顧客名を事実として書かない。
 - 企業フォーマット作成前に、台本だけで最終デザインを固定しない。

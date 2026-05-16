@@ -2,11 +2,12 @@
 
 ## Format Validation
 
-- [ ] Parent base format is Plain Neutral.
+- [ ] Parent base format is explicit: `plain-neutral` or `plain-business-ppt`.
 - [ ] Company-specific styling lives in `deck-system/formats/<format-id>/`.
 - [ ] Logo placement follows the format pack.
 - [ ] Fonts and colors follow the format pack.
 - [ ] Section dividers and closing slides match the format pack.
+- [ ] If parent is `plain-business-ppt`, title, lead, body, table, label, and footnote slots remain explicit.
 
 ## Content Validation
 

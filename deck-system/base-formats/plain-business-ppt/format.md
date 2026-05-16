@@ -16,11 +16,41 @@ Use it when:
 The input set contained 17 PPTX files and 807 slides.
 
 - all source decks used a 16:9 canvas
-- frequent structures: horizontal cards or steps, dense report pages, vertical-lane comparisons, and tables
+- semantic pass identified a title-bearing slide in 785 of 807 slides, or 97.3%
+- common primary-title slot: left 3.3%, top 4.2%, height 4.6% of the slide
+- common lead/subtitle slot: below the title, around top 10.5%, often named as a body or text placeholder in PPTX
+- frequent structures: dense diagram/report pages, vertical-lane comparisons, tables/matrices, horizontal cards or steps, visual-plus-explanation pages, and meeting/action pages
 - common text scale: 12, 14, 16, 18, 20, 24, 34, and 40+ point roles
 - repeated business content types: agenda, company overview, issue analysis, 3C, KPI/status, budget, schedule, comparison, proposal options, training flow, and meeting actions
 
-The source decks are used only as format evidence. This base format does not include source logos, images, brand colors, or original slide copy.
+The source decks are used only as format evidence. This base format does not include source logos, images, brand colors, or original slide copy. Public-safe extraction notes are recorded in `source-evidence.md`.
+
+## Semantic Slot Contract
+
+Every pattern must make the role of each text area explicit. Titles must not be hidden as generic body text.
+
+| Slot | Required Markup / Content Label | PPTX Evidence | Use |
+|---|---|---|---|
+| Primary title | `TITLE` / `data-role="title"` | usually `type=title` or first top-left text box | slide message or topic |
+| Lead / subtitle | `LEAD` / `data-role="lead"` | body/text placeholder directly under title | one-sentence context or implication |
+| Structure label | `LABEL` / `data-role="label"` | small rectangles, lane headers, section tags | category, step, status, owner |
+| Body | `BODY` / `data-role="body"` | paragraph text boxes, bullets, card copy | evidence, explanation, action |
+| Table / matrix | `TABLE` / `data-role="table"` | native table or object-built table | figures, comparison, action rows |
+| Footnote / unit | `FOOTNOTE` / `data-role="footnote"` | unit labels, source notes, page numbers | unit, source, assumption, date |
+
+When converting PPTX or generating a new deck, map source shapes into these slots first, then choose the visual pattern. Do not choose the visual pattern from shape count alone.
+
+## PPTX Extraction Order
+
+Use this order when importing another PPTX into this base:
+
+1. **Primary title**: prefer `p:ph type="title"`. This is the normal slide title in the source set.
+2. **Cover subtitle**: on cover layouts, treat the `body` placeholder under the cover title as subtitle/lead, not long body copy.
+3. **Standard lead**: on normal body slides, treat the `body` placeholder directly under the title as the key message or lead.
+4. **Chapter or table-of-contents pages**: when no title placeholder exists, use the largest upper text block as a pseudo-title and mark it as inferred.
+5. **Page numbers**: do not rely on `sldNum`; BIZ templates use normal bottom-right text shapes such as `‹#›`.
+6. **Footnotes and citations**: classify small bottom-band text as footnote/source, not body.
+7. **Figure labels**: short text inside circles, rounded rectangles, or small node labels such as `01`, `KGI`, `Before`, and `After` stays as `LABEL`, not title.
 
 ## Base Rules
 
@@ -76,6 +106,10 @@ The source decks are used only as format evidence. This base format does not inc
 | PB-13 | Training flow | Objective, modules, practice, confirmation |
 | PB-14 | Meeting decision log | Agenda item, decision, open issue, next owner |
 | PB-15 | Appendix table | Dense reference table |
+| PB-16 | SWOT / 2x2 | Strength, weakness, opportunity, threat or other 2x2 analysis |
+| PB-17 | Before / After | Current state and target state comparison |
+| PB-18 | Interview / voice | Person, role, quote, and implication |
+| PB-19 | Selection / process rail | Recruiting, onboarding, or approval process |
 
 ## Density Rules
 
@@ -85,6 +119,7 @@ The source decks are used only as format evidence. This base format does not inc
 - For cards, use 3 cards by default; 4 cards only when each card is short.
 - For schedules and action plans, use 4 to 6 rows on main slides.
 - Use PB-15 for dense backup material instead of shrinking the normal pattern.
+- Keep title and lead slots visible in the source HTML so an agent can tell which text is the slide title without visual inference.
 
 ## Derivation Rule
 
@@ -97,4 +132,3 @@ When making a company or purpose format from this base, keep the structural patt
 - screenshot or photo frame style
 - footer metadata conventions
 - source citation style
-
