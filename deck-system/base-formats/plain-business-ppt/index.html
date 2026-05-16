@@ -135,7 +135,6 @@
         vertical-align: middle;
       }
       .title-slot,
-      .lead-slot,
       .body-slot,
       .footnote-slot {
         position: relative;
@@ -169,9 +168,9 @@
         font-size: var(--body);
         line-height: 1.58;
       }
-      .lead {
+      .body-copy {
         max-width: 920px;
-        margin-bottom: 18px;
+        margin: clamp(24px, 3.4vw, 42px) 0 18px;
         color: var(--muted);
         font-size: 1.08rem;
         font-weight: 650;
@@ -488,7 +487,11 @@
         .slide-footer { display: none; }
         h1 { margin-bottom: 5px; }
         h2 { margin-bottom: 4px; }
-        .lead { margin-bottom: 4px; font-size: 0.44rem; line-height: 1.28; }
+        .body-copy {
+          margin: 5px 0 4px;
+          font-size: 0.42rem;
+          line-height: 1.22;
+        }
         .role-label,
         .role-inline {
           margin-bottom: 2px;
@@ -649,7 +652,7 @@
           <p class="kicker">Plain Business PPT</p>
           <span class="role-label">Title</span>
           <h1 id="PB-00-title" class="title-slot" data-role="title">業務資料の構図を保ったプレーンフォーマット</h1>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>提案、報告、分析、会議、研修で使うPPTの密度を残しながら、色・ロゴ・装飾を外した構造ベース。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>提案、報告、分析、会議、研修で使うPPTの密度を残しながら、色・ロゴ・装飾を外した構造ベース。</p>
           <div class="meta-row">
             <div class="metric"><span>Sources</span><b>17</b></div>
             <div class="metric"><span>Slides</span><b>807</b></div>
@@ -671,7 +674,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-E0-title" class="title-slot" data-role="title">PPTXの文字枠を先に役割へ変換する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>785/807枚でタイトル枠を判定。見た目ではなく、タイトル・リード・本文・表注のslotを先に固定する。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>785/807枚でタイトル枠を判定。見た目ではなく、タイトル・本文・表注のslotを先に固定する。</p>
           <div class="anatomy" aria-label="抽出slot">
             <div class="anatomy-row">
               <div class="slot-name">TITLE</div>
@@ -705,7 +708,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-01-title" class="title-slot" data-role="title">会議・提案の流れは番号付きレーンで先に固定する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>各項目に目的と所要時間を持たせ、後続スライドの構成を崩さない。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>各項目に目的と所要時間を持たせ、後続スライドの構成を崩さない。</p>
           <div class="agenda">
             <div class="agenda-item"><b>01</b><strong>前提確認</strong><span>5 min</span></div>
             <div class="agenda-item"><b>02</b><strong>現状と課題</strong><span>10 min</span></div>
@@ -728,7 +731,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-02-title" class="title-slot" data-role="title">最初に判断材料を3点へ圧縮する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>業務PPTの要約ページは、結論、根拠、次アクションを同じ粒度で並べる。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>業務PPTの要約ページは、結論、根拠、次アクションを同じ粒度で並べる。</p>
           <div class="grid-3 body-slot" data-role="body">
             <div class="metric"><span>Conclusion</span><b>継続</b><p>主要KPIは維持。改善余地は流入品質に集中。</p></div>
             <div class="metric"><span>Evidence</span><b>+12%</b><p>問い合わせは増加、商談化率は横ばい。</p></div>
@@ -749,7 +752,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-03-title" class="title-slot" data-role="title">課題は「症状」「原因」「対応方針」に分ける</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>分析スライドでは、いきなり施策に入らず、判断の根拠を短く並べる。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>分析スライドでは、いきなり施策に入らず、判断の根拠を短く並べる。</p>
           <div class="grid-3">
             <div class="lane">
               <span class="number">1</span>
@@ -782,7 +785,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-04-title" class="title-slot" data-role="title">環境分析は3つの観点を同じ粒度で比較する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>各レーンの見出し、観察、示唆を揃えることで、次の打ち手へ接続しやすくする。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>各レーンの見出し、観察、示唆を揃えることで、次の打ち手へ接続しやすくする。</p>
           <div class="grid-3">
             <div class="box">
               <strong>Customer</strong>
@@ -802,7 +805,7 @@
           </div>
         </div>
         <div class="slide-footer">
-          <span>Use a bottom implication bar when the analysis must lead to action.</span>
+          <span>Use a bottom implication bar when the analysis must connect to action.</span>
           <span>PB-04</span>
         </div>
       </section>
@@ -815,7 +818,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-05-title" class="title-slot" data-role="title">KGIから施策までを一枚でつなげる</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>目標、管理指標、成功要因、実行項目の対応関係を明確にする。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>目標、管理指標、成功要因、実行項目の対応関係を明確にする。</p>
           <div class="tree">
             <div class="tree-col">
               <div class="tree-node"><strong>KGI</strong><span>四半期売上目標の達成</span></div>
@@ -846,7 +849,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-06-title" class="title-slot" data-role="title">数値表はコメント列を持たせて判断に変換する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>単なる数表で終わらせず、差分、要因、次アクションを並べる。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>単なる数表で終わらせず、差分、要因、次アクションを並べる。</p>
           <table class="data-table" data-role="table">
             <caption>TABLE: 月次KPIと解釈コメント</caption>
             <thead>
@@ -875,7 +878,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-07-title" class="title-slot" data-role="title">進捗は状態・リスク・次アクションを同時に見る</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>定例会議資料では、進捗率だけでなく、遅延理由と打ち手まで同じ行に置く。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>定例会議資料では、進捗率だけでなく、遅延理由と打ち手まで同じ行に置く。</p>
           <table class="data-table" data-role="table">
             <caption>TABLE: プロジェクト進捗サマリー</caption>
             <thead><tr><th>領域</th><th>進捗</th><th>状態</th><th>リスク</th><th>次アクション</th></tr></thead>
@@ -900,7 +903,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-08-title" class="title-slot" data-role="title">予算は配分と回収見込みを同じ面で示す</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>支出カテゴリ、差分、期待リターンを分け、承認判断に必要な数字を揃える。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>支出カテゴリ、差分、期待リターンを分け、承認判断に必要な数字を揃える。</p>
           <div class="grid-4 body-slot" data-role="body">
             <div class="metric"><span>Budget</span><b>500</b><p>総額 / 万円</p></div>
             <div class="metric"><span>Used</span><b>320</b><p>消化済み</p></div>
@@ -923,7 +926,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-09-title" class="title-slot" data-role="title">短期計画は6区間までのタイムラインで見せる</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>期間、作業、判断点を同じ高さで並べ、進捗報告に転用できる形にする。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>期間、作業、判断点を同じ高さで並べ、進捗報告に転用できる形にする。</p>
           <div class="timeline">
             <div><b>Week 1</b><span>現状整理<br>論点確定</span></div>
             <div><b>Week 2</b><span>仮説作成<br>資料設計</span></div>
@@ -952,7 +955,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-10-title" class="title-slot" data-role="title">競合比較は評価軸を先に固定する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>比較表では列ごとの強弱よりも、意思決定に必要な評価軸を揃える。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>比較表では列ごとの強弱よりも、意思決定に必要な評価軸を揃える。</p>
           <table class="matrix" data-role="table">
             <caption>TABLE: 評価軸別の競合比較</caption>
             <thead>
@@ -980,7 +983,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-11-title" class="title-slot" data-role="title">選択肢比較は推奨案がわかる形で並べる</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>案A/B/Cを同じ項目で比較し、推奨理由と採用条件を最後に置く。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>案A/B/Cを同じ項目で比較し、推奨理由と採用条件を最後に置く。</p>
           <div class="grid-3 body-slot" data-role="body">
             <div class="lane"><strong>Plan A / 最小改善</strong><p>短期で実行可能。効果は限定的だがリスクが低い。</p></div>
             <div class="lane"><strong>Plan B / 推奨</strong><p>主要課題に集中。効果と負荷のバランスが良い。</p></div>
@@ -1002,7 +1005,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-12-title" class="title-slot" data-role="title">最後は担当・期限・依存関係まで落とす</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>会議資料では、結論だけでなく次に誰が何を進めるかを明示する。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>会議資料では、結論だけでなく次に誰が何を進めるかを明示する。</p>
           <table class="data-table" data-role="table">
             <caption>TABLE: 次アクション管理</caption>
             <thead>
@@ -1030,7 +1033,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-13-title" class="title-slot" data-role="title">研修資料は目的から実践確認までを一本化する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>受講者が何を理解し、どこで手を動かし、どう確認されるかを明示する。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>受講者が何を理解し、どこで手を動かし、どう確認されるかを明示する。</p>
           <div class="process-rail body-slot" data-role="body">
             <div class="process-step"><b>01 目的</b><span>到達状態を共有</span></div>
             <div class="process-step"><b>02 講義</b><span>判断基準を説明</span></div>
@@ -1053,7 +1056,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-14-title" class="title-slot" data-role="title">会議結果は決定事項と未決事項を分けて残す</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>定例会議資料では、合意したこと、残った論点、次の担当が後から追えることを優先する。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>定例会議資料では、合意したこと、残った論点、次の担当が後から追えることを優先する。</p>
           <table class="data-table" data-role="table">
             <caption>TABLE: 議事決定ログ</caption>
             <thead><tr><th>議題</th><th>決定事項</th><th>未決事項</th><th>担当</th></tr></thead>
@@ -1078,7 +1081,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-15-title" class="title-slot" data-role="title">詳細情報は付録テーブルへ逃がす</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>本編の判断を邪魔する詳細、前提、確認事項は、付録で構造化して参照可能にする。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>本編の判断を邪魔する詳細、前提、確認事項は、付録で構造化して参照可能にする。</p>
           <table class="data-table" data-role="table">
             <caption>TABLE: 付録・確認事項一覧</caption>
             <thead><tr><th>ID</th><th>項目</th><th>内容</th><th>確認先</th><th>状態</th></tr></thead>
@@ -1104,7 +1107,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-16-title" class="title-slot" data-role="title">2x2分析は象限ごとに示唆を持たせる</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>SWOTや優先度整理では、象限名だけで終わらせず、次の判断に使える一文を入れる。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>SWOTや優先度整理では、象限名だけで終わらせず、次の判断に使える一文を入れる。</p>
           <div class="swot body-slot" data-role="body">
             <div class="box"><strong>Strength</strong><p>既存実績と運用知見があり、導入後支援を説明できる。</p></div>
             <div class="box"><strong>Weakness</strong><p>初回資料で差別化が伝わりにくく、比較時に埋もれる。</p></div>
@@ -1126,7 +1129,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-17-title" class="title-slot" data-role="title">Before / After は変化の理由まで添える</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>現状と理想を並べるだけでなく、何が変わるから成果につながるのかを明示する。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>現状と理想を並べるだけでなく、何が変わるから成果につながるのかを明示する。</p>
           <div class="grid-3 body-slot" data-role="body">
             <div class="lane"><strong>Before</strong><p>提案内容は説明できるが、意思決定者の論点と接続していない。</p></div>
             <div class="lane"><strong>Change</strong><p>判断軸、比較材料、導入後支援を一枚で見える化する。</p></div>
@@ -1147,7 +1150,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-18-title" class="title-slot" data-role="title">人物・声・示唆を分けると事例ページになる</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>採用、研修、顧客事例では、誰の発言か、何を示しているかを混ぜない。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>採用、研修、顧客事例では、誰の発言か、何を示しているかを混ぜない。</p>
           <div class="grid-3 body-slot" data-role="body">
             <div class="metric"><span>Person</span><b>Role</b><p>職種、部署、関係性を短く記載。</p></div>
             <div class="box"><strong>Voice</strong><p>引用やコメントは短く。長い背景はノートへ分離する。</p></div>
@@ -1168,7 +1171,7 @@
         <div class="content">
           <span class="role-label">Title</span>
           <h2 id="PB-19-title" class="title-slot" data-role="title">選考・承認プロセスは通過条件を併記する</h2>
-          <p class="lead lead-slot" data-role="lead"><span class="role-inline">Lead</span>採用説明、稟議、導入手順では、ステップだけでなく各ゲートの確認事項を置く。</p>
+          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>採用説明、稟議、導入手順では、ステップだけでなく各ゲートの確認事項を置く。</p>
           <div class="process-rail body-slot" data-role="body">
             <div class="process-step"><b>01 Entry</b><span>対象・条件を確認</span></div>
             <div class="process-step"><b>02 Review</b><span>資料と前提を確認</span></div>

@@ -9,7 +9,7 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 - Canvas: 16:9 in all files
 - Semantic title coverage: 785 / 807 slides, 97.3%
 - Common title box: left 3.3%, top 4.2%, height 4.6%
-- Common lead/subtitle box: directly below title, around top 10.5%
+- Common body text box: directly below title, around top 10.5%
 - Detected placeholders across slides: `title=774`, `body=764`, `pic=15`
 - Detected no useful `subTitle`, `sldNum`, `ftr`, or `dt` placeholder pattern in the source set
 
@@ -40,17 +40,16 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 | Slot | Evidence |
 |---|---|
 | TITLE | Most normal slides use a small top-left `title` placeholder. Cover/title-only pages place the title in the middle or center band. |
-| LEAD | Many decks place a body/text placeholder immediately below the title to explain slide purpose, implication, or instruction. |
 | LABEL | Repeated rectangles and small text boxes act as lane names, step labels, status labels, or chart annotations. |
-| BODY | Main explanation appears as table rows, cards, lanes, paragraph boxes, or object-built diagrams. |
+| BODY | Main explanation appears as the title-adjacent body placeholder, table rows, cards, lanes, paragraph boxes, or object-built diagrams. |
 | TABLE | Some files use native tables; many use rectangle-built tables. The base supports both through semantic table slots. |
 | FOOTNOTE | Unit labels, source notes, page numbers, and assumptions often sit near chart/table edges or slide footer. |
 
 ## Extraction Order
 
 1. Prefer `p:ph type="title"` as the slide title.
-2. Treat the normal body placeholder directly below the title as the lead/key message.
-3. On cover slides, treat the body placeholder under the cover title as the subtitle.
+2. Treat the normal body placeholder directly below the title as body copy. It is not a separate slot.
+3. On cover slides, treat the body placeholder under the cover title as body context.
 4. If a BIZ chapter/title page has no title placeholder, infer title from the largest upper text block.
 5. Treat bottom-right `‹#›` text shapes as page numbers, not content.
 6. Treat lower-band small citations, units, and assumptions as footnotes.
@@ -84,6 +83,6 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 ## Extraction Rules Kept
 
 - The base keeps structure only; it removes brand colors, logos, decorative backgrounds, source images, and original copy.
-- Title, lead, body, table, label, and footnote slots must be explicit in HTML.
+- Title, body, table, label, and footnote slots must be explicit in HTML.
 - Main slides stay decision-oriented; dense backup material moves to PB-15.
 - Tables need captions or unit/footnote slots so figures do not become untyped body text.

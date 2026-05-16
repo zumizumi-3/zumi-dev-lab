@@ -7,7 +7,7 @@
 - [ ] Logo placement follows the format pack.
 - [ ] Fonts and colors follow the format pack.
 - [ ] Section dividers and closing slides match the format pack.
-- [ ] If parent is `plain-business-ppt`, title, lead, body, table, label, and footnote slots remain explicit.
+- [ ] If parent is `plain-business-ppt`, title, body, table, label, and footnote slots remain explicit.
 
 ## Content Validation
 

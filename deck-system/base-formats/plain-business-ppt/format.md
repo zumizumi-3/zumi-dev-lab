@@ -18,7 +18,7 @@ The input set contained 17 PPTX files and 807 slides.
 - all source decks used a 16:9 canvas
 - semantic pass identified a title-bearing slide in 785 of 807 slides, or 97.3%
 - common primary-title slot: left 3.3%, top 4.2%, height 4.6% of the slide
-- common lead/subtitle slot: below the title, around top 10.5%, often named as a body or text placeholder in PPTX
+- common body text slot: below the title, around top 10.5%, often named as a body or text placeholder in PPTX
 - frequent structures: dense diagram/report pages, vertical-lane comparisons, tables/matrices, horizontal cards or steps, visual-plus-explanation pages, and meeting/action pages
 - common text scale: 12, 14, 16, 18, 20, 24, 34, and 40+ point roles
 - repeated business content types: agenda, company overview, issue analysis, 3C, KPI/status, budget, schedule, comparison, proposal options, training flow, and meeting actions
@@ -32,9 +32,8 @@ Every pattern must make the role of each text area explicit. Titles must not be 
 | Slot | Required Markup / Content Label | PPTX Evidence | Use |
 |---|---|---|---|
 | Primary title | `TITLE` / `data-role="title"` | usually `type=title` or first top-left text box | slide message or topic |
-| Lead / subtitle | `LEAD` / `data-role="lead"` | body/text placeholder directly under title | one-sentence context or implication |
 | Structure label | `LABEL` / `data-role="label"` | small rectangles, lane headers, section tags | category, step, status, owner |
-| Body | `BODY` / `data-role="body"` | paragraph text boxes, bullets, card copy | evidence, explanation, action |
+| Body | `BODY` / `data-role="body"` | body/text placeholder, paragraph text boxes, bullets, card copy | context, evidence, explanation, action |
 | Table / matrix | `TABLE` / `data-role="table"` | native table or object-built table | figures, comparison, action rows |
 | Footnote / unit | `FOOTNOTE` / `data-role="footnote"` | unit labels, source notes, page numbers | unit, source, assumption, date |
 
@@ -45,8 +44,8 @@ When converting PPTX or generating a new deck, map source shapes into these slot
 Use this order when importing another PPTX into this base:
 
 1. **Primary title**: prefer `p:ph type="title"`. This is the normal slide title in the source set.
-2. **Cover subtitle**: on cover layouts, treat the `body` placeholder under the cover title as subtitle/lead, not long body copy.
-3. **Standard lead**: on normal body slides, treat the `body` placeholder directly under the title as the key message or lead.
+2. **Cover body**: on cover layouts, treat the `body` placeholder under the cover title as body context, not a separate slot.
+3. **Standard body**: on normal body slides, treat the `body` placeholder directly under the title as body copy. It should not be top-packed against the title.
 4. **Chapter or table-of-contents pages**: when no title placeholder exists, use the largest upper text block as a pseudo-title and mark it as inferred.
 5. **Page numbers**: do not rely on `sldNum`; BIZ templates use normal bottom-right text shapes such as `‹#›`.
 6. **Footnotes and citations**: classify small bottom-band text as footnote/source, not body.
@@ -59,7 +58,7 @@ Use this order when importing another PPTX into this base:
 - no logo, decorative background, gradient, or brand color
 - black and neutral gray typography
 - dense but bounded information: one headline, one slide message, and one primary structure
-- business-document rhythm: small header, large conclusion headline, compact lead, structured body, optional footer metadata
+- business-document rhythm: small header, large conclusion headline, lowered body context, structured body, optional footer metadata
 - prefer tables, lanes, and process grids over loose bullets
 - use thin rules and light gray surfaces to show hierarchy
 - keep slide-level body text to 12 to 18 point equivalent; move detail to notes or appendix
@@ -80,9 +79,8 @@ Use this order when importing another PPTX into this base:
 |---|---|
 | Cover title | Document name, proposal title, report title |
 | Slide headline | Conclusion or message, not a topic label when possible |
-| Lead | One sentence that explains the implication |
 | Label | Section, unit, category, status, owner |
-| Body | Short explanation or evidence |
+| Body | Context, explanation, implication, or evidence |
 | Table text | Dense structured facts |
 | Footnote | Unit, assumption, source, date |
 
@@ -113,13 +111,13 @@ Use this order when importing another PPTX into this base:
 
 ## Density Rules
 
-- Normal slides use 1 headline, 1 lead, and 1 structure.
+- Normal slides use 1 title, 1 lowered body context block, and 1 primary structure.
 - Do not mix a large table and a large diagram on the same slide.
 - For lane comparisons, keep each lane to 1 label, 1 short claim, and up to 3 evidence rows.
 - For cards, use 3 cards by default; 4 cards only when each card is short.
 - For schedules and action plans, use 4 to 6 rows on main slides.
 - Use PB-15 for dense backup material instead of shrinking the normal pattern.
-- Keep title and lead slots visible in the source HTML so an agent can tell which text is the slide title without visual inference.
+- Keep title and body slots visible in the source HTML so an agent can tell which text is the slide title and which text is body without visual inference.
 
 ## Derivation Rule
 
