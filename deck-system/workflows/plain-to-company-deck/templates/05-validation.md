@@ -13,7 +13,7 @@
 - [ ] If parent is `plain-business-ppt`, card internals look deliberately aligned; headings, metrics, and body copy are not accidentally pinned to the top of tall cards.
 - [ ] If parent is `plain-business-ppt`, visible slide content does not include helper role labels such as title/body/lead markers.
 - [ ] If a body region is generated with `image2`, the title and short body context remain editable HTML text.
-- [ ] If a body region uses inline SVG, connector lines, arrows, branches, labels, and callouts remain visible and readable after applying company colors.
+- [ ] If a body region uses inline SVG, connector lines, arrows, branches, labels, overlaps, hierarchies, board columns, and callouts remain visible and readable after applying company colors.
 
 ## Content Validation
 

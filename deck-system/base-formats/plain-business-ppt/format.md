@@ -175,6 +175,18 @@ The basic structure is header, title, optional lead, body, and footer.
 | PB-70 | SVG callout anatomy | Central object with annotated callout lines |
 | PB-71 | SVG roadmap bars | Phase bars across a time axis |
 | PB-72 | SVG layered system | Horizontal layers plus process flow |
+| PB-73 | SVG Venn overlap | Overlapping conditions and shared value |
+| PB-74 | SVG concentric rings | Core, surrounding layers, and ecosystem |
+| PB-75 | SVG staircase maturity | Level progression or capability growth |
+| PB-76 | SVG gap bridge | As-is to to-be bridge with intermediate moves |
+| PB-77 | SVG org chart | Hierarchical ownership or reporting structure |
+| PB-78 | SVG dependency network | Node relationships and dependencies |
+| PB-79 | SVG migration matrix | Movement across a two-axis matrix |
+| PB-80 | SVG iceberg | Visible symptoms and hidden causes |
+| PB-81 | SVG layer stack | Capability or system layers stacked from foundation to outcome |
+| PB-82 | SVG bowtie risk | Causes, central risk event, and outcomes |
+| PB-83 | SVG bubble portfolio | Position and relative size of options |
+| PB-84 | SVG stage gate board | Pipeline columns and card-level status |
 
 ## Image2 Body Variants
 
@@ -189,13 +201,13 @@ Use `image2` only for the body area when:
 
 ## SVG Body Diagram Variants
 
-PB-65 through PB-72 are inline-SVG variants for PPTX pages that were built from connector lines, arrows, diamonds, fishbone shapes, callouts, and layered architecture shapes. Use them when plain HTML cards lose the intended relationship between elements.
+PB-65 through PB-84 are inline-SVG variants for PPTX pages that were built from connector lines, arrows, diamonds, fishbone shapes, callouts, overlapping circles, hierarchies, networks, layer stacks, and board-like pipelines. Use them when plain HTML cards lose the intended relationship between elements.
 
 - keep the SVG in the body slot with `data-corporate-role="svg-body-diagram"`
 - keep slide title and lead as editable HTML outside the SVG
 - keep SVG text short; long explanation belongs in HTML lead, notes, or a separate body card
 - use neutral fills and strokes only in the base format; add brand colors in derived company formats
-- prefer SVG for explicit connectors, arrowheads, diamonds, callout lines, cyclic arrows, and timeline bars
+- prefer SVG for explicit connectors, arrowheads, diamonds, callout lines, cyclic arrows, timeline bars, overlap areas, hierarchy lines, and bubble sizing
 
 ## Density Rules
 

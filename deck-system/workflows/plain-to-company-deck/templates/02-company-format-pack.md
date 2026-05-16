@@ -111,6 +111,18 @@ logo:
 | PB-70 SVG callout anatomy |  |  |
 | PB-71 SVG roadmap bars |  |  |
 | PB-72 SVG layered system |  |  |
+| PB-73 SVG Venn overlap |  |  |
+| PB-74 SVG concentric rings |  |  |
+| PB-75 SVG staircase maturity |  |  |
+| PB-76 SVG gap bridge |  |  |
+| PB-77 SVG org chart |  |  |
+| PB-78 SVG dependency network |  |  |
+| PB-79 SVG migration matrix |  |  |
+| PB-80 SVG iceberg |  |  |
+| PB-81 SVG layer stack |  |  |
+| PB-82 SVG bowtie risk |  |  |
+| PB-83 SVG bubble portfolio |  |  |
+| PB-84 SVG stage gate board |  |  |
 
 ## Derivation Metadata
 
@@ -121,7 +133,7 @@ logo:
 - Preserve deliberate internal alignment inside cards; title, metric, and body copy should not look accidentally top-pinned in tall cards.
 - Do not print helper role labels such as title/body/lead markers in the visible slide.
 - For `image2` body variants, keep the slide title and short body context as editable text and mark the generated body region with `data-renderer="image2"`.
-- For SVG body variants, keep connector, branch, loop, and callout structure in inline SVG while keeping long explanatory copy outside the SVG.
+- For SVG body variants, keep connector, branch, loop, callout, overlap, hierarchy, network, layer, and board structure in inline SVG while keeping long explanatory copy outside the SVG.
 
 ## Source Evidence
 

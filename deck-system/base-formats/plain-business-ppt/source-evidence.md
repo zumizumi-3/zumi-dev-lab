@@ -134,6 +134,18 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 | PB-70 SVG callout anatomy | S05, S08, S10, S17 | Central visual or object annotated by callout lines |
 | PB-71 SVG roadmap bars | S07, S08, S10 | Phase bars on a time axis with overlap and milestones |
 | PB-72 SVG layered system | S04, S10, S16-S17 | Layered system or operation structure with horizontal flow |
+| PB-73 SVG Venn overlap | S03, S04, S11, S17 | Overlap between conditions, strengths, feasibility, or fit |
+| PB-74 SVG concentric rings | S04, S10, S16-S17 | Core-periphery or layered ecosystem diagram |
+| PB-75 SVG staircase maturity | S07, S10, S13, S17 | Stepwise maturity, onboarding, capability, or adoption levels |
+| PB-76 SVG gap bridge | S01, S05, S12, S13 | As-is/to-be bridge with intermediate improvement moves |
+| PB-77 SVG org chart | S07, S08, S15 | Hierarchical ownership, reporting line, or project structure |
+| PB-78 SVG dependency network | S04, S07, S11, S16-S17 | Related nodes connected by dependency or influence lines |
+| PB-79 SVG migration matrix | S03, S11, S14, S17 | Two-axis position movement from current to target state |
+| PB-80 SVG iceberg | S03, S12, S13, S16-S17 | Visible symptoms separated from hidden causes |
+| PB-81 SVG layer stack | S04, S10, S16-S17 | System or capability layers stacked from base to outcome |
+| PB-82 SVG bowtie risk | S07, S08, S12, S15 | Causes converging on a risk event and spreading to impacts |
+| PB-83 SVG bubble portfolio | S03, S11, S14 | Portfolio options shown by position and relative size |
+| PB-84 SVG stage gate board | S05, S07, S08, S15 | Pipeline or status board with stages and item cards |
 
 ## Extraction Rules Kept
 
@@ -144,4 +156,4 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 - The main body group is vertically centered inside the space between lead and footer, or between title and footer when the lead is omitted.
 - Body components should be sized to occupy the available body zone; sparse body groups should be enlarged instead of leaving excessive blank paper.
 - Card internals should be deliberately aligned; tall cards should not leave title and copy pinned to the top unless the pattern is explicitly row-like.
-- Connector-heavy PPTX shapes can be represented as inline SVG body diagrams when HTML cards alone lose arrows, loops, callouts, or branch semantics.
+- Connector-heavy PPTX shapes can be represented as inline SVG body diagrams when HTML cards alone lose arrows, loops, callouts, branches, overlaps, hierarchies, networks, or board semantics.
