@@ -7,7 +7,8 @@
 - [ ] Logo placement follows the format pack.
 - [ ] Fonts and colors follow the format pack.
 - [ ] Section dividers and closing slides match the format pack.
-- [ ] If parent is `plain-business-ppt`, title, body, table, label, generated-image, and footnote slots remain explicit through `data-*` metadata.
+- [ ] If parent is `plain-business-ppt`, header, title, optional lead, body, table, label, generated-image, and footnote slots remain explicit through `data-*` metadata.
+- [ ] If parent is `plain-business-ppt`, the body group is vertically centered inside the available body zone between lead/title and footer.
 - [ ] If parent is `plain-business-ppt`, visible slide content does not include helper role labels such as title/body/lead markers.
 - [ ] If a body region is generated with `image2`, the title and short body context remain editable HTML text.
 

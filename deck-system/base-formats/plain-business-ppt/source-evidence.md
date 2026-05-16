@@ -40,6 +40,7 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 | Slot | Evidence |
 |---|---|
 | Primary title | Most normal slides use a small top-left `title` placeholder. Cover/title-only pages place the title in the middle or center band. |
+| Lead | Many slides use the title-adjacent text placeholder or upper explanatory text box as a short context line. This slot may be omitted. |
 | Structure label | Repeated rectangles and small text boxes act as lane names, step labels, status labels, or chart annotations. |
 | Body | Main explanation appears as the title-adjacent body placeholder, table rows, cards, lanes, paragraph boxes, or object-built diagrams. |
 | Table / matrix | Some files use native tables; many use rectangle-built tables. The base supports both through semantic table slots. |
@@ -95,11 +96,26 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 | PB-32 Image2 body full | Derived from S01-S17 visual-heavy body regions | Full body region marked for image generation; title/context remain text |
 | PB-33 Image2 body split | Derived from S05, S08, S10, S17 split body pages | One side remains editable text/table, one side is generated body image |
 | PB-34 Image2 body diagram | Derived from S10, S16, S17 dense diagram pages | Diagram-only body region marked for image generation |
+| PB-35 Split cover | S01-S15, S16-S17 | Cover title with separate metadata or document information area |
+| PB-36 Statement cover | S16-S17 | Large statement/title cover with centered supporting body area |
+| PB-37 Section divider number | S16-S17 | Chapter separator with large number or inferred title shape |
+| PB-38 Section divider TOC | S10, S15, S17 | Divider page that also previews next section items |
+| PB-39 Vertical four lanes | S09, S11, S14, S16-S17 | Four equal lanes for service, role, benefit, or channel comparison |
+| PB-40 Pyramid hierarchy | S03, S11, S16-S17 | Layered hierarchy from purpose to execution |
+| PB-41 Cycle loop | S07, S10, S16-S17 | Repeated PDCA, operations, or learning process |
+| PB-42 Positioning map | S03, S14, S17 | Two-axis map with relative points |
+| PB-43 Dashboard summary | S05, S08, S15 | KPI cards paired with cause and next action |
+| PB-44 Swimlane schedule | S07, S08, S10 | Owner-by-phase schedule rows |
+| PB-45 Worksheet form | S10, S15, S17 | Input fields for workshop, training, or discussion |
+| PB-46 Funnel conversion | S03, S09, S11 | Step-down conversion or selection process |
+| PB-47 Icon grid | S09, S10, S16-S17 | Multi-item catalog for benefits, modules, support, or features |
+| PB-48 Case quote | S05, S09, S17 | Photo/screenshot placeholder paired with quote or implication |
+| PB-49 Decision tree | S07, S12, S15, S16-S17 | Condition branches that connect to actions |
 
 ## Extraction Rules Kept
 
 - The base keeps structure only; it removes brand colors, logos, decorative backgrounds, source images, and original copy.
-- Title, body, table, label, generated-image, and footnote slots must be explicit in HTML metadata, not visible role labels.
+- Header, title, optional lead, body, table, label, generated-image, and footnote slots must be explicit in HTML metadata, not visible role labels.
 - Main slides stay decision-oriented; dense backup material moves to PB-15.
 - Tables need captions or unit/footnote slots so figures do not become untyped body text.
-- The normal body placeholder directly under the title is body context. It should remain visually lower than the title zone and must not be treated as a lead slot.
+- The main body group is vertically centered inside the space between lead and footer, or between title and footer when the lead is omitted.

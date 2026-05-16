@@ -73,10 +73,27 @@ logo:
 | PB-32 Image2 body full |  |  |
 | PB-33 Image2 body split |  |  |
 | PB-34 Image2 body diagram |  |  |
+| PB-35 Split cover |  |  |
+| PB-36 Statement cover |  |  |
+| PB-37 Section divider number |  |  |
+| PB-38 Section divider TOC |  |  |
+| PB-39 Vertical four lanes |  |  |
+| PB-40 Pyramid hierarchy |  |  |
+| PB-41 Cycle loop |  |  |
+| PB-42 Positioning map |  |  |
+| PB-43 Dashboard summary |  |  |
+| PB-44 Swimlane schedule |  |  |
+| PB-45 Worksheet form |  |  |
+| PB-46 Funnel conversion |  |  |
+| PB-47 Icon grid |  |  |
+| PB-48 Case quote |  |  |
+| PB-49 Decision tree |  |  |
 
 ## Derivation Metadata
 
 - Keep parent slot roles in `data-role`, `data-source-slot`, and `data-corporate-role` attributes.
+- Preserve the header, title, optional lead, centered body, and footer structure.
+- Center the body inside the available body zone between lead/title and footer, not inside the full slide canvas.
 - Do not print helper role labels such as title/body/lead markers in the visible slide.
 - For `image2` body variants, keep the slide title and short body context as editable text and mark the generated body region with `data-renderer="image2"`.
 

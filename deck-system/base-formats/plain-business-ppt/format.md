@@ -32,8 +32,9 @@ Every pattern must make the role of each text area explicit in markup and docume
 | Slot | Required metadata | PPTX evidence | Use |
 |---|---|---|---|
 | Primary title | `data-role="title"` plus `data-source-slot="pptx:title"` and `data-corporate-role="slide-title"` | usually `type=title` or first top-left text box | slide message or topic |
+| Lead | optional `data-role="lead"` plus `data-source-slot="pptx:body"` and `data-corporate-role="lead-context"` | title-adjacent text placeholder or upper explanatory text box | short context, thesis, subtitle, or reading guide |
 | Structure label | `data-role="label"` or local heading text inside cards, rows, and nodes | small rectangles, lane headers, section tags | category, step, status, owner |
-| Body | `data-role="body"` plus `data-source-slot="pptx:body"` and `data-corporate-role="body-context"` | body/text placeholder, paragraph text boxes, bullets, card copy | context, evidence, explanation, action |
+| Body | `data-role="body"` plus `data-source-slot="pptx:body"` and `data-corporate-role="body-structure"` | body/text placeholder, paragraph text boxes, bullets, card copy, table, diagram, lane, or generated image area | main evidence, explanation, action, table, diagram, or visual body |
 | Table / matrix | `data-role="table"` | native table or object-built table | figures, comparison, action rows |
 | Footnote / unit | `data-role="footnote"` | unit labels, source notes, page numbers | unit, source, assumption, date |
 | Generated body image | `data-role="body"` plus `data-renderer="image2"` and `data-corporate-role="generated-body-image"` | derived variant from visual-heavy body pages | image-generated diagram, scene, or composite body area |
@@ -69,10 +70,22 @@ Use this order when importing another PPTX into this base:
 - outer margin: 5% to 6% of slide width
 - header band: small section label, document context, or page number
 - title zone: top 18% to 24% of slide height
-- body zone: 65% to 72% of slide height
+- optional lead zone: short context under the title; omit when the slide should move directly from title to body
+- body zone: the remaining vertical space between the lead and footer, or between the title and footer when lead is omitted
+- default body vertical alignment: center the body group's midpoint inside the available body zone, not inside the entire slide
 - footer zone: optional, small metadata only
 - columns: 2, 3, 4, and 5 column structures are supported
 - table rows: 4 to 7 rows on a normal slide; more belongs in appendix
+
+## Body Placement Contract
+
+The basic structure is header, title, optional lead, body, and footer.
+
+- With a lead: body midpoint must sit at the vertical center of the region between the lead's bottom edge and the footer's top edge.
+- Without a lead: body midpoint must sit at the vertical center of the region between the title's bottom edge and the footer's top edge.
+- The body can be a table, lanes, cards, diagram, image2 region, or a group of multiple body elements.
+- Use `data-body-valign="center"` as the default. Use `data-body-valign="top"` only when a dense appendix or source-faithful import cannot fit otherwise.
+- Do not center body against the whole slide canvas; header, title, lead, and footer are excluded from the body centering calculation.
 
 ## Typography Roles
 
@@ -124,6 +137,21 @@ Use this order when importing another PPTX into this base:
 | PB-32 | Image2 body full | Full body region generated as an image while title/context stay HTML |
 | PB-33 | Image2 body split | Text facts on one side, generated body image on the other |
 | PB-34 | Image2 body diagram | Generated diagram body with editable HTML title/context |
+| PB-35 | Split cover | Cover with a main title and metadata panel |
+| PB-36 | Statement cover | Cover with no lead and a centered body note |
+| PB-37 | Section divider number | Chapter divider with large section number |
+| PB-38 | Section divider TOC | Chapter divider with mini table of contents |
+| PB-39 | Vertical four lanes | Four equal vertical lanes for roles, services, or channels |
+| PB-40 | Pyramid hierarchy | Layered concept from purpose to execution |
+| PB-41 | Cycle loop | Repeated process such as PDCA or operations loop |
+| PB-42 | Positioning map | Two-axis relative comparison |
+| PB-43 | Dashboard summary | KPI cards plus cause and next action |
+| PB-44 | Swimlane schedule | Owner-by-phase schedule |
+| PB-45 | Worksheet form | Workshop, training, or discussion input sheet |
+| PB-46 | Funnel conversion | Step-down conversion or process attrition |
+| PB-47 | Icon grid | Feature, support, or module catalog |
+| PB-48 | Case quote | Photo/screenshot frame plus quote or voice |
+| PB-49 | Decision tree | Branching conditions and actions |
 
 ## Image2 Body Variants
 
@@ -138,7 +166,7 @@ Use `image2` only for the body area when:
 
 ## Density Rules
 
-- Normal slides use 1 title, 1 lowered body context block, and 1 primary structure.
+- Normal slides use 1 title, optional lead, and 1 centered primary body structure.
 - Do not mix a large table and a large diagram on the same slide.
 - For lane comparisons, keep each lane to 1 label, 1 short claim, and up to 3 evidence rows.
 - For cards, use 3 cards by default; 4 cards only when each card is short.
