@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plain Business PPT Base Format</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+        --page-bg: #f6f7f9;
+        --paper: #ffffff;
+        --ink: #16181d;
+        --muted: #5f6673;
+        --quiet: #8a91a0;
+        --line: #c9ced6;
+        --line-soft: #e5e7eb;
+        --surface: #f3f4f6;
+        --surface-strong: #e9ebef;
+        --slide-width: min(100vw - 48px, 1180px);
+        --pad-x: 56px;
+        --pad-y: 42px;
+        --title: 3.55rem;
+        --h2: 2.28rem;
+        --h3: 1.22rem;
+        --body: 1rem;
+        --small: 0.72rem;
+      }
+      * { box-sizing: border-box; }
+      html {
+        background: var(--page-bg);
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+      }
+      body {
+        margin: 0;
+        background: var(--page-bg);
+        color: var(--ink);
+      }
+      a { color: inherit; }
+      .format-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        min-height: 48px;
+        padding: 8px 16px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(246, 247, 249, 0.94);
+        backdrop-filter: blur(8px);
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+      .format-nav a { text-decoration: none; }
+      .deck {
+        display: grid;
+        gap: 28px;
+        justify-items: center;
+        padding: 28px 0;
+      }
+      .slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: var(--slide-width);
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        scroll-snap-align: start;
+        padding: var(--pad-y) var(--pad-x);
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 10px;
+        background: var(--surface-strong);
+      }
+      .slide-header,
+      .slide-footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--quiet);
+        font-size: var(--small);
+        font-weight: 750;
+        line-height: 1.35;
+      }
+      .slide-header {
+        min-height: 24px;
+        margin-bottom: 22px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+      .slide-footer {
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px solid var(--line-soft);
+      }
+      .kicker,
+      .unit,
+      .tag {
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 800;
+        line-height: 1.35;
+      }
+      .kicker {
+        text-transform: uppercase;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        letter-spacing: 0;
+      }
+      h1 {
+        max-width: 840px;
+        margin-bottom: 18px;
+        font-size: var(--title);
+        line-height: 1.08;
+      }
+      h2 {
+        max-width: 980px;
+        margin: 0 0 12px;
+        font-size: var(--h2);
+        line-height: 1.16;
+      }
+      h3 {
+        margin-bottom: 8px;
+        font-size: var(--h3);
+        line-height: 1.25;
+      }
+      p {
+        color: var(--muted);
+        font-size: var(--body);
+        line-height: 1.58;
+      }
+      .lead {
+        max-width: 920px;
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        font-weight: 650;
+        line-height: 1.48;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        min-height: 0;
+      }
+      .meta-row,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .grid-5 {
+        display: grid;
+        gap: 14px;
+        width: 100%;
+      }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .meta-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .box,
+      .lane,
+      .metric,
+      .step,
+      .note {
+        min-width: 0;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .box,
+      .lane,
+      .metric,
+      .step {
+        padding: 14px 16px;
+      }
+      .box strong,
+      .lane strong,
+      .metric strong,
+      .step strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--ink);
+        font-size: 1rem;
+        line-height: 1.28;
+      }
+      .box p,
+      .lane p,
+      .step p {
+        margin: 0;
+        font-size: 0.86rem;
+        line-height: 1.5;
+      }
+      .metric {
+        min-height: 88px;
+      }
+      .metric span {
+        display: block;
+        color: var(--quiet);
+        font-size: var(--small);
+        font-weight: 800;
+      }
+      .metric b {
+        display: block;
+        margin-top: 8px;
+        font-size: 1.85rem;
+        line-height: 1;
+      }
+      .number {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 10px;
+        place-items: center;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+      .agenda {
+        display: grid;
+        gap: 10px;
+      }
+      .agenda-item {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) 138px;
+        gap: 14px;
+        align-items: center;
+        min-height: 50px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .agenda-item b {
+        font-size: 1.15rem;
+      }
+      .agenda-item span {
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+      .matrix,
+      .data-table {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-collapse: collapse;
+        background: var(--paper);
+        font-size: 0.82rem;
+      }
+      .matrix th,
+      .matrix td,
+      .data-table th,
+      .data-table td {
+        padding: 10px 11px;
+        border: 1px solid var(--line-soft);
+        text-align: left;
+        vertical-align: top;
+        line-height: 1.38;
+      }
+      .matrix th,
+      .data-table th {
+        background: var(--surface);
+        color: var(--ink);
+        font-weight: 800;
+      }
+      .status {
+        display: inline-flex;
+        min-width: 58px;
+        justify-content: center;
+        padding: 3px 8px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+      .tree {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1.4fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+      .tree-col {
+        display: grid;
+        gap: 10px;
+      }
+      .tree-node {
+        min-height: 58px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .tree-node strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.92rem;
+      }
+      .tree-node span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .timeline div {
+        min-height: 84px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .timeline b,
+      .timeline span {
+        display: block;
+      }
+      .timeline b {
+        margin-bottom: 8px;
+        font-size: 0.86rem;
+      }
+      .timeline span {
+        color: var(--muted);
+        font-size: 0.75rem;
+        line-height: 1.35;
+      }
+      .note {
+        padding: 12px 14px;
+        background: var(--surface);
+      }
+      .note p {
+        margin: 0;
+        font-size: 0.84rem;
+      }
+      @media (max-width: 820px) {
+        :root {
+          --slide-width: min(100vw - 28px, 760px);
+          --pad-x: 12px;
+          --pad-y: 8px;
+          --title: 1.1rem;
+          --h2: 0.78rem;
+          --h3: 0.52rem;
+          --body: 0.42rem;
+          --small: 0.32rem;
+        }
+        .deck { gap: 18px; padding: 18px 0; }
+        .format-nav { font-size: 0.78rem; }
+        .slide::before { width: 5px; }
+        .slide-header {
+          min-height: 8px;
+          margin-bottom: 4px;
+          padding-bottom: 2px;
+        }
+        .slide-footer { display: none; }
+        h1 { margin-bottom: 5px; }
+        h2 { margin-bottom: 4px; }
+        .lead { margin-bottom: 4px; font-size: 0.44rem; line-height: 1.28; }
+        .grid-4,
+        .grid-5,
+        .meta-row {
+          gap: 3px;
+        }
+        .grid-2,
+        .grid-3,
+        .tree,
+        .timeline {
+          gap: 3px;
+        }
+        .box,
+        .lane,
+        .metric,
+        .step {
+          padding: 3px 4px;
+        }
+        .box strong,
+        .lane strong,
+        .metric strong,
+        .step strong {
+          margin-bottom: 1px;
+          font-size: 0.38rem;
+        }
+        .box p,
+        .lane p,
+        .step p {
+          font-size: 0.32rem;
+          line-height: 1.24;
+        }
+        .metric { min-height: 24px; }
+        .metric b { margin-top: 1px; font-size: 0.52rem; }
+        .number {
+          width: 13px;
+          height: 13px;
+          margin-bottom: 2px;
+          font-size: 0.34rem;
+        }
+        .agenda { gap: 2px; }
+        .agenda-item {
+          grid-template-columns: 18px minmax(0, 1fr) 34px;
+          gap: 3px;
+          min-height: 15px;
+          padding: 2px 3px;
+        }
+        .agenda-item b { font-size: 0.36rem; }
+        .agenda-item strong {
+          font-size: 0.34rem;
+          line-height: 1.1;
+        }
+        .agenda-item span { font-size: 0.3rem; }
+        .matrix,
+        .data-table {
+          font-size: 0.3rem;
+        }
+        .matrix th,
+        .matrix td,
+        .data-table th,
+        .data-table td {
+          padding: 2px 3px;
+          line-height: 1.16;
+        }
+        .status {
+          min-width: 18px;
+          padding: 1px 2px;
+          font-size: 0.26rem;
+        }
+        .tree-col { gap: 2px; }
+        .tree-node {
+          min-height: 17px;
+          padding: 2px 3px;
+        }
+        .tree-node strong { margin-bottom: 0; font-size: 0.32rem; }
+        .tree-node span { font-size: 0.28rem; line-height: 1.14; }
+        .timeline {
+          margin-top: 2px;
+        }
+        .timeline div {
+          min-height: 22px;
+          padding: 2px;
+        }
+        .timeline b { margin-bottom: 1px; font-size: 0.3rem; }
+        .timeline span { font-size: 0.25rem; line-height: 1.12; }
+        .note { padding: 3px 4px; }
+        .note p { font-size: 0.31rem; line-height: 1.2; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="format-nav" aria-label="フォーマットナビゲーション">
+      <a href="../">Base Formats</a>
+      <span>/</span>
+      <a href="./format.md">format.md</a>
+      <span>Plain Business PPT</span>
+    </nav>
+
+    <main class="deck">
+      <section class="slide" aria-label="PB-00 Cover">
+        <div class="slide-header">
+          <span>PB-00 / Cover</span>
+          <span>Business Document</span>
+        </div>
+        <div class="content">
+          <p class="kicker">Plain Business PPT</p>
+          <h1>業務資料の構図を保ったプレーンフォーマット</h1>
+          <p class="lead">提案、報告、分析、会議、研修で使うPPTの密度を残しながら、色・ロゴ・装飾を外した構造ベース。</p>
+          <div class="meta-row">
+            <div class="metric"><span>Sources</span><b>17</b></div>
+            <div class="metric"><span>Slides</span><b>807</b></div>
+            <div class="metric"><span>Canvas</span><b>16:9</b></div>
+            <div class="metric"><span>Mode</span><b>Plain</b></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>No brand color / No logo / No source copy</span>
+          <span>PB-00</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-01 Agenda">
+        <div class="slide-header">
+          <span>PB-01 / Agenda</span>
+          <span>Meeting or proposal flow</span>
+        </div>
+        <div class="content">
+          <h2>会議・提案の流れは番号付きレーンで先に固定する</h2>
+          <p class="lead">各項目に目的と所要時間を持たせ、後続スライドの構成を崩さない。</p>
+          <div class="agenda">
+            <div class="agenda-item"><b>01</b><strong>前提確認</strong><span>5 min</span></div>
+            <div class="agenda-item"><b>02</b><strong>現状と課題</strong><span>10 min</span></div>
+            <div class="agenda-item"><b>03</b><strong>施策案と比較</strong><span>15 min</span></div>
+            <div class="agenda-item"><b>04</b><strong>実行計画</strong><span>10 min</span></div>
+            <div class="agenda-item"><b>05</b><strong>決定事項</strong><span>5 min</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Agenda keeps body slides aligned to the meeting decision.</span>
+          <span>PB-01</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-03 Issue and direction">
+        <div class="slide-header">
+          <span>PB-03 / Issue and Direction</span>
+          <span>Problem solving</span>
+        </div>
+        <div class="content">
+          <h2>課題は「症状」「原因」「対応方針」に分ける</h2>
+          <p class="lead">分析スライドでは、いきなり施策に入らず、判断の根拠を短く並べる。</p>
+          <div class="grid-3">
+            <div class="lane">
+              <span class="number">1</span>
+              <strong>症状</strong>
+              <p>KPIが横ばいになり、直近施策の改善幅が小さい。</p>
+            </div>
+            <div class="lane">
+              <span class="number">2</span>
+              <strong>原因</strong>
+              <p>流入、転換、継続のうち、初回接点の質に差が出ている。</p>
+            </div>
+            <div class="lane">
+              <span class="number">3</span>
+              <strong>対応方針</strong>
+              <p>訴求軸を再整理し、優先チャネルから検証する。</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Main slide density: 3 lanes, 1 claim per lane.</span>
+          <span>PB-03</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-04 3C analysis">
+        <div class="slide-header">
+          <span>PB-04 / 3C Analysis</span>
+          <span>Environment analysis</span>
+        </div>
+        <div class="content">
+          <h2>環境分析は3つの観点を同じ粒度で比較する</h2>
+          <p class="lead">各レーンの見出し、観察、示唆を揃えることで、次の打ち手へ接続しやすくする。</p>
+          <div class="grid-3">
+            <div class="box">
+              <strong>Customer</strong>
+              <p>意思決定までの情報収集期間が長く、比較材料を求めている。</p>
+            </div>
+            <div class="box">
+              <strong>Competitor</strong>
+              <p>価格訴求よりも導入後の支援範囲を強く打ち出している。</p>
+            </div>
+            <div class="box">
+              <strong>Company</strong>
+              <p>実績と運用知見はあるが、初回資料で十分に伝わっていない。</p>
+            </div>
+          </div>
+          <div class="note">
+            <p><strong>Implication:</strong> 価格差の説明より先に、導入後の成果と支援体制を見せる。</p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use a bottom implication bar when the analysis must lead to action.</span>
+          <span>PB-04</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-05 KPI tree">
+        <div class="slide-header">
+          <span>PB-05 / KPI Tree</span>
+          <span>KGI, KPI, KSF, actions</span>
+        </div>
+        <div class="content">
+          <h2>KGIから施策までを一枚でつなげる</h2>
+          <p class="lead">目標、管理指標、成功要因、実行項目の対応関係を明確にする。</p>
+          <div class="tree">
+            <div class="tree-col">
+              <div class="tree-node"><strong>KGI</strong><span>四半期売上目標の達成</span></div>
+            </div>
+            <div class="tree-col">
+              <div class="tree-node"><strong>KPI 1</strong><span>有効商談数</span></div>
+              <div class="tree-node"><strong>KPI 2</strong><span>受注率</span></div>
+              <div class="tree-node"><strong>KPI 3</strong><span>平均単価</span></div>
+            </div>
+            <div class="tree-col">
+              <div class="tree-node"><strong>Action</strong><span>初回提案資料の改善</span></div>
+              <div class="tree-node"><strong>Action</strong><span>比較検討時の説明補強</span></div>
+              <div class="tree-node"><strong>Action</strong><span>追加提案メニューの整理</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Keep each node short; detailed formulas belong in notes.</span>
+          <span>PB-05</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-06 Data table">
+        <div class="slide-header">
+          <span>PB-06 / Data Table</span>
+          <span>Figures with comments</span>
+        </div>
+        <div class="content">
+          <h2>数値表はコメント列を持たせて判断に変換する</h2>
+          <p class="lead">単なる数表で終わらせず、差分、要因、次アクションを並べる。</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>項目</th><th>前月</th><th>当月</th><th>差分</th><th>コメント</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>問い合わせ</td><td>120</td><td>138</td><td>+18</td><td>新規導線が寄与</td></tr>
+              <tr><td>有効商談</td><td>34</td><td>31</td><td>-3</td><td>対象外流入が増加</td></tr>
+              <tr><td>受注</td><td>12</td><td>14</td><td>+2</td><td>既存案件の決裁が進行</td></tr>
+              <tr><td>失注</td><td>9</td><td>11</td><td>+2</td><td>比較資料の不足が課題</td></tr>
+            </tbody>
+          </table>
+          <p class="unit">Unit: 件 / Table rows should stay within 4 to 7 on main slides.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Dense facts require a visible interpretation column.</span>
+          <span>PB-06</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-10 Competitor comparison">
+        <div class="slide-header">
+          <span>PB-10 / Competitor Comparison</span>
+          <span>Criteria matrix</span>
+        </div>
+        <div class="content">
+          <h2>競合比較は評価軸を先に固定する</h2>
+          <p class="lead">比較表では列ごとの強弱よりも、意思決定に必要な評価軸を揃える。</p>
+          <table class="matrix">
+            <thead>
+              <tr><th>評価軸</th><th>自社</th><th>A社</th><th>B社</th><th>示唆</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>導入支援</td><td><span class="status">強</span></td><td>中</td><td>弱</td><td>初期伴走を前面に出す</td></tr>
+              <tr><td>価格</td><td>中</td><td><span class="status">低</span></td><td>中</td><td>単価ではなく総コストで説明</td></tr>
+              <tr><td>実績</td><td><span class="status">強</span></td><td>中</td><td>中</td><td>業種別事例を補強</td></tr>
+              <tr><td>拡張性</td><td>中</td><td>中</td><td><span class="status">強</span></td><td>将来要件の範囲を確認</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="slide-footer">
+          <span>Use neutral status chips; apply company colors only in a derived format.</span>
+          <span>PB-10</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-12 Action plan">
+        <div class="slide-header">
+          <span>PB-12 / Action Plan</span>
+          <span>Owner, deadline, dependency</span>
+        </div>
+        <div class="content">
+          <h2>最後は担当・期限・依存関係まで落とす</h2>
+          <p class="lead">会議資料では、結論だけでなく次に誰が何を進めるかを明示する。</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>アクション</th><th>担当</th><th>期限</th><th>依存</th><th>状態</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>訴求軸の再整理</td><td>企画</td><td>5/22</td><td>顧客ヒアリング</td><td><span class="status">未着手</span></td></tr>
+              <tr><td>比較資料の改訂</td><td>営業</td><td>5/26</td><td>競合情報</td><td><span class="status">進行中</span></td></tr>
+              <tr><td>検証チャネル選定</td><td>マーケ</td><td>5/29</td><td>予算確認</td><td><span class="status">確認中</span></td></tr>
+              <tr><td>次回報告</td><td>PM</td><td>6/05</td><td>上記完了</td><td><span class="status">予定</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="slide-footer">
+          <span>Action rows should be concrete enough to move into a tracker.</span>
+          <span>PB-12</span>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="PB-09 Schedule">
+        <div class="slide-header">
+          <span>PB-09 / Schedule</span>
+          <span>Milestone view</span>
+        </div>
+        <div class="content">
+          <h2>短期計画は6区間までのタイムラインで見せる</h2>
+          <p class="lead">期間、作業、判断点を同じ高さで並べ、進捗報告に転用できる形にする。</p>
+          <div class="timeline">
+            <div><b>Week 1</b><span>現状整理<br>論点確定</span></div>
+            <div><b>Week 2</b><span>仮説作成<br>資料設計</span></div>
+            <div><b>Week 3</b><span>検証準備<br>関係者確認</span></div>
+            <div><b>Week 4</b><span>初回検証<br>数値確認</span></div>
+            <div><b>Week 5</b><span>改善反映<br>追加検証</span></div>
+            <div><b>Week 6</b><span>報告<br>次期計画</span></div>
+          </div>
+          <div class="grid-3" style="margin-top: 14px;">
+            <div class="box"><strong>Decision</strong><p>Week 3で実行対象を確定。</p></div>
+            <div class="box"><strong>Risk</strong><p>素材準備が遅れると検証期間が短くなる。</p></div>
+            <div class="box"><strong>Next</strong><p>初回結果をもとに第2案を作成。</p></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Schedule pattern also works for training and launch decks.</span>
+          <span>PB-09</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
