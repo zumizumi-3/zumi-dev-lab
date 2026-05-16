@@ -167,6 +167,14 @@ The basic structure is header, title, optional lead, body, and footer.
 | PB-62 | Roadmap flags | Milestones and checkpoints |
 | PB-63 | Scoring matrix | Weighted decision scoring |
 | PB-64 | Checklist review | Readiness or control checklist |
+| PB-65 | SVG hub spoke | Center concept with explicit relationship connectors |
+| PB-66 | SVG chevron flow | Connected arrow process with clear sequence |
+| PB-67 | SVG cycle loop | Circular improvement or operation loop |
+| PB-68 | SVG fishbone | Cause-and-effect diagram with spine and ribs |
+| PB-69 | SVG decision branch | Condition diamond and branch outcomes |
+| PB-70 | SVG callout anatomy | Central object with annotated callout lines |
+| PB-71 | SVG roadmap bars | Phase bars across a time axis |
+| PB-72 | SVG layered system | Horizontal layers plus process flow |
 
 ## Image2 Body Variants
 
@@ -179,10 +187,21 @@ Use `image2` only for the body area when:
 - the prompt can be tied to the slide's body context and source notes
 - the generated area has `data-renderer="image2"` and a corporate role such as `generated-body-image` or `generated-body-diagram`
 
+## SVG Body Diagram Variants
+
+PB-65 through PB-72 are inline-SVG variants for PPTX pages that were built from connector lines, arrows, diamonds, fishbone shapes, callouts, and layered architecture shapes. Use them when plain HTML cards lose the intended relationship between elements.
+
+- keep the SVG in the body slot with `data-corporate-role="svg-body-diagram"`
+- keep slide title and lead as editable HTML outside the SVG
+- keep SVG text short; long explanation belongs in HTML lead, notes, or a separate body card
+- use neutral fills and strokes only in the base format; add brand colors in derived company formats
+- prefer SVG for explicit connectors, arrowheads, diamonds, callout lines, cyclic arrows, and timeline bars
+
 ## Density Rules
 
 - Normal slides use 1 title, optional lead, and 1 centered primary body structure.
 - Body structures should use enough of the available body zone to avoid sparse paper-like whitespace. Prefer increasing the body component height before shrinking titles or moving content upward.
+- Cards should align their internal title, metric, and body copy intentionally. Avoid top-stacked text floating in a tall card unless the pattern is a table-like row.
 - Do not mix a large table and a large diagram on the same slide.
 - For lane comparisons, keep each lane to 1 label, 1 short claim, and up to 3 evidence rows.
 - For cards, use 3 cards by default; 4 cards only when each card is short.

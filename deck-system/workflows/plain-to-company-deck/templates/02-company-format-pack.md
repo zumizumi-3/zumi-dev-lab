@@ -103,6 +103,14 @@ logo:
 | PB-62 Roadmap flags |  |  |
 | PB-63 Scoring matrix |  |  |
 | PB-64 Checklist review |  |  |
+| PB-65 SVG hub spoke |  |  |
+| PB-66 SVG chevron flow |  |  |
+| PB-67 SVG cycle loop |  |  |
+| PB-68 SVG fishbone |  |  |
+| PB-69 SVG decision branch |  |  |
+| PB-70 SVG callout anatomy |  |  |
+| PB-71 SVG roadmap bars |  |  |
+| PB-72 SVG layered system |  |  |
 
 ## Derivation Metadata
 
@@ -110,8 +118,10 @@ logo:
 - Preserve the header, title, optional lead, centered body, and footer structure.
 - Center the body inside the available body zone between lead/title and footer, not inside the full slide canvas.
 - Keep body components large enough to occupy the available body zone; do not leave a small body group floating in a wide blank page.
+- Preserve deliberate internal alignment inside cards; title, metric, and body copy should not look accidentally top-pinned in tall cards.
 - Do not print helper role labels such as title/body/lead markers in the visible slide.
 - For `image2` body variants, keep the slide title and short body context as editable text and mark the generated body region with `data-renderer="image2"`.
+- For SVG body variants, keep connector, branch, loop, and callout structure in inline SVG while keeping long explanatory copy outside the SVG.
 
 ## Source Evidence
 

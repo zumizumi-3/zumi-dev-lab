@@ -10,8 +10,10 @@
 - [ ] If parent is `plain-business-ppt`, header, title, optional lead, body, table, label, generated-image, and footnote slots remain explicit through `data-*` metadata.
 - [ ] If parent is `plain-business-ppt`, the body group is vertically centered inside the available body zone between lead/title and footer.
 - [ ] If parent is `plain-business-ppt`, the body group uses enough of the available body zone and does not look like a small island on blank paper.
+- [ ] If parent is `plain-business-ppt`, card internals look deliberately aligned; headings, metrics, and body copy are not accidentally pinned to the top of tall cards.
 - [ ] If parent is `plain-business-ppt`, visible slide content does not include helper role labels such as title/body/lead markers.
 - [ ] If a body region is generated with `image2`, the title and short body context remain editable HTML text.
+- [ ] If a body region uses inline SVG, connector lines, arrows, branches, labels, and callouts remain visible and readable after applying company colors.
 
 ## Content Validation
 

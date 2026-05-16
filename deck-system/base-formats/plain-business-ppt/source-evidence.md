@@ -126,6 +126,14 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 | PB-62 Roadmap flags | S07, S08, S10 | Phase flags with milestone outcomes |
 | PB-63 Scoring matrix | S01, S12, S14, S17 | Weighted decision score table |
 | PB-64 Checklist review | S07, S08, S15 | Readiness checklist with status and remaining issues |
+| PB-65 SVG hub spoke | S11, S16, S17 | Center concept connected to surrounding causes, constraints, actions, and effects |
+| PB-66 SVG chevron flow | S07, S09, S10, S16-S17 | Sequential arrow shapes showing process continuity |
+| PB-67 SVG cycle loop | S07, S10, S16-S17 | Circular arrow process where final step returns to the first |
+| PB-68 SVG fishbone | S03, S12, S13, S16-S17 | Cause lines converging on a single problem statement |
+| PB-69 SVG decision branch | S07, S12, S15, S16-S17 | Condition diamond with yes/no branches and outcomes |
+| PB-70 SVG callout anatomy | S05, S08, S10, S17 | Central visual or object annotated by callout lines |
+| PB-71 SVG roadmap bars | S07, S08, S10 | Phase bars on a time axis with overlap and milestones |
+| PB-72 SVG layered system | S04, S10, S16-S17 | Layered system or operation structure with horizontal flow |
 
 ## Extraction Rules Kept
 
@@ -135,3 +143,5 @@ This file records public-safe extraction evidence for `plain-business-ppt`. It d
 - Tables need captions or unit/footnote slots so figures do not become untyped body text.
 - The main body group is vertically centered inside the space between lead and footer, or between title and footer when the lead is omitted.
 - Body components should be sized to occupy the available body zone; sparse body groups should be enlarged instead of leaving excessive blank paper.
+- Card internals should be deliberately aligned; tall cards should not leave title and copy pinned to the top unless the pattern is explicitly row-like.
+- Connector-heavy PPTX shapes can be represented as inline SVG body diagrams when HTML cards alone lose arrows, loops, callouts, or branch semantics.
