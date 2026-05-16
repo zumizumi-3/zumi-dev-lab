@@ -27,15 +27,16 @@ The source decks are used only as format evidence. This base format does not inc
 
 ## Semantic Slot Contract
 
-Every pattern must make the role of each text area explicit. Titles must not be hidden as generic body text.
+Every pattern must make the role of each text area explicit in markup and documentation. These role names are for import, derivation, and validation. They must not be printed as visible labels on the preview slide.
 
-| Slot | Required Markup / Content Label | PPTX Evidence | Use |
+| Slot | Required metadata | PPTX evidence | Use |
 |---|---|---|---|
-| Primary title | `TITLE` / `data-role="title"` | usually `type=title` or first top-left text box | slide message or topic |
-| Structure label | `LABEL` / `data-role="label"` | small rectangles, lane headers, section tags | category, step, status, owner |
-| Body | `BODY` / `data-role="body"` | body/text placeholder, paragraph text boxes, bullets, card copy | context, evidence, explanation, action |
-| Table / matrix | `TABLE` / `data-role="table"` | native table or object-built table | figures, comparison, action rows |
-| Footnote / unit | `FOOTNOTE` / `data-role="footnote"` | unit labels, source notes, page numbers | unit, source, assumption, date |
+| Primary title | `data-role="title"` plus `data-source-slot="pptx:title"` and `data-corporate-role="slide-title"` | usually `type=title` or first top-left text box | slide message or topic |
+| Structure label | `data-role="label"` or local heading text inside cards, rows, and nodes | small rectangles, lane headers, section tags | category, step, status, owner |
+| Body | `data-role="body"` plus `data-source-slot="pptx:body"` and `data-corporate-role="body-context"` | body/text placeholder, paragraph text boxes, bullets, card copy | context, evidence, explanation, action |
+| Table / matrix | `data-role="table"` | native table or object-built table | figures, comparison, action rows |
+| Footnote / unit | `data-role="footnote"` | unit labels, source notes, page numbers | unit, source, assumption, date |
+| Generated body image | `data-role="body"` plus `data-renderer="image2"` and `data-corporate-role="generated-body-image"` | derived variant from visual-heavy body pages | image-generated diagram, scene, or composite body area |
 
 When converting PPTX or generating a new deck, map source shapes into these slots first, then choose the visual pattern. Do not choose the visual pattern from shape count alone.
 
@@ -108,6 +109,32 @@ Use this order when importing another PPTX into this base:
 | PB-17 | Before / After | Current state and target state comparison |
 | PB-18 | Interview / voice | Person, role, quote, and implication |
 | PB-19 | Selection / process rail | Recruiting, onboarding, or approval process |
+| PB-20 | Chapter / TOC | Section opening with a compact page map |
+| PB-21 | Standard body canvas | Normal title, lowered body context, and free body area |
+| PB-22 | Two-column agenda | Many topics split into two balanced agenda columns |
+| PB-23 | Horizontal 3-step | Method, migration, onboarding, or approval steps |
+| PB-24 | Left-label / right-description stack | Definitions, assumptions, scope, or policy explanation |
+| PB-25 | Requirements stack | Request, constraint, priority, or vendor requirement page |
+| PB-26 | Hub / tree diagram | Central concept with surrounding causes, actions, or effects |
+| PB-27 | VS comparison | Two alternatives compared on matching criteria |
+| PB-28 | Table/chart + commentary | Numbers on one side and interpretation on the other |
+| PB-29 | Left table / right visual | Checklist, evidence table, and supporting visual |
+| PB-30 | Dense diagram / lecture | High-density concept explanation built from nodes |
+| PB-31 | Placeholderless section | Inferred-title chapter or title page from normal shapes |
+| PB-32 | Image2 body full | Full body region generated as an image while title/context stay HTML |
+| PB-33 | Image2 body split | Text facts on one side, generated body image on the other |
+| PB-34 | Image2 body diagram | Generated diagram body with editable HTML title/context |
+
+## Image2 Body Variants
+
+PB-32, PB-33, and PB-34 are generated-image variants of the same business PPT structure. They are not a replacement for semantic text. Keep the slide title and short body context as HTML so the deck remains searchable, editable, and convertible into a corporate format.
+
+Use `image2` only for the body area when:
+
+- the body is a conceptual visual, photo composite, screenshot-like scene, or complex diagram
+- fine text inside the image is not required for the slide to be understood
+- the prompt can be tied to the slide's body context and source notes
+- the generated area has `data-renderer="image2"` and a corporate role such as `generated-body-image` or `generated-body-diagram`
 
 ## Density Rules
 
@@ -117,7 +144,8 @@ Use this order when importing another PPTX into this base:
 - For cards, use 3 cards by default; 4 cards only when each card is short.
 - For schedules and action plans, use 4 to 6 rows on main slides.
 - Use PB-15 for dense backup material instead of shrinking the normal pattern.
-- Keep title and body slots visible in the source HTML so an agent can tell which text is the slide title and which text is body without visual inference.
+- Keep title and body slots explicit in the source HTML metadata so an agent can tell which text is the slide title and which text is body without visual inference.
+- Do not add visible slot labels such as role names into slide content. The role belongs in `data-*` attributes, docs, and validation notes.
 
 ## Derivation Rule
 

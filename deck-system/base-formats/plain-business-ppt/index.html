@@ -115,25 +115,6 @@
       .kicker {
         text-transform: uppercase;
       }
-      .role-label,
-      .role-inline {
-        display: inline-flex;
-        align-items: center;
-        width: fit-content;
-        margin-bottom: 7px;
-        padding: 3px 7px;
-        border: 1px solid var(--line);
-        background: var(--surface);
-        color: var(--muted);
-        font-size: 0.64rem;
-        font-weight: 900;
-        line-height: 1;
-        text-transform: uppercase;
-      }
-      .role-inline {
-        margin: 0 8px 0 0;
-        vertical-align: middle;
-      }
       .title-slot,
       .body-slot,
       .footnote-slot {
@@ -465,6 +446,135 @@
         font-size: 0.74rem;
         line-height: 1.35;
       }
+      .toc-list,
+      .stack-list {
+        display: grid;
+        gap: 8px;
+      }
+      .toc-row,
+      .stack-row {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr) 160px;
+        gap: 12px;
+        align-items: center;
+        min-height: 46px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .stack-row {
+        grid-template-columns: 150px minmax(0, 1fr);
+      }
+      .toc-row b,
+      .stack-row b {
+        font-size: 0.9rem;
+      }
+      .toc-row span,
+      .stack-row span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+      .split-visual {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 14px;
+        align-items: stretch;
+      }
+      .visual-frame,
+      .image2-frame {
+        display: grid;
+        min-height: 252px;
+        place-items: center;
+        border: 1px dashed var(--line);
+        background: var(--surface);
+        color: var(--muted);
+        text-align: center;
+      }
+      .image2-frame {
+        min-height: 320px;
+        border-style: solid;
+        background:
+          linear-gradient(135deg, rgba(201, 206, 214, 0.35), transparent 42%),
+          var(--surface);
+      }
+      .visual-frame strong,
+      .image2-frame strong {
+        display: block;
+        color: var(--ink);
+        font-size: 1rem;
+      }
+      .visual-frame span,
+      .image2-frame span {
+        display: block;
+        max-width: 420px;
+        margin-top: 8px;
+        font-size: 0.78rem;
+        line-height: 1.4;
+      }
+      .hub-map {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr 1fr;
+        gap: 10px;
+        align-items: center;
+      }
+      .hub-center {
+        display: grid;
+        min-height: 150px;
+        place-items: center;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        font-size: 1.05rem;
+        font-weight: 850;
+        text-align: center;
+      }
+      .hub-side {
+        display: grid;
+        gap: 8px;
+      }
+      .vs-layout {
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+      .vs-mark {
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+      .dense-diagram {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        grid-template-rows: repeat(2, minmax(80px, 1fr));
+        gap: 10px;
+      }
+      .diagram-node {
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .diagram-node.wide {
+        grid-column: span 2;
+      }
+      .diagram-node strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.88rem;
+      }
+      .diagram-node span {
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.35;
+      }
+      .image2-split {
+        display: grid;
+        grid-template-columns: 0.75fr 1.25fr;
+        gap: 14px;
+        align-items: stretch;
+      }
       @media (max-width: 820px) {
         :root {
           --slide-width: min(100vw - 28px, 760px);
@@ -492,13 +602,6 @@
           font-size: 0.42rem;
           line-height: 1.22;
         }
-        .role-label,
-        .role-inline {
-          margin-bottom: 2px;
-          padding: 1px 2px;
-          font-size: 0.24rem;
-        }
-        .role-inline { margin-right: 3px; }
         .grid-4,
         .grid-5,
         .meta-row {
@@ -629,6 +732,79 @@
           font-size: 0.24rem;
           line-height: 1.12;
         }
+        .toc-list,
+        .stack-list {
+          gap: 2px;
+        }
+        .toc-row {
+          grid-template-columns: 20px minmax(0, 1fr) 46px;
+          gap: 3px;
+          min-height: 14px;
+          padding: 2px 3px;
+        }
+        .stack-row {
+          grid-template-columns: 48px minmax(0, 1fr);
+          gap: 3px;
+          min-height: 16px;
+          padding: 2px 3px;
+        }
+        .toc-row b,
+        .stack-row b {
+          font-size: 0.3rem;
+        }
+        .toc-row span,
+        .stack-row span {
+          font-size: 0.24rem;
+          line-height: 1.12;
+        }
+        .split-visual,
+        .hub-map,
+        .vs-layout,
+        .dense-diagram,
+        .image2-split {
+          gap: 3px;
+        }
+        .visual-frame,
+        .image2-frame {
+          min-height: 56px;
+        }
+        .visual-frame strong,
+        .image2-frame strong {
+          font-size: 0.32rem;
+        }
+        .visual-frame span,
+        .image2-frame span {
+          margin-top: 1px;
+          font-size: 0.24rem;
+          line-height: 1.12;
+        }
+        .hub-center {
+          min-height: 38px;
+          font-size: 0.32rem;
+        }
+        .hub-side {
+          gap: 2px;
+        }
+        .vs-layout {
+          grid-template-columns: 1fr 22px 1fr;
+        }
+        .vs-mark {
+          font-size: 0.45rem;
+        }
+        .dense-diagram {
+          grid-template-rows: repeat(2, minmax(26px, 1fr));
+        }
+        .diagram-node {
+          padding: 2px 3px;
+        }
+        .diagram-node strong {
+          margin-bottom: 1px;
+          font-size: 0.3rem;
+        }
+        .diagram-node span {
+          font-size: 0.24rem;
+          line-height: 1.12;
+        }
       }
     </style>
   </head>
@@ -650,9 +826,8 @@
         </div>
         <div class="content">
           <p class="kicker">Plain Business PPT</p>
-          <span class="role-label">Title</span>
-          <h1 id="PB-00-title" class="title-slot" data-role="title">業務資料の構図を保ったプレーンフォーマット</h1>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>提案、報告、分析、会議、研修で使うPPTの密度を残しながら、色・ロゴ・装飾を外した構造ベース。</p>
+          <h1 id="PB-00-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">業務資料の構図を保ったプレーンフォーマット</h1>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">提案、報告、分析、会議、研修で使うPPTの密度を残しながら、色・ロゴ・装飾を外した構造ベース。</p>
           <div class="meta-row">
             <div class="metric"><span>Sources</span><b>17</b></div>
             <div class="metric"><span>Slides</span><b>807</b></div>
@@ -666,49 +841,14 @@
         </div>
       </section>
 
-      <section id="PB-E0" class="slide" data-slide="PB-E0" data-pattern="source-evidence" aria-labelledby="PB-E0-title">
-        <div class="slide-header">
-          <span>PB-E0 / Source Extraction Map</span>
-          <span>Roles extracted from PPTX XML</span>
-        </div>
-        <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-E0-title" class="title-slot" data-role="title">PPTXの文字枠を先に役割へ変換する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>785/807枚でタイトル枠を判定。見た目ではなく、タイトル・本文・表注のslotを先に固定する。</p>
-          <div class="anatomy" aria-label="抽出slot">
-            <div class="anatomy-row">
-              <div class="slot-name">TITLE</div>
-              <div class="slot-box"><strong>主タイトル</strong><span>主に左3.3% / 上4.2%。PPTXでは `type=title` または最初の上部テキスト枠。</span></div>
-            </div>
-            <div class="anatomy-row">
-              <div class="slot-name">LEAD</div>
-              <div class="slot-box"><strong>説明・サブタイトル</strong><span>主タイトル直下の短文。資料の目的、結論、判断の方向を置く。</span></div>
-            </div>
-            <div class="anatomy-row">
-              <div class="slot-name">BODY</div>
-              <div class="slot-box"><strong>表、レーン、カード、図解</strong><span>カード、表、KPIツリー、比較、スケジュールなど。見た目より先に役割を持たせる。</span></div>
-            </div>
-            <div class="anatomy-row">
-              <div class="slot-name">FOOTNOTE</div>
-              <div class="slot-box"><strong>単位・出典・ページ</strong><span>Unit、Source、注記、前提条件。本文と混ぜない。</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="slide-footer">
-          <span>Source evidence is summarized in source-evidence.md.</span>
-          <span>PB-E0</span>
-        </div>
-      </section>
-
       <section id="PB-01" class="slide" data-slide="PB-01" data-pattern="agenda" aria-labelledby="PB-01-title">
         <div class="slide-header">
           <span>PB-01 / Agenda</span>
           <span>Meeting or proposal flow</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-01-title" class="title-slot" data-role="title">会議・提案の流れは番号付きレーンで先に固定する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>各項目に目的と所要時間を持たせ、後続スライドの構成を崩さない。</p>
+          <h2 id="PB-01-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">会議・提案の流れは番号付きレーンで先に固定する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">各項目に目的と所要時間を持たせ、後続スライドの構成を崩さない。</p>
           <div class="agenda">
             <div class="agenda-item"><b>01</b><strong>前提確認</strong><span>5 min</span></div>
             <div class="agenda-item"><b>02</b><strong>現状と課題</strong><span>10 min</span></div>
@@ -729,10 +869,9 @@
           <span>Key points and implication</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-02-title" class="title-slot" data-role="title">最初に判断材料を3点へ圧縮する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>業務PPTの要約ページは、結論、根拠、次アクションを同じ粒度で並べる。</p>
-          <div class="grid-3 body-slot" data-role="body">
+          <h2 id="PB-02-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">最初に判断材料を3点へ圧縮する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">業務PPTの要約ページは、結論、根拠、次アクションを同じ粒度で並べる。</p>
+          <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="metric"><span>Conclusion</span><b>継続</b><p>主要KPIは維持。改善余地は流入品質に集中。</p></div>
             <div class="metric"><span>Evidence</span><b>+12%</b><p>問い合わせは増加、商談化率は横ばい。</p></div>
             <div class="metric"><span>Next</span><b>2案</b><p>訴求軸と比較資料を先に改訂。</p></div>
@@ -750,9 +889,8 @@
           <span>Problem solving</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-03-title" class="title-slot" data-role="title">課題は「症状」「原因」「対応方針」に分ける</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>分析スライドでは、いきなり施策に入らず、判断の根拠を短く並べる。</p>
+          <h2 id="PB-03-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">課題は「症状」「原因」「対応方針」に分ける</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">分析スライドでは、いきなり施策に入らず、判断の根拠を短く並べる。</p>
           <div class="grid-3">
             <div class="lane">
               <span class="number">1</span>
@@ -783,9 +921,8 @@
           <span>Environment analysis</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-04-title" class="title-slot" data-role="title">環境分析は3つの観点を同じ粒度で比較する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>各レーンの見出し、観察、示唆を揃えることで、次の打ち手へ接続しやすくする。</p>
+          <h2 id="PB-04-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">環境分析は3つの観点を同じ粒度で比較する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">各レーンの見出し、観察、示唆を揃えることで、次の打ち手へ接続しやすくする。</p>
           <div class="grid-3">
             <div class="box">
               <strong>Customer</strong>
@@ -816,9 +953,8 @@
           <span>KGI, KPI, KSF, actions</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-05-title" class="title-slot" data-role="title">KGIから施策までを一枚でつなげる</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>目標、管理指標、成功要因、実行項目の対応関係を明確にする。</p>
+          <h2 id="PB-05-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">KGIから施策までを一枚でつなげる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">目標、管理指標、成功要因、実行項目の対応関係を明確にする。</p>
           <div class="tree">
             <div class="tree-col">
               <div class="tree-node"><strong>KGI</strong><span>四半期売上目標の達成</span></div>
@@ -847,11 +983,10 @@
           <span>Figures with comments</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-06-title" class="title-slot" data-role="title">数値表はコメント列を持たせて判断に変換する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>単なる数表で終わらせず、差分、要因、次アクションを並べる。</p>
+          <h2 id="PB-06-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">数値表はコメント列を持たせて判断に変換する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">単なる数表で終わらせず、差分、要因、次アクションを並べる。</p>
           <table class="data-table" data-role="table">
-            <caption>TABLE: 月次KPIと解釈コメント</caption>
+            <caption>月次KPIと解釈コメント</caption>
             <thead>
               <tr><th>項目</th><th>前月</th><th>当月</th><th>差分</th><th>コメント</th></tr>
             </thead>
@@ -862,7 +997,7 @@
               <tr><td>失注</td><td>9</td><td>11</td><td>+2</td><td>比較資料の不足が課題</td></tr>
             </tbody>
           </table>
-          <p class="unit footnote-slot" data-role="footnote"><span class="role-inline">Footnote</span>Unit: 件 / Table rows should stay within 4 to 7 on main slides.</p>
+          <p class="unit footnote-slot" data-role="footnote">Unit: 件 / Table rows should stay within 4 to 7 on main slides.</p>
         </div>
         <div class="slide-footer">
           <span>Dense facts require a visible interpretation column.</span>
@@ -876,11 +1011,10 @@
           <span>Status, risk, next action</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-07-title" class="title-slot" data-role="title">進捗は状態・リスク・次アクションを同時に見る</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>定例会議資料では、進捗率だけでなく、遅延理由と打ち手まで同じ行に置く。</p>
+          <h2 id="PB-07-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">進捗は状態・リスク・次アクションを同時に見る</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">定例会議資料では、進捗率だけでなく、遅延理由と打ち手まで同じ行に置く。</p>
           <table class="data-table" data-role="table">
-            <caption>TABLE: プロジェクト進捗サマリー</caption>
+            <caption>プロジェクト進捗サマリー</caption>
             <thead><tr><th>領域</th><th>進捗</th><th>状態</th><th>リスク</th><th>次アクション</th></tr></thead>
             <tbody>
               <tr><td>要件整理</td><td>80%</td><td><span class="status">順調</span></td><td>確認待ち</td><td>承認会を設定</td></tr>
@@ -901,16 +1035,15 @@
           <span>Cost, variance, ROI</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-08-title" class="title-slot" data-role="title">予算は配分と回収見込みを同じ面で示す</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>支出カテゴリ、差分、期待リターンを分け、承認判断に必要な数字を揃える。</p>
-          <div class="grid-4 body-slot" data-role="body">
+          <h2 id="PB-08-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">予算は配分と回収見込みを同じ面で示す</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">支出カテゴリ、差分、期待リターンを分け、承認判断に必要な数字を揃える。</p>
+          <div class="grid-4 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="metric"><span>Budget</span><b>500</b><p>総額 / 万円</p></div>
             <div class="metric"><span>Used</span><b>320</b><p>消化済み</p></div>
             <div class="metric"><span>Variance</span><b>-40</b><p>計画差分</p></div>
             <div class="metric"><span>ROI</span><b>150%</b><p>見込み</p></div>
           </div>
-          <div class="note footnote-slot" data-role="footnote"><p><strong>FOOTNOTE:</strong> 金額単位、前提条件、計算式は本文ではなく注記へ分離する。</p></div>
+          <div class="note footnote-slot" data-role="footnote"><p><strong>Note:</strong> 金額単位、前提条件、計算式は本文ではなく注記へ分離する。</p></div>
         </div>
         <div class="slide-footer">
           <span>Budget pages must show the decision basis, not only totals.</span>
@@ -924,9 +1057,8 @@
           <span>Milestone view</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-09-title" class="title-slot" data-role="title">短期計画は6区間までのタイムラインで見せる</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>期間、作業、判断点を同じ高さで並べ、進捗報告に転用できる形にする。</p>
+          <h2 id="PB-09-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">短期計画は6区間までのタイムラインで見せる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">期間、作業、判断点を同じ高さで並べ、進捗報告に転用できる形にする。</p>
           <div class="timeline">
             <div><b>Week 1</b><span>現状整理<br>論点確定</span></div>
             <div><b>Week 2</b><span>仮説作成<br>資料設計</span></div>
@@ -953,11 +1085,10 @@
           <span>Criteria matrix</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-10-title" class="title-slot" data-role="title">競合比較は評価軸を先に固定する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>比較表では列ごとの強弱よりも、意思決定に必要な評価軸を揃える。</p>
+          <h2 id="PB-10-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">競合比較は評価軸を先に固定する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">比較表では列ごとの強弱よりも、意思決定に必要な評価軸を揃える。</p>
           <table class="matrix" data-role="table">
-            <caption>TABLE: 評価軸別の競合比較</caption>
+            <caption>評価軸別の競合比較</caption>
             <thead>
               <tr><th>評価軸</th><th>自社</th><th>A社</th><th>B社</th><th>示唆</th></tr>
             </thead>
@@ -981,10 +1112,9 @@
           <span>Options and recommendation</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-11-title" class="title-slot" data-role="title">選択肢比較は推奨案がわかる形で並べる</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>案A/B/Cを同じ項目で比較し、推奨理由と採用条件を最後に置く。</p>
-          <div class="grid-3 body-slot" data-role="body">
+          <h2 id="PB-11-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">選択肢比較は推奨案がわかる形で並べる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">案A/B/Cを同じ項目で比較し、推奨理由と採用条件を最後に置く。</p>
+          <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="lane"><strong>Plan A / 最小改善</strong><p>短期で実行可能。効果は限定的だがリスクが低い。</p></div>
             <div class="lane"><strong>Plan B / 推奨</strong><p>主要課題に集中。効果と負荷のバランスが良い。</p></div>
             <div class="lane"><strong>Plan C / 全面刷新</strong><p>効果は大きいが、準備期間と関係者調整が必要。</p></div>
@@ -1003,11 +1133,10 @@
           <span>Owner, deadline, dependency</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-12-title" class="title-slot" data-role="title">最後は担当・期限・依存関係まで落とす</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>会議資料では、結論だけでなく次に誰が何を進めるかを明示する。</p>
+          <h2 id="PB-12-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">最後は担当・期限・依存関係まで落とす</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">会議資料では、結論だけでなく次に誰が何を進めるかを明示する。</p>
           <table class="data-table" data-role="table">
-            <caption>TABLE: 次アクション管理</caption>
+            <caption>次アクション管理</caption>
             <thead>
               <tr><th>アクション</th><th>担当</th><th>期限</th><th>依存</th><th>状態</th></tr>
             </thead>
@@ -1031,10 +1160,9 @@
           <span>Objective, modules, practice</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-13-title" class="title-slot" data-role="title">研修資料は目的から実践確認までを一本化する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>受講者が何を理解し、どこで手を動かし、どう確認されるかを明示する。</p>
-          <div class="process-rail body-slot" data-role="body">
+          <h2 id="PB-13-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">研修資料は目的から実践確認までを一本化する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">受講者が何を理解し、どこで手を動かし、どう確認されるかを明示する。</p>
+          <div class="process-rail body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="process-step"><b>01 目的</b><span>到達状態を共有</span></div>
             <div class="process-step"><b>02 講義</b><span>判断基準を説明</span></div>
             <div class="process-step"><b>03 演習</b><span>実務ケースで試す</span></div>
@@ -1054,11 +1182,10 @@
           <span>Decision, issue, owner</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-14-title" class="title-slot" data-role="title">会議結果は決定事項と未決事項を分けて残す</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>定例会議資料では、合意したこと、残った論点、次の担当が後から追えることを優先する。</p>
+          <h2 id="PB-14-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">会議結果は決定事項と未決事項を分けて残す</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">定例会議資料では、合意したこと、残った論点、次の担当が後から追えることを優先する。</p>
           <table class="data-table" data-role="table">
-            <caption>TABLE: 議事決定ログ</caption>
+            <caption>議事決定ログ</caption>
             <thead><tr><th>議題</th><th>決定事項</th><th>未決事項</th><th>担当</th></tr></thead>
             <tbody>
               <tr><td>訴求軸</td><td>支援体制を前面化</td><td>事例選定</td><td>企画</td></tr>
@@ -1079,11 +1206,10 @@
           <span>Dense reference</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-15-title" class="title-slot" data-role="title">詳細情報は付録テーブルへ逃がす</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>本編の判断を邪魔する詳細、前提、確認事項は、付録で構造化して参照可能にする。</p>
+          <h2 id="PB-15-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">詳細情報は付録テーブルへ逃がす</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">本編の判断を邪魔する詳細、前提、確認事項は、付録で構造化して参照可能にする。</p>
           <table class="data-table" data-role="table">
-            <caption>TABLE: 付録・確認事項一覧</caption>
+            <caption>付録・確認事項一覧</caption>
             <thead><tr><th>ID</th><th>項目</th><th>内容</th><th>確認先</th><th>状態</th></tr></thead>
             <tbody>
               <tr><td>A-01</td><td>前提</td><td>対象期間、対象部門</td><td>PM</td><td>確認済</td></tr>
@@ -1105,10 +1231,9 @@
           <span>Quadrant analysis</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-16-title" class="title-slot" data-role="title">2x2分析は象限ごとに示唆を持たせる</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>SWOTや優先度整理では、象限名だけで終わらせず、次の判断に使える一文を入れる。</p>
-          <div class="swot body-slot" data-role="body">
+          <h2 id="PB-16-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">2x2分析は象限ごとに示唆を持たせる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">SWOTや優先度整理では、象限名だけで終わらせず、次の判断に使える一文を入れる。</p>
+          <div class="swot body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="box"><strong>Strength</strong><p>既存実績と運用知見があり、導入後支援を説明できる。</p></div>
             <div class="box"><strong>Weakness</strong><p>初回資料で差別化が伝わりにくく、比較時に埋もれる。</p></div>
             <div class="box"><strong>Opportunity</strong><p>比較検討の長期化により、支援体制の説明価値が上がる。</p></div>
@@ -1127,10 +1252,9 @@
           <span>Current and target state</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-17-title" class="title-slot" data-role="title">Before / After は変化の理由まで添える</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>現状と理想を並べるだけでなく、何が変わるから成果につながるのかを明示する。</p>
-          <div class="grid-3 body-slot" data-role="body">
+          <h2 id="PB-17-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">Before / After は変化の理由まで添える</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">現状と理想を並べるだけでなく、何が変わるから成果につながるのかを明示する。</p>
+          <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="lane"><strong>Before</strong><p>提案内容は説明できるが、意思決定者の論点と接続していない。</p></div>
             <div class="lane"><strong>Change</strong><p>判断軸、比較材料、導入後支援を一枚で見える化する。</p></div>
             <div class="lane"><strong>After</strong><p>担当者が上位者へ説明しやすくなり、検討の停滞を減らす。</p></div>
@@ -1148,10 +1272,9 @@
           <span>Person, quote, implication</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-18-title" class="title-slot" data-role="title">人物・声・示唆を分けると事例ページになる</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>採用、研修、顧客事例では、誰の発言か、何を示しているかを混ぜない。</p>
-          <div class="grid-3 body-slot" data-role="body">
+          <h2 id="PB-18-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">人物・声・示唆を分けると事例ページになる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">採用、研修、顧客事例では、誰の発言か、何を示しているかを混ぜない。</p>
+          <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="metric"><span>Person</span><b>Role</b><p>職種、部署、関係性を短く記載。</p></div>
             <div class="box"><strong>Voice</strong><p>引用やコメントは短く。長い背景はノートへ分離する。</p></div>
             <div class="box"><strong>Implication</strong><p>この声が資料全体の主張にどう効くかを書く。</p></div>
@@ -1169,10 +1292,9 @@
           <span>Process and gates</span>
         </div>
         <div class="content">
-          <span class="role-label">Title</span>
-          <h2 id="PB-19-title" class="title-slot" data-role="title">選考・承認プロセスは通過条件を併記する</h2>
-          <p class="body-copy body-slot" data-role="body"><span class="role-inline">Body</span>採用説明、稟議、導入手順では、ステップだけでなく各ゲートの確認事項を置く。</p>
-          <div class="process-rail body-slot" data-role="body">
+          <h2 id="PB-19-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">選考・承認プロセスは通過条件を併記する</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">採用説明、稟議、導入手順では、ステップだけでなく各ゲートの確認事項を置く。</p>
+          <div class="process-rail body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="process-step"><b>01 Entry</b><span>対象・条件を確認</span></div>
             <div class="process-step"><b>02 Review</b><span>資料と前提を確認</span></div>
             <div class="process-step"><b>03 Interview</b><span>論点をすり合わせ</span></div>
@@ -1183,6 +1305,341 @@
         <div class="slide-footer">
           <span>Process rail patterns should include gate conditions.</span>
           <span>PB-19</span>
+        </div>
+      </section>
+
+      <section id="PB-20" class="slide" data-slide="PB-20" data-pattern="chapter-toc" aria-labelledby="PB-20-title">
+        <div class="slide-header">
+          <span>PB-20 / Chapter TOC</span>
+          <span>Section opening and page map</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-20-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">章の冒頭では論点と到達点を同時に示す</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">章タイトルだけで止めず、どの順番で判断材料を見るかを短い目次として置く。</p>
+          <div class="toc-list body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="toc-row"><b>01</b><strong>前提と制約</strong><span>対象範囲</span></div>
+            <div class="toc-row"><b>02</b><strong>現状評価</strong><span>主要論点</span></div>
+            <div class="toc-row"><b>03</b><strong>打ち手比較</strong><span>判断材料</span></div>
+            <div class="toc-row"><b>04</b><strong>実行条件</strong><span>合意事項</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use when source decks switch chapters or introduce a section map.</span>
+          <span>PB-20</span>
+        </div>
+      </section>
+
+      <section id="PB-21" class="slide" data-slide="PB-21" data-pattern="standard-body-canvas" aria-labelledby="PB-21-title">
+        <div class="slide-header">
+          <span>PB-21 / Standard Body Canvas</span>
+          <span>Title, context, free body area</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-21-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">標準本文ページは上詰めにせず、下げた本文領域で受ける</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">PPTXの本文プレースホルダーはタイトル直下に存在するが、本文として扱い、リード文のように詰め込まない。</p>
+          <div class="visual-frame body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure" aria-label="標準本文キャンバス">
+            <div><strong>自由配置の本文領域</strong><span>図解、箇条書き、表、スクリーンショットを1つの主構造として置く。</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use this as the fallback when the imported PPTX has a normal body placeholder.</span>
+          <span>PB-21</span>
+        </div>
+      </section>
+
+      <section id="PB-22" class="slide" data-slide="PB-22" data-pattern="two-column-agenda" aria-labelledby="PB-22-title">
+        <div class="slide-header">
+          <span>PB-22 / Two Column Agenda</span>
+          <span>Parallel topics</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-22-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">論点が多い目次は左右2列で粒度を揃える</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">検討項目と確認項目を分けると、会議の流れと資料の章立てを同時に読める。</p>
+          <div class="split-visual body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="toc-list">
+              <div class="toc-row"><b>01</b><strong>背景</strong><span>5 min</span></div>
+              <div class="toc-row"><b>02</b><strong>課題</strong><span>10 min</span></div>
+              <div class="toc-row"><b>03</b><strong>仮説</strong><span>10 min</span></div>
+            </div>
+            <div class="toc-list">
+              <div class="toc-row"><b>04</b><strong>施策</strong><span>15 min</span></div>
+              <div class="toc-row"><b>05</b><strong>体制</strong><span>8 min</span></div>
+              <div class="toc-row"><b>06</b><strong>決定</strong><span>7 min</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for long meeting agendas, proposal chapters, and workshop modules.</span>
+          <span>PB-22</span>
+        </div>
+      </section>
+
+      <section id="PB-23" class="slide" data-slide="PB-23" data-pattern="three-step-horizontal" aria-labelledby="PB-23-title">
+        <div class="slide-header">
+          <span>PB-23 / Three Step Horizontal</span>
+          <span>Method or approach</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-23-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">3段階の進め方は横方向に因果をつなぐ</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">調査、設計、実行のような流れは、左から右へ読み、最後に判断条件を添える。</p>
+          <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="step"><span class="number">1</span><strong>整理</strong><p>目的、対象、制約を分け、前提のズレをなくす。</p></div>
+            <div class="step"><span class="number">2</span><strong>設計</strong><p>選択肢と評価軸を置き、比較可能な形にする。</p></div>
+            <div class="step"><span class="number">3</span><strong>実行</strong><p>担当、期限、確認方法まで落として開始する。</p></div>
+          </div>
+          <div class="note"><p><strong>Gate:</strong> 各段階の成果物が次段階の入力になるように置く。</p></div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for methods, migration steps, onboarding, and approval sequences.</span>
+          <span>PB-23</span>
+        </div>
+      </section>
+
+      <section id="PB-24" class="slide" data-slide="PB-24" data-pattern="left-label-right-description" aria-labelledby="PB-24-title">
+        <div class="slide-header">
+          <span>PB-24 / Left Label Right Description</span>
+          <span>Definitions and explanations</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-24-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">説明項目は左ラベル、右本文で読ませる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">用語定義、前提条件、検討軸は、箇条書きよりもラベル付きの横長行で整理する。</p>
+          <div class="stack-list body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="stack-row"><b>対象</b><span>今回の検討範囲に含める部署、期間、顧客セグメントを明示する。</span></div>
+            <div class="stack-row"><b>除外</b><span>未確定の機能、別プロジェクトの論点、今期対象外の施策を分ける。</span></div>
+            <div class="stack-row"><b>基準</b><span>評価軸、優先順位、承認条件を同じ粒度で記載する。</span></div>
+            <div class="stack-row"><b>出力</b><span>このページの結論が次ページの比較表または実行計画に渡る。</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for glossary, scope, assumptions, and policy explanations.</span>
+          <span>PB-24</span>
+        </div>
+      </section>
+
+      <section id="PB-25" class="slide" data-slide="PB-25" data-pattern="requirements-stack" aria-labelledby="PB-25-title">
+        <div class="slide-header">
+          <span>PB-25 / Requirements Stack</span>
+          <span>Requests and constraints</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-25-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">依頼事項は要件、根拠、期限を一行にまとめる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">発注、社内依頼、確認事項は、読んだ人が次の行動を迷わない形にする。</p>
+          <div class="stack-list body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="stack-row"><b>Must</b><span>公開前に法務確認が必要。修正期限は5/24、確認者は事業責任者。</span></div>
+            <div class="stack-row"><b>Should</b><span>比較表は3案に絞り、評価軸を価格、効果、運用負荷に固定する。</span></div>
+            <div class="stack-row"><b>Could</b><span>余力があれば導入事例を1件追加し、営業説明の補助資料にする。</span></div>
+            <div class="stack-row"><b>Risk</b><span>素材未確定のため、デザイン確定は本文承認後に切り分ける。</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for requirement sheets, vendor requests, and internal action asks.</span>
+          <span>PB-25</span>
+        </div>
+      </section>
+
+      <section id="PB-26" class="slide" data-slide="PB-26" data-pattern="hub-tree-diagram" aria-labelledby="PB-26-title">
+        <div class="slide-header">
+          <span>PB-26 / Hub Tree Diagram</span>
+          <span>Central concept and branches</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-26-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">中心概念と周辺要素はハブ型で関係を示す</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">テンプレート系PPTで多い図解は、中心に主張、左右に原因と打ち手を置くと読みやすい。</p>
+          <div class="hub-map body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="hub-side">
+              <div class="tree-node"><strong>背景</strong><span>市場変化、顧客行動、社内制約</span></div>
+              <div class="tree-node"><strong>課題</strong><span>接点不足、説明不足、運用負荷</span></div>
+            </div>
+            <div class="hub-center">中心メッセージ</div>
+            <div class="hub-side">
+              <div class="tree-node"><strong>施策</strong><span>訴求再設計、資料改訂、検証</span></div>
+              <div class="tree-node"><strong>効果</strong><span>理解促進、停滞削減、再現性</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for object-built diagrams where labels are not slide titles.</span>
+          <span>PB-26</span>
+        </div>
+      </section>
+
+      <section id="PB-27" class="slide" data-slide="PB-27" data-pattern="vs-comparison" aria-labelledby="PB-27-title">
+        <div class="slide-header">
+          <span>PB-27 / VS Comparison</span>
+          <span>Contrasting alternatives</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-27-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">対立案は同じ項目で見比べられるようにする</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">左右の見出しだけでなく、判断軸、メリット、リスクを揃えて差分を明確にする。</p>
+          <div class="vs-layout body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="lane"><strong>現行維持</strong><p>短期負荷は低いが、比較検討時の説明不足が残る。</p><p>既存運用を活かせる一方、改善幅は限定的。</p></div>
+            <div class="vs-mark">VS</div>
+            <div class="lane"><strong>刷新案</strong><p>資料体系を再設計し、判断軸と導入後支援を前面に出す。</p><p>初期工数は必要だが、営業説明の再現性が高まる。</p></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for before/after, buy/build, internal/external, and old/new comparisons.</span>
+          <span>PB-27</span>
+        </div>
+      </section>
+
+      <section id="PB-28" class="slide" data-slide="PB-28" data-pattern="table-chart-commentary" aria-labelledby="PB-28-title">
+        <div class="slide-header">
+          <span>PB-28 / Table Chart Commentary</span>
+          <span>Numbers plus interpretation</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-28-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">数値と解釈は左右に分けると判断が速くなる</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">表やグラフを大きく見せるページでは、右側に示唆と次アクションを固定する。</p>
+          <div class="split-visual body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <table class="data-table" data-role="table">
+              <caption>主要指標の前年差</caption>
+              <thead><tr><th>指標</th><th>前年差</th><th>評価</th></tr></thead>
+              <tbody>
+                <tr><td>認知</td><td>+8%</td><td>改善</td></tr>
+                <tr><td>商談</td><td>-3%</td><td>注意</td></tr>
+                <tr><td>受注</td><td>+5%</td><td>改善</td></tr>
+              </tbody>
+            </table>
+            <div class="visual-frame"><div><strong>解釈・コメント領域</strong><span>増減理由、例外、次アクションを短い段落で置く。</span></div></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use when a chart alone does not explain the decision.</span>
+          <span>PB-28</span>
+        </div>
+      </section>
+
+      <section id="PB-29" class="slide" data-slide="PB-29" data-pattern="left-table-right-visual" aria-labelledby="PB-29-title">
+        <div class="slide-header">
+          <span>PB-29 / Left Table Right Visual</span>
+          <span>Structured facts and visual support</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-29-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">一覧表と図版を並べる時は片方を主役にする</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">左に確認リスト、右に画面・模式図を置き、表と図が同時に主張しすぎないようにする。</p>
+          <div class="split-visual body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <table class="data-table" data-role="table">
+              <caption>確認項目</caption>
+              <thead><tr><th>項目</th><th>状態</th></tr></thead>
+              <tbody>
+                <tr><td>画面導線</td><td>確認済</td></tr>
+                <tr><td>表示文言</td><td>修正中</td></tr>
+                <tr><td>計測条件</td><td>未確認</td></tr>
+                <tr><td>公開手順</td><td>確認済</td></tr>
+              </tbody>
+            </table>
+            <div class="visual-frame"><div><strong>図版・画面領域</strong><span>スクリーンショット、簡易チャート、業務フローを配置する。</span></div></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for UI reports, operational checklists, and evidence pages.</span>
+          <span>PB-29</span>
+        </div>
+      </section>
+
+      <section id="PB-30" class="slide" data-slide="PB-30" data-pattern="dense-diagram-lecture" aria-labelledby="PB-30-title">
+        <div class="slide-header">
+          <span>PB-30 / Dense Diagram Lecture</span>
+          <span>Concept explanation</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-30-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">講義型の図解は密度を保ちつつ読む順番を作る</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">テンプレート資料の複雑な図は、始点、分岐、結論をノード単位で分ける。</p>
+          <div class="dense-diagram body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="diagram-node"><strong>入力</strong><span>顧客情報、既存資料、営業ログ</span></div>
+            <div class="diagram-node wide"><strong>処理</strong><span>論点抽出、構図選択、比較軸の整理</span></div>
+            <div class="diagram-node"><strong>判断</strong><span>優先度、実行可否、リスク</span></div>
+            <div class="diagram-node wide"><strong>出力</strong><span>提案資料、会議資料、運用手順、次アクション</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use when imported slides contain many rectangles, arrows, and explanatory nodes.</span>
+          <span>PB-30</span>
+        </div>
+      </section>
+
+      <section id="PB-31" class="slide" data-slide="PB-31" data-pattern="placeholderless-section" aria-labelledby="PB-31-title">
+        <div class="slide-header">
+          <span>PB-31 / Placeholderless Section</span>
+          <span>Inferred title page</span>
+        </div>
+        <div class="content">
+          <p class="kicker">Section 02</p>
+          <h1 id="PB-31-title" class="title-slot" data-role="title" data-source-slot="pptx:inferred-title" data-corporate-role="slide-title">プレースホルダーがない章扉もタイトルとして扱う</h1>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:inferred-body" data-corporate-role="body-context">BIZ系テンプレートでは通常シェイプだけで章扉が作られるため、最大の上部テキストを推定タイトルにする。</p>
+          <div class="meta-row body-slot" data-role="body" data-source-slot="pptx:inferred-body" data-corporate-role="body-structure">
+            <div class="metric"><span>Rule</span><b>1</b><p>上部最大テキスト</p></div>
+            <div class="metric"><span>Rule</span><b>2</b><p>短い番号はラベル</p></div>
+            <div class="metric"><span>Rule</span><b>3</b><p>本文候補を下に分離</p></div>
+            <div class="metric"><span>Rule</span><b>4</b><p>注記はfooterへ</p></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use when PPTX import lacks semantic placeholders but has clear visual hierarchy.</span>
+          <span>PB-31</span>
+        </div>
+      </section>
+
+      <section id="PB-32" class="slide" data-slide="PB-32" data-pattern="image2-body-full" aria-labelledby="PB-32-title">
+        <div class="slide-header">
+          <span>PB-32 / Image2 Body Full</span>
+          <span>Generated body canvas</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-32-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">本文領域をimage2で一枚画像として生成する版</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">タイトルと短い文脈はHTMLテキストで残し、本文の図解・写真・複雑な模式図だけを画像生成対象にする。</p>
+          <div class="image2-frame body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="generated-body-image" data-renderer="image2" aria-label="image2で生成する本文画像領域">
+            <div><strong>image2 body image area</strong><span>16:9内の本文領域に合わせた画像。文字量は少なく、説明は上の本文またはノートに残す。</span></div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for photo composites, conceptual diagrams, and visual-heavy body areas.</span>
+          <span>PB-32</span>
+        </div>
+      </section>
+
+      <section id="PB-33" class="slide" data-slide="PB-33" data-pattern="image2-body-split" aria-labelledby="PB-33-title">
+        <div class="slide-header">
+          <span>PB-33 / Image2 Body Split</span>
+          <span>Text facts plus generated visual</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-33-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">左に本文、右にimage2生成画像を置く版</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">定量情報や条件はテキストで保持し、雰囲気、状態、利用シーンなど画像化したい本文だけを右側に寄せる。</p>
+          <div class="image2-split body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="stack-list">
+              <div class="stack-row"><b>Fact</b><span>数値、条件、制約はHTMLテキストとして残す。</span></div>
+              <div class="stack-row"><b>Scene</b><span>画像化したい業務シーン、画面、利用状態を指定する。</span></div>
+              <div class="stack-row"><b>Guard</b><span>画像内の細かい文字に依存しない構成にする。</span></div>
+            </div>
+            <div class="image2-frame" data-role="body" data-source-slot="pptx:body" data-corporate-role="generated-body-image" data-renderer="image2" aria-label="image2で生成する右側本文画像">
+              <div><strong>image2 split image area</strong><span>右側だけ画像化し、左側の判断材料と対応させる。</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>Use for reports that need reliable text plus generated visual support.</span>
+          <span>PB-33</span>
+        </div>
+      </section>
+
+      <section id="PB-34" class="slide" data-slide="PB-34" data-pattern="image2-body-diagram" aria-labelledby="PB-34-title">
+        <div class="slide-header">
+          <span>PB-34 / Image2 Body Diagram</span>
+          <span>Generated diagram body</span>
+        </div>
+        <div class="content">
+          <h2 id="PB-34-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">複雑な図解本文だけをimage2で作る版</h2>
+          <p class="body-copy body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-context">抽象図、業務フロー、概念モデルは画像生成に寄せ、タイトルと要点は検索・編集できるHTMLとして残す。</p>
+          <div class="image2-frame body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="generated-body-diagram" data-renderer="image2" aria-label="image2で生成する図解本文領域">
+            <div><strong>image2 diagram body area</strong><span>中央に主概念、周辺に3から5要素。細かい文章は画像外に置く。</span></div>
+          </div>
+          <p class="unit footnote-slot" data-role="footnote">Generated body image should not contain essential small text.</p>
+        </div>
+        <div class="slide-footer">
+          <span>Use when object-built PPT diagrams are too dense to redraw as HTML quickly.</span>
+          <span>PB-34</span>
         </div>
       </section>
     </main>

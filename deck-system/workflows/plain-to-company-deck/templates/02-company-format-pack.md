@@ -58,6 +58,27 @@ logo:
 | PB-07 Progress summary |  |  |
 | PB-10 Competitor comparison |  |  |
 | PB-12 Action plan |  |  |
+| PB-20 Chapter / TOC |  |  |
+| PB-21 Standard body canvas |  |  |
+| PB-22 Two-column agenda |  |  |
+| PB-23 Horizontal 3-step |  |  |
+| PB-24 Left-label / right-description stack |  |  |
+| PB-25 Requirements stack |  |  |
+| PB-26 Hub / tree diagram |  |  |
+| PB-27 VS comparison |  |  |
+| PB-28 Table/chart + commentary |  |  |
+| PB-29 Left table / right visual |  |  |
+| PB-30 Dense diagram / lecture |  |  |
+| PB-31 Placeholderless section |  |  |
+| PB-32 Image2 body full |  |  |
+| PB-33 Image2 body split |  |  |
+| PB-34 Image2 body diagram |  |  |
+
+## Derivation Metadata
+
+- Keep parent slot roles in `data-role`, `data-source-slot`, and `data-corporate-role` attributes.
+- Do not print helper role labels such as title/body/lead markers in the visible slide.
+- For `image2` body variants, keep the slide title and short body context as editable text and mark the generated body region with `data-renderer="image2"`.
 
 ## Source Evidence
 
