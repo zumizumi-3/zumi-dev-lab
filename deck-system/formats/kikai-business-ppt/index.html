@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Business PPT Format</title>
+    <link rel="stylesheet" href="./tokens.css">
+    <style>
+      * { box-sizing: border-box; }
+      html {
+        background: var(--kbp-page-bg);
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+      }
+      body {
+        margin: 0;
+        background: var(--kbp-page-bg);
+        color: var(--kbp-ink);
+        font-family: var(--kbp-font);
+        text-rendering: geometricPrecision;
+      }
+      a { color: inherit; }
+      .format-nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 50px;
+        padding: 9px 18px;
+        border-bottom: 1px solid var(--kbp-line);
+        background: rgba(239, 242, 243, 0.94);
+        backdrop-filter: blur(10px);
+        color: var(--kbp-muted);
+        font-size: 0.86rem;
+        font-weight: 760;
+      }
+      .format-nav a {
+        text-decoration: none;
+      }
+      .nav-mark {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+      .deck {
+        display: grid;
+        gap: 30px;
+        justify-items: center;
+        padding: 30px 0;
+      }
+      .slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: var(--kbp-slide-width);
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        scroll-snap-align: start;
+        scroll-margin-top: 70px;
+        padding: var(--kbp-pad-y) var(--kbp-pad-x);
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+        box-shadow: var(--kbp-shadow);
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 8px;
+        background: var(--kbp-surface-strong);
+      }
+      .slide::after {
+        content: "";
+        position: absolute;
+        right: 32px;
+        bottom: 28px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+      .slide-header,
+      .slide-footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        color: var(--kbp-muted);
+        font-size: var(--kbp-small);
+        font-weight: 780;
+        line-height: 1.35;
+      }
+      .slide-header {
+        min-height: 32px;
+        margin-bottom: 20px;
+        padding-bottom: 9px;
+        border-bottom: 1px solid var(--kbp-line-soft);
+      }
+      .slide-footer {
+        margin-top: 0;
+        padding-top: 13px;
+        border-top: 1px solid var(--kbp-line-soft);
+      }
+      .header-logo {
+        display: block;
+        width: 168px;
+        height: 40px;
+        object-fit: contain;
+        object-position: right center;
+      }
+      .doc-label,
+      .page-code,
+      .kicker {
+        color: var(--kbp-muted);
+        font-size: var(--kbp-small);
+        font-weight: 840;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        letter-spacing: 0;
+      }
+      h1 {
+        max-width: 940px;
+        margin-bottom: 0;
+        color: var(--kbp-ink);
+        font-size: var(--kbp-title);
+        font-weight: 820;
+        line-height: 1.06;
+        text-wrap: balance;
+      }
+      h2 {
+        max-width: 1010px;
+        margin: 0;
+        color: var(--kbp-ink);
+        font-size: var(--kbp-h2);
+        font-weight: 810;
+        line-height: 1.16;
+        text-wrap: balance;
+      }
+      h3 {
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: var(--kbp-h3);
+        font-weight: 820;
+        line-height: 1.24;
+      }
+      p {
+        color: var(--kbp-muted);
+        font-size: var(--kbp-body);
+        line-height: 1.56;
+        text-wrap: pretty;
+      }
+      .lead-copy {
+        max-width: 920px;
+        margin: clamp(12px, 1.8vw, 18px) 0 0;
+        color: var(--kbp-muted);
+        font-size: 1.04rem;
+        font-weight: 650;
+        line-height: 1.52;
+      }
+      .body-slot,
+      table[data-role="table"] {
+        width: 100%;
+        min-height: clamp(252px, 26vw, 344px);
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      .body-compact {
+        min-height: clamp(214px, 22vw, 292px);
+      }
+      .body-tall {
+        min-height: clamp(310px, 30vw, 384px);
+      }
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 14px;
+        align-items: stretch;
+      }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card,
+      .metric,
+      .lane,
+      .note,
+      .table-wrap,
+      .image-frame {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .card,
+      .metric,
+      .lane,
+      .note {
+        display: grid;
+        align-content: center;
+        padding: 16px 18px;
+      }
+      .card strong,
+      .lane strong,
+      .metric strong,
+      .note strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: 1rem;
+        line-height: 1.28;
+      }
+      .card p,
+      .lane p,
+      .metric p,
+      .note p {
+        margin: 0;
+        font-size: 0.86rem;
+        line-height: 1.48;
+      }
+      .number {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 10px;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 0.72rem;
+        font-weight: 860;
+      }
+      .accent-rule {
+        width: 52px;
+        height: 3px;
+        margin: 18px 0 0;
+        background: var(--kbp-orange);
+      }
+      .cover {
+        justify-content: space-between;
+      }
+      .cover::before {
+        width: 11px;
+        background: var(--kbp-orange);
+      }
+      .cover-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) 300px;
+        gap: 34px;
+        align-items: center;
+        flex: 1;
+      }
+      .logo-hero {
+        display: block;
+        width: min(760px, 92%);
+        height: auto;
+        margin-bottom: 28px;
+        object-fit: contain;
+        object-position: left center;
+      }
+      .cover h1 {
+        max-width: 880px;
+        margin-bottom: 18px;
+        font-size: clamp(2.5rem, 4.8vw, 4rem);
+      }
+      .cover .lead-copy {
+        max-width: 790px;
+        margin-top: 0;
+      }
+      .cover-panel {
+        display: grid;
+        gap: 13px;
+        padding: 20px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .cover-panel img {
+        width: 92px;
+        height: 92px;
+        object-fit: contain;
+      }
+      .cover-meta {
+        display: grid;
+        gap: 8px;
+        color: var(--kbp-muted);
+        font-size: 0.78rem;
+        font-weight: 760;
+      }
+      .divider-layout {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 26px;
+        align-items: center;
+      }
+      .chapter-number {
+        display: grid;
+        min-height: 230px;
+        place-items: center;
+        border-radius: var(--kbp-radius);
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-surface);
+        color: var(--kbp-orange);
+        font-size: clamp(4.8rem, 9vw, 7.4rem);
+        font-weight: 850;
+        line-height: 1;
+      }
+      .toc-mini {
+        display: grid;
+        gap: 9px;
+        margin-top: 20px;
+      }
+      .toc-row,
+      .agenda-row {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) 130px;
+        gap: 13px;
+        align-items: center;
+        min-height: 50px;
+        padding: 9px 12px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .toc-row b,
+      .agenda-row b {
+        color: var(--kbp-ink);
+        font-size: 1.02rem;
+        line-height: 1.2;
+      }
+      .toc-row span,
+      .agenda-row span {
+        color: var(--kbp-muted);
+        font-size: 0.78rem;
+        font-weight: 720;
+        line-height: 1.35;
+      }
+      .agenda {
+        display: grid;
+        gap: 10px;
+        align-content: stretch;
+      }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 0.9fr;
+        gap: 14px;
+      }
+      .summary-grid .note {
+        background: var(--kbp-surface);
+      }
+      .metric span {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-soft);
+        font-size: var(--kbp-small);
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+      .metric b {
+        display: block;
+        color: var(--kbp-ink);
+        font-size: 1.86rem;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+      .issue-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .lane {
+        position: relative;
+        min-height: 220px;
+        align-content: start;
+        padding-top: 52px;
+      }
+      .lane::before {
+        content: attr(data-lane);
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        color: var(--kbp-orange);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+      .lane ul {
+        display: grid;
+        gap: 8px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .lane li {
+        color: var(--kbp-muted);
+        font-size: 0.8rem;
+        line-height: 1.38;
+      }
+      .matrix-layout {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr;
+        gap: 14px;
+        align-items: stretch;
+      }
+      .table-wrap {
+        overflow: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kbp-paper);
+        color: var(--kbp-ink);
+        font-size: 0.8rem;
+      }
+      caption {
+        caption-side: top;
+        padding: 0 0 8px;
+        color: var(--kbp-muted);
+        font-size: var(--kbp-small);
+        font-weight: 850;
+        text-align: left;
+        text-transform: uppercase;
+      }
+      th,
+      td {
+        padding: 10px 11px;
+        border: 1px solid var(--kbp-line-soft);
+        text-align: left;
+        vertical-align: top;
+        line-height: 1.36;
+      }
+      th {
+        background: var(--kbp-surface);
+        color: var(--kbp-ink);
+        font-weight: 820;
+      }
+      .status {
+        display: inline-grid;
+        min-width: 58px;
+        place-items: center;
+        padding: 3px 8px;
+        border: 1px solid var(--kbp-line);
+        border-radius: 999px;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 0.68rem;
+        font-weight: 850;
+      }
+      .dashboard {
+        display: grid;
+        grid-template-columns: 0.9fr 1fr 1fr;
+        gap: 13px;
+      }
+      .dashboard .metric:first-child {
+        grid-row: span 2;
+      }
+      .roadmap-figure,
+      .cycle-figure,
+      .fishbone-figure,
+      .venn-figure {
+        display: grid;
+        margin: auto 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background:
+          linear-gradient(var(--kbp-line-soft) 1px, transparent 1px),
+          linear-gradient(90deg, var(--kbp-line-soft) 1px, transparent 1px),
+          var(--kbp-paper);
+        background-size: 100% 50%, 25% 100%;
+        overflow: hidden;
+      }
+      .roadmap-figure svg,
+      .cycle-figure svg,
+      .fishbone-figure svg,
+      .venn-figure svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+      }
+      .svg-text {
+        fill: var(--kbp-ink);
+        font-family: var(--kbp-font);
+        font-size: 17px;
+        font-weight: 760;
+      }
+      .svg-small {
+        fill: var(--kbp-muted);
+        font-family: var(--kbp-font);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .image2-layout {
+        display: grid;
+        grid-template-columns: 0.74fr 1.26fr;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .image-frame {
+        position: relative;
+        display: grid;
+        min-height: 322px;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 78% 22%, rgba(255, 113, 67, 0.16), transparent 21%),
+          linear-gradient(135deg, rgba(186, 194, 200, 0.45), rgba(251, 252, 252, 0.8) 54%),
+          var(--kbp-surface);
+      }
+      .image-frame::before,
+      .image-frame::after {
+        content: "";
+        position: absolute;
+        border: 1px solid rgba(65, 66, 66, 0.16);
+        border-radius: var(--kbp-radius);
+        background: rgba(251, 252, 252, 0.72);
+      }
+      .image-frame::before {
+        left: 44px;
+        top: 54px;
+        width: 180px;
+        height: 104px;
+      }
+      .image-frame::after {
+        right: 48px;
+        bottom: 52px;
+        width: 236px;
+        height: 118px;
+      }
+      .image-frame img {
+        position: relative;
+        z-index: 1;
+        width: 130px;
+        height: 130px;
+        object-fit: contain;
+      }
+      .image-prompt {
+        display: grid;
+        gap: 10px;
+        align-content: center;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .closing {
+        justify-content: space-between;
+      }
+      .closing-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center start;
+        flex: 1;
+      }
+      .closing-logo {
+        width: min(820px, 86%);
+        height: auto;
+        margin-top: 30px;
+        object-fit: contain;
+      }
+      @media (max-width: 900px) {
+        :root {
+          --kbp-slide-width: min(100vw - 28px, 760px);
+          --kbp-pad-x: 28px;
+          --kbp-pad-y: 28px;
+          --kbp-title: 2.25rem;
+          --kbp-h2: 1.72rem;
+        }
+        html {
+          scroll-snap-type: none;
+        }
+        .format-nav {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .slide {
+          min-height: 760px;
+          aspect-ratio: auto;
+        }
+        .slide::after {
+          right: 22px;
+          bottom: 20px;
+        }
+        .slide-header {
+          align-items: flex-start;
+        }
+        .header-logo {
+          width: 132px;
+          height: 34px;
+        }
+        .body-slot,
+        table[data-role="table"] {
+          min-height: auto;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .cover-layout,
+        .divider-layout,
+        .summary-grid,
+        .issue-grid,
+        .matrix-layout,
+        .dashboard,
+        .image2-layout {
+          grid-template-columns: 1fr;
+        }
+        .cover-panel {
+          order: -1;
+        }
+        .logo-hero,
+        .closing-logo {
+          width: 100%;
+        }
+        .chapter-number {
+          min-height: 150px;
+        }
+        .toc-row,
+        .agenda-row {
+          grid-template-columns: 44px minmax(0, 1fr);
+        }
+        .toc-row span,
+        .agenda-row span {
+          grid-column: 2;
+        }
+        .lane {
+          min-height: auto;
+        }
+        .image-frame {
+          min-height: 260px;
+        }
+      }
+      @media (max-width: 520px) {
+        :root {
+          --kbp-slide-width: calc(100vw - 18px);
+          --kbp-pad-x: 20px;
+          --kbp-pad-y: 22px;
+          --kbp-h2: 1.44rem;
+          --kbp-body: 0.9rem;
+        }
+        .format-nav {
+          padding-inline: 12px;
+        }
+        .slide {
+          min-height: 790px;
+        }
+        .slide-header,
+        .slide-footer {
+          gap: 12px;
+        }
+        .header-logo {
+          width: 108px;
+        }
+        .cover h1 {
+          font-size: 2rem;
+        }
+        th,
+        td {
+          padding: 8px;
+          font-size: 0.73rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="format-nav" aria-label="Format navigation">
+      <a href="../">← Formats</a>
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span>Kikai Business PPT</span>
+      <a href="./format.md">format.md</a>
+      <a href="./patterns.html">patterns</a>
+    </nav>
+
+    <main class="deck">
+      <section class="slide cover" id="KBP-00" aria-label="Cover" data-base-pattern="PB-00">
+        <div class="cover-layout">
+          <div>
+            <img class="logo-hero" src="./assets/6.png" alt="Kikai Vibe Coding Salon">
+            <p class="kicker">Company Format / Derived from Plain Business PPT</p>
+            <h1 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">事業資料を、読みやすく、判断しやすく。</h1>
+            <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">ロゴ由来の濃いグレーを主役にし、オレンジは細い強調だけに絞る。既存のプレーン構図を保ちながら、企業資料として使える密度に整える。</p>
+            <div class="accent-rule" aria-hidden="true"></div>
+          </div>
+          <aside class="cover-panel" data-role="body" data-source-slot="pptx:body" data-corporate-role="cover-metadata">
+            <img src="./assets/2.png" alt="Kikai icon">
+            <div class="cover-meta">
+              <span>Format pack: Kikai Business PPT</span>
+              <span>Parent: plain-business-ppt</span>
+              <span>Text color: #414242</span>
+            </div>
+          </aside>
+        </div>
+        <footer class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KBP-00 / PB-00</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-01" aria-label="Section divider" data-base-pattern="PB-37">
+        <header class="slide-header"><span class="doc-label">Section Divider</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">章の切り替えは、番号と余白で静かに分ける。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">表紙、間仕切り、本文のリズムを揃え、プレーン構図から企業フォーマットへ自然に変換できるようにする。</p>
+          <div class="divider-layout body-slot body-compact" data-role="body" data-source-slot="pptx:body" data-corporate-role="section-divider">
+            <div class="chapter-number">01</div>
+            <div class="toc-mini">
+              <div class="toc-row"><b>01</b><span>現状整理</span><span>Issue / Fact</span></div>
+              <div class="toc-row"><b>02</b><span>判断材料</span><span>Option / Matrix</span></div>
+              <div class="toc-row"><b>03</b><span>実行計画</span><span>Roadmap / Action</span></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Derived from Plain Business PPT</span><span>KBP-01 / PB-37</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-02" aria-label="Agenda" data-base-pattern="PB-01">
+        <header class="slide-header"><span class="doc-label">Agenda</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">議論の順番は、短い行で先に見せる。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">各行は番号、論点、アウトプットで揃え、会議資料でも提案資料でもそのまま使える密度にする。</p>
+          <div class="agenda body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="agenda-row"><b>01</b><span>背景と前提を揃える</span><span>10 min</span></div>
+            <div class="agenda-row"><b>02</b><span>現状課題と原因を分ける</span><span>15 min</span></div>
+            <div class="agenda-row"><b>03</b><span>選択肢と判断軸を確認する</span><span>20 min</span></div>
+            <div class="agenda-row"><b>04</b><span>次アクションと責任者を決める</span><span>15 min</span></div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-02 / PB-01</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-03" aria-label="Executive summary" data-base-pattern="PB-02">
+        <header class="slide-header"><span class="doc-label">Executive Summary</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">結論、根拠、次の一手を同じ画面で読めるようにする。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">経営・提案・定例報告の冒頭で使う要約構図。カード内部の見出しと本文は中央寄せに近い配置で、余白だけが残らないようにする。</p>
+          <div class="summary-grid body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <article class="card">
+              <span class="number">1</span>
+              <strong>判断軸を先に固定</strong>
+              <p>評価項目を先に出すことで、各論が散らばる前に読み手の視点を揃える。</p>
+            </article>
+            <article class="card">
+              <span class="number">2</span>
+              <strong>証拠は表で束ねる</strong>
+              <p>根拠、数値、コメントを同じ粒度にし、後続ページに展開できる形で残す。</p>
+            </article>
+            <aside class="note">
+              <strong>Implication</strong>
+              <p>意思決定に必要な情報は、タイトル下ではなく、リードとフッターの間の中央に置く。</p>
+            </aside>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-03 / PB-02</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-04" aria-label="Issue analysis" data-base-pattern="PB-03">
+        <header class="slide-header"><span class="doc-label">Issue Analysis</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">課題、原因、打ち手を三つのレーンで分離する。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">読み手がどこで合意していないかを見つけやすくするため、説明文ではなく構造として分ける。</p>
+          <div class="issue-grid body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <article class="lane" data-lane="ISSUE">
+              <strong>現象</strong>
+              <p>資料作成の速度は上がっても、構図と表現が案件ごとに揺れてしまう。</p>
+              <ul>
+                <li>タイトルと本文の距離が不安定</li>
+                <li>表紙と本文の統一感が弱い</li>
+              </ul>
+            </article>
+            <article class="lane" data-lane="CAUSE">
+              <strong>原因</strong>
+              <p>プレーン構図と企業ルールが分かれておらず、都度手作業で調整している。</p>
+              <ul>
+                <li>ロゴ配置の定義が不足</li>
+                <li>色の使い方が属人的</li>
+              </ul>
+            </article>
+            <article class="lane" data-lane="DIRECTION">
+              <strong>方針</strong>
+              <p>親プレーンは構造、企業フォーマットは色・ロゴ・密度の責務に分ける。</p>
+              <ul>
+                <li>本文領域の中央配置を維持</li>
+                <li>SVGとimage2の派生も保持</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-04 / PB-03</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-05" aria-label="Decision table" data-base-pattern="PB-10">
+        <header class="slide-header"><span class="doc-label">Decision Table</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">比較表は、勝ち負けではなく判断理由を残す。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">評価項目、選択肢、コメントを同じ読み順で並べる。ブランド表現は罫線とステータスの強弱に限定する。</p>
+          <div class="matrix-layout body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
+            <div class="table-wrap">
+              <table data-role="table" data-source-slot="pptx:body" data-corporate-role="decision-matrix">
+                <caption>Option Evaluation</caption>
+                <thead>
+                  <tr><th>判断軸</th><th>Plan A</th><th>Plan B</th><th>推奨</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>再利用性</td><td>中</td><td>高</td><td><span class="status">Plan B</span></td></tr>
+                  <tr><td>導入速度</td><td>高</td><td>中</td><td><span class="status">Plan A</span></td></tr>
+                  <tr><td>ブランド整合</td><td>中</td><td>高</td><td><span class="status">Plan B</span></td></tr>
+                  <tr><td>運用負荷</td><td>低</td><td>低</td><td><span class="status">Tie</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <aside class="note">
+              <strong>Recommendation</strong>
+              <p>標準スライドを増やす場合は、Plan Bのようにプレーン構図を維持しながら企業トークンを差し替える方式を優先する。</p>
+            </aside>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-05 / PB-10</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-06" aria-label="KPI dashboard" data-base-pattern="PB-43">
+        <header class="slide-header"><span class="doc-label">Dashboard</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">ダッシュボードは、数字と解釈を同じ高さで読む。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">KPIカードだけを上に詰めず、原因と次アクションまで含めて本文領域の中央に置く。</p>
+          <div class="dashboard body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="dashboard-summary">
+            <article class="metric">
+              <span>North Star</span>
+              <b>82%</b>
+              <p>標準構図への適合率。残りはSVGと画像生成領域の扱いを追加検証する。</p>
+            </article>
+            <article class="metric"><span>Reusable Patterns</span><b>85</b><p>親プレーンのPB-00からPB-84を企業版に継承。</p></article>
+            <article class="metric"><span>Primary Ink</span><b>#414242</b><p>ロゴから抽出した濃いグレーを本文色に使用。</p></article>
+            <article class="note"><strong>Cause</strong><p>構図数が増えるほど、カード内部の文字量と中央配置の統制が重要になる。</p></article>
+            <article class="note"><strong>Next</strong><p>台本入力時はタイトル、リード、本文、注記の役割を先に確定する。</p></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-06 / PB-43</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-07" aria-label="SVG roadmap" data-base-pattern="PB-71">
+        <header class="slide-header"><span class="doc-label">SVG Roadmap</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">ロードマップは、期間と成果物を一本の時間軸で揃える。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">PB-71のSVG構図を企業色に変換した例。線、ラベル、バーを最小限の濃淡で統一する。</p>
+          <figure class="roadmap-figure body-slot body-tall" data-role="body" data-source-slot="pptx:body" data-corporate-role="svg-body-diagram">
+            <svg viewBox="0 0 980 330" role="img" aria-label="Kikai roadmap bars">
+              <line x1="70" y1="76" x2="910" y2="76" stroke="#cfd6d9" stroke-width="2"></line>
+              <line x1="70" y1="156" x2="910" y2="156" stroke="#cfd6d9" stroke-width="2"></line>
+              <line x1="70" y1="236" x2="910" y2="236" stroke="#cfd6d9" stroke-width="2"></line>
+              <text x="70" y="36" class="svg-small">Q1</text>
+              <text x="300" y="36" class="svg-small">Q2</text>
+              <text x="530" y="36" class="svg-small">Q3</text>
+              <text x="760" y="36" class="svg-small">Q4</text>
+              <rect x="78" y="54" width="270" height="42" rx="6" fill="#e8ecee" stroke="#cfd6d9"></rect>
+              <rect x="280" y="134" width="320" height="42" rx="6" fill="#fff1eb" stroke="#ff7143"></rect>
+              <rect x="560" y="214" width="300" height="42" rx="6" fill="#e8ecee" stroke="#cfd6d9"></rect>
+              <circle cx="348" cy="75" r="7" fill="#ff7143"></circle>
+              <circle cx="600" cy="155" r="7" fill="#ff7143"></circle>
+              <circle cx="860" cy="235" r="7" fill="#ff7143"></circle>
+              <text x="106" y="81" class="svg-text">構図監査</text>
+              <text x="306" y="161" class="svg-text">企業版テンプレート化</text>
+              <text x="586" y="241" class="svg-text">台本入力と生成検証</text>
+              <text x="78" y="118" class="svg-small">PB-00からPB-84を棚卸し</text>
+              <text x="280" y="198" class="svg-small">色、ロゴ、余白、本文配置を適用</text>
+              <text x="560" y="278" class="svg-small">SVGとimage2構図も保持</text>
+            </svg>
+          </figure>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-07 / PB-71</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-08" aria-label="SVG cycle" data-base-pattern="PB-67">
+        <header class="slide-header"><span class="doc-label">SVG Cycle</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">循環図は、中央に詰めすぎず、戻り線まで読める余白を残す。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">前回バランスが崩れやすかったPB-67系の例。円周上の要素と中央メッセージの距離を均等にする。</p>
+          <figure class="cycle-figure body-slot body-tall" data-role="body" data-source-slot="pptx:body" data-corporate-role="svg-body-diagram">
+            <svg viewBox="0 0 980 330" role="img" aria-label="Kikai cycle loop">
+              <defs>
+                <marker id="cycle-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff7143"></path>
+                </marker>
+              </defs>
+              <path d="M 430 70 C 560 20, 720 78, 736 178" fill="none" stroke="#ff7143" stroke-width="4" marker-end="url(#cycle-arrow)"></path>
+              <path d="M 718 222 C 650 314, 472 318, 402 224" fill="none" stroke="#ff7143" stroke-width="4" marker-end="url(#cycle-arrow)"></path>
+              <path d="M 370 188 C 330 92, 368 80, 430 70" fill="none" stroke="#ff7143" stroke-width="4" marker-end="url(#cycle-arrow)"></path>
+              <circle cx="388" cy="92" r="48" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"></circle>
+              <circle cx="746" cy="188" r="48" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"></circle>
+              <circle cx="392" cy="226" r="48" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"></circle>
+              <circle cx="560" cy="168" r="72" fill="#e8ecee" stroke="#cfd6d9" stroke-width="2"></circle>
+              <text x="560" y="158" text-anchor="middle" class="svg-text">Format</text>
+              <text x="560" y="184" text-anchor="middle" class="svg-small">reuse loop</text>
+              <text x="388" y="87" text-anchor="middle" class="svg-text">Extract</text>
+              <text x="388" y="111" text-anchor="middle" class="svg-small">構図化</text>
+              <text x="746" y="183" text-anchor="middle" class="svg-text">Apply</text>
+              <text x="746" y="207" text-anchor="middle" class="svg-small">企業化</text>
+              <text x="392" y="221" text-anchor="middle" class="svg-text">Verify</text>
+              <text x="392" y="245" text-anchor="middle" class="svg-small">生成確認</text>
+            </svg>
+          </figure>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-08 / PB-67</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-09" aria-label="SVG fishbone" data-base-pattern="PB-68">
+        <header class="slide-header"><span class="doc-label">SVG Fishbone</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">魚骨図は、原因ラベルと結論の重心を合わせる。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">PB-68系の原因分析。背骨を中央に置き、上下の原因量が釣り合うように調整する。</p>
+          <figure class="fishbone-figure body-slot body-tall" data-role="body" data-source-slot="pptx:body" data-corporate-role="svg-body-diagram">
+            <svg viewBox="0 0 980 330" role="img" aria-label="Kikai fishbone cause diagram">
+              <line x1="120" y1="166" x2="760" y2="166" stroke="#414242" stroke-width="3"></line>
+              <polygon points="760,126 900,166 760,206" fill="#e8ecee" stroke="#cfd6d9" stroke-width="2"></polygon>
+              <text x="828" y="158" text-anchor="middle" class="svg-text">資料品質の</text>
+              <text x="828" y="184" text-anchor="middle" class="svg-text">ばらつき</text>
+              <line x1="230" y1="166" x2="150" y2="84" stroke="#cfd6d9" stroke-width="3"></line>
+              <line x1="410" y1="166" x2="330" y2="84" stroke="#cfd6d9" stroke-width="3"></line>
+              <line x1="590" y1="166" x2="510" y2="84" stroke="#cfd6d9" stroke-width="3"></line>
+              <line x1="230" y1="166" x2="150" y2="248" stroke="#cfd6d9" stroke-width="3"></line>
+              <line x1="410" y1="166" x2="330" y2="248" stroke="#cfd6d9" stroke-width="3"></line>
+              <line x1="590" y1="166" x2="510" y2="248" stroke="#cfd6d9" stroke-width="3"></line>
+              <rect x="84" y="44" width="154" height="50" rx="6" fill="#fbfcfc" stroke="#cfd6d9"></rect>
+              <rect x="264" y="44" width="154" height="50" rx="6" fill="#fbfcfc" stroke="#cfd6d9"></rect>
+              <rect x="444" y="44" width="154" height="50" rx="6" fill="#fbfcfc" stroke="#cfd6d9"></rect>
+              <rect x="84" y="236" width="154" height="50" rx="6" fill="#fbfcfc" stroke="#cfd6d9"></rect>
+              <rect x="264" y="236" width="154" height="50" rx="6" fill="#fbfcfc" stroke="#cfd6d9"></rect>
+              <rect x="444" y="236" width="154" height="50" rx="6" fill="#fbfcfc" stroke="#cfd6d9"></rect>
+              <circle cx="120" cy="166" r="9" fill="#ff7143"></circle>
+              <text x="161" y="74" text-anchor="middle" class="svg-text">構図不足</text>
+              <text x="341" y="74" text-anchor="middle" class="svg-text">色指定揺れ</text>
+              <text x="521" y="74" text-anchor="middle" class="svg-text">本文上詰め</text>
+              <text x="161" y="266" text-anchor="middle" class="svg-text">表紙未定義</text>
+              <text x="341" y="266" text-anchor="middle" class="svg-text">SVG未整理</text>
+              <text x="521" y="266" text-anchor="middle" class="svg-text">画像領域曖昧</text>
+            </svg>
+          </figure>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-09 / PB-68</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-10" aria-label="SVG overlap" data-base-pattern="PB-73">
+        <header class="slide-header"><span class="doc-label">SVG Overlap</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">重なり図は、共通価値を中央で読ませる。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">ロゴ色を塗りすぎず、線と薄い面だけで関係性を示す。中央の共通領域だけオレンジを淡く使う。</p>
+          <figure class="venn-figure body-slot body-tall" data-role="body" data-source-slot="pptx:body" data-corporate-role="svg-body-diagram">
+            <svg viewBox="0 0 980 330" role="img" aria-label="Kikai overlap diagram">
+              <circle cx="410" cy="165" r="118" fill="#bac2c8" opacity="0.28" stroke="#cfd6d9" stroke-width="3"></circle>
+              <circle cx="570" cy="165" r="118" fill="#ff7143" opacity="0.12" stroke="#ff7143" stroke-width="3"></circle>
+              <rect x="430" y="128" width="120" height="74" rx="6" fill="#fff1eb" stroke="#ff7143"></rect>
+              <text x="344" y="154" text-anchor="middle" class="svg-text">Business</text>
+              <text x="344" y="180" text-anchor="middle" class="svg-small">判断と運用</text>
+              <text x="636" y="154" text-anchor="middle" class="svg-text">Creative</text>
+              <text x="636" y="180" text-anchor="middle" class="svg-small">表現と伝達</text>
+              <text x="490" y="154" text-anchor="middle" class="svg-text">Deck</text>
+              <text x="490" y="180" text-anchor="middle" class="svg-small">format</text>
+              <text x="490" y="252" text-anchor="middle" class="svg-small">プレーン構図を保持し、企業らしさを足す</text>
+            </svg>
+          </figure>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-10 / PB-73</span></footer>
+      </section>
+
+      <section class="slide" id="KBP-11" aria-label="Image2 body" data-base-pattern="PB-32">
+        <header class="slide-header"><span class="doc-label">Image2 Region</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">画像生成は本文領域だけに使い、タイトルとリードは編集可能に残す。</h2>
+          <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">image2版の構図。本文だけを生成画像として扱い、検索性とPPT変換時のテキスト編集性を維持する。</p>
+          <div class="image2-layout body-slot" data-role="body" data-source-slot="pptx:body" data-renderer="image2" data-corporate-role="generated-body-image">
+            <aside class="image-prompt">
+              <strong>Prompt brief</strong>
+              <p>Kikaiのグレーと淡いオレンジを使い、業務フロー、ダッシュボード、判断材料が一枚に整理されたビジネス資料風の抽象ビジュアル。</p>
+              <p>細かい文字は入れず、構図と情報階層だけを表現する。</p>
+            </aside>
+            <div class="image-frame" aria-label="Generated body image placeholder">
+              <img src="./assets/1.png" alt="Kikai icon on generated image frame">
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai Business PPT</span><span>KBP-11 / PB-32</span></footer>
+      </section>
+
+      <section class="slide closing" id="KBP-12" aria-label="Closing" data-base-pattern="PB-36">
+        <header class="slide-header"><span class="doc-label">Closing</span><img class="header-logo" src="./assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="closing-layout">
+          <div>
+            <h2 data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">プレーン構図を壊さず、企業資料として整える。</h2>
+            <p class="lead-copy" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">濃いグレー、細いオレンジ、右上ロゴ、本文領域中央配置を基本ルールとして、提案・報告・講義資料へ展開する。</p>
+            <img class="closing-logo" src="./assets/5.png" alt="Vibe Coding Salon Kikai">
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikai / Vibe Coding Salon</span><span>KBP-12 / PB-36</span></footer>
+      </section>
+    </main>
+  </body>
+</html>

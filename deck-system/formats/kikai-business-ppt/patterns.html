@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Business PPT Patterns</title>
+    <link rel="stylesheet" href="./tokens.css">
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--kbp-page-bg);
+        color: var(--kbp-ink);
+        font-family: var(--kbp-font);
+      }
+      main {
+        width: min(1120px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 38px 0 56px;
+      }
+      a { color: inherit; }
+      code {
+        padding: 0 0.2em;
+        border-radius: 3px;
+        background: var(--kbp-surface);
+        color: var(--kbp-ink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.92em;
+      }
+      .back {
+        color: var(--kbp-muted);
+        font-size: 0.86rem;
+        font-weight: 780;
+        text-decoration: none;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 28px;
+        align-items: center;
+        margin-top: 22px;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--kbp-line);
+      }
+      .hero img {
+        width: 220px;
+        height: auto;
+        object-fit: contain;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2.1rem, 5vw, 4rem);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+      p {
+        max-width: 780px;
+        margin: 0;
+        color: var(--kbp-muted);
+        line-height: 1.7;
+      }
+      h2 {
+        margin: 34px 0 14px;
+        font-size: 1.45rem;
+        letter-spacing: 0;
+      }
+      .rule-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .rule,
+      .pattern-group {
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .rule {
+        padding: 16px;
+      }
+      .rule b {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.96rem;
+      }
+      .rule span {
+        color: var(--kbp-muted);
+        font-size: 0.83rem;
+        line-height: 1.5;
+      }
+      .swatch {
+        display: inline-block;
+        width: 34px;
+        height: 12px;
+        margin-right: 8px;
+        border: 1px solid var(--kbp-line);
+        vertical-align: -1px;
+      }
+      .swatch.ink { background: var(--kbp-ink); }
+      .swatch.orange { background: var(--kbp-orange); }
+      .swatch.light { background: var(--kbp-logo-light); }
+      .pattern-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .pattern-group {
+        overflow: hidden;
+      }
+      .pattern-group h3 {
+        margin: 0;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+        font-size: 1rem;
+      }
+      .pattern-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .pattern-list li {
+        display: grid;
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-muted);
+        font-size: 0.83rem;
+        line-height: 1.42;
+      }
+      .pattern-list li:last-child {
+        border-bottom: 0;
+      }
+      .pattern-list b {
+        color: var(--kbp-ink);
+        font-variant-numeric: tabular-nums;
+      }
+      .matrix {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+        font-size: 0.86rem;
+      }
+      th,
+      td {
+        padding: 11px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        text-align: left;
+        vertical-align: top;
+        line-height: 1.48;
+      }
+      th {
+        background: var(--kbp-surface);
+        color: var(--kbp-ink);
+      }
+      @media (max-width: 860px) {
+        .hero,
+        .rule-grid,
+        .pattern-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero img {
+          width: min(260px, 100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="./">← Kikai Business PPT</a>
+      <section class="hero">
+        <div>
+          <h1>Kikai Business PPT Patterns</h1>
+          <p>親フォーマット <code>plain-business-ppt</code> のPB-00からPB-84を、Kikaiの濃いグレー、控えめなオレンジ、右上ロゴ、本文領域中央配置で企業資料化するための対応表。</p>
+        </div>
+        <img src="./assets/4.png" alt="Kikai Vibe Coding Salon">
+      </section>
+
+      <section aria-label="Corporate treatment rules">
+        <h2>Corporate Treatment</h2>
+        <div class="rule-grid">
+          <div class="rule"><b><span class="swatch ink"></span>Text</b><span>タイトル、本文、表内文字はロゴ由来の濃いグレー <code>#414242</code> を基本にする。</span></div>
+          <div class="rule"><b><span class="swatch orange"></span>Accent</b><span>オレンジ <code>#ff7143</code> は点、細線、ステータス、重要な一箇所だけに使う。</span></div>
+          <div class="rule"><b><span class="swatch light"></span>Surface</b><span>淡いグレーはカード面、章番号、SVGの面に使い、背景全体は明るく保つ。</span></div>
+          <div class="rule"><b>Logo</b><span>本文ページは右上に <code>assets/3.png</code>、表紙と締めは横長ロゴを使う。</span></div>
+        </div>
+      </section>
+
+      <section aria-label="Pattern groups">
+        <h2>Pattern Coverage</h2>
+        <div class="pattern-grid">
+          <article class="pattern-group">
+            <h3>Core Business Pages</h3>
+            <ul class="pattern-list">
+              <li><b>PB-00</b><span>表紙。横長ロゴ、資料名、メタ情報を配置。</span></li>
+              <li><b>PB-01</b><span>アジェンダ。番号、論点、時間または成果物を行で揃える。</span></li>
+              <li><b>PB-02</b><span>エグゼクティブサマリー。カード内部も中央寄せ気味に整える。</span></li>
+              <li><b>PB-03</b><span>課題と方向性。Issue、Cause、Directionの三レーン。</span></li>
+              <li><b>PB-04</b><span>3Cや環境分析。各レーンの見出しと本文量を揃える。</span></li>
+              <li><b>PB-05</b><span>KPIツリー。KGI、KPI、KSF、Actionの関係を保持。</span></li>
+              <li><b>PB-06</b><span>データ表。濃いグレー本文、薄いグレー見出し、細い罫線。</span></li>
+              <li><b>PB-07</b><span>進捗サマリー。Status、Risk、Nextを同じ高さで読む。</span></li>
+              <li><b>PB-08</b><span>予算計画。差分とROI注記を別役割として持つ。</span></li>
+              <li><b>PB-09</b><span>スケジュール。マイルストーン、担当、状態を横軸で整理。</span></li>
+              <li><b>PB-10</b><span>競合比較や意思決定表。推奨だけオレンジの小チップ。</span></li>
+              <li><b>PB-11</b><span>提案オプション。A/B/Cと推奨の理由を分離。</span></li>
+              <li><b>PB-12</b><span>アクションプラン。タスク、担当、期限、依存関係を表で保持。</span></li>
+              <li><b>PB-13</b><span>研修フロー。目的、モジュール、演習、確認の流れ。</span></li>
+              <li><b>PB-14</b><span>意思決定ログ。決定事項と未決事項を同じ粒度で残す。</span></li>
+              <li><b>PB-15</b><span>付録表。高密度だが本文色と罫線ルールは維持。</span></li>
+            </ul>
+          </article>
+
+          <article class="pattern-group">
+            <h3>Analysis and Meeting Layouts</h3>
+            <ul class="pattern-list">
+              <li><b>PB-16</b><span>SWOTや2x2。象限の背景は淡色、文字は濃いグレー。</span></li>
+              <li><b>PB-17</b><span>Before / After。中央の変化要因にだけアクセント。</span></li>
+              <li><b>PB-18</b><span>インタビュー。引用と含意を分け、人物枠を控えめに。</span></li>
+              <li><b>PB-19</b><span>選考・承認プロセス。ステップ番号をオレンジで統一。</span></li>
+              <li><b>PB-20</b><span>章扉とTOC。大きな番号、短い章タイトル、小さな進行表。</span></li>
+              <li><b>PB-21</b><span>標準本文。タイトルとフッターの間で本文を中央配置。</span></li>
+              <li><b>PB-22</b><span>二列アジェンダ。左右の行数と行高を揃える。</span></li>
+              <li><b>PB-23</b><span>横3ステップ。カード内の文字は中央の重心に寄せる。</span></li>
+              <li><b>PB-24</b><span>左ラベル右説明。ラベル列を淡いグレー面にする。</span></li>
+              <li><b>PB-25</b><span>要求事項スタック。優先度と制約を小チップで区別。</span></li>
+              <li><b>PB-26</b><span>ハブ・ツリー。中央概念と枝の距離を均等にする。</span></li>
+              <li><b>PB-27</b><span>VS比較。左右対称を維持し、差分だけアクセント。</span></li>
+              <li><b>PB-28</b><span>表またはチャートとコメント。数値と解釈を同じ本文領域へ。</span></li>
+              <li><b>PB-29</b><span>左表右ビジュアル。画像枠も本文スロットとして扱う。</span></li>
+              <li><b>PB-30</b><span>高密度講義図。ノード数を保ちつつ線と文字の階層を整理。</span></li>
+              <li><b>PB-31</b><span>プレースホルダなし章。大きい上部テキストを推定タイトルに。</span></li>
+            </ul>
+          </article>
+
+          <article class="pattern-group">
+            <h3>Cover, Divider, Image2</h3>
+            <ul class="pattern-list">
+              <li><b>PB-32</b><span>image2本文全面。タイトルとリードはHTMLで残す。</span></li>
+              <li><b>PB-33</b><span>image2左右分割。片側に編集可能な要点、片側に生成画像。</span></li>
+              <li><b>PB-34</b><span>image2図解。細かい文字を画像内に入れず構図を生成。</span></li>
+              <li><b>PB-35</b><span>分割表紙。タイトルとメタ情報パネルを分ける。</span></li>
+              <li><b>PB-36</b><span>ステートメント表紙。短い主張と横長ロゴで締める。</span></li>
+              <li><b>PB-37</b><span>番号付き間仕切り。大番号、章タイトル、ミニTOC。</span></li>
+              <li><b>PB-38</b><span>TOC付き間仕切り。次章の中身を小さな行で見せる。</span></li>
+              <li><b>PB-39</b><span>縦4レーン。見出し帯と本文の高さを統一。</span></li>
+              <li><b>PB-40</b><span>ピラミッド階層。上に詰めず中央に重心を置く。</span></li>
+              <li><b>PB-41</b><span>サイクルループ。戻り線と各ノードを均等配置。</span></li>
+              <li><b>PB-42</b><span>ポジショニングマップ。軸ラベル、点、注記を別役割に。</span></li>
+              <li><b>PB-43</b><span>ダッシュボード。KPI、原因、次アクションを一体の本文に。</span></li>
+              <li><b>PB-44</b><span>スイムレーン計画。担当者行とフェーズ列を維持。</span></li>
+              <li><b>PB-45</b><span>ワークシート。入力欄を本文スロットとして広めに使う。</span></li>
+              <li><b>PB-46</b><span>ファネル。段差と数値の読み順を揃える。</span></li>
+              <li><b>PB-47</b><span>アイコングリッド。アイコンは小さく、説明は短く。</span></li>
+              <li><b>PB-48</b><span>ケース引用。画像枠と引用の重心を合わせる。</span></li>
+              <li><b>PB-49</b><span>意思決定ツリー。条件と分岐先を線で明確化。</span></li>
+              <li><b>PB-50</b><span>評価グリッド。繰り返しカードの内部位置を統一。</span></li>
+              <li><b>PB-51</b><span>リスクヒートマップ。強い色面を避け、罫線とラベルで読む。</span></li>
+              <li><b>PB-52</b><span>RACI。責任区分の記号を小さく明確にする。</span></li>
+              <li><b>PB-53</b><span>ウォーターフォール。棒とコメントを同じ下端で揃える。</span></li>
+              <li><b>PB-54</b><span>バリューチェーン。各工程を等幅で配置。</span></li>
+              <li><b>PB-55</b><span>魚骨原因。HTML版でも背骨の中心を本文中央へ。</span></li>
+              <li><b>PB-56</b><span>ロジックツリー。階層列と子ノードの行間を揃える。</span></li>
+              <li><b>PB-57</b><span>ステークホルダーマップ。中央課題と周辺主体の距離を均等に。</span></li>
+              <li><b>PB-58</b><span>カスタマージャーニー。ステージ幅を揃え、課題を下段へ。</span></li>
+              <li><b>PB-59</b><span>OKRアラインメント。Objective、KR、Actionの列を明確に。</span></li>
+              <li><b>PB-60</b><span>ビジネスモデルキャンバス。フィールドごとの本文量を短く。</span></li>
+              <li><b>PB-61</b><span>コスト分解。バーと比率の視線をそろえる。</span></li>
+              <li><b>PB-62</b><span>ロードマップ旗。マイルストーンに薄いオレンジを使う。</span></li>
+              <li><b>PB-63</b><span>スコアリングマトリクス。重みと点数を表役割で保持。</span></li>
+              <li><b>PB-64</b><span>チェックリスト。状態表示は小さなチップにする。</span></li>
+            </ul>
+          </article>
+
+          <article class="pattern-group">
+            <h3>SVG Body Diagrams</h3>
+            <ul class="pattern-list">
+              <li><b>PB-65</b><span>ハブスポーク。中心ノードと関係線をSVGで保持。</span></li>
+              <li><b>PB-66</b><span>シェブロンフロー。連続矢印をオレンジ線で控えめに。</span></li>
+              <li><b>PB-67</b><span>サイクルループ。円周、戻り線、中央メッセージの重心を調整。</span></li>
+              <li><b>PB-68</b><span>魚骨図。上下ラベル量を釣り合わせ、結論を右中央へ。</span></li>
+              <li><b>PB-69</b><span>意思決定分岐。ひし形条件と分岐線を短文で読む。</span></li>
+              <li><b>PB-70</b><span>コールアウト解剖。中央対象と注釈線を重ねすぎない。</span></li>
+              <li><b>PB-71</b><span>ロードマップバー。時間軸とフェーズバーをSVGで維持。</span></li>
+              <li><b>PB-72</b><span>レイヤーシステム。層構造と横フローを組み合わせる。</span></li>
+              <li><b>PB-73</b><span>Venn重なり。共通領域だけ薄いオレンジ。</span></li>
+              <li><b>PB-74</b><span>同心円。中心と周辺レイヤーを濃淡で表す。</span></li>
+              <li><b>PB-75</b><span>階段成熟度。段差とレベル名を均等に配置。</span></li>
+              <li><b>PB-76</b><span>ギャップブリッジ。As-isとTo-beの間を短い橋でつなぐ。</span></li>
+              <li><b>PB-77</b><span>組織図。上下関係を線で保持し、ロゴ色は使いすぎない。</span></li>
+              <li><b>PB-78</b><span>依存ネットワーク。ノードサイズと線の太さで優先度を表す。</span></li>
+              <li><b>PB-79</b><span>移行マトリクス。現在地から目標への移動矢印を置く。</span></li>
+              <li><b>PB-80</b><span>アイスバーグ。見えている問題と隠れた原因を分ける。</span></li>
+              <li><b>PB-81</b><span>レイヤースタック。土台から成果までを積層で見せる。</span></li>
+              <li><b>PB-82</b><span>ボウタイリスク。原因、リスクイベント、影響を左右に広げる。</span></li>
+              <li><b>PB-83</b><span>バブルポートフォリオ。位置とサイズをSVGで保持。</span></li>
+              <li><b>PB-84</b><span>ステージゲート。列、カード、状態の読み順を維持。</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-label="Preview mapping">
+        <h2>Preview Mapping</h2>
+        <table class="matrix">
+          <thead>
+            <tr><th>Kikai Preview</th><th>Base Pattern</th><th>What to Check</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>KBP-00</td><td>PB-00</td><td>横長ロゴ、濃いグレー文字、表紙メタ情報。</td></tr>
+            <tr><td>KBP-01</td><td>PB-37</td><td>表紙と本文の間に使う番号付き間仕切り。</td></tr>
+            <tr><td>KBP-02 to KBP-06</td><td>PB-01, PB-02, PB-03, PB-10, PB-43</td><td>本文がリードとフッターの間で中央配置されること。</td></tr>
+            <tr><td>KBP-07 to KBP-10</td><td>PB-71, PB-67, PB-68, PB-73</td><td>SVG構図の線、ノード、ラベルのバランス。</td></tr>
+            <tr><td>KBP-11</td><td>PB-32</td><td>Bodyだけがimage2領域で、タイトルとリードは編集可能であること。</td></tr>
+            <tr><td>KBP-12</td><td>PB-36</td><td>締めページで横長ロゴとステートメントが崩れないこと。</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+:root {
+  color-scheme: light;
+  --kbp-page-bg: #eff2f3;
+  --kbp-paper: #fbfcfc;
+  --kbp-surface: #f3f5f5;
+  --kbp-surface-strong: #e8ecee;
+  --kbp-ink: #414242;
+  --kbp-muted: #6d7375;
+  --kbp-soft: #9aa3a7;
+  --kbp-line: #cfd6d9;
+  --kbp-line-soft: #e5eaec;
+  --kbp-logo-light: #bac2c8;
+  --kbp-orange: #ff7143;
+  --kbp-orange-soft: #fff1eb;
+  --kbp-font: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  --kbp-slide-width: min(100vw - 48px, 1180px);
+  --kbp-pad-x: 56px;
+  --kbp-pad-y: 42px;
+  --kbp-title: 3.42rem;
+  --kbp-h2: 2.12rem;
+  --kbp-h3: 1.1rem;
+  --kbp-body: 0.98rem;
+  --kbp-small: 0.7rem;
+  --kbp-radius: 6px;
+  --kbp-shadow: 0 20px 60px rgba(65, 66, 66, 0.08);
+}
