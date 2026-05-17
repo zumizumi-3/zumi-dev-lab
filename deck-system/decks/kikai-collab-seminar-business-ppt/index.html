@@ -702,6 +702,14 @@
         gap: 18px;
         align-items: stretch;
       }
+      .visual-led.with-strip,
+      .statement-layout.with-strip {
+        grid-template-rows: minmax(0, 1fr) auto;
+      }
+      .visual-led.with-strip > .evidence-strip,
+      .statement-layout.with-strip > .evidence-strip {
+        grid-column: 1 / -1;
+      }
       .visual-led.reverse {
         grid-template-columns: 0.78fr minmax(0, 1.22fr);
       }
@@ -744,6 +752,97 @@
         font-size: 16px;
         line-height: 1.35;
       }
+      .evidence-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .evidence-strip span {
+        display: grid;
+        align-content: center;
+        min-height: 58px;
+        padding: 9px 11px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-paper);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.25;
+      }
+      .evidence-strip b {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--kbp-orange);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      .objection-board {
+        display: grid;
+        grid-template-columns: 0.76fr 1.24fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .objection-board > .evidence-strip {
+        grid-column: 1 / -1;
+      }
+      .objection-core {
+        display: grid;
+        align-content: center;
+        padding: 32px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .objection-core strong {
+        color: var(--kbp-ink);
+        font-size: 48px;
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+      .objection-core span {
+        margin-top: 16px;
+        color: var(--kbp-muted);
+        font-size: 19px;
+        font-weight: 760;
+        line-height: 1.38;
+      }
+      .objection-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .objection-card {
+        display: grid;
+        align-content: center;
+        gap: 10px;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .objection-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .objection-card b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .objection-card strong {
+        color: var(--kbp-ink);
+        font-size: 21px;
+        line-height: 1.22;
+      }
+      .objection-card span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.34;
+      }
       .statement-layout {
         display: grid;
         grid-template-columns: 0.86fr minmax(0, 1.14fr);
@@ -777,7 +876,13 @@
         border-radius: var(--kbp-radius);
         background: var(--kbp-surface);
       }
+      .product-board.body-slot {
+        min-height: 0;
+        height: 520px;
+      }
       .product-board img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -2197,12 +2302,18 @@
         <div class="content">
           <h2 data-role="title">AIは「作る側」の壁を壊した</h2>
           <p class="lead-copy" data-role="lead">アイディアを言葉で伝え、AIと対話しながら、数日で動くものを作れるようになっている。</p>
-          <div class="visual-led body-slot body-tall" data-role="body">
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
             <div class="image-frame"><img src="./assets/generated/prompt-to-product.png" alt="日本語の指示からSaaSダッシュボードが生まれる生成ビジュアル"></div>
             <div class="insight-stack">
               <div class="insight"><b>1</b><div><strong>言葉で要件を渡す</strong><span>画面、業務、利用者、判断条件を日本語で整理する。</span></div></div>
               <div class="insight"><b>2</b><div><strong>AIが構造化する</strong><span>データ、画面、ワークフローへ分解して形にする。</span></div></div>
               <div class="insight"><b>3</b><div><strong>動くサービスへ近づく</strong><span>数日単位でプロトタイプを検証できる。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="作る側の壁が下がった要因">
+              <span><b>Before</b>コード、外注費、開発期間が入口の壁だった</span>
+              <span><b>Now</b>日本語の要件から画面と処理を試作できる</span>
+              <span><b>Control</b>人間は課題、制約、改善判断を握る</span>
+              <span><b>Output</b>見せられるプロトタイプが営業材料になる</span>
             </div>
           </div>
         </div>
@@ -2239,12 +2350,18 @@
         <div class="content">
           <h2 data-role="title">私たちはプロダクト側にこだわる</h2>
           <p class="lead-copy" data-role="lead">情報を消費する人ではなく、AIで価値を作る人を増やしたい。</p>
-          <div class="statement-layout body-slot" data-role="body">
+          <div class="statement-layout with-strip body-slot" data-role="body">
             <div class="statement-core"><strong>情報を消費する人ではなく、AIで価値を作る人を増やす。</strong><span>創造の民主化</span></div>
             <div class="insight-stack">
               <div class="insight"><b>A</b><div><strong>マーケは蓄積がものを言う</strong><span>もともと強い人が、さらに強くなる構造になりやすい。</span></div></div>
               <div class="insight"><b>B</b><div><strong>プロダクトは入口が広がった</strong><span>スキルがなくても始められ、経験を積むほど差がつく。</span></div></div>
               <div class="insight"><b>C</b><div><strong>価値が残る</strong><span>発信量ではなく、顧客の課題を解く資産が残る。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="プロダクト側にこだわる判断軸">
+              <span><b>価値</b>顧客の時間と手間を直接減らせる</span>
+              <span><b>実績</b>動くものを見せれば信頼材料になる</span>
+              <span><b>学習</b>作る過程で顧客理解が蓄積する</span>
+              <span><b>収益</b>受託、月額、販売へ展開できる</span>
             </div>
           </div>
         </div>
@@ -2280,13 +2397,19 @@
         <div class="content">
           <h2 data-role="title">言葉が、そのまま形になる</h2>
           <p class="lead-copy" data-role="lead">コードを一行も書かず、AIと自然言語で対話しながらプロダクトを開発する。</p>
-          <div class="visual-led reverse body-slot body-tall" data-role="body">
+          <div class="visual-led reverse with-strip body-slot body-tall" data-role="body">
             <div class="insight-stack">
               <div class="insight"><b>言</b><div><strong>自然言語で伝える</strong><span>欲しい機能、画面、制約をそのまま言葉にする。</span></div></div>
               <div class="insight"><b>整</b><div><strong>AIと整理する</strong><span>要件、データ、操作フローを対話しながら固める。</span></div></div>
               <div class="insight"><b>形</b><div><strong>動く画面で検証する</strong><span>専属エンジニアと一緒に作る感覚へ変わる。</span></div></div>
             </div>
             <div class="image-frame contain"><img src="./assets/generated/vibe-coding-workbench.png" alt="プロンプト、要件、アプリ画面を一画面で整理した生成ビジュアル"></div>
+            <div class="evidence-strip" aria-label="自然言語開発で必要な入力">
+              <span><b>誰に</b>利用者、権限、操作頻度を決める</span>
+              <span><b>何を</b>入力、保存、表示、通知を決める</span>
+              <span><b>どう使う</b>業務フローと例外処理を伝える</span>
+              <span><b>どこまで</b>試作、納品、販売の水準を分ける</span>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P11</span></footer>
@@ -2398,12 +2521,18 @@
         <div class="content">
           <h2 data-role="title">でも、待ってください</h2>
           <p class="lead-copy" data-role="lead">「自分にもできそう」の直後に、現実を見る必要がある。</p>
-          <div class="visual-led body-slot body-tall" data-role="body">
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
             <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/reality-check.png" alt="AI開発の現実確認を表す生成ビジュアル"></div>
             <div class="insight-stack">
               <div class="insight"><b>1</b><div><strong>できそう、は正しい</strong><span>入口が開いたこと自体は大きな変化。</span></div></div>
               <div class="insight"><b>2</b><div><strong>でも再現性は別問題</strong><span>派手な成功事例だけでは勝ち筋にならない。</span></div></div>
               <div class="insight"><b>3</b><div><strong>必要なのは段階設計</strong><span>学ぶ、受託、拡張の順番を守る。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="現実を見るためのチェックポイント">
+              <span><b>誤解</b>AIなら誰でもすぐ大きく稼げる</span>
+              <span><b>現実</b>成功例の裏に失敗と経験の蓄積がある</span>
+              <span><b>対策</b>小さな受託で実績と課題理解を作る</span>
+              <span><b>順番</b>学ぶ → 動くもの → 納品 → 自社化</span>
             </div>
           </div>
         </div>
@@ -2593,12 +2722,18 @@
         <div class="content">
           <h2 data-role="title">「それは澤田さんだから」という疑問は正しい</h2>
           <p class="lead-copy" data-role="lead">だからこそ、次に見るべきなのは、コミュニティの参加者にも再現が起きているかどうか。</p>
-          <div class="statement-layout body-slot" data-role="body">
-            <div class="statement-core"><strong>その疑問は正しい。</strong><span>次は、再現が起きているかを見る</span></div>
-            <div class="insight-stack">
-              <div class="insight"><b>1</b><div><strong>個人の特殊解で終わらせない</strong><span>澤田さんの実績だけなら、強い個人の話で終わる。</span></div></div>
-              <div class="insight"><b>2</b><div><strong>参加者の成果を見る</strong><span>未経験者が販売・納品まで進めているかを確認する。</span></div></div>
-              <div class="insight"><b>3</b><div><strong>仕組みとして判断する</strong><span>学習、レビュー、案件導線が再現性を支えるかを見る。</span></div></div>
+          <div class="objection-board body-slot" data-role="body">
+            <div class="objection-core"><strong>その疑問は正しい。</strong><span>だから、個人の成功談ではなく「複数人で同じ方向の成果が出ているか」を見る。</span></div>
+            <div class="objection-grid">
+              <article class="objection-card"><b>Question</b><strong>澤田さんだからでは？</strong><span>強い個人の特殊解なら、聞き手にとって再現可能な道筋にはならない。</span></article>
+              <article class="objection-card feature"><b>Check</b><strong>参加者の成果を見る</strong><span>未経験者が、販売・納品・月額化まで進めているかを確認する。</span></article>
+              <article class="objection-card"><b>System</b><strong>仕組みで判断する</strong><span>学習、レビュー、案件導線、販売場所が再現性を支えているかを見る。</span></article>
+            </div>
+            <div class="evidence-strip" aria-label="再現性を判断する基準">
+              <span><b>個人差</b>本人だけの実績なら再現性は弱い</span>
+              <span><b>複数例</b>参加者にも販売・納品例があるか</span>
+              <span><b>構造</b>学習とレビューが成果を支えるか</span>
+              <span><b>次ページ</b>コミュニティの実績で確認する</span>
             </div>
           </div>
         </div>
@@ -2638,11 +2773,11 @@
           <h2 data-role="title">再現性のある仕組みが、未経験者を支える</h2>
           <p class="lead-copy" data-role="lead">才能ではなく、学習とレビューと実践の構造があるから、作る力が収益につながる。</p>
           <div class="support-loop body-slot" data-role="body">
-            <article class="loop-card"><strong>学ぶ順番</strong><span>入口から迷わない。何から作るか、どこで詰まるかを先回りする。</span></article>
-            <article class="loop-card feature"><strong>相談できる場</strong><span>詰まりを一人で抱えない。相談から次の実装へ戻れる。</span></article>
+            <article class="loop-card"><strong>学ぶ順番</strong><span>入口から迷わない。何から作るか、どこで詰まるかを先回りする。</span><ul class="tight-list"><li>要件から入る</li><li>小さく完成させる</li></ul></article>
+            <article class="loop-card feature"><strong>相談できる場</strong><span>詰まりを一人で抱えない。相談から次の実装へ戻れる。</span><ul class="tight-list"><li>質問で止めない</li><li>他者の事例を学ぶ</li></ul></article>
             <div class="loop-core"><strong>作り切る仕組み</strong><span>学習、相談、レビュー、販売導線を回し続けることで、未経験者の完走率を上げる。</span></div>
-            <article class="loop-card feature"><strong>レビュー</strong><span>動くだけで終わらせず、品質と完成度を上げる。</span></article>
-            <article class="loop-card"><strong>売る導線</strong><span>完成後に収益へ接続する。受託や販売に進める形で残す。</span></article>
+            <article class="loop-card feature"><strong>レビュー</strong><span>動くだけで終わらせず、品質と完成度を上げる。</span><ul class="tight-list"><li>バグと不安を減らす</li><li>納品水準へ近づける</li></ul></article>
+            <article class="loop-card"><strong>売る導線</strong><span>完成後に収益へ接続する。受託や販売に進める形で残す。</span><ul class="tight-list"><li>提案資料にする</li><li>販売場所へつなぐ</li></ul></article>
           </div>
         </div>
         <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P27</span></footer>
@@ -2654,12 +2789,18 @@
         <div class="content">
           <h2 data-role="title">だから、Vibe Coding Salon -Kikai- を作りました</h2>
           <p class="lead-copy" data-role="lead">単なるAIスクールではなく、作る人のためのコミュニティ。</p>
-          <div class="visual-led body-slot body-tall" data-role="body">
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
             <div class="image-frame"><img src="./assets/generated/kikai-community-hub.png" alt="Kikaiで学習、レビュー、納品、販売がつながる生成ビジュアル"></div>
             <div class="insight-stack">
               <div class="insight"><b>学</b><div><strong>学ぶだけで終わらない</strong><span>講座とライブで入口を作る。</span></div></div>
               <div class="insight"><b>作</b><div><strong>作り切る環境</strong><span>相談、レビュー、実案件に近い課題がある。</span></div></div>
               <div class="insight"><b>売</b><div><strong>販売・受託へ接続する</strong><span>完成後の導線まで設計する。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="Kikaiが接続するもの">
+              <span><b>講座</b>AIに指示して作る基礎をそろえる</span>
+              <span><b>合宿</b>短期間で形にする実践機会を作る</span>
+              <span><b>レビュー</b>納品・販売前の品質不安を減らす</span>
+              <span><b>導線</b>受託、案件供給、マーケットへ接続する</span>
             </div>
           </div>
         </div>
@@ -2764,12 +2905,18 @@
         <div class="content">
           <h2 data-role="title">Made with Kikai は販売の壁を下げる</h2>
           <p class="lead-copy" data-role="lead">マーケットプレイス機能で決済まで完結。Stripeの審査・開設なしに即販売開始できる。</p>
-          <div class="visual-led body-slot body-tall" data-role="body">
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
             <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/marketplace-ui.png" alt="Made with KikaiのマーケットプレイスUIビジュアル"></div>
             <div class="insight-stack">
               <div class="insight"><b>1</b><div><strong>掲載して見つけてもらう</strong><span>作った後に見てもらう場所を用意する。</span></div></div>
               <div class="insight"><b>2</b><div><strong>決済まで完結</strong><span>Stripeの審査・開設なしに販売開始できる。</span></div></div>
               <div class="insight"><b>3</b><div><strong>反応から改善する</strong><span>市場の反応を見て、売れるアプリへ修正する。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="Made with Kikaiの販売導線">
+              <span><b>Before</b>作っても見せる場所と決済準備で止まりやすい</span>
+              <span><b>List</b>プロダクトを掲載して反応を集める</span>
+              <span><b>Sell</b>決済まで一体化し販売開始の摩擦を下げる</span>
+              <span><b>Improve</b>反応を見て機能、価格、訴求を改善する</span>
             </div>
           </div>
         </div>
