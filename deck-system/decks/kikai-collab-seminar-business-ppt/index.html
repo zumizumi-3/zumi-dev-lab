@@ -703,6 +703,135 @@
         height: 100%;
         object-fit: cover;
       }
+      .package-system {
+        display: grid;
+        grid-template-columns: 310px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) 118px;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .package-core {
+        display: grid;
+        grid-row: 1 / span 2;
+        align-content: center;
+        padding: 32px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .package-core strong {
+        color: var(--kbp-ink);
+        font-size: 58px;
+        line-height: 1;
+      }
+      .package-core span {
+        margin-top: 18px;
+        color: var(--kbp-muted);
+        font-size: 22px;
+        font-weight: 820;
+        line-height: 1.34;
+      }
+      .package-flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .package-flow article {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+        align-content: start;
+        min-width: 0;
+        padding: 18px 16px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .package-flow article:nth-child(even) {
+        background: var(--kbp-surface);
+      }
+      .package-flow article:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 46px;
+        right: 0;
+        width: 14px;
+        border-top: 2px solid var(--kbp-orange);
+        z-index: 1;
+      }
+      .package-flow b {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        margin-bottom: 14px;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 15px;
+      }
+      .package-flow strong {
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: 20px;
+        line-height: 1.22;
+      }
+      .package-flow span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.34;
+      }
+      .package-flow svg {
+        align-self: center;
+        justify-self: center;
+        width: 74px;
+        height: 74px;
+        color: var(--kbp-orange);
+        stroke: currentColor;
+      }
+      .package-flow svg .muted {
+        stroke: var(--kbp-ink);
+        opacity: 0.62;
+      }
+      .package-flow em {
+        display: block;
+        align-self: end;
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--kbp-line);
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 860;
+        line-height: 1.25;
+      }
+      .package-contrast {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .package-contrast div {
+        display: grid;
+        align-content: center;
+        padding: 16px 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .package-contrast div:last-child {
+        border-color: rgba(238, 112, 45, 0.34);
+        background: var(--kbp-orange-soft);
+      }
+      .package-contrast strong {
+        margin-bottom: 7px;
+        color: var(--kbp-ink);
+        font-size: 17px;
+        line-height: 1.2;
+      }
+      .package-contrast span {
+        color: var(--kbp-muted);
+        font-size: 14px;
+        line-height: 1.36;
+      }
       .caption-strip {
         position: absolute;
         left: 18px;
@@ -1081,7 +1210,7 @@
               <div class="insight"><b>整</b><div><strong>AIと整理する</strong><span>要件、データ、操作フローを対話しながら固める。</span></div></div>
               <div class="insight"><b>形</b><div><strong>動く画面で検証する</strong><span>専属エンジニアと一緒に作る感覚へ変わる。</span></div></div>
             </div>
-            <div class="image-frame"><img src="./assets/generated/prompt-to-product.png" alt="AIとの対話から業務アプリへ変換される生成ビジュアル"></div>
+            <div class="image-frame contain"><img src="./assets/generated/vibe-coding-workbench.png" alt="プロンプト、要件、アプリ画面を一画面で整理した生成ビジュアル"></div>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P11</span></footer>
@@ -1307,8 +1436,13 @@
         <div class="content">
           <h2 data-role="title">「それは澤田さんだから」という疑問は正しい</h2>
           <p class="lead-copy" data-role="lead">だからこそ、次に見るべきなのは、コミュニティの参加者にも再現が起きているかどうか。</p>
-          <div class="quote-panel body-slot body-compact" data-role="body">
-            <strong>すでに「次の証明」が生まれている。</strong>
+          <div class="statement-layout body-slot" data-role="body">
+            <div class="statement-core"><strong>その疑問は正しい。</strong><span>次は、再現が起きているかを見る</span></div>
+            <div class="insight-stack">
+              <div class="insight"><b>1</b><div><strong>個人の特殊解で終わらせない</strong><span>澤田さんの実績だけなら、強い個人の話で終わる。</span></div></div>
+              <div class="insight"><b>2</b><div><strong>参加者の成果を見る</strong><span>未経験者が販売・納品まで進めているかを確認する。</span></div></div>
+              <div class="insight"><b>3</b><div><strong>仕組みとして判断する</strong><span>学習、レビュー、案件導線が再現性を支えるかを見る。</span></div></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P25</span></footer>
@@ -1355,7 +1489,7 @@
           <h2 data-role="title">だから、Vibe Coding Salon -Kikai- を作りました</h2>
           <p class="lead-copy" data-role="lead">単なるAIスクールではなく、作る人のためのコミュニティ。</p>
           <div class="visual-led body-slot body-tall" data-role="body">
-            <div class="image-frame"><img src="./assets/generated/kikai-operating-system.png" alt="Kikaiが学習、品質、案件、販売をつなぐ生成ビジュアル"></div>
+            <div class="image-frame"><img src="./assets/generated/kikai-community-hub.png" alt="Kikaiで学習、レビュー、納品、販売がつながる生成ビジュアル"></div>
             <div class="insight-stack">
               <div class="insight"><b>学</b><div><strong>学ぶだけで終わらない</strong><span>講座とライブで入口を作る。</span></div></div>
               <div class="insight"><b>作</b><div><strong>作り切る環境</strong><span>相談、レビュー、実案件に近い課題がある。</span></div></div>
@@ -1384,19 +1518,26 @@
         <aside class="speaker-notes">Kikaiがまず全力で伴走するのは、学ぶ、動き出す、広げるまでです。</aside>
       </section>
 
-      <section class="slide" id="P30" data-slide="P30" aria-label="5位一体パッケージ">
+      <section class="slide" id="P30" data-slide="P30" aria-label="5要素一体パッケージ">
         <header class="slide-header"><span class="doc-label">Package</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
-          <h2 data-role="title">Kikaiは5位一体で、学ぶ・作る・売るをつなぐ</h2>
+          <h2 data-role="title">Kikaiは5つを一体化し、学ぶ・作る・売るをつなぐ</h2>
           <p class="lead-copy" data-role="lead">よくあるAIスクールのように学習で終わらせず、実践と収益化まで分断しない。</p>
-          <div class="product-board body-slot body-tall" data-role="body">
-            <img src="./assets/generated/kikai-operating-system.png" alt="Kikaiの5位一体パッケージを表す生成ビジュアル">
-            <div class="caption-strip five" aria-label="Kikaiの5位一体パッケージ">
-              <span>教育<br>講座・ライブ・合宿</span>
-              <span>品質<br>プロレビュー</span>
-              <span>案件<br>供給構想</span>
-              <span>市場<br>即販売</span>
-              <span>共同体<br>完走支援</span>
+          <div class="package-system body-slot body-tall" data-role="body">
+            <div class="package-core">
+              <strong>Kikai</strong>
+              <span>学習、品質、案件、市場、共同体を一つの導線にする。</span>
+            </div>
+            <div class="package-flow" aria-label="Kikaiの5要素一体パッケージ">
+              <article><b>01</b><strong>教育</strong><span>講座、ライブ、合宿で入口をそろえる。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M14 18h16c5 0 8 3 8 8v24H22c-5 0-8-3-8-8V18Z" fill="none" stroke-width="3"/><path d="M38 18h12v28H38" fill="none" stroke-width="3"/><path d="M24 28h8M24 36h8" fill="none" stroke-width="3"/></svg><em>入口設計</em></article>
+              <article><b>02</b><strong>品質</strong><span>プロレビューで納品できる水準へ上げる。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M32 10 50 18v13c0 13-7 20-18 24-11-4-18-11-18-24V18l18-8Z" fill="none" stroke-width="3"/><path d="m23 32 6 6 13-15" fill="none" stroke-width="4"/></svg><em>納品水準</em></article>
+              <article><b>03</b><strong>案件</strong><span>実務テーマと受託の機会へ接続する。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M18 22h28c4 0 6 2 6 6v20H12V28c0-4 2-6 6-6Z" fill="none" stroke-width="3"/><path class="muted" d="M25 22v-5h14v5" fill="none" stroke-width="3"/><path d="M20 38h10l5-5 9 9" fill="none" stroke-width="3"/></svg><em>実務接続</em></article>
+              <article><b>04</b><strong>市場</strong><span>完成アプリを見せ、売れる状態にする。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M14 48h36M18 42V18h28v24" fill="none" stroke-width="3"/><path d="M24 36 31 29l6 5 9-12" fill="none" stroke-width="3"/><path d="M24 20h6M24 26h4" fill="none" stroke-width="3"/></svg><em>販売化</em></article>
+              <article><b>05</b><strong>共同体</strong><span>詰まりを共有し、完走する人を増やす。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M24 27a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM42 29a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" fill="none" stroke-width="3"/><path d="M10 50c3-10 10-15 20-15s17 5 20 15" fill="none" stroke-width="3"/><path d="M36 50c2-6 7-9 15-9" fill="none" stroke-width="3"/></svg><em>完走支援</em></article>
+            </div>
+            <div class="package-contrast">
+              <div><strong>よくあるAIスクール</strong><span>学習で終わる。作って満足する。売る場所がない。</span></div>
+              <div><strong>Kikai</strong><span>学ぶ -> 作る -> レビューする -> 売る、までを分断しない。</span></div>
             </div>
           </div>
         </div>
