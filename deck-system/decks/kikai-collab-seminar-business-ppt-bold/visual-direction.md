@@ -15,6 +15,7 @@
 - Bodyの可読性は上げるが、色面は増やしすぎない。Bordeaux/Goldの統一感を保ち、SVG図解・薄い画像リボン・意味のある背景図で派手さを出す。
 - Body本文は投影時の可読性を優先し、通常本文を20px前後、カード見出しを30px前後、箇条書きを18px前後まで上げる。
 - 参照画像 `assets/generated/reference-monoline.png` はレイアウト模倣ではなく、単色系線画SVG、淡い生成画像テクスチャ、番号丸、余白に意味を持たせる装飾密度の参考として使う。特にP05/P10/P13は薄い画像の置き方から、文脈に合う構造図・コールアウトへ作り替える。
+- カード型UIの中には、image2生成アセット `assets/generated/image2-card-visual-atlas.png` をパネル切り出しで差し込み、各カードの意味に合う小さな画像/図解として使う。登壇者紹介は実写真 `assets/generated/sawada-photo.png` を使う。
 
 ## Source Deck
 

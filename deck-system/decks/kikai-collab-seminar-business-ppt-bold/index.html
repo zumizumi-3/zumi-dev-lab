@@ -366,6 +366,30 @@
         grid-template-rows: 1fr auto;
         gap: 14px;
       }
+      .speaker-photo {
+        position: relative;
+        overflow: hidden;
+        min-height: 292px;
+        border: 1px solid var(--kbp-line);
+        border-left: 8px solid var(--kbp-orange);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .speaker-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 36%;
+        filter: saturate(0.92) contrast(1.03);
+      }
+      .speaker-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 58%, rgba(76, 13, 29, 0.22));
+        pointer-events: none;
+      }
       .avatar-mark {
         display: grid;
         place-items: center;
@@ -1722,6 +1746,48 @@
         border: 1px solid var(--kbp-line-soft);
         background: var(--kbp-surface);
       }
+      .image2-card-media,
+      .image2-panel {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(122, 23, 48, 0.2);
+        border-radius: 8px;
+        background-image: url("./assets/generated/image2-card-visual-atlas.png");
+        background-repeat: no-repeat;
+        background-size: 200% 300%;
+        box-shadow: inset 0 0 0 999px rgba(255, 249, 243, 0.03);
+      }
+      .image2-card-media {
+        min-height: 92px;
+        margin: 2px 0 10px;
+      }
+      .grid-4 .image2-card-media,
+      .route-stage .image2-card-media,
+      .coverage-stage .image2-card-media,
+      .pipeline-stage .image2-card-media,
+      .community-case .image2-card-media {
+        min-height: 74px;
+        margin-bottom: 8px;
+      }
+      .global-card .image2-card-media {
+        min-height: 86px;
+        margin: 0 0 10px;
+      }
+      .case-visual .image2-panel {
+        width: 100%;
+        height: 100%;
+        min-height: 176px;
+      }
+      .gate-visual .image2-panel {
+        width: 100%;
+        height: 74px;
+      }
+      .image2-cards { background-position: left top; }
+      .image2-prompt { background-position: right top; }
+      .image2-cases { background-position: left center; }
+      .image2-proof { background-position: right center; }
+      .image2-quality { background-position: left bottom; }
+      .image2-route { background-position: right bottom; }
       .case-visual svg,
       .risk-visual,
       .gate-visual svg {
@@ -3568,7 +3634,7 @@
           <p class="lead-copy" data-role="lead">自社アプリと受託の両輪を経験し、作る力を収益に変えるところまで実績化している。</p>
           <div class="profile-layout body-slot" data-role="body">
             <div class="profile-card" aria-label="澤田さんの実績サマリー">
-              <div class="avatar-mark">澤</div>
+              <div class="speaker-photo"><img src="./assets/generated/sawada-photo.png" alt="澤田さんのプロフィール写真"></div>
               <div class="profile-stats">
                 <span>非エンジニア出身</span>
                 <span>自社アプリ月400万円</span>
@@ -3601,9 +3667,9 @@
           <h2 data-role="title">今日の45分で、視点と行動が変わる</h2>
           <p class="lead-copy" data-role="lead">知識を増やすだけではなく、AI時代の稼ぎ方と次の一歩を持ち帰る。</p>
           <div class="grid-3 body-slot" data-role="body">
-            <article class="card"><span class="number">1</span><strong>転換点を理解する</strong><p>AI時代の稼ぎ方が、どこで変わっているのかを掴む。</p><ul class="tight-list"><li>AI活用のコモディティ化</li><li>マーケとプロダクトの違い</li><li>作る側に回る意味</li></ul></article>
-            <article class="card feature"><span class="number">2</span><strong>自分にもできると納得する</strong><p>非エンジニアでも作る側へ回れる可能性を知る。</p><ul class="tight-list"><li>自然言語で要件を渡す</li><li>数日でプロトタイプ化</li><li>実務アプリまで射程に入る</li></ul></article>
-            <article class="card"><span class="number">3</span><strong>次の一歩を明確にする</strong><p>終わったあとに何を学び、何を試すべきかを見える状態にする。</p><ul class="tight-list"><li>黄金ルートを理解</li><li>受託の入口を知る</li><li>Kikaiで伴走する範囲を確認</li></ul></article>
+            <article class="card"><span class="number">1</span><div class="image2-card-media image2-cards" aria-hidden="true"></div><strong>転換点を理解する</strong><p>AI時代の稼ぎ方が、どこで変わっているのかを掴む。</p><ul class="tight-list"><li>AI活用のコモディティ化</li><li>マーケとプロダクトの違い</li><li>作る側に回る意味</li></ul></article>
+            <article class="card feature"><span class="number">2</span><div class="image2-card-media image2-prompt" aria-hidden="true"></div><strong>自分にもできると納得する</strong><p>非エンジニアでも作る側へ回れる可能性を知る。</p><ul class="tight-list"><li>自然言語で要件を渡す</li><li>数日でプロトタイプ化</li><li>実務アプリまで射程に入る</li></ul></article>
+            <article class="card"><span class="number">3</span><div class="image2-card-media image2-route" aria-hidden="true"></div><strong>次の一歩を明確にする</strong><p>終わったあとに何を学び、何を試すべきかを見える状態にする。</p><ul class="tight-list"><li>黄金ルートを理解</li><li>受託の入口を知る</li><li>Kikaiで伴走する範囲を確認</li></ul></article>
           </div>
         </div>
         <footer class="slide-footer"><span>Intro</span><span>P03</span></footer>
@@ -3955,10 +4021,10 @@
           <h2 data-role="title">バイブコーディングには4つの可能性がある</h2>
           <p class="lead-copy" data-role="lead">個人が小さく作り、小さく売る選択肢が現実になる。</p>
           <div class="grid-4 body-slot" data-role="body">
-            <article class="card"><span class="number">1</span><strong>No Code</strong><p>コードは一切書かない。</p><ul class="tight-list"><li>日本語で画面を説明</li><li>AIが実装候補を返す</li><li>非エンジニアが入口に立てる</li></ul></article>
-            <article class="card feature"><span class="number">2</span><strong>Speed</strong><p>アイディアから数日でリリース。</p><ul class="tight-list"><li>検証までの距離が短い</li><li>失敗してもやり直しやすい</li><li>改善サイクルを回しやすい</li></ul></article>
-            <article class="card"><span class="number">3</span><strong>Quality</strong><p>実務で使える品質に近づける。</p><ul class="tight-list"><li>要件と運用を詰める</li><li>レビューで不安を潰す</li><li>納品可能な形に寄せる</li></ul></article>
-            <article class="card feature"><span class="number">4</span><strong>Business</strong><p>低コストなので受託でも利益率を高めやすい。</p><ul class="tight-list"><li>小規模案件から始める</li><li>実績が次の提案になる</li><li>販売・自社アプリへ広がる</li></ul></article>
+            <article class="card"><span class="number">1</span><div class="image2-card-media image2-prompt" aria-hidden="true"></div><strong>No Code</strong><p>コードは一切書かない。</p><ul class="tight-list"><li>日本語で画面を説明</li><li>AIが実装候補を返す</li><li>非エンジニアが入口に立てる</li></ul></article>
+            <article class="card feature"><span class="number">2</span><div class="image2-card-media image2-route" aria-hidden="true"></div><strong>Speed</strong><p>アイディアから数日でリリース。</p><ul class="tight-list"><li>検証までの距離が短い</li><li>失敗してもやり直しやすい</li><li>改善サイクルを回しやすい</li></ul></article>
+            <article class="card"><span class="number">3</span><div class="image2-card-media image2-quality" aria-hidden="true"></div><strong>Quality</strong><p>実務で使える品質に近づける。</p><ul class="tight-list"><li>要件と運用を詰める</li><li>レビューで不安を潰す</li><li>納品可能な形に寄せる</li></ul></article>
+            <article class="card feature"><span class="number">4</span><div class="image2-card-media image2-proof" aria-hidden="true"></div><strong>Business</strong><p>低コストなので受託でも利益率を高めやすい。</p><ul class="tight-list"><li>小規模案件から始める</li><li>実績が次の提案になる</li><li>販売・自社アプリへ広がる</li></ul></article>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P15</span></footer>
@@ -3971,9 +4037,9 @@
           <h2 data-role="title">海外では個人 × AIの開発が常識になり始めた</h2>
           <p class="lead-copy" data-role="lead">1人で作り、売り、改善する流れが現実に起きている。</p>
           <div class="global-case-board body-slot" data-role="body">
-            <article class="global-card feature"><b>Speed case</b><strong>24時間で開発</strong><span>収益公開アプリのように、短期で作って市場反応を見る事例が出ている。</span><ul class="tight-list"><li>完成前に反応を見る</li><li>公開速度が競争力になる</li></ul><div class="case-meter"><i style="--w: 88%"></i><i style="--w: 52%"></i></div><em>作る → 公開 → 反応確認</em></article>
-            <article class="global-card"><b>Revenue case</b><strong>年間売上6,800万円規模</strong><span>マッチング相手の犯罪歴等を調べるアプリのように、個人開発でも特定課題に深く刺せる。</span><ul class="tight-list"><li>ニッチな痛みを狙う</li><li>課金理由が明確</li></ul><div class="case-meter"><i style="--w: 64%"></i><i style="--w: 78%"></i></div><em>ニッチ課題 → 課金導線</em></article>
-            <article class="global-card"><b>Pattern</b><strong>共通点は「小さく出して改善」</strong><span>大きなSaaSを最初から狙うのではなく、課題を絞り、早く出し、反応を見て磨く。</span><ul class="tight-list"><li>課題を絞る</li><li>早く市場に出す</li></ul><div class="case-meter"><i style="--w: 42%"></i><i style="--w: 92%"></i></div><em>個人でも回せる事業サイクル</em></article>
+            <article class="global-card feature"><b>Speed case</b><div class="image2-card-media image2-prompt" aria-hidden="true"></div><strong>24時間で開発</strong><span>収益公開アプリのように、短期で作って市場反応を見る事例が出ている。</span><ul class="tight-list"><li>完成前に反応を見る</li><li>公開速度が競争力になる</li></ul><div class="case-meter"><i style="--w: 88%"></i><i style="--w: 52%"></i></div><em>作る → 公開 → 反応確認</em></article>
+            <article class="global-card"><b>Revenue case</b><div class="image2-card-media image2-proof" aria-hidden="true"></div><strong>年間売上6,800万円規模</strong><span>マッチング相手の犯罪歴等を調べるアプリのように、個人開発でも特定課題に深く刺せる。</span><ul class="tight-list"><li>ニッチな痛みを狙う</li><li>課金理由が明確</li></ul><div class="case-meter"><i style="--w: 64%"></i><i style="--w: 78%"></i></div><em>ニッチ課題 → 課金導線</em></article>
+            <article class="global-card"><b>Pattern</b><div class="image2-card-media image2-route" aria-hidden="true"></div><strong>共通点は「小さく出して改善」</strong><span>大きなSaaSを最初から狙うのではなく、課題を絞り、早く出し、反応を見て磨く。</span><ul class="tight-list"><li>課題を絞る</li><li>早く市場に出す</li></ul><div class="case-meter"><i style="--w: 42%"></i><i style="--w: 92%"></i></div><em>個人でも回せる事業サイクル</em></article>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P16</span></footer>
@@ -4064,11 +4130,11 @@
           <h2 data-role="title">稼ぐなら、段階的な黄金ルートが必要</h2>
           <p class="lead-copy" data-role="lead">どの段階で止めても、すでに稼げている状態を作る。</p>
           <div class="route-system body-slot" data-role="body">
-            <article class="route-stage"><b>01</b><strong>学ぶ</strong><span>AIに何をどう伝えるか、要件・画面・データの考え方を身につける。</span><ul class="tight-list"><li>指示力</li><li>画面設計</li><li>業務理解</li></ul><em>基礎を作る</em></article>
-            <article class="route-stage active"><b>02</b><strong>動き出す</strong><span>身近な業務課題を受託テーマにし、小さな納品実績を作る。</span><ul class="tight-list"><li>日報</li><li>CRM</li><li>集計ツール</li></ul><em>月5〜10万円</em></article>
-            <article class="route-stage active"><b>03</b><strong>広げる</strong><span>日報、CRM、分析など、横展開しやすい型を増やして単価を上げる。</span><ul class="tight-list"><li>提案資料</li><li>レビュー</li><li>紹介導線</li></ul><em>月50万円帯</em></article>
-            <article class="route-stage"><b>04</b><strong>磨き込む</strong><span>リピート、紹介、品質レビューで継続案件に変える。</span><ul class="tight-list"><li>品質保証</li><li>運用改善</li><li>継続契約</li></ul><em>高単価化</em></article>
-            <article class="route-stage"><b>05</b><strong>創る</strong><span>受託で見えた共通課題を、自社アプリやSaaSに発展させる。</span><ul class="tight-list"><li>共通化</li><li>販売</li><li>継続改善</li></ul><em>任意の飛躍</em></article>
+            <article class="route-stage"><b>01</b><div class="image2-card-media image2-cards" aria-hidden="true"></div><strong>学ぶ</strong><span>AIに何をどう伝えるか、要件・画面・データの考え方を身につける。</span><ul class="tight-list"><li>指示力</li><li>画面設計</li><li>業務理解</li></ul><em>基礎を作る</em></article>
+            <article class="route-stage active"><b>02</b><div class="image2-card-media image2-cases" aria-hidden="true"></div><strong>動き出す</strong><span>身近な業務課題を受託テーマにし、小さな納品実績を作る。</span><ul class="tight-list"><li>日報</li><li>CRM</li><li>集計ツール</li></ul><em>月5〜10万円</em></article>
+            <article class="route-stage active"><b>03</b><div class="image2-card-media image2-proof" aria-hidden="true"></div><strong>広げる</strong><span>日報、CRM、分析など、横展開しやすい型を増やして単価を上げる。</span><ul class="tight-list"><li>提案資料</li><li>レビュー</li><li>紹介導線</li></ul><em>月50万円帯</em></article>
+            <article class="route-stage"><b>04</b><div class="image2-card-media image2-quality" aria-hidden="true"></div><strong>磨き込む</strong><span>リピート、紹介、品質レビューで継続案件に変える。</span><ul class="tight-list"><li>品質保証</li><li>運用改善</li><li>継続契約</li></ul><em>高単価化</em></article>
+            <article class="route-stage"><b>05</b><div class="image2-card-media image2-route" aria-hidden="true"></div><strong>創る</strong><span>受託で見えた共通課題を、自社アプリやSaaSに発展させる。</span><ul class="tight-list"><li>共通化</li><li>販売</li><li>継続改善</li></ul><em>任意の飛躍</em></article>
           </div>
         </div>
         <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P20</span></footer>
@@ -4112,45 +4178,21 @@
             <article class="case-card">
               <div><span class="number">1</span><strong>社内の日報ツール</strong><span>現場入力、管理者確認、集計を小さく自動化。</span></div>
               <div class="case-visual" aria-label="日報ツールの画面例">
-                <svg viewBox="0 0 360 176" role="img">
-                  <rect class="fill-paper ui-line" x="10" y="12" width="340" height="152" rx="4" fill="none"/>
-                  <path class="ui-line" d="M10 44h340M116 44v120M232 44v120" fill="none" stroke-width="2"/>
-                  <path class="accent" d="M28 30h74M28 70h56M28 96h66M28 122h48" fill="none" stroke-width="8" stroke-linecap="round"/>
-                  <path class="ui-line" d="M136 70h72M136 96h50M136 122h62M252 70h66M252 96h44M252 122h58" fill="none" stroke-width="8" stroke-linecap="round"/>
-                  <circle class="fill-soft accent" cx="315" cy="29" r="10" stroke-width="2"/>
-                </svg>
+                <div class="image2-panel image2-cases" aria-hidden="true"></div>
               </div>
               <span>月10万円規模から成立しやすい、最初の受託テーマ。</span>
             </article>
             <article class="case-card feature">
               <div><span class="number">2</span><strong>顧客管理システム</strong><span>問い合わせ、商談、対応履歴を一覧化。</span></div>
               <div class="case-visual" aria-label="顧客管理システムの画面例">
-                <svg viewBox="0 0 360 176" role="img">
-                  <rect class="fill-paper ui-line" x="10" y="12" width="340" height="152" rx="4" fill="none"/>
-                  <path class="ui-line" d="M10 48h340M132 48v116M244 48v116" fill="none" stroke-width="2"/>
-                  <path class="accent" d="M28 31h84" fill="none" stroke-width="9" stroke-linecap="round"/>
-                  <rect class="fill-soft ui-line" x="26" y="68" width="88" height="28" rx="3"/>
-                  <rect class="fill-paper ui-line" x="26" y="108" width="88" height="28" rx="3"/>
-                  <rect class="fill-paper ui-line" x="150" y="68" width="76" height="28" rx="3"/>
-                  <rect class="fill-soft accent" x="150" y="108" width="76" height="28" rx="3" stroke-width="2"/>
-                  <rect class="fill-paper ui-line" x="262" y="68" width="66" height="68" rx="3"/>
-                  <path class="ui-line" d="M274 86h42M274 106h34M274 126h28" fill="none" stroke-width="6" stroke-linecap="round"/>
-                </svg>
+                <div class="image2-panel image2-cards" aria-hidden="true"></div>
               </div>
               <span>顧客対応の抜け漏れを減らし、継続改善しやすい。</span>
             </article>
             <article class="case-card">
               <div><span class="number">3</span><strong>EC分析ダッシュボード</strong><span>商品、売上、改善対象を可視化。</span></div>
               <div class="case-visual" aria-label="EC分析ダッシュボードの画面例">
-                <svg viewBox="0 0 360 176" role="img">
-                  <rect class="fill-paper ui-line" x="10" y="12" width="340" height="152" rx="4" fill="none"/>
-                  <path class="accent" d="M28 32h92" fill="none" stroke-width="9" stroke-linecap="round"/>
-                  <rect class="fill-soft ui-line" x="28" y="58" width="72" height="42" rx="3"/>
-                  <rect class="fill-paper ui-line" x="112" y="58" width="72" height="42" rx="3"/>
-                  <rect class="fill-paper ui-line" x="196" y="58" width="72" height="42" rx="3"/>
-                  <path class="accent" d="M38 136V118M72 136V106M106 136V122M140 136V90M174 136V112M208 136V82" fill="none" stroke-width="10"/>
-                  <path class="ui-line" d="M238 132l22-24 24 12 38-48" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <div class="image2-panel image2-proof" aria-hidden="true"></div>
               </div>
               <span>分析画面と改善提案で、月50万円帯まで広げやすい。</span>
             </article>
@@ -4220,9 +4262,9 @@
           <p class="lead-copy" data-role="lead">作って終わりではなく、販売や納品まで進んでいることが重要。</p>
           <div class="community-case-board body-slot body-fit" data-role="body">
             <div class="community-cases">
-              <article class="community-case feature"><b>月額販売</b><strong>X自動運用ツール</strong><span>toB向け月額サブスク（月3万円）で販売中。導入企業あり。</span><div class="case-meter"><i style="--w: 72%"></i><i style="--w: 44%"></i></div><em>販売まで到達</em></article>
-              <article class="community-case"><b>受託納品</b><strong>AI書類データ抽出</strong><span>受託案件として納品済み。数十万円規模。</span><div class="case-meter"><i style="--w: 58%"></i><i style="--w: 82%"></i></div><em>業務課題を解決</em></article>
-              <article class="community-case"><b>受託納品</b><strong>Gemini自動応答Bot</strong><span>ナレッジベース連携の受託案件として納品済み。</span><div class="case-meter"><i style="--w: 48%"></i><i style="--w: 76%"></i></div><em>AI活用を実装に接続</em></article>
+              <article class="community-case feature"><b>月額販売</b><div class="image2-card-media image2-proof" aria-hidden="true"></div><strong>X自動運用ツール</strong><span>toB向け月額サブスク（月3万円）で販売中。導入企業あり。</span><div class="case-meter"><i style="--w: 72%"></i><i style="--w: 44%"></i></div><em>販売まで到達</em></article>
+              <article class="community-case"><b>受託納品</b><div class="image2-card-media image2-quality" aria-hidden="true"></div><strong>AI書類データ抽出</strong><span>受託案件として納品済み。数十万円規模。</span><div class="case-meter"><i style="--w: 58%"></i><i style="--w: 82%"></i></div><em>業務課題を解決</em></article>
+              <article class="community-case"><b>受託納品</b><div class="image2-card-media image2-prompt" aria-hidden="true"></div><strong>Gemini自動応答Bot</strong><span>ナレッジベース連携の受託案件として納品済み。</span><div class="case-meter"><i style="--w: 48%"></i><i style="--w: 76%"></i></div><em>AI活用を実装に接続</em></article>
             </div>
             <div class="community-proof">
               <strong>再現性は「作った数」ではなく、販売・納品まで進んだかで見る。</strong>
@@ -4286,11 +4328,11 @@
           <h2 data-role="title">Kikaiは黄金ルートの前半を全力で伴走する</h2>
           <p class="lead-copy" data-role="lead">学ぶ、動き出す、広げるまでを支え、その先の磨き込みやSaaS化も挑戦できる下地を整える。</p>
           <div class="coverage-board body-slot" data-role="body">
-            <article class="coverage-stage active"><b>01</b><strong>学ぶ</strong><span>講座、ライブ、合宿で、AIに指示して作る入口をそろえる。</span><ul class="tight-list"><li>基礎講座</li><li>実演</li><li>合宿</li></ul><em>Kikaiが伴走</em></article>
-            <article class="coverage-stage active"><b>02</b><strong>動き出す</strong><span>身近な課題を小さな受託テーマにし、初回納品まで進める。</span><ul class="tight-list"><li>テーマ選定</li><li>要件整理</li><li>初回納品</li></ul><em>受託の土台</em></article>
-            <article class="coverage-stage active"><b>03</b><strong>広げる</strong><span>実績、提案、レビューを積み、月50万円帯の案件を狙う。</span><ul class="tight-list"><li>提案型化</li><li>実績化</li><li>単価アップ</li></ul><em>実績を増やす</em></article>
-            <article class="coverage-stage"><b>04</b><strong>磨き込む</strong><span>リピート、紹介、品質改善で単価と継続率を上げる。</span><ul class="tight-list"><li>品質</li><li>継続</li><li>紹介</li></ul><em>自社アプリの下地</em></article>
-            <article class="coverage-stage"><b>05</b><strong>創る</strong><span>共通課題をプロダクト化し、Made with Kikaiで販売へ接続する。</span><ul class="tight-list"><li>共通化</li><li>掲載</li><li>販売</li></ul><em>任意の飛躍</em></article>
+            <article class="coverage-stage active"><b>01</b><div class="image2-card-media image2-cards" aria-hidden="true"></div><strong>学ぶ</strong><span>講座、ライブ、合宿で、AIに指示して作る入口をそろえる。</span><ul class="tight-list"><li>基礎講座</li><li>実演</li><li>合宿</li></ul><em>Kikaiが伴走</em></article>
+            <article class="coverage-stage active"><b>02</b><div class="image2-card-media image2-prompt" aria-hidden="true"></div><strong>動き出す</strong><span>身近な課題を小さな受託テーマにし、初回納品まで進める。</span><ul class="tight-list"><li>テーマ選定</li><li>要件整理</li><li>初回納品</li></ul><em>受託の土台</em></article>
+            <article class="coverage-stage active"><b>03</b><div class="image2-card-media image2-proof" aria-hidden="true"></div><strong>広げる</strong><span>実績、提案、レビューを積み、月50万円帯の案件を狙う。</span><ul class="tight-list"><li>提案型化</li><li>実績化</li><li>単価アップ</li></ul><em>実績を増やす</em></article>
+            <article class="coverage-stage"><b>04</b><div class="image2-card-media image2-quality" aria-hidden="true"></div><strong>磨き込む</strong><span>リピート、紹介、品質改善で単価と継続率を上げる。</span><ul class="tight-list"><li>品質</li><li>継続</li><li>紹介</li></ul><em>自社アプリの下地</em></article>
+            <article class="coverage-stage"><b>05</b><div class="image2-card-media image2-route" aria-hidden="true"></div><strong>創る</strong><span>共通課題をプロダクト化し、Made with Kikaiで販売へ接続する。</span><ul class="tight-list"><li>共通化</li><li>掲載</li><li>販売</li></ul><em>任意の飛躍</em></article>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P29</span></footer>
@@ -4347,10 +4389,10 @@
               <div class="risk-points"><span>壊れやすい</span><span>見えないバグ</span><span>運用漏れ</span></div>
             </div>
             <div class="gate-flow" aria-label="品質チェックの流れ">
-              <article class="gate-card"><span class="gate-badge">1</span><strong>生成</strong><span>AIで初稿を作る。</span><div class="gate-visual"><svg viewBox="0 0 220 74" aria-hidden="true"><rect class="fill-paper ui-line" x="12" y="10" width="196" height="54" rx="4" fill="none"/><path class="accent" d="M32 29h76M32 45h48" fill="none" stroke-width="6" stroke-linecap="round"/><path class="ui-line" d="M138 26l18 11-18 11" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></article>
-              <article class="gate-card feature"><span class="gate-badge">2</span><strong>点検</strong><span>プロが構造とリスクを見る。</span><div class="gate-visual"><svg viewBox="0 0 220 74" aria-hidden="true"><rect class="fill-paper ui-line" x="12" y="10" width="112" height="54" rx="4" fill="none"/><path class="ui-line" d="M30 28h70M30 44h48" fill="none" stroke-width="6" stroke-linecap="round"/><circle class="fill-soft accent" cx="158" cy="35" r="19" stroke-width="5"/><path class="accent" d="m173 50 22 16" fill="none" stroke-width="6" stroke-linecap="round"/></svg></div></article>
-              <article class="gate-card"><span class="gate-badge">3</span><strong>修正</strong><span>納品前に不安を潰す。</span><div class="gate-visual"><svg viewBox="0 0 220 74" aria-hidden="true"><rect class="fill-paper ui-line" x="12" y="10" width="196" height="54" rx="4" fill="none"/><path class="ui-line" d="M34 28h62M34 46h46" fill="none" stroke-width="6" stroke-linecap="round"/><path class="accent" d="m130 39 17 17 38-42" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></article>
-              <article class="gate-card feature"><span class="gate-badge">4</span><strong>納品</strong><span>営業材料として品質を語れる。</span><div class="gate-visual"><svg viewBox="0 0 220 74" aria-hidden="true"><rect class="fill-paper ui-line" x="42" y="10" width="136" height="54" rx="4" fill="none"/><path class="ui-line" d="M62 29h70M62 45h44" fill="none" stroke-width="6" stroke-linecap="round"/><path class="accent" d="M150 28h16v22h-16zM154 22h8" fill="none" stroke-width="5" stroke-linejoin="round"/></svg></div></article>
+              <article class="gate-card"><span class="gate-badge">1</span><strong>生成</strong><span>AIで初稿を作る。</span><div class="gate-visual"><div class="image2-panel image2-prompt" aria-hidden="true"></div></div></article>
+              <article class="gate-card feature"><span class="gate-badge">2</span><strong>点検</strong><span>プロが構造とリスクを見る。</span><div class="gate-visual"><div class="image2-panel image2-quality" aria-hidden="true"></div></div></article>
+              <article class="gate-card"><span class="gate-badge">3</span><strong>修正</strong><span>納品前に不安を潰す。</span><div class="gate-visual"><div class="image2-panel image2-cards" aria-hidden="true"></div></div></article>
+              <article class="gate-card feature"><span class="gate-badge">4</span><strong>納品</strong><span>営業材料として品質を語れる。</span><div class="gate-visual"><div class="image2-panel image2-proof" aria-hidden="true"></div></div></article>
             </div>
           </div>
         </div>
@@ -4364,10 +4406,10 @@
           <h2 data-role="title">将来的にクローズド案件供給まで広げる</h2>
           <p class="lead-copy" data-role="lead">自分で取る力と、運営から降りてくる案件の両輪を作る。</p>
           <div class="pipeline-roadmap body-slot" data-role="body">
-            <article class="pipeline-stage"><b class="pipe-mark">01</b><em>Now</em><strong>自分で案件を取る</strong><span>合宿、コンサル、動画講座で、まずは自力で受託の入口を作る。</span><ul class="tight-list"><li>提案先を作る</li><li>初回納品する</li></ul><div class="pipe-detail">入口を作る</div></article>
-            <article class="pipeline-stage feature"><b class="pipe-mark">02</b><em>Build</em><strong>事例と品質を積む</strong><span>納品実績、レビュー、提案テンプレートを蓄積する。</span><ul class="tight-list"><li>品質レビュー</li><li>提案資産化</li></ul><div class="pipe-detail">信頼を作る</div></article>
-            <article class="pipeline-stage"><b class="pipe-mark">03</b><em>Scale</em><strong>運営が案件を獲得</strong><span>サロン拡大に伴い、運営側でも案件獲得を進める。</span><ul class="tight-list"><li>企業課題を集める</li><li>会員の実績と接続</li></ul><div class="pipe-detail">供給源を作る</div></article>
-            <article class="pipeline-stage feature"><b class="pipe-mark">04</b><em>Future</em><strong>会員へ供給する</strong><span>5〜50万円帯のクローズド案件を会員に接続する構想。</span><ul class="tight-list"><li>案件を紹介</li><li>両輪で収益化</li></ul><div class="pipe-detail">両輪で伸ばす</div></article>
+            <article class="pipeline-stage"><b class="pipe-mark">01</b><em>Now</em><div class="image2-card-media image2-cards" aria-hidden="true"></div><strong>自分で案件を取る</strong><span>合宿、コンサル、動画講座で、まずは自力で受託の入口を作る。</span><ul class="tight-list"><li>提案先を作る</li><li>初回納品する</li></ul><div class="pipe-detail">入口を作る</div></article>
+            <article class="pipeline-stage feature"><b class="pipe-mark">02</b><em>Build</em><div class="image2-card-media image2-quality" aria-hidden="true"></div><strong>事例と品質を積む</strong><span>納品実績、レビュー、提案テンプレートを蓄積する。</span><ul class="tight-list"><li>品質レビュー</li><li>提案資産化</li></ul><div class="pipe-detail">信頼を作る</div></article>
+            <article class="pipeline-stage"><b class="pipe-mark">03</b><em>Scale</em><div class="image2-card-media image2-proof" aria-hidden="true"></div><strong>運営が案件を獲得</strong><span>サロン拡大に伴い、運営側でも案件獲得を進める。</span><ul class="tight-list"><li>企業課題を集める</li><li>会員の実績と接続</li></ul><div class="pipe-detail">供給源を作る</div></article>
+            <article class="pipeline-stage feature"><b class="pipe-mark">04</b><em>Future</em><div class="image2-card-media image2-route" aria-hidden="true"></div><strong>会員へ供給する</strong><span>5〜50万円帯のクローズド案件を会員に接続する構想。</span><ul class="tight-list"><li>案件を紹介</li><li>両輪で収益化</li></ul><div class="pipe-detail">両輪で伸ばす</div></article>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P32</span></footer>
