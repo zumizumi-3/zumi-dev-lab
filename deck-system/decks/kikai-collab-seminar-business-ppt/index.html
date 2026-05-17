@@ -843,6 +843,94 @@
         font-size: 15px;
         line-height: 1.34;
       }
+      .reality-check-board {
+        display: grid;
+        grid-template-columns: 0.76fr 1.24fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .reality-check-board > .evidence-strip {
+        grid-column: 1 / -1;
+      }
+      .reality-core {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 16px;
+        padding: 28px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .reality-core strong {
+        color: var(--kbp-ink);
+        font-size: 42px;
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+      .reality-core span {
+        color: var(--kbp-muted);
+        font-size: 17px;
+        font-weight: 740;
+        line-height: 1.38;
+      }
+      .reality-scale {
+        display: grid;
+        gap: 10px;
+        align-content: center;
+      }
+      .reality-scale div {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr) 62px;
+        gap: 10px;
+        align-items: center;
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .reality-scale i {
+        display: block;
+        height: 12px;
+        width: var(--w);
+        border-radius: 999px;
+        background: var(--kbp-orange);
+      }
+      .reality-scale .muted i {
+        background: var(--kbp-line);
+      }
+      .reality-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .reality-card {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        gap: 10px;
+        min-width: 0;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .reality-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .reality-card b {
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .reality-card strong {
+        color: var(--kbp-ink);
+        font-size: 21px;
+        line-height: 1.22;
+      }
+      .reality-card span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.34;
+      }
       .statement-layout {
         display: grid;
         grid-template-columns: 0.86fr minmax(0, 1.14fr);
@@ -1960,6 +2048,60 @@
       .risk-visual {
         min-height: 224px;
       }
+      .risk-visual.board {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: 1fr auto;
+        gap: 10px;
+        min-height: 224px;
+      }
+      .risk-slice {
+        display: grid;
+        align-content: center;
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+      }
+      .risk-slice.feature {
+        border-color: rgba(255, 113, 67, 0.42);
+        background: var(--kbp-orange-soft);
+      }
+      .risk-slice b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .risk-slice strong {
+        color: var(--kbp-ink);
+        font-size: 19px;
+        line-height: 1.18;
+      }
+      .risk-slice span {
+        color: var(--kbp-muted);
+        font-size: 13px;
+        line-height: 1.28;
+      }
+      .risk-review-bar {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        padding: 10px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .risk-review-bar span {
+        display: grid;
+        align-content: center;
+        min-height: 42px;
+        padding: 7px 8px;
+        border: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-muted);
+        font-size: 12px;
+        font-weight: 760;
+        line-height: 1.18;
+      }
       .risk-points {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2421,7 +2563,7 @@
         <div class="content">
           <h2 data-role="title">「簡単なものしか作れない」はもう古い</h2>
           <p class="lead-copy" data-role="lead">実務で使えるアプリや業務システムが、すでに生まれている。</p>
-          <div class="statement-layout body-slot" data-role="body">
+          <div class="statement-layout with-strip body-slot" data-role="body">
             <div class="statement-core"><strong>実用化の差は、AIに丸投げしないこと。</strong><span>要件整理 → 改善 → 検証</span></div>
             <div class="process-map">
               <div class="process-node"><strong>課題</strong><span>現場の手間を特定する</span><em>誰が何に困るか</em></div>
@@ -2429,6 +2571,12 @@
               <div class="process-node"><strong>生成</strong><span>AIでプロトタイプ化</span><em>まず動く形にする</em></div>
               <div class="process-node"><strong>修正</strong><span>業務に合わせて直す</span><em>例外、権限、運用を詰める</em></div>
               <div class="process-node"><strong>実用</strong><span>納品・販売へ進む</span><em>対価を取れる状態にする</em></div>
+            </div>
+            <div class="evidence-strip" aria-label="実用化できるかの判定軸">
+              <span><b>利用者</b>誰が日常的に使うかが具体化されている</span>
+              <span><b>データ</b>入力、保存、出力、例外が定義されている</span>
+              <span><b>運用</b>権限、通知、修正依頼の流れが見えている</span>
+              <span><b>対価</b>時間削減か売上改善に接続している</span>
             </div>
           </div>
         </div>
@@ -2521,12 +2669,20 @@
         <div class="content">
           <h2 data-role="title">でも、待ってください</h2>
           <p class="lead-copy" data-role="lead">「自分にもできそう」の直後に、現実を見る必要がある。</p>
-          <div class="visual-led with-strip body-slot body-tall" data-role="body">
-            <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/reality-check.png" alt="AI開発の現実確認を表す生成ビジュアル"></div>
-            <div class="insight-stack">
-              <div class="insight"><b>1</b><div><strong>できそう、は正しい</strong><span>入口が開いたこと自体は大きな変化。</span></div></div>
-              <div class="insight"><b>2</b><div><strong>でも再現性は別問題</strong><span>派手な成功事例だけでは勝ち筋にならない。</span></div></div>
-              <div class="insight"><b>3</b><div><strong>必要なのは段階設計</strong><span>学ぶ、受託、拡張の順番を守る。</span></div></div>
+          <div class="reality-check-board body-slot" data-role="body">
+            <div class="reality-core">
+              <strong>「作れる」と「稼げる」の間には、まだ距離がある。</strong>
+              <div class="reality-scale" aria-label="作れる感覚と収益化の距離">
+                <div><span>作れる感覚</span><i style="--w: 86%"></i><em>高</em></div>
+                <div class="muted"><span>再現性</span><i style="--w: 38%"></i><em>未確定</em></div>
+                <div class="muted"><span>収益化</span><i style="--w: 24%"></i><em>要設計</em></div>
+              </div>
+              <span>だから、成功事例の熱量を保ったまま、次ページ以降で失敗率と段階ルートを確認する。</span>
+            </div>
+            <div class="reality-card-grid">
+              <article class="reality-card feature"><b>Optimism</b><strong>できそう、は正しい</strong><span>入口が開いたこと自体は大きな変化。非エンジニアでも試作できる。</span><ul class="tight-list"><li>自然言語で要件化</li><li>数日でプロトタイプ</li></ul></article>
+              <article class="reality-card"><b>Risk</b><strong>でも再現性は別問題</strong><span>派手な成功例だけを見ると、背景の経験や失敗を見落とす。</span><ul class="tight-list"><li>見えない蓄積</li><li>サバイバーシップバイアス</li></ul></article>
+              <article class="reality-card"><b>Route</b><strong>必要なのは段階設計</strong><span>いきなりSaaSではなく、学習、受託、拡張の順番で進める。</span><ul class="tight-list"><li>小さな納品</li><li>課題理解を蓄積</li></ul></article>
             </div>
             <div class="evidence-strip" aria-label="現実を見るためのチェックポイント">
               <span><b>誤解</b>AIなら誰でもすぐ大きく稼げる</span>
@@ -2859,14 +3015,16 @@
           <p class="lead-copy" data-role="lead">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
           <div class="quality-gate body-slot" data-role="body">
             <div class="risk-card">
-              <div class="risk-visual" aria-label="AI生成コードのリスクを示す図">
-                <svg viewBox="0 0 420 224" role="img">
-                  <rect class="fill-paper ui-line" x="20" y="24" width="250" height="176" rx="5" fill="none"/>
-                  <path class="ui-line" d="M20 58h250M48 86h112M48 112h150M48 138h98M48 164h126" fill="none" stroke-width="8" stroke-linecap="round"/>
-                  <path class="accent" d="M188 86h44M214 138h32" fill="none" stroke-width="8" stroke-linecap="round"/>
-                  <path class="accent" d="M315 52 386 178M386 52 315 178" fill="none" stroke-width="9" stroke-linecap="round"/>
-                  <circle class="fill-soft accent" cx="350" cy="114" r="66" stroke-width="4"/>
-                </svg>
+              <div class="risk-visual board" aria-label="AI生成コードのリスクを示す図">
+                <div class="risk-slice feature"><b>Bug</b><strong>動くが壊れる</strong><span>例外入力、保存漏れ、画面遷移の抜けが残る。</span></div>
+                <div class="risk-slice"><b>Security</b><strong>権限が甘い</strong><span>認証、データ公開範囲、秘密情報の扱いに不安が残る。</span></div>
+                <div class="risk-slice"><b>Operation</b><strong>運用で詰まる</strong><span>修正依頼、ログ、保守、引き継ぎが決まっていない。</span></div>
+                <div class="risk-review-bar">
+                  <span>入力検証</span>
+                  <span>権限確認</span>
+                  <span>例外処理</span>
+                  <span>納品説明</span>
+                </div>
               </div>
               <strong>不安の正体</strong>
               <span>AI生成コードには、動くけれど壊れやすい箇所、バグ、脆弱性、運用漏れが混入しやすい。</span>
