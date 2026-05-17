@@ -72,7 +72,7 @@ assets:
 
 ## Pattern Mapping
 
-All `plain-business-ppt` patterns PB-00 through PB-84 can be styled by this format. The preview deck demonstrates representative variants:
+All `plain-business-ppt` patterns PB-00 through PB-84 are imported as Kikai-styled layout instances in `business-plain-patterns.html`. The preview deck demonstrates representative variants:
 
 | Base Pattern | Kikai Variant | Use |
 |---|---|---|
