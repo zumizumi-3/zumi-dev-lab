@@ -10,6 +10,7 @@
    - Parent options:
      - `deck-system/base-formats/plain-neutral/`: sparse, general-purpose, seminar or simple narrative decks
      - `deck-system/base-formats/plain-business-ppt/`: dense business PPT, proposal, report, meeting, KPI, budget, schedule, comparison
+     - `deck-system/base-formats/plain-business-visual-ppt/`: rich business deck base with explicit image2/SVG/type/color/density policy
    - Gate: deck purpose, density, and source evidence match the selected parent base format.
 
 2. **Create Company Format Pack**
@@ -47,3 +48,4 @@
 - 未確認の数字、実績、導入事例、顧客名を事実として書かない。
 - 企業フォーマット作成前に、台本だけで最終デザインを固定しない。
 - `plain-business-ppt` の役割名を、見える補助ラベルとしてスライド上に出さない。派生用の識別は `data-*` 属性と仕様書に残す。
+- `plain-business-visual-ppt` の visual_policy を、単なる装飾追加指示として扱わない。画像やSVGはスライドの主張を説明できる場合だけ使う。
