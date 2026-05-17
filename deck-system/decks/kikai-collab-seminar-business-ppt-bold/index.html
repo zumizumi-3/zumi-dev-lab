@@ -3776,8 +3776,10 @@
         background: #ffffff !important;
       }
       .cover-logo {
+        padding: 0;
+        border: 0;
         border-color: rgba(214, 155, 54, 0.34);
-        background: #ffffff;
+        background: transparent;
       }
       .cover .kicker {
         color: var(--kbp-orange);
@@ -3791,8 +3793,9 @@
         color: var(--kbp-muted);
       }
       .cover-panel {
+        border: 0;
         border-color: rgba(214, 155, 54, 0.36);
-        background: #ffffff !important;
+        background: transparent !important;
       }
       .cover-panel::after,
       #P10 .divider-layout::after,
@@ -3800,6 +3803,48 @@
       #P29 .coverage-board::after {
         border-color: rgba(214, 155, 54, 0.3);
         box-shadow: inset 0 0 0 999px rgba(255, 247, 237, 0.18);
+      }
+      .cover-panel::after {
+        border: 0;
+        box-shadow: none;
+      }
+      #P10 .chapter-index,
+      #P10 .chapter-canvas,
+      #P10 .chapter-anchors span {
+        border: 0;
+        background: transparent !important;
+        box-shadow: none;
+      }
+      #P10 .chapter-mural::before {
+        content: none;
+        display: none;
+      }
+      #P10 .chapter-index {
+        padding: 18px 14px 18px 0;
+      }
+      #P10 .chapter-index .chapter-no {
+        width: auto;
+        height: auto;
+        place-items: start;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: var(--kbp-orange);
+        font-size: 18px;
+        letter-spacing: 0.08em;
+      }
+      #P10 .chapter-canvas {
+        padding: 0;
+      }
+      #P10 .chapter-anchors > span {
+        grid-template-columns: 54px minmax(0, 1fr);
+        min-height: 86px;
+        padding: 10px 0;
+      }
+      #P10 .chapter-anchors b {
+        background: transparent;
+        color: var(--kbp-orange);
+        font-size: 18px;
       }
       .controls button,
       .counter {
@@ -4141,15 +4186,15 @@
           <p class="lead-copy" data-role="lead">バイブコーディングとは、作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
           <div class="chapter-mural body-slot body-compact" data-role="body">
             <div class="chapter-index">
-              <span class="chapter-no">03</span>
-              <strong>作り方の前提が変わる章</strong>
-              <span>章扉として余白を残しつつ、言葉、AI、画面、事業化のつながりを一枚絵で見せる。</span>
+              <span class="chapter-no">SECTION 02</span>
+              <strong>言葉から、動くサービスへ。</strong>
+              <span>自然言語で要件を伝え、AIと画面を往復しながら、実用サービスまで近づける。</span>
             </div>
             <div class="chapter-canvas" aria-label="言葉からサービス化する流れの生成ビジュアル"><img src="./assets/generated/image2-p10-vibe-coding-section.png" alt=""></div>
             <div class="chapter-anchors" aria-label="この章で扱う視点">
-              <span><b>11</b><span><strong>言葉が形になる</strong>要件を自然言語で渡し、画面と機能に変える。</span></span>
-              <span><b>13</b><span><strong>実用例で見る</strong>現場課題から、使える小さな業務アプリを作る。</span></span>
-              <span><b>15</b><span><strong>事業に接続する</strong>受託、販売、自社ツール、コミュニティへ展開する。</span></span>
+              <span><b>言葉</b><span><strong>要件を渡す</strong>自然言語で目的、条件、画面、動きを伝える。</span></span>
+              <span><b>画面</b><span><strong>動く形にする</strong>AIと往復しながら、試せるプロトタイプへ落とす。</span></span>
+              <span><b>事業</b><span><strong>価値に接続する</strong>業務改善、受託、販売、自社ツールへ広げる。</span></span>
             </div>
           </div>
         </div>
