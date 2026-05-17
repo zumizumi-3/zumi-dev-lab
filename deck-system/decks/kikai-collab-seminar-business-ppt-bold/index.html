@@ -3100,6 +3100,427 @@
         height: 156px;
         opacity: 0.22;
       }
+      /* Reference-style mono visual pass: richer diagrams while keeping Bordeaux/Gold unified. */
+      .path-arena {
+        grid-template-columns: minmax(0, 1fr) 224px minmax(0, 1fr);
+        gap: 18px;
+        min-height: 508px;
+      }
+      #P05 .path-arena::before {
+        content: "";
+        position: absolute;
+        inset: 18px 52px;
+        z-index: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1160' height='430' viewBox='0 0 1160 430'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.16' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M210 310c94-64 198-76 314-36M636 276c96-62 196-54 306 18'/%3E%3Cpath d='M491 251l42 27-47 18M895 258l49 37-58 20'/%3E%3Cpath d='M74 362h214M876 362h208'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.18'%3E%3Ccircle cx='168' cy='104' r='64'/%3E%3Ccircle cx='996' cy='118' r='74'/%3E%3Ccircle cx='581' cy='298' r='54'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
+        pointer-events: none;
+      }
+      #P05 .path-arena::after {
+        content: none;
+      }
+      .path-arena .path-card {
+        grid-template-rows: auto 146px auto auto minmax(0, 1fr) auto;
+        gap: 11px;
+        padding: 20px;
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 249, 243, 0.98), rgba(255, 240, 204, 0.46)),
+          var(--kbp-paper);
+      }
+      .path-arena .path-card.feature {
+        background:
+          linear-gradient(180deg, rgba(255, 249, 243, 0.98), rgba(247, 228, 223, 0.74)),
+          var(--kbp-paper);
+      }
+      .path-arena .path-card strong {
+        font-size: 29px;
+      }
+      .path-arena .path-card > span:not(.path-label) {
+        font-size: 19px;
+        line-height: 1.3;
+      }
+      .path-visual {
+        position: relative;
+        display: grid;
+        min-height: 146px;
+        place-items: center;
+        overflow: hidden;
+        border: 2px solid rgba(122, 23, 48, 0.18);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 78% 18%, rgba(214, 155, 54, 0.24), transparent 28%),
+          linear-gradient(135deg, rgba(122, 23, 48, 0.08), rgba(255, 249, 243, 0.94));
+      }
+      .path-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.08;
+        filter: grayscale(1) contrast(1.08);
+      }
+      .path-marketing .path-visual::after {
+        background-image: url("./assets/generated/ai-product-bridge.png");
+      }
+      .path-product .path-visual::after {
+        background-image: url("./assets/generated/prompt-to-product.png");
+      }
+      .path-visual svg {
+        position: relative;
+        z-index: 1;
+        width: min(92%, 290px);
+        height: 126px;
+      }
+      .mono-line {
+        fill: none;
+        stroke: var(--kvb-bordeaux);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mono-fill {
+        fill: rgba(122, 23, 48, 0.1);
+        stroke: var(--kvb-bordeaux);
+      }
+      .mono-gold {
+        fill: rgba(214, 155, 54, 0.24);
+        stroke: var(--kvb-gold);
+      }
+      .path-arena .path-pivot {
+        min-height: 350px;
+        align-self: center;
+        border: 0;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle, rgba(122, 23, 48, 0.13) 0 45%, transparent 46%),
+          linear-gradient(180deg, rgba(255, 249, 243, 0.96), rgba(255, 240, 204, 0.78));
+        box-shadow: inset 0 0 0 3px rgba(122, 23, 48, 0.22), 0 18px 30px rgba(76, 13, 29, 0.1);
+      }
+      .path-arena .path-pivot::after {
+        right: auto;
+        bottom: 48px;
+        width: 92px;
+        height: 92px;
+        opacity: 0.22;
+      }
+      .path-arena .path-pivot strong {
+        max-width: 150px;
+        color: var(--kvb-bordeaux-deep);
+        font-size: 27px;
+        line-height: 1.12;
+      }
+      .path-arena .path-pivot i {
+        color: var(--kvb-bordeaux);
+        font-size: 54px;
+      }
+      .chapter-mural {
+        position: relative;
+        display: grid;
+        grid-template-columns: 330px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) 96px;
+        gap: 14px;
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      .chapter-mural::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 79% 16%, rgba(214, 155, 54, 0.22), transparent 26%),
+          url("./assets/generated/ai-product-bridge.png") right center / 54% auto no-repeat;
+        opacity: 0.18;
+        filter: grayscale(1) contrast(1.08);
+        pointer-events: none;
+      }
+      .chapter-index,
+      .chapter-canvas,
+      .chapter-anchors span,
+      .case-map-visual,
+      .case-node {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border: 2px solid rgba(122, 23, 48, 0.24);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 249, 243, 0.96), rgba(255, 240, 204, 0.58)),
+          var(--kbp-paper);
+        box-shadow: 0 16px 30px rgba(76, 13, 29, 0.08);
+      }
+      .chapter-index {
+        display: grid;
+        align-content: center;
+        gap: 16px;
+        padding: 28px;
+      }
+      .chapter-index .chapter-no {
+        display: grid;
+        width: 104px;
+        height: 104px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+        font-size: 46px;
+        font-weight: 920;
+        line-height: 1;
+        box-shadow: 0 14px 24px rgba(76, 13, 29, 0.2);
+      }
+      .chapter-index strong {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 34px;
+        line-height: 1.08;
+      }
+      .chapter-index span:not(.chapter-no) {
+        color: var(--kbp-muted);
+        font-size: 19px;
+        line-height: 1.32;
+      }
+      .chapter-canvas {
+        display: grid;
+        place-items: center;
+        padding: 24px 28px;
+        background:
+          radial-gradient(circle at 86% 18%, rgba(214, 155, 54, 0.2), transparent 24%),
+          linear-gradient(135deg, rgba(122, 23, 48, 0.1), rgba(255, 249, 243, 0.92));
+      }
+      .chapter-canvas::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./assets/generated/vibe-coding-workbench.png") center / cover no-repeat;
+        opacity: 0.12;
+        filter: grayscale(1) contrast(1.12);
+      }
+      .chapter-canvas svg {
+        position: relative;
+        z-index: 1;
+        width: min(96%, 690px);
+        height: 272px;
+      }
+      .chapter-anchors {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .chapter-anchors > span {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        min-height: 96px;
+        padding: 12px 15px;
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 780;
+        line-height: 1.2;
+      }
+      .chapter-anchors b {
+        display: grid;
+        width: 50px;
+        height: 50px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+        font-size: 22px;
+        font-weight: 920;
+      }
+      .chapter-anchors strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--kvb-bordeaux-deep);
+        font-size: 21px;
+        line-height: 1.12;
+      }
+      .case-map {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+        gap: 18px;
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      .case-map::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 20% 16%, rgba(214, 155, 54, 0.18), transparent 26%),
+          url("./assets/generated/product-case-board.png") left center / 60% auto no-repeat;
+        opacity: 0.16;
+        filter: grayscale(1) contrast(1.08);
+      }
+      .case-map-visual {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        padding: 26px;
+        background:
+          linear-gradient(135deg, rgba(122, 23, 48, 0.1), rgba(255, 249, 243, 0.92)),
+          var(--kbp-paper);
+      }
+      .case-map-visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./assets/generated/product-case-board.png") center / cover no-repeat;
+        opacity: 0.2;
+        filter: grayscale(1) contrast(1.1);
+      }
+      .case-map-visual svg {
+        position: relative;
+        z-index: 1;
+        width: min(94%, 690px);
+        height: 390px;
+      }
+      .case-node-grid {
+        z-index: 1;
+        display: grid;
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .case-node {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 13px;
+        align-items: center;
+        padding: 14px;
+      }
+      .case-node b {
+        display: grid;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+        font-size: 20px;
+        font-weight: 920;
+      }
+      .case-node strong {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 24px;
+        line-height: 1.1;
+      }
+      .case-node span {
+        display: block;
+        margin-top: 4px;
+        color: var(--kbp-muted);
+        font-size: 17px;
+        line-height: 1.24;
+      }
+      #P02 .profile-layout,
+      #P09 .statement-layout,
+      #P12 .statement-layout,
+      #P15 .grid-4,
+      #P16 .global-case-board,
+      #P17 .reality-check-board,
+      #P19 .accumulation-board,
+      #P21 .problem-board,
+      #P22 .case-catalog,
+      #P25 .objection-board,
+      #P26 .community-case-board,
+      #P30 .package-system,
+      #P31 .quality-gate,
+      #P34 .closing-shift {
+        position: relative;
+        overflow: hidden;
+      }
+      #P02 .profile-layout > *,
+      #P09 .statement-layout > *,
+      #P12 .statement-layout > *,
+      #P15 .grid-4 > *,
+      #P16 .global-case-board > *,
+      #P17 .reality-check-board > *,
+      #P19 .accumulation-board > *,
+      #P21 .problem-board > *,
+      #P22 .case-catalog > *,
+      #P25 .objection-board > *,
+      #P26 .community-case-board > *,
+      #P30 .package-system > *,
+      #P31 .quality-gate > *,
+      #P34 .closing-shift > * {
+        position: relative;
+        z-index: 1;
+      }
+      #P02 .profile-layout::after,
+      #P09 .statement-layout::after,
+      #P12 .statement-layout::after,
+      #P15 .grid-4::after,
+      #P16 .global-case-board::after,
+      #P17 .reality-check-board::after,
+      #P19 .accumulation-board::after,
+      #P21 .problem-board::after,
+      #P22 .case-catalog::after,
+      #P25 .objection-board::after,
+      #P26 .community-case-board::after,
+      #P30 .package-system::after,
+      #P31 .quality-gate::after,
+      #P34 .closing-shift::before {
+        content: "";
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+        z-index: 0;
+        width: 350px;
+        height: 150px;
+        border: 2px solid rgba(122, 23, 48, 0.14);
+        border-radius: 8px;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.17;
+        filter: grayscale(1) contrast(1.12);
+        pointer-events: none;
+      }
+      #P02 .profile-layout::after,
+      #P26 .community-case-board::after,
+      #P34 .closing-shift::before {
+        background-image: url("./assets/generated/community-workspace.png");
+      }
+      #P09 .statement-layout::after,
+      #P12 .statement-layout::after,
+      #P21 .problem-board::after,
+      #P31 .quality-gate::after {
+        background-image: url("./assets/generated/prompt-to-product.png");
+      }
+      #P15 .grid-4::after,
+      #P16 .global-case-board::after,
+      #P30 .package-system::after {
+        background-image: url("./assets/generated/kikai-operating-system.png");
+      }
+      #P17 .reality-check-board::after,
+      #P19 .accumulation-board::after,
+      #P25 .objection-board::after {
+        background-image: url("./assets/generated/reality-check.png");
+      }
+      #P22 .case-catalog::after {
+        background-image: url("./assets/generated/product-case-board.png");
+      }
+      #P02 .profile-layout::before,
+      #P12 .statement-layout::before,
+      #P15 .grid-4::before,
+      #P21 .problem-board::before,
+      #P22 .case-catalog::before,
+      #P30 .package-system::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 18px;
+        z-index: 0;
+        width: 150px;
+        height: 112px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='112' viewBox='0 0 150 112'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.22' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 82h118M30 70l22-26 21 17 32-41 26 22'/%3E%3Cpath d='M26 24h48M26 38h30'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.18'%3E%3Ccircle cx='52' cy='44' r='12'/%3E%3Ccircle cx='106' cy='20' r='14'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+        pointer-events: none;
+      }
+      #P19 .accumulation-board::before {
+        inset: 0;
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -3221,9 +3642,18 @@
         <div class="content">
           <h2 data-role="title">AI活用は「伝える」と「作る」に分かれる</h2>
           <p class="lead-copy" data-role="lead">どちらも正しい。ただし、個人が勝ち筋を作るうえでは構造がかなり違う。</p>
-          <div class="path-board body-slot" data-role="body">
-            <article class="path-card">
+          <div class="path-board path-arena body-slot" data-role="body">
+            <article class="path-card path-marketing">
               <span class="path-label">伝える道</span>
+              <div class="path-visual" aria-hidden="true">
+                <svg viewBox="0 0 320 150">
+                  <path class="mono-fill" stroke-width="4" d="M34 92h44l66 28V30L78 58H34z"></path>
+                  <path class="mono-line" stroke-width="4" d="M144 50c34 9 53 26 58 50M144 76c21 6 34 16 38 30M84 94l16 34"></path>
+                  <path class="mono-line" stroke-width="5" d="M218 104h74M232 78h46M232 52h34"></path>
+                  <circle class="mono-gold" stroke-width="4" cx="248" cy="112" r="18"></circle>
+                  <circle class="mono-fill" stroke-width="4" cx="291" cy="44" r="13"></circle>
+                </svg>
+              </div>
               <strong>AI × マーケティング</strong>
               <span>発信・集客・コンテンツ量産。「どう伝えるか」を効率化するゲーム。</span>
               <ul>
@@ -3234,8 +3664,18 @@
               <em>伝達の増幅</em>
             </article>
             <div class="path-pivot"><span>今回の主題</span><strong>価値を作る側へ</strong><i>→</i></div>
-            <article class="path-card feature">
+            <article class="path-card path-product feature">
               <span class="path-label">作る道</span>
+              <div class="path-visual" aria-hidden="true">
+                <svg viewBox="0 0 320 150">
+                  <rect class="mono-fill" stroke-width="4" x="34" y="30" width="108" height="82" rx="10"></rect>
+                  <path class="mono-line" stroke-width="4" d="M54 56h62M54 76h42M54 96h66M88 112v18M68 130h40"></path>
+                  <rect class="mono-fill" stroke-width="4" x="190" y="20" width="86" height="108" rx="12"></rect>
+                  <path class="mono-line" stroke-width="4" d="M210 48h46M210 68h30M210 91h48M210 107h34"></path>
+                  <path class="mono-line" stroke-width="5" d="M150 74h30m-10-12 12 12-12 12"></path>
+                  <circle class="mono-gold" stroke-width="4" cx="258" cy="35" r="15"></circle>
+                </svg>
+              </div>
               <strong>AI × プロダクト</strong>
               <span>サービス開発・課題解決。「何を作るか」を創造するゲーム。</span>
               <ul>
@@ -3363,17 +3803,33 @@
         <div class="content">
           <h2 data-role="title">「作る」の常識が変わる</h2>
           <p class="lead-copy" data-role="lead">バイブコーディングとは、作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
-          <div class="divider-layout body-slot body-compact" data-role="body">
-            <div class="chapter-number">03</div>
-            <div class="toc-mini">
-              <div class="toc-row"><b>11</b><span>言葉が形になる</span><span>Prompt to app</span></div>
-              <div class="toc-row"><b>13</b><span>非エンジニアの実績</span><span>Cases</span></div>
-              <div class="toc-row"><b>15</b><span>4つの可能性</span><span>Business</span></div>
-              <div class="section-checkpoints">
-                <span>入口：コードではなく要件を言葉にする</span>
-                <span>実用：画面、データ、業務フローまで作る</span>
-                <span>収益：受託や販売へつなげる</span>
-              </div>
+          <div class="chapter-mural body-slot body-compact" data-role="body">
+            <div class="chapter-index">
+              <span class="chapter-no">03</span>
+              <strong>作り方の前提が変わる章</strong>
+              <span>章扉として余白を残しつつ、言葉、AI、画面、事業化のつながりを一枚絵で見せる。</span>
+            </div>
+            <div class="chapter-canvas" aria-label="言葉からサービス化する流れの単色図解">
+              <svg viewBox="0 0 760 300" aria-hidden="true">
+                <rect class="mono-fill" stroke-width="5" x="38" y="70" width="168" height="118" rx="16"></rect>
+                <path class="mono-line" stroke-width="5" d="M72 106h96M72 134h68M72 162h88"></path>
+                <path class="mono-line" stroke-width="7" d="M228 132h92m-24-24 28 28-28 28"></path>
+                <rect class="mono-fill" stroke-width="5" x="344" y="42" width="174" height="170" rx="20"></rect>
+                <path class="mono-line" stroke-width="5" d="M378 82h100M378 112h74M378 146h104M378 174h62"></path>
+                <circle class="mono-gold" stroke-width="5" cx="486" cy="72" r="24"></circle>
+                <path class="mono-line" stroke-width="7" d="M536 134h92m-24-24 28 28-28 28"></path>
+                <path class="mono-fill" stroke-width="5" d="M654 64h54l20 26v122h-74z"></path>
+                <path class="mono-line" stroke-width="5" d="M672 104h38M672 132h38M672 160h28"></path>
+                <path class="mono-line" stroke-width="5" d="M126 188v44h552v-28"></path>
+                <circle class="mono-gold" stroke-width="5" cx="126" cy="232" r="16"></circle>
+                <circle class="mono-gold" stroke-width="5" cx="432" cy="232" r="16"></circle>
+                <circle class="mono-gold" stroke-width="5" cx="678" cy="204" r="16"></circle>
+              </svg>
+            </div>
+            <div class="chapter-anchors" aria-label="この章で扱う視点">
+              <span><b>11</b><span><strong>言葉が形になる</strong>要件を自然言語で渡し、画面と機能に変える。</span></span>
+              <span><b>13</b><span><strong>実用例で見る</strong>現場課題から、使える小さな業務アプリを作る。</span></span>
+              <span><b>15</b><span><strong>事業に接続する</strong>受託、販売、自社ツール、コミュニティへ展開する。</span></span>
             </div>
           </div>
         </div>
@@ -3436,13 +3892,26 @@
         <div class="content">
           <h2 data-role="title">非エンジニアでも実用サービスは作れる</h2>
           <p class="lead-copy" data-role="lead">業務上の具体的な課題が見えていれば、現場の手間や判断を減らすプロダクトにできる。</p>
-          <div class="product-board body-slot body-tall" data-role="body">
-            <img src="./assets/generated/product-case-board.png" alt="4つの実用アプリ事例を表す生成UIビジュアル">
-            <div class="caption-strip" aria-label="実用アプリ事例">
-              <span>FreePick<br>スケジュール調整</span>
-              <span>ShiftManager<br>シフト作成支援</span>
-              <span>物販ツール<br>EC分析</span>
-              <span>AI書類抽出<br>入力業務DX</span>
+          <div class="case-map body-slot body-tall" data-role="body">
+            <div class="case-map-visual" aria-label="非エンジニアが現場課題から実用サービスを作る流れの単色図解">
+              <svg viewBox="0 0 760 470" aria-hidden="true">
+                <rect class="mono-fill" stroke-width="5" x="72" y="86" width="210" height="260" rx="22"></rect>
+                <path class="mono-line" stroke-width="5" d="M112 136h124M112 174h84M112 212h112M112 250h76"></path>
+                <path class="mono-line" stroke-width="6" d="M314 208h118m-34-32 38 38-38 38"></path>
+                <rect class="mono-fill" stroke-width="5" x="470" y="68" width="218" height="292" rx="24"></rect>
+                <path class="mono-line" stroke-width="5" d="M512 122h132M512 164h92M512 216h132M512 258h78M512 306h112"></path>
+                <circle class="mono-gold" stroke-width="5" cx="638" cy="112" r="28"></circle>
+                <circle class="mono-gold" stroke-width="5" cx="142" cy="358" r="22"></circle>
+                <circle class="mono-gold" stroke-width="5" cx="580" cy="374" r="22"></circle>
+                <path class="mono-line" stroke-width="5" d="M142 380v34h438v-18"></path>
+                <path class="mono-line" stroke-width="5" d="M118 50h120M118 420h146M520 30h118M548 422h110"></path>
+              </svg>
+            </div>
+            <div class="case-node-grid" aria-label="実用アプリ事例">
+              <div class="case-node"><b>01</b><span><strong>FreePick</strong>スケジュール調整の往復を減らし、候補収集から決定連絡までを軽くする。</span></div>
+              <div class="case-node"><b>02</b><span><strong>ShiftManager</strong>希望、制約、人数条件を整理し、シフト案作成と確認負荷を下げる。</span></div>
+              <div class="case-node"><b>03</b><span><strong>物販ツール</strong>商品、在庫、販売データをまとめ、仕入れと改善判断を支援する。</span></div>
+              <div class="case-node"><b>04</b><span><strong>AI書類抽出</strong>書類から必要項目を抜き出し、入力作業を業務DXへ変える。</span></div>
             </div>
           </div>
         </div>
