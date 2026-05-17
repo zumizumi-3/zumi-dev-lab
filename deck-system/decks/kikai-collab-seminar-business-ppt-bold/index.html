@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kikai Collab Seminar / Bold Bordeaux Visual Format</title>
+    <title>Kikai Collab Seminar / Bold White Gold Visual Format</title>
     <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
     <style>
       :root {
@@ -2338,39 +2338,37 @@
         background: var(--kbp-orange);
       }
       .speaker-notes { display: none; }
-      /* Bold Bordeaux visual variant: keep the original deck intact and push this copy toward
+      /* Bold white/gold visual variant: keep the original deck intact and push this copy toward
          larger type, stronger hierarchy, explicit visual cues, and more image/SVG surfaces. */
       :root {
-        --kbp-page-bg: #321019;
-        --kbp-paper: #fff9f3;
+        --kbp-page-bg: #ffffff;
+        --kbp-paper: #ffffff;
         --kbp-ink: #343230;
         --kbp-muted: #55504c;
-        --kbp-line: #d8b9ae;
-        --kbp-line-soft: #ead8cf;
-        --kbp-surface: #fff0e7;
-        --kbp-surface-strong: #7a1730;
-        --kbp-orange: #851a35;
-        --kbp-orange-soft: #f7e4df;
-        --kbp-shadow: 0 28px 74px rgba(35, 8, 17, 0.32);
+        --kbp-line: #dcc8ad;
+        --kbp-line-soft: #efe2cf;
+        --kbp-surface: #fff7ed;
+        --kbp-surface-strong: #d69b36;
+        --kbp-orange: #c9821f;
+        --kbp-orange-soft: #fff1d4;
+        --kbp-shadow: 0 28px 74px rgba(52, 50, 48, 0.16);
         --kbp-radius: 8px;
-        --kvb-bordeaux: #7a1730;
-        --kvb-bordeaux-deep: #4c0d1d;
-        --kvb-rose: #bd4058;
+        --kvb-bordeaux: #6f2534;
+        --kvb-bordeaux-deep: #343230;
+        --kvb-rose: #efc56b;
         --kvb-gold: #d69b36;
         --kvb-gold-soft: #fff0cc;
         --kvb-teal: #19756f;
-        --kvb-cream: #fff9f3;
+        --kvb-cream: #ffffff;
         --kvb-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='260' viewBox='0 0 360 260'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.18' stroke-width='3'%3E%3Cpath d='M20 210 160 70l58 58 112-112'/%3E%3Cpath d='M26 42h110M26 78h78M226 186h94M226 220h58'/%3E%3Crect x='220' y='28' width='94' height='94' rx='12'/%3E%3Ccircle cx='84' cy='178' r='38'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.2'%3E%3Crect x='246' y='55' width='42' height='42' rx='8'/%3E%3Ccircle cx='84' cy='178' r='15'/%3E%3C/g%3E%3C/svg%3E");
       }
       body {
-        background:
-          linear-gradient(135deg, rgba(76, 13, 29, 0.98), rgba(122, 23, 48, 0.9) 48%, rgba(214, 155, 54, 0.62)),
-          var(--kbp-page-bg);
+        background: var(--kbp-page-bg);
       }
       .topbar {
-        border-bottom: 1px solid rgba(255, 240, 204, 0.28);
-        background: rgba(47, 11, 23, 0.9);
-        color: #fff1e8;
+        border-bottom: 1px solid rgba(220, 200, 173, 0.86);
+        background: rgba(255, 255, 255, 0.94);
+        color: var(--kbp-muted);
       }
       .nav-mark {
         width: 12px;
@@ -2383,16 +2381,15 @@
         grid-template-rows: 32px minmax(0, 1fr) 30px;
         gap: 8px;
         padding: 40px 54px 38px 72px;
-        border: 3px solid rgba(122, 23, 48, 0.46);
+        border: 3px solid rgba(214, 155, 54, 0.36);
         background:
-          linear-gradient(90deg, rgba(122, 23, 48, 0.085) 0 11%, transparent 11%),
-          linear-gradient(180deg, rgba(255, 240, 204, 0.52), rgba(255, 249, 243, 0) 36%),
-          var(--kvb-pattern) right 36px bottom 30px / 360px 260px no-repeat,
+          linear-gradient(90deg, rgba(214, 155, 54, 0.12) 0 11%, transparent 11%),
+          linear-gradient(180deg, rgba(255, 244, 221, 0.48), rgba(255, 255, 255, 0) 36%),
           var(--kbp-paper);
       }
       .slide::before {
         width: 28px;
-        background: linear-gradient(180deg, var(--kvb-bordeaux), var(--kvb-rose) 62%, var(--kvb-gold));
+        background: linear-gradient(180deg, #d69b36, #efc56b 64%, #c9821f);
       }
       .slide::after {
         content: attr(data-slide);
@@ -2402,7 +2399,7 @@
         height: auto;
         border-radius: 0;
         background: transparent;
-        color: rgba(122, 23, 48, 0.09);
+        color: rgba(214, 155, 54, 0.12);
         font-size: 92px;
         font-weight: 900;
         line-height: 1;
@@ -2437,7 +2434,7 @@
       }
       h2 {
         padding-bottom: 9px;
-        border-bottom: 7px solid rgba(122, 23, 48, 0.86);
+        border-bottom: 7px solid rgba(214, 155, 54, 0.84);
         color: var(--kvb-bordeaux-deep);
         font-size: 50px;
         font-weight: 900;
@@ -2898,7 +2895,7 @@
       #P33 .image-frame img {
         object-position: center;
       }
-      /* Balanced body pass: keep the unified Bordeaux palette, but make body text and visuals stronger. */
+      /* Balanced body pass: keep the unified palette, but make body text and visuals stronger. */
       .body-slot {
         position: relative;
       }
@@ -3207,7 +3204,7 @@
         height: 156px;
         opacity: 0.22;
       }
-      /* Reference-style mono visual pass: richer diagrams while keeping Bordeaux/Gold unified. */
+      /* Reference-style mono visual pass: richer diagrams while keeping white/gold unified. */
       .path-arena {
         grid-template-columns: minmax(0, 1fr) 224px minmax(0, 1fr);
         gap: 18px;
@@ -3638,6 +3635,226 @@
       #P19 .accumulation-board::before {
         inset: 0;
       }
+      /* Final white/gold polish: keep the rich image2/SVG density, but remove the red-heavy
+         paper/background treatment and generic decorative marks that compete with the content. */
+      :root {
+        --kvb-bordeaux: #514c47;
+        --kvb-bordeaux-deep: #343230;
+        --kvb-rose: #efc56b;
+        --kbp-page-bg: #ffffff;
+        --kbp-paper: #ffffff;
+      }
+      body {
+        background: #ffffff;
+      }
+      .topbar {
+        border-bottom-color: rgba(214, 155, 54, 0.26);
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--kbp-muted);
+      }
+      .slide {
+        border-color: rgba(214, 155, 54, 0.38);
+        background:
+          linear-gradient(90deg, rgba(214, 155, 54, 0.12) 0 10.5%, transparent 10.5%),
+          linear-gradient(180deg, rgba(255, 247, 237, 0.72), rgba(255, 255, 255, 0) 34%),
+          #ffffff;
+      }
+      .slide::before,
+      .cover::before {
+        background: linear-gradient(180deg, #d69b36, #efc56b 58%, #c9821f);
+      }
+      .slide::after {
+        color: rgba(214, 155, 54, 0.11);
+      }
+      .slide-footer {
+        border-top-color: rgba(214, 155, 54, 0.24);
+      }
+      .card,
+      .panel,
+      .metric,
+      .table-wrap,
+      .image-frame,
+      .note,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof,
+      .chapter-index,
+      .chapter-canvas,
+      .chapter-anchors span,
+      .case-map-visual,
+      .case-node {
+        border-color: rgba(214, 155, 54, 0.28);
+        box-shadow: 0 14px 28px rgba(52, 50, 48, 0.08);
+      }
+      .card.feature,
+      .panel.feature,
+      .metric.feature,
+      .path-card.feature,
+      .equation-box.feature,
+      .change-card .after,
+      .accumulation-card.hidden,
+      .problem-card.feature,
+      .case-card.feature,
+      .global-card.feature,
+      .community-case.feature,
+      .route-stage.active,
+      .coverage-stage.active,
+      .revenue-card.feature,
+      .origin-step.feature,
+      .loop-card.feature,
+      .gate-card.feature,
+      .pipeline-stage.feature,
+      .closing-panel.feature,
+      .reality-card.feature,
+      .objection-card.feature,
+      .risk-slice.feature {
+        border-color: rgba(214, 155, 54, 0.58);
+        background:
+          linear-gradient(135deg, rgba(255, 240, 204, 0.9), rgba(255, 247, 237, 0.98)),
+          var(--kbp-orange-soft);
+      }
+      .number,
+      .commodity-item b,
+      .funnel-stage b,
+      .pipe-mark,
+      .gate-card .gate-badge,
+      .package-flow b,
+      .case-card .number,
+      .insight b,
+      .chapter-index .chapter-no,
+      .chapter-anchors b,
+      .case-node b {
+        background: var(--kbp-orange);
+        color: #ffffff;
+      }
+      .accent-rule,
+      .progress span,
+      .curve,
+      .case-meter i,
+      .reality-scale i,
+      .commodity-bar i {
+        background: var(--kbp-orange);
+        border-color: var(--kbp-orange);
+      }
+      .formula-strip,
+      .chapter-number,
+      .avatar,
+      .avatar-mark,
+      .impact-number,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .objection-core,
+      .reality-core {
+        border-left-color: var(--kbp-orange);
+      }
+      .cover {
+        background:
+          linear-gradient(90deg, rgba(214, 155, 54, 0.13) 0 15%, transparent 15%),
+          linear-gradient(180deg, rgba(255, 247, 237, 0.84), #ffffff 44%),
+          #ffffff;
+      }
+      .cover-logo {
+        border-color: rgba(214, 155, 54, 0.34);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .cover .kicker {
+        color: var(--kbp-orange);
+      }
+      .cover h1,
+      .cover .lead-copy {
+        color: var(--kbp-ink);
+      }
+      .cover .slide-footer {
+        border-top-color: rgba(214, 155, 54, 0.26);
+        color: var(--kbp-muted);
+      }
+      .cover-panel {
+        border-color: rgba(214, 155, 54, 0.36);
+        background: linear-gradient(180deg, #ffffff, #fff7ed);
+      }
+      .cover-panel::after,
+      #P10 .divider-layout::after,
+      #P20 .route-system::after,
+      #P29 .coverage-board::after {
+        border-color: rgba(214, 155, 54, 0.3);
+        box-shadow: inset 0 0 0 999px rgba(255, 247, 237, 0.18);
+      }
+      .controls button,
+      .counter {
+        border-color: rgba(214, 155, 54, 0.28);
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--kbp-ink);
+      }
+      .card::after,
+      .panel::after,
+      .metric::after,
+      .commodity-item::after,
+      .equation-box::after,
+      .path-card::after,
+      .change-card::after,
+      .metric-tile::after,
+      .funnel-stage::after,
+      .accumulation-card::after,
+      .problem-card::after,
+      .case-card::after,
+      .loop-card::after,
+      .risk-card::before,
+      .gate-card::after,
+      .pipeline-stage::before,
+      .closing-panel::after,
+      .global-card::after,
+      .revenue-card::after,
+      .route-stage::before,
+      .coverage-stage::before,
+      .community-case::after,
+      .commodity-map::before,
+      .amplifier-model::before,
+      .path-board::before,
+      .change-board::before,
+      .reality-funnel::before,
+      .accumulation-board::before,
+      .origin-timeline::before,
+      .revenue-board::before,
+      .support-loop::before,
+      .pipeline-roadmap::before,
+      .path-pivot::after,
+      .formula-strip::after,
+      .package-core::after,
+      .loop-core::after,
+      .statement-core::after,
+      .objection-core::after,
+      .reality-core::before,
+      #P02 .profile-layout::before,
+      #P12 .statement-layout::before,
+      #P15 .grid-4::before,
+      #P21 .problem-board::before,
+      #P22 .case-catalog::before,
+      #P30 .package-system::before,
+      #P34 .closing-shift::before,
+      #P34 .closing-shift::after {
+        content: none;
+        display: none;
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -3654,7 +3871,7 @@
       <span>/</span>
       <a href="../../formats/kikai-business-ppt/business-plain-patterns.html">Kikai Business PPT</a>
       <span class="nav-mark" aria-hidden="true"></span>
-      <span>Collab Seminar / Bold Bordeaux Visual</span>
+      <span>Collab Seminar / Bold White Gold Visual</span>
     </nav>
 
     <main aria-label="Kikai Collab Seminar slides">
@@ -3671,7 +3888,7 @@
             <img src="../../formats/kikai-business-ppt/assets/2.png" alt="Kikai icon">
             <span>Collab seminar</span>
             <span>〇〇様向け</span>
-            <span>Format: Bold Bordeaux Visual</span>
+            <span>Format: Bold White Gold Visual</span>
           </aside>
         </div>
         <footer class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P01</span></footer>
