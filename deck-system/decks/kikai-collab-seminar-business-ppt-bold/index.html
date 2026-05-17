@@ -3641,27 +3641,36 @@
         --kvb-bordeaux: #514c47;
         --kvb-bordeaux-deep: #343230;
         --kvb-rose: #efc56b;
+        --kvb-gold-soft: #ffffff;
         --kbp-page-bg: #ffffff;
         --kbp-paper: #ffffff;
+        --kbp-surface: #ffffff;
+        --kbp-orange-soft: #ffffff;
       }
+      html,
       body {
-        background: #ffffff;
+        background: #ffffff !important;
+      }
+      main {
+        background: #ffffff !important;
       }
       .topbar {
         border-bottom-color: rgba(214, 155, 54, 0.26);
-        background: rgba(255, 255, 255, 0.96);
+        background: #ffffff;
         color: var(--kbp-muted);
       }
       .slide {
         border-color: rgba(214, 155, 54, 0.38);
-        background: #ffffff;
+        background: #ffffff !important;
+        box-shadow: none;
       }
       .slide::before,
       .cover::before {
         background: linear-gradient(180deg, #d69b36, #efc56b 58%, #c9821f);
       }
       .slide::after {
-        color: rgba(214, 155, 54, 0.11);
+        content: none;
+        display: none;
       }
       .slide-footer {
         border-top-color: rgba(214, 155, 54, 0.24);
@@ -3699,6 +3708,7 @@
       .case-map-visual,
       .case-node {
         border-color: rgba(214, 155, 54, 0.28);
+        background: #ffffff !important;
         box-shadow: 0 14px 28px rgba(52, 50, 48, 0.08);
       }
       .card.feature,
@@ -3724,9 +3734,7 @@
       .objection-card.feature,
       .risk-slice.feature {
         border-color: rgba(214, 155, 54, 0.58);
-        background:
-          linear-gradient(135deg, rgba(255, 240, 204, 0.9), rgba(255, 247, 237, 0.98)),
-          var(--kbp-orange-soft);
+        background: #ffffff !important;
       }
       .number,
       .commodity-item b,
@@ -3765,11 +3773,11 @@
         border-left-color: var(--kbp-orange);
       }
       .cover {
-        background: #ffffff;
+        background: #ffffff !important;
       }
       .cover-logo {
         border-color: rgba(214, 155, 54, 0.34);
-        background: rgba(255, 255, 255, 0.95);
+        background: #ffffff;
       }
       .cover .kicker {
         color: var(--kbp-orange);
@@ -3784,7 +3792,7 @@
       }
       .cover-panel {
         border-color: rgba(214, 155, 54, 0.36);
-        background: #ffffff;
+        background: #ffffff !important;
       }
       .cover-panel::after,
       #P10 .divider-layout::after,
@@ -3796,7 +3804,7 @@
       .controls button,
       .counter {
         border-color: rgba(214, 155, 54, 0.28);
-        background: rgba(255, 255, 255, 0.96);
+        background: #ffffff;
         color: var(--kbp-ink);
       }
       .card::after,
