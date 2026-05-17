@@ -181,10 +181,23 @@
       .content > .body-slot:not(.note):not(.unit):not(.footnote-slot),
       .content > table[data-role="table"] {
         width: 100%;
-        min-height: clamp(250px, 25vw, 330px);
+        min-height: clamp(286px, 28vw, 368px);
       }
       .content > .body-compact {
         min-height: auto !important;
+      }
+      #PB-04 .content > .body-slot:not(.note):not(.unit):not(.footnote-slot),
+      #PB-08 .content > .body-slot:not(.note):not(.unit):not(.footnote-slot),
+      #PB-11 .content > .body-slot:not(.note):not(.unit):not(.footnote-slot),
+      #PB-23 .content > .body-slot:not(.note):not(.unit):not(.footnote-slot) {
+        min-height: clamp(250px, 25vw, 326px);
+      }
+      #PB-09 .content > .timeline.body-slot {
+        min-height: clamp(238px, 22vw, 282px) !important;
+      }
+      #PB-31 .meta-row.body-slot,
+      #PB-35 .cover-band.body-slot {
+        min-height: clamp(238px, 22vw, 282px);
       }
       .content > .grid-2.body-slot,
       .content > .grid-3.body-slot,
@@ -1850,7 +1863,7 @@
         font-size: clamp(2.3rem, 4vw, 3.1rem);
       }
       #PB-00 .meta-row.body-slot {
-        min-height: clamp(160px, 16vw, 212px);
+        min-height: clamp(150px, 15vw, 196px);
       }
       .number,
       .status {
@@ -1905,6 +1918,14 @@
         }
         .content > .title-slot {
           padding-bottom: 1px;
+        }
+        .content > .body-slot:not(.note):not(.unit):not(.footnote-slot),
+        .content > table[data-role="table"],
+        .content > .timeline.body-slot,
+        #PB-09 .content > .timeline.body-slot,
+        #PB-31 .meta-row.body-slot,
+        #PB-35 .cover-band.body-slot {
+          min-height: 58px !important;
         }
         .catalog-hero-logo {
           display: none;
