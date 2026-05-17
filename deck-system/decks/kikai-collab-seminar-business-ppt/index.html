@@ -155,7 +155,7 @@
         color: var(--kbp-ink);
         font-size: 74px;
         font-weight: 820;
-        line-height: 1.06;
+        line-height: 1.04;
         text-wrap: balance;
       }
       h2 {
@@ -938,6 +938,623 @@
         font-size: 16px;
         font-weight: 700;
       }
+      .commodity-map,
+      .amplifier-model,
+      .reality-funnel,
+      .problem-board,
+      .quality-gate {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .commodity-stack,
+      .outcome-lanes,
+      .question-grid,
+      .gate-flow,
+      .pipeline-roadmap {
+        display: grid;
+        gap: 12px;
+      }
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .commodity-item {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+        padding: 18px;
+      }
+      .commodity-item b,
+      .path-badge,
+      .gate-badge {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 18px;
+        font-weight: 900;
+      }
+      .commodity-item strong,
+      .path-card strong,
+      .change-card strong,
+      .accumulation-card strong,
+      .problem-card strong,
+      .case-card strong,
+      .origin-step strong,
+      .loop-card strong,
+      .risk-card strong,
+      .gate-card strong,
+      .pipeline-stage strong,
+      .closing-panel strong {
+        display: block;
+        color: var(--kbp-ink);
+        font-size: 22px;
+        line-height: 1.25;
+      }
+      .commodity-item span,
+      .path-card span,
+      .change-card span,
+      .accumulation-card span,
+      .problem-card span,
+      .case-card span,
+      .origin-step span,
+      .loop-card span,
+      .risk-card span,
+      .gate-card span,
+      .pipeline-stage span,
+      .closing-panel span {
+        display: block;
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.4;
+      }
+      .commodity-bar {
+        height: 9px;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--kbp-line-soft);
+      }
+      .commodity-bar i {
+        display: block;
+        width: var(--fill);
+        height: 100%;
+        border-radius: inherit;
+        background: var(--kbp-line);
+      }
+      .differentiator {
+        display: grid;
+        align-content: center;
+        padding: 34px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .differentiator strong {
+        color: var(--kbp-ink);
+        font-size: 44px;
+        line-height: 1.18;
+        text-wrap: balance;
+      }
+      .differentiator p {
+        margin: 14px 0 0;
+        font-size: 20px;
+        line-height: 1.44;
+      }
+      .differentiator .layers {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .layer-row {
+        display: grid;
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        padding: 12px 14px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .layer-row b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+      }
+      .layer-row span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+      }
+      .path-board {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 78px minmax(0, 1fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+      .path-card {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        gap: 14px;
+        padding: 24px;
+      }
+      .path-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .path-card ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .path-card li {
+        padding: 10px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: rgba(251, 252, 252, 0.72);
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.32;
+      }
+      .path-card em,
+      .change-card em,
+      .pipeline-stage em {
+        color: var(--kbp-orange);
+        font-style: normal;
+        font-size: 16px;
+        font-weight: 860;
+      }
+      .path-pivot {
+        display: grid;
+        place-items: center;
+        align-self: center;
+        height: 78px;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 34px;
+        font-weight: 900;
+      }
+      .amplifier-equation {
+        display: grid;
+        gap: 12px;
+      }
+      .equation-box {
+        display: grid;
+        align-content: center;
+        min-height: 136px;
+        padding: 22px;
+      }
+      .equation-box.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .equation-box b {
+        color: var(--kbp-orange);
+        font-size: 18px;
+      }
+      .equation-box strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--kbp-ink);
+        font-size: 28px;
+        line-height: 1.2;
+      }
+      .outcome-lane {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr) 96px;
+        gap: 16px;
+        align-items: center;
+        min-height: 156px;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .outcome-lane.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .lane-chart {
+        position: relative;
+        height: 76px;
+        border-bottom: 3px solid var(--kbp-line);
+      }
+      .lane-chart::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        right: 12px;
+        bottom: 8px;
+        height: var(--height);
+        border-top: 4px solid var(--kbp-orange);
+        border-right: 4px solid var(--kbp-orange);
+        border-radius: 100% 10px 0 0;
+      }
+      .lane-chart.flat::before {
+        height: 0;
+        bottom: 16px;
+        border-right: 0;
+        border-radius: 0;
+      }
+      .outcome-lane strong {
+        color: var(--kbp-ink);
+        font-size: 22px;
+      }
+      .outcome-lane span {
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .outcome-lane b {
+        color: var(--kbp-orange);
+        font-size: 38px;
+        line-height: 1;
+        text-align: right;
+      }
+      .change-board {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .change-card {
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+        gap: 16px;
+        align-content: center;
+        padding: 22px;
+      }
+      .change-card .before,
+      .change-card .after {
+        display: grid;
+        min-height: 104px;
+        align-content: center;
+        padding: 14px 16px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+      }
+      .change-card .after {
+        border-color: rgba(255, 113, 67, 0.42);
+        background: var(--kbp-orange-soft);
+      }
+      .change-card b {
+        display: block;
+        color: var(--kbp-muted);
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .change-card .after strong {
+        color: var(--kbp-orange);
+        font-size: 30px;
+      }
+      .metric-wall {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        align-content: center;
+      }
+      .metric-tile {
+        display: grid;
+        align-content: center;
+        min-height: 116px;
+        padding: 18px;
+      }
+      .metric-tile b {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-orange);
+        font-size: 34px;
+        line-height: 1;
+      }
+      .metric-tile span {
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 760;
+        line-height: 1.34;
+      }
+      .funnel-stack {
+        display: grid;
+        gap: 10px;
+      }
+      .funnel-stage {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr) 120px;
+        gap: 16px;
+        align-items: center;
+        min-height: 94px;
+        padding: 14px 16px;
+      }
+      .funnel-stage b {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+      }
+      .funnel-stage strong {
+        color: var(--kbp-ink);
+        font-size: 21px;
+      }
+      .funnel-stage span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+      }
+      .funnel-stage em {
+        color: var(--kbp-orange);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 900;
+        text-align: right;
+      }
+      .accumulation-board {
+        display: grid;
+        grid-template-rows: 0.86fr 1.14fr;
+        gap: 14px;
+      }
+      .accumulation-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .accumulation-card {
+        display: grid;
+        align-content: center;
+        padding: 18px;
+      }
+      .accumulation-card.hidden {
+        border-color: rgba(255, 113, 67, 0.46);
+        background: var(--kbp-orange-soft);
+      }
+      .accumulation-card b {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-orange);
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+      .problem-card,
+      .risk-card {
+        display: grid;
+        align-content: center;
+        padding: 28px;
+      }
+      .problem-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .question-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .question-grid .problem-card {
+        min-height: 150px;
+        padding: 20px;
+      }
+      .case-catalog {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .case-card {
+        display: grid;
+        grid-template-rows: auto 144px auto;
+        gap: 16px;
+        padding: 20px;
+      }
+      .case-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .case-ui {
+        display: grid;
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+      }
+      .case-ui i {
+        display: block;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--kbp-line);
+      }
+      .case-ui .blocks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 6px;
+      }
+      .case-ui .blocks span {
+        min-height: 42px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .origin-timeline {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .origin-step {
+        position: relative;
+        display: grid;
+        align-content: center;
+        min-height: 380px;
+        padding: 28px;
+      }
+      .origin-step.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .origin-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 20px;
+        border-top: 3px solid var(--kbp-orange);
+        z-index: 2;
+      }
+      .origin-step b {
+        display: block;
+        margin-bottom: 18px;
+        color: var(--kbp-orange);
+        font-size: 42px;
+        line-height: 1;
+      }
+      .support-loop {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: 16px;
+      }
+      .loop-core {
+        display: grid;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-content: center;
+        justify-items: center;
+        padding: 26px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+        text-align: center;
+      }
+      .loop-core strong {
+        color: var(--kbp-ink);
+        font-size: 42px;
+        line-height: 1.1;
+      }
+      .loop-core span {
+        margin-top: 14px;
+        color: var(--kbp-muted);
+        font-size: 18px;
+        line-height: 1.38;
+      }
+      .loop-card {
+        display: grid;
+        align-content: center;
+        padding: 22px;
+      }
+      .loop-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .gate-flow {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .gate-card {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr);
+        gap: 12px;
+        padding: 20px;
+      }
+      .gate-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .gate-card svg {
+        align-self: center;
+        justify-self: center;
+        width: 68px;
+        height: 68px;
+        color: var(--kbp-orange);
+        stroke: currentColor;
+      }
+      .pipeline-roadmap {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+      }
+      .pipeline-stage {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 12px;
+        align-content: center;
+        min-height: 318px;
+        padding: 20px;
+      }
+      .pipeline-stage.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .pipeline-stage:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 58px;
+        right: 0;
+        width: 24px;
+        border-top: 3px solid var(--kbp-orange);
+        z-index: 2;
+      }
+      .pipe-mark {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 16px;
+        font-weight: 900;
+      }
+      .pipe-detail {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--kbp-line);
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.36;
+      }
+      .closing-shift {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 86px minmax(0, 1fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+      .closing-panel {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        gap: 18px;
+        padding: 28px;
+      }
+      .closing-panel.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .closing-panel ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding-left: 20px;
+      }
+      .closing-panel li {
+        color: var(--kbp-muted);
+        font-size: 17px;
+        line-height: 1.36;
+      }
+      .closing-kicker {
+        color: var(--kbp-orange);
+        font-size: 20px;
+        font-weight: 900;
+      }
       .before-after {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1080,11 +1697,21 @@
         <div class="content">
           <h2 data-role="title">AIを使うこと自体は、もう優位性ではない</h2>
           <p class="lead-copy" data-role="lead">ライティング、画像生成、業務効率化は当たり前。重要なのは、AIを使って何を生み出すか。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="panel feature"><strong>次の問い</strong><p>誰もがAIを使いこなす現在、次の一手はどこにあるのか。</p></div>
-            <div class="mock-screen" aria-label="AI tools collage">
-              <span style="width: 84%"></span><span style="width: 64%"></span><span style="width: 72%"></span><span style="width: 48%"></span>
-              <div class="mini-ui"><nav></nav><div class="screen"><div></div><div></div><div></div></div></div>
+          <div class="commodity-map body-slot" data-role="body">
+            <div class="commodity-stack" aria-label="AI活用のコモディティ化">
+              <div class="commodity-item"><b>文</b><div><strong>ライティング</strong><span>文章作成、要約、投稿文の生成は標準装備になった。</span><div class="commodity-bar"><i style="--fill: 92%"></i></div></div></div>
+              <div class="commodity-item"><b>画</b><div><strong>画像・資料生成</strong><span>ビジュアルの初稿づくりも、誰でも試せる領域になった。</span><div class="commodity-bar"><i style="--fill: 86%"></i></div></div></div>
+              <div class="commodity-item"><b>効</b><div><strong>業務効率化</strong><span>議事録、検索、翻訳、リサーチは日常業務に入り始めた。</span><div class="commodity-bar"><i style="--fill: 78%"></i></div></div></div>
+            </div>
+            <div class="differentiator">
+              <span class="pill">Next edge</span>
+              <strong>差がつくのは、AIで「使える価値」を作れるか。</strong>
+              <p>便利に使うだけでは横並びになる。次の一手は、顧客の課題を解くサービスや業務アプリまで形にすること。</p>
+              <div class="layers">
+                <div class="layer-row"><b>Input</b><span>課題・業務・顧客理解</span></div>
+                <div class="layer-row"><b>Build</b><span>動くプロトタイプ</span></div>
+                <div class="layer-row"><b>Value</b><span>販売・受託・継続改善</span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1097,10 +1724,30 @@
         <div class="content">
           <h2 data-role="title">AI活用は「伝える」と「作る」に分かれる</h2>
           <p class="lead-copy" data-role="lead">どちらも正しい。ただし、個人が勝ち筋を作るうえでは構造がかなり違う。</p>
-          <div class="compare body-slot" data-role="body">
-            <article class="card"><strong>AI × マーケティング</strong><p>発信・集客・コンテンツ量産。「どう伝えるか」を効率化するゲーム。</p></article>
-            <div class="arrow">→</div>
-            <article class="card feature"><strong>AI × プロダクト</strong><p>サービス開発・課題解決。「何を作るか」を創造するゲーム。</p></article>
+          <div class="path-board body-slot" data-role="body">
+            <article class="path-card">
+              <span class="path-badge">伝</span>
+              <strong>AI × マーケティング</strong>
+              <span>発信・集客・コンテンツ量産。「どう伝えるか」を効率化するゲーム。</span>
+              <ul>
+                <li>すでに強い発信者ほど伸びやすい</li>
+                <li>成果は既存の知見・影響力に依存しやすい</li>
+                <li>競争相手も同じAIを使う</li>
+              </ul>
+              <em>伝達の増幅</em>
+            </article>
+            <div class="path-pivot">→</div>
+            <article class="path-card feature">
+              <span class="path-badge">作</span>
+              <strong>AI × プロダクト</strong>
+              <span>サービス開発・課題解決。「何を作るか」を創造するゲーム。</span>
+              <ul>
+                <li>小さな業務課題から価値化できる</li>
+                <li>動くものが実績として残る</li>
+                <li>受託・販売・自社アプリへ広げられる</li>
+              </ul>
+              <em>価値の創造</em>
+            </article>
           </div>
         </div>
         <footer class="slide-footer"><span>AI活用の2つの道</span><span>P05</span></footer>
@@ -1112,12 +1759,24 @@
         <div class="content">
           <h2 data-role="title">AIマーケは、ナレッジを持つ人の拡声器</h2>
           <p class="lead-copy" data-role="lead">蓄積がある人は伸びる。ゼロを100倍しても、結果はゼロのまま。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="chart-card">
-              <div class="chart" aria-label="成果曲線"><span class="curve"></span><span class="flat"></span></div>
-              <p>上カーブ：すでにナレッジ・影響力がある人 / 下直線：ゼロから始める初心者</p>
+          <div class="amplifier-model body-slot" data-role="body">
+            <div class="amplifier-equation" aria-label="AIマーケティングの拡声器モデル">
+              <div class="equation-box feature"><b>入力</b><strong>経験・知識・顧客理解</strong></div>
+              <div class="equation-box"><b>AI</b><strong>速く、多く、整えて出す</strong></div>
+              <div class="equation-box"><b>出力</b><strong>元の材料以上にはなりにくい</strong></div>
             </div>
-            <div class="panel feature"><strong>構造的な前提</strong><p>AIは自分の経験・知識を拡張する拡声器。マーケティングは、ナレッジを持つ人がさらに強くなるレッドオーシャンになりやすい。</p></div>
+            <div class="outcome-lanes">
+              <div class="outcome-lane feature">
+                <div class="lane-chart" style="--height: 58px"></div>
+                <div><strong>ナレッジあり</strong><span>経験・顧客理解・発信の型がある人は、AIで量と速度を上げられる。</span></div>
+                <b>加速</b>
+              </div>
+              <div class="outcome-lane">
+                <div class="lane-chart flat" style="--height: 0"></div>
+                <div><strong>ナレッジなし</strong><span>何を言うべきか、誰に刺さるかがないと、量産しても差にならない。</span></div>
+                <b>横ばい</b>
+              </div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>AI活用の2つの道</span><span>P06</span></footer>
@@ -1261,15 +1920,25 @@
         <div class="content">
           <h2 data-role="title">開発期間、コスト、必要スキルが変わった</h2>
           <p class="lead-copy" data-role="lead">開発のハードルが下がっただけではなく、必要な能力の中心が変わっている。</p>
-          <div class="table-wrap body-slot" data-role="body">
-            <table>
-              <thead><tr><th>項目</th><th>従来型の開発</th><th>バイブコーディング</th></tr></thead>
-              <tbody>
-                <tr><td>開発期間</td><td>数ヶ月</td><td><strong>数日〜数週間</strong></td></tr>
-                <tr><td>コスト</td><td>数十万〜数百万円</td><td><strong>ほぼゼロ</strong></td></tr>
-                <tr><td>必要スキル</td><td>プログラミング言語</td><td><strong>日本語の指示力</strong></td></tr>
-              </tbody>
-            </table>
+          <div class="change-board body-slot" data-role="body">
+            <article class="change-card">
+              <strong>開発期間</strong>
+              <div class="before"><b>従来</b><span>要件定義、実装、確認で数ヶ月かかる。</span></div>
+              <div class="after"><b>バイブコーディング</b><strong>数日〜数週間</strong><span>会話しながらプロトタイプを動かす。</span></div>
+              <em>検証の速度が変わる</em>
+            </article>
+            <article class="change-card">
+              <strong>コスト</strong>
+              <div class="before"><b>従来</b><span>外注や開発体制で数十万〜数百万円。</span></div>
+              <div class="after"><b>バイブコーディング</b><strong>ほぼゼロ</strong><span>初期検証を小さく始められる。</span></div>
+              <em>試行回数が増える</em>
+            </article>
+            <article class="change-card">
+              <strong>必要スキル</strong>
+              <div class="before"><b>従来</b><span>プログラミング言語と開発経験が前提。</span></div>
+              <div class="after"><b>バイブコーディング</b><strong>日本語の指示力</strong><span>課題、制約、画面を言葉にする力が入口。</span></div>
+              <em>上流の判断が差になる</em>
+            </article>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P14</span></footer>
@@ -1330,12 +1999,19 @@
         <div class="content">
           <h2 data-role="title">目立つ成功の裏で、多くの人が失敗している</h2>
           <p class="lead-copy" data-role="lead">moonshot神話だけを見ると、再現性のない勝負になる。</p>
-          <div class="stats-grid body-slot" data-role="body">
-            <div class="stat"><b>80.9%</b><span>ソロファウンダーで $500 MRR 未満</span></div>
-            <div class="stat"><b>4.8%</b><span>$10K MRR 以上に到達</span></div>
-            <div class="stat"><b>80-85%</b><span>AIラッパーの24ヶ月失敗率</span></div>
-            <div class="stat"><b>300%</b><span>AIサイドハッスル詐欺の増加</span></div>
-            <div class="stat"><b>$200</b><span>正規AI副業収入の月中央値</span></div>
+          <div class="reality-funnel body-slot" data-role="body">
+            <div class="metric-wall" aria-label="失敗率を示す数字">
+              <div class="metric-tile"><b>80.9%</b><span>ソロファウンダーで $500 MRR 未満</span></div>
+              <div class="metric-tile"><b>4.8%</b><span>$10K MRR 以上に到達</span></div>
+              <div class="metric-tile"><b>80-85%</b><span>AIラッパーの24ヶ月失敗率</span></div>
+              <div class="metric-tile"><b>$200</b><span>正規AI副業収入の月中央値</span></div>
+            </div>
+            <div class="funnel-stack" aria-label="moonshot神話の落とし穴">
+              <div class="funnel-stage"><b>1</b><div><strong>派手な成功だけを見る</strong><span>成功者のスクリーンショットだけが目に入る。</span></div><em>話題化</em></div>
+              <div class="funnel-stage"><b>2</b><div><strong>同じように始める</strong><span>顧客、課題、導線がないまま作り始める。</span></div><em>参入</em></div>
+              <div class="funnel-stage"><b>3</b><div><strong>売れずに止まる</strong><span>完成後の販売・改善・継続運用で詰まる。</span></div><em>離脱</em></div>
+              <div class="funnel-stage"><b>4</b><div><strong>必要なのは段階設計</strong><span>学ぶ、受託、実績化、販売へ順番を作る。</span></div><em>再現性</em></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P18</span></footer>
@@ -1347,10 +2023,17 @@
         <div class="content">
           <h2 data-role="title">海外スターにも、見えない蓄積がある</h2>
           <p class="lead-copy" data-role="lead">ゼロから一足飛びに見える事例は、サバイバーシップ・バイアスを含む。</p>
-          <div class="grid-3 body-slot" data-role="body">
-            <article class="card"><strong>Pieter Levels</strong><p>公開：12 startups in 12 months。裏：10代から独学プログラミング20年、起業経験。</p></article>
-            <article class="card feature"><strong>Marc Lou</strong><p>公開：月収 $1M 到達。裏：4年連続SaaS失敗、解雇、移住。</p></article>
-            <article class="card"><strong>Danny Postma</strong><p>公開：ARR $3.6M。裏：16歳から起業、Web制作フリーランス経験。</p></article>
+          <div class="accumulation-board body-slot" data-role="body">
+            <div class="accumulation-row" aria-label="表に見える成果">
+              <article class="accumulation-card"><b>Public</b><strong>Pieter Levels</strong><span>12 startups in 12 months が見える。</span></article>
+              <article class="accumulation-card"><b>Public</b><strong>Marc Lou</strong><span>月収 $1M 到達が見える。</span></article>
+              <article class="accumulation-card"><b>Public</b><strong>Danny Postma</strong><span>ARR $3.6M が見える。</span></article>
+            </div>
+            <div class="accumulation-row" aria-label="見えない蓄積">
+              <article class="accumulation-card hidden"><b>Hidden base</b><strong>長い独学と起業経験</strong><span>10代からのプログラミング経験、過去の試行錯誤。</span></article>
+              <article class="accumulation-card hidden"><b>Hidden base</b><strong>連続失敗と環境変化</strong><span>4年連続SaaS失敗、解雇、移住などの蓄積。</span></article>
+              <article class="accumulation-card hidden"><b>Hidden base</b><strong>早期起業と制作経験</strong><span>16歳からの起業、Web制作フリーランス経験。</span></article>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P19</span></footer>
@@ -1379,9 +2062,17 @@
         <div class="content">
           <h2 data-role="title">必要なのはアイディアではなく課題発見力</h2>
           <p class="lead-copy" data-role="lead">AIがコードを書くほど、人間には何を作るべきかを判断する力が求められる。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="panel"><strong>アイディアだけでは足りない</strong><p>思いつきの面白さだけでは、顧客の課題にも収益にも接続しない。</p></div>
-            <div class="panel feature"><strong>AI時代に残る人間の領域</strong><p>課題発見、ヒアリング、要件定義、顧客関係構築。ここが差になる。</p></div>
+          <div class="problem-board body-slot" data-role="body">
+            <div class="problem-card">
+              <strong>アイディアだけでは足りない</strong>
+              <span>思いつきの面白さだけでは、顧客の課題にも収益にも接続しない。</span>
+            </div>
+            <div class="question-grid">
+              <div class="problem-card feature"><strong>誰が困っているか</strong><span>具体的な利用者と現場を特定する。</span></div>
+              <div class="problem-card"><strong>何を減らすか</strong><span>時間、手間、ミス、確認作業を明確にする。</span></div>
+              <div class="problem-card"><strong>いくらの価値か</strong><span>月額、受託費、削減効果へ翻訳する。</span></div>
+              <div class="problem-card feature"><strong>どう使われるか</strong><span>入力、判断、出力、運用を設計する。</span></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P21</span></footer>
@@ -1393,10 +2084,22 @@
         <div class="content">
           <h2 data-role="title">受託案件は、身近な業務アプリから始まる</h2>
           <p class="lead-copy" data-role="lead">最初から巨大なSaaSである必要はない。月10〜50万円規模の案件として成立し得る。</p>
-          <div class="grid-3 body-slot" data-role="body">
-            <article class="card"><span class="number">1</span><strong>社内の日報ツール</strong><p>現場入力、管理者確認、集計を小さく自動化。</p></article>
-            <article class="card feature"><span class="number">2</span><strong>顧客管理システム</strong><p>問い合わせ、商談、対応履歴を一覧化。</p></article>
-            <article class="card"><span class="number">3</span><strong>EC分析ダッシュボード</strong><p>商品、売上、改善対象を可視化。</p></article>
+          <div class="case-catalog body-slot" data-role="body">
+            <article class="case-card">
+              <div><span class="number">1</span><strong>社内の日報ツール</strong><span>現場入力、管理者確認、集計を小さく自動化。</span></div>
+              <div class="case-ui"><i style="width: 72%"></i><i style="width: 48%"></i><div class="blocks"><span></span><span></span><span></span></div></div>
+              <span>月10万円規模から成立しやすい、最初の受託テーマ。</span>
+            </article>
+            <article class="case-card feature">
+              <div><span class="number">2</span><strong>顧客管理システム</strong><span>問い合わせ、商談、対応履歴を一覧化。</span></div>
+              <div class="case-ui"><i style="width: 82%"></i><i style="width: 58%"></i><div class="blocks"><span></span><span></span><span></span></div></div>
+              <span>顧客対応の抜け漏れを減らし、継続改善しやすい。</span>
+            </article>
+            <article class="case-card">
+              <div><span class="number">3</span><strong>EC分析ダッシュボード</strong><span>商品、売上、改善対象を可視化。</span></div>
+              <div class="case-ui"><i style="width: 64%"></i><i style="width: 76%"></i><div class="blocks"><span></span><span></span><span></span></div></div>
+              <span>分析画面と改善提案で、月50万円帯まで広げやすい。</span>
+            </article>
           </div>
         </div>
         <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P22</span></footer>
@@ -1408,9 +2111,10 @@
         <div class="content">
           <h2 data-role="title">澤田さんも非エンジニアから始めた</h2>
           <p class="lead-copy" data-role="lead">特殊な天才の話ではなく、正しい順番と環境があれば入口に立てる。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <article class="metric"><span class="pill">Start</span><strong>経験ゼロ</strong><p>エンジニアとしてキャリアを始めたわけではない。</p></article>
-            <article class="metric feature"><span class="pill">Build</span><strong>開発期間1週間</strong><p>AIと対話しながら短期間で形にしていく。</p></article>
+          <div class="origin-timeline body-slot" data-role="body">
+            <article class="origin-step"><b>01</b><strong>経験ゼロから入る</strong><span>エンジニアとしてキャリアを始めたわけではない。入口は、作りたい課題を言葉にすること。</span></article>
+            <article class="origin-step feature"><b>02</b><strong>AIと対話して作る</strong><span>コードを書く前に、画面、機能、データ、制約をAIと整理する。</span></article>
+            <article class="origin-step"><b>03</b><strong>1週間で形にする</strong><span>短期で動くものを作り、実績として見せられる状態へ進む。</span></article>
           </div>
         </div>
         <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P23</span></footer>
@@ -1472,11 +2176,12 @@
         <div class="content">
           <h2 data-role="title">再現性のある仕組みが、未経験者を支える</h2>
           <p class="lead-copy" data-role="lead">才能ではなく、学習とレビューと実践の構造があるから、作る力が収益につながる。</p>
-          <div class="grid-4 body-slot" data-role="body">
-            <article class="card"><strong>学ぶ順番</strong><p>入口から迷わない。</p></article>
-            <article class="card feature"><strong>相談できる場</strong><p>詰まりを放置しない。</p></article>
-            <article class="card"><strong>レビュー</strong><p>品質と完成度を上げる。</p></article>
-            <article class="card feature"><strong>売る導線</strong><p>完成後に収益へ接続する。</p></article>
+          <div class="support-loop body-slot" data-role="body">
+            <article class="loop-card"><strong>学ぶ順番</strong><span>入口から迷わない。何から作るか、どこで詰まるかを先回りする。</span></article>
+            <article class="loop-card feature"><strong>相談できる場</strong><span>詰まりを一人で抱えない。相談から次の実装へ戻れる。</span></article>
+            <div class="loop-core"><strong>作り切る仕組み</strong><span>学習、相談、レビュー、販売導線を回し続けることで、未経験者の完走率を上げる。</span></div>
+            <article class="loop-card feature"><strong>レビュー</strong><span>動くだけで終わらせず、品質と完成度を上げる。</span></article>
+            <article class="loop-card"><strong>売る導線</strong><span>完成後に収益へ接続する。受託や販売に進める形で残す。</span></article>
           </div>
         </div>
         <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P27</span></footer>
@@ -1550,9 +2255,17 @@
         <div class="content">
           <h2 data-role="title">品質チェックが、AI生成コードの不安を減らす</h2>
           <p class="lead-copy" data-role="lead">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="panel"><strong>不安</strong><p>AI生成コードには、バグや脆弱性が混入しやすい。一般的なAIスクールやノーコード受託には品質保証がない。</p></div>
-            <div class="panel feature"><strong>Kikaiの解決策</strong><p>希望者向けに、プロエンジニアによる品質チェックをオプション利用可能にする。</p></div>
+          <div class="quality-gate body-slot" data-role="body">
+            <div class="risk-card">
+              <strong>不安の正体</strong>
+              <span>AI生成コードには、動くけれど壊れやすい箇所、バグ、脆弱性、運用漏れが混入しやすい。</span>
+            </div>
+            <div class="gate-flow" aria-label="品質チェックの流れ">
+              <article class="gate-card"><span class="gate-badge">1</span><strong>生成</strong><span>AIで初稿を作る。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 18h28v28H18zM24 26h16M24 34h10" fill="none" stroke-width="3"/></svg></article>
+              <article class="gate-card feature"><span class="gate-badge">2</span><strong>点検</strong><span>プロが構造とリスクを見る。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M28 42a14 14 0 1 1 10-4l10 10" fill="none" stroke-width="4"/></svg></article>
+              <article class="gate-card"><span class="gate-badge">3</span><strong>修正</strong><span>納品前に不安を潰す。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="m18 42 8 8 20-26M18 24h18" fill="none" stroke-width="4"/></svg></article>
+              <article class="gate-card feature"><span class="gate-badge">4</span><strong>納品</strong><span>営業材料として品質を語れる。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 20h28v30H18zM24 28h16M24 36h12" fill="none" stroke-width="3"/></svg></article>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P31</span></footer>
@@ -1564,10 +2277,11 @@
         <div class="content">
           <h2 data-role="title">将来的にクローズド案件供給まで広げる</h2>
           <p class="lead-copy" data-role="lead">自分で取る力と、運営から降りてくる案件の両輪を作る。</p>
-          <div class="compare body-slot" data-role="body">
-            <article class="card"><strong>現在</strong><p>自分で案件を取る方法を教育する。合宿、コンサル、動画講座で入口を作る。</p></article>
-            <div class="arrow">→</div>
-            <article class="card feature"><strong>将来</strong><p>サロン拡大に伴い、運営が獲得した5〜50万円帯の案件を会員に供給予定。</p></article>
+          <div class="pipeline-roadmap body-slot" data-role="body">
+            <article class="pipeline-stage"><b class="pipe-mark">01</b><em>Now</em><strong>自分で案件を取る</strong><span>合宿、コンサル、動画講座で、まずは自力で受託の入口を作る。</span><div class="pipe-detail">入口を作る</div></article>
+            <article class="pipeline-stage feature"><b class="pipe-mark">02</b><em>Build</em><strong>事例と品質を積む</strong><span>納品実績、レビュー、提案テンプレートを蓄積する。</span><div class="pipe-detail">信頼を作る</div></article>
+            <article class="pipeline-stage"><b class="pipe-mark">03</b><em>Scale</em><strong>運営が案件を獲得</strong><span>サロン拡大に伴い、運営側でも案件獲得を進める。</span><div class="pipe-detail">供給源を作る</div></article>
+            <article class="pipeline-stage feature"><b class="pipe-mark">04</b><em>Future</em><strong>会員へ供給する</strong><span>5〜50万円帯のクローズド案件を会員に接続する構想。</span><div class="pipe-detail">両輪で伸ばす</div></article>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P32</span></footer>
@@ -1597,9 +2311,9 @@
         <div class="content">
           <h2 data-role="title">Kikaiの前後で、AIとの関係が変わる</h2>
           <p class="lead-copy" data-role="lead">消費者から創り手へ。この転換が、今日一番持ち帰ってほしいメッセージ。</p>
-          <div class="before-after body-slot" data-role="body">
-            <div class="panel">
-              <h3>Before：消費者</h3>
+          <div class="closing-shift body-slot" data-role="body">
+            <div class="closing-panel">
+              <strong>Before：消費者</strong>
               <ul>
                 <li>AIに興味はあるが、何をすればいいかわからない</li>
                 <li>インプットばかりで何も形になっていない</li>
@@ -1607,9 +2321,11 @@
                 <li>「作りたい」が頭の中だけで止まっている</li>
                 <li>一人で学んで、一人で挫折する</li>
               </ul>
+              <span class="closing-kicker">AIを使う人</span>
             </div>
-            <div class="panel feature">
-              <h3>After：創り手</h3>
+            <div class="path-pivot">→</div>
+            <div class="closing-panel feature">
+              <strong>After：創り手</strong>
               <ul>
                 <li>AIに指示して、実際に動くアプリを作れる</li>
                 <li>受託で月5〜10万円から積み上げる</li>
@@ -1617,6 +2333,7 @@
                 <li>自分のプロダクトという実体ある資産を持つ</li>
                 <li>仲間と作り、レビューし合い、完走できる</li>
               </ul>
+              <span class="closing-kicker">AIで価値を作る人</span>
             </div>
           </div>
         </div>
