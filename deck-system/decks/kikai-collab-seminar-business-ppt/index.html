@@ -66,10 +66,10 @@
         left: 50%;
         display: grid;
         grid-template-rows: 34px minmax(0, 1fr) 34px;
-        gap: 13px;
+        gap: 10px;
         width: var(--deck-w);
         height: var(--deck-h);
-        padding: 54px 76px 48px;
+        padding: 48px 68px 44px;
         border: 1px solid var(--kbp-line);
         background: var(--kbp-paper);
         box-shadow: var(--kbp-shadow);
@@ -187,7 +187,7 @@
       }
       .lead-copy {
         max-width: 1040px;
-        margin: 16px 0 0;
+        margin: 12px 0 0;
         color: var(--kbp-muted);
         font-size: 22px;
         font-weight: 650;
@@ -195,12 +195,12 @@
       }
       .body-slot {
         width: 100%;
-        min-height: 430px;
+        min-height: 470px;
         margin-top: auto;
         margin-bottom: auto;
       }
-      .body-compact { min-height: 360px; }
-      .body-tall { min-height: 500px; }
+      .body-compact { min-height: 392px; }
+      .body-tall { min-height: 520px; }
       .grid-2,
       .grid-3,
       .grid-4 {
@@ -228,7 +228,7 @@
       .note {
         display: grid;
         align-content: center;
-        padding: 22px 24px;
+        padding: 24px 26px;
       }
       .card.feature,
       .panel.feature,
@@ -617,6 +617,175 @@
         height: 94%;
         object-fit: contain;
       }
+      .visual-led {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) 0.75fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .visual-led.reverse {
+        grid-template-columns: 0.78fr minmax(0, 1.22fr);
+      }
+      .visual-led .image-frame {
+        min-height: 100%;
+      }
+      .insight-stack {
+        display: grid;
+        gap: 14px;
+      }
+      .insight {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        min-height: 104px;
+        padding: 16px 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .insight b {
+        display: grid;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 20px;
+      }
+      .insight strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--kbp-ink);
+        font-size: 20px;
+      }
+      .insight span {
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .statement-layout {
+        display: grid;
+        grid-template-columns: 0.86fr minmax(0, 1.14fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+      .statement-core {
+        display: grid;
+        align-content: center;
+        padding: 34px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .statement-core strong {
+        color: var(--kbp-ink);
+        font-size: 48px;
+        line-height: 1.18;
+        text-wrap: balance;
+      }
+      .statement-core span {
+        margin-top: 18px;
+        color: var(--kbp-orange);
+        font-size: 24px;
+        font-weight: 860;
+      }
+      .product-board {
+        position: relative;
+        display: grid;
+        overflow: hidden;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .product-board img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .caption-strip {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .caption-strip.five {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      .caption-strip span {
+        display: grid;
+        min-height: 48px;
+        align-content: center;
+        padding: 8px 10px;
+        border: 1px solid rgba(207, 214, 217, 0.86);
+        border-radius: var(--kbp-radius);
+        background: rgba(251, 252, 252, 0.9);
+        color: var(--kbp-ink);
+        font-size: 13px;
+        font-weight: 820;
+        line-height: 1.25;
+      }
+      .process-map {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        align-items: stretch;
+      }
+      .process-node {
+        display: grid;
+        align-content: center;
+        min-height: 100%;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+        position: relative;
+      }
+      .process-node:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -9px;
+        top: 50%;
+        width: 16px;
+        border-top: 2px solid var(--kbp-orange);
+      }
+      .process-node strong {
+        margin-bottom: 9px;
+        color: var(--kbp-ink);
+        font-size: 21px;
+      }
+      .process-node span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+      .impact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+      }
+      .impact-number {
+        display: grid;
+        align-content: center;
+        padding: 28px;
+        border: 1px solid rgba(255, 113, 67, 0.56);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-orange-soft);
+      }
+      .impact-number b {
+        color: var(--kbp-orange);
+        font-size: 82px;
+        line-height: 1;
+      }
+      .impact-number span {
+        color: var(--kbp-ink);
+        font-size: 22px;
+        font-weight: 820;
+        line-height: 1.35;
+      }
       .svg-figure {
         display: grid;
         border: 1px solid var(--kbp-line);
@@ -831,9 +1000,13 @@
         <div class="content">
           <h2 data-role="title">AIは「作る側」の壁を壊した</h2>
           <p class="lead-copy" data-role="lead">アイディアを言葉で伝え、AIと対話しながら、数日で動くものを作れるようになっている。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="panel"><strong>従来の障壁</strong><p>プログラミングスキル、資金、長い開発期間が必要だった。</p><br><strong>今の入口</strong><p>日本語で要件を伝え、AIと改善しながらプロトタイプを作る。</p></div>
-            <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/ai-product-bridge.png" alt="AIがアイディアからプロダクトへの壁を越えるビジュアル"></div>
+          <div class="visual-led body-slot body-tall" data-role="body">
+            <div class="image-frame"><img src="./assets/generated/prompt-to-product.png" alt="日本語の指示からSaaSダッシュボードが生まれる生成ビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>1</b><div><strong>言葉で要件を渡す</strong><span>画面、業務、利用者、判断条件を日本語で整理する。</span></div></div>
+              <div class="insight"><b>2</b><div><strong>AIが構造化する</strong><span>データ、画面、ワークフローへ分解して形にする。</span></div></div>
+              <div class="insight"><b>3</b><div><strong>動くサービスへ近づく</strong><span>数日単位でプロトタイプを検証できる。</span></div></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>AI活用の2つの道</span><span>P07</span></footer>
@@ -866,9 +1039,13 @@
         <div class="content">
           <h2 data-role="title">私たちはプロダクト側にこだわる</h2>
           <p class="lead-copy" data-role="lead">情報を消費する人ではなく、AIで価値を作る人を増やしたい。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="quote-panel"><strong>創造の民主化</strong></div>
-            <div class="panel feature"><strong>逆転可能性がある場所</strong><p>AIマーケで伸びるのは、もともと強い人になりがち。プロダクト側は、スキルがなくても始められて、やればやるほど差がつく。</p></div>
+          <div class="statement-layout body-slot" data-role="body">
+            <div class="statement-core"><strong>情報を消費する人ではなく、AIで価値を作る人を増やす。</strong><span>創造の民主化</span></div>
+            <div class="insight-stack">
+              <div class="insight"><b>A</b><div><strong>マーケは蓄積がものを言う</strong><span>もともと強い人が、さらに強くなる構造になりやすい。</span></div></div>
+              <div class="insight"><b>B</b><div><strong>プロダクトは入口が広がった</strong><span>スキルがなくても始められ、経験を積むほど差がつく。</span></div></div>
+              <div class="insight"><b>C</b><div><strong>価値が残る</strong><span>発信量ではなく、顧客の課題を解く資産が残る。</span></div></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>AI活用の2つの道</span><span>P09</span></footer>
@@ -898,9 +1075,13 @@
         <div class="content">
           <h2 data-role="title">言葉が、そのまま形になる</h2>
           <p class="lead-copy" data-role="lead">コードを一行も書かず、AIと自然言語で対話しながらプロダクトを開発する。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="panel feature"><strong>AIと対話...</strong><p>作りたい画面、必要な機能、利用者、業務の流れを日本語で伝える。</p><br><strong>感覚</strong><p>パソコンの中に、専属の優秀なエンジニアがいる。</p></div>
-            <div class="mini-ui" aria-label="Dashboard mock"><nav></nav><div class="screen"><div></div><div></div><div></div></div></div>
+          <div class="visual-led reverse body-slot body-tall" data-role="body">
+            <div class="insight-stack">
+              <div class="insight"><b>言</b><div><strong>自然言語で伝える</strong><span>欲しい機能、画面、制約をそのまま言葉にする。</span></div></div>
+              <div class="insight"><b>整</b><div><strong>AIと整理する</strong><span>要件、データ、操作フローを対話しながら固める。</span></div></div>
+              <div class="insight"><b>形</b><div><strong>動く画面で検証する</strong><span>専属エンジニアと一緒に作る感覚へ変わる。</span></div></div>
+            </div>
+            <div class="image-frame"><img src="./assets/generated/prompt-to-product.png" alt="AIとの対話から業務アプリへ変換される生成ビジュアル"></div>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P11</span></footer>
@@ -912,8 +1093,15 @@
         <div class="content">
           <h2 data-role="title">「簡単なものしか作れない」はもう古い</h2>
           <p class="lead-copy" data-role="lead">実務で使えるアプリや業務システムが、すでに生まれている。</p>
-          <div class="quote-panel body-slot body-compact" data-role="body">
-            <strong>AIに丸投げするのではなく、要件を整理しながら改善していく。</strong>
+          <div class="statement-layout body-slot" data-role="body">
+            <div class="statement-core"><strong>実用化の差は、AIに丸投げしないこと。</strong><span>要件整理 → 改善 → 検証</span></div>
+            <div class="process-map">
+              <div class="process-node"><strong>課題</strong><span>現場の手間を特定する</span></div>
+              <div class="process-node"><strong>要件</strong><span>必要な画面と入力を決める</span></div>
+              <div class="process-node"><strong>生成</strong><span>AIでプロトタイプ化</span></div>
+              <div class="process-node"><strong>修正</strong><span>業務に合わせて直す</span></div>
+              <div class="process-node"><strong>実用</strong><span>納品・販売へ進む</span></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P12</span></footer>
@@ -925,11 +1113,14 @@
         <div class="content">
           <h2 data-role="title">非エンジニアでも実用サービスは作れる</h2>
           <p class="lead-copy" data-role="lead">業務上の具体的な課題が見えていれば、現場の手間や判断を減らすプロダクトにできる。</p>
-          <div class="grid-4 body-slot" data-role="body">
-            <article class="card"><span class="pill">Schedule</span><strong>FreePick</strong><p>Googleカレンダーの空き時間を抽出し、予約調整を効率化。</p></article>
-            <article class="card feature"><span class="pill">販売中</span><strong>ShiftManager</strong><p>希望休を集めて、シフトを自動生成。</p></article>
-            <article class="card feature"><span class="pill">販売中</span><strong>物販ツール</strong><p>商品候補を整理・判断できる分析エンジン。</p></article>
-            <article class="card"><span class="pill">DX</span><strong>AI書類データ抽出</strong><p>スキャンするだけで、手作業のデータ入力を減らす。</p></article>
+          <div class="product-board body-slot body-tall" data-role="body">
+            <img src="./assets/generated/product-case-board.png" alt="4つの実用アプリ事例を表す生成UIビジュアル">
+            <div class="caption-strip" aria-label="実用アプリ事例">
+              <span>FreePick<br>スケジュール調整</span>
+              <span>ShiftManager<br>シフト作成支援</span>
+              <span>物販ツール<br>EC分析</span>
+              <span>AI書類抽出<br>入力業務DX</span>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>バイブコーディングとは</span><span>P13</span></footer>
@@ -992,9 +1183,13 @@
         <div class="content">
           <h2 data-role="title">でも、待ってください</h2>
           <p class="lead-copy" data-role="lead">「自分にもできそう」の直後に、現実を見る必要がある。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="quote-panel"><strong>AIで作れるようになっても、誰でも大きく稼げるわけではない。</strong></div>
-            <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/reality-check.png" alt="現実確認を表すビジュアル"></div>
+          <div class="visual-led body-slot body-tall" data-role="body">
+            <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/reality-check.png" alt="AI開発の現実確認を表す生成ビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>熱</b><div><strong>できそう、は正しい</strong><span>入口が開いたこと自体は大きな変化。</span></div></div>
+              <div class="insight"><b>現</b><div><strong>でも再現性は別問題</strong><span>派手な成功事例だけでは勝ち筋にならない。</span></div></div>
+              <div class="insight"><b>順</b><div><strong>必要なのは段階設計</strong><span>学ぶ、受託、拡張の順番を守る。</span></div></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P17</span></footer>
@@ -1125,10 +1320,13 @@
         <div class="content">
           <h2 data-role="title">コミュニティからマネタイズ済み事例が生まれている</h2>
           <p class="lead-copy" data-role="lead">作って終わりではなく、販売や納品まで進んでいることが重要。</p>
-          <div class="grid-3 body-slot" data-role="body">
-            <article class="card feature"><strong>X自動運用ツール</strong><p>toB向け月額サブスク（月3万円）で販売中。導入企業あり。</p></article>
-            <article class="card"><strong>AI書類データ抽出</strong><p>受託案件として納品済み。数十万円規模。</p></article>
-            <article class="card"><strong>Gemini自動応答Bot</strong><p>ナレッジベース連携の受託案件として納品済み。</p></article>
+          <div class="visual-led reverse body-slot body-tall" data-role="body">
+            <div class="insight-stack">
+              <div class="insight"><b>月</b><div><strong>X自動運用ツール</strong><span>toB向け月額サブスク（月3万円）で販売中。導入企業あり。</span></div></div>
+              <div class="insight"><b>納</b><div><strong>AI書類データ抽出</strong><span>受託案件として納品済み。数十万円規模。</span></div></div>
+              <div class="insight"><b>応</b><div><strong>Gemini自動応答Bot</strong><span>ナレッジベース連携の受託案件として納品済み。</span></div></div>
+            </div>
+            <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/community-workspace.png" alt="コミュニティでプロダクトを作る様子の生成ビジュアル"></div>
           </div>
         </div>
         <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P26</span></footer>
@@ -1156,9 +1354,13 @@
         <div class="content">
           <h2 data-role="title">だから、Vibe Coding Salon -Kikai- を作りました</h2>
           <p class="lead-copy" data-role="lead">単なるAIスクールではなく、作る人のためのコミュニティ。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="image-frame contain"><img src="../../formats/kikai-business-ppt/assets/6.png" alt="Kikai Vibe Coding Salon logo"></div>
-            <div class="panel feature"><strong>目指す場</strong><p>学ぶだけで終わらず、作り、品質を上げ、販売や受託につなげる場。</p></div>
+          <div class="visual-led body-slot body-tall" data-role="body">
+            <div class="image-frame"><img src="./assets/generated/kikai-operating-system.png" alt="Kikaiが学習、品質、案件、販売をつなぐ生成ビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>学</b><div><strong>学ぶだけで終わらない</strong><span>講座とライブで入口を作る。</span></div></div>
+              <div class="insight"><b>作</b><div><strong>作り切る環境</strong><span>相談、レビュー、実案件に近い課題がある。</span></div></div>
+              <div class="insight"><b>売</b><div><strong>販売・受託へ接続する</strong><span>完成後の導線まで設計する。</span></div></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P28</span></footer>
@@ -1187,17 +1389,15 @@
         <div class="content">
           <h2 data-role="title">Kikaiは5位一体で、学ぶ・作る・売るをつなぐ</h2>
           <p class="lead-copy" data-role="lead">よくあるAIスクールのように学習で終わらせず、実践と収益化まで分断しない。</p>
-          <div class="table-wrap body-slot" data-role="body">
-            <table>
-              <thead><tr><th>よくあるAIスクール</th><th>Kikai</th></tr></thead>
-              <tbody>
-                <tr><td>学習で終わる</td><td><strong>教育</strong>：動画講座、隔週ライブ講義、合宿 / コンサル</td></tr>
-                <tr><td>作って満足・売れない</td><td><strong>品質チェック</strong>：プロエンジニア品質確認</td></tr>
-                <tr><td>案件は自分で探すしかない</td><td><strong>クローズド案件供給</strong>：今後提供予定</td></tr>
-                <tr><td>完成しても売る場がない</td><td><strong>Made with Kikai</strong>：即販売可能</td></tr>
-                <tr><td>一人で挫折する</td><td><strong>コミュニティ</strong>：Discordと横の繋がり</td></tr>
-              </tbody>
-            </table>
+          <div class="product-board body-slot body-tall" data-role="body">
+            <img src="./assets/generated/kikai-operating-system.png" alt="Kikaiの5位一体パッケージを表す生成ビジュアル">
+            <div class="caption-strip five" aria-label="Kikaiの5位一体パッケージ">
+              <span>教育<br>講座・ライブ・合宿</span>
+              <span>品質<br>プロレビュー</span>
+              <span>案件<br>供給構想</span>
+              <span>市場<br>即販売</span>
+              <span>共同体<br>完走支援</span>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P30</span></footer>
@@ -1238,9 +1438,13 @@
         <div class="content">
           <h2 data-role="title">Made with Kikai は販売の壁を下げる</h2>
           <p class="lead-copy" data-role="lead">マーケットプレイス機能で決済まで完結。Stripeの審査・開設なしに即販売開始できる。</p>
-          <div class="grid-2 body-slot" data-role="body">
-            <div class="panel feature"><strong>最大の壁を支援</strong><p>作った後の大きな壁は、集客と販売。掲載、反応確認、販売まで進める場を用意する。</p><br><strong>使い方</strong><p>市場の反応から、売れるアプリへ修正する。</p></div>
+          <div class="visual-led body-slot body-tall" data-role="body">
             <div class="image-frame"><img src="../kikai-collab-seminar/assets/generated/marketplace-ui.png" alt="Made with KikaiのマーケットプレイスUIビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>集</b><div><strong>集客・販売の壁を下げる</strong><span>作った後に見てもらう場所を用意する。</span></div></div>
+              <div class="insight"><b>決</b><div><strong>決済まで完結</strong><span>Stripeの審査・開設なしに販売開始できる。</span></div></div>
+              <div class="insight"><b>改</b><div><strong>反応から改善する</strong><span>市場の反応を見て、売れるアプリへ修正する。</span></div></div>
+            </div>
           </div>
         </div>
         <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P33</span></footer>
