@@ -97,9 +97,7 @@
       }
       .slide-header {
         min-height: 32px;
-        margin-bottom: 20px;
-        padding-bottom: 9px;
-        border-bottom: 1px solid var(--kbp-line-soft);
+        margin-bottom: 18px;
       }
       .slide-footer {
         margin-top: 0;
@@ -175,6 +173,13 @@
         font-size: 1.04rem;
         font-weight: 650;
         line-height: 1.52;
+      }
+      .content > [data-role="title"],
+      .closing-layout [data-role="title"] {
+        width: 100%;
+        max-width: 100%;
+        padding-bottom: clamp(10px, 1.3vw, 14px);
+        border-bottom: 1px solid var(--kbp-line-soft);
       }
       .body-slot,
       table[data-role="table"] {
