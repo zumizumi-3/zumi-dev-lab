@@ -2813,6 +2813,293 @@
       #P33 .image-frame img {
         object-position: center;
       }
+      /* Balanced body pass: keep the unified Bordeaux palette, but make body text and visuals stronger. */
+      .body-slot {
+        position: relative;
+      }
+      .body-slot > * {
+        position: relative;
+        z-index: 1;
+      }
+      .card strong,
+      .panel strong,
+      .metric strong,
+      .note strong,
+      .commodity-item strong,
+      .path-card strong,
+      .change-card strong,
+      .accumulation-card strong,
+      .problem-card strong,
+      .case-card strong,
+      .origin-step strong,
+      .loop-card strong,
+      .risk-card strong,
+      .gate-card strong,
+      .pipeline-stage strong,
+      .closing-panel strong,
+      .global-card strong,
+      .community-case strong,
+      .route-stage strong,
+      .coverage-stage strong,
+      .revenue-card strong,
+      .reality-card strong,
+      .objection-card strong {
+        font-size: 30px;
+        line-height: 1.14;
+      }
+      .card p,
+      .panel p,
+      .metric p,
+      .note p,
+      .commodity-item span,
+      .path-card span,
+      .change-card span,
+      .accumulation-card span,
+      .problem-card span,
+      .case-card span,
+      .origin-step span,
+      .loop-card span,
+      .risk-card span,
+      .gate-card span,
+      .pipeline-stage span,
+      .closing-panel span,
+      .global-card span,
+      .community-case span,
+      .route-stage span,
+      .coverage-stage span,
+      .revenue-card span,
+      .reality-card span,
+      .objection-card span {
+        font-size: 20px;
+        line-height: 1.28;
+      }
+      .tight-list {
+        gap: 7px;
+        margin-top: 10px;
+      }
+      .tight-list li,
+      .path-card li,
+      .closing-panel li {
+        padding: 8px 10px;
+        font-size: 18px;
+        line-height: 1.22;
+      }
+      .profile-list li,
+      .profile-stats span,
+      .path-note,
+      .route-note,
+      .layer-row span,
+      .mini-tag-row span {
+        font-size: 18px;
+        line-height: 1.24;
+      }
+      th {
+        font-size: 22px;
+        line-height: 1.18;
+      }
+      td {
+        font-size: 20px;
+        line-height: 1.24;
+      }
+      .evidence-strip span {
+        min-height: 62px;
+        padding: 8px 10px;
+        font-size: 16px;
+        line-height: 1.18;
+      }
+      .evidence-strip b {
+        font-size: 15px;
+      }
+      .process-node strong {
+        font-size: 25px;
+        line-height: 1.12;
+      }
+      .process-node span {
+        font-size: 18px;
+        line-height: 1.22;
+      }
+      .process-node em {
+        font-size: 15px;
+        line-height: 1.18;
+      }
+      .metric-tile b {
+        font-size: 40px;
+      }
+      .metric-tile span,
+      .funnel-stage span,
+      .risk-points span,
+      .risk-review-bar span,
+      .proof-lanes span,
+      .revenue-rows span {
+        font-size: 17px;
+        line-height: 1.22;
+      }
+      .global-card span,
+      .community-case span,
+      .route-stage span,
+      .coverage-stage span,
+      .pipeline-stage span {
+        font-size: 17px;
+        line-height: 1.25;
+      }
+      .global-card li,
+      .community-case li,
+      .route-stage li,
+      .coverage-stage li,
+      .pipeline-stage li {
+        font-size: 16px;
+        line-height: 1.18;
+      }
+      .package-flow strong {
+        font-size: 23px;
+        line-height: 1.12;
+      }
+      .package-flow span {
+        font-size: 17px;
+        line-height: 1.2;
+      }
+      .reality-card strong,
+      .objection-card strong,
+      .risk-slice strong {
+        font-size: 23px;
+      }
+      .reality-card span,
+      .objection-card span {
+        font-size: 17px;
+      }
+      .risk-slice span {
+        font-size: 15px;
+        line-height: 1.18;
+      }
+      .commodity-map::before,
+      .amplifier-model::before,
+      .path-board::before,
+      .change-board::before,
+      .reality-funnel::before,
+      .accumulation-board::before,
+      .origin-timeline::before,
+      .revenue-board::before,
+      .support-loop::before,
+      .pipeline-roadmap::before {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        z-index: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300' viewBox='0 0 520 300'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.15' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M34 238h452M66 216V86M164 216V132M262 216V64M360 216V116M458 216V42'/%3E%3Cpath d='M66 86c54 42 108 58 164 36s90-76 138-58 72 64 118 22'/%3E%3Cpath d='M84 54h96M84 82h54M316 246h116M316 270h78'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.22'%3E%3Ccircle cx='66' cy='86' r='13'/%3E%3Ccircle cx='262' cy='64' r='15'/%3E%3Ccircle cx='458' cy='42' r='13'/%3E%3C/g%3E%3C/svg%3E") center / 520px 300px no-repeat;
+        pointer-events: none;
+      }
+      #P03 .grid-3::before,
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after,
+      #P14 .change-board::after,
+      #P18 .reality-funnel::after,
+      #P23 .origin-timeline::after,
+      #P24 .revenue-board::after,
+      #P27 .support-loop::after,
+      #P32 .pipeline-roadmap::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+        z-index: 0;
+        width: 300px;
+        height: 138px;
+        border: 2px solid rgba(122, 23, 48, 0.18);
+        background-position: center;
+        background-size: cover;
+        opacity: 0.16;
+        filter: saturate(0.95) contrast(1.02);
+        pointer-events: none;
+      }
+      #P03 .grid-3::before {
+        background-image: url("./assets/generated/hero-service-creation.png");
+      }
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after {
+        background-image: url("./assets/generated/ai-product-bridge.png");
+      }
+      #P14 .change-board::after,
+      #P23 .origin-timeline::after,
+      #P27 .support-loop::after {
+        background-image: url("./assets/generated/vibe-coding-workbench.png");
+      }
+      #P18 .reality-funnel::after {
+        background-image: url("./assets/generated/reality-check.png");
+      }
+      #P24 .revenue-board::after {
+        background-image: url("./assets/generated/product-case-board.png");
+      }
+      #P32 .pipeline-roadmap::after {
+        background-image: url("./assets/generated/golden-route.png");
+      }
+      .path-pivot,
+      .formula-strip,
+      .package-core,
+      .loop-core,
+      .statement-core,
+      .objection-core,
+      .reality-core {
+        position: relative;
+      }
+      .path-pivot::after,
+      .formula-strip::after,
+      .package-core::after,
+      .loop-core::after,
+      .statement-core::after,
+      .objection-core::after,
+      .reality-core::before {
+        content: "";
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 72px;
+        height: 72px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.48' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48h48M18 42l12-14 9 8 15-22'/%3E%3Cpath d='M18 18h18M18 26h9'/%3E%3C/g%3E%3Ccircle cx='56' cy='16' r='7' fill='%23d69b36' fill-opacity='.58'/%3E%3C/svg%3E") center / contain no-repeat;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      .card::after,
+      .panel::after,
+      .metric::after,
+      .commodity-item::after,
+      .equation-box::after,
+      .path-card::after,
+      .change-card::after,
+      .metric-tile::after,
+      .funnel-stage::after,
+      .accumulation-card::after,
+      .problem-card::after,
+      .case-card::after,
+      .loop-card::after,
+      .risk-card::before,
+      .gate-card::after,
+      .pipeline-stage::before,
+      .closing-panel::after,
+      .global-card::after,
+      .revenue-card::after,
+      .route-stage::before,
+      .coverage-stage::before,
+      .community-case::after {
+        width: 82px;
+        height: 82px;
+        opacity: 0.24;
+      }
+      #P03 .grid-3::before,
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after,
+      #P14 .change-board::after,
+      #P18 .reality-funnel::after,
+      #P23 .origin-timeline::after,
+      #P24 .revenue-board::after,
+      #P27 .support-loop::after,
+      #P32 .pipeline-roadmap::after {
+        width: 356px;
+        height: 156px;
+        opacity: 0.22;
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
