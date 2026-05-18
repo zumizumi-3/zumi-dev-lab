@@ -70,6 +70,8 @@ These fields are part of the format, not just notes. A derived company format or
 
 Do not stop at `data-visual-policy`. The policy is the category; `data-visual-insert` and `page-visual-slots.json` are the concrete page-by-page instruction for what to insert.
 
+Slot names must include location, not only asset type. Use names like `card-1-top`, `option-2-top`, `body-center`, `side-panel`, `row-1-left`, `field-3-top-left`, and `photo-frame`. The HTML catalog includes a placement layer that renders these slots visibly so a creator can see where the generated asset belongs before rendering a concrete deck.
+
 ## Typography Policy
 
 The format is tuned for projected seminar/business material, not dense printed reports.

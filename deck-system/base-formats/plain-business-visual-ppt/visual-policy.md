@@ -21,6 +21,8 @@ The concrete insertion layer is `data-visual-required`, `data-visual-insert`, an
 
 After changing any slide pattern or visual slot, update `page-visual-audit.md` so the format keeps an explicit all-page review trail.
 
+`data-visual-insert` must name placement, not just asset kind. For example, prefer `card-1-top:image2:4:3`, `body-center:svg:body-fit`, `side-panel:image2:4:3`, or `row-1-left:icon:1:1` over generic `card-1:image2` or `body:svg`.
+
 ## Prompt Fragment For Future Runs
 
 ```text
