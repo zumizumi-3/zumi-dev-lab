@@ -9,7 +9,7 @@ For every slide, decide these fields before composing:
 | Field | Values |
 |---|---|
 | `visual_policy` | `none`, `icon`, `svg_diagram`, `image2_body`, `image2_split`, `image2_card_media`, `photo_or_screenshot`, `hybrid` |
-| `visual_unit` | `none`, `whole_body`, `side_panel`, `per_card`, `corner_icon`, `real_asset` |
+| `visual_unit` | `none`, `per_element`, `per_row`, `per_node`, `svg_parts`, `targeted_frame`, `real_asset` |
 | `aspect_ratio` | `16:9`, `4:3`, `3:2`, `1:1`, `card-fit`, `body-fit` |
 | `type_scale` | `cover`, `headline`, `large_body`, `dense_table`, `card_catalog`, `diagram` |
 | `color_role` | `white_base`, `bordeaux_emphasis`, `gold_orange_navigation`, `neutral_table` |
@@ -21,7 +21,7 @@ The concrete insertion layer is `data-visual-required`, `data-visual-insert`, an
 
 After changing any slide pattern or visual slot, update `page-visual-audit.md` so the format keeps an explicit all-page review trail.
 
-`data-visual-insert` must name placement, not just asset kind. For example, prefer `card-1-top:image2:4:3`, `body-center:svg:body-fit`, `side-panel:image2:4:3`, or `row-1-left:icon:1:1` over generic `card-1:image2` or `body:svg`.
+`data-visual-insert` must name placement and semantic role, not just asset kind. Prefer `card-1-conclusion-media-top:image2:4:3`, `box-2-competitor-media-top:image2:4:3`, `table-row-2-risk-status-icon:icon:1:1`, or `svg-axis-x-effectiveness:svg:wide`. Do not use `body`, `body-center`, `side-panel`, or `card-1` as standalone instructions. If a page really uses a generated body image, name the actual frame, for example `image2-frame-main-composite-body:image2:body-fit`.
 
 ## Prompt Fragment For Future Runs
 
@@ -39,51 +39,51 @@ After changing any slide pattern or visual slot, update `page-visual-audit.md` s
 
 | Pattern | visual_policy | visual_unit | aspect_ratio | Notes |
 |---|---|---|---|---|
-| Cover | `image2_body` or `photo_or_screenshot` | `side_panel` or `whole_body` | `4:3` or `16:9` | A cover can use an image to establish world view. Do not use a colored background as the main effect. |
-| Split cover | `image2_split` | `side_panel` | `4:3` | Keep title editable and use the image as proof or mood. |
-| Statement cover | `none` or `svg_diagram` | `whole_body` | `body-fit` | Large type can be enough. Add SVG only when the statement has a relationship or contrast. |
-| Section divider | `none` or `image2_body` | `whole_body` | `16:9` | Use image only for strong chapter mood shift. Avoid generic divider art. |
+| Cover | `image2_body` or `photo_or_screenshot` | `targeted_frame` | `4:3` or `16:9` | A cover can use an image to establish world view. Do not use a colored background as the main effect. |
+| Split cover | `image2_split` | `targeted_frame` | `4:3` | Keep title editable and use the image as proof or mood. |
+| Statement cover | `none` or `svg_diagram` | `svg_parts` | `body-fit` | Large type can be enough. Add SVG only when the statement has a relationship or contrast. |
+| Section divider | `none` or `image2_body` | `targeted_frame` | `16:9` | Use image only for strong chapter mood shift. Avoid generic divider art. |
 | Agenda | `icon` | `per_row` | `1:1` | Small icons may help, but agenda pages usually need clear sequence more than images. |
-| Executive summary | `image2_card_media` | `per_card` | `4:3` | Use when each summary point is distinct. Otherwise keep as cards. |
-| Issue / direction | `svg_diagram` | `whole_body` | `body-fit` | Show symptom, cause, and response as connected structure. |
-| 3C / environment | `image2_card_media` or `icon` | `per_lane` | `4:3` | Use distinct visuals for customer, competitor, company only when they add meaning. |
-| KPI tree | `svg_diagram` | `whole_body` | `body-fit` | Tree relationships are SVG-first. |
+| Executive summary | `image2_card_media` | `per_element` | `4:3` | Use when each summary point is distinct. Otherwise keep as cards. |
+| Issue / direction | `svg_diagram` | `svg_parts` | `body-fit` | Show symptom, cause, and response as connected structure. |
+| 3C / environment | `image2_card_media` or `icon` | `per_element` | `4:3` | Use distinct visuals for customer, competitor, company only when they add meaning. |
+| KPI tree | `svg_diagram` | `svg_parts` | `body-fit` | Tree relationships are SVG-first. |
 | Data table | `none` | `none` | `none` | Add comments, units, or implication columns instead of decoration. |
-| Progress summary | `svg_diagram` or `icon` | `whole_body` | `body-fit` | Status/risk/action can use gates or lane markers. |
-| Budget plan | `svg_diagram` | `whole_body` | `body-fit` | Bars or waterfall are better than generic finance imagery. |
-| Schedule | `svg_diagram` | `whole_body` | `body-fit` | Milestones and owners should be structural. |
-| Competitor comparison | `none` or `svg_diagram` | `whole_body` | `body-fit` | Matrix first; use SVG only for positioning or gap. |
-| Proposal options | `image2_card_media` | `per_option` | `4:3` | Options can get separate visuals when the differences are concrete. |
+| Progress summary | `svg_diagram` or `icon` | `svg_parts` | `body-fit` | Status/risk/action can use gates or lane markers. |
+| Budget plan | `svg_diagram` | `svg_parts` | `body-fit` | Bars or waterfall are better than generic finance imagery. |
+| Schedule | `svg_diagram` | `svg_parts` | `body-fit` | Milestones and owners should be structural. |
+| Competitor comparison | `none` or `svg_diagram` | `svg_parts` | `body-fit` | Matrix first; use SVG only for positioning or gap. |
+| Proposal options | `image2_card_media` | `per_element` | `4:3` | Options can get separate visuals when the differences are concrete. |
 | Action plan | `none` | `none` | `none` | Keep it editable and operational. |
-| Training flow | `svg_diagram` | `whole_body` | `body-fit` | Modules, practice, and confirmation benefit from flow diagrams. |
+| Training flow | `svg_diagram` | `svg_parts` | `body-fit` | Modules, practice, and confirmation benefit from flow diagrams. |
 | Decision log | `none` | `none` | `none` | Text and table clarity matter more than images. |
-| SWOT / 2x2 | `svg_diagram` | `whole_body` | `body-fit` | Axes and quadrants are the visual. |
-| Before / After | `svg_diagram` or `hybrid` | `whole_body` | `body-fit` | Use lanes, bridge, or arrow. The change should be visible. |
+| SWOT / 2x2 | `svg_diagram` | `svg_parts` | `body-fit` | Axes and quadrants are the visual. |
+| Before / After | `svg_diagram` or `hybrid` | `svg_parts` | `body-fit` | Use lanes, bridge, or arrow. The change should be visible. |
 | Interview / voice | `photo_or_screenshot` | `real_asset` | `3:2` or `4:3` | Use real portrait or actual voice evidence when possible. |
-| Selection / process rail | `svg_diagram` | `whole_body` | `body-fit` | Steps and gates should be explicit. |
-| Chapter / TOC | `none` or `image2_body` | `whole_body` | `16:9` | Use image only if chapter mood matters. |
+| Selection / process rail | `svg_diagram` | `svg_parts` | `body-fit` | Steps and gates should be explicit. |
+| Chapter / TOC | `none` or `image2_body` | `targeted_frame` | `16:9` | Use image only if chapter mood matters. |
 | Standard body canvas | `none` | `none` | `none` | Increase body size/density before adding visuals. |
-| Left table / right visual | `image2_split` or `photo_or_screenshot` | `side_panel` | `4:3` | Right visual must correspond to the table. |
-| Dense diagram / lecture | `svg_diagram` | `whole_body` | `body-fit` | Use SVG to preserve reading order. |
-| Image2 body full | `image2_body` | `whole_body` | `body-fit` | Title/lead remain HTML. Image has minimal text. |
-| Image2 body split | `image2_split` | `side_panel` | `4:3` | Text side carries facts; visual side makes them concrete. |
-| Image2 body diagram | `image2_body` | `whole_body` | `body-fit` | Use when the body is an illustrative composite or complex conceptual scene. |
-| Vertical lanes | `image2_card_media` or `icon` | `per_lane` | `4:3` | Each lane may have a distinct visual if the lanes represent different entities. |
-| Pyramid / hierarchy | `svg_diagram` | `whole_body` | `body-fit` | Structure is the point. |
-| Cycle loop | `svg_diagram` | `whole_body` | `body-fit` | Avoid repeated generic circular icons; label the cycle. |
-| Positioning map | `svg_diagram` | `whole_body` | `body-fit` | Axes and relative position are core. |
-| Dashboard summary | `none` or `photo_or_screenshot` | `side_panel` | `16:9` | Real dashboard screenshots are useful; generic charts are not. |
+| Left table / right visual | `image2_split` or `photo_or_screenshot` | `targeted_frame` | `4:3` | Right visual must correspond to the table. |
+| Dense diagram / lecture | `svg_diagram` | `svg_parts` | `body-fit` | Use SVG to preserve reading order. |
+| Image2 body full | `image2_body` | `targeted_frame` | `body-fit` | Title/lead remain HTML. Image has minimal text. |
+| Image2 body split | `image2_split` | `targeted_frame` | `4:3` | Text side carries facts; visual side makes them concrete. |
+| Image2 body diagram | `image2_body` | `targeted_frame` | `body-fit` | Use when the body is an illustrative composite or complex conceptual scene. |
+| Vertical lanes | `image2_card_media` or `icon` | `per_element` | `4:3` | Each lane may have a distinct visual if the lanes represent different entities. |
+| Pyramid / hierarchy | `svg_diagram` | `svg_parts` | `body-fit` | Structure is the point. |
+| Cycle loop | `svg_diagram` | `svg_parts` | `body-fit` | Avoid repeated generic circular icons; label the cycle. |
+| Positioning map | `svg_diagram` | `svg_parts` | `body-fit` | Axes and relative position are core. |
+| Dashboard summary | `none` or `photo_or_screenshot` | `targeted_frame` | `16:9` | Real dashboard screenshots are useful; generic charts are not. |
 | Worksheet | `none` | `none` | `none` | Keep editable. |
 | Icon grid | `icon` or `image2_card_media` | `per_cell` | `1:1` | Use icons for modules; use image2 when cells represent concrete scenes. |
 | Case quote | `photo_or_screenshot` | `real_asset` | `3:2` | Real evidence beats generic imagery. |
-| Risk heatmap | `svg_diagram` | `whole_body` | `body-fit` | Show impact, likelihood, controls, and review gate. |
-| Value chain | `svg_diagram` | `whole_body` | `body-fit` | Sequential structure matters. |
-| Fishbone / logic tree / dependency | `svg_diagram` | `whole_body` | `body-fit` | SVG-first. |
-| Customer journey | `hybrid` | `whole_body` | `body-fit` | SVG stages plus optional small scenario images. |
+| Risk heatmap | `svg_diagram` | `svg_parts` | `body-fit` | Show impact, likelihood, controls, and review gate. |
+| Value chain | `svg_diagram` | `svg_parts` | `body-fit` | Sequential structure matters. |
+| Fishbone / logic tree / dependency | `svg_diagram` | `svg_parts` | `body-fit` | SVG-first. |
+| Customer journey | `hybrid` | `svg_parts` | `body-fit` | SVG stages plus optional small scenario images. |
 | Business model canvas | `none` or `icon` | `per_field` | `1:1` | Use text fields first. |
-| Roadmap flags | `svg_diagram` | `whole_body` | `body-fit` | Timeline and checkpoints are visual structure. |
+| Roadmap flags | `svg_diagram` | `svg_parts` | `body-fit` | Timeline and checkpoints are visual structure. |
 | Checklist review | `none` | `none` | `none` | Operational clarity first. |
-| SVG patterns PB-65 to PB-84 | `svg_diagram` | `whole_body` | `body-fit` | Use only when relationships are the message. Do not treat as decoration. |
+| SVG patterns PB-65 to PB-84 | `svg_diagram` | `svg_parts` | `body-fit` | Use only when relationships are the message. Do not treat as decoration. |
 
 ## Kikai Final Deck Learning Map
 

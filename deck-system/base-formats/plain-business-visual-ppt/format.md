@@ -57,20 +57,20 @@ Every `<section class="slide">` in `index.html` carries explicit generation meta
 | Attribute | Purpose |
 |---|---|
 | `data-visual-policy` | Decides whether the page should use no visual, icons, SVG, image2 body, image2 split, image2 card media, real photo/screenshot, or a hybrid. |
-| `data-visual-unit` | Decides whether the visual is per card, per lane, side panel, whole body, real asset, or not used. |
+| `data-visual-unit` | Decides whether the visual is per element, per row, per node, SVG part, targeted image frame, real asset, or not used. |
 | `data-aspect-ratio` | Prevents image distortion by declaring `16:9`, `4:3`, `3:2`, `1:1`, `body-fit`, or `none`. |
 | `data-type-scale` | Selects the typography scale: cover, headline, large body, dense table, card catalog, or diagram. |
 | `data-color-role` | Maps the plain color intent to the derived company format. |
 | `data-density-action` | Tells the generator whether to keep, add evidence, add card media, replace a visual, or switch layout. |
 | `data-visual-required` | Declares the required concrete visual kind for that paper: `image2`, `svg`, `icon`, `photo_or_screenshot`, `svg+image2`, or `none`. |
-| `data-visual-insert` | Declares the exact insertion slot plan, for example `card-1:image2:4:3;card-2:image2:4:3` or `body:svg:body-fit`. |
+| `data-visual-insert` | Declares the exact semantic insertion slot plan, for example `card-1-conclusion-media-top:image2:4:3`, `table-row-2-risk-status-icon:icon:1:1`, or `svg-axis-x-effectiveness:svg:wide`. |
 | `data-visual-spec` | Links the slide to the page-level spec entry in `page-visual-slots.json`. |
 
 These fields are part of the format, not just notes. A derived company format or deck generator should read them before choosing layouts and assets.
 
 Do not stop at `data-visual-policy`. The policy is the category; `data-visual-insert` and `page-visual-slots.json` are the concrete page-by-page instruction for what to insert.
 
-Slot names must include location, not only asset type. Use names like `card-1-top`, `option-2-top`, `body-center`, `side-panel`, `row-1-left`, `field-3-top-left`, and `photo-frame`. The HTML catalog includes a placement layer that renders these slots visibly so a creator can see where the generated asset belongs before rendering a concrete deck.
+Slot names must include both location and semantic role, not only asset type or ordinal position. Use names like `card-1-conclusion-media-top`, `box-2-competitor-media-top`, `row-4-decision-left`, `field-3-channel-top-left`, and `svg-risk-event-center-icon`. Avoid `body`, `body-center`, `side-panel`, `card`, and `card-1` as standalone instructions. The only exception is a named image2 frame such as `image2-frame-main-composite-body`, where the slide pattern is explicitly a body-frame image2 variant and title/lead remain editable HTML.
 
 ## Typography Policy
 
