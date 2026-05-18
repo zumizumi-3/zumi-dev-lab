@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task Relay Mock</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./responsive.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">TR</div>
+          <div class="brand-copy">
+            <p>Chatwork AI Task</p>
+            <h1>Task Relay</h1>
+          </div>
+        </div>
+
+        <div class="sync-status">
+          <div>
+            <span class="status-dot"></span>
+            <span class="status-label">Webhook live</span>
+          </div>
+          <strong>18件</strong>
+          <span>今日の受信</span>
+        </div>
+
+        <nav class="nav-stack">
+          <button class="nav-item active" type="button">
+            <span class="nav-glyph">I</span>
+            Inbox
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-glyph">T</span>
+            Tasks
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-glyph">R</span>
+            Review
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-glyph">S</span>
+            Sources
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-glyph">G</span>
+            Google
+          </button>
+        </nav>
+
+        <div class="connection-stack">
+          <div class="connection-row">
+            <span>Chatwork</span>
+            <strong>接続済</strong>
+          </div>
+          <div class="connection-row">
+            <span>Google Tasks</span>
+            <strong>未連携</strong>
+          </div>
+          <div class="connection-row">
+            <span>Sheets台帳</span>
+            <strong>同期中</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="title-block">
+            <p>AI Inbox</p>
+            <h2>文脈から拾った自分のタスク</h2>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" type="button" aria-label="再判定" title="再判定">
+              <span aria-hidden="true">R</span>
+            </button>
+            <button class="primary-button" type="button">レビュー開始</button>
+          </div>
+        </header>
+
+        <section class="metrics" aria-label="Inbox metrics">
+          <article class="metric-tile">
+            <span>候補</span>
+            <strong id="metricCandidates">0</strong>
+          </article>
+          <article class="metric-tile">
+            <span>要確認</span>
+            <strong id="metricReview">0</strong>
+          </article>
+          <article class="metric-tile">
+            <span>採用済</span>
+            <strong id="metricAccepted">0</strong>
+          </article>
+          <article class="metric-tile">
+            <span>今日締切</span>
+            <strong id="metricToday">0</strong>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <section class="inbox-column" aria-labelledby="inboxHeading">
+            <div class="section-header">
+              <div>
+                <p>Queue</p>
+                <h3 id="inboxHeading">タスク候補</h3>
+              </div>
+              <span class="small-badge" id="visibleCount">0件</span>
+            </div>
+
+            <div class="filter-bar" role="tablist" aria-label="Candidate filters">
+              <button class="filter-chip active" type="button" data-filter="all">全て</button>
+              <button class="filter-chip" type="button" data-filter="candidate">候補</button>
+              <button class="filter-chip" type="button" data-filter="review">要確認</button>
+              <button class="filter-chip" type="button" data-filter="accepted">採用済</button>
+            </div>
+
+            <label class="search-field">
+              <span>検索</span>
+              <input id="searchInput" type="search" placeholder="ルーム、相手、タスク名" />
+            </label>
+
+            <div class="candidate-list" id="candidateList"></div>
+          </section>
+
+          <section class="detail-column" aria-labelledby="detailHeading">
+            <div class="section-header">
+              <div>
+                <p>Context</p>
+                <h3 id="detailHeading">会話とAI判定</h3>
+              </div>
+              <a class="source-link" id="sourceLink" href="#" target="_blank" rel="noreferrer">Chatwork</a>
+            </div>
+
+            <article class="detail-panel">
+              <div class="thread-summary">
+                <div>
+                  <span class="room-label" id="detailRoom">-</span>
+                  <h4 id="detailTitle">-</h4>
+                </div>
+                <div class="confidence-ring" id="confidenceRing">0%</div>
+              </div>
+
+              <div class="ai-decision" id="aiDecision"></div>
+
+              <div class="thread-messages" id="threadMessages"></div>
+
+              <div class="evidence-strip">
+                <div>
+                  <span>判定理由</span>
+                  <p id="decisionReason">-</p>
+                </div>
+                <div>
+                  <span>分類</span>
+                  <p id="decisionCategory">-</p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <aside class="editor-column" aria-labelledby="editorHeading">
+            <div class="section-header">
+              <div>
+                <p>Action</p>
+                <h3 id="editorHeading">タスク化</h3>
+              </div>
+              <span class="small-badge" id="editorStatus">候補</span>
+            </div>
+
+            <form class="task-form" id="taskForm">
+              <label>
+                <span>タスク名</span>
+                <input id="taskTitleInput" name="title" type="text" />
+              </label>
+
+              <label>
+                <span>詳細</span>
+                <textarea id="taskDetailInput" name="detail" rows="5"></textarea>
+              </label>
+
+              <div class="form-grid">
+                <label>
+                  <span>期限</span>
+                  <input id="taskDueInput" name="due" type="date" />
+                </label>
+                <label>
+                  <span>優先度</span>
+                  <select id="taskPriorityInput" name="priority">
+                    <option value="high">高</option>
+                    <option value="medium">中</option>
+                    <option value="low">低</option>
+                  </select>
+                </label>
+              </div>
+
+              <fieldset class="destination-box">
+                <legend>反映先</legend>
+                <label class="checkbox-row">
+                  <input id="destTasks" type="checkbox" />
+                  <span>Google Tasks</span>
+                </label>
+                <label class="checkbox-row">
+                  <input id="destCalendar" type="checkbox" />
+                  <span>Google Calendar</span>
+                </label>
+                <label class="checkbox-row">
+                  <input id="destSheets" type="checkbox" />
+                  <span>Google Sheets</span>
+                </label>
+              </fieldset>
+
+              <div class="button-grid">
+                <button class="secondary-button" type="button" data-action="hold">保留</button>
+                <button class="danger-button" type="button" data-action="reject">却下</button>
+                <button class="primary-button full" type="button" data-action="accept">採用</button>
+              </div>
+            </form>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
