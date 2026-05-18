@@ -3912,10 +3912,16 @@
         height: auto;
         min-height: 100%;
         overflow: auto;
-        background: #f4f4f4 !important;
+        background: #ffffff !important;
+        scrollbar-width: none;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
       }
       body {
-        padding: 72px;
+        margin: 0;
+        padding: 0;
       }
       .topbar,
       .controls,
@@ -3927,7 +3933,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 72px;
+        gap: 0;
         width: var(--deck-w);
         height: auto;
         min-height: 0;
@@ -3947,6 +3953,19 @@
         page-break-after: always;
         break-after: page;
         background: #ffffff !important;
+      }
+      body:has(.slide:target),
+      body:has(.slide:target) main {
+        width: var(--deck-w);
+        height: var(--deck-h);
+        min-height: var(--deck-h);
+        overflow: hidden;
+      }
+      body:has(.slide:target) .slide:not(:target) {
+        display: none !important;
+      }
+      body:has(.slide:target) .slide:target {
+        display: grid !important;
       }
       @media (prefers-reduced-motion: reduce) {
         *,
