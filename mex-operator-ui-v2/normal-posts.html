@@ -25,38 +25,39 @@
             <h1 class="page-title">通常投稿</h1>
             <p class="page-note">生成済み投稿を一覧で処理します。詳細ページへ飛ばず、この画面で編集、再生成、投稿、予約、否認まで完了する想定です。</p>
           </div>
-          <label class="select-box">表示 <select><option>全アカウント</option><option>Kaz</option><option>DX Marketing</option></select></label>
         </header>
-        <div class="grid-2">
-          <section class="panel">
-            <div class="panel-head">
-              <div><h2 class="panel-title">生成済み投稿一覧</h2><p class="panel-copy">上から処理。未処理、予約済み、否認済みを同じ場所で確認します。</p></div>
-              <div class="btns"><button class="btn primary">個別投稿案を生成</button><button class="btn">2時間分を生成</button></div>
-            </div>
-            <div class="section list">
-              <article class="item selected">
-                <div class="row"><h3 class="title-sm">Kaz / 13:20 生成</h3><span class="tag blue">未処理</span></div>
-                <p class="text">速く作れることと、続けられる条件を分けて考える投稿案。</p>
-                <div class="tagline"><span class="tag">通常投稿</span><span class="tag">S9 draft</span><span class="tag">重複確認済み</span></div>
-              </article>
-              <article class="item">
-                <div class="row"><h3 class="title-sm">DX Marketing / 12:00 自動生成</h3><span class="tag amber">要確認</span></div>
-                <p class="text">広告運用の検証で、初期反応に寄せすぎない判断軸を扱う案。</p>
-                <div class="tagline"><span class="tag">通常投稿</span><span class="tag">自動生成</span></div>
-              </article>
-              <article class="item">
-                <div class="row"><h3 class="title-sm">Kaz / 10:00 予約</h3><span class="tag green">予約済み</span></div>
-                <p class="text">価格差をつける時の説明責任について。</p>
-              </article>
-            </div>
-          </section>
-          <section class="panel">
-            <div class="panel-head"><div><h2 class="panel-title">投稿案の処理</h2><p class="panel-copy">文面を読んで、その場で直して処理します。</p></div></div>
-            <div class="section stack">
+        <section class="panel account-picker-panel">
+          <div class="account-picker">
+            <label>表示対象
+              <select class="select">
+                <option>全アカウント</option>
+                <option>Kaz / @kaz_tech4</option>
+                <option>DX Marketing / @dxmarketing_ad</option>
+              </select>
+            </label>
+            <div class="btns"><button class="btn primary">個別投稿案を生成</button><button class="btn">2時間分を生成</button></div>
+          </div>
+        </section>
+        <section class="section summary-grid">
+          <div class="summary-card"><div class="summary-label">未処理</div><div class="summary-value">3</div></div>
+          <div class="summary-card"><div class="summary-label">生成中</div><div class="summary-value">2</div></div>
+          <div class="summary-card"><div class="summary-label">予約済み</div><div class="summary-value">1</div></div>
+          <div class="summary-card"><div class="summary-label">今日の投稿</div><div class="summary-value">4 / 6</div></div>
+        </section>
+        <section class="accordion-stack">
+          <details class="accordion" open>
+            <summary>
+              <div>
+                <h2 class="panel-title">Kaz / 13:20 生成</h2>
+                <p class="panel-copy">通常投稿。論点プール、過去投稿、ペルソナ、今日の投稿数を使って生成。</p>
+              </div>
+              <div class="tagline"><span class="tag blue">未処理</span><span class="tag">S9 draft</span><span class="tag">重複確認済み</span></div>
+            </summary>
+            <div class="accordion-body stack">
               <dl class="field-grid">
-                <dt>対象アカウント</dt><dd>Kaz / @kaz_tech4</dd>
-                <dt>生成根拠</dt><dd>論点プール、過去投稿、ペルソナ、今日の投稿数</dd>
                 <dt>見せ方</dt><dd>単発長文。主張を先に置き、末尾で判断を残す。</dd>
+                <dt>今回の論点</dt><dd>速く作れることと、続けられる条件を分けて考える。</dd>
+                <dt>処理</dt><dd>文面を読んで、必要なら手修正してから投稿または予約。</dd>
               </dl>
               <textarea class="draft">速く作れることは、本当に強い。
 
@@ -74,8 +75,49 @@
                 <button class="btn danger">否認</button>
               </div>
             </div>
-          </section>
-        </div>
+          </details>
+          <details class="accordion">
+            <summary>
+              <div>
+                <h2 class="panel-title">DX Marketing / 12:00 自動生成</h2>
+                <p class="panel-copy">広告運用の検証で、初期反応に寄せすぎない判断軸を扱う案。</p>
+              </div>
+              <div class="tagline"><span class="tag amber">要確認</span><span class="tag">自動生成</span></div>
+            </summary>
+            <div class="accordion-body stack">
+              <dl class="field-grid">
+                <dt>見せ方</dt><dd>短文メモ。広告運用の現場判断に寄せる。</dd>
+                <dt>今回の論点</dt><dd>初期反応は答えではなく、次に崩れる条件を探す材料。</dd>
+              </dl>
+              <textarea class="draft">初期反応がよい施策ほど、そのまま伸ばしたくなる。
+
+ただ、広告運用では最初に反応した層だけを正解にすると、次の検証が狭くなることがある。
+
+反応が出た時ほど、なぜ動いたのか、別の訴求でも残るのか、獲得単価が耐えられるのかを見たい。</textarea>
+              <div class="btns">
+                <button class="btn primary">投稿する</button>
+                <button class="btn">再生成</button>
+                <button class="btn">長文にする</button>
+                <button class="btn">スレッドにする</button>
+                <button class="btn">予約</button>
+                <button class="btn danger">否認</button>
+              </div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>
+              <div>
+                <h2 class="panel-title">Kaz / 10:00 予約</h2>
+                <p class="panel-copy">価格差をつける時の説明責任について。</p>
+              </div>
+              <div class="tagline"><span class="tag green">予約済み</span><span class="tag">18:00</span></div>
+            </summary>
+            <div class="accordion-body stack">
+              <p class="text">予約済みの投稿も同じ場所で確認し、必要なら編集、再予約、否認へ切り替えます。</p>
+              <div class="btns"><button class="btn">予約を変更</button><button class="btn">編集</button><button class="btn danger">否認</button></div>
+            </div>
+          </details>
+        </section>
       </main>
     </div>
   </body>

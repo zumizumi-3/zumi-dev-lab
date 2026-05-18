@@ -25,27 +25,35 @@
             <h1 class="page-title">自分の投稿への反応対応</h1>
             <p class="page-note">管理アカウント自身の投稿に来たリプライ・引用を拾い、返信か引用のどちらで対応するかを決めます。</p>
           </div>
-          <div class="btns"><button class="btn primary">直近12時間を取得</button><button class="btn">返信案を一括生成</button></div>
         </header>
-        <div class="grid-2">
-          <section class="panel">
-            <div class="panel-head"><div><h2 class="panel-title">対応待ち</h2><p class="panel-copy">受けた反応の種類が先に見える設計です。</p></div></div>
-            <div class="section list">
-              <article class="item selected">
-                <div class="row"><h3 class="title-sm">Kaz の投稿へのリプライ</h3><span class="tag green">受けた反応: リプライ</span></div>
-                <p class="text">相手: その場合、最初の検証は何から見るべきですか？</p>
-                <div class="tagline"><span class="tag">元投稿: 通常投稿</span><span class="tag">優先度: 通常</span></div>
-              </article>
-              <article class="item">
-                <div class="row"><h3 class="title-sm">DX Marketing の投稿への引用</h3><span class="tag purple">受けた反応: 引用</span></div>
-                <p class="text">引用元: KPI設定だけでは足りない、という話はかなり現場感があります。</p>
-                <div class="tagline"><span class="tag">元投稿: 通常投稿</span><span class="tag amber">優先度: 高</span></div>
-              </article>
-            </div>
-          </section>
-          <section class="panel">
-            <div class="panel-head"><div><h2 class="panel-title">対応案</h2><p class="panel-copy">返信で返すか、引用で広げるかをここで選びます。</p></div></div>
-            <div class="section stack">
+        <section class="panel account-picker-panel">
+          <div class="account-picker">
+            <label>表示対象
+              <select class="select">
+                <option>全アカウント</option>
+                <option>Kaz / @kaz_tech4</option>
+                <option>DX Marketing / @dxmarketing_ad</option>
+              </select>
+            </label>
+            <div class="btns"><button class="btn primary">直近12時間を取得</button><button class="btn">返信案を一括生成</button></div>
+          </div>
+        </section>
+        <section class="section summary-grid">
+          <div class="summary-card"><div class="summary-label">対応待ち</div><div class="summary-value">2</div></div>
+          <div class="summary-card"><div class="summary-label">リプライ</div><div class="summary-value">1</div></div>
+          <div class="summary-card"><div class="summary-label">引用</div><div class="summary-value">1</div></div>
+          <div class="summary-card"><div class="summary-label">対応済み</div><div class="summary-value">5</div></div>
+        </section>
+        <section class="accordion-stack">
+          <details class="accordion" open>
+            <summary>
+              <div>
+                <h2 class="panel-title">Kaz の投稿へのリプライ</h2>
+                <p class="panel-copy">相手の質問に対して、返信で短く返すか、引用で広げるかを選びます。</p>
+              </div>
+              <div class="tagline"><span class="tag green">受けた反応: リプライ</span><span class="tag">優先度: 通常</span></div>
+            </summary>
+            <div class="accordion-body stack">
               <div class="source-box">
                 <strong>元投稿</strong>
                 <p class="text">速く作れる時代ほど、最初の検証で何を見るかを決めておく必要がある。</p>
@@ -60,10 +68,36 @@
 機能の完成度より、誰が、どのタイミングで、何の代わりに開くのか。
 
 ここが曖昧なまま作ると、画面は動いても検証が進みにくいです。</textarea>
-              <div class="btns"><button class="btn primary">投稿する</button><button class="btn">再生成</button><button class="btn">予約</button><button class="btn danger">否認</button></div>
+              <div class="btns"><button class="btn primary">投稿する</button><button class="btn">再生成</button><button class="btn">予約</button><button class="btn">対応済みにする</button><button class="btn danger">否認</button></div>
             </div>
-          </section>
-        </div>
+          </details>
+          <details class="accordion">
+            <summary>
+              <div>
+                <h2 class="panel-title">DX Marketing の投稿への引用</h2>
+                <p class="panel-copy">引用で広げられた反応。返信で返すか、引用で補足するかを選びます。</p>
+              </div>
+              <div class="tagline"><span class="tag purple">受けた反応: 引用</span><span class="tag amber">優先度: 高</span></div>
+            </summary>
+            <div class="accordion-body stack">
+              <div class="source-box">
+                <strong>元投稿</strong>
+                <p class="text">広告のKPIは設定するだけではなく、誰がどの頻度で見直すかまで決めて初めて運用になります。</p>
+              </div>
+              <div class="source-box">
+                <strong>受けた反応</strong>
+                <p class="text">KPI設定だけでは足りない、という話はかなり現場感があります。</p>
+              </div>
+              <div class="btns"><button class="btn">返信で対応</button><button class="btn primary">引用で対応</button></div>
+              <textarea class="draft">ありがとうございます。
+
+現場では、KPIを置いた瞬間より、その数字を誰が見て、いつ判断を変えるのかの方が詰まりやすいです。
+
+指標は作るものですが、運用の責任者が曖昧だと、結局ただの報告項目になります。</textarea>
+              <div class="btns"><button class="btn primary">投稿する</button><button class="btn">再生成</button><button class="btn">予約</button><button class="btn">対応済みにする</button><button class="btn danger">否認</button></div>
+            </div>
+          </details>
+        </section>
       </main>
     </div>
   </body>

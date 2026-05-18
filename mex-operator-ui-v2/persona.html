@@ -25,51 +25,118 @@
             <h1 class="page-title">ペルソナ</h1>
             <p class="page-note">読むことを主軸にし、必要な部分だけ編集します。ここは人格、判断軸、文体の整理に絞り、アカウント別素材はアカウント設定へ分けます。</p>
           </div>
-          <label class="select-box">対象 <select><option>Kaz / @kaz_tech4</option><option>DX Marketing / @dxmarketing_ad</option></select></label>
         </header>
-        <div class="grid-2">
-          <section class="panel">
-            <div class="panel-head"><div><h2 class="panel-title">読むペルソナ</h2><p class="panel-copy">発話主体として必要なものだけを上から確認します。</p></div><button class="btn primary">AIで再整理</button></div>
-            <div class="section stack">
-              <article class="item">
-                <div class="row"><h3 class="title-sm">発話主体</h3><button class="btn">編集</button></div>
-                <p class="text">Vibe CodingとSaaS開発支援を実務で扱う、事業側の視点を持った開発者・プロデューサー。</p>
-              </article>
-              <article class="item">
-                <div class="row"><h3 class="title-sm">価値観・判断基準</h3><button class="btn">編集</button></div>
-                <p class="text">作れるかより、誰が払い続けるか、現場で毎日使われるか、事業として崩れないかを見る。</p>
-              </article>
-              <article class="item">
-                <div class="row"><h3 class="title-sm">文頭・文末・一人称</h3><button class="btn">編集</button></div>
-                <dl class="field-grid">
-                  <dt>一人称</dt><dd>基本は出しすぎない。必要な時だけ「自分」。</dd>
-                  <dt>文頭</dt><dd>短い観察、具体物、少し引っかかった点から入る。</dd>
-                  <dt>文末</dt><dd>教訓ではなく、判断や余白を残して閉じる。</dd>
-                </dl>
-              </article>
-              <article class="item">
-                <div class="row"><h3 class="title-sm">運用ルール</h3><button class="btn">編集</button></div>
-                <p class="text">通常投稿は半自動。引用投稿は手動確認。自分への反応は返信または引用で対応し、実投稿は明示操作のみ。</p>
-              </article>
+        <section class="panel account-picker-panel">
+          <div class="account-picker">
+            <label>対象アカウント
+              <select class="select">
+                <option>Kaz / @kaz_tech4</option>
+                <option>DX Marketing / @dxmarketing_ad</option>
+              </select>
+            </label>
+            <div class="btns"><button class="btn primary">Xから再整理</button><button class="btn">素材から反映候補を作る</button></div>
+          </div>
+        </section>
+        <section class="section summary-grid">
+          <div class="summary-card"><div class="summary-label">最終更新</div><div class="summary-value">今日</div></div>
+          <div class="summary-card"><div class="summary-label">未確認候補</div><div class="summary-value">2</div></div>
+          <div class="summary-card"><div class="summary-label">投稿反映</div><div class="summary-value">有効</div></div>
+          <div class="summary-card"><div class="summary-label">素材反映</div><div class="summary-value">保留中</div></div>
+        </section>
+        <section class="accordion-stack">
+          <details class="accordion" open>
+            <summary>
+              <div>
+                <h2 class="panel-title">発話主体・基本プロフィール</h2>
+                <p class="panel-copy">誰として話すか。投稿生成で毎回使う人格の土台です。</p>
+              </div>
+              <span class="tag green">設定済み</span>
+            </summary>
+            <div class="accordion-body stack">
+              <p class="text">Vibe CodingとSaaS開発支援を実務で扱う、事業側の視点を持った開発者・プロデューサー。</p>
+              <dl class="field-grid">
+                <dt>読者</dt><dd>AIやVibe Codingでサービスを作りたい個人開発者、非エンジニア事業者、SaaS立ち上げ層。</dd>
+                <dt>立ち位置</dt><dd>短期開発の可能性を認めつつ、継続利用、収益化、検証を重視する。</dd>
+              </dl>
+              <div class="btns"><button class="btn">この項目を編集</button><button class="btn">AIで整える</button></div>
             </div>
-          </section>
-          <section class="panel">
-            <div class="panel-head"><div><h2 class="panel-title">ペルソナへの反映候補</h2><p class="panel-copy">アカウント別素材からAIが抽出した、人格・文体に関係する候補だけを確認します。</p></div></div>
-            <div class="section stack">
+          </details>
+          <details class="accordion" open>
+            <summary>
+              <div>
+                <h2 class="panel-title">価値観・判断基準</h2>
+                <p class="panel-copy">何を良いと見なし、何を警戒するか。主張の芯になります。</p>
+              </div>
+              <span class="tag green">設定済み</span>
+            </summary>
+            <div class="accordion-body stack">
+              <p class="text">作れるかより、誰が払い続けるか、現場で毎日使われるか、事業として崩れないかを見る。</p>
+              <div class="source-box">
+                <strong>投稿生成で残す判断</strong>
+                <p class="text">スピードは武器。ただし確認不足、顧客不在、煽り型の収益訴求には警戒する。</p>
+              </div>
+              <div class="btns"><button class="btn">この項目を編集</button><button class="btn">過去投稿から更新</button></div>
+            </div>
+          </details>
+          <details class="accordion" open>
+            <summary>
+              <div>
+                <h2 class="panel-title">文体・表現ルール</h2>
+                <p class="panel-copy">文頭、文末、一人称、投稿の温度感をここに集約します。</p>
+              </div>
+              <span class="tag blue">投稿に反映</span>
+            </summary>
+            <div class="accordion-body stack">
+              <dl class="field-grid">
+                <dt>一人称</dt><dd>基本は出しすぎない。必要な時だけ「自分」。</dd>
+                <dt>文頭</dt><dd>短い観察、具体物、少し引っかかった点から入る。</dd>
+                <dt>文末</dt><dd>教訓ではなく、判断や余白を残して閉じる。</dd>
+                <dt>口調</dt><dd>落ち着いた実務家口調。断定しすぎず、少し揺れを残す。</dd>
+                <dt>避ける表現</dt><dd>過剰な成功約束、煽り、汎用AIっぽい整いすぎた結論。</dd>
+              </dl>
+              <div class="btns"><button class="btn">この項目を編集</button><button class="btn">文体候補を確認</button></div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>
+              <div>
+                <h2 class="panel-title">投稿テーマ・運用ルール</h2>
+                <p class="panel-copy">どんな投稿にするか、通常・引用・反応対応の扱いを確認します。</p>
+              </div>
+              <span class="tag">確認用</span>
+            </summary>
+            <div class="accordion-body stack">
+              <dl class="field-grid">
+                <dt>通常投稿</dt><dd>半自動で生成し、画面で確認してから投稿または予約。</dd>
+                <dt>引用投稿</dt><dd>手動確認。引用元の投稿を主役にし、管理アカウント別の背景情報を足す。</dd>
+                <dt>反応対応</dt><dd>自分の投稿へのリプライ・引用を拾い、返信または引用で対応する。</dd>
+                <dt>実投稿</dt><dd>明示操作のみ。自動生成は投稿案作成まで。</dd>
+              </dl>
+              <div class="btns"><button class="btn">この項目を編集</button><a class="btn" href="./account-settings.html">運用設定へ</a></div>
+            </div>
+          </details>
+          <details class="accordion">
+            <summary>
+              <div>
+                <h2 class="panel-title">ペルソナへの反映候補</h2>
+                <p class="panel-copy">アカウント別素材からAIが抽出した候補を、採用する時だけ開きます。</p>
+              </div>
+              <span class="tag amber">2件</span>
+            </summary>
+            <div class="accordion-body stack">
               <div class="item">
                 <h3 class="title-sm">文体候補</h3>
                 <p class="text">短い観察から入り、断定しすぎず、最後に判断の余白を残す。</p>
-                <div class="btns"><button class="btn primary">採用</button><button class="btn">編集</button><button class="btn danger">却下</button></div>
+                <div class="btns"><button class="btn primary">採用</button><button class="btn">編集して採用</button><button class="btn danger">却下</button></div>
               </div>
               <div class="item">
                 <h3 class="title-sm">判断軸候補</h3>
                 <p class="text">短期開発の速度を肯定しつつ、継続利用と事業耐久性を必ず見る。</p>
-                <div class="btns"><button class="btn primary">採用</button><button class="btn">編集</button><button class="btn danger">却下</button></div>
+                <div class="btns"><button class="btn primary">採用</button><button class="btn">編集して採用</button><button class="btn danger">却下</button></div>
               </div>
-              <a class="btn" href="./account-settings.html">アカウント別素材を管理する</a>
             </div>
-          </section>
-        </div>
+          </details>
+        </section>
       </main>
     </div>
   </body>
