@@ -3967,6 +3967,38 @@
       body:has(.slide:target) .slide:target {
         display: grid !important;
       }
+      body.figma-fit-viewport {
+        --deck-w: 100vw;
+        --deck-h: 100vh;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      body.figma-fit-viewport main {
+        position: fixed;
+        inset: 0;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      body.figma-fit-viewport .slide,
+      body.figma-fit-viewport .slide.is-active {
+        position: absolute !important;
+        inset: 0 auto auto 0 !important;
+        display: none !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        transform-origin: top left !important;
+      }
+      body.figma-fit-viewport .slide.is-active {
+        display: grid !important;
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -3978,6 +4010,13 @@
     </style>
   </head>
   <body class="figma-import">
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("fit") !== "stretch") return;
+        document.body.classList.add("figma-fit-viewport");
+      })();
+    </script>
     <nav class="topbar" aria-label="Deck navigation">
       <a href="../">Decks</a>
       <span>/</span>
