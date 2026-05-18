@@ -25,7 +25,7 @@ This audit covers every page in `plain-business-visual-ppt` after adding page-le
 | PBV-00 | visual-policy-guide | svg+image2 | `body:svg:body-fit;support:image2:4:3` | pass | SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。 |
 | PB-00 | cover | image2 | `side-panel:image2:4:3` | pass | image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。 |
 | PB-01 | agenda | icon | `per_row:icon:1:1:count-5` | pass | アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。 |
-| PB-02 | executive-summary | image2 | `card-1:image2:4:3;card-2:image2:4:3;card-3:image2:4:3` | fixed | 監査でカード画像ラベルが数値寄りだったため、結論・根拠・次アクションの意味ベースのimage2指定に修正済み。 |
+| PB-02 | executive-summary | image2 | `card-1-top:image2:4:3;card-2-top:image2:4:3;card-3-top:image2:4:3` | fixed | 監査後の位置指定プロトタイプとして、3カードそれぞれの上部4:3メディア枠をHTML上に可視化し、insertPlanもtop指定へ修正済み。 |
 | PB-03 | issue-direction | svg | `body:svg:body-fit` | pass | SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。 |
 | PB-04 | 3c-analysis | image2 | `lane-1:image2:4:3;lane-2:image2:4:3;lane-3:image2:4:3` | pass | image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。 |
 | PB-05 | kpi-tree | svg | `body:svg:body-fit` | pass | SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。 |

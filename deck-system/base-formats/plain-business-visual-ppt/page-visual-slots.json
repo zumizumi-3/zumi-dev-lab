@@ -132,29 +132,29 @@
       "visualUnit": "per_card",
       "aspectRatio": "4:3",
       "requiredKind": "image2",
-      "insertPlan": "card-1:image2:4:3;card-2:image2:4:3;card-3:image2:4:3",
-      "brief": "結論、根拠、次アクションの各カードに、それぞれ異なるimage2カード画像を入れる。抽象背景の使い回しは禁止。",
+      "insertPlan": "card-1-top:image2:4:3;card-2-top:image2:4:3;card-3-top:image2:4:3",
+      "brief": "各カード上部に4:3のimage2枠を置き、下に分類ラベル・大きな値・説明文を残す。結論、根拠、次アクションで別々の画像にする。",
       "assetSlots": [
         {
-          "slot": "card-1",
+          "slot": "card-1-top",
           "type": "image2",
           "aspectRatio": "4:3",
-          "placement": "card media area",
-          "brief": "結論を示す判断カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+          "placement": "card top media slot",
+          "brief": "結論を示す判断カード。カード上部の4:3枠に差し込み、下部のHTMLテキストを画像化しない。"
         },
         {
-          "slot": "card-2",
+          "slot": "card-2-top",
           "type": "image2",
           "aspectRatio": "4:3",
-          "placement": "card media area",
-          "brief": "根拠を示す増加・横ばいカード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+          "placement": "card top media slot",
+          "brief": "根拠を示す増加・横ばいカード。カード上部の4:3枠に差し込み、下部のHTMLテキストを画像化しない。"
         },
         {
-          "slot": "card-3",
+          "slot": "card-3-top",
           "type": "image2",
           "aspectRatio": "4:3",
-          "placement": "card media area",
-          "brief": "次アクションを示す分岐カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+          "placement": "card top media slot",
+          "brief": "次アクションを示す分岐カード。カード上部の4:3枠に差し込み、下部のHTMLテキストを画像化しない。"
         }
       ],
       "avoid": [
@@ -163,7 +163,7 @@
         "tiny text inside generated images"
       ],
       "auditStatus": "fixed",
-      "auditNote": "監査でカード画像ラベルが数値寄りだったため、結論・根拠・次アクションの意味ベースのimage2指定に修正済み。"
+      "auditNote": "監査後の位置指定プロトタイプとして、3カードそれぞれの上部4:3メディア枠をHTML上に可視化し、insertPlanもtop指定へ修正済み。"
     },
     {
       "slide": "PB-03",
@@ -2612,29 +2612,29 @@
       "visualUnit": "per_card",
       "aspectRatio": "4:3",
       "requiredKind": "image2",
-      "insertPlan": "card-1:image2:4:3;card-2:image2:4:3;card-3:image2:4:3",
-      "brief": "結論、根拠、次アクションの各カードに、それぞれ異なるimage2カード画像を入れる。抽象背景の使い回しは禁止。",
+      "insertPlan": "card-1-top:image2:4:3;card-2-top:image2:4:3;card-3-top:image2:4:3",
+      "brief": "各カード上部に4:3のimage2枠を置き、下に分類ラベル・大きな値・説明文を残す。結論、根拠、次アクションで別々の画像にする。",
       "assetSlots": [
         {
-          "slot": "card-1",
+          "slot": "card-1-top",
           "type": "image2",
           "aspectRatio": "4:3",
-          "placement": "card media area",
-          "brief": "結論を示す判断カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+          "placement": "card top media slot",
+          "brief": "結論を示す判断カード。カード上部の4:3枠に差し込み、下部のHTMLテキストを画像化しない。"
         },
         {
-          "slot": "card-2",
+          "slot": "card-2-top",
           "type": "image2",
           "aspectRatio": "4:3",
-          "placement": "card media area",
-          "brief": "根拠を示す増加・横ばいカード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+          "placement": "card top media slot",
+          "brief": "根拠を示す増加・横ばいカード。カード上部の4:3枠に差し込み、下部のHTMLテキストを画像化しない。"
         },
         {
-          "slot": "card-3",
+          "slot": "card-3-top",
           "type": "image2",
           "aspectRatio": "4:3",
-          "placement": "card media area",
-          "brief": "次アクションを示す分岐カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+          "placement": "card top media slot",
+          "brief": "次アクションを示す分岐カード。カード上部の4:3枠に差し込み、下部のHTMLテキストを画像化しない。"
         }
       ],
       "avoid": [
@@ -2643,7 +2643,7 @@
         "tiny text inside generated images"
       ],
       "auditStatus": "fixed",
-      "auditNote": "監査でカード画像ラベルが数値寄りだったため、結論・根拠・次アクションの意味ベースのimage2指定に修正済み。"
+      "auditNote": "監査後の位置指定プロトタイプとして、3カードそれぞれの上部4:3メディア枠をHTML上に可視化し、insertPlanもtop指定へ修正済み。"
     },
     "PB-03": {
       "slide": "PB-03",
@@ -4980,7 +4980,8 @@
     "result": "pass_after_fixes",
     "fixes": [
       "PB-02 image2 card briefs refined",
-      "PB-60 canvas cell count fixed from 8 to 9 and icon slots aligned"
+      "PB-60 canvas cell count fixed from 8 to 9 and icon slots aligned",
+      "PB-02 top media slot placement prototype added"
     ]
   }
 }

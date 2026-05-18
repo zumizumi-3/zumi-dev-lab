@@ -372,6 +372,54 @@
         line-height: 1;
         font-variant-numeric: tabular-nums;
       }
+      .metric.visual-card {
+        align-content: start;
+        gap: 8px;
+        padding: 14px 16px;
+      }
+      .card-media-slot {
+        display: grid;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        place-items: center;
+        padding: 10px;
+        border: 1px dashed color-mix(in srgb, var(--gold) 72%, var(--line));
+        border-radius: var(--card-radius);
+        background:
+          linear-gradient(135deg, rgba(214, 155, 54, 0.12), rgba(111, 37, 52, 0.04)),
+          var(--surface);
+        color: var(--muted);
+        text-align: center;
+      }
+      .card-media-slot svg {
+        width: 72%;
+        max-width: 190px;
+        height: auto;
+      }
+      .card-media-slot figcaption {
+        margin-top: 6px;
+        color: var(--quiet);
+        font-size: 0.72rem;
+        font-weight: 850;
+        line-height: 1.25;
+      }
+      .visual-card .slot-meta {
+        color: var(--quiet);
+        font-size: 0.8rem;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+      .visual-card b {
+        margin-top: 2px;
+        font-size: 1.72rem;
+      }
+      .visual-card p {
+        font-size: 0.98rem;
+        line-height: 1.42;
+      }
       .number {
         display: inline-grid;
         width: 28px;
@@ -2003,7 +2051,7 @@
         </div>
       </section>
 
-      <section id="PB-02" class="slide" data-slide="PB-02" data-pattern="executive-summary" aria-labelledby="PB-02-title" data-visual-policy="image2_card_media" data-visual-unit="per_card" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="card-1:image2:4:3;card-2:image2:4:3;card-3:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-02">
+      <section id="PB-02" class="slide" data-slide="PB-02" data-pattern="executive-summary" aria-labelledby="PB-02-title" data-visual-policy="image2_card_media" data-visual-unit="per_card" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="card-1-top:image2:4:3;card-2-top:image2:4:3;card-3-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-02">
         <div class="slide-header">
           <span>PB-02 / Executive Summary</span>
           <span>Key points and implication</span>
@@ -2012,9 +2060,44 @@
           <h2 id="PB-02-title" class="title-slot" data-role="title" data-source-slot="pptx:title" data-corporate-role="slide-title">最初に判断材料を3点へ圧縮する</h2>
           <p class="lead-copy lead-slot" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">業務PPTの要約ページは、結論、根拠、次アクションを同じ粒度で並べる。</p>
           <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
-            <div class="metric"><span>Conclusion</span><b>継続</b><p>主要KPIは維持。改善余地は流入品質に集中。</p></div>
-            <div class="metric"><span>Evidence</span><b>+12%</b><p>問い合わせは増加、商談化率は横ばい。</p></div>
-            <div class="metric"><span>Next</span><b>2案</b><p>訴求軸と比較資料を先に改訂。</p></div>
+            <div class="metric visual-card">
+              <figure class="card-media-slot" data-visual-slot="card-1-top" data-renderer="image2" aria-label="card-1 top image2 media slot">
+                <svg viewBox="0 0 180 120" role="img" aria-label="判断カードのimage2差し込み位置">
+                  <rect x="22" y="20" width="136" height="80" rx="8" fill="#fff" stroke="#d6c6ab" stroke-width="2" />
+                  <path d="M42 78h96" stroke="#d69b36" stroke-width="6" stroke-linecap="round" />
+                  <path d="M42 58h64" stroke="#6f2534" stroke-width="6" stroke-linecap="round" />
+                  <circle cx="132" cy="46" r="14" fill="#f5ead9" stroke="#6f2534" stroke-width="2" />
+                </svg>
+                <figcaption>card-1 image2 / 4:3 / top media</figcaption>
+              </figure>
+              <span class="slot-meta">Conclusion</span><b>継続</b><p>主要KPIは維持。改善余地は流入品質に集中。</p>
+            </div>
+            <div class="metric visual-card">
+              <figure class="card-media-slot" data-visual-slot="card-2-top" data-renderer="image2" aria-label="card-2 top image2 media slot">
+                <svg viewBox="0 0 180 120" role="img" aria-label="根拠カードのimage2差し込み位置">
+                  <rect x="22" y="20" width="136" height="80" rx="8" fill="#fff" stroke="#d6c6ab" stroke-width="2" />
+                  <path d="M44 82l24-26 24 13 38-34" fill="none" stroke="#d69b36" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="44" cy="82" r="5" fill="#6f2534" />
+                  <circle cx="92" cy="69" r="5" fill="#6f2534" />
+                  <circle cx="130" cy="35" r="5" fill="#6f2534" />
+                </svg>
+                <figcaption>card-2 image2 / 4:3 / top media</figcaption>
+              </figure>
+              <span class="slot-meta">Evidence</span><b>+12%</b><p>問い合わせは増加、商談化率は横ばい。</p>
+            </div>
+            <div class="metric visual-card">
+              <figure class="card-media-slot" data-visual-slot="card-3-top" data-renderer="image2" aria-label="card-3 top image2 media slot">
+                <svg viewBox="0 0 180 120" role="img" aria-label="次アクションカードのimage2差し込み位置">
+                  <rect x="22" y="20" width="136" height="80" rx="8" fill="#fff" stroke="#d6c6ab" stroke-width="2" />
+                  <path d="M54 62h72" stroke="#d69b36" stroke-width="7" stroke-linecap="round" />
+                  <path d="M108 45l18 17-18 17" fill="none" stroke="#d69b36" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+                  <rect x="43" y="42" width="36" height="40" rx="6" fill="#f8f9fb" stroke="#6f2534" stroke-width="2" />
+                  <rect x="117" y="42" width="36" height="40" rx="6" fill="#f8f9fb" stroke="#6f2534" stroke-width="2" />
+                </svg>
+                <figcaption>card-3 image2 / 4:3 / top media</figcaption>
+              </figure>
+              <span class="slot-meta">Next</span><b>2案</b><p>訴求軸と比較資料を先に改訂。</p>
+            </div>
           </div>
         </div>
         <div class="slide-footer">
