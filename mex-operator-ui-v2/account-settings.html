@@ -24,81 +24,51 @@
         <header class="top">
           <div>
             <h1 class="page-title">アカウント設定</h1>
-            <p class="page-note">複数アカウント運用の基礎画面。左で管理アカウントを選び、右で接続、運用モード、自動生成、予約枠、アカウント固有素材を確認します。</p>
+            <p class="page-note">左右に詰め込まず、対象アカウントを選んでから必要な設定だけ縦に開く画面です。</p>
           </div>
           <button class="btn primary" type="button">変更を保存</button>
         </header>
 
         <div class="account-page">
-          <section class="panel">
-            <div class="panel-head">
-              <div>
-                <h2 class="panel-title">管理アカウント</h2>
-                <p class="panel-copy">設定対象を先に選びます。</p>
-              </div>
-              <button class="btn" type="button">追加</button>
+          <section class="panel account-picker-panel">
+            <div class="account-picker">
+              <label>
+                設定する管理アカウント
+                <select class="select" aria-label="設定する管理アカウント">
+                  <option>Kaz / @kaz_tech4</option>
+                  <option>DX Marketing / @dxmarketing_ad</option>
+                  <option>New Account / @new_ops</option>
+                </select>
+              </label>
+              <div class="btns"><button class="btn" type="button">接続確認</button><button class="btn" type="button">アカウント追加</button></div>
             </div>
-            <div class="section account-list">
-              <article class="account-card active">
-                <div class="account-card-head">
-                  <div>
-                    <div class="account-name">Kaz</div>
-                    <div class="account-handle">@kaz_tech4</div>
-                  </div>
-                  <span class="tag green">接続済み</span>
-                </div>
-                <div class="tagline"><span class="tag">半自動</span><span class="tag blue">4 / 6</span></div>
-              </article>
+            <div class="tagline"><span class="tag green">X接続済み</span><span class="tag">xops-kaz_tech4 / prd</span><span class="tag amber">代表取得アカウント</span></div>
+          </section>
 
-              <article class="account-card">
-                <div class="account-card-head">
-                  <div>
-                    <div class="account-name">DX Marketing</div>
-                    <div class="account-handle">@dxmarketing_ad</div>
-                  </div>
-                  <span class="tag green">接続済み</span>
-                </div>
-                <div class="tagline"><span class="tag">半自動</span><span class="tag amber">2 / 6</span></div>
-              </article>
-
-              <article class="account-card">
-                <div class="account-card-head">
-                  <div>
-                    <div class="account-name">New Account</div>
-                    <div class="account-handle">@new_ops</div>
-                  </div>
-                  <span class="tag">未設定</span>
-                </div>
-                <div class="tagline"><span class="tag">設定待ち</span></div>
-              </article>
+          <section class="panel">
+            <div class="account-hero">
+              <div>
+                <h2>Kaz / @kaz_tech4</h2>
+                <p class="page-note">Vibe Coding と SaaS 開発支援の発信アカウント。通常投稿は半自動、引用ターゲット投稿は手動確認、反応対応は半自動で運用します。</p>
+              </div>
+              <button class="btn" type="button">Doppler参照を編集</button>
+            </div>
+            <div class="section summary-grid">
+              <div class="summary-card"><div class="summary-label">投稿目標</div><div class="summary-value">6本 / 日</div></div>
+              <div class="summary-card"><div class="summary-label">今日の進捗</div><div class="summary-value">4 / 6</div></div>
+              <div class="summary-card"><div class="summary-label">自動生成</div><div class="summary-value">2時間おき</div></div>
+              <div class="summary-card"><div class="summary-label">未処理</div><div class="summary-value">3件</div></div>
             </div>
           </section>
 
-          <div class="account-detail">
-            <section class="panel">
-              <div class="account-hero">
-                <div>
-                  <h2>Kaz / @kaz_tech4</h2>
-                  <p class="page-note">Vibe Coding と SaaS 開発支援の発信アカウント。通常投稿は半自動、引用ターゲット投稿は手動確認、反応対応は半自動で運用します。</p>
-                  <div class="tagline"><span class="tag green">X接続済み</span><span class="tag">xops-kaz_tech4 / prd</span><span class="tag amber">代表取得アカウント</span></div>
-                </div>
-                <div class="btns"><button class="btn" type="button">接続確認</button><button class="btn" type="button">Doppler参照を編集</button></div>
-              </div>
-              <div class="section summary-grid">
-                <div class="summary-card"><div class="summary-label">投稿目標</div><div class="summary-value">6本 / 日</div></div>
-                <div class="summary-card"><div class="summary-label">今日の進捗</div><div class="summary-value">4 / 6</div></div>
-                <div class="summary-card"><div class="summary-label">自動生成</div><div class="summary-value">2時間おき</div></div>
-                <div class="summary-card"><div class="summary-label">未処理</div><div class="summary-value">3件</div></div>
-              </div>
-            </section>
-
-            <section class="panel">
-              <div class="panel-head">
+          <div class="accordion-stack">
+            <details class="accordion" open>
+              <summary>
                 <div>
                   <h2 class="panel-title">運用モード</h2>
                   <p class="panel-copy">投稿種別ごとに、人がどこまで見るかを決めます。</p>
                 </div>
-              </div>
+              </summary>
               <div class="settings-band">
                 <div class="setting-row">
                   <div><h3 class="setting-title">通常投稿</h3><p class="setting-copy">AIが案を作り、人が投稿/予約/否認します。</p></div>
@@ -113,42 +83,49 @@
                   <div class="toggle" aria-label="反応対応運用"><span>手動</span><span class="active">半自動</span><span>自動</span></div>
                 </div>
               </div>
-            </section>
+            </details>
 
-            <div class="grid-2">
-              <section class="panel">
-                <div class="panel-head"><div><h2 class="panel-title">自動生成・取得</h2><p class="panel-copy">AIが裏で準備する処理。実投稿はここでは起きません。</p></div></div>
+            <details class="accordion" open>
+              <summary>
                 <div>
-                  <div class="setting-row"><div><h3 class="setting-title">通常投稿案</h3><p class="setting-copy">2時間おきに案を補充します。</p></div><span class="tag green">ON</span></div>
-                  <div class="setting-row"><div><h3 class="setting-title">自分の投稿取得</h3><p class="setting-copy">重複回避と反応対応の土台です。</p></div><span class="tag green">ON</span></div>
-                  <div class="setting-row"><div><h3 class="setting-title">自分へのリプライ/引用取得</h3><p class="setting-copy">返信候補・引用返信候補を作るための取得。</p></div><span class="tag green">ON</span></div>
-                  <div class="setting-row"><div><h3 class="setting-title">ターゲット取得</h3><p class="setting-copy">このアカウントのX接続を代表取得に使います。</p></div><span class="tag amber">代表</span></div>
+                  <h2 class="panel-title">自動生成・取得</h2>
+                  <p class="panel-copy">AIが裏で準備する処理。ここでは実投稿しません。</p>
                 </div>
-              </section>
+              </summary>
+              <div>
+                <div class="setting-row"><div><h3 class="setting-title">通常投稿案</h3><p class="setting-copy">2時間おきに案を補充します。</p></div><span class="tag green">ON</span></div>
+                <div class="setting-row"><div><h3 class="setting-title">自分の投稿取得</h3><p class="setting-copy">重複回避と反応対応の土台です。</p></div><span class="tag green">ON</span></div>
+                <div class="setting-row"><div><h3 class="setting-title">自分へのリプライ/引用取得</h3><p class="setting-copy">返信候補・引用返信候補を作るための取得。</p></div><span class="tag green">ON</span></div>
+                <div class="setting-row"><div><h3 class="setting-title">ターゲット取得</h3><p class="setting-copy">このアカウントのX接続を代表取得に使います。</p></div><span class="tag amber">代表</span></div>
+              </div>
+            </details>
 
-              <section class="panel">
-                <div class="panel-head"><div><h2 class="panel-title">投稿予約枠</h2><p class="panel-copy">実際に投稿される予定時刻。自動生成の時刻とは別です。</p></div></div>
-                <div class="section">
-                  <div class="slot-grid">
-                    <div class="slot"><strong>08:30</strong><span>予約済み</span></div>
-                    <div class="slot"><strong>12:15</strong><span>空き</span></div>
-                    <div class="slot"><strong>18:30</strong><span>候補あり</span></div>
-                    <div class="slot"><strong>22:00</strong><span>空き</span></div>
-                  </div>
-                  <div class="btns" style="margin-top: 12px;"><button class="btn" type="button">予約枠を編集</button><button class="btn" type="button">空き枠へ自動配置</button></div>
+            <details class="accordion">
+              <summary>
+                <div>
+                  <h2 class="panel-title">投稿予約枠</h2>
+                  <p class="panel-copy">実際に投稿される予定時刻。自動生成の時刻とは別です。</p>
                 </div>
-              </section>
-            </div>
+              </summary>
+              <div class="accordion-body">
+                <div class="slot-grid">
+                  <div class="slot"><strong>08:30</strong><span>予約済み</span></div>
+                  <div class="slot"><strong>12:15</strong><span>空き</span></div>
+                  <div class="slot"><strong>18:30</strong><span>候補あり</span></div>
+                  <div class="slot"><strong>22:00</strong><span>空き</span></div>
+                </div>
+                <div class="btns" style="margin-top: 12px;"><button class="btn" type="button">予約枠を編集</button><button class="btn" type="button">空き枠へ自動配置</button></div>
+              </div>
+            </details>
 
-            <section class="panel">
-              <div class="panel-head">
+            <details class="accordion">
+              <summary>
                 <div>
                   <h2 class="panel-title">アカウント別素材</h2>
                   <p class="panel-copy">このアカウント固有の配信、メモ、実績、Git、提案資料など。共通ニュース素材とは分けます。</p>
                 </div>
-                <button class="btn primary" type="button">AIで素材を整理</button>
-              </div>
-              <div class="section grid-2">
+              </summary>
+              <div class="accordion-body grid-2">
                 <div class="stack">
                   <article class="item">
                     <div class="row"><h3 class="title-sm">配信メモ: SaaS検証会</h3><span class="tag blue">アカウント固有</span></div>
@@ -167,7 +144,7 @@
                   <div class="btns"><button class="btn primary" type="button">素材を追加</button><button class="btn" type="button">URLから取り込む</button></div>
                 </div>
               </div>
-            </section>
+            </details>
           </div>
         </div>
       </main>

@@ -387,9 +387,8 @@ a {
 
 .account-page {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
   gap: 16px;
-  align-items: start;
+  max-width: 1080px;
 }
 
 .account-list {
@@ -444,6 +443,25 @@ a {
   font-size: 20px;
 }
 
+.account-picker-panel {
+  padding: 16px;
+}
+
+.account-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.account-picker label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -471,8 +489,59 @@ a {
 
 .settings-band {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 0;
+}
+
+.accordion-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.accordion {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  padding: 15px 16px;
+  list-style: none;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion summary::after {
+  content: "開く";
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 760;
+}
+
+.accordion[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.accordion[open] summary::after {
+  content: "閉じる";
+  color: var(--brand);
+}
+
+.accordion-body {
+  padding: 16px;
 }
 
 .setting-row {
@@ -587,8 +656,27 @@ a {
   }
 
   .side {
+    display: flex;
     position: static;
+    flex-wrap: wrap;
+    gap: 6px;
     height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 10px;
+  }
+
+  .side .brand,
+  .side .nav-label {
+    display: none;
+  }
+
+  .side .nav-link {
+    flex: 0 0 auto;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 8px 10px;
+    font-size: 12px;
   }
 
   .grid-2,
@@ -600,8 +688,9 @@ a {
   }
 
   .summary-grid,
-  .settings-band {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .settings-band,
+  .account-picker {
+    grid-template-columns: 1fr;
   }
 }
 
