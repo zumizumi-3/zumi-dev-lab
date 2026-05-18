@@ -384,6 +384,38 @@
         line-height: 1.55;
       }
 
+      .row-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 9px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #f8faf8;
+        color: var(--muted);
+        padding: 3px 8px;
+        font-size: 11px;
+        font-weight: 720;
+      }
+
+      .tag.reply-source {
+        border-color: #b9dec5;
+        background: var(--green-weak);
+        color: var(--green);
+      }
+
+      .tag.quote-source {
+        border-color: #d2c3f4;
+        background: var(--purple-weak);
+        color: var(--purple);
+      }
+
       .actions {
         display: flex;
         flex-direction: column;
@@ -428,6 +460,18 @@
         background: transparent;
       }
 
+      .mode-choice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+
+      .mode-choice .btn {
+        min-height: 32px;
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+
       .quote-board {
         margin-top: 16px;
       }
@@ -470,13 +514,24 @@
 
       .draft-row {
         display: grid;
-        grid-template-columns: 120px minmax(0, 1fr) 114px;
+        grid-template-columns: 120px minmax(0, 1fr) 136px;
         gap: 10px;
         align-items: start;
         border: 1px solid var(--line);
         border-radius: var(--radius);
         background: var(--surface);
         padding: 12px;
+      }
+
+      .draft-actions {
+        display: grid;
+        gap: 7px;
+      }
+
+      .draft-actions .btn {
+        min-height: 32px;
+        padding: 6px 8px;
+        font-size: 12px;
       }
 
       .account-mini {
@@ -790,6 +845,7 @@
                   <div class="actions">
                     <button class="btn primary" type="button">投稿する</button>
                     <button class="btn" type="button">文面を編集</button>
+                    <button class="btn" type="button">再生成</button>
                     <button class="btn ghost" type="button">予約</button>
                     <button class="btn danger" type="button">否認</button>
                   </div>
@@ -811,7 +867,8 @@
                   </div>
                   <div class="actions">
                     <button class="btn warning" type="button">Xで手動投稿</button>
-                    <button class="btn" type="button">再生成</button>
+                    <button class="btn" type="button">引用案を再生成</button>
+                    <button class="btn" type="button">文面を編集</button>
                     <button class="btn danger" type="button">否認</button>
                   </div>
                 </article>
@@ -829,10 +886,51 @@
                     <div class="source-preview">
                       相手: その場合、最初の検証は何から見るべきですか？
                     </div>
+                    <div class="row-tags" aria-label="反応情報">
+                      <span class="tag reply-source">受けた反応: リプライ</span>
+                      <span class="tag">元投稿: 通常投稿</span>
+                      <span class="tag">優先度: 通常</span>
+                    </div>
                   </div>
                   <div class="actions">
-                    <button class="btn primary" type="button">返信する</button>
-                    <button class="btn" type="button">編集</button>
+                    <div class="mode-choice" aria-label="対応方法">
+                      <button class="btn primary" type="button">返信</button>
+                      <button class="btn" type="button">引用</button>
+                    </div>
+                    <button class="btn" type="button">文面を編集</button>
+                    <button class="btn" type="button">再生成</button>
+                    <button class="btn ghost" type="button">予約</button>
+                    <button class="btn danger" type="button">否認</button>
+                  </div>
+                </article>
+
+                <article class="work-row">
+                  <div class="row-meta">
+                    <span class="kind reply">反応対応</span>
+                    <div class="time">DX Marketing / 11:52</div>
+                  </div>
+                  <div>
+                    <h3 class="work-title">自分の投稿への引用に対応</h3>
+                    <p class="work-body">
+                      引用された内容を確認し、返信で短く返すか、引用で自分の見解を追加するかを選びます。
+                    </p>
+                    <div class="source-preview">
+                      引用元: この論点、現場だとKPI設定だけでは足りない気がします。
+                    </div>
+                    <div class="row-tags" aria-label="反応情報">
+                      <span class="tag quote-source">受けた反応: 引用</span>
+                      <span class="tag">元投稿: 通常投稿</span>
+                      <span class="tag">優先度: 高</span>
+                    </div>
+                  </div>
+                  <div class="actions">
+                    <div class="mode-choice" aria-label="対応方法">
+                      <button class="btn" type="button">返信</button>
+                      <button class="btn primary" type="button">引用</button>
+                    </div>
+                    <button class="btn" type="button">文面を編集</button>
+                    <button class="btn" type="button">再生成</button>
+                    <button class="btn ghost" type="button">予約</button>
                     <button class="btn danger" type="button">否認</button>
                   </div>
                 </article>
@@ -865,7 +963,10 @@
                     <p class="draft-text">
                       これは本当にそうで、SaaSでも最初に見るべきは導入数より、誰が確認し続ける設計になっているかだと思う。
                     </p>
-                    <button class="btn warning" type="button">手動投稿</button>
+                    <div class="draft-actions">
+                      <button class="btn warning" type="button">手動投稿</button>
+                      <button class="btn" type="button">再生成</button>
+                    </div>
                   </div>
                   <div class="draft-row">
                     <div class="account-mini">
@@ -875,7 +976,10 @@
                     <p class="draft-text">
                       マーケ施策も同じで、導入直後の期待値より、毎週見直す指標と責任者が決まっているかで成果が分かれます。
                     </p>
-                    <button class="btn warning" type="button">手動投稿</button>
+                    <div class="draft-actions">
+                      <button class="btn warning" type="button">手動投稿</button>
+                      <button class="btn" type="button">再生成</button>
+                    </div>
                   </div>
                 </div>
               </div>
