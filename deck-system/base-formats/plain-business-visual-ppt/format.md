@@ -50,6 +50,21 @@ Body placement rule:
 - Do not center the body against the whole slide canvas.
 - Use `data-body-valign="center"` by default. Use top alignment only for dense appendix or source-faithful imports.
 
+## Per-Slide Visual Contract
+
+Every `<section class="slide">` in `index.html` carries explicit generation metadata:
+
+| Attribute | Purpose |
+|---|---|
+| `data-visual-policy` | Decides whether the page should use no visual, icons, SVG, image2 body, image2 split, image2 card media, real photo/screenshot, or a hybrid. |
+| `data-visual-unit` | Decides whether the visual is per card, per lane, side panel, whole body, real asset, or not used. |
+| `data-aspect-ratio` | Prevents image distortion by declaring `16:9`, `4:3`, `3:2`, `1:1`, `body-fit`, or `none`. |
+| `data-type-scale` | Selects the typography scale: cover, headline, large body, dense table, card catalog, or diagram. |
+| `data-color-role` | Maps the plain color intent to the derived company format. |
+| `data-density-action` | Tells the generator whether to keep, add evidence, add card media, replace a visual, or switch layout. |
+
+These fields are part of the format, not just notes. A derived company format or deck generator should read them before choosing layouts and assets.
+
 ## Typography Policy
 
 The format is tuned for projected seminar/business material, not dense printed reports.

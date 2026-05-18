@@ -15,6 +15,8 @@ For every slide, decide these fields before composing:
 | `color_role` | `white_base`, `bordeaux_emphasis`, `gold_orange_navigation`, `neutral_table` |
 | `density_action` | `keep`, `add_evidence`, `add_card_media`, `replace_visual`, `switch_layout`, `split_slide` |
 
+The HTML catalog reflects these decisions directly on each slide section as `data-visual-policy`, `data-visual-unit`, `data-aspect-ratio`, `data-type-scale`, `data-color-role`, and `data-density-action`. Treat those attributes as the first source of truth when generating a company-specific format or a concrete deck from this plain format.
+
 ## Prompt Fragment For Future Runs
 
 ```text

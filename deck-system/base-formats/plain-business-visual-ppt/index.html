@@ -20,17 +20,17 @@
         --bordeaux: #6f2534;
         --gold: #d69b36;
         --orange: #c9821f;
-        --slide-width: min(100vw - 48px, 1180px);
-        --pad-x: 56px;
+        --slide-width: min(100vw - 48px, 1280px);
+        --pad-x: 62px;
         --pad-y: 42px;
-        --title: 3.95rem;
-        --h2: 2.62rem;
-        --h3: 1.42rem;
-        --body: 1.08rem;
-        --small: 0.72rem;
+        --title: 4.18rem;
+        --h2: 2.86rem;
+        --h3: 1.58rem;
+        --body: 1.22rem;
+        --small: 0.82rem;
         --card-radius: 6px;
-        --card-pad-y: 16px;
-        --card-pad-x: 18px;
+        --card-pad-y: 18px;
+        --card-pad-x: 20px;
         --diagram-stroke: #6f2534;
         --diagram-fill: #f8f9fb;
       }
@@ -180,7 +180,7 @@
         max-width: 920px;
         margin: clamp(14px, 1.8vw, 22px) 0 0;
         color: var(--muted);
-        font-size: 1.08rem;
+        font-size: 1.28rem;
         font-weight: 650;
         line-height: 1.48;
       }
@@ -208,12 +208,12 @@
       }
       .policy-guide h1 {
         max-width: 1060px;
-        font-size: 3.18rem;
+        font-size: 3.36rem;
         line-height: 1.08;
       }
       .policy-guide .lead-copy {
         margin-top: 10px;
-        font-size: 1rem;
+        font-size: 1.12rem;
         line-height: 1.42;
       }
       .policy-card {
@@ -234,7 +234,7 @@
         display: block;
         margin-top: 8px;
         color: var(--muted);
-        font-size: 0.82rem;
+        font-size: 1rem;
         line-height: 1.38;
       }
       .content > .grid-2.body-slot,
@@ -343,7 +343,7 @@
         display: block;
         margin-bottom: 8px;
         color: var(--ink);
-        font-size: 1.02rem;
+        font-size: 1.24rem;
         line-height: 1.28;
       }
       .box p,
@@ -351,7 +351,7 @@
       .metric p,
       .step p {
         margin: 0;
-        font-size: 0.88rem;
+        font-size: 1.08rem;
         line-height: 1.5;
       }
       .metric {
@@ -1332,6 +1332,104 @@
         font-size: 14px;
         font-weight: 900;
       }
+      /* Projection readability floor for the visual plain format. */
+      .tree-node strong,
+      .timeline b,
+      .slot-box strong,
+      .process-step b,
+      .toc-row b,
+      .stack-row b,
+      .diagram-node strong,
+      .cover-panel strong,
+      .divider-panel strong,
+      .vertical-lane b,
+      .pyramid-row strong,
+      .cycle-node b,
+      .swimlane-plan b,
+      .worksheet-field b,
+      .funnel-step strong,
+      .icon-cell b,
+      .eval-card strong,
+      .heat-cell strong,
+      .raci-cell strong,
+      .score-cell strong,
+      .check-item strong,
+      .chain-step b,
+      .roadmap-flag b,
+      .journey-step b,
+      .canvas-cell strong {
+        font-size: 1.16rem;
+        line-height: 1.32;
+      }
+      .tree-node span,
+      .timeline span,
+      .note p,
+      .slot-name,
+      .slot-box span,
+      .pattern-list li,
+      .process-step span,
+      .toc-row span,
+      .stack-row span,
+      .visual-frame span,
+      .image2-frame span,
+      .diagram-node span,
+      .cover-panel span,
+      .divider-panel span,
+      .vertical-lane span,
+      .pyramid-row span,
+      .cycle-node span,
+      .map-point,
+      .swimlane-plan > div,
+      .worksheet-field span,
+      .icon-cell span,
+      .photo-frame,
+      .quote-panel span,
+      .eval-card span,
+      .heat-cell span,
+      .raci-cell span,
+      .score-cell span,
+      .check-item span,
+      .waterfall-step span,
+      .chain-step span,
+      .roadmap-flag span,
+      .journey-step span,
+      .canvas-cell span {
+        font-size: 1rem;
+        line-height: 1.42;
+      }
+      .matrix,
+      .data-table {
+        font-size: 1.04rem;
+      }
+      .matrix th,
+      .matrix td,
+      .data-table th,
+      .data-table td {
+        padding: 12px 13px;
+        line-height: 1.42;
+      }
+      caption,
+      .status,
+      .metric span {
+        font-size: 0.84rem;
+      }
+      .number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+      }
+      .agenda-item span {
+        font-size: 1rem;
+      }
+      .svg-figure .svg-label {
+        font-size: 20px;
+      }
+      .svg-figure .svg-small {
+        font-size: 15px;
+      }
+      .svg-figure .svg-number {
+        font-size: 16px;
+      }
       @media (max-width: 820px) {
         :root {
           --slide-width: min(100vw - 28px, 760px);
@@ -1835,7 +1933,7 @@
     </nav>
 
     <main class="deck" data-format="plain-business-visual-ppt" data-visual-policy="explicit">
-      <section id="PBV-00" class="slide policy-guide" data-slide="PBV-00" data-pattern="visual-policy-guide" aria-labelledby="PBV-00-title">
+      <section id="PBV-00" class="slide policy-guide" data-slide="PBV-00" data-pattern="visual-policy-guide" aria-labelledby="PBV-00-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="headline" data-color-role="white_base" data-density-action="keep">
         <div class="slide-header">
           <span>PBV-00 / Visual Policy Guide</span>
           <span>Plain layer with visual decisions</span>
@@ -1857,7 +1955,7 @@
         </div>
       </section>
 
-      <section id="PB-00" class="slide" data-slide="PB-00" data-pattern="cover" aria-labelledby="PB-00-title">
+      <section id="PB-00" class="slide" data-slide="PB-00" data-pattern="cover" aria-labelledby="PB-00-title" data-visual-policy="image2_body" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-00 / Cover</span>
           <span>Business Document</span>
@@ -1879,7 +1977,7 @@
         </div>
       </section>
 
-      <section id="PB-01" class="slide" data-slide="PB-01" data-pattern="agenda" aria-labelledby="PB-01-title">
+      <section id="PB-01" class="slide" data-slide="PB-01" data-pattern="agenda" aria-labelledby="PB-01-title" data-visual-policy="icon" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="large_body" data-color-role="gold_orange_navigation" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-01 / Agenda</span>
           <span>Meeting or proposal flow</span>
@@ -1901,7 +1999,7 @@
         </div>
       </section>
 
-      <section id="PB-02" class="slide" data-slide="PB-02" data-pattern="executive-summary" aria-labelledby="PB-02-title">
+      <section id="PB-02" class="slide" data-slide="PB-02" data-pattern="executive-summary" aria-labelledby="PB-02-title" data-visual-policy="image2_card_media" data-visual-unit="per_card" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-02 / Executive Summary</span>
           <span>Key points and implication</span>
@@ -1921,7 +2019,7 @@
         </div>
       </section>
 
-      <section id="PB-03" class="slide" data-slide="PB-03" data-pattern="issue-direction" aria-labelledby="PB-03-title">
+      <section id="PB-03" class="slide" data-slide="PB-03" data-pattern="issue-direction" aria-labelledby="PB-03-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-03 / Issue and Direction</span>
           <span>Problem solving</span>
@@ -1953,7 +2051,7 @@
         </div>
       </section>
 
-      <section id="PB-04" class="slide" data-slide="PB-04" data-pattern="3c-analysis" aria-labelledby="PB-04-title">
+      <section id="PB-04" class="slide" data-slide="PB-04" data-pattern="3c-analysis" aria-labelledby="PB-04-title" data-visual-policy="image2_card_media" data-visual-unit="per_lane" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-04 / 3C Analysis</span>
           <span>Environment analysis</span>
@@ -1985,7 +2083,7 @@
         </div>
       </section>
 
-      <section id="PB-05" class="slide" data-slide="PB-05" data-pattern="kpi-tree" aria-labelledby="PB-05-title">
+      <section id="PB-05" class="slide" data-slide="PB-05" data-pattern="kpi-tree" aria-labelledby="PB-05-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-05 / KPI Tree</span>
           <span>KGI, KPI, KSF, actions</span>
@@ -2015,7 +2113,7 @@
         </div>
       </section>
 
-      <section id="PB-06" class="slide" data-slide="PB-06" data-pattern="data-table" aria-labelledby="PB-06-title">
+      <section id="PB-06" class="slide" data-slide="PB-06" data-pattern="data-table" aria-labelledby="PB-06-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-06 / Data Table</span>
           <span>Figures with comments</span>
@@ -2043,7 +2141,7 @@
         </div>
       </section>
 
-      <section id="PB-07" class="slide" data-slide="PB-07" data-pattern="progress-summary" aria-labelledby="PB-07-title">
+      <section id="PB-07" class="slide" data-slide="PB-07" data-pattern="progress-summary" aria-labelledby="PB-07-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-07 / Progress Summary</span>
           <span>Status, risk, next action</span>
@@ -2067,7 +2165,7 @@
         </div>
       </section>
 
-      <section id="PB-08" class="slide" data-slide="PB-08" data-pattern="budget-plan" aria-labelledby="PB-08-title">
+      <section id="PB-08" class="slide" data-slide="PB-08" data-pattern="budget-plan" aria-labelledby="PB-08-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-08 / Budget Plan</span>
           <span>Cost, variance, ROI</span>
@@ -2089,7 +2187,7 @@
         </div>
       </section>
 
-      <section id="PB-09" class="slide" data-slide="PB-09" data-pattern="schedule" aria-labelledby="PB-09-title">
+      <section id="PB-09" class="slide" data-slide="PB-09" data-pattern="schedule" aria-labelledby="PB-09-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-09 / Schedule</span>
           <span>Milestone view</span>
@@ -2117,7 +2215,7 @@
         </div>
       </section>
 
-      <section id="PB-10" class="slide" data-slide="PB-10" data-pattern="competitor-comparison" aria-labelledby="PB-10-title">
+      <section id="PB-10" class="slide" data-slide="PB-10" data-pattern="competitor-comparison" aria-labelledby="PB-10-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-10 / Competitor Comparison</span>
           <span>Criteria matrix</span>
@@ -2144,7 +2242,7 @@
         </div>
       </section>
 
-      <section id="PB-11" class="slide" data-slide="PB-11" data-pattern="proposal-options" aria-labelledby="PB-11-title">
+      <section id="PB-11" class="slide" data-slide="PB-11" data-pattern="proposal-options" aria-labelledby="PB-11-title" data-visual-policy="image2_card_media" data-visual-unit="per_option" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-11 / Proposal Options</span>
           <span>Options and recommendation</span>
@@ -2165,7 +2263,7 @@
         </div>
       </section>
 
-      <section id="PB-12" class="slide" data-slide="PB-12" data-pattern="action-plan" aria-labelledby="PB-12-title">
+      <section id="PB-12" class="slide" data-slide="PB-12" data-pattern="action-plan" aria-labelledby="PB-12-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-12 / Action Plan</span>
           <span>Owner, deadline, dependency</span>
@@ -2192,7 +2290,7 @@
         </div>
       </section>
 
-      <section id="PB-13" class="slide" data-slide="PB-13" data-pattern="training-flow" aria-labelledby="PB-13-title">
+      <section id="PB-13" class="slide" data-slide="PB-13" data-pattern="training-flow" aria-labelledby="PB-13-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-13 / Training Flow</span>
           <span>Objective, modules, practice</span>
@@ -2214,7 +2312,7 @@
         </div>
       </section>
 
-      <section id="PB-14" class="slide" data-slide="PB-14" data-pattern="decision-log" aria-labelledby="PB-14-title">
+      <section id="PB-14" class="slide" data-slide="PB-14" data-pattern="decision-log" aria-labelledby="PB-14-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-14 / Meeting Decision Log</span>
           <span>Decision, issue, owner</span>
@@ -2238,7 +2336,7 @@
         </div>
       </section>
 
-      <section id="PB-15" class="slide" data-slide="PB-15" data-pattern="appendix-table" aria-labelledby="PB-15-title">
+      <section id="PB-15" class="slide" data-slide="PB-15" data-pattern="appendix-table" aria-labelledby="PB-15-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="keep">
         <div class="slide-header">
           <span>PB-15 / Appendix Table</span>
           <span>Dense reference</span>
@@ -2263,7 +2361,7 @@
         </div>
       </section>
 
-      <section id="PB-16" class="slide" data-slide="PB-16" data-pattern="swot-2x2" aria-labelledby="PB-16-title">
+      <section id="PB-16" class="slide" data-slide="PB-16" data-pattern="swot-2x2" aria-labelledby="PB-16-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-16 / SWOT 2x2</span>
           <span>Quadrant analysis</span>
@@ -2284,7 +2382,7 @@
         </div>
       </section>
 
-      <section id="PB-17" class="slide" data-slide="PB-17" data-pattern="before-after" aria-labelledby="PB-17-title">
+      <section id="PB-17" class="slide" data-slide="PB-17" data-pattern="before-after" aria-labelledby="PB-17-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-17 / Before After</span>
           <span>Current and target state</span>
@@ -2304,7 +2402,7 @@
         </div>
       </section>
 
-      <section id="PB-18" class="slide" data-slide="PB-18" data-pattern="interview-voice" aria-labelledby="PB-18-title">
+      <section id="PB-18" class="slide" data-slide="PB-18" data-pattern="interview-voice" aria-labelledby="PB-18-title" data-visual-policy="photo_or_screenshot" data-visual-unit="real_asset" data-aspect-ratio="3:2" data-type-scale="large_body" data-color-role="bordeaux_emphasis" data-density-action="replace_visual">
         <div class="slide-header">
           <span>PB-18 / Interview Voice</span>
           <span>Person, quote, implication</span>
@@ -2324,7 +2422,7 @@
         </div>
       </section>
 
-      <section id="PB-19" class="slide" data-slide="PB-19" data-pattern="selection-process" aria-labelledby="PB-19-title">
+      <section id="PB-19" class="slide" data-slide="PB-19" data-pattern="selection-process" aria-labelledby="PB-19-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-19 / Selection Process Rail</span>
           <span>Process and gates</span>
@@ -2346,7 +2444,7 @@
         </div>
       </section>
 
-      <section id="PB-20" class="slide" data-slide="PB-20" data-pattern="chapter-toc" aria-labelledby="PB-20-title">
+      <section id="PB-20" class="slide" data-slide="PB-20" data-pattern="chapter-toc" aria-labelledby="PB-20-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="headline" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-20 / Chapter TOC</span>
           <span>Section opening and page map</span>
@@ -2367,7 +2465,7 @@
         </div>
       </section>
 
-      <section id="PB-21" class="slide" data-slide="PB-21" data-pattern="standard-body-canvas" aria-labelledby="PB-21-title">
+      <section id="PB-21" class="slide" data-slide="PB-21" data-pattern="standard-body-canvas" aria-labelledby="PB-21-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-21 / Standard Body Canvas</span>
           <span>Title, context, free body area</span>
@@ -2385,7 +2483,7 @@
         </div>
       </section>
 
-      <section id="PB-22" class="slide" data-slide="PB-22" data-pattern="two-column-agenda" aria-labelledby="PB-22-title">
+      <section id="PB-22" class="slide" data-slide="PB-22" data-pattern="two-column-agenda" aria-labelledby="PB-22-title" data-visual-policy="icon" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="large_body" data-color-role="gold_orange_navigation" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-22 / Two Column Agenda</span>
           <span>Parallel topics</span>
@@ -2412,7 +2510,7 @@
         </div>
       </section>
 
-      <section id="PB-23" class="slide" data-slide="PB-23" data-pattern="three-step-horizontal" aria-labelledby="PB-23-title">
+      <section id="PB-23" class="slide" data-slide="PB-23" data-pattern="three-step-horizontal" aria-labelledby="PB-23-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-23 / Three Step Horizontal</span>
           <span>Method or approach</span>
@@ -2433,7 +2531,7 @@
         </div>
       </section>
 
-      <section id="PB-24" class="slide" data-slide="PB-24" data-pattern="left-label-right-description" aria-labelledby="PB-24-title">
+      <section id="PB-24" class="slide" data-slide="PB-24" data-pattern="left-label-right-description" aria-labelledby="PB-24-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-24 / Left Label Right Description</span>
           <span>Definitions and explanations</span>
@@ -2454,7 +2552,7 @@
         </div>
       </section>
 
-      <section id="PB-25" class="slide" data-slide="PB-25" data-pattern="requirements-stack" aria-labelledby="PB-25-title">
+      <section id="PB-25" class="slide" data-slide="PB-25" data-pattern="requirements-stack" aria-labelledby="PB-25-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-25 / Requirements Stack</span>
           <span>Requests and constraints</span>
@@ -2475,7 +2573,7 @@
         </div>
       </section>
 
-      <section id="PB-26" class="slide" data-slide="PB-26" data-pattern="hub-tree-diagram" aria-labelledby="PB-26-title">
+      <section id="PB-26" class="slide" data-slide="PB-26" data-pattern="hub-tree-diagram" aria-labelledby="PB-26-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-26 / Hub Tree Diagram</span>
           <span>Central concept and branches</span>
@@ -2501,7 +2599,7 @@
         </div>
       </section>
 
-      <section id="PB-27" class="slide" data-slide="PB-27" data-pattern="vs-comparison" aria-labelledby="PB-27-title">
+      <section id="PB-27" class="slide" data-slide="PB-27" data-pattern="vs-comparison" aria-labelledby="PB-27-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-27 / VS Comparison</span>
           <span>Contrasting alternatives</span>
@@ -2521,7 +2619,7 @@
         </div>
       </section>
 
-      <section id="PB-28" class="slide" data-slide="PB-28" data-pattern="table-chart-commentary" aria-labelledby="PB-28-title">
+      <section id="PB-28" class="slide" data-slide="PB-28" data-pattern="table-chart-commentary" aria-labelledby="PB-28-title" data-visual-policy="svg_diagram" data-visual-unit="side_panel" data-aspect-ratio="body-fit" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-28 / Table Chart Commentary</span>
           <span>Numbers plus interpretation</span>
@@ -2548,7 +2646,7 @@
         </div>
       </section>
 
-      <section id="PB-29" class="slide" data-slide="PB-29" data-pattern="left-table-right-visual" aria-labelledby="PB-29-title">
+      <section id="PB-29" class="slide" data-slide="PB-29" data-pattern="left-table-right-visual" aria-labelledby="PB-29-title" data-visual-policy="image2_split" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="large_body" data-color-role="white_base" data-density-action="replace_visual">
         <div class="slide-header">
           <span>PB-29 / Left Table Right Visual</span>
           <span>Structured facts and visual support</span>
@@ -2576,7 +2674,7 @@
         </div>
       </section>
 
-      <section id="PB-30" class="slide" data-slide="PB-30" data-pattern="dense-diagram-lecture" aria-labelledby="PB-30-title">
+      <section id="PB-30" class="slide" data-slide="PB-30" data-pattern="dense-diagram-lecture" aria-labelledby="PB-30-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-30 / Dense Diagram Lecture</span>
           <span>Concept explanation</span>
@@ -2597,7 +2695,7 @@
         </div>
       </section>
 
-      <section id="PB-31" class="slide" data-slide="PB-31" data-pattern="placeholderless-section" aria-labelledby="PB-31-title">
+      <section id="PB-31" class="slide" data-slide="PB-31" data-pattern="placeholderless-section" aria-labelledby="PB-31-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-31 / Placeholderless Section</span>
           <span>Inferred title page</span>
@@ -2619,7 +2717,7 @@
         </div>
       </section>
 
-      <section id="PB-32" class="slide" data-slide="PB-32" data-pattern="image2-body-full" aria-labelledby="PB-32-title">
+      <section id="PB-32" class="slide" data-slide="PB-32" data-pattern="image2-body-full" aria-labelledby="PB-32-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="headline" data-color-role="white_base" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-32 / Image2 Body Full</span>
           <span>Generated body canvas</span>
@@ -2637,7 +2735,7 @@
         </div>
       </section>
 
-      <section id="PB-33" class="slide" data-slide="PB-33" data-pattern="image2-body-split" aria-labelledby="PB-33-title">
+      <section id="PB-33" class="slide" data-slide="PB-33" data-pattern="image2-body-split" aria-labelledby="PB-33-title" data-visual-policy="image2_split" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-33 / Image2 Body Split</span>
           <span>Text facts plus generated visual</span>
@@ -2662,7 +2760,7 @@
         </div>
       </section>
 
-      <section id="PB-34" class="slide" data-slide="PB-34" data-pattern="image2-body-diagram" aria-labelledby="PB-34-title">
+      <section id="PB-34" class="slide" data-slide="PB-34" data-pattern="image2-body-diagram" aria-labelledby="PB-34-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="white_base" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-34 / Image2 Body Diagram</span>
           <span>Generated diagram body</span>
@@ -2681,7 +2779,7 @@
         </div>
       </section>
 
-      <section id="PB-35" class="slide" data-slide="PB-35" data-pattern="cover-split" aria-labelledby="PB-35-title">
+      <section id="PB-35" class="slide" data-slide="PB-35" data-pattern="cover-split" aria-labelledby="PB-35-title" data-visual-policy="image2_split" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-35 / Split Cover</span>
           <span>Cover with metadata panel</span>
@@ -2701,7 +2799,7 @@
         </div>
       </section>
 
-      <section id="PB-36" class="slide" data-slide="PB-36" data-pattern="cover-statement" aria-labelledby="PB-36-title">
+      <section id="PB-36" class="slide" data-slide="PB-36" data-pattern="cover-statement" aria-labelledby="PB-36-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="cover" data-color-role="white_base" data-density-action="keep">
         <div class="slide-header">
           <span>PB-36 / Statement Cover</span>
           <span>Large title cover</span>
@@ -2720,7 +2818,7 @@
         </div>
       </section>
 
-      <section id="PB-37" class="slide" data-slide="PB-37" data-pattern="section-divider-number" aria-labelledby="PB-37-title">
+      <section id="PB-37" class="slide" data-slide="PB-37" data-pattern="section-divider-number" aria-labelledby="PB-37-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-37 / Section Divider Number</span>
           <span>Chapter separator</span>
@@ -2739,7 +2837,7 @@
         </div>
       </section>
 
-      <section id="PB-38" class="slide" data-slide="PB-38" data-pattern="section-divider-toc" aria-labelledby="PB-38-title">
+      <section id="PB-38" class="slide" data-slide="PB-38" data-pattern="section-divider-toc" aria-labelledby="PB-38-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="headline" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-38 / Section Divider TOC</span>
           <span>Divider with mini agenda</span>
@@ -2759,7 +2857,7 @@
         </div>
       </section>
 
-      <section id="PB-39" class="slide" data-slide="PB-39" data-pattern="vertical-four-lanes" aria-labelledby="PB-39-title">
+      <section id="PB-39" class="slide" data-slide="PB-39" data-pattern="vertical-four-lanes" aria-labelledby="PB-39-title" data-visual-policy="image2_card_media" data-visual-unit="per_lane" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-39 / Vertical Four Lanes</span>
           <span>Service or role comparison</span>
@@ -2780,7 +2878,7 @@
         </div>
       </section>
 
-      <section id="PB-40" class="slide" data-slide="PB-40" data-pattern="pyramid-hierarchy" aria-labelledby="PB-40-title">
+      <section id="PB-40" class="slide" data-slide="PB-40" data-pattern="pyramid-hierarchy" aria-labelledby="PB-40-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-40 / Pyramid Hierarchy</span>
           <span>Layered concept</span>
@@ -2801,7 +2899,7 @@
         </div>
       </section>
 
-      <section id="PB-41" class="slide" data-slide="PB-41" data-pattern="cycle-loop" aria-labelledby="PB-41-title">
+      <section id="PB-41" class="slide" data-slide="PB-41" data-pattern="cycle-loop" aria-labelledby="PB-41-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-41 / Cycle Loop</span>
           <span>Repeated process</span>
@@ -2822,7 +2920,7 @@
         </div>
       </section>
 
-      <section id="PB-42" class="slide" data-slide="PB-42" data-pattern="positioning-map" aria-labelledby="PB-42-title">
+      <section id="PB-42" class="slide" data-slide="PB-42" data-pattern="positioning-map" aria-labelledby="PB-42-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-42 / Positioning Map</span>
           <span>Two-axis comparison</span>
@@ -2843,7 +2941,7 @@
         </div>
       </section>
 
-      <section id="PB-43" class="slide" data-slide="PB-43" data-pattern="dashboard-summary" aria-labelledby="PB-43-title">
+      <section id="PB-43" class="slide" data-slide="PB-43" data-pattern="dashboard-summary" aria-labelledby="PB-43-title" data-visual-policy="photo_or_screenshot" data-visual-unit="side_panel" data-aspect-ratio="16:9" data-type-scale="large_body" data-color-role="white_base" data-density-action="replace_visual">
         <div class="slide-header">
           <span>PB-43 / Dashboard Summary</span>
           <span>KPI cards and comments</span>
@@ -2865,7 +2963,7 @@
         </div>
       </section>
 
-      <section id="PB-44" class="slide" data-slide="PB-44" data-pattern="swimlane-schedule" aria-labelledby="PB-44-title">
+      <section id="PB-44" class="slide" data-slide="PB-44" data-pattern="swimlane-schedule" aria-labelledby="PB-44-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-44 / Swimlane Schedule</span>
           <span>Owners across phases</span>
@@ -2886,7 +2984,7 @@
         </div>
       </section>
 
-      <section id="PB-45" class="slide" data-slide="PB-45" data-pattern="worksheet-form" aria-labelledby="PB-45-title">
+      <section id="PB-45" class="slide" data-slide="PB-45" data-pattern="worksheet-form" aria-labelledby="PB-45-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="large_body" data-color-role="white_base" data-density-action="keep">
         <div class="slide-header">
           <span>PB-45 / Worksheet Form</span>
           <span>Workshop or input sheet</span>
@@ -2907,7 +3005,7 @@
         </div>
       </section>
 
-      <section id="PB-46" class="slide" data-slide="PB-46" data-pattern="funnel-conversion" aria-labelledby="PB-46-title">
+      <section id="PB-46" class="slide" data-slide="PB-46" data-pattern="funnel-conversion" aria-labelledby="PB-46-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-46 / Funnel Conversion</span>
           <span>Step-down metrics</span>
@@ -2929,7 +3027,7 @@
         </div>
       </section>
 
-      <section id="PB-47" class="slide" data-slide="PB-47" data-pattern="icon-grid" aria-labelledby="PB-47-title">
+      <section id="PB-47" class="slide" data-slide="PB-47" data-pattern="icon-grid" aria-labelledby="PB-47-title" data-visual-policy="icon" data-visual-unit="per_cell" data-aspect-ratio="1:1" data-type-scale="card_catalog" data-color-role="gold_orange_navigation" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-47 / Icon Grid</span>
           <span>Feature or item catalog</span>
@@ -2951,7 +3049,7 @@
         </div>
       </section>
 
-      <section id="PB-48" class="slide" data-slide="PB-48" data-pattern="case-quote" aria-labelledby="PB-48-title">
+      <section id="PB-48" class="slide" data-slide="PB-48" data-pattern="case-quote" aria-labelledby="PB-48-title" data-visual-policy="photo_or_screenshot" data-visual-unit="real_asset" data-aspect-ratio="3:2" data-type-scale="large_body" data-color-role="bordeaux_emphasis" data-density-action="replace_visual">
         <div class="slide-header">
           <span>PB-48 / Case Quote</span>
           <span>Photo placeholder and voice</span>
@@ -2970,7 +3068,7 @@
         </div>
       </section>
 
-      <section id="PB-49" class="slide" data-slide="PB-49" data-pattern="decision-tree" aria-labelledby="PB-49-title">
+      <section id="PB-49" class="slide" data-slide="PB-49" data-pattern="decision-tree" aria-labelledby="PB-49-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-49 / Decision Tree</span>
           <span>Branching logic</span>
@@ -2999,7 +3097,7 @@
         </div>
       </section>
 
-      <section id="PB-50" class="slide" data-slide="PB-50" data-pattern="evaluation-grid" aria-labelledby="PB-50-title">
+      <section id="PB-50" class="slide" data-slide="PB-50" data-pattern="evaluation-grid" aria-labelledby="PB-50-title" data-visual-policy="image2_card_media" data-visual-unit="per_option" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-50 / Evaluation Grid</span>
           <span>Criteria by option</span>
@@ -3022,7 +3120,7 @@
         </div>
       </section>
 
-      <section id="PB-51" class="slide" data-slide="PB-51" data-pattern="risk-heatmap" aria-labelledby="PB-51-title">
+      <section id="PB-51" class="slide" data-slide="PB-51" data-pattern="risk-heatmap" aria-labelledby="PB-51-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-51 / Risk Heatmap</span>
           <span>Impact and likelihood</span>
@@ -3042,7 +3140,7 @@
         </div>
       </section>
 
-      <section id="PB-52" class="slide" data-slide="PB-52" data-pattern="raci-matrix" aria-labelledby="PB-52-title">
+      <section id="PB-52" class="slide" data-slide="PB-52" data-pattern="raci-matrix" aria-labelledby="PB-52-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-52 / RACI Matrix</span>
           <span>Responsibility split</span>
@@ -3063,7 +3161,7 @@
         </div>
       </section>
 
-      <section id="PB-53" class="slide" data-slide="PB-53" data-pattern="waterfall-bridge" aria-labelledby="PB-53-title">
+      <section id="PB-53" class="slide" data-slide="PB-53" data-pattern="waterfall-bridge" aria-labelledby="PB-53-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-53 / Waterfall Bridge</span>
           <span>Increase and decrease factors</span>
@@ -3085,7 +3183,7 @@
         </div>
       </section>
 
-      <section id="PB-54" class="slide" data-slide="PB-54" data-pattern="value-chain" aria-labelledby="PB-54-title">
+      <section id="PB-54" class="slide" data-slide="PB-54" data-pattern="value-chain" aria-labelledby="PB-54-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-54 / Value Chain</span>
           <span>Sequential functions</span>
@@ -3107,7 +3205,7 @@
         </div>
       </section>
 
-      <section id="PB-55" class="slide" data-slide="PB-55" data-pattern="fishbone-cause" aria-labelledby="PB-55-title">
+      <section id="PB-55" class="slide" data-slide="PB-55" data-pattern="fishbone-cause" aria-labelledby="PB-55-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-55 / Fishbone Cause</span>
           <span>Cause and effect</span>
@@ -3131,7 +3229,7 @@
         </div>
       </section>
 
-      <section id="PB-56" class="slide" data-slide="PB-56" data-pattern="logic-tree" aria-labelledby="PB-56-title">
+      <section id="PB-56" class="slide" data-slide="PB-56" data-pattern="logic-tree" aria-labelledby="PB-56-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-56 / Logic Tree</span>
           <span>Issue decomposition</span>
@@ -3151,7 +3249,7 @@
         </div>
       </section>
 
-      <section id="PB-57" class="slide" data-slide="PB-57" data-pattern="stakeholder-map" aria-labelledby="PB-57-title">
+      <section id="PB-57" class="slide" data-slide="PB-57" data-pattern="stakeholder-map" aria-labelledby="PB-57-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-57 / Stakeholder Map</span>
           <span>Actors and influence</span>
@@ -3171,7 +3269,7 @@
         </div>
       </section>
 
-      <section id="PB-58" class="slide" data-slide="PB-58" data-pattern="customer-journey" aria-labelledby="PB-58-title">
+      <section id="PB-58" class="slide" data-slide="PB-58" data-pattern="customer-journey" aria-labelledby="PB-58-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_card_media">
         <div class="slide-header">
           <span>PB-58 / Customer Journey</span>
           <span>Experience stages</span>
@@ -3193,7 +3291,7 @@
         </div>
       </section>
 
-      <section id="PB-59" class="slide" data-slide="PB-59" data-pattern="okr-alignment" aria-labelledby="PB-59-title">
+      <section id="PB-59" class="slide" data-slide="PB-59" data-pattern="okr-alignment" aria-labelledby="PB-59-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-59 / OKR Alignment</span>
           <span>Objective to key results</span>
@@ -3213,7 +3311,7 @@
         </div>
       </section>
 
-      <section id="PB-60" class="slide" data-slide="PB-60" data-pattern="business-model-canvas" aria-labelledby="PB-60-title">
+      <section id="PB-60" class="slide" data-slide="PB-60" data-pattern="business-model-canvas" aria-labelledby="PB-60-title" data-visual-policy="icon" data-visual-unit="per_field" data-aspect-ratio="1:1" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-60 / Business Model Canvas</span>
           <span>One-page model</span>
@@ -3233,7 +3331,7 @@
         </div>
       </section>
 
-      <section id="PB-61" class="slide" data-slide="PB-61" data-pattern="cost-breakdown" aria-labelledby="PB-61-title">
+      <section id="PB-61" class="slide" data-slide="PB-61" data-pattern="cost-breakdown" aria-labelledby="PB-61-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-61 / Cost Breakdown</span>
           <span>Cost structure bars</span>
@@ -3255,7 +3353,7 @@
         </div>
       </section>
 
-      <section id="PB-62" class="slide" data-slide="PB-62" data-pattern="roadmap-flags" aria-labelledby="PB-62-title">
+      <section id="PB-62" class="slide" data-slide="PB-62" data-pattern="roadmap-flags" aria-labelledby="PB-62-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-62 / Roadmap Flags</span>
           <span>Milestones with checkpoints</span>
@@ -3277,7 +3375,7 @@
         </div>
       </section>
 
-      <section id="PB-63" class="slide" data-slide="PB-63" data-pattern="scoring-matrix" aria-labelledby="PB-63-title">
+      <section id="PB-63" class="slide" data-slide="PB-63" data-pattern="scoring-matrix" aria-labelledby="PB-63-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-63 / Scoring Matrix</span>
           <span>Weighted decision table</span>
@@ -3298,7 +3396,7 @@
         </div>
       </section>
 
-      <section id="PB-64" class="slide" data-slide="PB-64" data-pattern="checklist-review" aria-labelledby="PB-64-title">
+      <section id="PB-64" class="slide" data-slide="PB-64" data-pattern="checklist-review" aria-labelledby="PB-64-title" data-visual-policy="none" data-visual-unit="none" data-aspect-ratio="none" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_evidence">
         <div class="slide-header">
           <span>PB-64 / Checklist Review</span>
           <span>Readiness and controls</span>
@@ -3319,7 +3417,7 @@
         </div>
       </section>
 
-      <section id="PB-65" class="slide" data-slide="PB-65" data-pattern="svg-hub-spoke" aria-labelledby="PB-65-title">
+      <section id="PB-65" class="slide" data-slide="PB-65" data-pattern="svg-hub-spoke" aria-labelledby="PB-65-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-65 / SVG Hub Spoke</span>
           <span>Connector diagram</span>
@@ -3358,7 +3456,7 @@
         </div>
       </section>
 
-      <section id="PB-66" class="slide" data-slide="PB-66" data-pattern="svg-chevron-flow" aria-labelledby="PB-66-title">
+      <section id="PB-66" class="slide" data-slide="PB-66" data-pattern="svg-chevron-flow" aria-labelledby="PB-66-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-66 / SVG Chevron Flow</span>
           <span>Arrow process</span>
@@ -3396,7 +3494,7 @@
         </div>
       </section>
 
-      <section id="PB-67" class="slide" data-slide="PB-67" data-pattern="svg-cycle-loop" aria-labelledby="PB-67-title">
+      <section id="PB-67" class="slide" data-slide="PB-67" data-pattern="svg-cycle-loop" aria-labelledby="PB-67-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-67 / SVG Cycle Loop</span>
           <span>Loop with arrows</span>
@@ -3440,7 +3538,7 @@
         </div>
       </section>
 
-      <section id="PB-68" class="slide" data-slide="PB-68" data-pattern="svg-fishbone" aria-labelledby="PB-68-title">
+      <section id="PB-68" class="slide" data-slide="PB-68" data-pattern="svg-fishbone" aria-labelledby="PB-68-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-68 / SVG Fishbone</span>
           <span>Cause lines</span>
@@ -3482,7 +3580,7 @@
         </div>
       </section>
 
-      <section id="PB-69" class="slide" data-slide="PB-69" data-pattern="svg-decision-branch" aria-labelledby="PB-69-title">
+      <section id="PB-69" class="slide" data-slide="PB-69" data-pattern="svg-decision-branch" aria-labelledby="PB-69-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-69 / SVG Decision Branch</span>
           <span>Condition flow</span>
@@ -3523,7 +3621,7 @@
         </div>
       </section>
 
-      <section id="PB-70" class="slide" data-slide="PB-70" data-pattern="svg-callout-anatomy" aria-labelledby="PB-70-title">
+      <section id="PB-70" class="slide" data-slide="PB-70" data-pattern="svg-callout-anatomy" aria-labelledby="PB-70-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-70 / SVG Callout Anatomy</span>
           <span>Annotated object</span>
@@ -3565,7 +3663,7 @@
         </div>
       </section>
 
-      <section id="PB-71" class="slide" data-slide="PB-71" data-pattern="svg-roadmap-bars" aria-labelledby="PB-71-title">
+      <section id="PB-71" class="slide" data-slide="PB-71" data-pattern="svg-roadmap-bars" aria-labelledby="PB-71-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-71 / SVG Roadmap Bars</span>
           <span>Phase bars</span>
@@ -3602,7 +3700,7 @@
         </div>
       </section>
 
-      <section id="PB-72" class="slide" data-slide="PB-72" data-pattern="svg-layered-system" aria-labelledby="PB-72-title">
+      <section id="PB-72" class="slide" data-slide="PB-72" data-pattern="svg-layered-system" aria-labelledby="PB-72-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-72 / SVG Layered System</span>
           <span>Architecture layers</span>
@@ -3648,7 +3746,7 @@
         </div>
       </section>
 
-      <section id="PB-73" class="slide" data-slide="PB-73" data-pattern="svg-venn-overlap" aria-labelledby="PB-73-title">
+      <section id="PB-73" class="slide" data-slide="PB-73" data-pattern="svg-venn-overlap" aria-labelledby="PB-73-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-73 / SVG Venn Overlap</span>
           <span>Overlap logic</span>
@@ -3678,7 +3776,7 @@
         </div>
       </section>
 
-      <section id="PB-74" class="slide" data-slide="PB-74" data-pattern="svg-concentric-rings" aria-labelledby="PB-74-title">
+      <section id="PB-74" class="slide" data-slide="PB-74" data-pattern="svg-concentric-rings" aria-labelledby="PB-74-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-74 / SVG Concentric Rings</span>
           <span>Core and layers</span>
@@ -3711,7 +3809,7 @@
         </div>
       </section>
 
-      <section id="PB-75" class="slide" data-slide="PB-75" data-pattern="svg-staircase-maturity" aria-labelledby="PB-75-title">
+      <section id="PB-75" class="slide" data-slide="PB-75" data-pattern="svg-staircase-maturity" aria-labelledby="PB-75-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-75 / SVG Staircase Maturity</span>
           <span>Level progression</span>
@@ -3750,7 +3848,7 @@
         </div>
       </section>
 
-      <section id="PB-76" class="slide" data-slide="PB-76" data-pattern="svg-gap-bridge" aria-labelledby="PB-76-title">
+      <section id="PB-76" class="slide" data-slide="PB-76" data-pattern="svg-gap-bridge" aria-labelledby="PB-76-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-76 / SVG Gap Bridge</span>
           <span>As-is to to-be</span>
@@ -3784,7 +3882,7 @@
         </div>
       </section>
 
-      <section id="PB-77" class="slide" data-slide="PB-77" data-pattern="svg-org-chart" aria-labelledby="PB-77-title">
+      <section id="PB-77" class="slide" data-slide="PB-77" data-pattern="svg-org-chart" aria-labelledby="PB-77-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-77 / SVG Org Chart</span>
           <span>Hierarchy</span>
@@ -3820,7 +3918,7 @@
         </div>
       </section>
 
-      <section id="PB-78" class="slide" data-slide="PB-78" data-pattern="svg-dependency-network" aria-labelledby="PB-78-title">
+      <section id="PB-78" class="slide" data-slide="PB-78" data-pattern="svg-dependency-network" aria-labelledby="PB-78-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-78 / SVG Dependency Network</span>
           <span>Dependencies</span>
@@ -3852,7 +3950,7 @@
         </div>
       </section>
 
-      <section id="PB-79" class="slide" data-slide="PB-79" data-pattern="svg-migration-matrix" aria-labelledby="PB-79-title">
+      <section id="PB-79" class="slide" data-slide="PB-79" data-pattern="svg-migration-matrix" aria-labelledby="PB-79-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-79 / SVG Migration Matrix</span>
           <span>Quadrant movement</span>
@@ -3888,7 +3986,7 @@
         </div>
       </section>
 
-      <section id="PB-80" class="slide" data-slide="PB-80" data-pattern="svg-iceberg" aria-labelledby="PB-80-title">
+      <section id="PB-80" class="slide" data-slide="PB-80" data-pattern="svg-iceberg" aria-labelledby="PB-80-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-80 / SVG Iceberg</span>
           <span>Visible and hidden layers</span>
@@ -3917,7 +4015,7 @@
         </div>
       </section>
 
-      <section id="PB-81" class="slide" data-slide="PB-81" data-pattern="svg-layer-stack" aria-labelledby="PB-81-title">
+      <section id="PB-81" class="slide" data-slide="PB-81" data-pattern="svg-layer-stack" aria-labelledby="PB-81-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-81 / SVG Layer Stack</span>
           <span>Stacked layers</span>
@@ -3949,7 +4047,7 @@
         </div>
       </section>
 
-      <section id="PB-82" class="slide" data-slide="PB-82" data-pattern="svg-bowtie-risk" aria-labelledby="PB-82-title">
+      <section id="PB-82" class="slide" data-slide="PB-82" data-pattern="svg-bowtie-risk" aria-labelledby="PB-82-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-82 / SVG Bowtie Risk</span>
           <span>Causes, event, outcomes</span>
@@ -3985,7 +4083,7 @@
         </div>
       </section>
 
-      <section id="PB-83" class="slide" data-slide="PB-83" data-pattern="svg-bubble-portfolio" aria-labelledby="PB-83-title">
+      <section id="PB-83" class="slide" data-slide="PB-83" data-pattern="svg-bubble-portfolio" aria-labelledby="PB-83-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-83 / SVG Bubble Portfolio</span>
           <span>Relative sizing</span>
@@ -4018,7 +4116,7 @@
         </div>
       </section>
 
-      <section id="PB-84" class="slide" data-slide="PB-84" data-pattern="svg-stage-gate-board" aria-labelledby="PB-84-title">
+      <section id="PB-84" class="slide" data-slide="PB-84" data-pattern="svg-stage-gate-board" aria-labelledby="PB-84-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout">
         <div class="slide-header">
           <span>PB-84 / SVG Stage Gate Board</span>
           <span>Pipeline control</span>
