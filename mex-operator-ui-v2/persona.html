@@ -15,6 +15,7 @@
         <a class="nav-link" href="./normal-posts.html">通常投稿</a>
         <a class="nav-link" href="./quote-posts.html">引用投稿</a>
         <a class="nav-link" href="./reactions.html">反応対応</a>
+        <a class="nav-link" href="./account-settings.html">アカウント設定</a>
         <a class="nav-link active" href="./persona.html">ペルソナ</a>
         <a class="nav-link" href="./issue-pool.html">論点プール</a>
       </aside>
@@ -22,7 +23,7 @@
         <header class="top">
           <div>
             <h1 class="page-title">ペルソナ</h1>
-            <p class="page-note">読むことを主軸にし、必要な部分だけ編集します。X既存投稿、手入力素材、外部ドキュメントからAIが再整理する前提です。</p>
+            <p class="page-note">読むことを主軸にし、必要な部分だけ編集します。ここは人格、判断軸、文体の整理に絞り、アカウント別素材はアカウント設定へ分けます。</p>
           </div>
           <label class="select-box">対象 <select><option>Kaz / @kaz_tech4</option><option>DX Marketing / @dxmarketing_ad</option></select></label>
         </header>
@@ -53,15 +54,19 @@
             </div>
           </section>
           <section class="panel">
-            <div class="panel-head"><div><h2 class="panel-title">素材の取り込み</h2><p class="panel-copy">個別素材はここから追加し、AIがペルソナ情報へ再整理します。</p></div></div>
+            <div class="panel-head"><div><h2 class="panel-title">ペルソナへの反映候補</h2><p class="panel-copy">アカウント別素材からAIが抽出した、人格・文体に関係する候補だけを確認します。</p></div></div>
             <div class="section stack">
-              <textarea class="draft" placeholder="文章、配信メモ、GitHub URL、記事メモなどを貼り付け">最近の発信メモ:
-AIで作る速度が上がるほど、事業側の確認を先に置く必要がある。</textarea>
-              <div class="btns"><button class="btn primary">素材を追加</button><button class="btn">Xから再インポート</button><button class="btn">Git/URLから取り込む</button></div>
               <div class="item">
-                <h3 class="title-sm">最近取り込んだ素材</h3>
-                <p class="text">X既存投稿 20件 / 手入力メモ 3件 / GitHub README 1件</p>
+                <h3 class="title-sm">文体候補</h3>
+                <p class="text">短い観察から入り、断定しすぎず、最後に判断の余白を残す。</p>
+                <div class="btns"><button class="btn primary">採用</button><button class="btn">編集</button><button class="btn danger">却下</button></div>
               </div>
+              <div class="item">
+                <h3 class="title-sm">判断軸候補</h3>
+                <p class="text">短期開発の速度を肯定しつつ、継続利用と事業耐久性を必ず見る。</p>
+                <div class="btns"><button class="btn primary">採用</button><button class="btn">編集</button><button class="btn danger">却下</button></div>
+              </div>
+              <a class="btn" href="./account-settings.html">アカウント別素材を管理する</a>
             </div>
           </section>
         </div>
