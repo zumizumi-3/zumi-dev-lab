@@ -62,8 +62,13 @@ Every `<section class="slide">` in `index.html` carries explicit generation meta
 | `data-type-scale` | Selects the typography scale: cover, headline, large body, dense table, card catalog, or diagram. |
 | `data-color-role` | Maps the plain color intent to the derived company format. |
 | `data-density-action` | Tells the generator whether to keep, add evidence, add card media, replace a visual, or switch layout. |
+| `data-visual-required` | Declares the required concrete visual kind for that paper: `image2`, `svg`, `icon`, `photo_or_screenshot`, `svg+image2`, or `none`. |
+| `data-visual-insert` | Declares the exact insertion slot plan, for example `card-1:image2:4:3;card-2:image2:4:3` or `body:svg:body-fit`. |
+| `data-visual-spec` | Links the slide to the page-level spec entry in `page-visual-slots.json`. |
 
 These fields are part of the format, not just notes. A derived company format or deck generator should read them before choosing layouts and assets.
+
+Do not stop at `data-visual-policy`. The policy is the category; `data-visual-insert` and `page-visual-slots.json` are the concrete page-by-page instruction for what to insert.
 
 ## Typography Policy
 
@@ -179,5 +184,8 @@ If density is low:
 ## Companion Files
 
 - `visual-policy.md`: detailed pattern rules and P01-P34 final-deck learning map
+- `page-visual-slots.md`: page-by-page insertion contract for image2, SVG, icons, photos/screenshots, or no visual
+- `page-visual-slots.json`: machine-readable version of the page-by-page insertion contract
+- `page-visual-audit.md`: all-page audit result for the concrete visual insertion contract
 - `source-evidence.md`: inherited source PPT evidence plus final deck lessons
 - `index.html`: browsable pattern catalog based on `plain-business-ppt`, with visual-aware typography and color role defaults

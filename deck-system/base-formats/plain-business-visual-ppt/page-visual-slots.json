@@ -1,0 +1,4986 @@
+{
+  "format": "plain-business-visual-ppt",
+  "version": 1,
+  "purpose": "Page-by-page visual insertion contract for generated images, SVG, icons, and real assets.",
+  "htmlContract": {
+    "dataVisualRequired": "Required visual kind for the page: image2, svg, icon, photo_or_screenshot, svg+image2, or none.",
+    "dataVisualInsert": "Concrete slot plan in the form slot:type:aspect-ratio, repeated with semicolons when multiple assets are required.",
+    "dataVisualSpec": "Pointer from an HTML slide section to this manifest entry."
+  },
+  "slides": [
+    {
+      "slide": "PBV-00",
+      "pattern": "visual-policy-guide",
+      "title": "プレーン段階で、画像・SVG・文字サイズ・色の使い方まで決める",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    {
+      "slide": "PB-00",
+      "pattern": "cover",
+      "title": "業務資料の構図に視覚判断を加えたプレーンフォーマット",
+      "visualPolicy": "image2_body",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "右側または本文側に、業務資料を設計しているワークスペースをimage2で1枚。タイトルとリードはHTMLに残す。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "side panel",
+          "brief": "右側または本文側に、業務資料を設計しているワークスペースをimage2で1枚。タイトルとリードはHTMLに残す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-01",
+      "pattern": "agenda",
+      "title": "会議・提案の流れは番号付きレーンで先に固定する",
+      "visualPolicy": "icon",
+      "visualUnit": "per_row",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_row:icon:1:1:count-5",
+      "brief": "各行の目的に合う単色線画アイコンを入れる。アイコンは補助で、行テキストを主役にする。",
+      "assetSlots": [
+        {
+          "slot": "row-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "前提確認を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "現状と課題を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "施策案と比較を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "実行計画を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "決定事項を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。"
+    },
+    {
+      "slide": "PB-02",
+      "pattern": "executive-summary",
+      "title": "最初に判断材料を3点へ圧縮する",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_card",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "card-1:image2:4:3;card-2:image2:4:3;card-3:image2:4:3",
+      "brief": "結論、根拠、次アクションの各カードに、それぞれ異なるimage2カード画像を入れる。抽象背景の使い回しは禁止。",
+      "assetSlots": [
+        {
+          "slot": "card-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card media area",
+          "brief": "結論を示す判断カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+        },
+        {
+          "slot": "card-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card media area",
+          "brief": "根拠を示す増加・横ばいカード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+        },
+        {
+          "slot": "card-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card media area",
+          "brief": "次アクションを示す分岐カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "fixed",
+      "auditNote": "監査でカード画像ラベルが数値寄りだったため、結論・根拠・次アクションの意味ベースのimage2指定に修正済み。"
+    },
+    {
+      "slide": "PB-03",
+      "pattern": "issue-direction",
+      "title": "課題は「症状」「原因」「対応方針」に分ける",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "症状、原因、対応方針を左から右へ接続するSVG。各ノードは短い見出しだけにし、因果の向きが一目で分かるようにする。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "症状、原因、対応方針を左から右へ接続するSVG。各ノードは短い見出しだけにし、因果の向きが一目で分かるようにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-04",
+      "pattern": "3c-analysis",
+      "title": "環境分析は3つの観点を同じ粒度で比較する",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_lane",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "lane-1:image2:4:3;lane-2:image2:4:3;lane-3:image2:4:3",
+      "brief": "Customer、Competitor、Companyの各レーンに別々のimage2画像を入れる。顧客、競合、社内資産の違いが見える絵にする。",
+      "assetSlots": [
+        {
+          "slot": "lane-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "Customerを具体化する単色寄りのimage2カード画像。環境分析は3つの観点を同じ粒度で比較するの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "Competitorを具体化する単色寄りのimage2カード画像。環境分析は3つの観点を同じ粒度で比較するの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "Companyを具体化する単色寄りのimage2カード画像。環境分析は3つの観点を同じ粒度で比較するの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-05",
+      "pattern": "kpi-tree",
+      "title": "KGIから施策までを一枚でつなげる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "KGI、KPI、Actionを枝分かれで結ぶSVGツリー。数式ではなく対応関係を見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "KGI、KPI、Actionを枝分かれで結ぶSVGツリー。数式ではなく対応関係を見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-06",
+      "pattern": "data-table",
+      "title": "数値表はコメント列を持たせて判断に変換する",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。コメント列、単位、差分、示唆で密度を上げ、空行を残さない。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-07",
+      "pattern": "progress-summary",
+      "title": "進捗は状態・リスク・次アクションを同時に見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "状態、リスク、次アクションをゲート付きの進捗レーンで示すSVG。進捗率だけの横棒は避ける。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "状態、リスク、次アクションをゲート付きの進捗レーンで示すSVG。進捗率だけの横棒は避ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-08",
+      "pattern": "budget-plan",
+      "title": "予算は配分と回収見込みを同じ面で示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "費用、差分、ROIをウォーターフォールまたは積み上げで示すSVG。汎用的な金額アイコンは使わない。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "費用、差分、ROIをウォーターフォールまたは積み上げで示すSVG。汎用的な金額アイコンは使わない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-09",
+      "pattern": "schedule",
+      "title": "短期計画は6区間までのタイムラインで見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "マイルストーン、担当、依存関係をタイムラインSVGで示す。期間バーだけでなく意思決定点を入れる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "マイルストーン、担当、依存関係をタイムラインSVGで示す。期間バーだけでなく意思決定点を入れる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-10",
+      "pattern": "competitor-comparison",
+      "title": "競合比較は評価軸を先に固定する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "比較軸と差分を示すポジショニングまたはギャップSVG。表だけで弱い場合に補助する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "比較軸と差分を示すポジショニングまたはギャップSVG。表だけで弱い場合に補助する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-11",
+      "pattern": "proposal-options",
+      "title": "選択肢比較は推奨案がわかる形で並べる",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_option",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "option-1:image2:4:3;option-2:image2:4:3;option-3:image2:4:3",
+      "brief": "各提案オプションに別々のimage2カード画像を入れる。選択肢の違いを一目で分かる絵にする。",
+      "assetSlots": [
+        {
+          "slot": "option-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "Plan A / 最小改善を具体化する単色寄りのimage2カード画像。選択肢比較は推奨案がわかる形で並べるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "Plan B / 推奨を具体化する単色寄りのimage2カード画像。選択肢比較は推奨案がわかる形で並べるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "Plan C / 全面刷新を具体化する単色寄りのimage2カード画像。選択肢比較は推奨案がわかる形で並べるの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-12",
+      "pattern": "action-plan",
+      "title": "最後は担当・期限・依存関係まで落とす",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。担当、期限、依存関係、判断事項を表で密に見せる。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-13",
+      "pattern": "training-flow",
+      "title": "研修資料は目的から実践確認までを一本化する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "目的、講義、実践、確認をつなぐ学習フローSVG。受講者の進み方を明示する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "目的、講義、実践、確認をつなぐ学習フローSVG。受講者の進み方を明示する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-14",
+      "pattern": "decision-log",
+      "title": "会議結果は決定事項と未決事項を分けて残す",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。決定、未決、責任者、期限を編集可能な表で保持する。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-15",
+      "pattern": "appendix-table",
+      "title": "詳細情報は付録テーブルへ逃がす",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。参照用の表密度を優先する。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-16",
+      "pattern": "swot-2x2",
+      "title": "2x2分析は象限ごとに示唆を持たせる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "4象限そのものをSVGとして扱い、各象限の意味と示唆を短く置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "4象限そのものをSVGとして扱い、各象限の意味と示唆を短く置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-17",
+      "pattern": "before-after",
+      "title": "Before / After は変化の理由まで添える",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    {
+      "slide": "PB-18",
+      "pattern": "interview-voice",
+      "title": "人物・声・示唆を分けると事例ページになる",
+      "visualPolicy": "photo_or_screenshot",
+      "visualUnit": "real_asset",
+      "aspectRatio": "3:2",
+      "requiredKind": "photo_or_screenshot",
+      "insertPlan": "real-asset:photo_or_screenshot:3:2",
+      "brief": "実在人物の写真、インタビュー画面、発言メモなどの実素材を入れる。生成された抽象人物で代替しない。",
+      "assetSlots": [
+        {
+          "slot": "real-asset",
+          "type": "photo_or_screenshot",
+          "aspectRatio": "3:2",
+          "placement": "real asset frame",
+          "brief": "実在人物の写真、インタビュー画面、発言メモなどの実素材を入れる。生成された抽象人物で代替しない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "実写真またはスクリーンショット指定が妥当。生成画像ではなく証跡性のある実素材を優先する。"
+    },
+    {
+      "slide": "PB-19",
+      "pattern": "selection-process",
+      "title": "選考・承認プロセスは通過条件を併記する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "候補、評価、選定、承認をゲート付きレールで表すSVG。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "候補、評価、選定、承認をゲート付きレールで表すSVG。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-20",
+      "pattern": "chapter-toc",
+      "title": "章の冒頭では論点と到達点を同時に示す",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章のテーマを示す16:9のimage2画像を本文領域に入れる。章ごとに違うモチーフにする。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章のテーマを示す16:9のimage2画像を本文領域に入れる。章ごとに違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-21",
+      "pattern": "standard-body-canvas",
+      "title": "標準本文ページは上詰めにせず、下げた本文領域で受ける",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "原則画像なし。必要なら次工程でimage2_bodyまたはSVG構図へ差し替える。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-22",
+      "pattern": "two-column-agenda",
+      "title": "論点が多い目次は左右2列で粒度を揃える",
+      "visualPolicy": "icon",
+      "visualUnit": "per_row",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_row:icon:1:1:count-6",
+      "brief": "左右各行に小さな単色アイコンを入れる。並行トピックの違いを示す。",
+      "assetSlots": [
+        {
+          "slot": "row-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "背景を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "課題を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "仮説を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "施策を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "体制を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-6",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "決定を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。"
+    },
+    {
+      "slide": "PB-23",
+      "pattern": "three-step-horizontal",
+      "title": "3段階の進め方は横方向に因果をつなぐ",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "3ステップを矢印または接続線で見せるSVG。各ステップに成果物を1つ置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "3ステップを矢印または接続線で見せるSVG。各ステップに成果物を1つ置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-24",
+      "pattern": "left-label-right-description",
+      "title": "説明項目は左ラベル、右本文で読ませる",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。左ラベルと右説明の階層を大きい文字で見せる。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-25",
+      "pattern": "requirements-stack",
+      "title": "依頼事項は要件、根拠、期限を一行にまとめる",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。要件の積み上がりをテキストブロックで明確にする。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-26",
+      "pattern": "hub-tree-diagram",
+      "title": "中心概念と周辺要素はハブ型で関係を示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "中央テーマから左右に枝分かれするハブ型SVG。関係の強弱を線で表現する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "中央テーマから左右に枝分かれするハブ型SVG。関係の強弱を線で表現する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-27",
+      "pattern": "vs-comparison",
+      "title": "対立案は同じ項目で見比べられるようにする",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    {
+      "slide": "PB-28",
+      "pattern": "table-chart-commentary",
+      "title": "数値と解釈は左右に分けると判断が速くなる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "side_panel",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "表の右側に小型SVGチャートを置き、コメント列の示唆を視覚化する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "表の右側に小型SVGチャートを置き、コメント列の示唆を視覚化する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-29",
+      "pattern": "left-table-right-visual",
+      "title": "一覧表と図版を並べる時は片方を主役にする",
+      "visualPolicy": "image2_split",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "右側に4:3のimage2またはスクリーン風画像を入れ、左の表の示唆を具体化する。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "split visual panel",
+          "brief": "右側に4:3のimage2またはスクリーン風画像を入れ、左の表の示唆を具体化する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-30",
+      "pattern": "dense-diagram-lecture",
+      "title": "講義型の図解は密度を保ちつつ読む順番を作る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "講義順序を保つSVG。箱を並べるだけでなく読み順の矢印を入れる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "講義順序を保つSVG。箱を並べるだけでなく読み順の矢印を入れる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-31",
+      "pattern": "placeholderless-section",
+      "title": "プレースホルダーがない章扉もタイトルとして扱う",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章扉の本文領域に16:9のimage2画像を入れる。PPT由来の章テーマを視覚化する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章扉の本文領域に16:9のimage2画像を入れる。PPT由来の章テーマを視覚化する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-32",
+      "pattern": "image2-body-full",
+      "title": "本文領域をimage2で一枚画像として生成する版",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:body-fit",
+      "brief": "本文領域全体をimage2で生成する。画像内の細かい文字に依存せず、タイトルと要点はHTMLに残す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文領域全体をimage2で生成する。画像内の細かい文字に依存せず、タイトルと要点はHTMLに残す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-33",
+      "pattern": "image2-body-split",
+      "title": "左に本文、右にimage2生成画像を置く版",
+      "visualPolicy": "image2_split",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "右側に4:3のimage2画像を入れ、左側の事実テキストと対応させる。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "split visual panel",
+          "brief": "右側に4:3のimage2画像を入れ、左側の事実テキストと対応させる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-34",
+      "pattern": "image2-body-diagram",
+      "title": "複雑な図解本文だけをimage2で作る版",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:body-fit",
+      "brief": "複雑な概念図だけをimage2で生成する。中央概念と3から5個の周辺要素に絞る。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "複雑な概念図だけをimage2で生成する。中央概念と3から5個の周辺要素に絞る。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-35",
+      "pattern": "cover-split",
+      "title": "表紙は主題と提出情報を分けて読みやすくする",
+      "visualPolicy": "image2_split",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "片側に4:3のimage2または実素材を入れる。ロゴやタイトルを画像に焼き込まない。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "split visual panel",
+          "brief": "片側に4:3のimage2または実素材を入れる。ロゴやタイトルを画像に焼き込まない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-36",
+      "pattern": "cover-statement",
+      "title": "一文の主張を大きく置く表紙パターン",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。大きな文字と余白で主張を見せる。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-37",
+      "pattern": "section-divider-number",
+      "title": "章の切れ目は番号と論点で明確に区切る",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章番号に対応した16:9のimage2画像を入れる。単なる背景ではなく章のテーマを表す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章番号に対応した16:9のimage2画像を入れる。単なる背景ではなく章のテーマを表す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-38",
+      "pattern": "section-divider-toc",
+      "title": "間仕切りにも次の章の小目次を持たせる",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章内の流れを示す16:9のimage2画像を入れる。次ページ以降の内容を予告する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章内の流れを示す16:9のimage2画像を入れる。次ページ以降の内容を予告する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-39",
+      "pattern": "vertical-four-lanes",
+      "title": "4領域比較は縦レーンで情報量を揃える",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_lane",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "lane-1:image2:4:3;lane-2:image2:4:3;lane-3:image2:4:3;lane-4:image2:4:3",
+      "brief": "4レーンそれぞれに別々のimage2カード画像を入れる。縦横比4:3を固定する。",
+      "assetSlots": [
+        {
+          "slot": "lane-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Aを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Bを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Cを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-4",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Dを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-40",
+      "pattern": "pyramid-hierarchy",
+      "title": "階層構造はピラミッドで上位概念から読ませる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "上位概念から下位要素へ積み上げるピラミッドSVG。各段の役割を明示する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "上位概念から下位要素へ積み上げるピラミッドSVG。各段の役割を明示する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-41",
+      "pattern": "cycle-loop",
+      "title": "反復プロセスはサイクルで改善の順番を示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "入力、実行、学習、改善が循環するSVG。矢印方向と次の行動を必ず入れる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "入力、実行、学習、改善が循環するSVG。矢印方向と次の行動を必ず入れる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-42",
+      "pattern": "positioning-map",
+      "title": "ポジショニングは2軸上の相対位置で示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "縦横2軸のSVGマップ。競合や選択肢の位置を相対配置で示す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "縦横2軸のSVGマップ。競合や選択肢の位置を相対配置で示す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-43",
+      "pattern": "dashboard-summary",
+      "title": "ダッシュボードは主要KPIと解釈を同じ面に置く",
+      "visualPolicy": "photo_or_screenshot",
+      "visualUnit": "side_panel",
+      "aspectRatio": "16:9",
+      "requiredKind": "photo_or_screenshot",
+      "insertPlan": "real-asset:photo_or_screenshot:16:9",
+      "brief": "実ダッシュボードまたはそれに近いスクリーンショットを右側に置く。汎用グラフ画像は避ける。",
+      "assetSlots": [
+        {
+          "slot": "real-asset",
+          "type": "photo_or_screenshot",
+          "aspectRatio": "16:9",
+          "placement": "side panel",
+          "brief": "実ダッシュボードまたはそれに近いスクリーンショットを右側に置く。汎用グラフ画像は避ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "実写真またはスクリーンショット指定が妥当。生成画像ではなく証跡性のある実素材を優先する。"
+    },
+    {
+      "slide": "PB-44",
+      "pattern": "swimlane-schedule",
+      "title": "担当別の予定はスイムレーンで依存関係を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "役割別レーンと期間バーを組み合わせたSVG。担当と依存を同時に見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "役割別レーンと期間バーを組み合わせたSVG。担当と依存を同時に見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-45",
+      "pattern": "worksheet-form",
+      "title": "ワークシートは記入欄と判断欄を分ける",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。記入欄として使える編集性を守る。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-46",
+      "pattern": "funnel-conversion",
+      "title": "転換率はファネルで落ちる箇所を特定する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "母数から成果までの減衰をファネルSVGで示し、落ちる理由の注釈を置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "母数から成果までの減衰をファネルSVGで示し、落ちる理由の注釈を置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-47",
+      "pattern": "icon-grid",
+      "title": "項目カタログは小さなセルで全体像を示す",
+      "visualPolicy": "icon",
+      "visualUnit": "per_cell",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_cell:icon:1:1:count-5",
+      "brief": "各セルに個別の単色アイコンを入れる。セルごとに意味が違うため同じアイコンを繰り返さない。",
+      "assetSlots": [
+        {
+          "slot": "cell-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "項目名と短い説明を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "役割、条件、対象を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "利用シーンを表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "期待効果を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "注意点を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。"
+    },
+    {
+      "slide": "PB-48",
+      "pattern": "case-quote",
+      "title": "事例・人物紹介は画像枠と発言枠を分ける",
+      "visualPolicy": "photo_or_screenshot",
+      "visualUnit": "real_asset",
+      "aspectRatio": "3:2",
+      "requiredKind": "photo_or_screenshot",
+      "insertPlan": "real-asset:photo_or_screenshot:3:2",
+      "brief": "実写真、実画面、実績証跡を入れる。引用の信頼性を補強する素材を優先する。",
+      "assetSlots": [
+        {
+          "slot": "real-asset",
+          "type": "photo_or_screenshot",
+          "aspectRatio": "3:2",
+          "placement": "real asset frame",
+          "brief": "実写真、実画面、実績証跡を入れる。引用の信頼性を補強する素材を優先する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "実写真またはスクリーンショット指定が妥当。生成画像ではなく証跡性のある実素材を優先する。"
+    },
+    {
+      "slide": "PB-49",
+      "pattern": "decision-tree",
+      "title": "条件分岐は判断ツリーとして見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "条件分岐と推奨アクションを枝で示すSVG。結論までの道筋を見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "条件分岐と推奨アクションを枝で示すSVG。結論までの道筋を見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-50",
+      "pattern": "evaluation-grid",
+      "title": "評価グリッドは選択肢ごとの強弱を一面で見る",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_option",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "option-1:image2:4:3;option-2:image2:4:3;option-3:image2:4:3",
+      "brief": "各評価候補に別々のimage2カード画像を入れる。評価軸の差が分かる視覚にする。",
+      "assetSlots": [
+        {
+          "slot": "option-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "案 A / 低負荷を具体化する単色寄りのimage2カード画像。評価グリッドは選択肢ごとの強弱を一面で見るの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "案 B / 推奨を具体化する単色寄りのimage2カード画像。評価グリッドは選択肢ごとの強弱を一面で見るの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "案 C / 高効果を具体化する単色寄りのimage2カード画像。評価グリッドは選択肢ごとの強弱を一面で見るの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    {
+      "slide": "PB-51",
+      "pattern": "risk-heatmap",
+      "title": "リスクは影響度と発生可能性で優先度を決める",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "影響度と発生確率の2軸SVG。対策やレビューゲートを同じ画面に置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "影響度と発生確率の2軸SVG。対策やレビューゲートを同じ画面に置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-52",
+      "pattern": "raci-matrix",
+      "title": "体制は役割責任をRACIで明確にする",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。責任分担の表を読みやすく整える。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-53",
+      "pattern": "waterfall-bridge",
+      "title": "増減要因はウォーターフォールで分解する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "増減要因をブリッジで示すSVG。開始値、増加、減少、着地を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "増減要因をブリッジで示すSVG。開始値、増加、減少、着地を分ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-54",
+      "pattern": "value-chain",
+      "title": "業務の価値連鎖は横並びでボトルネックを見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "工程を左から右へつなぐSVG。各工程の入力と出力を短く添える。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "工程を左から右へつなぐSVG。各工程の入力と出力を短く添える。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-55",
+      "pattern": "fishbone-cause",
+      "title": "原因分析はカテゴリごとに魚骨で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "原因カテゴリから結果へ集約するフィッシュボーンSVG。装飾ではなく原因分解に使う。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "原因カテゴリから結果へ集約するフィッシュボーンSVG。装飾ではなく原因分解に使う。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-56",
+      "pattern": "logic-tree",
+      "title": "論点はロジックツリーで分解して抜け漏れを減らす",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "論点をMECEに分解するロジックツリーSVG。階層の深さを揃える。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "論点をMECEに分解するロジックツリーSVG。階層の深さを揃える。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-57",
+      "pattern": "stakeholder-map",
+      "title": "関係者は中心課題との距離で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "関係者を影響度や関与度で置くSVGマップ。中心人物と周辺支援者を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "関係者を影響度や関与度で置くSVGマップ。中心人物と周辺支援者を分ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-58",
+      "pattern": "customer-journey",
+      "title": "顧客体験は段階ごとの行動と課題で見る",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    {
+      "slide": "PB-59",
+      "pattern": "okr-alignment",
+      "title": "目標はKey Resultと施策まで対応させる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "Objective、KR、Actionを接続するSVG。目標と実行の距離をなくす。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "Objective、KR、Actionを接続するSVG。目標と実行の距離をなくす。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-60",
+      "pattern": "business-model-canvas",
+      "title": "事業モデルは9枠キャンバスで全体像を揃える",
+      "visualPolicy": "icon",
+      "visualUnit": "per_field",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_field:icon:1:1:count-9",
+      "brief": "各フィールドに小型アイコンを入れる。キャンバスの編集性を優先し、画像化しない。",
+      "assetSlots": [
+        {
+          "slot": "field-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "顧客を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "価値を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "接点を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "関係を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "活動を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-6",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "資源を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-7",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "協業を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-8",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "コストを表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-9",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "収益を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "fixed",
+      "auditNote": "監査で9枠キャンバス指定とHTMLセル数の不一致を検出。HTMLを9セルへ修正し、9個の単色アイコン指定に整合済み。"
+    },
+    {
+      "slide": "PB-61",
+      "pattern": "cost-breakdown",
+      "title": "コスト構造は費目ごとの比率と示唆で見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "費目別の構成比をバーまたは階層で示すSVG。金額アイコンではなく内訳を見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "費目別の構成比をバーまたは階層で示すSVG。金額アイコンではなく内訳を見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-62",
+      "pattern": "roadmap-flags",
+      "title": "ロードマップは節目ごとの成果物を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "時系列上に旗印と判断ゲートを置くSVG。今、次、後で何が変わるかを示す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "時系列上に旗印と判断ゲートを置くSVG。今、次、後で何が変わるかを示す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-63",
+      "pattern": "scoring-matrix",
+      "title": "意思決定は重み付きスコアで理由を残す",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。採点表、重み、コメントを優先する。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-64",
+      "pattern": "checklist-review",
+      "title": "確認事項はチェックリストで抜け漏れを防ぐ",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。チェック項目と判定理由を大きめの文字で示す。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    {
+      "slide": "PB-65",
+      "pattern": "svg-hub-spoke",
+      "title": "中心メッセージから周辺要素へ線で関係を出す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-66",
+      "pattern": "svg-chevron-flow",
+      "title": "工程の連続性は矢印型の面で一気に読ませる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-67",
+      "pattern": "svg-cycle-loop",
+      "title": "反復改善は円環の矢印で戻り先まで見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-68",
+      "pattern": "svg-fishbone",
+      "title": "原因分析は背骨と肋骨を描くと構造が崩れにくい",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-69",
+      "pattern": "svg-decision-branch",
+      "title": "条件分岐は判断点を菱形にして読み順を固定する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-70",
+      "pattern": "svg-callout-anatomy",
+      "title": "画面や仕組みは中央オブジェクトに注釈線を刺す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-71",
+      "pattern": "svg-roadmap-bars",
+      "title": "中期計画はフェーズバーで重なりと節目を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-72",
+      "pattern": "svg-layered-system",
+      "title": "仕組みの説明は層と流れを分けて描く",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-73",
+      "pattern": "svg-venn-overlap",
+      "title": "重なり領域はベン図で共通価値を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-74",
+      "pattern": "svg-concentric-rings",
+      "title": "中心から外側へ広がる構造は同心円で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-75",
+      "pattern": "svg-staircase-maturity",
+      "title": "成熟度や到達段階は階段で上昇感を出す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-76",
+      "pattern": "svg-gap-bridge",
+      "title": "現状と理想の差分は橋渡しで打ち手を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-77",
+      "pattern": "svg-org-chart",
+      "title": "体制や役割分担は組織図で責任の上下を示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-78",
+      "pattern": "svg-dependency-network",
+      "title": "依存関係が多い論点はネットワーク図で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-79",
+      "pattern": "svg-migration-matrix",
+      "title": "ポジションの移行はマトリクス上の矢印で示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-80",
+      "pattern": "svg-iceberg",
+      "title": "見えている課題と隠れた要因は上下で分ける",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-81",
+      "pattern": "svg-layer-stack",
+      "title": "基盤から成果まで積み上げる構造はレイヤーで見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-82",
+      "pattern": "svg-bowtie-risk",
+      "title": "リスクは原因、事象、影響に分けて左右対称で見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-83",
+      "pattern": "svg-bubble-portfolio",
+      "title": "複数候補は位置と大きさで優先度を同時に見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    {
+      "slide": "PB-84",
+      "pattern": "svg-stage-gate-board",
+      "title": "案件やタスクはステージゲートで滞留箇所を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    }
+  ],
+  "bySlide": {
+    "PBV-00": {
+      "slide": "PBV-00",
+      "pattern": "visual-policy-guide",
+      "title": "プレーン段階で、画像・SVG・文字サイズ・色の使い方まで決める",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    "PB-00": {
+      "slide": "PB-00",
+      "pattern": "cover",
+      "title": "業務資料の構図に視覚判断を加えたプレーンフォーマット",
+      "visualPolicy": "image2_body",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "右側または本文側に、業務資料を設計しているワークスペースをimage2で1枚。タイトルとリードはHTMLに残す。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "side panel",
+          "brief": "右側または本文側に、業務資料を設計しているワークスペースをimage2で1枚。タイトルとリードはHTMLに残す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-01": {
+      "slide": "PB-01",
+      "pattern": "agenda",
+      "title": "会議・提案の流れは番号付きレーンで先に固定する",
+      "visualPolicy": "icon",
+      "visualUnit": "per_row",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_row:icon:1:1:count-5",
+      "brief": "各行の目的に合う単色線画アイコンを入れる。アイコンは補助で、行テキストを主役にする。",
+      "assetSlots": [
+        {
+          "slot": "row-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "前提確認を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "現状と課題を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "施策案と比較を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "実行計画を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "決定事項を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。"
+    },
+    "PB-02": {
+      "slide": "PB-02",
+      "pattern": "executive-summary",
+      "title": "最初に判断材料を3点へ圧縮する",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_card",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "card-1:image2:4:3;card-2:image2:4:3;card-3:image2:4:3",
+      "brief": "結論、根拠、次アクションの各カードに、それぞれ異なるimage2カード画像を入れる。抽象背景の使い回しは禁止。",
+      "assetSlots": [
+        {
+          "slot": "card-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card media area",
+          "brief": "結論を示す判断カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+        },
+        {
+          "slot": "card-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card media area",
+          "brief": "根拠を示す増加・横ばいカード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+        },
+        {
+          "slot": "card-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card media area",
+          "brief": "次アクションを示す分岐カード。同じ抽象背景を使わず、1枚ごとに異なる業務モチーフで作る。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "fixed",
+      "auditNote": "監査でカード画像ラベルが数値寄りだったため、結論・根拠・次アクションの意味ベースのimage2指定に修正済み。"
+    },
+    "PB-03": {
+      "slide": "PB-03",
+      "pattern": "issue-direction",
+      "title": "課題は「症状」「原因」「対応方針」に分ける",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "症状、原因、対応方針を左から右へ接続するSVG。各ノードは短い見出しだけにし、因果の向きが一目で分かるようにする。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "症状、原因、対応方針を左から右へ接続するSVG。各ノードは短い見出しだけにし、因果の向きが一目で分かるようにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-04": {
+      "slide": "PB-04",
+      "pattern": "3c-analysis",
+      "title": "環境分析は3つの観点を同じ粒度で比較する",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_lane",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "lane-1:image2:4:3;lane-2:image2:4:3;lane-3:image2:4:3",
+      "brief": "Customer、Competitor、Companyの各レーンに別々のimage2画像を入れる。顧客、競合、社内資産の違いが見える絵にする。",
+      "assetSlots": [
+        {
+          "slot": "lane-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "Customerを具体化する単色寄りのimage2カード画像。環境分析は3つの観点を同じ粒度で比較するの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "Competitorを具体化する単色寄りのimage2カード画像。環境分析は3つの観点を同じ粒度で比較するの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "Companyを具体化する単色寄りのimage2カード画像。環境分析は3つの観点を同じ粒度で比較するの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-05": {
+      "slide": "PB-05",
+      "pattern": "kpi-tree",
+      "title": "KGIから施策までを一枚でつなげる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "KGI、KPI、Actionを枝分かれで結ぶSVGツリー。数式ではなく対応関係を見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "KGI、KPI、Actionを枝分かれで結ぶSVGツリー。数式ではなく対応関係を見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-06": {
+      "slide": "PB-06",
+      "pattern": "data-table",
+      "title": "数値表はコメント列を持たせて判断に変換する",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。コメント列、単位、差分、示唆で密度を上げ、空行を残さない。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-07": {
+      "slide": "PB-07",
+      "pattern": "progress-summary",
+      "title": "進捗は状態・リスク・次アクションを同時に見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "状態、リスク、次アクションをゲート付きの進捗レーンで示すSVG。進捗率だけの横棒は避ける。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "状態、リスク、次アクションをゲート付きの進捗レーンで示すSVG。進捗率だけの横棒は避ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-08": {
+      "slide": "PB-08",
+      "pattern": "budget-plan",
+      "title": "予算は配分と回収見込みを同じ面で示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "費用、差分、ROIをウォーターフォールまたは積み上げで示すSVG。汎用的な金額アイコンは使わない。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "費用、差分、ROIをウォーターフォールまたは積み上げで示すSVG。汎用的な金額アイコンは使わない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-09": {
+      "slide": "PB-09",
+      "pattern": "schedule",
+      "title": "短期計画は6区間までのタイムラインで見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "マイルストーン、担当、依存関係をタイムラインSVGで示す。期間バーだけでなく意思決定点を入れる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "マイルストーン、担当、依存関係をタイムラインSVGで示す。期間バーだけでなく意思決定点を入れる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-10": {
+      "slide": "PB-10",
+      "pattern": "competitor-comparison",
+      "title": "競合比較は評価軸を先に固定する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "比較軸と差分を示すポジショニングまたはギャップSVG。表だけで弱い場合に補助する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "比較軸と差分を示すポジショニングまたはギャップSVG。表だけで弱い場合に補助する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-11": {
+      "slide": "PB-11",
+      "pattern": "proposal-options",
+      "title": "選択肢比較は推奨案がわかる形で並べる",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_option",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "option-1:image2:4:3;option-2:image2:4:3;option-3:image2:4:3",
+      "brief": "各提案オプションに別々のimage2カード画像を入れる。選択肢の違いを一目で分かる絵にする。",
+      "assetSlots": [
+        {
+          "slot": "option-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "Plan A / 最小改善を具体化する単色寄りのimage2カード画像。選択肢比較は推奨案がわかる形で並べるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "Plan B / 推奨を具体化する単色寄りのimage2カード画像。選択肢比較は推奨案がわかる形で並べるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "Plan C / 全面刷新を具体化する単色寄りのimage2カード画像。選択肢比較は推奨案がわかる形で並べるの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-12": {
+      "slide": "PB-12",
+      "pattern": "action-plan",
+      "title": "最後は担当・期限・依存関係まで落とす",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。担当、期限、依存関係、判断事項を表で密に見せる。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-13": {
+      "slide": "PB-13",
+      "pattern": "training-flow",
+      "title": "研修資料は目的から実践確認までを一本化する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "目的、講義、実践、確認をつなぐ学習フローSVG。受講者の進み方を明示する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "目的、講義、実践、確認をつなぐ学習フローSVG。受講者の進み方を明示する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-14": {
+      "slide": "PB-14",
+      "pattern": "decision-log",
+      "title": "会議結果は決定事項と未決事項を分けて残す",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。決定、未決、責任者、期限を編集可能な表で保持する。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-15": {
+      "slide": "PB-15",
+      "pattern": "appendix-table",
+      "title": "詳細情報は付録テーブルへ逃がす",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。参照用の表密度を優先する。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-16": {
+      "slide": "PB-16",
+      "pattern": "swot-2x2",
+      "title": "2x2分析は象限ごとに示唆を持たせる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "4象限そのものをSVGとして扱い、各象限の意味と示唆を短く置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "4象限そのものをSVGとして扱い、各象限の意味と示唆を短く置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-17": {
+      "slide": "PB-17",
+      "pattern": "before-after",
+      "title": "Before / After は変化の理由まで添える",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    "PB-18": {
+      "slide": "PB-18",
+      "pattern": "interview-voice",
+      "title": "人物・声・示唆を分けると事例ページになる",
+      "visualPolicy": "photo_or_screenshot",
+      "visualUnit": "real_asset",
+      "aspectRatio": "3:2",
+      "requiredKind": "photo_or_screenshot",
+      "insertPlan": "real-asset:photo_or_screenshot:3:2",
+      "brief": "実在人物の写真、インタビュー画面、発言メモなどの実素材を入れる。生成された抽象人物で代替しない。",
+      "assetSlots": [
+        {
+          "slot": "real-asset",
+          "type": "photo_or_screenshot",
+          "aspectRatio": "3:2",
+          "placement": "real asset frame",
+          "brief": "実在人物の写真、インタビュー画面、発言メモなどの実素材を入れる。生成された抽象人物で代替しない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "実写真またはスクリーンショット指定が妥当。生成画像ではなく証跡性のある実素材を優先する。"
+    },
+    "PB-19": {
+      "slide": "PB-19",
+      "pattern": "selection-process",
+      "title": "選考・承認プロセスは通過条件を併記する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "候補、評価、選定、承認をゲート付きレールで表すSVG。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "候補、評価、選定、承認をゲート付きレールで表すSVG。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-20": {
+      "slide": "PB-20",
+      "pattern": "chapter-toc",
+      "title": "章の冒頭では論点と到達点を同時に示す",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章のテーマを示す16:9のimage2画像を本文領域に入れる。章ごとに違うモチーフにする。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章のテーマを示す16:9のimage2画像を本文領域に入れる。章ごとに違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-21": {
+      "slide": "PB-21",
+      "pattern": "standard-body-canvas",
+      "title": "標準本文ページは上詰めにせず、下げた本文領域で受ける",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "原則画像なし。必要なら次工程でimage2_bodyまたはSVG構図へ差し替える。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-22": {
+      "slide": "PB-22",
+      "pattern": "two-column-agenda",
+      "title": "論点が多い目次は左右2列で粒度を揃える",
+      "visualPolicy": "icon",
+      "visualUnit": "per_row",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_row:icon:1:1:count-6",
+      "brief": "左右各行に小さな単色アイコンを入れる。並行トピックの違いを示す。",
+      "assetSlots": [
+        {
+          "slot": "row-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "背景を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "課題を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "仮説を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "施策を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "体制を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "row-icon-6",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "row leading mark",
+          "brief": "決定を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。"
+    },
+    "PB-23": {
+      "slide": "PB-23",
+      "pattern": "three-step-horizontal",
+      "title": "3段階の進め方は横方向に因果をつなぐ",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "3ステップを矢印または接続線で見せるSVG。各ステップに成果物を1つ置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "3ステップを矢印または接続線で見せるSVG。各ステップに成果物を1つ置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-24": {
+      "slide": "PB-24",
+      "pattern": "left-label-right-description",
+      "title": "説明項目は左ラベル、右本文で読ませる",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。左ラベルと右説明の階層を大きい文字で見せる。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-25": {
+      "slide": "PB-25",
+      "pattern": "requirements-stack",
+      "title": "依頼事項は要件、根拠、期限を一行にまとめる",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。要件の積み上がりをテキストブロックで明確にする。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-26": {
+      "slide": "PB-26",
+      "pattern": "hub-tree-diagram",
+      "title": "中心概念と周辺要素はハブ型で関係を示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "中央テーマから左右に枝分かれするハブ型SVG。関係の強弱を線で表現する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "中央テーマから左右に枝分かれするハブ型SVG。関係の強弱を線で表現する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-27": {
+      "slide": "PB-27",
+      "pattern": "vs-comparison",
+      "title": "対立案は同じ項目で見比べられるようにする",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    "PB-28": {
+      "slide": "PB-28",
+      "pattern": "table-chart-commentary",
+      "title": "数値と解釈は左右に分けると判断が速くなる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "side_panel",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "表の右側に小型SVGチャートを置き、コメント列の示唆を視覚化する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "表の右側に小型SVGチャートを置き、コメント列の示唆を視覚化する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-29": {
+      "slide": "PB-29",
+      "pattern": "left-table-right-visual",
+      "title": "一覧表と図版を並べる時は片方を主役にする",
+      "visualPolicy": "image2_split",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "右側に4:3のimage2またはスクリーン風画像を入れ、左の表の示唆を具体化する。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "split visual panel",
+          "brief": "右側に4:3のimage2またはスクリーン風画像を入れ、左の表の示唆を具体化する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-30": {
+      "slide": "PB-30",
+      "pattern": "dense-diagram-lecture",
+      "title": "講義型の図解は密度を保ちつつ読む順番を作る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "講義順序を保つSVG。箱を並べるだけでなく読み順の矢印を入れる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "講義順序を保つSVG。箱を並べるだけでなく読み順の矢印を入れる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-31": {
+      "slide": "PB-31",
+      "pattern": "placeholderless-section",
+      "title": "プレースホルダーがない章扉もタイトルとして扱う",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章扉の本文領域に16:9のimage2画像を入れる。PPT由来の章テーマを視覚化する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章扉の本文領域に16:9のimage2画像を入れる。PPT由来の章テーマを視覚化する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-32": {
+      "slide": "PB-32",
+      "pattern": "image2-body-full",
+      "title": "本文領域をimage2で一枚画像として生成する版",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:body-fit",
+      "brief": "本文領域全体をimage2で生成する。画像内の細かい文字に依存せず、タイトルと要点はHTMLに残す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文領域全体をimage2で生成する。画像内の細かい文字に依存せず、タイトルと要点はHTMLに残す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-33": {
+      "slide": "PB-33",
+      "pattern": "image2-body-split",
+      "title": "左に本文、右にimage2生成画像を置く版",
+      "visualPolicy": "image2_split",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "右側に4:3のimage2画像を入れ、左側の事実テキストと対応させる。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "split visual panel",
+          "brief": "右側に4:3のimage2画像を入れ、左側の事実テキストと対応させる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-34": {
+      "slide": "PB-34",
+      "pattern": "image2-body-diagram",
+      "title": "複雑な図解本文だけをimage2で作る版",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:body-fit",
+      "brief": "複雑な概念図だけをimage2で生成する。中央概念と3から5個の周辺要素に絞る。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "複雑な概念図だけをimage2で生成する。中央概念と3から5個の周辺要素に絞る。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-35": {
+      "slide": "PB-35",
+      "pattern": "cover-split",
+      "title": "表紙は主題と提出情報を分けて読みやすくする",
+      "visualPolicy": "image2_split",
+      "visualUnit": "side_panel",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "side-panel:image2:4:3",
+      "brief": "片側に4:3のimage2または実素材を入れる。ロゴやタイトルを画像に焼き込まない。",
+      "assetSlots": [
+        {
+          "slot": "side-panel",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "split visual panel",
+          "brief": "片側に4:3のimage2または実素材を入れる。ロゴやタイトルを画像に焼き込まない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-36": {
+      "slide": "PB-36",
+      "pattern": "cover-statement",
+      "title": "一文の主張を大きく置く表紙パターン",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。大きな文字と余白で主張を見せる。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-37": {
+      "slide": "PB-37",
+      "pattern": "section-divider-number",
+      "title": "章の切れ目は番号と論点で明確に区切る",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章番号に対応した16:9のimage2画像を入れる。単なる背景ではなく章のテーマを表す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章番号に対応した16:9のimage2画像を入れる。単なる背景ではなく章のテーマを表す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-38": {
+      "slide": "PB-38",
+      "pattern": "section-divider-toc",
+      "title": "間仕切りにも次の章の小目次を持たせる",
+      "visualPolicy": "image2_body",
+      "visualUnit": "whole_body",
+      "aspectRatio": "16:9",
+      "requiredKind": "image2",
+      "insertPlan": "body:image2:16:9",
+      "brief": "章内の流れを示す16:9のimage2画像を入れる。次ページ以降の内容を予告する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "image2",
+          "aspectRatio": "16:9",
+          "placement": "body center",
+          "brief": "章内の流れを示す16:9のimage2画像を入れる。次ページ以降の内容を予告する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-39": {
+      "slide": "PB-39",
+      "pattern": "vertical-four-lanes",
+      "title": "4領域比較は縦レーンで情報量を揃える",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_lane",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "lane-1:image2:4:3;lane-2:image2:4:3;lane-3:image2:4:3;lane-4:image2:4:3",
+      "brief": "4レーンそれぞれに別々のimage2カード画像を入れる。縦横比4:3を固定する。",
+      "assetSlots": [
+        {
+          "slot": "lane-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Aを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Bを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Cを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "lane-4",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "lane media area",
+          "brief": "領域 Dを具体化する単色寄りのimage2カード画像。4領域比較は縦レーンで情報量を揃えるの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-40": {
+      "slide": "PB-40",
+      "pattern": "pyramid-hierarchy",
+      "title": "階層構造はピラミッドで上位概念から読ませる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "上位概念から下位要素へ積み上げるピラミッドSVG。各段の役割を明示する。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "上位概念から下位要素へ積み上げるピラミッドSVG。各段の役割を明示する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-41": {
+      "slide": "PB-41",
+      "pattern": "cycle-loop",
+      "title": "反復プロセスはサイクルで改善の順番を示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "入力、実行、学習、改善が循環するSVG。矢印方向と次の行動を必ず入れる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "入力、実行、学習、改善が循環するSVG。矢印方向と次の行動を必ず入れる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-42": {
+      "slide": "PB-42",
+      "pattern": "positioning-map",
+      "title": "ポジショニングは2軸上の相対位置で示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "縦横2軸のSVGマップ。競合や選択肢の位置を相対配置で示す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "縦横2軸のSVGマップ。競合や選択肢の位置を相対配置で示す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-43": {
+      "slide": "PB-43",
+      "pattern": "dashboard-summary",
+      "title": "ダッシュボードは主要KPIと解釈を同じ面に置く",
+      "visualPolicy": "photo_or_screenshot",
+      "visualUnit": "side_panel",
+      "aspectRatio": "16:9",
+      "requiredKind": "photo_or_screenshot",
+      "insertPlan": "real-asset:photo_or_screenshot:16:9",
+      "brief": "実ダッシュボードまたはそれに近いスクリーンショットを右側に置く。汎用グラフ画像は避ける。",
+      "assetSlots": [
+        {
+          "slot": "real-asset",
+          "type": "photo_or_screenshot",
+          "aspectRatio": "16:9",
+          "placement": "side panel",
+          "brief": "実ダッシュボードまたはそれに近いスクリーンショットを右側に置く。汎用グラフ画像は避ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "実写真またはスクリーンショット指定が妥当。生成画像ではなく証跡性のある実素材を優先する。"
+    },
+    "PB-44": {
+      "slide": "PB-44",
+      "pattern": "swimlane-schedule",
+      "title": "担当別の予定はスイムレーンで依存関係を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "役割別レーンと期間バーを組み合わせたSVG。担当と依存を同時に見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "役割別レーンと期間バーを組み合わせたSVG。担当と依存を同時に見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-45": {
+      "slide": "PB-45",
+      "pattern": "worksheet-form",
+      "title": "ワークシートは記入欄と判断欄を分ける",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。記入欄として使える編集性を守る。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-46": {
+      "slide": "PB-46",
+      "pattern": "funnel-conversion",
+      "title": "転換率はファネルで落ちる箇所を特定する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "母数から成果までの減衰をファネルSVGで示し、落ちる理由の注釈を置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "母数から成果までの減衰をファネルSVGで示し、落ちる理由の注釈を置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-47": {
+      "slide": "PB-47",
+      "pattern": "icon-grid",
+      "title": "項目カタログは小さなセルで全体像を示す",
+      "visualPolicy": "icon",
+      "visualUnit": "per_cell",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_cell:icon:1:1:count-5",
+      "brief": "各セルに個別の単色アイコンを入れる。セルごとに意味が違うため同じアイコンを繰り返さない。",
+      "assetSlots": [
+        {
+          "slot": "cell-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "項目名と短い説明を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "役割、条件、対象を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "利用シーンを表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "期待効果を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        },
+        {
+          "slot": "cell-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "cell leading mark",
+          "brief": "注意点を表す単色線画アイコン。ほかの項目と同じ記号を使い回さない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "アイコン差し込みが妥当。小型の単色線画として、セル/行/フィールドごとに個別指定済み。"
+    },
+    "PB-48": {
+      "slide": "PB-48",
+      "pattern": "case-quote",
+      "title": "事例・人物紹介は画像枠と発言枠を分ける",
+      "visualPolicy": "photo_or_screenshot",
+      "visualUnit": "real_asset",
+      "aspectRatio": "3:2",
+      "requiredKind": "photo_or_screenshot",
+      "insertPlan": "real-asset:photo_or_screenshot:3:2",
+      "brief": "実写真、実画面、実績証跡を入れる。引用の信頼性を補強する素材を優先する。",
+      "assetSlots": [
+        {
+          "slot": "real-asset",
+          "type": "photo_or_screenshot",
+          "aspectRatio": "3:2",
+          "placement": "real asset frame",
+          "brief": "実写真、実画面、実績証跡を入れる。引用の信頼性を補強する素材を優先する。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "実写真またはスクリーンショット指定が妥当。生成画像ではなく証跡性のある実素材を優先する。"
+    },
+    "PB-49": {
+      "slide": "PB-49",
+      "pattern": "decision-tree",
+      "title": "条件分岐は判断ツリーとして見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "条件分岐と推奨アクションを枝で示すSVG。結論までの道筋を見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "条件分岐と推奨アクションを枝で示すSVG。結論までの道筋を見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-50": {
+      "slide": "PB-50",
+      "pattern": "evaluation-grid",
+      "title": "評価グリッドは選択肢ごとの強弱を一面で見る",
+      "visualPolicy": "image2_card_media",
+      "visualUnit": "per_option",
+      "aspectRatio": "4:3",
+      "requiredKind": "image2",
+      "insertPlan": "option-1:image2:4:3;option-2:image2:4:3;option-3:image2:4:3",
+      "brief": "各評価候補に別々のimage2カード画像を入れる。評価軸の差が分かる視覚にする。",
+      "assetSlots": [
+        {
+          "slot": "option-1",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "案 A / 低負荷を具体化する単色寄りのimage2カード画像。評価グリッドは選択肢ごとの強弱を一面で見るの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-2",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "案 B / 推奨を具体化する単色寄りのimage2カード画像。評価グリッドは選択肢ごとの強弱を一面で見るの中で他カードと違うモチーフにする。"
+        },
+        {
+          "slot": "option-3",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "option media area",
+          "brief": "案 C / 高効果を具体化する単色寄りのimage2カード画像。評価グリッドは選択肢ごとの強弱を一面で見るの中で他カードと違うモチーフにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "image2差し込みが妥当。カード/レーン/本文/サイドパネル単位と縦横比を指定済み。"
+    },
+    "PB-51": {
+      "slide": "PB-51",
+      "pattern": "risk-heatmap",
+      "title": "リスクは影響度と発生可能性で優先度を決める",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "影響度と発生確率の2軸SVG。対策やレビューゲートを同じ画面に置く。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "影響度と発生確率の2軸SVG。対策やレビューゲートを同じ画面に置く。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-52": {
+      "slide": "PB-52",
+      "pattern": "raci-matrix",
+      "title": "体制は役割責任をRACIで明確にする",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。責任分担の表を読みやすく整える。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-53": {
+      "slide": "PB-53",
+      "pattern": "waterfall-bridge",
+      "title": "増減要因はウォーターフォールで分解する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "増減要因をブリッジで示すSVG。開始値、増加、減少、着地を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "増減要因をブリッジで示すSVG。開始値、増加、減少、着地を分ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-54": {
+      "slide": "PB-54",
+      "pattern": "value-chain",
+      "title": "業務の価値連鎖は横並びでボトルネックを見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "工程を左から右へつなぐSVG。各工程の入力と出力を短く添える。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "工程を左から右へつなぐSVG。各工程の入力と出力を短く添える。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-55": {
+      "slide": "PB-55",
+      "pattern": "fishbone-cause",
+      "title": "原因分析はカテゴリごとに魚骨で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "原因カテゴリから結果へ集約するフィッシュボーンSVG。装飾ではなく原因分解に使う。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "原因カテゴリから結果へ集約するフィッシュボーンSVG。装飾ではなく原因分解に使う。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-56": {
+      "slide": "PB-56",
+      "pattern": "logic-tree",
+      "title": "論点はロジックツリーで分解して抜け漏れを減らす",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "論点をMECEに分解するロジックツリーSVG。階層の深さを揃える。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "論点をMECEに分解するロジックツリーSVG。階層の深さを揃える。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-57": {
+      "slide": "PB-57",
+      "pattern": "stakeholder-map",
+      "title": "関係者は中心課題との距離で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "関係者を影響度や関与度で置くSVGマップ。中心人物と周辺支援者を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "関係者を影響度や関与度で置くSVGマップ。中心人物と周辺支援者を分ける。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-58": {
+      "slide": "PB-58",
+      "pattern": "customer-journey",
+      "title": "顧客体験は段階ごとの行動と課題で見る",
+      "visualPolicy": "hybrid",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg+image2",
+      "insertPlan": "body:svg:body-fit;support:image2:4:3",
+      "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。",
+      "assetSlots": [
+        {
+          "slot": "body-structure",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央にSVG構造を入れ、必要なカードや段階だけimage2小画像を加える。構造と画像の役割を分ける。"
+        },
+        {
+          "slot": "supporting-media",
+          "type": "image2",
+          "aspectRatio": "4:3",
+          "placement": "card or side support area",
+          "brief": "具体例だけをimage2で補足する。構造説明はSVGに残し、画像は4:3で歪ませない。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVGを主構造、image2を補助具体例として使う指定で妥当。役割分担を明記済み。"
+    },
+    "PB-59": {
+      "slide": "PB-59",
+      "pattern": "okr-alignment",
+      "title": "目標はKey Resultと施策まで対応させる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "Objective、KR、Actionを接続するSVG。目標と実行の距離をなくす。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "Objective、KR、Actionを接続するSVG。目標と実行の距離をなくす。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-60": {
+      "slide": "PB-60",
+      "pattern": "business-model-canvas",
+      "title": "事業モデルは9枠キャンバスで全体像を揃える",
+      "visualPolicy": "icon",
+      "visualUnit": "per_field",
+      "aspectRatio": "1:1",
+      "requiredKind": "icon",
+      "insertPlan": "per_field:icon:1:1:count-9",
+      "brief": "各フィールドに小型アイコンを入れる。キャンバスの編集性を優先し、画像化しない。",
+      "assetSlots": [
+        {
+          "slot": "field-icon-1",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "顧客を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-2",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "価値を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-3",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "接点を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-4",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "関係を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-5",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "活動を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-6",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "資源を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-7",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "協業を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-8",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "コストを表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        },
+        {
+          "slot": "field-icon-9",
+          "type": "icon",
+          "aspectRatio": "1:1",
+          "placement": "canvas field mark",
+          "brief": "収益を表す単色線画アイコン。キャンバス内テキストを圧迫しない小型マークにする。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "fixed",
+      "auditNote": "監査で9枠キャンバス指定とHTMLセル数の不一致を検出。HTMLを9セルへ修正し、9個の単色アイコン指定に整合済み。"
+    },
+    "PB-61": {
+      "slide": "PB-61",
+      "pattern": "cost-breakdown",
+      "title": "コスト構造は費目ごとの比率と示唆で見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "費目別の構成比をバーまたは階層で示すSVG。金額アイコンではなく内訳を見せる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "費目別の構成比をバーまたは階層で示すSVG。金額アイコンではなく内訳を見せる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-62": {
+      "slide": "PB-62",
+      "pattern": "roadmap-flags",
+      "title": "ロードマップは節目ごとの成果物を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "時系列上に旗印と判断ゲートを置くSVG。今、次、後で何が変わるかを示す。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "時系列上に旗印と判断ゲートを置くSVG。今、次、後で何が変わるかを示す。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-63": {
+      "slide": "PB-63",
+      "pattern": "scoring-matrix",
+      "title": "意思決定は重み付きスコアで理由を残す",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。採点表、重み、コメントを優先する。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-64": {
+      "slide": "PB-64",
+      "pattern": "checklist-review",
+      "title": "確認事項はチェックリストで抜け漏れを防ぐ",
+      "visualPolicy": "none",
+      "visualUnit": "none",
+      "aspectRatio": "none",
+      "requiredKind": "none",
+      "insertPlan": "none",
+      "brief": "画像は入れない。チェック項目と判定理由を大きめの文字で示す。",
+      "assetSlots": [],
+      "avoid": [
+        "generic background image",
+        "decorative SVG marks",
+        "empty table rows"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "画像を入れない判断で妥当。密度は表、注釈、単位、コメント列、記入欄、または大きい文字で担保する。"
+    },
+    "PB-65": {
+      "slide": "PB-65",
+      "pattern": "svg-hub-spoke",
+      "title": "中心メッセージから周辺要素へ線で関係を出す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-66": {
+      "slide": "PB-66",
+      "pattern": "svg-chevron-flow",
+      "title": "工程の連続性は矢印型の面で一気に読ませる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-67": {
+      "slide": "PB-67",
+      "pattern": "svg-cycle-loop",
+      "title": "反復改善は円環の矢印で戻り先まで見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-68": {
+      "slide": "PB-68",
+      "pattern": "svg-fishbone",
+      "title": "原因分析は背骨と肋骨を描くと構造が崩れにくい",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-69": {
+      "slide": "PB-69",
+      "pattern": "svg-decision-branch",
+      "title": "条件分岐は判断点を菱形にして読み順を固定する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-70": {
+      "slide": "PB-70",
+      "pattern": "svg-callout-anatomy",
+      "title": "画面や仕組みは中央オブジェクトに注釈線を刺す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-71": {
+      "slide": "PB-71",
+      "pattern": "svg-roadmap-bars",
+      "title": "中期計画はフェーズバーで重なりと節目を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-72": {
+      "slide": "PB-72",
+      "pattern": "svg-layered-system",
+      "title": "仕組みの説明は層と流れを分けて描く",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-73": {
+      "slide": "PB-73",
+      "pattern": "svg-venn-overlap",
+      "title": "重なり領域はベン図で共通価値を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-74": {
+      "slide": "PB-74",
+      "pattern": "svg-concentric-rings",
+      "title": "中心から外側へ広がる構造は同心円で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-75": {
+      "slide": "PB-75",
+      "pattern": "svg-staircase-maturity",
+      "title": "成熟度や到達段階は階段で上昇感を出す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-76": {
+      "slide": "PB-76",
+      "pattern": "svg-gap-bridge",
+      "title": "現状と理想の差分は橋渡しで打ち手を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-77": {
+      "slide": "PB-77",
+      "pattern": "svg-org-chart",
+      "title": "体制や役割分担は組織図で責任の上下を示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-78": {
+      "slide": "PB-78",
+      "pattern": "svg-dependency-network",
+      "title": "依存関係が多い論点はネットワーク図で整理する",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-79": {
+      "slide": "PB-79",
+      "pattern": "svg-migration-matrix",
+      "title": "ポジションの移行はマトリクス上の矢印で示す",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-80": {
+      "slide": "PB-80",
+      "pattern": "svg-iceberg",
+      "title": "見えている課題と隠れた要因は上下で分ける",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-81": {
+      "slide": "PB-81",
+      "pattern": "svg-layer-stack",
+      "title": "基盤から成果まで積み上げる構造はレイヤーで見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-82": {
+      "slide": "PB-82",
+      "pattern": "svg-bowtie-risk",
+      "title": "リスクは原因、事象、影響に分けて左右対称で見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-83": {
+      "slide": "PB-83",
+      "pattern": "svg-bubble-portfolio",
+      "title": "複数候補は位置と大きさで優先度を同時に見る",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    },
+    "PB-84": {
+      "slide": "PB-84",
+      "pattern": "svg-stage-gate-board",
+      "title": "案件やタスクはステージゲートで滞留箇所を見せる",
+      "visualPolicy": "svg_diagram",
+      "visualUnit": "whole_body",
+      "aspectRatio": "body-fit",
+      "requiredKind": "svg",
+      "insertPlan": "body:svg:body-fit",
+      "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。",
+      "assetSlots": [
+        {
+          "slot": "body",
+          "type": "svg",
+          "aspectRatio": "body-fit",
+          "placement": "body center",
+          "brief": "本文中央に専用SVGを入れる。既存SVG構図の形だけを使い回さず、ノード文言と矢印をこのページの意味に合わせる。"
+        }
+      ],
+      "avoid": [
+        "reusing unrelated images",
+        "stretching aspect ratio",
+        "tiny text inside generated images"
+      ],
+      "auditStatus": "pass",
+      "auditNote": "SVG差し込みが妥当。関係、流れ、階層、軸、ゲート、分岐、原因など構造表現として指定済み。"
+    }
+  },
+  "audit": {
+    "auditedAt": "2026-05-18",
+    "scope": "All HTML slide sections and all page-visual-slots entries.",
+    "criteria": [
+      "Every slide has a concrete visual requirement beyond pattern-level policy.",
+      "Every insert plan names a slot and asset kind.",
+      "Per-card, per-lane, per-option, per-cell, and per-field counts match the actual page structure.",
+      "None pages are intentionally text/table/form pages and still carry a density instruction.",
+      "Generated visuals are not reused generically and carry aspect-ratio constraints."
+    ],
+    "result": "pass_after_fixes",
+    "fixes": [
+      "PB-02 image2 card briefs refined",
+      "PB-60 canvas cell count fixed from 8 to 9 and icon slots aligned"
+    ]
+  }
+}

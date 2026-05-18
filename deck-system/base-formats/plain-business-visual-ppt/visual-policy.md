@@ -15,12 +15,17 @@ For every slide, decide these fields before composing:
 | `color_role` | `white_base`, `bordeaux_emphasis`, `gold_orange_navigation`, `neutral_table` |
 | `density_action` | `keep`, `add_evidence`, `add_card_media`, `replace_visual`, `switch_layout`, `split_slide` |
 
-The HTML catalog reflects these decisions directly on each slide section as `data-visual-policy`, `data-visual-unit`, `data-aspect-ratio`, `data-type-scale`, `data-color-role`, and `data-density-action`. Treat those attributes as the first source of truth when generating a company-specific format or a concrete deck from this plain format.
+The HTML catalog reflects these decisions directly on each slide section as `data-visual-policy`, `data-visual-unit`, `data-aspect-ratio`, `data-type-scale`, `data-color-role`, and `data-density-action`. Treat those attributes as the category layer when generating a company-specific format or a concrete deck from this plain format.
+
+The concrete insertion layer is `data-visual-required`, `data-visual-insert`, and `data-visual-spec`, backed by `page-visual-slots.json`. Use that page-level layer to decide the actual image2/SVG/icon/photo slots.
+
+After changing any slide pattern or visual slot, update `page-visual-audit.md` so the format keeps an explicit all-page review trail.
 
 ## Prompt Fragment For Future Runs
 
 ```text
 各スライドについて visual_policy / visual_unit / aspect_ratio / type_scale / color_role / density_action を先に決めてください。
+次に page-visual-slots.json の該当行を参照し、data-visual-insert に従って具体的な差し込みスロットを作ってください。
 画像は意味がある場合だけ使い、同じ画像の使い回しは禁止です。
 カード型はカードごとに別の image2 画像またはSVGを入れてください。
 プロセス、品質ゲート、比較、ルート、リスクはSVG図解を優先してください。
