@@ -450,12 +450,28 @@
         margin: 0 0 8px;
         padding: 8px;
       }
+      .placement-media-top {
+        width: 100%;
+        height: clamp(72px, 8vw, 132px);
+        min-height: 0;
+        margin: 0 0 8px;
+        padding: 7px;
+      }
       .placement-card-target {
         align-content: start !important;
+      }
+      .placement-element-target {
+        position: relative;
       }
       .placement-row-target {
         position: relative;
         padding-left: 52px !important;
+      }
+      .cost-row.placement-element-target {
+        padding-left: 34px;
+      }
+      .cost-row .placement-left-icon {
+        left: 0;
       }
       .placement-inline-icon {
         position: absolute;
@@ -478,15 +494,72 @@
       .placement-field-top {
         margin-left: 0;
       }
+      .placement-corner-icon,
+      .placement-left-icon,
+      .placement-top-icon,
+      .placement-pin {
+        position: absolute;
+        z-index: 4;
+        width: 28px;
+        height: 28px;
+        min-height: 0;
+        padding: 3px;
+        pointer-events: none;
+      }
+      .placement-corner-icon {
+        top: 8px;
+        right: 8px;
+      }
+      .placement-left-icon {
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+      }
+      .placement-top-icon,
+      .placement-pin {
+        top: 8px;
+        left: 8px;
+      }
+      .placement-bottom-sparkline {
+        width: 100%;
+        height: 30px;
+        min-height: 0;
+        margin-top: 8px;
+        padding: 3px;
+      }
+      .placement-svg-pin {
+        position: absolute;
+        z-index: 4;
+        left: var(--pin-x, 50%);
+        top: var(--pin-y, 50%);
+        width: 34px;
+        height: 34px;
+        min-height: 0;
+        padding: 4px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
       .placement-inline-icon svg,
       .placement-cell-top svg,
-      .placement-field-top svg {
+      .placement-field-top svg,
+      .placement-corner-icon svg,
+      .placement-left-icon svg,
+      .placement-top-icon svg,
+      .placement-pin svg,
+      .placement-bottom-sparkline svg,
+      .placement-svg-pin svg {
         width: 100%;
         max-width: none;
       }
       .placement-inline-icon figcaption,
       .placement-cell-top figcaption,
-      .placement-field-top figcaption {
+      .placement-field-top figcaption,
+      .placement-corner-icon figcaption,
+      .placement-left-icon figcaption,
+      .placement-top-icon figcaption,
+      .placement-pin figcaption,
+      .placement-bottom-sparkline figcaption,
+      .placement-svg-pin figcaption {
         position: absolute;
         width: 1px;
         height: 1px;
@@ -528,20 +601,11 @@
         text-align: center;
         pointer-events: none;
       }
-      .placement-region.body-center {
-        inset: 250px var(--pad-x) 94px var(--pad-x);
-      }
       .placement-region.side-panel {
         top: 172px;
         right: var(--pad-x);
         bottom: 94px;
         width: 38%;
-      }
-      .placement-region.support-right {
-        right: var(--pad-x);
-        bottom: 108px;
-        width: 28%;
-        height: 26%;
       }
       .number {
         display: inline-grid;
@@ -2108,7 +2172,7 @@
     </nav>
 
     <main class="deck" data-format="plain-business-visual-ppt" data-visual-policy="explicit">
-      <section id="PBV-00" class="slide policy-guide" data-slide="PBV-00" data-pattern="visual-policy-guide" aria-labelledby="PBV-00-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="headline" data-color-role="white_base" data-density-action="keep" data-visual-required="svg+image2" data-visual-insert="body-center:svg:body-fit;support-right:image2:4:3" data-visual-spec="./page-visual-slots.json#PBV-00">
+      <section id="PBV-00" class="slide policy-guide" data-slide="PBV-00" data-pattern="visual-policy-guide" aria-labelledby="PBV-00-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="headline" data-color-role="white_base" data-density-action="keep" data-visual-required="icon+svg" data-visual-insert="policy-card-1-corner:icon:1:1;policy-card-2-corner:icon:1:1;policy-card-3-corner:icon:1:1;policy-card-4-corner:icon:1:1;policy-card-4-sparkline-bottom:svg:wide" data-visual-spec="./page-visual-slots.json#PBV-00">
         <div class="slide-header">
           <span>PBV-00 / Visual Policy Guide</span>
           <span>Plain layer with visual decisions</span>
@@ -2130,7 +2194,7 @@
         </div>
       </section>
 
-      <section id="PB-00" class="slide" data-slide="PB-00" data-pattern="cover" aria-labelledby="PB-00-title" data-visual-policy="image2_body" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="side-panel:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-00">
+      <section id="PB-00" class="slide" data-slide="PB-00" data-pattern="cover" aria-labelledby="PB-00-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon" data-visual-insert="metric-1-corner:icon:1:1;metric-2-corner:icon:1:1;metric-3-corner:icon:1:1;metric-4-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-00">
         <div class="slide-header">
           <span>PB-00 / Cover</span>
           <span>Business Document</span>
@@ -2174,7 +2238,7 @@
         </div>
       </section>
 
-      <section id="PB-02" class="slide" data-slide="PB-02" data-pattern="executive-summary" aria-labelledby="PB-02-title" data-visual-policy="image2_card_media" data-visual-unit="per_card" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="card-1-top:image2:4:3;card-2-top:image2:4:3;card-3-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-02">
+      <section id="PB-02" class="slide" data-slide="PB-02" data-pattern="executive-summary" aria-labelledby="PB-02-title" data-visual-policy="image2_card_media" data-visual-unit="per_element" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="card-1-media-top:image2:4:3;card-2-media-top:image2:4:3;card-3-media-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-02">
         <div class="slide-header">
           <span>PB-02 / Executive Summary</span>
           <span>Key points and implication</span>
@@ -2184,7 +2248,7 @@
           <p class="lead-copy lead-slot" data-role="lead" data-source-slot="pptx:body" data-corporate-role="lead-context">業務PPTの要約ページは、結論、根拠、次アクションを同じ粒度で並べる。</p>
           <div class="grid-3 body-slot" data-role="body" data-source-slot="pptx:body" data-corporate-role="body-structure">
             <div class="metric visual-card">
-              <figure class="card-media-slot" data-visual-slot="card-1-top" data-renderer="image2" aria-label="card-1 top image2 media slot">
+              <figure class="card-media-slot" data-visual-slot="card-1-media-top" data-renderer="image2" aria-label="card-1 top image2 media slot">
                 <svg viewBox="0 0 180 120" role="img" aria-label="判断カードのimage2差し込み位置">
                   <rect x="22" y="20" width="136" height="80" rx="8" fill="#fff" stroke="#d6c6ab" stroke-width="2" />
                   <path d="M42 78h96" stroke="#d69b36" stroke-width="6" stroke-linecap="round" />
@@ -2196,7 +2260,7 @@
               <span class="slot-meta">Conclusion</span><b>継続</b><p>主要KPIは維持。改善余地は流入品質に集中。</p>
             </div>
             <div class="metric visual-card">
-              <figure class="card-media-slot" data-visual-slot="card-2-top" data-renderer="image2" aria-label="card-2 top image2 media slot">
+              <figure class="card-media-slot" data-visual-slot="card-2-media-top" data-renderer="image2" aria-label="card-2 top image2 media slot">
                 <svg viewBox="0 0 180 120" role="img" aria-label="根拠カードのimage2差し込み位置">
                   <rect x="22" y="20" width="136" height="80" rx="8" fill="#fff" stroke="#d6c6ab" stroke-width="2" />
                   <path d="M44 82l24-26 24 13 38-34" fill="none" stroke="#d69b36" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
@@ -2209,7 +2273,7 @@
               <span class="slot-meta">Evidence</span><b>+12%</b><p>問い合わせは増加、商談化率は横ばい。</p>
             </div>
             <div class="metric visual-card">
-              <figure class="card-media-slot" data-visual-slot="card-3-top" data-renderer="image2" aria-label="card-3 top image2 media slot">
+              <figure class="card-media-slot" data-visual-slot="card-3-media-top" data-renderer="image2" aria-label="card-3 top image2 media slot">
                 <svg viewBox="0 0 180 120" role="img" aria-label="次アクションカードのimage2差し込み位置">
                   <rect x="22" y="20" width="136" height="80" rx="8" fill="#fff" stroke="#d6c6ab" stroke-width="2" />
                   <path d="M54 62h72" stroke="#d69b36" stroke-width="7" stroke-linecap="round" />
@@ -2229,7 +2293,7 @@
         </div>
       </section>
 
-      <section id="PB-03" class="slide" data-slide="PB-03" data-pattern="issue-direction" aria-labelledby="PB-03-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-03">
+      <section id="PB-03" class="slide" data-slide="PB-03" data-pattern="issue-direction" aria-labelledby="PB-03-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="lane-1-corner:icon:1:1;lane-2-corner:icon:1:1;lane-3-corner:icon:1:1;lane-flow-center:svg:wide" data-visual-spec="./page-visual-slots.json#PB-03">
         <div class="slide-header">
           <span>PB-03 / Issue and Direction</span>
           <span>Problem solving</span>
@@ -2261,7 +2325,7 @@
         </div>
       </section>
 
-      <section id="PB-04" class="slide" data-slide="PB-04" data-pattern="3c-analysis" aria-labelledby="PB-04-title" data-visual-policy="image2_card_media" data-visual-unit="per_lane" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="lane-1-top:image2:4:3;lane-2-top:image2:4:3;lane-3-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-04">
+      <section id="PB-04" class="slide" data-slide="PB-04" data-pattern="3c-analysis" aria-labelledby="PB-04-title" data-visual-policy="image2_card_media" data-visual-unit="per_element" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="box-1-media-top:image2:4:3;box-2-media-top:image2:4:3;box-3-media-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-04">
         <div class="slide-header">
           <span>PB-04 / 3C Analysis</span>
           <span>Environment analysis</span>
@@ -2293,7 +2357,7 @@
         </div>
       </section>
 
-      <section id="PB-05" class="slide" data-slide="PB-05" data-pattern="kpi-tree" aria-labelledby="PB-05-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-05">
+      <section id="PB-05" class="slide" data-slide="PB-05" data-pattern="kpi-tree" aria-labelledby="PB-05-title" data-visual-policy="icon" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="tree-node-1-left:icon:1:1;tree-node-2-left:icon:1:1;tree-node-3-left:icon:1:1;tree-node-4-left:icon:1:1;tree-node-5-left:icon:1:1;tree-node-6-left:icon:1:1;tree-node-7-left:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-05">
         <div class="slide-header">
           <span>PB-05 / KPI Tree</span>
           <span>KGI, KPI, KSF, actions</span>
@@ -2351,7 +2415,7 @@
         </div>
       </section>
 
-      <section id="PB-07" class="slide" data-slide="PB-07" data-pattern="progress-summary" aria-labelledby="PB-07-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_evidence" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-07">
+      <section id="PB-07" class="slide" data-slide="PB-07" data-pattern="progress-summary" aria-labelledby="PB-07-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_evidence" data-visual-required="icon+svg" data-visual-insert="table-row-1-status-icon:icon:1:1;table-row-2-status-icon:icon:1:1;table-row-3-status-icon:icon:1:1;table-risk-note:svg:wide" data-visual-spec="./page-visual-slots.json#PB-07">
         <div class="slide-header">
           <span>PB-07 / Progress Summary</span>
           <span>Status, risk, next action</span>
@@ -2375,7 +2439,7 @@
         </div>
       </section>
 
-      <section id="PB-08" class="slide" data-slide="PB-08" data-pattern="budget-plan" aria-labelledby="PB-08-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="add_evidence" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-08">
+      <section id="PB-08" class="slide" data-slide="PB-08" data-pattern="budget-plan" aria-labelledby="PB-08-title" data-visual-policy="svg_diagram" data-visual-unit="per_element" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="add_evidence" data-visual-required="svg" data-visual-insert="metric-1-sparkline-bottom:svg:wide;metric-2-sparkline-bottom:svg:wide;metric-3-sparkline-bottom:svg:wide;metric-4-sparkline-bottom:svg:wide" data-visual-spec="./page-visual-slots.json#PB-08">
         <div class="slide-header">
           <span>PB-08 / Budget Plan</span>
           <span>Cost, variance, ROI</span>
@@ -2397,7 +2461,7 @@
         </div>
       </section>
 
-      <section id="PB-09" class="slide" data-slide="PB-09" data-pattern="schedule" aria-labelledby="PB-09-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_evidence" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-09">
+      <section id="PB-09" class="slide" data-slide="PB-09" data-pattern="schedule" aria-labelledby="PB-09-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_evidence" data-visual-required="icon" data-visual-insert="timeline-1-top:icon:1:1;timeline-2-top:icon:1:1;timeline-3-top:icon:1:1;timeline-4-top:icon:1:1;timeline-5-top:icon:1:1;timeline-6-top:icon:1:1;box-1-corner:icon:1:1;box-2-corner:icon:1:1;box-3-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-09">
         <div class="slide-header">
           <span>PB-09 / Schedule</span>
           <span>Milestone view</span>
@@ -2425,7 +2489,7 @@
         </div>
       </section>
 
-      <section id="PB-10" class="slide" data-slide="PB-10" data-pattern="competitor-comparison" aria-labelledby="PB-10-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="add_evidence" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-10">
+      <section id="PB-10" class="slide" data-slide="PB-10" data-pattern="competitor-comparison" aria-labelledby="PB-10-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="add_evidence" data-visual-required="icon+svg" data-visual-insert="table-col-2-header:icon:1:1;table-col-3-header:icon:1:1;table-col-4-header:icon:1:1;table-highlight-cell:svg:wide" data-visual-spec="./page-visual-slots.json#PB-10">
         <div class="slide-header">
           <span>PB-10 / Competitor Comparison</span>
           <span>Criteria matrix</span>
@@ -2452,7 +2516,7 @@
         </div>
       </section>
 
-      <section id="PB-11" class="slide" data-slide="PB-11" data-pattern="proposal-options" aria-labelledby="PB-11-title" data-visual-policy="image2_card_media" data-visual-unit="per_option" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="option-1-top:image2:4:3;option-2-top:image2:4:3;option-3-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-11">
+      <section id="PB-11" class="slide" data-slide="PB-11" data-pattern="proposal-options" aria-labelledby="PB-11-title" data-visual-policy="image2_card_media" data-visual-unit="per_element" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="lane-1-media-top:image2:4:3;lane-2-media-top:image2:4:3;lane-3-media-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-11">
         <div class="slide-header">
           <span>PB-11 / Proposal Options</span>
           <span>Options and recommendation</span>
@@ -2500,7 +2564,7 @@
         </div>
       </section>
 
-      <section id="PB-13" class="slide" data-slide="PB-13" data-pattern="training-flow" aria-labelledby="PB-13-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-13">
+      <section id="PB-13" class="slide" data-slide="PB-13" data-pattern="training-flow" aria-labelledby="PB-13-title" data-visual-policy="icon" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="process-step-1-top:icon:1:1;process-step-2-top:icon:1:1;process-step-3-top:icon:1:1;process-step-4-top:icon:1:1;process-step-5-top:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-13">
         <div class="slide-header">
           <span>PB-13 / Training Flow</span>
           <span>Objective, modules, practice</span>
@@ -2571,7 +2635,7 @@
         </div>
       </section>
 
-      <section id="PB-16" class="slide" data-slide="PB-16" data-pattern="swot-2x2" aria-labelledby="PB-16-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-16">
+      <section id="PB-16" class="slide" data-slide="PB-16" data-pattern="swot-2x2" aria-labelledby="PB-16-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="box-1-corner:icon:1:1;box-2-corner:icon:1:1;box-3-corner:icon:1:1;box-4-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-16">
         <div class="slide-header">
           <span>PB-16 / SWOT 2x2</span>
           <span>Quadrant analysis</span>
@@ -2592,7 +2656,7 @@
         </div>
       </section>
 
-      <section id="PB-17" class="slide" data-slide="PB-17" data-pattern="before-after" aria-labelledby="PB-17-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+image2" data-visual-insert="body-center:svg:body-fit;support-right:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-17">
+      <section id="PB-17" class="slide" data-slide="PB-17" data-pattern="before-after" aria-labelledby="PB-17-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="lane-1-corner:icon:1:1;lane-2-corner:icon:1:1;lane-3-corner:icon:1:1;transition-bridge-center:svg:wide" data-visual-spec="./page-visual-slots.json#PB-17">
         <div class="slide-header">
           <span>PB-17 / Before After</span>
           <span>Current and target state</span>
@@ -2612,7 +2676,7 @@
         </div>
       </section>
 
-      <section id="PB-18" class="slide" data-slide="PB-18" data-pattern="interview-voice" aria-labelledby="PB-18-title" data-visual-policy="photo_or_screenshot" data-visual-unit="real_asset" data-aspect-ratio="3:2" data-type-scale="large_body" data-color-role="bordeaux_emphasis" data-density-action="replace_visual" data-visual-required="photo_or_screenshot" data-visual-insert="photo-frame:photo_or_screenshot:3:2" data-visual-spec="./page-visual-slots.json#PB-18">
+      <section id="PB-18" class="slide" data-slide="PB-18" data-pattern="interview-voice" aria-labelledby="PB-18-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="large_body" data-color-role="bordeaux_emphasis" data-density-action="replace_visual" data-visual-required="photo_or_screenshot+icon" data-visual-insert="metric-1-photo-corner:photo_or_screenshot:1:1;box-1-quote-icon:icon:1:1;box-2-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-18">
         <div class="slide-header">
           <span>PB-18 / Interview Voice</span>
           <span>Person, quote, implication</span>
@@ -2632,7 +2696,7 @@
         </div>
       </section>
 
-      <section id="PB-19" class="slide" data-slide="PB-19" data-pattern="selection-process" aria-labelledby="PB-19-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-19">
+      <section id="PB-19" class="slide" data-slide="PB-19" data-pattern="selection-process" aria-labelledby="PB-19-title" data-visual-policy="icon" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="process-step-1-top:icon:1:1;process-step-2-top:icon:1:1;process-step-3-top:icon:1:1;process-step-4-top:icon:1:1;process-step-5-top:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-19">
         <div class="slide-header">
           <span>PB-19 / Selection Process Rail</span>
           <span>Process and gates</span>
@@ -2654,7 +2718,7 @@
         </div>
       </section>
 
-      <section id="PB-20" class="slide" data-slide="PB-20" data-pattern="chapter-toc" aria-labelledby="PB-20-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="headline" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="body-center:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-20">
+      <section id="PB-20" class="slide" data-slide="PB-20" data-pattern="chapter-toc" aria-labelledby="PB-20-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="headline" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon+image2" data-visual-insert="toc-row-1-left:icon:1:1;toc-row-2-left:icon:1:1;toc-row-3-left:icon:1:1;toc-row-4-left:icon:1:1;chapter-key-visual-right:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-20">
         <div class="slide-header">
           <span>PB-20 / Chapter TOC</span>
           <span>Section opening and page map</span>
@@ -2720,7 +2784,7 @@
         </div>
       </section>
 
-      <section id="PB-23" class="slide" data-slide="PB-23" data-pattern="three-step-horizontal" aria-labelledby="PB-23-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-23">
+      <section id="PB-23" class="slide" data-slide="PB-23" data-pattern="three-step-horizontal" aria-labelledby="PB-23-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="step-1-corner:icon:1:1;step-2-corner:icon:1:1;step-3-corner:icon:1:1;step-flow-arrow:svg:wide;note-gate-icon:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-23">
         <div class="slide-header">
           <span>PB-23 / Three Step Horizontal</span>
           <span>Method or approach</span>
@@ -2783,7 +2847,7 @@
         </div>
       </section>
 
-      <section id="PB-26" class="slide" data-slide="PB-26" data-pattern="hub-tree-diagram" aria-labelledby="PB-26-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-26">
+      <section id="PB-26" class="slide" data-slide="PB-26" data-pattern="hub-tree-diagram" aria-labelledby="PB-26-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="tree-node-1-left:icon:1:1;tree-node-2-left:icon:1:1;tree-node-3-left:icon:1:1;tree-node-4-left:icon:1:1;hub-center-pin:svg:1:1" data-visual-spec="./page-visual-slots.json#PB-26">
         <div class="slide-header">
           <span>PB-26 / Hub Tree Diagram</span>
           <span>Central concept and branches</span>
@@ -2809,7 +2873,7 @@
         </div>
       </section>
 
-      <section id="PB-27" class="slide" data-slide="PB-27" data-pattern="vs-comparison" aria-labelledby="PB-27-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+image2" data-visual-insert="body-center:svg:body-fit;support-right:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-27">
+      <section id="PB-27" class="slide" data-slide="PB-27" data-pattern="vs-comparison" aria-labelledby="PB-27-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="lane-1-corner:icon:1:1;lane-2-corner:icon:1:1;vs-divider:svg:wide" data-visual-spec="./page-visual-slots.json#PB-27">
         <div class="slide-header">
           <span>PB-27 / VS Comparison</span>
           <span>Contrasting alternatives</span>
@@ -2829,7 +2893,7 @@
         </div>
       </section>
 
-      <section id="PB-28" class="slide" data-slide="PB-28" data-pattern="table-chart-commentary" aria-labelledby="PB-28-title" data-visual-policy="svg_diagram" data-visual-unit="side_panel" data-aspect-ratio="body-fit" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-28">
+      <section id="PB-28" class="slide" data-slide="PB-28" data-pattern="table-chart-commentary" aria-labelledby="PB-28-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="dense_table" data-color-role="neutral_table" data-density-action="add_evidence" data-visual-required="icon+svg" data-visual-insert="table-row-1-status-icon:icon:1:1;table-row-2-status-icon:icon:1:1;table-row-3-status-icon:icon:1:1;commentary-visual-frame:svg:wide" data-visual-spec="./page-visual-slots.json#PB-28">
         <div class="slide-header">
           <span>PB-28 / Table Chart Commentary</span>
           <span>Numbers plus interpretation</span>
@@ -2856,7 +2920,7 @@
         </div>
       </section>
 
-      <section id="PB-29" class="slide" data-slide="PB-29" data-pattern="left-table-right-visual" aria-labelledby="PB-29-title" data-visual-policy="image2_split" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="large_body" data-color-role="white_base" data-density-action="replace_visual" data-visual-required="image2" data-visual-insert="side-panel:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-29">
+      <section id="PB-29" class="slide" data-slide="PB-29" data-pattern="left-table-right-visual" aria-labelledby="PB-29-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="large_body" data-color-role="white_base" data-density-action="replace_visual" data-visual-required="icon+image2" data-visual-insert="table-row-1-status-icon:icon:1:1;table-row-2-status-icon:icon:1:1;table-row-3-status-icon:icon:1:1;table-row-4-status-icon:icon:1:1;right-evidence-frame:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-29">
         <div class="slide-header">
           <span>PB-29 / Left Table Right Visual</span>
           <span>Structured facts and visual support</span>
@@ -2884,7 +2948,7 @@
         </div>
       </section>
 
-      <section id="PB-30" class="slide" data-slide="PB-30" data-pattern="dense-diagram-lecture" aria-labelledby="PB-30-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-30">
+      <section id="PB-30" class="slide" data-slide="PB-30" data-pattern="dense-diagram-lecture" aria-labelledby="PB-30-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="diagram-node-1-corner:icon:1:1;diagram-node-2-corner:icon:1:1;diagram-node-3-corner:icon:1:1;diagram-node-4-corner:icon:1:1;diagram-flow-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-30">
         <div class="slide-header">
           <span>PB-30 / Dense Diagram Lecture</span>
           <span>Concept explanation</span>
@@ -2905,7 +2969,7 @@
         </div>
       </section>
 
-      <section id="PB-31" class="slide" data-slide="PB-31" data-pattern="placeholderless-section" aria-labelledby="PB-31-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="body-center:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-31">
+      <section id="PB-31" class="slide" data-slide="PB-31" data-pattern="placeholderless-section" aria-labelledby="PB-31-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon+image2" data-visual-insert="metric-1-corner:icon:1:1;metric-2-corner:icon:1:1;metric-3-corner:icon:1:1;metric-4-corner:icon:1:1;section-theme-strip:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-31">
         <div class="slide-header">
           <span>PB-31 / Placeholderless Section</span>
           <span>Inferred title page</span>
@@ -2927,7 +2991,7 @@
         </div>
       </section>
 
-      <section id="PB-32" class="slide" data-slide="PB-32" data-pattern="image2-body-full" aria-labelledby="PB-32-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="headline" data-color-role="white_base" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="body-center:image2:body-fit" data-visual-spec="./page-visual-slots.json#PB-32">
+      <section id="PB-32" class="slide" data-slide="PB-32" data-pattern="image2-body-full" aria-labelledby="PB-32-title" data-visual-policy="image2_body" data-visual-unit="targeted_frame" data-aspect-ratio="body-fit" data-type-scale="headline" data-color-role="white_base" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="image2-frame-main:image2:body-fit" data-visual-spec="./page-visual-slots.json#PB-32">
         <div class="slide-header">
           <span>PB-32 / Image2 Body Full</span>
           <span>Generated body canvas</span>
@@ -2945,7 +3009,7 @@
         </div>
       </section>
 
-      <section id="PB-33" class="slide" data-slide="PB-33" data-pattern="image2-body-split" aria-labelledby="PB-33-title" data-visual-policy="image2_split" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="side-panel:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-33">
+      <section id="PB-33" class="slide" data-slide="PB-33" data-pattern="image2-body-split" aria-labelledby="PB-33-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="large_body" data-color-role="white_base" data-density-action="add_card_media" data-visual-required="icon+image2" data-visual-insert="stack-row-1-left:icon:1:1;stack-row-2-left:icon:1:1;stack-row-3-left:icon:1:1;right-image2-frame:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-33">
         <div class="slide-header">
           <span>PB-33 / Image2 Body Split</span>
           <span>Text facts plus generated visual</span>
@@ -2970,7 +3034,7 @@
         </div>
       </section>
 
-      <section id="PB-34" class="slide" data-slide="PB-34" data-pattern="image2-body-diagram" aria-labelledby="PB-34-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="white_base" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="body-center:image2:body-fit" data-visual-spec="./page-visual-slots.json#PB-34">
+      <section id="PB-34" class="slide" data-slide="PB-34" data-pattern="image2-body-diagram" aria-labelledby="PB-34-title" data-visual-policy="hybrid" data-visual-unit="targeted_frame" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="white_base" data-density-action="add_card_media" data-visual-required="image2+svg" data-visual-insert="image2-diagram-frame:image2:body-fit;diagram-center-node:svg:1:1" data-visual-spec="./page-visual-slots.json#PB-34">
         <div class="slide-header">
           <span>PB-34 / Image2 Body Diagram</span>
           <span>Generated diagram body</span>
@@ -2989,7 +3053,7 @@
         </div>
       </section>
 
-      <section id="PB-35" class="slide" data-slide="PB-35" data-pattern="cover-split" aria-labelledby="PB-35-title" data-visual-policy="image2_split" data-visual-unit="side_panel" data-aspect-ratio="4:3" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="side-panel:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-35">
+      <section id="PB-35" class="slide" data-slide="PB-35" data-pattern="cover-split" aria-labelledby="PB-35-title" data-visual-policy="hybrid" data-visual-unit="targeted_frame" data-aspect-ratio="1:1" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon+image2" data-visual-insert="cover-panel-1-corner:icon:1:1;cover-panel-2-corner:icon:1:1;cover-support-visual:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-35">
         <div class="slide-header">
           <span>PB-35 / Split Cover</span>
           <span>Cover with metadata panel</span>
@@ -3028,7 +3092,7 @@
         </div>
       </section>
 
-      <section id="PB-37" class="slide" data-slide="PB-37" data-pattern="section-divider-number" aria-labelledby="PB-37-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="body-center:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-37">
+      <section id="PB-37" class="slide" data-slide="PB-37" data-pattern="section-divider-number" aria-labelledby="PB-37-title" data-visual-policy="hybrid" data-visual-unit="targeted_frame" data-aspect-ratio="1:1" data-type-scale="cover" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon+image2" data-visual-insert="chapter-mark-center:icon:1:1;divider-panel-corner:icon:1:1;divider-theme-strip:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-37">
         <div class="slide-header">
           <span>PB-37 / Section Divider Number</span>
           <span>Chapter separator</span>
@@ -3047,7 +3111,7 @@
         </div>
       </section>
 
-      <section id="PB-38" class="slide" data-slide="PB-38" data-pattern="section-divider-toc" aria-labelledby="PB-38-title" data-visual-policy="image2_body" data-visual-unit="whole_body" data-aspect-ratio="16:9" data-type-scale="headline" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="body-center:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-38">
+      <section id="PB-38" class="slide" data-slide="PB-38" data-pattern="section-divider-toc" aria-labelledby="PB-38-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="headline" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon+image2" data-visual-insert="toc-row-1-left:icon:1:1;toc-row-2-left:icon:1:1;toc-row-3-left:icon:1:1;divider-preview-strip:image2:16:9" data-visual-spec="./page-visual-slots.json#PB-38">
         <div class="slide-header">
           <span>PB-38 / Section Divider TOC</span>
           <span>Divider with mini agenda</span>
@@ -3067,7 +3131,7 @@
         </div>
       </section>
 
-      <section id="PB-39" class="slide" data-slide="PB-39" data-pattern="vertical-four-lanes" aria-labelledby="PB-39-title" data-visual-policy="image2_card_media" data-visual-unit="per_lane" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="lane-1-top:image2:4:3;lane-2-top:image2:4:3;lane-3-top:image2:4:3;lane-4-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-39">
+      <section id="PB-39" class="slide" data-slide="PB-39" data-pattern="vertical-four-lanes" aria-labelledby="PB-39-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="icon" data-visual-insert="vertical-lane-1-header-icon:icon:1:1;vertical-lane-2-header-icon:icon:1:1;vertical-lane-3-header-icon:icon:1:1;vertical-lane-4-header-icon:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-39">
         <div class="slide-header">
           <span>PB-39 / Vertical Four Lanes</span>
           <span>Service or role comparison</span>
@@ -3088,7 +3152,7 @@
         </div>
       </section>
 
-      <section id="PB-40" class="slide" data-slide="PB-40" data-pattern="pyramid-hierarchy" aria-labelledby="PB-40-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-40">
+      <section id="PB-40" class="slide" data-slide="PB-40" data-pattern="pyramid-hierarchy" aria-labelledby="PB-40-title" data-visual-policy="hybrid" data-visual-unit="per_row" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="pyramid-row-1-corner:icon:1:1;pyramid-row-2-corner:icon:1:1;pyramid-row-3-corner:icon:1:1;pyramid-row-4-corner:icon:1:1;hierarchy-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-40">
         <div class="slide-header">
           <span>PB-40 / Pyramid Hierarchy</span>
           <span>Layered concept</span>
@@ -3109,7 +3173,7 @@
         </div>
       </section>
 
-      <section id="PB-41" class="slide" data-slide="PB-41" data-pattern="cycle-loop" aria-labelledby="PB-41-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-41">
+      <section id="PB-41" class="slide" data-slide="PB-41" data-pattern="cycle-loop" aria-labelledby="PB-41-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="cycle-node-1-top:icon:1:1;cycle-node-2-top:icon:1:1;cycle-node-3-top:icon:1:1;cycle-node-4-top:icon:1:1;cycle-return-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-41">
         <div class="slide-header">
           <span>PB-41 / Cycle Loop</span>
           <span>Repeated process</span>
@@ -3130,7 +3194,7 @@
         </div>
       </section>
 
-      <section id="PB-42" class="slide" data-slide="PB-42" data-pattern="positioning-map" aria-labelledby="PB-42-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-42">
+      <section id="PB-42" class="slide" data-slide="PB-42" data-pattern="positioning-map" aria-labelledby="PB-42-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="map-point-1-pin:icon:1:1;map-point-2-pin:icon:1:1;map-point-3-pin:icon:1:1;map-point-4-pin:icon:1:1;map-axis-labels:svg:wide" data-visual-spec="./page-visual-slots.json#PB-42">
         <div class="slide-header">
           <span>PB-42 / Positioning Map</span>
           <span>Two-axis comparison</span>
@@ -3151,7 +3215,7 @@
         </div>
       </section>
 
-      <section id="PB-43" class="slide" data-slide="PB-43" data-pattern="dashboard-summary" aria-labelledby="PB-43-title" data-visual-policy="photo_or_screenshot" data-visual-unit="side_panel" data-aspect-ratio="16:9" data-type-scale="large_body" data-color-role="white_base" data-density-action="replace_visual" data-visual-required="photo_or_screenshot" data-visual-insert="photo-frame:photo_or_screenshot:16:9" data-visual-spec="./page-visual-slots.json#PB-43">
+      <section id="PB-43" class="slide" data-slide="PB-43" data-pattern="dashboard-summary" aria-labelledby="PB-43-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="large_body" data-color-role="white_base" data-density-action="replace_visual" data-visual-required="icon+photo_or_screenshot" data-visual-insert="metric-1-corner:icon:1:1;metric-2-corner:icon:1:1;metric-3-corner:icon:1:1;box-1-corner:icon:1:1;box-2-corner:icon:1:1;dashboard-screenshot-frame:photo_or_screenshot:16:9" data-visual-spec="./page-visual-slots.json#PB-43">
         <div class="slide-header">
           <span>PB-43 / Dashboard Summary</span>
           <span>KPI cards and comments</span>
@@ -3173,7 +3237,7 @@
         </div>
       </section>
 
-      <section id="PB-44" class="slide" data-slide="PB-44" data-pattern="swimlane-schedule" aria-labelledby="PB-44-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-44">
+      <section id="PB-44" class="slide" data-slide="PB-44" data-pattern="swimlane-schedule" aria-labelledby="PB-44-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="swimlane-cell-7-pin:icon:1:1;swimlane-cell-8-pin:icon:1:1;swimlane-cell-13-pin:icon:1:1;swimlane-cell-19-pin:icon:1:1;swimlane-dependency-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-44">
         <div class="slide-header">
           <span>PB-44 / Swimlane Schedule</span>
           <span>Owners across phases</span>
@@ -3215,7 +3279,7 @@
         </div>
       </section>
 
-      <section id="PB-46" class="slide" data-slide="PB-46" data-pattern="funnel-conversion" aria-labelledby="PB-46-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-46">
+      <section id="PB-46" class="slide" data-slide="PB-46" data-pattern="funnel-conversion" aria-labelledby="PB-46-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="funnel-step-1-left:icon:1:1;funnel-step-2-left:icon:1:1;funnel-step-3-left:icon:1:1;funnel-step-4-left:icon:1:1;funnel-dropoff-callout:svg:wide" data-visual-spec="./page-visual-slots.json#PB-46">
         <div class="slide-header">
           <span>PB-46 / Funnel Conversion</span>
           <span>Step-down metrics</span>
@@ -3259,7 +3323,7 @@
         </div>
       </section>
 
-      <section id="PB-48" class="slide" data-slide="PB-48" data-pattern="case-quote" aria-labelledby="PB-48-title" data-visual-policy="photo_or_screenshot" data-visual-unit="real_asset" data-aspect-ratio="3:2" data-type-scale="large_body" data-color-role="bordeaux_emphasis" data-density-action="replace_visual" data-visual-required="photo_or_screenshot" data-visual-insert="photo-frame:photo_or_screenshot:3:2" data-visual-spec="./page-visual-slots.json#PB-48">
+      <section id="PB-48" class="slide" data-slide="PB-48" data-pattern="case-quote" aria-labelledby="PB-48-title" data-visual-policy="hybrid" data-visual-unit="targeted_frame" data-aspect-ratio="3:2" data-type-scale="large_body" data-color-role="bordeaux_emphasis" data-density-action="replace_visual" data-visual-required="photo_or_screenshot+icon" data-visual-insert="case-photo-left:photo_or_screenshot:3:2;quote-panel-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-48">
         <div class="slide-header">
           <span>PB-48 / Case Quote</span>
           <span>Photo placeholder and voice</span>
@@ -3278,7 +3342,7 @@
         </div>
       </section>
 
-      <section id="PB-49" class="slide" data-slide="PB-49" data-pattern="decision-tree" aria-labelledby="PB-49-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-49">
+      <section id="PB-49" class="slide" data-slide="PB-49" data-pattern="decision-tree" aria-labelledby="PB-49-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="tree-node-1-left:icon:1:1;tree-node-2-left:icon:1:1;tree-node-3-left:icon:1:1;tree-node-4-left:icon:1:1;tree-node-5-left:icon:1:1;tree-node-6-left:icon:1:1;decision-branch-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-49">
         <div class="slide-header">
           <span>PB-49 / Decision Tree</span>
           <span>Branching logic</span>
@@ -3307,7 +3371,7 @@
         </div>
       </section>
 
-      <section id="PB-50" class="slide" data-slide="PB-50" data-pattern="evaluation-grid" aria-labelledby="PB-50-title" data-visual-policy="image2_card_media" data-visual-unit="per_option" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2" data-visual-insert="option-1-top:image2:4:3;option-2-top:image2:4:3;option-3-top:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-50">
+      <section id="PB-50" class="slide" data-slide="PB-50" data-pattern="evaluation-grid" aria-labelledby="PB-50-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="4:3" data-type-scale="card_catalog" data-color-role="bordeaux_emphasis" data-density-action="add_card_media" data-visual-required="image2+icon" data-visual-insert="eval-card-1-media-top:image2:4:3;eval-card-2-media-top:image2:4:3;eval-card-3-media-top:image2:4:3;eval-card-4-corner:icon:1:1;eval-card-5-corner:icon:1:1;eval-card-6-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-50">
         <div class="slide-header">
           <span>PB-50 / Evaluation Grid</span>
           <span>Criteria by option</span>
@@ -3330,7 +3394,7 @@
         </div>
       </section>
 
-      <section id="PB-51" class="slide" data-slide="PB-51" data-pattern="risk-heatmap" aria-labelledby="PB-51-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-51">
+      <section id="PB-51" class="slide" data-slide="PB-51" data-pattern="risk-heatmap" aria-labelledby="PB-51-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="heat-cell-4-priority:icon:1:1;heat-cell-7-action:icon:1:1;heat-cell-10-watch:icon:1:1;heatmap-axis-cross:svg:wide" data-visual-spec="./page-visual-slots.json#PB-51">
         <div class="slide-header">
           <span>PB-51 / Risk Heatmap</span>
           <span>Impact and likelihood</span>
@@ -3371,7 +3435,7 @@
         </div>
       </section>
 
-      <section id="PB-53" class="slide" data-slide="PB-53" data-pattern="waterfall-bridge" aria-labelledby="PB-53-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-53">
+      <section id="PB-53" class="slide" data-slide="PB-53" data-pattern="waterfall-bridge" aria-labelledby="PB-53-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="waterfall-step-1-top:icon:1:1;waterfall-step-2-top:icon:1:1;waterfall-step-3-top:icon:1:1;waterfall-step-4-top:icon:1:1;waterfall-step-5-top:icon:1:1;waterfall-bridge-line:svg:wide" data-visual-spec="./page-visual-slots.json#PB-53">
         <div class="slide-header">
           <span>PB-53 / Waterfall Bridge</span>
           <span>Increase and decrease factors</span>
@@ -3393,7 +3457,7 @@
         </div>
       </section>
 
-      <section id="PB-54" class="slide" data-slide="PB-54" data-pattern="value-chain" aria-labelledby="PB-54-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-54">
+      <section id="PB-54" class="slide" data-slide="PB-54" data-pattern="value-chain" aria-labelledby="PB-54-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="chain-step-1-top:icon:1:1;chain-step-2-top:icon:1:1;chain-step-3-top:icon:1:1;chain-step-4-top:icon:1:1;chain-step-5-top:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-54">
         <div class="slide-header">
           <span>PB-54 / Value Chain</span>
           <span>Sequential functions</span>
@@ -3415,7 +3479,7 @@
         </div>
       </section>
 
-      <section id="PB-55" class="slide" data-slide="PB-55" data-pattern="fishbone-cause" aria-labelledby="PB-55-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-55">
+      <section id="PB-55" class="slide" data-slide="PB-55" data-pattern="fishbone-cause" aria-labelledby="PB-55-title" data-visual-policy="icon" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="fish-cause-1-corner:icon:1:1;fish-cause-2-corner:icon:1:1;fish-cause-3-corner:icon:1:1;fish-cause-4-corner:icon:1:1;fish-head-corner:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-55">
         <div class="slide-header">
           <span>PB-55 / Fishbone Cause</span>
           <span>Cause and effect</span>
@@ -3439,7 +3503,7 @@
         </div>
       </section>
 
-      <section id="PB-56" class="slide" data-slide="PB-56" data-pattern="logic-tree" aria-labelledby="PB-56-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-56">
+      <section id="PB-56" class="slide" data-slide="PB-56" data-pattern="logic-tree" aria-labelledby="PB-56-title" data-visual-policy="icon" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="tree-node-1-left:icon:1:1;tree-node-2-left:icon:1:1;tree-node-3-left:icon:1:1;tree-node-4-left:icon:1:1;tree-node-5-left:icon:1:1;tree-node-6-left:icon:1:1;tree-node-7-left:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-56">
         <div class="slide-header">
           <span>PB-56 / Logic Tree</span>
           <span>Issue decomposition</span>
@@ -3459,7 +3523,7 @@
         </div>
       </section>
 
-      <section id="PB-57" class="slide" data-slide="PB-57" data-pattern="stakeholder-map" aria-labelledby="PB-57-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-57">
+      <section id="PB-57" class="slide" data-slide="PB-57" data-pattern="stakeholder-map" aria-labelledby="PB-57-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="tree-node-1-left:icon:1:1;tree-node-2-left:icon:1:1;tree-node-3-left:icon:1:1;tree-node-4-left:icon:1:1;stakeholder-center-pin:svg:1:1" data-visual-spec="./page-visual-slots.json#PB-57">
         <div class="slide-header">
           <span>PB-57 / Stakeholder Map</span>
           <span>Actors and influence</span>
@@ -3479,7 +3543,7 @@
         </div>
       </section>
 
-      <section id="PB-58" class="slide" data-slide="PB-58" data-pattern="customer-journey" aria-labelledby="PB-58-title" data-visual-policy="hybrid" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="svg+image2" data-visual-insert="body-center:svg:body-fit;support-right:image2:4:3" data-visual-spec="./page-visual-slots.json#PB-58">
+      <section id="PB-58" class="slide" data-slide="PB-58" data-pattern="customer-journey" aria-labelledby="PB-58-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="add_card_media" data-visual-required="icon+svg" data-visual-insert="journey-step-1-top:icon:1:1;journey-step-2-top:icon:1:1;journey-step-3-top:icon:1:1;journey-step-4-top:icon:1:1;journey-step-5-top:icon:1:1;journey-emotion-line:svg:wide" data-visual-spec="./page-visual-slots.json#PB-58">
         <div class="slide-header">
           <span>PB-58 / Customer Journey</span>
           <span>Experience stages</span>
@@ -3501,7 +3565,7 @@
         </div>
       </section>
 
-      <section id="PB-59" class="slide" data-slide="PB-59" data-pattern="okr-alignment" aria-labelledby="PB-59-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-59">
+      <section id="PB-59" class="slide" data-slide="PB-59" data-pattern="okr-alignment" aria-labelledby="PB-59-title" data-visual-policy="hybrid" data-visual-unit="per_node" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="tree-node-1-left:icon:1:1;tree-node-2-left:icon:1:1;tree-node-3-left:icon:1:1;tree-node-4-left:icon:1:1;tree-node-5-left:icon:1:1;okr-alignment-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-59">
         <div class="slide-header">
           <span>PB-59 / OKR Alignment</span>
           <span>Objective to key results</span>
@@ -3541,7 +3605,7 @@
         </div>
       </section>
 
-      <section id="PB-61" class="slide" data-slide="PB-61" data-pattern="cost-breakdown" aria-labelledby="PB-61-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-61">
+      <section id="PB-61" class="slide" data-slide="PB-61" data-pattern="cost-breakdown" aria-labelledby="PB-61-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="neutral_table" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="cost-row-1-left:icon:1:1;cost-row-2-left:icon:1:1;cost-row-3-left:icon:1:1;cost-row-4-left:icon:1:1;cost-row-5-left:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-61">
         <div class="slide-header">
           <span>PB-61 / Cost Breakdown</span>
           <span>Cost structure bars</span>
@@ -3563,7 +3627,7 @@
         </div>
       </section>
 
-      <section id="PB-62" class="slide" data-slide="PB-62" data-pattern="roadmap-flags" aria-labelledby="PB-62-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-62">
+      <section id="PB-62" class="slide" data-slide="PB-62" data-pattern="roadmap-flags" aria-labelledby="PB-62-title" data-visual-policy="icon" data-visual-unit="per_element" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="gold_orange_navigation" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="roadmap-flag-1-top:icon:1:1;roadmap-flag-2-top:icon:1:1;roadmap-flag-3-top:icon:1:1;roadmap-flag-4-top:icon:1:1;roadmap-flag-5-top:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-62">
         <div class="slide-header">
           <span>PB-62 / Roadmap Flags</span>
           <span>Milestones with checkpoints</span>
@@ -3627,7 +3691,7 @@
         </div>
       </section>
 
-      <section id="PB-65" class="slide" data-slide="PB-65" data-pattern="svg-hub-spoke" aria-labelledby="PB-65-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-65">
+      <section id="PB-65" class="slide" data-slide="PB-65" data-pattern="svg-hub-spoke" aria-labelledby="PB-65-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-center-node:svg:1:1;svg-spoke-1:icon:1:1;svg-spoke-2:icon:1:1;svg-spoke-3:icon:1:1;svg-spoke-4:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-65">
         <div class="slide-header">
           <span>PB-65 / SVG Hub Spoke</span>
           <span>Connector diagram</span>
@@ -3666,7 +3730,7 @@
         </div>
       </section>
 
-      <section id="PB-66" class="slide" data-slide="PB-66" data-pattern="svg-chevron-flow" aria-labelledby="PB-66-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-66">
+      <section id="PB-66" class="slide" data-slide="PB-66" data-pattern="svg-chevron-flow" aria-labelledby="PB-66-title" data-visual-policy="svg_diagram" data-visual-unit="svg_parts" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="svg-chevron-1:svg:wide;svg-chevron-2:svg:wide;svg-chevron-3:svg:wide;svg-chevron-4:svg:wide" data-visual-spec="./page-visual-slots.json#PB-66">
         <div class="slide-header">
           <span>PB-66 / SVG Chevron Flow</span>
           <span>Arrow process</span>
@@ -3704,7 +3768,7 @@
         </div>
       </section>
 
-      <section id="PB-67" class="slide" data-slide="PB-67" data-pattern="svg-cycle-loop" aria-labelledby="PB-67-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-67">
+      <section id="PB-67" class="slide" data-slide="PB-67" data-pattern="svg-cycle-loop" aria-labelledby="PB-67-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="svg-cycle-node-1:icon:1:1;svg-cycle-node-2:icon:1:1;svg-cycle-node-3:icon:1:1;svg-cycle-node-4:icon:1:1;svg-cycle-return-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-67">
         <div class="slide-header">
           <span>PB-67 / SVG Cycle Loop</span>
           <span>Loop with arrows</span>
@@ -3748,7 +3812,7 @@
         </div>
       </section>
 
-      <section id="PB-68" class="slide" data-slide="PB-68" data-pattern="svg-fishbone" aria-labelledby="PB-68-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-68">
+      <section id="PB-68" class="slide" data-slide="PB-68" data-pattern="svg-fishbone" aria-labelledby="PB-68-title" data-visual-policy="icon" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="svg-effect-head:icon:1:1;svg-rib-1:icon:1:1;svg-rib-2:icon:1:1;svg-rib-3:icon:1:1;svg-rib-4:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-68">
         <div class="slide-header">
           <span>PB-68 / SVG Fishbone</span>
           <span>Cause lines</span>
@@ -3790,7 +3854,7 @@
         </div>
       </section>
 
-      <section id="PB-69" class="slide" data-slide="PB-69" data-pattern="svg-decision-branch" aria-labelledby="PB-69-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-69">
+      <section id="PB-69" class="slide" data-slide="PB-69" data-pattern="svg-decision-branch" aria-labelledby="PB-69-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="svg-decision-root:icon:1:1;svg-branch-yes:svg:wide;svg-branch-no:svg:wide;svg-outcome-1:icon:1:1;svg-outcome-2:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-69">
         <div class="slide-header">
           <span>PB-69 / SVG Decision Branch</span>
           <span>Condition flow</span>
@@ -3831,7 +3895,7 @@
         </div>
       </section>
 
-      <section id="PB-70" class="slide" data-slide="PB-70" data-pattern="svg-callout-anatomy" aria-labelledby="PB-70-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-70">
+      <section id="PB-70" class="slide" data-slide="PB-70" data-pattern="svg-callout-anatomy" aria-labelledby="PB-70-title" data-visual-policy="icon" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="svg-core-object:icon:1:1;svg-callout-1:icon:1:1;svg-callout-2:icon:1:1;svg-callout-3:icon:1:1;svg-callout-4:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-70">
         <div class="slide-header">
           <span>PB-70 / SVG Callout Anatomy</span>
           <span>Annotated object</span>
@@ -3873,7 +3937,7 @@
         </div>
       </section>
 
-      <section id="PB-71" class="slide" data-slide="PB-71" data-pattern="svg-roadmap-bars" aria-labelledby="PB-71-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-71">
+      <section id="PB-71" class="slide" data-slide="PB-71" data-pattern="svg-roadmap-bars" aria-labelledby="PB-71-title" data-visual-policy="svg_diagram" data-visual-unit="svg_parts" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="svg-roadmap-bar-1:svg:wide;svg-roadmap-bar-2:svg:wide;svg-roadmap-bar-3:svg:wide;svg-roadmap-bar-4:svg:wide" data-visual-spec="./page-visual-slots.json#PB-71">
         <div class="slide-header">
           <span>PB-71 / SVG Roadmap Bars</span>
           <span>Phase bars</span>
@@ -3910,7 +3974,7 @@
         </div>
       </section>
 
-      <section id="PB-72" class="slide" data-slide="PB-72" data-pattern="svg-layered-system" aria-labelledby="PB-72-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-72">
+      <section id="PB-72" class="slide" data-slide="PB-72" data-pattern="svg-layered-system" aria-labelledby="PB-72-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-layer-1:svg:wide;svg-layer-2:svg:wide;svg-layer-3:svg:wide;svg-layer-4:svg:wide;svg-interface-right:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-72">
         <div class="slide-header">
           <span>PB-72 / SVG Layered System</span>
           <span>Architecture layers</span>
@@ -3956,7 +4020,7 @@
         </div>
       </section>
 
-      <section id="PB-73" class="slide" data-slide="PB-73" data-pattern="svg-venn-overlap" aria-labelledby="PB-73-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-73">
+      <section id="PB-73" class="slide" data-slide="PB-73" data-pattern="svg-venn-overlap" aria-labelledby="PB-73-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-circle-1:svg:1:1;svg-circle-2:svg:1:1;svg-overlap:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-73">
         <div class="slide-header">
           <span>PB-73 / SVG Venn Overlap</span>
           <span>Overlap logic</span>
@@ -3986,7 +4050,7 @@
         </div>
       </section>
 
-      <section id="PB-74" class="slide" data-slide="PB-74" data-pattern="svg-concentric-rings" aria-labelledby="PB-74-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-74">
+      <section id="PB-74" class="slide" data-slide="PB-74" data-pattern="svg-concentric-rings" aria-labelledby="PB-74-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="svg-core:icon:1:1;svg-ring-1:svg:1:1;svg-ring-2:svg:1:1;svg-ring-3:svg:1:1" data-visual-spec="./page-visual-slots.json#PB-74">
         <div class="slide-header">
           <span>PB-74 / SVG Concentric Rings</span>
           <span>Core and layers</span>
@@ -4019,7 +4083,7 @@
         </div>
       </section>
 
-      <section id="PB-75" class="slide" data-slide="PB-75" data-pattern="svg-staircase-maturity" aria-labelledby="PB-75-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-75">
+      <section id="PB-75" class="slide" data-slide="PB-75" data-pattern="svg-staircase-maturity" aria-labelledby="PB-75-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="svg-level-1:icon:1:1;svg-level-2:icon:1:1;svg-level-3:icon:1:1;svg-level-4:icon:1:1;svg-growth-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-75">
         <div class="slide-header">
           <span>PB-75 / SVG Staircase Maturity</span>
           <span>Level progression</span>
@@ -4058,7 +4122,7 @@
         </div>
       </section>
 
-      <section id="PB-76" class="slide" data-slide="PB-76" data-pattern="svg-gap-bridge" aria-labelledby="PB-76-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-76">
+      <section id="PB-76" class="slide" data-slide="PB-76" data-pattern="svg-gap-bridge" aria-labelledby="PB-76-title" data-visual-policy="icon" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="svg-as-is:icon:1:1;svg-bridge-1:icon:1:1;svg-bridge-2:icon:1:1;svg-bridge-3:icon:1:1;svg-to-be:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-76">
         <div class="slide-header">
           <span>PB-76 / SVG Gap Bridge</span>
           <span>As-is to to-be</span>
@@ -4092,7 +4156,7 @@
         </div>
       </section>
 
-      <section id="PB-77" class="slide" data-slide="PB-77" data-pattern="svg-org-chart" aria-labelledby="PB-77-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-77">
+      <section id="PB-77" class="slide" data-slide="PB-77" data-pattern="svg-org-chart" aria-labelledby="PB-77-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="svg-owner:icon:1:1;svg-team-1:icon:1:1;svg-team-2:icon:1:1;svg-team-3:icon:1:1;svg-member-row:svg:wide" data-visual-spec="./page-visual-slots.json#PB-77">
         <div class="slide-header">
           <span>PB-77 / SVG Org Chart</span>
           <span>Hierarchy</span>
@@ -4128,7 +4192,7 @@
         </div>
       </section>
 
-      <section id="PB-78" class="slide" data-slide="PB-78" data-pattern="svg-dependency-network" aria-labelledby="PB-78-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-78">
+      <section id="PB-78" class="slide" data-slide="PB-78" data-pattern="svg-dependency-network" aria-labelledby="PB-78-title" data-visual-policy="icon" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="svg-center-node:icon:1:1;svg-dependency-1:icon:1:1;svg-dependency-2:icon:1:1;svg-dependency-3:icon:1:1;svg-dependency-4:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-78">
         <div class="slide-header">
           <span>PB-78 / SVG Dependency Network</span>
           <span>Dependencies</span>
@@ -4160,7 +4224,7 @@
         </div>
       </section>
 
-      <section id="PB-79" class="slide" data-slide="PB-79" data-pattern="svg-migration-matrix" aria-labelledby="PB-79-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-79">
+      <section id="PB-79" class="slide" data-slide="PB-79" data-pattern="svg-migration-matrix" aria-labelledby="PB-79-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-axis-x:svg:wide;svg-axis-y:svg:wide;svg-current:icon:1:1;svg-target:icon:1:1;svg-move-arrow:svg:wide" data-visual-spec="./page-visual-slots.json#PB-79">
         <div class="slide-header">
           <span>PB-79 / SVG Migration Matrix</span>
           <span>Quadrant movement</span>
@@ -4196,7 +4260,7 @@
         </div>
       </section>
 
-      <section id="PB-80" class="slide" data-slide="PB-80" data-pattern="svg-iceberg" aria-labelledby="PB-80-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-80">
+      <section id="PB-80" class="slide" data-slide="PB-80" data-pattern="svg-iceberg" aria-labelledby="PB-80-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon+svg" data-visual-insert="svg-visible-tip:icon:1:1;svg-waterline:svg:wide;svg-hidden-base:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-80">
         <div class="slide-header">
           <span>PB-80 / SVG Iceberg</span>
           <span>Visible and hidden layers</span>
@@ -4225,7 +4289,7 @@
         </div>
       </section>
 
-      <section id="PB-81" class="slide" data-slide="PB-81" data-pattern="svg-layer-stack" aria-labelledby="PB-81-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-81">
+      <section id="PB-81" class="slide" data-slide="PB-81" data-pattern="svg-layer-stack" aria-labelledby="PB-81-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-layer-bottom:svg:wide;svg-layer-middle:svg:wide;svg-layer-top:svg:wide;svg-outcome-callout:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-81">
         <div class="slide-header">
           <span>PB-81 / SVG Layer Stack</span>
           <span>Stacked layers</span>
@@ -4257,7 +4321,7 @@
         </div>
       </section>
 
-      <section id="PB-82" class="slide" data-slide="PB-82" data-pattern="svg-bowtie-risk" aria-labelledby="PB-82-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-82">
+      <section id="PB-82" class="slide" data-slide="PB-82" data-pattern="svg-bowtie-risk" aria-labelledby="PB-82-title" data-visual-policy="icon" data-visual-unit="svg_parts" data-aspect-ratio="1:1" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="icon" data-visual-insert="svg-risk-event:icon:1:1;svg-cause-1:icon:1:1;svg-cause-2:icon:1:1;svg-cause-3:icon:1:1;svg-impact-1:icon:1:1;svg-impact-2:icon:1:1;svg-impact-3:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-82">
         <div class="slide-header">
           <span>PB-82 / SVG Bowtie Risk</span>
           <span>Causes, event, outcomes</span>
@@ -4293,7 +4357,7 @@
         </div>
       </section>
 
-      <section id="PB-83" class="slide" data-slide="PB-83" data-pattern="svg-bubble-portfolio" aria-labelledby="PB-83-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-83">
+      <section id="PB-83" class="slide" data-slide="PB-83" data-pattern="svg-bubble-portfolio" aria-labelledby="PB-83-title" data-visual-policy="hybrid" data-visual-unit="svg_parts" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-axis-x:svg:wide;svg-axis-y:svg:wide;svg-bubble-1:icon:1:1;svg-bubble-2:icon:1:1;svg-bubble-3:icon:1:1;svg-bubble-4:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-83">
         <div class="slide-header">
           <span>PB-83 / SVG Bubble Portfolio</span>
           <span>Relative sizing</span>
@@ -4326,7 +4390,7 @@
         </div>
       </section>
 
-      <section id="PB-84" class="slide" data-slide="PB-84" data-pattern="svg-stage-gate-board" aria-labelledby="PB-84-title" data-visual-policy="svg_diagram" data-visual-unit="whole_body" data-aspect-ratio="body-fit" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg" data-visual-insert="body-center:svg:body-fit" data-visual-spec="./page-visual-slots.json#PB-84">
+      <section id="PB-84" class="slide" data-slide="PB-84" data-pattern="svg-stage-gate-board" aria-labelledby="PB-84-title" data-visual-policy="hybrid" data-visual-unit="per_element" data-aspect-ratio="wide" data-type-scale="diagram" data-color-role="bordeaux_emphasis" data-density-action="switch_layout" data-visual-required="svg+icon" data-visual-insert="svg-gate-1:svg:wide;svg-gate-2:svg:wide;svg-gate-3:svg:wide;svg-gate-4:svg:wide;svg-card-1:icon:1:1;svg-card-2:icon:1:1;svg-card-3:icon:1:1;svg-card-4:icon:1:1;svg-card-5:icon:1:1;svg-card-6:icon:1:1" data-visual-spec="./page-visual-slots.json#PB-84">
         <div class="slide-header">
           <span>PB-84 / SVG Stage Gate Board</span>
           <span>Pipeline control</span>
@@ -4405,6 +4469,107 @@
           region.textContent = `${token.slot} / ${token.type} / ${token.ratio}`;
           slide.appendChild(region);
         };
+        const nth = (items, ordinal) => items[Number(ordinal) - 1];
+        const targetFromRules = (slide, slot) => {
+          const rules = [
+            [/^policy-card-(\d+)-/, () => slide.querySelectorAll(".policy-card")],
+            [/^metric-(\d+)-/, () => slide.querySelectorAll(".metric")],
+            [/^(?:card|visual-card)-(\d+)-/, () => slide.querySelectorAll(".visual-card, .metric.visual-card")],
+            [/^box-(\d+)-/, () => slide.querySelectorAll(".box")],
+            [/^lane-(\d+)-/, () => slide.querySelectorAll(".lane")],
+            [/^step-(\d+)-/, () => slide.querySelectorAll(".step")],
+            [/^process-step-(\d+)-/, () => slide.querySelectorAll(".process-step")],
+            [/^tree-node-(\d+)-/, () => slide.querySelectorAll(".tree-node")],
+            [/^timeline-(\d+)-/, () => slide.querySelectorAll(".timeline > div")],
+            [/^toc-row-(\d+)-/, () => slide.querySelectorAll(".toc-row")],
+            [/^stack-row-(\d+)-/, () => slide.querySelectorAll(".stack-row")],
+            [/^diagram-node-(\d+)-/, () => slide.querySelectorAll(".diagram-node")],
+            [/^vertical-lane-(\d+)-/, () => slide.querySelectorAll(".vertical-lane")],
+            [/^pyramid-row-(\d+)-/, () => slide.querySelectorAll(".pyramid-row")],
+            [/^cycle-node-(\d+)-/, () => slide.querySelectorAll(".cycle-node")],
+            [/^map-point-(\d+)-/, () => slide.querySelectorAll(".map-point")],
+            [/^swimlane-cell-(\d+)-/, () => slide.querySelectorAll(".swimlane-plan > div")],
+            [/^funnel-step-(\d+)-/, () => slide.querySelectorAll(".funnel-step")],
+            [/^eval-card-(\d+)-/, () => slide.querySelectorAll(".eval-card")],
+            [/^heat-cell-(\d+)-/, () => slide.querySelectorAll(".heat-cell")],
+            [/^waterfall-step-(\d+)-/, () => slide.querySelectorAll(".waterfall-step")],
+            [/^chain-step-(\d+)-/, () => slide.querySelectorAll(".chain-step")],
+            [/^roadmap-flag-(\d+)-/, () => slide.querySelectorAll(".roadmap-flag")],
+            [/^fish-cause-(\d+)-/, () => slide.querySelectorAll(".fish-cause")],
+            [/^journey-step-(\d+)-/, () => slide.querySelectorAll(".journey-step")],
+            [/^cost-row-(\d+)-/, () => slide.querySelectorAll(".cost-row")],
+            [/^table-row-(\d+)-/, () => slide.querySelectorAll("table tbody tr td:last-child")],
+            [/^table-col-(\d+)-/, () => slide.querySelectorAll("table thead th")],
+            [/^cover-panel-(\d+)-/, () => slide.querySelectorAll(".cover-panel")],
+          ];
+          for (const [regex, query] of rules) {
+            const match = slot.match(regex);
+            if (!match) continue;
+            return nth(query(), match[1]);
+          }
+          if (slot.startsWith("commentary-visual") || slot.startsWith("right-evidence") || slot.startsWith("right-image2")) return slide.querySelector(".visual-frame, .image2-frame");
+          if (slot.startsWith("image2-frame") || slot.startsWith("image2-diagram")) return slide.querySelector(".image2-frame");
+          if (slot.startsWith("title-accent")) return slide.querySelector(".title-slot");
+          if (slot.includes("hero") || slot.includes("strip") || slot.includes("preview") || slot.includes("key-visual") || slot.includes("support-visual") || slot.includes("screenshot")) return slide.querySelector(".dashboard-grid, .divider-strip, .cover-band, .toc-list, .meta-row, .policy-board, .body-slot");
+          if (slot.includes("arrow") || slot.includes("bridge") || slot.includes("flow") || slot.includes("line") || slot.includes("axis") || slot.includes("cross") || slot.includes("callout") || slot.includes("note")) return slide.querySelector(".visual-frame, .image2-frame, .body-slot");
+          if (slot.startsWith("case-photo")) return slide.querySelector(".photo-frame");
+          if (slot.startsWith("quote-panel")) return slide.querySelector(".quote-panel");
+          if (slot.startsWith("fish-head")) return slide.querySelector(".fish-head");
+          if (slot.startsWith("hub-center")) return slide.querySelector(".hub-center");
+          if (slot.startsWith("stakeholder-center")) return slide.querySelector(".stakeholder-center");
+          if (slot.startsWith("chapter-mark")) return slide.querySelector(".chapter-mark");
+          if (slot.startsWith("divider-panel")) return slide.querySelector(".divider-panel");
+          if (slot.startsWith("vs-divider")) return slide.querySelector(".vs-mark");
+          return null;
+        };
+        const pinPosition = (slot, index) => {
+          if (slot.includes("axis-x")) return [78, 86];
+          if (slot.includes("axis-y")) return [15, 42];
+          if (slot.includes("center") || slot.includes("core") || slot.includes("risk-event")) return [50, 48];
+          if (slot.includes("as-is") || slot.includes("current")) return [25, 54];
+          if (slot.includes("to-be") || slot.includes("target")) return [76, 36];
+          if (slot.includes("left") || slot.includes("cause")) return [24, 38 + (index % 3) * 20];
+          if (slot.includes("right") || slot.includes("impact")) return [76, 38 + (index % 3) * 20];
+          if (slot.includes("top") || slot.includes("visible")) return [50, 24];
+          if (slot.includes("bottom") || slot.includes("hidden")) return [50, 72];
+          const ring = [
+            [50, 26], [70, 42], [62, 66], [38, 66], [30, 42],
+            [20, 50], [80, 50], [42, 32], [58, 32],
+          ];
+          return ring[index % ring.length];
+        };
+        const addSvgPin = (slide, token, index) => {
+          const target = slide.querySelector(".svg-figure, .body-slot");
+          if (!target || target.querySelector(`:scope > .placement-svg-pin[data-visual-slot="${token.slot}"]`)) return;
+          target.classList.add("placement-element-target");
+          const slot = createSlot(token, "placement-svg-pin");
+          const [x, y] = pinPosition(token.slot, index);
+          slot.style.setProperty("--pin-x", `${x}%`);
+          slot.style.setProperty("--pin-y", `${y}%`);
+          target.appendChild(slot);
+        };
+        const placementClass = (slot, type) => {
+          if (slot.includes("media-top")) return "placement-media-top";
+          if (slot.includes("sparkline") || slot.includes("bar") || slot.includes("line") || slot.includes("arrow") || slot.includes("bridge") || slot.includes("axis")) return "placement-bottom-sparkline";
+          if (slot.includes("left")) return "placement-left-icon";
+          if (slot.includes("top") || slot.includes("pin")) return "placement-top-icon";
+          if (type === "image2" || type === "photo_or_screenshot") return "placement-badge";
+          return "placement-corner-icon";
+        };
+        const addElementSlot = (slide, token) => {
+          const target = targetFromRules(slide, token.slot);
+          if (!target) return false;
+          target.classList.add("placement-element-target");
+          const className = placementClass(token.slot, token.type);
+          if (className === "placement-badge") {
+            addBadge(target, token);
+            return true;
+          }
+          if (target.querySelector(`:scope > .placement-slot[data-visual-slot="${token.slot}"], :scope > .placement-badge[data-visual-slot="${token.slot}"]`)) return true;
+          if (className === "placement-media-top") target.prepend(createSlot(token, className));
+          else target.appendChild(createSlot(token, className));
+          return true;
+        };
         const itemTargets = (slide, kind) => {
           if (kind === "lane") {
             const lanes = slide.querySelectorAll(".vertical-lanes > .vertical-lane");
@@ -4416,9 +4581,13 @@
           }
           return [...slide.querySelectorAll(".grid-2.body-slot > *, .grid-3.body-slot > *, .grid-4.body-slot > *, .grid-5.body-slot > *, .meta-row.body-slot > *")];
         };
-        const bodyTarget = (slide) => slide.querySelector(".image2-frame, .svg-figure, .visual-frame, .split-visual.body-slot, .image2-split.body-slot, .dashboard-grid.body-slot, .case-layout.body-slot, .body-slot");
-        const applyToken = (slide, token) => {
+        const applyToken = (slide, token, index) => {
           if (!token.slot || token.slot === "none" || slide.querySelector(`[data-visual-slot="${token.slot}"]`)) return;
+          if (token.slot.startsWith("svg-")) {
+            addSvgPin(slide, token, index);
+            return;
+          }
+          if (addElementSlot(slide, token)) return;
           const itemMatch = token.slot.match(/^(card|lane|option)-(\d+)-top$/);
           if (itemMatch) {
             const [, kind, ordinal] = itemMatch;
@@ -4450,32 +4619,24 @@
             target.prepend(createSlot(token, "placement-field-top"));
             return;
           }
-          if (token.slot === "body-center") {
-            const target = bodyTarget(slide);
-            if (target && !(token.type === "image2" && !target.classList.contains("image2-frame"))) addBadge(target, token);
-            else addRegion(slide, token, "body-center");
-            return;
-          }
           if (token.slot === "side-panel") {
             const target = slide.querySelector(".image2-frame, .visual-frame, .photo-frame");
             if (target) addBadge(target, token);
             else addRegion(slide, token, "side-panel");
             return;
           }
-          if (token.slot === "support-right") {
-            addRegion(slide, token, "support-right");
-            return;
-          }
           if (token.slot === "photo-frame") {
             const target = slide.querySelector(".photo-frame");
             if (target) addBadge(target, token);
             else addRegion(slide, token, "side-panel");
+            return;
           }
+          addRegion(slide, token, "side-panel");
         };
         document.querySelectorAll(".slide[data-visual-insert]").forEach((slide) => {
           const plan = slide.dataset.visualInsert;
           if (!plan || plan === "none") return;
-          plan.split(";").map(parseToken).forEach((token) => applyToken(slide, token));
+          plan.split(";").map(parseToken).forEach((token, index) => applyToken(slide, token, index));
         });
       })();
     </script>
