@@ -3642,31 +3642,31 @@
         --kvb-bordeaux-deep: #343230;
         --kvb-rose: #efc56b;
         --kvb-gold-soft: #ffffff;
+        --kbp-orange: #d88f1f;
         --kbp-page-bg: #ffffff;
         --kbp-paper: #ffffff;
         --kbp-surface: #ffffff;
         --kbp-orange-soft: #ffffff;
       }
       html,
-      body {
-        background: #ffffff !important;
-      }
-      main {
+      body,
+      main,
+      .slide {
         background: #ffffff !important;
       }
       .topbar {
         border-bottom-color: rgba(214, 155, 54, 0.26);
-        background: #ffffff;
+        background: #ffffff !important;
         color: var(--kbp-muted);
       }
       .slide {
-        border-color: rgba(214, 155, 54, 0.38);
+        border: 0 !important;
         background: #ffffff !important;
-        box-shadow: none;
+        box-shadow: none !important;
       }
       .slide::before,
       .cover::before {
-        background: linear-gradient(180deg, #d69b36, #efc56b 58%, #c9821f);
+        background: linear-gradient(180deg, #f2b33d, #f6cf73 58%, #d88f1f);
       }
       .slide::after {
         content: none;
@@ -3801,8 +3801,9 @@
       #P10 .divider-layout::after,
       #P20 .route-system::after,
       #P29 .coverage-board::after {
-        border-color: rgba(214, 155, 54, 0.3);
-        box-shadow: inset 0 0 0 999px rgba(255, 247, 237, 0.18);
+        border: 0;
+        background: transparent !important;
+        box-shadow: none;
       }
       .cover-panel::after {
         border: 0;
