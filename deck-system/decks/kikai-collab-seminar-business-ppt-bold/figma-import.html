@@ -1,0 +1,4899 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Collab Seminar / Figma Import</title>
+    <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
+    <style>
+      :root {
+        --deck-w: 1600px;
+        --deck-h: 900px;
+        --deck-scale: 1;
+        --nav-h: 46px;
+        --logo: "../../formats/kikai-business-ppt/assets/3.png";
+      }
+      * { box-sizing: border-box; }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: var(--kbp-page-bg);
+        color: var(--kbp-ink);
+        font-family: var(--kbp-font);
+        text-rendering: geometricPrecision;
+      }
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: var(--nav-h);
+        padding: 8px 18px;
+        border-bottom: 1px solid var(--kbp-line);
+        background: rgba(239, 242, 243, 0.94);
+        backdrop-filter: blur(10px);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 780;
+      }
+      .topbar a { text-decoration: none; }
+      .nav-mark {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+      main {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      .slide {
+        position: absolute;
+        top: calc(var(--nav-h) + ((100dvh - var(--nav-h)) / 2));
+        left: 50%;
+        display: grid;
+        grid-template-rows: 34px minmax(0, 1fr) 34px;
+        gap: 10px;
+        width: var(--deck-w);
+        height: var(--deck-h);
+        padding: 48px 68px 44px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+        box-shadow: var(--kbp-shadow);
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
+        transform-origin: center center;
+      }
+      .slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 8px;
+        background: var(--kbp-surface-strong);
+      }
+      .slide::after {
+        content: "";
+        position: absolute;
+        right: 34px;
+        bottom: 28px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+      .slide-header,
+      .slide-footer,
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+      .slide-header,
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--kbp-muted);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+      .slide-header { align-items: flex-start; }
+      .slide-footer {
+        padding-top: 12px;
+        border-top: 1px solid var(--kbp-line-soft);
+      }
+      .header-logo {
+        display: block;
+        width: 150px;
+        height: 30px;
+        object-fit: contain;
+        object-position: right center;
+      }
+      .doc-label,
+      .kicker {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        font-weight: 860;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .content {
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        letter-spacing: 0;
+      }
+      h1 {
+        max-width: 1040px;
+        margin-bottom: 0;
+        color: var(--kbp-ink);
+        font-size: 74px;
+        font-weight: 820;
+        line-height: 1.04;
+        text-wrap: balance;
+      }
+      h2 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 13px;
+        border-bottom: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-ink);
+        font-size: 41px;
+        font-weight: 810;
+        line-height: 1.16;
+        text-wrap: balance;
+      }
+      h3 {
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: 24px;
+        font-weight: 830;
+        line-height: 1.25;
+      }
+      p,
+      li,
+      td,
+      th {
+        color: var(--kbp-muted);
+        font-size: 20px;
+        line-height: 1.48;
+      }
+      .lead-copy {
+        max-width: 1040px;
+        margin: 12px 0 0;
+        color: var(--kbp-muted);
+        font-size: 22px;
+        font-weight: 650;
+        line-height: 1.5;
+      }
+      .body-slot {
+        width: 100%;
+        min-height: 470px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      .body-compact { min-height: 392px; }
+      .body-fit { min-height: auto; }
+      .body-tall { min-height: 520px; }
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card,
+      .panel,
+      .metric,
+      .table-wrap,
+      .image-frame,
+      .note {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .card,
+      .panel,
+      .metric,
+      .note {
+        display: grid;
+        align-content: center;
+        padding: 24px 26px;
+      }
+      .card.feature,
+      .panel.feature,
+      .metric.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .card strong,
+      .panel strong,
+      .metric strong,
+      .note strong {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--kbp-ink);
+        font-size: 23px;
+        line-height: 1.25;
+      }
+      .card p,
+      .panel p,
+      .metric p,
+      .note p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.48;
+      }
+      .number {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 12px;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .pill {
+        display: inline-grid;
+        width: max-content;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 860;
+      }
+      .cover {
+        grid-template-rows: minmax(0, 1fr) 34px;
+        padding-top: 68px;
+      }
+      .cover::before {
+        width: 12px;
+        background: var(--kbp-orange);
+      }
+      .cover-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 46px;
+        align-items: center;
+      }
+      .cover-logo {
+        display: block;
+        width: 680px;
+        max-width: 88%;
+        height: auto;
+        margin-bottom: 36px;
+        object-fit: contain;
+        object-position: left center;
+      }
+      .cover .lead-copy {
+        margin-top: 22px;
+        font-size: 24px;
+      }
+      .accent-rule {
+        width: 58px;
+        height: 4px;
+        margin-top: 28px;
+        background: var(--kbp-orange);
+      }
+      .cover-panel {
+        display: grid;
+        gap: 14px;
+        padding: 24px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .cover-panel img {
+        width: 92px;
+        height: 92px;
+        object-fit: contain;
+      }
+      .cover-panel span {
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 780;
+        line-height: 1.5;
+      }
+      .profile-layout {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 24px;
+        align-items: stretch;
+      }
+      .avatar {
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+        color: var(--kbp-orange);
+        font-size: 112px;
+        font-weight: 850;
+      }
+      .profile-list {
+        display: grid;
+        gap: 11px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .profile-list li {
+        padding: 12px 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-paper);
+      }
+      .profile-card {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 14px;
+      }
+      .speaker-photo {
+        position: relative;
+        overflow: hidden;
+        min-height: 292px;
+        border: 1px solid var(--kbp-line);
+        border-left: 8px solid var(--kbp-orange);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .speaker-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 36%;
+        filter: saturate(0.92) contrast(1.03);
+      }
+      .speaker-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 58%, rgba(76, 13, 29, 0.22));
+        pointer-events: none;
+      }
+      .avatar-mark {
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+        color: var(--kbp-orange);
+        font-size: 104px;
+        font-weight: 850;
+      }
+      .profile-stats {
+        display: grid;
+        gap: 8px;
+      }
+      .profile-stats span,
+      .path-note,
+      .route-note {
+        display: grid;
+        align-content: center;
+        min-height: 46px;
+        padding: 8px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-paper);
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 760;
+        line-height: 1.3;
+      }
+      .tight-list {
+        display: grid;
+        gap: 8px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .tight-list li {
+        padding: 8px 10px;
+        border: 1px solid var(--kbp-line-soft);
+        background: rgba(251, 252, 252, 0.72);
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.32;
+      }
+      .mini-tag-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .mini-tag-row span {
+        padding: 8px 10px;
+        border: 1px solid rgba(255, 113, 67, 0.28);
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 13px;
+        font-weight: 860;
+        line-height: 1.25;
+      }
+      .compare {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+      .arrow {
+        display: grid;
+        height: 70px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 32px;
+        font-weight: 900;
+      }
+      .mock-screen {
+        position: relative;
+        display: grid;
+        min-height: 100%;
+        padding: 30px;
+        overflow: hidden;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background:
+          linear-gradient(var(--kbp-line-soft) 1px, transparent 1px),
+          linear-gradient(90deg, var(--kbp-line-soft) 1px, transparent 1px),
+          var(--kbp-surface);
+        background-size: 100% 33%, 25% 100%;
+      }
+      .mock-screen span {
+        display: block;
+        height: 18px;
+        margin-bottom: 14px;
+        border-radius: 999px;
+        background: var(--kbp-line);
+      }
+      .mini-ui {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr);
+        gap: 16px;
+        min-height: 100%;
+      }
+      .mini-ui nav {
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface-strong);
+      }
+      .mini-ui .screen {
+        display: grid;
+        grid-template-rows: 72px minmax(0, 1fr) 96px;
+        gap: 14px;
+      }
+      .mini-ui .screen > div {
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .chart-card {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 16px;
+      }
+      .chart {
+        position: relative;
+        min-height: 250px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .chart::before,
+      .chart::after {
+        content: "";
+        position: absolute;
+        left: 44px;
+        right: 38px;
+        border-bottom: 2px solid var(--kbp-line);
+      }
+      .chart::before { bottom: 42px; }
+      .chart::after { top: 46px; opacity: 0.5; }
+      .curve {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        bottom: 58px;
+        height: 150px;
+        border-top: 7px solid var(--kbp-orange);
+        border-right: 7px solid var(--kbp-orange);
+        border-radius: 100% 14px 0 0;
+        transform: skewX(-18deg);
+      }
+      .flat {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        bottom: 82px;
+        border-top: 5px solid #9aa3a7;
+      }
+      .table-wrap {
+        overflow: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        color: var(--kbp-ink);
+      }
+      th,
+      td {
+        padding: 13px 15px;
+        border: 1px solid var(--kbp-line-soft);
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: var(--kbp-surface);
+        color: var(--kbp-ink);
+        font-weight: 840;
+      }
+      td strong,
+      th strong {
+        color: var(--kbp-ink);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 13px;
+      }
+      .stat {
+        display: grid;
+        align-content: center;
+        min-height: 240px;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .stat b {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--kbp-orange);
+        font-size: 44px;
+        line-height: 1;
+      }
+      .stat span {
+        color: var(--kbp-muted);
+        font-size: 17px;
+        font-weight: 720;
+        line-height: 1.45;
+      }
+      .ladder {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 13px;
+        align-items: end;
+      }
+      .step {
+        display: grid;
+        align-content: center;
+        min-height: calc(170px + var(--rise, 0px));
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .step.active {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .step b {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--kbp-ink);
+        font-size: 23px;
+      }
+      .step span {
+        color: var(--kbp-muted);
+        font-size: 17px;
+        line-height: 1.45;
+      }
+      .divider-layout {
+        display: grid;
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 28px;
+        align-items: center;
+      }
+      .chapter-number {
+        display: grid;
+        min-height: 260px;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+        color: var(--kbp-orange);
+        font-size: 112px;
+        font-weight: 860;
+        line-height: 1;
+      }
+      .toc-mini {
+        display: grid;
+        gap: 12px;
+      }
+      .toc-row {
+        display: grid;
+        grid-template-columns: 70px minmax(0, 1fr) 190px;
+        gap: 16px;
+        align-items: center;
+        min-height: 66px;
+        padding: 12px 16px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .toc-row b {
+        color: var(--kbp-ink);
+        font-size: 22px;
+      }
+      .toc-row span {
+        color: var(--kbp-muted);
+        font-size: 18px;
+        font-weight: 720;
+      }
+      .section-checkpoints {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .section-checkpoints span {
+        padding: 14px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-surface);
+        color: var(--kbp-muted);
+        font-size: 15px;
+        font-weight: 760;
+        line-height: 1.35;
+      }
+      .quote-panel {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        padding: 40px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background:
+          linear-gradient(var(--kbp-line-soft) 1px, transparent 1px),
+          linear-gradient(90deg, var(--kbp-line-soft) 1px, transparent 1px),
+          var(--kbp-surface);
+        background-size: 100% 33%, 25% 100%;
+        text-align: center;
+      }
+      .quote-panel strong {
+        color: var(--kbp-ink);
+        font-size: 46px;
+        line-height: 1.22;
+        text-wrap: balance;
+      }
+      .image-frame {
+        display: grid;
+        min-height: 100%;
+        place-items: center;
+        overflow: hidden;
+        background: var(--kbp-surface);
+      }
+      .image-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .image-frame.contain img {
+        width: 94%;
+        height: 94%;
+        object-fit: contain;
+      }
+      .visual-led {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) 0.75fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .visual-led.with-strip,
+      .statement-layout.with-strip {
+        grid-template-rows: minmax(0, 1fr) auto;
+      }
+      .visual-led.with-strip > .evidence-strip,
+      .statement-layout.with-strip > .evidence-strip {
+        grid-column: 1 / -1;
+      }
+      .visual-led.reverse {
+        grid-template-columns: 0.78fr minmax(0, 1.22fr);
+      }
+      .visual-led .image-frame {
+        min-height: 100%;
+      }
+      .insight-stack {
+        display: grid;
+        gap: 14px;
+      }
+      .insight {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        min-height: 104px;
+        padding: 16px 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .insight b {
+        display: grid;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 20px;
+      }
+      .insight strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--kbp-ink);
+        font-size: 20px;
+      }
+      .insight span {
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .evidence-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .evidence-strip span {
+        display: grid;
+        align-content: center;
+        min-height: 58px;
+        padding: 9px 11px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-paper);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.25;
+      }
+      .evidence-strip b {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--kbp-orange);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      .objection-board {
+        display: grid;
+        grid-template-columns: 0.76fr 1.24fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .objection-board > .evidence-strip {
+        grid-column: 1 / -1;
+      }
+      .objection-core {
+        display: grid;
+        align-content: center;
+        padding: 32px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .objection-core strong {
+        color: var(--kbp-ink);
+        font-size: 48px;
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+      .objection-core span {
+        margin-top: 16px;
+        color: var(--kbp-muted);
+        font-size: 19px;
+        font-weight: 760;
+        line-height: 1.38;
+      }
+      .objection-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .objection-card {
+        display: grid;
+        align-content: center;
+        gap: 10px;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .objection-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .objection-card b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .objection-card strong {
+        color: var(--kbp-ink);
+        font-size: 21px;
+        line-height: 1.22;
+      }
+      .objection-card span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.34;
+      }
+      .reality-check-board {
+        display: grid;
+        grid-template-columns: 0.76fr 1.24fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .reality-check-board > .evidence-strip {
+        grid-column: 1 / -1;
+      }
+      .reality-core {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 16px;
+        padding: 28px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .reality-core strong {
+        color: var(--kbp-ink);
+        font-size: 42px;
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+      .reality-core span {
+        color: var(--kbp-muted);
+        font-size: 17px;
+        font-weight: 740;
+        line-height: 1.38;
+      }
+      .reality-scale {
+        display: grid;
+        gap: 10px;
+        align-content: center;
+      }
+      .reality-scale div {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr) 62px;
+        gap: 10px;
+        align-items: center;
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .reality-scale i {
+        display: block;
+        height: 12px;
+        width: var(--w);
+        border-radius: 999px;
+        background: var(--kbp-orange);
+      }
+      .reality-scale .muted i {
+        background: var(--kbp-line);
+      }
+      .reality-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .reality-card {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        gap: 10px;
+        min-width: 0;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .reality-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .reality-card b {
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .reality-card strong {
+        color: var(--kbp-ink);
+        font-size: 21px;
+        line-height: 1.22;
+      }
+      .reality-card span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.34;
+      }
+      .statement-layout {
+        display: grid;
+        grid-template-columns: 0.86fr minmax(0, 1.14fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+      .statement-core {
+        display: grid;
+        align-content: center;
+        padding: 34px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .statement-core strong {
+        color: var(--kbp-ink);
+        font-size: 48px;
+        line-height: 1.18;
+        text-wrap: balance;
+      }
+      .statement-core span {
+        margin-top: 18px;
+        color: var(--kbp-orange);
+        font-size: 24px;
+        font-weight: 860;
+      }
+      .product-board {
+        position: relative;
+        display: grid;
+        overflow: hidden;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+      .product-board.body-slot {
+        min-height: 0;
+        height: 520px;
+      }
+      .product-board img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .package-system {
+        display: grid;
+        grid-template-columns: 310px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) 118px;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .package-core {
+        display: grid;
+        grid-row: 1 / span 2;
+        align-content: center;
+        padding: 32px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .package-core strong {
+        color: var(--kbp-ink);
+        font-size: 58px;
+        line-height: 1;
+      }
+      .package-core span {
+        margin-top: 18px;
+        color: var(--kbp-muted);
+        font-size: 22px;
+        font-weight: 820;
+        line-height: 1.34;
+      }
+      .package-flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .package-flow article {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+        align-content: start;
+        min-width: 0;
+        padding: 18px 16px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .package-flow article:nth-child(even) {
+        background: var(--kbp-surface);
+      }
+      .package-flow article:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 46px;
+        right: 0;
+        width: 14px;
+        border-top: 2px solid var(--kbp-orange);
+        z-index: 1;
+      }
+      .package-flow b {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        margin-bottom: 14px;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 15px;
+      }
+      .package-flow strong {
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: 20px;
+        line-height: 1.22;
+      }
+      .package-flow span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.34;
+      }
+      .package-flow svg {
+        align-self: center;
+        justify-self: center;
+        width: 74px;
+        height: 74px;
+        color: var(--kbp-orange);
+        stroke: currentColor;
+      }
+      .package-flow svg .muted {
+        stroke: var(--kbp-ink);
+        opacity: 0.62;
+      }
+      .package-flow em {
+        display: block;
+        align-self: end;
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--kbp-line);
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 860;
+        line-height: 1.25;
+      }
+      .package-contrast {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .package-contrast div {
+        display: grid;
+        align-content: center;
+        padding: 16px 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .package-contrast div:last-child {
+        border-color: rgba(238, 112, 45, 0.34);
+        background: var(--kbp-orange-soft);
+      }
+      .package-contrast strong {
+        margin-bottom: 7px;
+        color: var(--kbp-ink);
+        font-size: 17px;
+        line-height: 1.2;
+      }
+      .package-contrast span {
+        color: var(--kbp-muted);
+        font-size: 14px;
+        line-height: 1.36;
+      }
+      .caption-strip {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .caption-strip.five {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      .caption-strip span {
+        display: grid;
+        min-height: 48px;
+        align-content: center;
+        padding: 8px 10px;
+        border: 1px solid rgba(207, 214, 217, 0.86);
+        border-radius: var(--kbp-radius);
+        background: rgba(251, 252, 252, 0.9);
+        color: var(--kbp-ink);
+        font-size: 13px;
+        font-weight: 820;
+        line-height: 1.25;
+      }
+      .process-map {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        align-items: stretch;
+      }
+      .process-node {
+        display: grid;
+        align-content: center;
+        min-height: 100%;
+        padding: 18px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+        position: relative;
+      }
+      .process-node:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -9px;
+        top: 50%;
+        width: 16px;
+        border-top: 2px solid var(--kbp-orange);
+      }
+      .process-node strong {
+        margin-bottom: 9px;
+        color: var(--kbp-ink);
+        font-size: 21px;
+      }
+      .process-node span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+      .process-node em {
+        display: block;
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-orange);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 860;
+        line-height: 1.25;
+      }
+      .impact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+      }
+      .impact-number {
+        display: grid;
+        align-content: center;
+        padding: 28px;
+        border: 1px solid rgba(255, 113, 67, 0.56);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-orange-soft);
+      }
+      .impact-number b {
+        color: var(--kbp-orange);
+        font-size: 82px;
+        line-height: 1;
+      }
+      .impact-number span {
+        color: var(--kbp-ink);
+        font-size: 22px;
+        font-weight: 820;
+        line-height: 1.35;
+      }
+      .svg-figure {
+        display: grid;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+        overflow: hidden;
+      }
+      .svg-figure svg {
+        width: 100%;
+        height: 100%;
+      }
+      .svg-text {
+        fill: var(--kbp-ink);
+        font-family: var(--kbp-font);
+        font-size: 22px;
+        font-weight: 780;
+      }
+      .svg-small {
+        fill: var(--kbp-muted);
+        font-family: var(--kbp-font);
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .commodity-map,
+      .amplifier-model,
+      .reality-funnel,
+      .problem-board,
+      .quality-gate {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .commodity-stack,
+      .outcome-lanes,
+      .question-grid,
+      .gate-flow,
+      .pipeline-roadmap {
+        display: grid;
+        gap: 12px;
+      }
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .commodity-item {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+        padding: 18px;
+      }
+      .commodity-item b {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 18px;
+        font-weight: 900;
+      }
+      .commodity-item strong,
+      .path-card strong,
+      .change-card strong,
+      .accumulation-card strong,
+      .problem-card strong,
+      .case-card strong,
+      .origin-step strong,
+      .loop-card strong,
+      .risk-card strong,
+      .gate-card strong,
+      .pipeline-stage strong,
+      .closing-panel strong {
+        display: block;
+        color: var(--kbp-ink);
+        font-size: 22px;
+        line-height: 1.25;
+      }
+      .commodity-item span,
+      .path-card span,
+      .change-card span,
+      .accumulation-card span,
+      .problem-card span,
+      .case-card span,
+      .origin-step span,
+      .loop-card span,
+      .risk-card span,
+      .gate-card span,
+      .pipeline-stage span,
+      .closing-panel span {
+        display: block;
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.4;
+      }
+      .commodity-bar {
+        height: 9px;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--kbp-line-soft);
+      }
+      .commodity-bar i {
+        display: block;
+        width: var(--fill);
+        height: 100%;
+        border-radius: inherit;
+        background: var(--kbp-line);
+      }
+      .differentiator {
+        display: grid;
+        align-content: center;
+        padding: 34px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+      }
+      .differentiator strong {
+        color: var(--kbp-ink);
+        font-size: 44px;
+        line-height: 1.18;
+        text-wrap: balance;
+      }
+      .differentiator p {
+        margin: 14px 0 0;
+        font-size: 20px;
+        line-height: 1.44;
+      }
+      .differentiator .layers {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .layer-row {
+        display: grid;
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        padding: 12px 14px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .layer-row b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+      }
+      .layer-row span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+      }
+      .path-board {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+      .path-card {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        gap: 14px;
+        padding: 24px;
+      }
+      .path-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .path-label {
+        display: inline-grid;
+        width: max-content;
+        padding: 7px 12px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-surface);
+        color: var(--kbp-muted);
+        font-size: 15px;
+        font-weight: 860;
+      }
+      .path-card ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .path-card li {
+        padding: 10px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: rgba(251, 252, 252, 0.72);
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.32;
+      }
+      .path-card em,
+      .change-card em,
+      .pipeline-stage em {
+        color: var(--kbp-orange);
+        font-style: normal;
+        font-size: 16px;
+        font-weight: 860;
+      }
+      .path-pivot {
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        gap: 10px;
+        align-self: center;
+        min-height: 198px;
+        padding: 18px 14px;
+        border-top: 3px solid var(--kbp-orange);
+        border-bottom: 3px solid var(--kbp-orange);
+        color: var(--kbp-ink);
+        text-align: center;
+      }
+      .path-pivot span {
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .path-pivot strong {
+        color: var(--kbp-ink);
+        font-size: 19px;
+        line-height: 1.25;
+      }
+      .path-pivot i {
+        color: var(--kbp-orange);
+        font-style: normal;
+        font-size: 36px;
+        line-height: 1;
+      }
+      .amplifier-equation {
+        display: grid;
+        gap: 12px;
+      }
+      .equation-box {
+        display: grid;
+        align-content: center;
+        min-height: 136px;
+        padding: 22px;
+      }
+      .equation-box.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .equation-box b {
+        color: var(--kbp-orange);
+        font-size: 18px;
+      }
+      .equation-box strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--kbp-ink);
+        font-size: 28px;
+        line-height: 1.2;
+      }
+      .equation-box span {
+        display: block;
+        margin-top: 8px;
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .formula-strip {
+        display: grid;
+        place-items: center;
+        min-height: 72px;
+        border: 1px solid rgba(255, 113, 67, 0.42);
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 28px;
+        font-weight: 900;
+      }
+      .knowledge-board {
+        display: grid;
+        gap: 14px;
+      }
+      .knowledge-row {
+        display: grid;
+        grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+        gap: 18px;
+        align-items: stretch;
+        min-height: 178px;
+        padding: 20px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .knowledge-row.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .knowledge-copy {
+        display: grid;
+        align-content: center;
+        gap: 8px;
+      }
+      .knowledge-row strong {
+        color: var(--kbp-ink);
+        font-size: 22px;
+      }
+      .knowledge-row p {
+        margin: 0;
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+      .knowledge-row b {
+        color: var(--kbp-orange);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+      .gain-bars {
+        display: grid;
+        align-content: center;
+        gap: 12px;
+      }
+      .gain-bars span {
+        position: relative;
+        display: grid;
+        align-items: center;
+        height: 34px;
+        padding-left: 12px;
+        border: 1px solid rgba(255, 113, 67, 0.24);
+        background: linear-gradient(90deg, rgba(255, 113, 67, 0.24) 0 var(--w), rgba(251, 252, 252, 0.52) var(--w) 100%);
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .gain-bars span::before {
+        content: none;
+      }
+      .gain-bars.muted span {
+        border-color: var(--kbp-line);
+        background: linear-gradient(90deg, var(--kbp-line-soft) 0 var(--w), rgba(251, 252, 252, 0.5) var(--w) 100%);
+      }
+      .change-board {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .change-card {
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+        gap: 16px;
+        align-content: center;
+        padding: 22px;
+      }
+      .change-card .before,
+      .change-card .after {
+        display: grid;
+        min-height: 104px;
+        align-content: center;
+        padding: 14px 16px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+      }
+      .change-card .after {
+        border-color: rgba(255, 113, 67, 0.42);
+        background: var(--kbp-orange-soft);
+      }
+      .change-card b {
+        display: block;
+        color: var(--kbp-muted);
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .change-card .after strong {
+        color: var(--kbp-orange);
+        font-size: 30px;
+      }
+      .metric-wall {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        align-content: center;
+      }
+      .metric-tile {
+        display: grid;
+        align-content: center;
+        min-height: 116px;
+        padding: 18px;
+      }
+      .metric-tile b {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-orange);
+        font-size: 34px;
+        line-height: 1;
+      }
+      .metric-tile span {
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 760;
+        line-height: 1.34;
+      }
+      .funnel-stack {
+        display: grid;
+        gap: 10px;
+      }
+      .funnel-stage {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr) 120px;
+        gap: 16px;
+        align-items: center;
+        min-height: 94px;
+        padding: 14px 16px;
+      }
+      .funnel-stage b {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+      }
+      .funnel-stage strong {
+        color: var(--kbp-ink);
+        font-size: 21px;
+      }
+      .funnel-stage span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+      }
+      .funnel-stage em {
+        color: var(--kbp-orange);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 900;
+        text-align: right;
+      }
+      .accumulation-board {
+        display: grid;
+        grid-template-rows: 0.86fr 1.14fr;
+        gap: 14px;
+      }
+      .accumulation-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .accumulation-card {
+        display: grid;
+        align-content: center;
+        padding: 18px;
+      }
+      .accumulation-card.hidden {
+        border-color: rgba(255, 113, 67, 0.46);
+        background: var(--kbp-orange-soft);
+      }
+      .accumulation-card b {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-orange);
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+      .problem-card,
+      .risk-card {
+        display: grid;
+        align-content: center;
+        padding: 28px;
+      }
+      .problem-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .question-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .question-grid .problem-card {
+        min-height: 150px;
+        padding: 20px;
+      }
+      .case-catalog {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .case-card {
+        display: grid;
+        grid-template-rows: auto minmax(176px, 1fr) auto;
+        gap: 16px;
+        padding: 20px;
+      }
+      .case-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .case-card .number {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 12px;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .case-visual {
+        display: grid;
+        align-items: center;
+        min-height: 176px;
+        padding: 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+      }
+      .image2-card-media,
+      .image2-panel {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 1px solid rgba(122, 23, 48, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 249, 243, 0.94);
+        box-shadow: inset 0 0 0 999px rgba(255, 249, 243, 0.03);
+      }
+      .image2-card-media img,
+      .image2-panel img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .image2-card-media.contain img,
+      .image2-panel.contain img {
+        object-fit: contain;
+      }
+      .image2-card-media {
+        aspect-ratio: 2.25 / 1;
+        min-height: 0;
+        margin: 2px 0 10px;
+      }
+      .grid-4 .image2-card-media,
+      .route-stage .image2-card-media,
+      .coverage-stage .image2-card-media,
+      .pipeline-stage .image2-card-media,
+      .community-case .image2-card-media {
+        min-height: 0;
+        margin-bottom: 8px;
+      }
+      .global-card .image2-card-media {
+        min-height: 0;
+        margin: 0 0 10px;
+      }
+      .case-visual .image2-panel {
+        width: 100%;
+        aspect-ratio: 2.25 / 1;
+        min-height: 0;
+      }
+      .gate-visual .image2-panel {
+        width: 100%;
+        aspect-ratio: 2.25 / 1;
+      }
+      #P19 .accumulation-card::after {
+        content: none;
+      }
+      .p19-corner-icon {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 92px;
+        height: 92px;
+        object-fit: cover;
+        object-position: center 72%;
+        opacity: 0.46;
+        pointer-events: none;
+      }
+      .case-visual svg,
+      .risk-visual,
+      .gate-visual svg {
+        width: 100%;
+        height: 100%;
+      }
+      .case-visual .ui-line,
+      .risk-visual .ui-line,
+      .gate-visual .ui-line {
+        stroke: var(--kbp-line);
+      }
+      .case-visual .accent,
+      .risk-visual .accent,
+      .gate-visual .accent {
+        stroke: var(--kbp-orange);
+      }
+      .case-visual .fill-soft,
+      .risk-visual .fill-soft,
+      .gate-visual .fill-soft {
+        fill: var(--kbp-orange-soft);
+      }
+      .case-visual .fill-paper,
+      .risk-visual .fill-paper,
+      .gate-visual .fill-paper {
+        fill: var(--kbp-paper);
+      }
+      .global-case-board,
+      .community-case-board,
+      .route-system,
+      .coverage-board {
+        display: grid;
+        gap: 14px;
+      }
+      .global-case-board {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+      .global-card,
+      .community-case {
+        display: grid;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 10px;
+        align-content: center;
+        padding: 20px;
+      }
+      .global-card.feature,
+      .community-case.feature,
+      .route-stage.active,
+      .coverage-stage.active,
+      .revenue-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .global-card b,
+      .community-case b,
+      .route-stage b,
+      .coverage-stage b,
+      .revenue-card b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .global-card strong,
+      .community-case strong,
+      .route-stage strong,
+      .coverage-stage strong,
+      .revenue-card strong {
+        color: var(--kbp-ink);
+        font-size: 22px;
+        line-height: 1.25;
+      }
+      .global-card span,
+      .community-case span,
+      .route-stage span,
+      .coverage-stage span,
+      .revenue-card span {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.36;
+      }
+      .global-card .case-meter,
+      .community-case .case-meter {
+        display: grid;
+        gap: 8px;
+        align-content: center;
+      }
+      .case-meter i {
+        display: block;
+        height: 12px;
+        width: var(--w);
+        border-radius: 999px;
+        background: var(--kbp-orange);
+      }
+      .case-meter i:nth-child(2) {
+        background: var(--kbp-line);
+      }
+      .route-system,
+      .coverage-board {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: stretch;
+      }
+      .route-stage,
+      .coverage-stage {
+        display: grid;
+        grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+        gap: 12px;
+        min-height: 360px;
+        padding: 20px;
+      }
+      .route-stage em,
+      .coverage-stage em,
+      .global-card em,
+      .community-case em,
+      .revenue-card em {
+        align-self: end;
+        padding-top: 12px;
+        border-top: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 860;
+        line-height: 1.25;
+      }
+      .revenue-board {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 18px;
+      }
+      .revenue-card {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        gap: 14px;
+        padding: 24px;
+      }
+      .revenue-number {
+        color: var(--kbp-orange);
+        font-size: 58px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .revenue-rows {
+        display: grid;
+        gap: 8px;
+      }
+      .revenue-rows span {
+        padding: 10px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: rgba(251, 252, 252, 0.74);
+      }
+      .community-case-board {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .community-cases {
+        display: contents;
+      }
+      .community-proof {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: 0.86fr 1.14fr;
+        grid-template-rows: auto auto;
+        gap: 12px;
+        align-content: center;
+        padding: 16px 18px;
+      }
+      .community-proof strong {
+        color: var(--kbp-ink);
+        font-size: 22px;
+        line-height: 1.2;
+      }
+      .community-proof .route-note {
+        grid-column: 1;
+        margin: 0;
+      }
+      .proof-lanes {
+        display: grid;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .proof-lanes span {
+        display: grid;
+        align-content: center;
+        min-height: 88px;
+        padding: 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+        color: var(--kbp-muted);
+        font-size: 14px;
+        font-weight: 780;
+        line-height: 1.32;
+      }
+      .proof-lanes b {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--kbp-orange);
+        font-size: 18px;
+      }
+      .origin-timeline {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .origin-step {
+        position: relative;
+        display: grid;
+        align-content: center;
+        min-height: 380px;
+        padding: 28px;
+      }
+      .origin-step.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .origin-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 20px;
+        border-top: 3px solid var(--kbp-orange);
+        z-index: 2;
+      }
+      .origin-step b {
+        display: block;
+        margin-bottom: 18px;
+        color: var(--kbp-orange);
+        font-size: 42px;
+        line-height: 1;
+      }
+      .support-loop {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: 16px;
+      }
+      .loop-core {
+        display: grid;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-content: center;
+        justify-items: center;
+        padding: 26px;
+        border-left: 8px solid var(--kbp-orange);
+        background: var(--kbp-surface);
+        text-align: center;
+      }
+      .loop-core strong {
+        color: var(--kbp-ink);
+        font-size: 42px;
+        line-height: 1.1;
+      }
+      .loop-core span {
+        margin-top: 14px;
+        color: var(--kbp-muted);
+        font-size: 18px;
+        line-height: 1.38;
+      }
+      .loop-card {
+        display: grid;
+        align-content: center;
+        padding: 22px;
+      }
+      .loop-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .gate-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .gate-card {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        grid-template-rows: auto auto minmax(0, 1fr);
+        column-gap: 14px;
+        row-gap: 8px;
+        min-height: 184px;
+        padding: 18px;
+      }
+      .gate-card.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .gate-card .gate-badge {
+        display: grid;
+        grid-row: 1 / span 2;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .gate-card strong,
+      .gate-card span:not(.gate-badge) {
+        grid-column: 2;
+      }
+      .gate-visual {
+        grid-column: 1 / -1;
+        align-self: center;
+        justify-self: center;
+        width: 100%;
+        height: 74px;
+        margin-top: 6px;
+      }
+      .risk-card {
+        grid-template-rows: 224px auto auto auto;
+        gap: 16px;
+        padding: 24px;
+      }
+      .risk-visual {
+        min-height: 224px;
+      }
+      .risk-visual.board {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: 1fr auto;
+        gap: 10px;
+        min-height: 224px;
+      }
+      .risk-slice {
+        display: grid;
+        align-content: center;
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+      }
+      .risk-slice.feature {
+        border-color: rgba(255, 113, 67, 0.42);
+        background: var(--kbp-orange-soft);
+      }
+      .risk-slice b {
+        color: var(--kbp-orange);
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .risk-slice strong {
+        color: var(--kbp-ink);
+        font-size: 19px;
+        line-height: 1.18;
+      }
+      .risk-slice span {
+        color: var(--kbp-muted);
+        font-size: 13px;
+        line-height: 1.28;
+      }
+      .risk-review-bar {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        padding: 10px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+      }
+      .risk-review-bar span {
+        display: grid;
+        align-content: center;
+        min-height: 42px;
+        padding: 7px 8px;
+        border: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-muted);
+        font-size: 12px;
+        font-weight: 760;
+        line-height: 1.18;
+      }
+      .risk-points {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .risk-points span {
+        padding: 8px 10px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.25;
+      }
+      .pipeline-roadmap {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+      }
+      .pipeline-stage {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 12px;
+        align-content: center;
+        min-height: 318px;
+        padding: 20px;
+      }
+      .pipeline-stage.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .pipeline-stage:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 58px;
+        right: 0;
+        width: 24px;
+        border-top: 3px solid var(--kbp-orange);
+        z-index: 2;
+      }
+      .pipe-mark {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 16px;
+        font-weight: 900;
+      }
+      .pipe-detail {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--kbp-line);
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.36;
+      }
+      .closing-shift {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 86px minmax(0, 1fr);
+        gap: 16px;
+        align-items: stretch;
+      }
+      .closing-panel {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        gap: 18px;
+        padding: 28px;
+      }
+      .closing-panel.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+      .closing-panel ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding-left: 20px;
+      }
+      .closing-panel li {
+        color: var(--kbp-muted);
+        font-size: 17px;
+        line-height: 1.36;
+      }
+      .closing-kicker {
+        color: var(--kbp-orange);
+        font-size: 20px;
+        font-weight: 900;
+      }
+      .before-after {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .before-after ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding-left: 20px;
+      }
+      .before-after li {
+        font-size: 17px;
+        line-height: 1.36;
+      }
+      .controls {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 70;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .controls button,
+      .counter {
+        border: 1px solid var(--kbp-line);
+        border-radius: 999px;
+        background: rgba(251, 252, 252, 0.94);
+        color: var(--kbp-ink);
+      }
+      .controls button {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        cursor: pointer;
+      }
+      .counter {
+        min-width: 78px;
+        padding: 9px 12px;
+        color: var(--kbp-muted);
+        font-size: 12px;
+        font-weight: 820;
+        text-align: center;
+      }
+      .progress {
+        position: fixed;
+        inset: auto 0 0;
+        z-index: 65;
+        height: 4px;
+        background: rgba(207, 214, 217, 0.82);
+      }
+      .progress span {
+        display: block;
+        width: 2.94%;
+        height: 100%;
+        background: var(--kbp-orange);
+      }
+      .speaker-notes { display: none; }
+      /* Bold white/gold visual variant: keep the original deck intact and push this copy toward
+         larger type, stronger hierarchy, explicit visual cues, and more image/SVG surfaces. */
+      :root {
+        --kbp-page-bg: #ffffff;
+        --kbp-paper: #ffffff;
+        --kbp-ink: #343230;
+        --kbp-muted: #55504c;
+        --kbp-line: #dcc8ad;
+        --kbp-line-soft: #efe2cf;
+        --kbp-surface: #fff7ed;
+        --kbp-surface-strong: #d69b36;
+        --kbp-orange: #c9821f;
+        --kbp-orange-soft: #fff1d4;
+        --kbp-shadow: 0 28px 74px rgba(52, 50, 48, 0.16);
+        --kbp-radius: 8px;
+        --kvb-bordeaux: #6f2534;
+        --kvb-bordeaux-deep: #343230;
+        --kvb-rose: #efc56b;
+        --kvb-gold: #d69b36;
+        --kvb-gold-soft: #fff0cc;
+        --kvb-teal: #19756f;
+        --kvb-cream: #ffffff;
+        --kvb-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='260' viewBox='0 0 360 260'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.18' stroke-width='3'%3E%3Cpath d='M20 210 160 70l58 58 112-112'/%3E%3Cpath d='M26 42h110M26 78h78M226 186h94M226 220h58'/%3E%3Crect x='220' y='28' width='94' height='94' rx='12'/%3E%3Ccircle cx='84' cy='178' r='38'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.2'%3E%3Crect x='246' y='55' width='42' height='42' rx='8'/%3E%3Ccircle cx='84' cy='178' r='15'/%3E%3C/g%3E%3C/svg%3E");
+      }
+      body {
+        background: var(--kbp-page-bg);
+      }
+      .topbar {
+        border-bottom: 1px solid rgba(220, 200, 173, 0.86);
+        background: rgba(255, 255, 255, 0.94);
+        color: var(--kbp-muted);
+      }
+      .nav-mark {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        background: var(--kvb-gold);
+        transform: rotate(45deg);
+      }
+      .slide {
+        grid-template-rows: 32px minmax(0, 1fr) 30px;
+        gap: 8px;
+        padding: 40px 54px 38px 72px;
+        border: 3px solid rgba(214, 155, 54, 0.36);
+        background:
+          linear-gradient(90deg, rgba(214, 155, 54, 0.12) 0 11%, transparent 11%),
+          linear-gradient(180deg, rgba(255, 244, 221, 0.48), rgba(255, 255, 255, 0) 36%),
+          var(--kbp-paper);
+      }
+      .slide::before {
+        width: 28px;
+        background: linear-gradient(180deg, #d69b36, #efc56b 64%, #c9821f);
+      }
+      .slide::after {
+        content: attr(data-slide);
+        right: 54px;
+        bottom: 34px;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        background: transparent;
+        color: rgba(214, 155, 54, 0.12);
+        font-size: 92px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .slide-header,
+      .slide-footer {
+        color: var(--kvb-bordeaux);
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+      .slide-footer {
+        border-top: 2px solid rgba(122, 23, 48, 0.22);
+      }
+      .header-logo {
+        width: 176px;
+        height: 34px;
+      }
+      .doc-label,
+      .kicker {
+        color: var(--kvb-bordeaux);
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+      h1 {
+        max-width: 1120px;
+        color: var(--kvb-bordeaux-deep);
+        font-size: 88px;
+        font-weight: 900;
+        line-height: 0.99;
+      }
+      h2 {
+        padding-bottom: 9px;
+        border-bottom: 7px solid rgba(214, 155, 54, 0.84);
+        color: var(--kvb-bordeaux-deep);
+        font-size: 50px;
+        font-weight: 900;
+        line-height: 1.08;
+      }
+      h2::after {
+        content: "";
+        display: block;
+        width: 132px;
+        height: 7px;
+        margin-top: 8px;
+        background: var(--kvb-gold);
+      }
+      h3 {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 30px;
+        font-weight: 900;
+      }
+      p,
+      li,
+      td,
+      th {
+        font-size: 22px;
+        line-height: 1.42;
+      }
+      .lead-copy {
+        max-width: 1160px;
+        margin-top: 10px;
+        color: var(--kbp-ink);
+        font-size: 27px;
+        font-weight: 780;
+        line-height: 1.36;
+      }
+      .body-slot {
+        min-height: 500px;
+      }
+      .body-compact { min-height: 414px; }
+      .body-tall { min-height: 532px; }
+      .card,
+      .panel,
+      .metric,
+      .table-wrap,
+      .image-frame,
+      .note,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid rgba(122, 23, 48, 0.24);
+        box-shadow: 0 14px 28px rgba(76, 13, 29, 0.08);
+      }
+      .card::after,
+      .panel::after,
+      .metric::after,
+      .commodity-item::after,
+      .equation-box::after,
+      .path-card::after,
+      .change-card::after,
+      .metric-tile::after,
+      .funnel-stage::after,
+      .accumulation-card::after,
+      .problem-card::after,
+      .case-card::after,
+      .loop-card::after,
+      .risk-card::before,
+      .gate-card::after,
+      .pipeline-stage::before,
+      .closing-panel::after,
+      .global-card::after,
+      .revenue-card::after,
+      .route-stage::before,
+      .coverage-stage::before,
+      .community-case::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        width: 58px;
+        height: 58px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.55' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 44h44M16 38l10-12 10 7 12-17'/%3E%3Cpath d='M12 14h15M12 22h8'/%3E%3C/g%3E%3Ccircle cx='50' cy='18' r='6' fill='%23d69b36' fill-opacity='.72'/%3E%3C/svg%3E") center / contain no-repeat;
+        opacity: 0.16;
+        pointer-events: none;
+      }
+      .path-card::after,
+      .route-stage::before,
+      .coverage-stage::before,
+      .pipeline-stage::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 34h34'/%3E%3Cpath d='m35 22 12 12-12 12'/%3E%3Cpath d='M12 18h16M12 50h24'/%3E%3C/g%3E%3Crect x='44' y='10' width='10' height='10' rx='2' fill='%23d69b36' fill-opacity='.72'/%3E%3C/svg%3E");
+      }
+      .problem-card::after,
+      .risk-card::before,
+      .gate-card::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 8 52 18v14c0 12-7 19-20 24C19 51 12 44 12 32V18L32 8Z'/%3E%3Cpath d='m24 32 6 6 12-15'/%3E%3C/g%3E%3Ccircle cx='49' cy='18' r='5' fill='%23d69b36' fill-opacity='.76'/%3E%3C/svg%3E");
+      }
+      .community-case::after,
+      .global-card::after,
+      .revenue-card::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 48h38M18 42V18h28v24'/%3E%3Cpath d='M24 36 31 28l7 6 9-14'/%3E%3Cpath d='M24 22h8M24 28h5'/%3E%3C/g%3E%3Crect x='42' y='17' width='8' height='8' rx='2' fill='%23d69b36' fill-opacity='.72'/%3E%3C/svg%3E");
+      }
+      .card.feature,
+      .panel.feature,
+      .metric.feature,
+      .path-card.feature,
+      .equation-box.feature,
+      .change-card .after,
+      .accumulation-card.hidden,
+      .problem-card.feature,
+      .case-card.feature,
+      .global-card.feature,
+      .community-case.feature,
+      .route-stage.active,
+      .coverage-stage.active,
+      .revenue-card.feature,
+      .origin-step.feature,
+      .loop-card.feature,
+      .gate-card.feature,
+      .pipeline-stage.feature,
+      .closing-panel.feature,
+      .reality-card.feature,
+      .objection-card.feature,
+      .risk-slice.feature {
+        border-color: rgba(122, 23, 48, 0.58);
+        background:
+          linear-gradient(135deg, rgba(255, 240, 204, 0.88), rgba(247, 228, 223, 0.98)),
+          var(--kbp-orange-soft);
+      }
+      .card strong,
+      .panel strong,
+      .metric strong,
+      .note strong,
+      .commodity-item strong,
+      .path-card strong,
+      .change-card strong,
+      .accumulation-card strong,
+      .problem-card strong,
+      .case-card strong,
+      .origin-step strong,
+      .loop-card strong,
+      .risk-card strong,
+      .gate-card strong,
+      .pipeline-stage strong,
+      .closing-panel strong,
+      .global-card strong,
+      .community-case strong,
+      .route-stage strong,
+      .coverage-stage strong,
+      .revenue-card strong,
+      .reality-card strong,
+      .objection-card strong {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 25px;
+        font-weight: 900;
+      }
+      .card p,
+      .panel p,
+      .metric p,
+      .note p,
+      .commodity-item span,
+      .path-card span,
+      .change-card span,
+      .accumulation-card span,
+      .problem-card span,
+      .case-card span,
+      .origin-step span,
+      .loop-card span,
+      .risk-card span,
+      .gate-card span,
+      .pipeline-stage span,
+      .closing-panel span,
+      .global-card span,
+      .community-case span,
+      .route-stage span,
+      .coverage-stage span,
+      .revenue-card span {
+        color: var(--kbp-muted);
+        font-size: 18px;
+        line-height: 1.34;
+      }
+      .number,
+      .commodity-item b,
+      .funnel-stage b,
+      .pipe-mark,
+      .gate-card .gate-badge,
+      .package-flow b,
+      .case-card .number,
+      .insight b {
+        border: 0;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+      }
+      .pill,
+      .path-label,
+      .mini-tag-row span,
+      .route-note,
+      .path-note {
+        border-color: rgba(122, 23, 48, 0.34);
+        background: var(--kvb-gold-soft);
+        color: var(--kvb-bordeaux);
+        font-weight: 900;
+      }
+      .accent-rule,
+      .progress span,
+      .curve,
+      .case-meter i,
+      .reality-scale i,
+      .commodity-bar i {
+        background: var(--kvb-bordeaux);
+        border-color: var(--kvb-bordeaux);
+      }
+      .flat,
+      .case-meter i:nth-child(2),
+      .reality-scale .muted i {
+        background: var(--kvb-gold);
+        border-color: var(--kvb-gold);
+      }
+      .formula-strip,
+      .chapter-number,
+      .avatar,
+      .avatar-mark,
+      .impact-number,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .objection-core,
+      .reality-core {
+        border-left: 12px solid var(--kvb-bordeaux);
+        background:
+          linear-gradient(135deg, rgba(122, 23, 48, 0.12), rgba(214, 155, 54, 0.15)),
+          var(--kbp-surface);
+      }
+      .statement-core strong,
+      .differentiator strong,
+      .objection-core strong {
+        font-size: 52px;
+        font-weight: 900;
+        line-height: 1.08;
+      }
+      .quote-panel strong {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 58px;
+        font-weight: 900;
+      }
+      .image-frame,
+      .product-board,
+      .case-visual,
+      .svg-figure,
+      .risk-visual.board {
+        border: 3px solid rgba(122, 23, 48, 0.28);
+        background:
+          linear-gradient(135deg, rgba(122, 23, 48, 0.12), rgba(214, 155, 54, 0.16)),
+          var(--kbp-surface);
+      }
+      .image-frame img,
+      .product-board img {
+        filter: saturate(1.12) contrast(1.04);
+      }
+      .visual-led {
+        grid-template-columns: minmax(0, 1.18fr) 0.82fr;
+      }
+      .visual-led.reverse {
+        grid-template-columns: 0.82fr minmax(0, 1.18fr);
+      }
+      .evidence-strip {
+        border: 2px solid rgba(122, 23, 48, 0.22);
+        background: rgba(255, 240, 204, 0.56);
+      }
+      .evidence-strip span,
+      .tight-list li,
+      .path-card li,
+      .revenue-rows span,
+      .proof-lanes span,
+      .risk-points span,
+      .risk-review-bar span {
+        border-color: rgba(122, 23, 48, 0.18);
+        background: rgba(255, 249, 243, 0.9);
+        font-size: 15px;
+      }
+      .evidence-strip b,
+      .statement-core span,
+      .layer-row b,
+      .path-card em,
+      .change-card em,
+      .pipeline-stage em,
+      .global-card b,
+      .community-case b,
+      .route-stage b,
+      .coverage-stage b,
+      .revenue-card b,
+      .reality-card b,
+      .objection-card b,
+      .risk-slice b,
+      .svg-figure .accent,
+      .case-visual .accent,
+      .risk-visual .accent,
+      .gate-visual .accent {
+        color: var(--kvb-bordeaux);
+        stroke: var(--kvb-bordeaux);
+      }
+      .case-visual .fill-soft,
+      .risk-visual .fill-soft,
+      .gate-visual .fill-soft {
+        fill: var(--kvb-gold-soft);
+      }
+      .cover {
+        grid-template-rows: minmax(0, 1fr) 30px;
+        background:
+          linear-gradient(90deg, rgba(76, 13, 29, 0.94) 0 55%, rgba(255, 249, 243, 0.98) 55%),
+          var(--kvb-pattern) right 40px bottom 34px / 420px 300px no-repeat,
+          var(--kbp-paper);
+      }
+      .cover::before {
+        width: 34px;
+        background: var(--kvb-gold);
+      }
+      .cover-logo {
+        width: 610px;
+        max-width: 86%;
+        padding: 18px 22px;
+        border: 2px solid rgba(255, 240, 204, 0.3);
+        background: rgba(255, 249, 243, 0.92);
+      }
+      .cover .kicker,
+      .cover h1,
+      .cover .lead-copy {
+        color: #fff8ef;
+      }
+      .cover h1 {
+        max-width: 760px;
+        font-size: 78px;
+        line-height: 1.04;
+      }
+      .cover .lead-copy {
+        max-width: 720px;
+        font-size: 28px;
+      }
+      .cover .slide-footer {
+        border-top-color: rgba(255, 240, 204, 0.22);
+        color: #fff0cc;
+      }
+      .cover-panel {
+        border: 3px solid rgba(122, 23, 48, 0.32);
+        background: linear-gradient(180deg, #fff9f3, #fff0e7);
+      }
+      .cover-panel::after,
+      #P10 .divider-layout::after,
+      #P20 .route-system::after,
+      #P29 .coverage-board::after,
+      #P34 .closing-shift::after {
+        content: "";
+        display: block;
+        min-height: 166px;
+        border: 3px solid rgba(122, 23, 48, 0.28);
+        background-position: center;
+        background-size: cover;
+        box-shadow: inset 0 0 0 999px rgba(76, 13, 29, 0.16);
+      }
+      .cover-panel::after {
+        background-image: url("./assets/generated/hero-service-creation.png");
+      }
+      #P10 .divider-layout,
+      #P20 .route-system,
+      #P29 .coverage-board,
+      #P34 .closing-shift {
+        position: relative;
+      }
+      #P10 .divider-layout::after {
+        background-image: url("./assets/generated/ai-product-bridge.png");
+      }
+      #P20 .route-system::after {
+        grid-column: 1 / -1;
+        min-height: 118px;
+        background-image: url("./assets/generated/golden-route.png");
+      }
+      #P29 .coverage-board::after {
+        grid-column: 1 / -1;
+        min-height: 110px;
+        background-image: url("./assets/generated/kikai-operating-system.png");
+      }
+      #P34 .closing-shift::after {
+        grid-column: 1 / -1;
+        min-height: 96px;
+        background-image: url("./assets/generated/community-workspace.png");
+      }
+      #P04 .differentiator,
+      #P17 .reality-core,
+      #P21 .problem-card.feature,
+      #P25 .objection-core,
+      #P31 .risk-card {
+        position: relative;
+        overflow: hidden;
+      }
+      #P04 .differentiator::after,
+      #P17 .reality-core::after,
+      #P21 .problem-card.feature::after,
+      #P25 .objection-core::after,
+      #P31 .risk-card::after {
+        content: "";
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 170px;
+        height: 126px;
+        border: 2px solid rgba(122, 23, 48, 0.24);
+        background-position: center;
+        background-size: cover;
+        opacity: 0.28;
+      }
+      #P04 .differentiator::after {
+        background-image: url("./assets/generated/ai-product-bridge.png");
+      }
+      #P17 .reality-core::after {
+        background-image: url("./assets/generated/reality-check.png");
+      }
+      #P21 .problem-card.feature::after {
+        background-image: url("./assets/generated/vibe-coding-workbench.png");
+      }
+      #P25 .objection-core::after {
+        background-image: url("./assets/generated/community-workspace.png");
+      }
+      #P31 .risk-card::after {
+        background-image: url("./assets/generated/prompt-to-product.png");
+      }
+      .package-flow svg,
+      .gate-visual svg {
+        filter: drop-shadow(0 7px 10px rgba(76, 13, 29, 0.12));
+      }
+      .svg-figure svg,
+      .case-visual svg,
+      .gate-visual svg {
+        stroke-width: 1.08;
+      }
+      .controls button,
+      .counter {
+        border-color: rgba(255, 240, 204, 0.36);
+        background: rgba(76, 13, 29, 0.92);
+        color: #fff8ef;
+      }
+      #P33 .image-frame img {
+        object-position: center;
+      }
+      /* Balanced body pass: keep the unified palette, but make body text and visuals stronger. */
+      .body-slot {
+        position: relative;
+      }
+      .body-slot > * {
+        position: relative;
+        z-index: 1;
+      }
+      .card strong,
+      .panel strong,
+      .metric strong,
+      .note strong,
+      .commodity-item strong,
+      .path-card strong,
+      .change-card strong,
+      .accumulation-card strong,
+      .problem-card strong,
+      .case-card strong,
+      .origin-step strong,
+      .loop-card strong,
+      .risk-card strong,
+      .gate-card strong,
+      .pipeline-stage strong,
+      .closing-panel strong,
+      .global-card strong,
+      .community-case strong,
+      .route-stage strong,
+      .coverage-stage strong,
+      .revenue-card strong,
+      .reality-card strong,
+      .objection-card strong {
+        font-size: 30px;
+        line-height: 1.14;
+      }
+      .card p,
+      .panel p,
+      .metric p,
+      .note p,
+      .commodity-item span,
+      .path-card span,
+      .change-card span,
+      .accumulation-card span,
+      .problem-card span,
+      .case-card span,
+      .origin-step span,
+      .loop-card span,
+      .risk-card span,
+      .gate-card span,
+      .pipeline-stage span,
+      .closing-panel span,
+      .global-card span,
+      .community-case span,
+      .route-stage span,
+      .coverage-stage span,
+      .revenue-card span,
+      .reality-card span,
+      .objection-card span {
+        font-size: 20px;
+        line-height: 1.28;
+      }
+      .tight-list {
+        gap: 7px;
+        margin-top: 10px;
+      }
+      .tight-list li,
+      .path-card li,
+      .closing-panel li {
+        padding: 8px 10px;
+        font-size: 18px;
+        line-height: 1.22;
+      }
+      .profile-list li,
+      .profile-stats span,
+      .path-note,
+      .route-note,
+      .layer-row span,
+      .mini-tag-row span {
+        font-size: 18px;
+        line-height: 1.24;
+      }
+      th {
+        font-size: 22px;
+        line-height: 1.18;
+      }
+      td {
+        font-size: 20px;
+        line-height: 1.24;
+      }
+      .evidence-strip span {
+        min-height: 62px;
+        padding: 8px 10px;
+        font-size: 16px;
+        line-height: 1.18;
+      }
+      .evidence-strip b {
+        font-size: 15px;
+      }
+      .process-node strong {
+        font-size: 25px;
+        line-height: 1.12;
+      }
+      .process-node span {
+        font-size: 18px;
+        line-height: 1.22;
+      }
+      .process-node em {
+        font-size: 15px;
+        line-height: 1.18;
+      }
+      .metric-tile b {
+        font-size: 40px;
+      }
+      .metric-tile span,
+      .funnel-stage span,
+      .risk-points span,
+      .risk-review-bar span,
+      .proof-lanes span,
+      .revenue-rows span {
+        font-size: 17px;
+        line-height: 1.22;
+      }
+      .global-card span,
+      .community-case span,
+      .route-stage span,
+      .coverage-stage span,
+      .pipeline-stage span {
+        font-size: 17px;
+        line-height: 1.25;
+      }
+      .global-card li,
+      .community-case li,
+      .route-stage li,
+      .coverage-stage li,
+      .pipeline-stage li {
+        font-size: 16px;
+        line-height: 1.18;
+      }
+      .package-flow strong {
+        font-size: 23px;
+        line-height: 1.12;
+      }
+      .package-flow span {
+        font-size: 17px;
+        line-height: 1.2;
+      }
+      .route-stage,
+      .coverage-stage {
+        gap: 9px;
+        padding: 18px;
+      }
+      .route-stage > span,
+      .coverage-stage > span {
+        display: block;
+        font-size: 15px;
+        line-height: 1.2;
+      }
+      .route-stage .tight-list,
+      .coverage-stage .tight-list {
+        gap: 6px;
+        margin-top: 0;
+      }
+      .route-stage li,
+      .coverage-stage li {
+        padding: 7px 10px;
+        font-size: 15px;
+        line-height: 1.15;
+      }
+      .reality-card strong,
+      .objection-card strong,
+      .risk-slice strong {
+        font-size: 23px;
+      }
+      .reality-card span,
+      .objection-card span {
+        font-size: 17px;
+      }
+      .risk-slice span {
+        font-size: 15px;
+        line-height: 1.18;
+      }
+      .commodity-map::before,
+      .amplifier-model::before,
+      .path-board::before,
+      .change-board::before,
+      .reality-funnel::before,
+      .accumulation-board::before,
+      .origin-timeline::before,
+      .revenue-board::before,
+      .support-loop::before,
+      .pipeline-roadmap::before {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        z-index: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300' viewBox='0 0 520 300'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.15' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M34 238h452M66 216V86M164 216V132M262 216V64M360 216V116M458 216V42'/%3E%3Cpath d='M66 86c54 42 108 58 164 36s90-76 138-58 72 64 118 22'/%3E%3Cpath d='M84 54h96M84 82h54M316 246h116M316 270h78'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.22'%3E%3Ccircle cx='66' cy='86' r='13'/%3E%3Ccircle cx='262' cy='64' r='15'/%3E%3Ccircle cx='458' cy='42' r='13'/%3E%3C/g%3E%3C/svg%3E") center / 520px 300px no-repeat;
+        pointer-events: none;
+      }
+      #P03 .grid-3::before,
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after,
+      #P14 .change-board::after,
+      #P18 .reality-funnel::after,
+      #P23 .origin-timeline::after,
+      #P24 .revenue-board::after,
+      #P27 .support-loop::after,
+      #P32 .pipeline-roadmap::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+        z-index: 0;
+        width: 300px;
+        height: 138px;
+        border: 2px solid rgba(122, 23, 48, 0.18);
+        background-position: center;
+        background-size: cover;
+        opacity: 0.16;
+        filter: saturate(0.95) contrast(1.02);
+        pointer-events: none;
+      }
+      #P03 .grid-3::before {
+        background-image: url("./assets/generated/hero-service-creation.png");
+      }
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after {
+        background-image: url("./assets/generated/ai-product-bridge.png");
+      }
+      #P14 .change-board::after,
+      #P23 .origin-timeline::after,
+      #P27 .support-loop::after {
+        background-image: url("./assets/generated/vibe-coding-workbench.png");
+      }
+      #P18 .reality-funnel::after {
+        background-image: url("./assets/generated/reality-check.png");
+      }
+      #P24 .revenue-board::after {
+        background-image: url("./assets/generated/product-case-board.png");
+      }
+      #P32 .pipeline-roadmap::after {
+        background-image: url("./assets/generated/golden-route.png");
+      }
+      .path-pivot,
+      .formula-strip,
+      .package-core,
+      .loop-core,
+      .statement-core,
+      .objection-core,
+      .reality-core {
+        position: relative;
+      }
+      .path-pivot::after,
+      .formula-strip::after,
+      .package-core::after,
+      .loop-core::after,
+      .statement-core::after,
+      .objection-core::after,
+      .reality-core::before {
+        content: "";
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: 72px;
+        height: 72px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.48' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48h48M18 42l12-14 9 8 15-22'/%3E%3Cpath d='M18 18h18M18 26h9'/%3E%3C/g%3E%3Ccircle cx='56' cy='16' r='7' fill='%23d69b36' fill-opacity='.58'/%3E%3C/svg%3E") center / contain no-repeat;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      .card::after,
+      .panel::after,
+      .metric::after,
+      .commodity-item::after,
+      .equation-box::after,
+      .path-card::after,
+      .change-card::after,
+      .metric-tile::after,
+      .funnel-stage::after,
+      .accumulation-card::after,
+      .problem-card::after,
+      .case-card::after,
+      .loop-card::after,
+      .risk-card::before,
+      .gate-card::after,
+      .pipeline-stage::before,
+      .closing-panel::after,
+      .global-card::after,
+      .revenue-card::after,
+      .route-stage::before,
+      .coverage-stage::before,
+      .community-case::after {
+        width: 82px;
+        height: 82px;
+        opacity: 0.24;
+      }
+      #P03 .grid-3::before,
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after,
+      #P14 .change-board::after,
+      #P18 .reality-funnel::after,
+      #P23 .origin-timeline::after,
+      #P24 .revenue-board::after,
+      #P27 .support-loop::after,
+      #P32 .pipeline-roadmap::after {
+        width: 356px;
+        height: 156px;
+        opacity: 0.22;
+      }
+      /* Reference-style mono visual pass: richer diagrams while keeping white/gold unified. */
+      .path-arena {
+        grid-template-columns: minmax(0, 1fr) 224px minmax(0, 1fr);
+        gap: 18px;
+        min-height: 508px;
+      }
+      #P05 .path-arena::before {
+        content: "";
+        position: absolute;
+        inset: 18px 52px;
+        z-index: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1160' height='430' viewBox='0 0 1160 430'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.16' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M210 310c94-64 198-76 314-36M636 276c96-62 196-54 306 18'/%3E%3Cpath d='M491 251l42 27-47 18M895 258l49 37-58 20'/%3E%3Cpath d='M74 362h214M876 362h208'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.18'%3E%3Ccircle cx='168' cy='104' r='64'/%3E%3Ccircle cx='996' cy='118' r='74'/%3E%3Ccircle cx='581' cy='298' r='54'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
+        pointer-events: none;
+      }
+      #P05 .path-arena::after {
+        content: none;
+      }
+      .path-arena .path-card {
+        grid-template-rows: auto 146px auto auto minmax(0, 1fr) auto;
+        gap: 11px;
+        padding: 20px;
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 249, 243, 0.98), rgba(255, 240, 204, 0.46)),
+          var(--kbp-paper);
+      }
+      .path-arena .path-card.feature {
+        background:
+          linear-gradient(180deg, rgba(255, 249, 243, 0.98), rgba(247, 228, 223, 0.74)),
+          var(--kbp-paper);
+      }
+      .path-arena .path-card strong {
+        font-size: 29px;
+      }
+      .path-arena .path-card > span:not(.path-label) {
+        font-size: 19px;
+        line-height: 1.3;
+      }
+      .path-visual {
+        position: relative;
+        display: grid;
+        min-height: 146px;
+        place-items: center;
+        overflow: hidden;
+        border: 2px solid rgba(122, 23, 48, 0.18);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 78% 18%, rgba(214, 155, 54, 0.24), transparent 28%),
+          linear-gradient(135deg, rgba(122, 23, 48, 0.08), rgba(255, 249, 243, 0.94));
+      }
+      .path-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.08;
+        filter: grayscale(1) contrast(1.08);
+      }
+      .path-marketing .path-visual::after {
+        background-image: url("./assets/generated/ai-product-bridge.png");
+      }
+      .path-product .path-visual::after {
+        background-image: url("./assets/generated/prompt-to-product.png");
+      }
+      .path-visual svg {
+        position: relative;
+        z-index: 1;
+        width: min(92%, 290px);
+        height: 126px;
+      }
+      .mono-line {
+        fill: none;
+        stroke: var(--kvb-bordeaux);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mono-fill {
+        fill: rgba(122, 23, 48, 0.1);
+        stroke: var(--kvb-bordeaux);
+      }
+      .mono-gold {
+        fill: rgba(214, 155, 54, 0.24);
+        stroke: var(--kvb-gold);
+      }
+      .path-arena .path-pivot {
+        min-height: 350px;
+        align-self: center;
+        border: 0;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle, rgba(122, 23, 48, 0.13) 0 45%, transparent 46%),
+          linear-gradient(180deg, rgba(255, 249, 243, 0.96), rgba(255, 240, 204, 0.78));
+        box-shadow: inset 0 0 0 3px rgba(122, 23, 48, 0.22), 0 18px 30px rgba(76, 13, 29, 0.1);
+      }
+      .path-arena .path-pivot::after {
+        right: auto;
+        bottom: 48px;
+        width: 92px;
+        height: 92px;
+        opacity: 0.22;
+      }
+      .path-arena .path-pivot strong {
+        max-width: 150px;
+        color: var(--kvb-bordeaux-deep);
+        font-size: 27px;
+        line-height: 1.12;
+      }
+      .path-arena .path-pivot i {
+        color: var(--kvb-bordeaux);
+        font-size: 54px;
+      }
+      .chapter-mural {
+        position: relative;
+        display: grid;
+        grid-template-columns: 330px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) 96px;
+        gap: 14px;
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      .chapter-mural::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 79% 16%, rgba(214, 155, 54, 0.22), transparent 26%),
+          url("./assets/generated/ai-product-bridge.png") right center / 54% auto no-repeat;
+        opacity: 0.18;
+        filter: grayscale(1) contrast(1.08);
+        pointer-events: none;
+      }
+      .chapter-index,
+      .chapter-canvas,
+      .chapter-anchors span,
+      .case-map-visual,
+      .case-node {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border: 2px solid rgba(122, 23, 48, 0.24);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 249, 243, 0.96), rgba(255, 240, 204, 0.58)),
+          var(--kbp-paper);
+        box-shadow: 0 16px 30px rgba(76, 13, 29, 0.08);
+      }
+      .chapter-index {
+        display: grid;
+        align-content: center;
+        gap: 16px;
+        padding: 28px;
+      }
+      .chapter-index .chapter-no {
+        display: grid;
+        width: 104px;
+        height: 104px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+        font-size: 46px;
+        font-weight: 920;
+        line-height: 1;
+        box-shadow: 0 14px 24px rgba(76, 13, 29, 0.2);
+      }
+      .chapter-index strong {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 34px;
+        line-height: 1.08;
+      }
+      .chapter-index span:not(.chapter-no) {
+        color: var(--kbp-muted);
+        font-size: 19px;
+        line-height: 1.32;
+      }
+      .chapter-canvas {
+        display: grid;
+        place-items: center;
+        padding: 14px 16px;
+        background:
+          radial-gradient(circle at 86% 18%, rgba(214, 155, 54, 0.2), transparent 24%),
+          linear-gradient(135deg, rgba(122, 23, 48, 0.1), rgba(255, 249, 243, 0.92));
+      }
+      .chapter-canvas::before {
+        content: none;
+        position: absolute;
+        inset: 0;
+        background: url("./assets/generated/vibe-coding-workbench.png") center / cover no-repeat;
+        opacity: 0.12;
+        filter: grayscale(1) contrast(1.12);
+      }
+      .chapter-canvas svg {
+        position: relative;
+        z-index: 1;
+        width: min(96%, 690px);
+        height: 272px;
+      }
+      .chapter-canvas img,
+      .case-map-visual img {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        object-fit: cover;
+      }
+      .chapter-anchors {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .chapter-anchors > span {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        min-height: 96px;
+        padding: 12px 15px;
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 780;
+        line-height: 1.2;
+      }
+      .chapter-anchors b {
+        display: grid;
+        width: 50px;
+        height: 50px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+        font-size: 22px;
+        font-weight: 920;
+      }
+      .chapter-anchors strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--kvb-bordeaux-deep);
+        font-size: 21px;
+        line-height: 1.12;
+      }
+      .case-map {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+        gap: 18px;
+        min-height: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      .case-map::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 20% 16%, rgba(214, 155, 54, 0.18), transparent 26%),
+          url("./assets/generated/product-case-board.png") left center / 60% auto no-repeat;
+        opacity: 0.16;
+        filter: grayscale(1) contrast(1.08);
+      }
+      .case-map-visual {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+        padding: 14px;
+        background:
+          linear-gradient(135deg, rgba(122, 23, 48, 0.1), rgba(255, 249, 243, 0.92)),
+          var(--kbp-paper);
+      }
+      .case-map-visual::before {
+        content: none;
+        position: absolute;
+        inset: 0;
+        background: url("./assets/generated/product-case-board.png") center / cover no-repeat;
+        opacity: 0.2;
+        filter: grayscale(1) contrast(1.1);
+      }
+      .case-map-visual svg {
+        position: relative;
+        z-index: 1;
+        width: min(94%, 690px);
+        height: 390px;
+      }
+      .case-node-grid {
+        z-index: 1;
+        display: grid;
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .case-node {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 13px;
+        align-items: center;
+        padding: 14px;
+      }
+      .case-node b {
+        display: grid;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kvb-bordeaux);
+        color: #fff8ef;
+        font-size: 20px;
+        font-weight: 920;
+      }
+      .case-node strong {
+        color: var(--kvb-bordeaux-deep);
+        font-size: 24px;
+        line-height: 1.1;
+      }
+      .case-node span {
+        display: block;
+        margin-top: 4px;
+        color: var(--kbp-muted);
+        font-size: 17px;
+        line-height: 1.24;
+      }
+      #P02 .profile-layout,
+      #P09 .statement-layout,
+      #P12 .statement-layout,
+      #P15 .grid-4,
+      #P16 .global-case-board,
+      #P17 .reality-check-board,
+      #P19 .accumulation-board,
+      #P21 .problem-board,
+      #P22 .case-catalog,
+      #P25 .objection-board,
+      #P26 .community-case-board,
+      #P30 .package-system,
+      #P31 .quality-gate,
+      #P34 .closing-shift {
+        position: relative;
+        overflow: hidden;
+      }
+      #P02 .profile-layout > *,
+      #P09 .statement-layout > *,
+      #P12 .statement-layout > *,
+      #P15 .grid-4 > *,
+      #P16 .global-case-board > *,
+      #P17 .reality-check-board > *,
+      #P19 .accumulation-board > *,
+      #P21 .problem-board > *,
+      #P22 .case-catalog > *,
+      #P25 .objection-board > *,
+      #P26 .community-case-board > *,
+      #P30 .package-system > *,
+      #P31 .quality-gate > *,
+      #P34 .closing-shift > * {
+        position: relative;
+        z-index: 1;
+      }
+      #P02 .profile-layout::after,
+      #P09 .statement-layout::after,
+      #P12 .statement-layout::after,
+      #P15 .grid-4::after,
+      #P16 .global-case-board::after,
+      #P17 .reality-check-board::after,
+      #P19 .accumulation-board::after,
+      #P21 .problem-board::after,
+      #P22 .case-catalog::after,
+      #P25 .objection-board::after,
+      #P26 .community-case-board::after,
+      #P30 .package-system::after,
+      #P31 .quality-gate::after,
+      #P34 .closing-shift::before {
+        content: "";
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+        z-index: 0;
+        width: 350px;
+        height: 150px;
+        border: 2px solid rgba(122, 23, 48, 0.14);
+        border-radius: 8px;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.17;
+        filter: grayscale(1) contrast(1.12);
+        pointer-events: none;
+      }
+      #P02 .profile-layout::after,
+      #P26 .community-case-board::after,
+      #P34 .closing-shift::before {
+        background-image: url("./assets/generated/community-workspace.png");
+      }
+      #P09 .statement-layout::after,
+      #P12 .statement-layout::after,
+      #P21 .problem-board::after,
+      #P31 .quality-gate::after {
+        background-image: url("./assets/generated/prompt-to-product.png");
+      }
+      #P15 .grid-4::after,
+      #P16 .global-case-board::after,
+      #P30 .package-system::after {
+        background-image: url("./assets/generated/kikai-operating-system.png");
+      }
+      #P17 .reality-check-board::after,
+      #P19 .accumulation-board::after,
+      #P25 .objection-board::after {
+        background-image: url("./assets/generated/reality-check.png");
+      }
+      #P22 .case-catalog::after {
+        background-image: url("./assets/generated/product-case-board.png");
+      }
+      #P02 .profile-layout::before,
+      #P12 .statement-layout::before,
+      #P15 .grid-4::before,
+      #P21 .problem-board::before,
+      #P22 .case-catalog::before,
+      #P30 .package-system::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 18px;
+        z-index: 0;
+        width: 150px;
+        height: 112px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='112' viewBox='0 0 150 112'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.22' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 82h118M30 70l22-26 21 17 32-41 26 22'/%3E%3Cpath d='M26 24h48M26 38h30'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.18'%3E%3Ccircle cx='52' cy='44' r='12'/%3E%3Ccircle cx='106' cy='20' r='14'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+        pointer-events: none;
+      }
+      #P19 .accumulation-board::before {
+        inset: 0;
+      }
+      /* Final white/gold polish: keep the rich image2/SVG density, but remove the red-heavy
+         paper/background treatment and generic decorative marks that compete with the content. */
+      :root {
+        --kvb-bordeaux: #514c47;
+        --kvb-bordeaux-deep: #343230;
+        --kvb-rose: #efc56b;
+        --kvb-gold-soft: #ffffff;
+        --kbp-orange: #d88f1f;
+        --kbp-page-bg: #ffffff;
+        --kbp-paper: #ffffff;
+        --kbp-surface: #ffffff;
+        --kbp-orange-soft: #ffffff;
+      }
+      html,
+      body,
+      main,
+      .slide {
+        background: #ffffff !important;
+      }
+      .topbar {
+        border-bottom-color: rgba(214, 155, 54, 0.26);
+        background: #ffffff !important;
+        color: var(--kbp-muted);
+      }
+      .slide {
+        border: 0 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
+      .slide::before,
+      .cover::before {
+        background: linear-gradient(180deg, #f2b33d, #f6cf73 58%, #d88f1f);
+      }
+      .slide::after {
+        content: none;
+        display: none;
+      }
+      .slide-footer {
+        border-top-color: rgba(214, 155, 54, 0.24);
+      }
+      .card,
+      .panel,
+      .metric,
+      .table-wrap,
+      .image-frame,
+      .note,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof,
+      .chapter-index,
+      .chapter-canvas,
+      .chapter-anchors span,
+      .case-map-visual,
+      .case-node {
+        border-color: rgba(214, 155, 54, 0.28);
+        background: #ffffff !important;
+        box-shadow: 0 14px 28px rgba(52, 50, 48, 0.08);
+      }
+      .card.feature,
+      .panel.feature,
+      .metric.feature,
+      .path-card.feature,
+      .equation-box.feature,
+      .change-card .after,
+      .accumulation-card.hidden,
+      .problem-card.feature,
+      .case-card.feature,
+      .global-card.feature,
+      .community-case.feature,
+      .route-stage.active,
+      .coverage-stage.active,
+      .revenue-card.feature,
+      .origin-step.feature,
+      .loop-card.feature,
+      .gate-card.feature,
+      .pipeline-stage.feature,
+      .closing-panel.feature,
+      .reality-card.feature,
+      .objection-card.feature,
+      .risk-slice.feature {
+        border-color: rgba(214, 155, 54, 0.58);
+        background: #ffffff !important;
+      }
+      .number,
+      .commodity-item b,
+      .funnel-stage b,
+      .pipe-mark,
+      .gate-card .gate-badge,
+      .package-flow b,
+      .case-card .number,
+      .insight b,
+      .chapter-index .chapter-no,
+      .chapter-anchors b,
+      .case-node b {
+        background: var(--kbp-orange);
+        color: #ffffff;
+      }
+      .accent-rule,
+      .progress span,
+      .curve,
+      .case-meter i,
+      .reality-scale i,
+      .commodity-bar i {
+        background: var(--kbp-orange);
+        border-color: var(--kbp-orange);
+      }
+      .formula-strip,
+      .chapter-number,
+      .avatar,
+      .avatar-mark,
+      .impact-number,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .objection-core,
+      .reality-core {
+        border-left-color: var(--kbp-orange);
+      }
+      .cover {
+        background: #ffffff !important;
+      }
+      .cover-logo {
+        padding: 0;
+        border: 0;
+        border-color: rgba(214, 155, 54, 0.34);
+        background: transparent;
+      }
+      .cover .kicker {
+        color: var(--kbp-orange);
+      }
+      .cover h1,
+      .cover .lead-copy {
+        color: var(--kbp-ink);
+      }
+      .cover .slide-footer {
+        border-top-color: rgba(214, 155, 54, 0.26);
+        color: var(--kbp-muted);
+      }
+      .cover-panel {
+        border: 0;
+        border-color: rgba(214, 155, 54, 0.36);
+        background: transparent !important;
+      }
+      .cover-panel::after,
+      #P10 .divider-layout::after,
+      #P20 .route-system::after,
+      #P29 .coverage-board::after {
+        border: 0;
+        background: transparent !important;
+        box-shadow: none;
+      }
+      .cover-panel::after {
+        border: 0;
+        box-shadow: none;
+      }
+      #P10 .chapter-index,
+      #P10 .chapter-canvas,
+      #P10 .chapter-anchors span {
+        border: 0;
+        background: transparent !important;
+        box-shadow: none;
+      }
+      #P10 .chapter-mural::before {
+        content: none;
+        display: none;
+      }
+      #P10 .chapter-index {
+        padding: 18px 14px 18px 0;
+      }
+      #P10 .chapter-index .chapter-no {
+        width: auto;
+        height: auto;
+        place-items: start;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: var(--kbp-orange);
+        font-size: 18px;
+        letter-spacing: 0.08em;
+      }
+      #P10 .chapter-canvas {
+        padding: 0;
+      }
+      #P10 .chapter-anchors > span {
+        grid-template-columns: 54px minmax(0, 1fr);
+        min-height: 86px;
+        padding: 10px 0;
+      }
+      #P10 .chapter-anchors b {
+        background: transparent;
+        color: var(--kbp-orange);
+        font-size: 18px;
+      }
+      .controls button,
+      .counter {
+        border-color: rgba(214, 155, 54, 0.28);
+        background: #ffffff;
+        color: var(--kbp-ink);
+      }
+      .card::after,
+      .panel::after,
+      .metric::after,
+      .commodity-item::after,
+      .equation-box::after,
+      .path-card::after,
+      .change-card::after,
+      .metric-tile::after,
+      .funnel-stage::after,
+      .accumulation-card::after,
+      .problem-card::after,
+      .case-card::after,
+      .loop-card::after,
+      .risk-card::before,
+      .gate-card::after,
+      .pipeline-stage::before,
+      .closing-panel::after,
+      .global-card::after,
+      .revenue-card::after,
+      .route-stage::before,
+      .coverage-stage::before,
+      .community-case::after,
+      .commodity-map::before,
+      .amplifier-model::before,
+      .path-board::before,
+      .change-board::before,
+      .reality-funnel::before,
+      .accumulation-board::before,
+      .origin-timeline::before,
+      .revenue-board::before,
+      .support-loop::before,
+      .pipeline-roadmap::before,
+      .path-pivot::after,
+      .formula-strip::after,
+      .package-core::after,
+      .loop-core::after,
+      .statement-core::after,
+      .objection-core::after,
+      .reality-core::before,
+      #P02 .profile-layout::before,
+      #P12 .statement-layout::before,
+      #P15 .grid-4::before,
+      #P21 .problem-board::before,
+      #P22 .case-catalog::before,
+      #P30 .package-system::before,
+      #P34 .closing-shift::before,
+      #P34 .closing-shift::after {
+        content: none;
+        display: none;
+      }
+      /* Figma import mode: expose every slide as a full-size 1600x900 frame.
+         The presentation controller still exists below, but these overrides make
+         all sections visible and remove browser-only navigation chrome. */
+      html,
+      body {
+        width: max-content;
+        height: auto;
+        min-height: 100%;
+        overflow: auto;
+        background: #f4f4f4 !important;
+      }
+      body {
+        padding: 72px;
+      }
+      .topbar,
+      .controls,
+      .progress,
+      .speaker-notes {
+        display: none !important;
+      }
+      main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 72px;
+        width: var(--deck-w);
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        background: transparent !important;
+      }
+      .slide,
+      .slide.is-active {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        flex: 0 0 auto;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        transform-origin: top left !important;
+        page-break-after: always;
+        break-after: page;
+        background: #ffffff !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="figma-import">
+    <nav class="topbar" aria-label="Deck navigation">
+      <a href="../">Decks</a>
+      <span>/</span>
+      <a href="../../formats/kikai-business-ppt/business-plain-patterns.html">Kikai Business PPT</a>
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span>Collab Seminar / Bold White Gold Visual</span>
+    </nav>
+
+    <main aria-label="Kikai Collab Seminar slides">
+      <section class="slide cover" id="P01" data-slide="P01" aria-label="表紙">
+        <div class="cover-layout">
+          <div>
+            <img class="cover-logo" src="../../formats/kikai-business-ppt/assets/6.png" alt="Kikai Vibe Coding Salon">
+            <p class="kicker">From consumer to builder</p>
+            <h1 data-role="title">AI時代の新しいサービスづくり<br>バイブコーディングの世界</h1>
+            <p class="lead-copy" data-role="lead">「消費者」から「事業者」へ。AIを便利に使うだけではなく、自分のサービスを作る側へ回るためのコラボセミナー。</p>
+            <div class="accent-rule" aria-hidden="true"></div>
+          </div>
+          <aside class="cover-panel" data-role="body">
+            <img src="../../formats/kikai-business-ppt/assets/2.png" alt="Kikai icon">
+            <span>Collab seminar</span>
+            <span>〇〇様向け</span>
+            <span>Format: Bold White Gold Visual</span>
+          </aside>
+        </div>
+        <footer class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P01</span></footer>
+        <aside class="speaker-notes">今日は「AIを便利に使う」という話から一歩進めて、AI時代に自分のサービスを作る側へ回る話をします。</aside>
+      </section>
+
+      <section class="slide" id="P02" data-slide="P02" aria-label="登壇者紹介">
+        <header class="slide-header"><span class="doc-label">Speaker</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">澤田さんは非エンジニアから事業化まで経験している</h2>
+          <p class="lead-copy" data-role="lead">自社アプリと受託の両輪を経験し、作る力を収益に変えるところまで実績化している。</p>
+          <div class="profile-layout body-slot" data-role="body">
+            <div class="profile-card" aria-label="澤田さんの実績サマリー">
+              <div class="speaker-photo"><img src="./assets/generated/sawada-photo.png" alt="澤田さんのプロフィール写真"></div>
+              <div class="profile-stats">
+                <span>非エンジニア出身</span>
+                <span>自社アプリ月400万円</span>
+                <span>受託13万円 / 50万円</span>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>登壇者紹介：澤田</h3>
+              <ul class="profile-list">
+                <li>元大手経営コンサルティングファーム出身</li>
+                <li>コーディング知識ゼロから独学でアプリ・サービスを開発</li>
+                <li>自社アプリは初月200万円、現在は月400万円を継続</li>
+                <li>受託でも13万円・50万円規模の案件を実績化</li>
+              </ul>
+              <div class="mini-tag-row">
+                <span>作る</span>
+                <span>売る</span>
+                <span>教える</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Intro</span><span>P02</span></footer>
+        <aside class="speaker-notes">澤田さんは、もともとエンジニアではありません。コーディング知識ゼロから独学でアプリやサービスを作り、売上と受託実績まで経験しています。</aside>
+      </section>
+
+      <section class="slide" id="P03" data-slide="P03" aria-label="今日起きてほしい変化">
+        <header class="slide-header"><span class="doc-label">Goal</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">今日の45分で、視点と行動が変わる</h2>
+          <p class="lead-copy" data-role="lead">知識を増やすだけではなく、AI時代の稼ぎ方と次の一歩を持ち帰る。</p>
+          <div class="grid-3 body-slot" data-role="body">
+            <article class="card"><span class="number">1</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p03-turning-point.png" alt=""></div><strong>転換点を理解する</strong><p>AI時代の稼ぎ方が、どこで変わっているのかを掴む。</p><ul class="tight-list"><li>AI活用のコモディティ化</li><li>マーケとプロダクトの違い</li><li>作る側に回る意味</li></ul></article>
+            <article class="card feature"><span class="number">2</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p03-can-build.png" alt=""></div><strong>自分にもできると納得する</strong><p>非エンジニアでも作る側へ回れる可能性を知る。</p><ul class="tight-list"><li>自然言語で要件を渡す</li><li>数日でプロトタイプ化</li><li>実務アプリまで射程に入る</li></ul></article>
+            <article class="card"><span class="number">3</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p03-next-action.png" alt=""></div><strong>次の一歩を明確にする</strong><p>終わったあとに何を学び、何を試すべきかを見える状態にする。</p><ul class="tight-list"><li>黄金ルートを理解</li><li>受託の入口を知る</li><li>Kikaiで伴走する範囲を確認</li></ul></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Intro</span><span>P03</span></footer>
+        <aside class="speaker-notes">今日のゴールは、転換点を理解し、自分にも作れると納得し、次の一歩が明確になっている状態を作ることです。</aside>
+      </section>
+
+      <section class="slide" id="P04" data-slide="P04" aria-label="AI活用は当たり前">
+        <header class="slide-header"><span class="doc-label">Context</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">AIを使うこと自体は、もう優位性ではない</h2>
+          <p class="lead-copy" data-role="lead">ライティング、画像生成、業務効率化は当たり前。重要なのは、AIを使って何を生み出すか。</p>
+          <div class="commodity-map body-slot" data-role="body">
+            <div class="commodity-stack" aria-label="AI活用のコモディティ化">
+              <div class="commodity-item"><b>文</b><div><strong>ライティング</strong><span>文章作成、要約、投稿文の生成は標準装備になった。</span><div class="commodity-bar"><i style="--fill: 92%"></i></div></div></div>
+              <div class="commodity-item"><b>画</b><div><strong>画像・資料生成</strong><span>ビジュアルの初稿づくりも、誰でも試せる領域になった。</span><div class="commodity-bar"><i style="--fill: 86%"></i></div></div></div>
+              <div class="commodity-item"><b>効</b><div><strong>業務効率化</strong><span>議事録、検索、翻訳、リサーチは日常業務に入り始めた。</span><div class="commodity-bar"><i style="--fill: 78%"></i></div></div></div>
+            </div>
+            <div class="differentiator">
+              <span class="pill">Next edge</span>
+              <strong>差がつくのは、AIで「使える価値」を作れるか。</strong>
+              <p>便利に使うだけでは横並びになる。次の一手は、顧客の課題を解くサービスや業務アプリまで形にすること。</p>
+              <div class="layers">
+                <div class="layer-row"><b>Input</b><span>課題・業務・顧客理解</span></div>
+                <div class="layer-row"><b>Build</b><span>動くプロトタイプ</span></div>
+                <div class="layer-row"><b>Value</b><span>販売・受託・継続改善</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Intro</span><span>P04</span></footer>
+        <aside class="speaker-notes">すでにAIは多くの場面で当たり前になっています。つまり、AIを使っているだけでは差がつきません。</aside>
+      </section>
+
+      <section class="slide" id="P05" data-slide="P05" aria-label="AI活用の2つの道">
+        <header class="slide-header"><span class="doc-label">Two Paths</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">AI活用は「伝える」と「作る」に分かれる</h2>
+          <p class="lead-copy" data-role="lead">どちらも正しい。ただし、個人が勝ち筋を作るうえでは構造がかなり違う。</p>
+          <div class="path-board path-arena body-slot" data-role="body">
+            <article class="path-card path-marketing">
+              <span class="path-label">伝える道</span>
+              <div class="path-visual" aria-hidden="true">
+                <svg viewBox="0 0 320 150">
+                  <path class="mono-fill" stroke-width="4" d="M34 92h44l66 28V30L78 58H34z"></path>
+                  <path class="mono-line" stroke-width="4" d="M144 50c34 9 53 26 58 50M144 76c21 6 34 16 38 30M84 94l16 34"></path>
+                  <path class="mono-line" stroke-width="5" d="M218 104h74M232 78h46M232 52h34"></path>
+                  <circle class="mono-gold" stroke-width="4" cx="248" cy="112" r="18"></circle>
+                  <circle class="mono-fill" stroke-width="4" cx="291" cy="44" r="13"></circle>
+                </svg>
+              </div>
+              <strong>AI × マーケティング</strong>
+              <span>発信・集客・コンテンツ量産。「どう伝えるか」を効率化するゲーム。</span>
+              <ul>
+                <li>すでに強い発信者ほど伸びやすい</li>
+                <li>成果は既存の知見・影響力に依存しやすい</li>
+                <li>競争相手も同じAIを使う</li>
+              </ul>
+              <em>伝達の増幅</em>
+            </article>
+            <div class="path-pivot"><span>今回の主題</span><strong>価値を作る側へ</strong><i>→</i></div>
+            <article class="path-card path-product feature">
+              <span class="path-label">作る道</span>
+              <div class="path-visual" aria-hidden="true">
+                <svg viewBox="0 0 320 150">
+                  <rect class="mono-fill" stroke-width="4" x="34" y="30" width="108" height="82" rx="10"></rect>
+                  <path class="mono-line" stroke-width="4" d="M54 56h62M54 76h42M54 96h66M88 112v18M68 130h40"></path>
+                  <rect class="mono-fill" stroke-width="4" x="190" y="20" width="86" height="108" rx="12"></rect>
+                  <path class="mono-line" stroke-width="4" d="M210 48h46M210 68h30M210 91h48M210 107h34"></path>
+                  <path class="mono-line" stroke-width="5" d="M150 74h30m-10-12 12 12-12 12"></path>
+                  <circle class="mono-gold" stroke-width="4" cx="258" cy="35" r="15"></circle>
+                </svg>
+              </div>
+              <strong>AI × プロダクト</strong>
+              <span>サービス開発・課題解決。「何を作るか」を創造するゲーム。</span>
+              <ul>
+                <li>小さな業務課題から価値化できる</li>
+                <li>動くものが実績として残る</li>
+                <li>受託・販売・自社アプリへ広げられる</li>
+              </ul>
+              <em>価値の創造</em>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P05</span></footer>
+        <aside class="speaker-notes">AIマーケティングとAIプロダクト。どちらも正しいですが、個人の勝率は根本的に異なります。</aside>
+      </section>
+
+      <section class="slide" id="P06" data-slide="P06" aria-label="AIマーケは拡声器">
+        <header class="slide-header"><span class="doc-label">Marketing</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">AIマーケは、ナレッジを持つ人の拡声器</h2>
+          <p class="lead-copy" data-role="lead">蓄積がある人は伸びる。ゼロを100倍しても、結果はゼロのまま。</p>
+          <div class="amplifier-model body-slot" data-role="body">
+            <div class="amplifier-equation" aria-label="AIマーケティングの拡声器モデル">
+              <div class="equation-box feature"><b>材料</b><strong>経験・知識・顧客理解</strong><span>誰に何を言うべきか、何が刺さるか。</span></div>
+              <div class="formula-strip">材料 × AI = 出力</div>
+              <div class="equation-box"><b>AIの役割</b><strong>速く、多く、整えて出す</strong><span>AIは材料を増幅するが、材料そのものは作りにくい。</span></div>
+            </div>
+            <div class="knowledge-board">
+              <div class="knowledge-row feature">
+                <div class="knowledge-copy"><b>蓄積あり</b><strong>質のある材料が増幅される</strong><p>経験・顧客理解・発信の型がある人は、AIで量と速度を上げられる。</p></div>
+                <div class="gain-bars" aria-label="蓄積がある場合の伸び">
+                  <span style="--w: 42%">元の知見</span>
+                  <span style="--w: 72%">AIで量産</span>
+                  <span style="--w: 96%">反応から改善</span>
+                </div>
+              </div>
+              <div class="knowledge-row">
+                <div class="knowledge-copy"><b>蓄積なし</b><strong>空の材料は増幅できない</strong><p>何を言うべきか、誰に刺さるかがないと、投稿数だけ増えても差にならない。</p></div>
+                <div class="gain-bars muted" aria-label="蓄積がない場合の伸び悩み">
+                  <span style="--w: 24%">主張が薄い</span>
+                  <span style="--w: 28%">似た投稿が増える</span>
+                  <span style="--w: 30%">反応が蓄積しない</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P06</span></footer>
+        <aside class="speaker-notes">AIマーケは初心者の逆転装置というより、強い人をさらに強くする拡声器です。</aside>
+      </section>
+
+      <section class="slide" id="P07" data-slide="P07" aria-label="作る側の壁">
+        <header class="slide-header"><span class="doc-label">Product</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">AIは「作る側」の壁を壊した</h2>
+          <p class="lead-copy" data-role="lead">アイディアを言葉で伝え、AIと対話しながら、数日で動くものを作れるようになっている。</p>
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
+            <div class="image-frame"><img src="./assets/generated/prompt-to-product.png" alt="日本語の指示からSaaSダッシュボードが生まれる生成ビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>1</b><div><strong>言葉で要件を渡す</strong><span>画面、業務、利用者、判断条件を日本語で整理する。</span></div></div>
+              <div class="insight"><b>2</b><div><strong>AIが構造化する</strong><span>データ、画面、ワークフローへ分解して形にする。</span></div></div>
+              <div class="insight"><b>3</b><div><strong>動くサービスへ近づく</strong><span>数日単位でプロトタイプを検証できる。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="作る側の壁が下がった要因">
+              <span><b>Before</b>コード、外注費、開発期間が入口の壁だった</span>
+              <span><b>Now</b>日本語の要件から画面と処理を試作できる</span>
+              <span><b>Control</b>人間は課題、制約、改善判断を握る</span>
+              <span><b>Output</b>見せられるプロトタイプが営業材料になる</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P07</span></footer>
+        <aside class="speaker-notes">これまでサービスを作るには、スキル、資金、時間が必要でした。AIによって、その壁が大きく下がりました。</aside>
+      </section>
+
+      <section class="slide" id="P08" data-slide="P08" aria-label="何を売るか">
+        <header class="slide-header"><span class="doc-label">Shift</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">情報が無料化すると「何を作るか」が強くなる</h2>
+          <p class="lead-copy" data-role="lead">大量にメッセージを出す側から、実際の解決策を生み出す側へ移る。</p>
+          <div class="table-wrap body-slot body-fit" data-role="body">
+            <table>
+              <thead><tr><th>項目</th><th>マーケティング</th><th>プロダクト</th></tr></thead>
+              <tbody>
+                <tr><td>焦点</td><td>どう売るか</td><td><strong>何を作るか</strong></td></tr>
+                <tr><td>AIの役割</td><td>拡声器</td><td><strong>共同創業者</strong></td></tr>
+                <tr><td>競争環境</td><td>飽和・レッドオーシャン</td><td><strong>未開拓・ブルーオーシャン</strong></td></tr>
+                <tr><td>成果物</td><td>投稿、LP、広告文</td><td><strong>業務アプリ、ツール、SaaS</strong></td></tr>
+                <tr><td>初心者の勝ち筋</td><td>発信力と既存知見が必要</td><td><strong>身近な課題から始められる</strong></td></tr>
+                <tr><td>収益の可能性</td><td>影響力に依存</td><td><strong>段階的に積み上げ可能</strong></td></tr>
+                <tr><td>残る資産</td><td>コンテンツの蓄積</td><td><strong>動く実績と顧客理解</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P08</span></footer>
+        <aside class="speaker-notes">これからは「どう売るか」だけではなく、「何を作るか」を持っている人が強くなります。</aside>
+      </section>
+
+      <section class="slide" id="P09" data-slide="P09" aria-label="プロダクト側にこだわる理由">
+        <header class="slide-header"><span class="doc-label">Mission</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">私たちはプロダクト側にこだわる</h2>
+          <p class="lead-copy" data-role="lead">情報を消費する人ではなく、AIで価値を作る人を増やしたい。</p>
+          <div class="statement-layout with-strip body-slot" data-role="body">
+            <div class="statement-core"><strong>情報を消費する人ではなく、AIで価値を作る人を増やす。</strong><span>創造の民主化</span></div>
+            <div class="insight-stack">
+              <div class="insight"><b>A</b><div><strong>マーケは蓄積がものを言う</strong><span>もともと強い人が、さらに強くなる構造になりやすい。</span></div></div>
+              <div class="insight"><b>B</b><div><strong>プロダクトは入口が広がった</strong><span>スキルがなくても始められ、経験を積むほど差がつく。</span></div></div>
+              <div class="insight"><b>C</b><div><strong>価値が残る</strong><span>発信量ではなく、顧客の課題を解く資産が残る。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="プロダクト側にこだわる判断軸">
+              <span><b>価値</b>顧客の時間と手間を直接減らせる</span>
+              <span><b>実績</b>動くものを見せれば信頼材料になる</span>
+              <span><b>学習</b>作る過程で顧客理解が蓄積する</span>
+              <span><b>収益</b>受託、月額、販売へ展開できる</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P09</span></footer>
+        <aside class="speaker-notes">私たちがプロダクト側にこだわるのは、AIで価値を作る人を増やしたいからです。</aside>
+      </section>
+
+      <section class="slide" id="P10" data-slide="P10" aria-label="章扉 バイブコーディング">
+        <header class="slide-header"><span class="doc-label">Section Divider</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">「作る」の常識が変わる</h2>
+          <p class="lead-copy" data-role="lead">バイブコーディングとは、作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
+          <div class="chapter-mural body-slot body-compact" data-role="body">
+            <div class="chapter-index">
+              <span class="chapter-no">SECTION 02</span>
+              <strong>言葉から、動くサービスへ。</strong>
+              <span>自然言語で要件を伝え、AIと画面を往復しながら、実用サービスまで近づける。</span>
+            </div>
+            <div class="chapter-canvas" aria-label="言葉からサービス化する流れの生成ビジュアル"><img src="./assets/generated/image2-p10-vibe-coding-section.png" alt=""></div>
+            <div class="chapter-anchors" aria-label="この章で扱う視点">
+              <span><b>言葉</b><span><strong>要件を渡す</strong>自然言語で目的、条件、画面、動きを伝える。</span></span>
+              <span><b>画面</b><span><strong>動く形にする</strong>AIと往復しながら、試せるプロトタイプへ落とす。</span></span>
+              <span><b>事業</b><span><strong>価値に接続する</strong>業務改善、受託、販売、自社ツールへ広げる。</span></span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P10</span></footer>
+        <aside class="speaker-notes">ここからは、バイブコーディングとは何かを具体的に見ていきます。</aside>
+      </section>
+
+      <section class="slide" id="P11" data-slide="P11" aria-label="言葉が形になる">
+        <header class="slide-header"><span class="doc-label">Prompt to App</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">言葉が、そのまま形になる</h2>
+          <p class="lead-copy" data-role="lead">コードを一行も書かず、AIと自然言語で対話しながらプロダクトを開発する。</p>
+          <div class="visual-led reverse with-strip body-slot body-tall" data-role="body">
+            <div class="insight-stack">
+              <div class="insight"><b>言</b><div><strong>自然言語で伝える</strong><span>欲しい機能、画面、制約をそのまま言葉にする。</span></div></div>
+              <div class="insight"><b>整</b><div><strong>AIと整理する</strong><span>要件、データ、操作フローを対話しながら固める。</span></div></div>
+              <div class="insight"><b>形</b><div><strong>動く画面で検証する</strong><span>専属エンジニアと一緒に作る感覚へ変わる。</span></div></div>
+            </div>
+            <div class="image-frame contain"><img src="./assets/generated/vibe-coding-workbench.png" alt="プロンプト、要件、アプリ画面を一画面で整理した生成ビジュアル"></div>
+            <div class="evidence-strip" aria-label="自然言語開発で必要な入力">
+              <span><b>誰に</b>利用者、権限、操作頻度を決める</span>
+              <span><b>何を</b>入力、保存、表示、通知を決める</span>
+              <span><b>どう使う</b>業務フローと例外処理を伝える</span>
+              <span><b>どこまで</b>試作、納品、販売の水準を分ける</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P11</span></footer>
+        <aside class="speaker-notes">必要なのは完璧なコードではなく、何を作りたいかを言葉にする力です。</aside>
+      </section>
+
+      <section class="slide" id="P12" data-slide="P12" aria-label="簡単なものだけではない">
+        <header class="slide-header"><span class="doc-label">Reality</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">「簡単なものしか作れない」はもう古い</h2>
+          <p class="lead-copy" data-role="lead">実務で使えるアプリや業務システムが、すでに生まれている。</p>
+          <div class="statement-layout with-strip body-slot" data-role="body">
+            <div class="statement-core"><strong>実用化の差は、AIに丸投げしないこと。</strong><span>要件整理 → 改善 → 検証</span></div>
+            <div class="process-map">
+              <div class="process-node"><strong>課題</strong><span>現場の手間を特定する</span><em>誰が何に困るか</em></div>
+              <div class="process-node"><strong>要件</strong><span>必要な画面と入力を決める</span><em>何を保存し、何を出すか</em></div>
+              <div class="process-node"><strong>生成</strong><span>AIでプロトタイプ化</span><em>まず動く形にする</em></div>
+              <div class="process-node"><strong>修正</strong><span>業務に合わせて直す</span><em>例外、権限、運用を詰める</em></div>
+              <div class="process-node"><strong>実用</strong><span>納品・販売へ進む</span><em>対価を取れる状態にする</em></div>
+            </div>
+            <div class="evidence-strip" aria-label="実用化できるかの判定軸">
+              <span><b>利用者</b>誰が日常的に使うかが具体化されている</span>
+              <span><b>データ</b>入力、保存、出力、例外が定義されている</span>
+              <span><b>運用</b>権限、通知、修正依頼の流れが見えている</span>
+              <span><b>対価</b>時間削減か売上改善に接続している</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P12</span></footer>
+        <aside class="speaker-notes">重要なのは、AIに丸投げすることではなく、要件を整理しながら改善していくことです。</aside>
+      </section>
+
+      <section class="slide" id="P13" data-slide="P13" aria-label="非エンジニア開発実績">
+        <header class="slide-header"><span class="doc-label">Cases</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">非エンジニアでも実用サービスは作れる</h2>
+          <p class="lead-copy" data-role="lead">業務上の具体的な課題が見えていれば、現場の手間や判断を減らすプロダクトにできる。</p>
+          <div class="case-map body-slot body-tall" data-role="body">
+            <div class="case-map-visual" aria-label="非エンジニアが現場課題から実用サービスを作る生成ビジュアル"><img src="./assets/generated/image2-p13-practical-cases.png" alt=""></div>
+            <div class="case-node-grid" aria-label="実用アプリ事例">
+              <div class="case-node"><b>01</b><span><strong>FreePick</strong>スケジュール調整の往復を減らし、候補収集から決定連絡までを軽くする。</span></div>
+              <div class="case-node"><b>02</b><span><strong>ShiftManager</strong>希望、制約、人数条件を整理し、シフト案作成と確認負荷を下げる。</span></div>
+              <div class="case-node"><b>03</b><span><strong>物販ツール</strong>商品、在庫、販売データをまとめ、仕入れと改善判断を支援する。</span></div>
+              <div class="case-node"><b>04</b><span><strong>AI書類抽出</strong>書類から必要項目を抜き出し、入力作業を業務DXへ変える。</span></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P13</span></footer>
+        <aside class="speaker-notes">非エンジニアでも、課題が見えていれば実用的なサービスを作れるようになっています。</aside>
+      </section>
+
+      <section class="slide" id="P14" data-slide="P14" aria-label="開発の常識が変わった">
+        <header class="slide-header"><span class="doc-label">Before / After</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">開発期間、コスト、必要スキルが変わった</h2>
+          <p class="lead-copy" data-role="lead">開発のハードルが下がっただけではなく、必要な能力の中心が変わっている。</p>
+          <div class="change-board body-slot" data-role="body">
+            <article class="change-card">
+              <strong>開発期間</strong>
+              <div class="before"><b>従来</b><span>要件定義、実装、確認で数ヶ月かかる。</span></div>
+              <div class="after"><b>バイブコーディング</b><strong>数日〜数週間</strong><span>会話しながらプロトタイプを動かす。</span></div>
+              <em>検証の速度が変わる</em>
+            </article>
+            <article class="change-card">
+              <strong>コスト</strong>
+              <div class="before"><b>従来</b><span>外注や開発体制で数十万〜数百万円。</span></div>
+              <div class="after"><b>バイブコーディング</b><strong>ほぼゼロ</strong><span>初期検証を小さく始められる。</span></div>
+              <em>試行回数が増える</em>
+            </article>
+            <article class="change-card">
+              <strong>必要スキル</strong>
+              <div class="before"><b>従来</b><span>プログラミング言語と開発経験が前提。</span></div>
+              <div class="after"><b>バイブコーディング</b><strong>日本語の指示力</strong><span>課題、制約、画面を言葉にする力が入口。</span></div>
+              <em>上流の判断が差になる</em>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P14</span></footer>
+        <aside class="speaker-notes">バイブコーディングでは、数日から数週間、ほぼゼロに近いコスト、日本語の指示力が入口になります。</aside>
+      </section>
+
+      <section class="slide" id="P15" data-slide="P15" aria-label="4つの可能性">
+        <header class="slide-header"><span class="doc-label">Potential</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">バイブコーディングには4つの可能性がある</h2>
+          <p class="lead-copy" data-role="lead">個人が小さく作り、小さく売る選択肢が現実になる。</p>
+          <div class="grid-4 body-slot" data-role="body">
+            <article class="card"><span class="number">1</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p15-no-code.png" alt=""></div><strong>No Code</strong><p>コードは一切書かない。</p><ul class="tight-list"><li>日本語で画面を説明</li><li>AIが実装候補を返す</li><li>非エンジニアが入口に立てる</li></ul></article>
+            <article class="card feature"><span class="number">2</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p15-speed.png" alt=""></div><strong>Speed</strong><p>アイディアから数日でリリース。</p><ul class="tight-list"><li>検証までの距離が短い</li><li>失敗してもやり直しやすい</li><li>改善サイクルを回しやすい</li></ul></article>
+            <article class="card"><span class="number">3</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-quality-inspect.png" alt=""></div><strong>Quality</strong><p>実務で使える品質に近づける。</p><ul class="tight-list"><li>要件と運用を詰める</li><li>レビューで不安を潰す</li><li>納品可能な形に寄せる</li></ul></article>
+            <article class="card feature"><span class="number">4</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p15-business.png" alt=""></div><strong>Business</strong><p>低コストなので受託でも利益率を高めやすい。</p><ul class="tight-list"><li>小規模案件から始める</li><li>実績が次の提案になる</li><li>販売・自社アプリへ広がる</li></ul></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P15</span></footer>
+        <aside class="speaker-notes">コードを書かない、速い、実務品質まで近づけられる、低コストで受託にも向く。この4つが可能性です。</aside>
+      </section>
+
+      <section class="slide" id="P16" data-slide="P16" aria-label="海外事例">
+        <header class="slide-header"><span class="doc-label">Global Cases</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">海外では個人 × AIの開発が常識になり始めた</h2>
+          <p class="lead-copy" data-role="lead">1人で作り、売り、改善する流れが現実に起きている。</p>
+          <div class="global-case-board body-slot" data-role="body">
+            <article class="global-card feature"><b>Speed case</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-global-speed.png" alt=""></div><strong>24時間で開発</strong><span>収益公開アプリのように、短期で作って市場反応を見る事例が出ている。</span><ul class="tight-list"><li>完成前に反応を見る</li><li>公開速度が競争力になる</li></ul><div class="case-meter"><i style="--w: 88%"></i><i style="--w: 52%"></i></div><em>作る → 公開 → 反応確認</em></article>
+            <article class="global-card"><b>Revenue case</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-global-revenue.png" alt=""></div><strong>年間売上6,800万円規模</strong><span>マッチング相手の犯罪歴等を調べるアプリのように、個人開発でも特定課題に深く刺せる。</span><ul class="tight-list"><li>ニッチな痛みを狙う</li><li>課金理由が明確</li></ul><div class="case-meter"><i style="--w: 64%"></i><i style="--w: 78%"></i></div><em>ニッチ課題 → 課金導線</em></article>
+            <article class="global-card"><b>Pattern</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-global-loop.png" alt=""></div><strong>共通点は「小さく出して改善」</strong><span>大きなSaaSを最初から狙うのではなく、課題を絞り、早く出し、反応を見て磨く。</span><ul class="tight-list"><li>課題を絞る</li><li>早く市場に出す</li></ul><div class="case-meter"><i style="--w: 42%"></i><i style="--w: 92%"></i></div><em>個人でも回せる事業サイクル</em></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P16</span></footer>
+        <aside class="speaker-notes">成功事例だけを真似すればいいわけではありませんが、1人で作り、売り、改善する流れが起きています。</aside>
+      </section>
+
+      <section class="slide" id="P17" data-slide="P17" aria-label="でも待ってください">
+        <header class="slide-header"><span class="doc-label">Reality Check</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">でも、待ってください</h2>
+          <p class="lead-copy" data-role="lead">「自分にもできそう」の直後に、現実を見る必要がある。</p>
+          <div class="reality-check-board body-slot" data-role="body">
+            <div class="reality-core">
+              <strong>「作れる」と「稼げる」の間には、まだ距離がある。</strong>
+              <div class="reality-scale" aria-label="作れる感覚と収益化の距離">
+                <div><span>作れる感覚</span><i style="--w: 86%"></i><em>高</em></div>
+                <div class="muted"><span>再現性</span><i style="--w: 38%"></i><em>未確定</em></div>
+                <div class="muted"><span>収益化</span><i style="--w: 24%"></i><em>要設計</em></div>
+              </div>
+              <span>だから、成功事例の熱量を保ったまま、次ページ以降で失敗率と段階ルートを確認する。</span>
+            </div>
+            <div class="reality-card-grid">
+              <article class="reality-card feature"><b>Optimism</b><strong>できそう、は正しい</strong><span>入口が開いたこと自体は大きな変化。非エンジニアでも試作できる。</span><ul class="tight-list"><li>自然言語で要件化</li><li>数日でプロトタイプ</li></ul></article>
+              <article class="reality-card"><b>Risk</b><strong>でも再現性は別問題</strong><span>派手な成功例だけを見ると、背景の経験や失敗を見落とす。</span><ul class="tight-list"><li>見えない蓄積</li><li>サバイバーシップバイアス</li></ul></article>
+              <article class="reality-card"><b>Route</b><strong>必要なのは段階設計</strong><span>いきなりSaaSではなく、学習、受託、拡張の順番で進める。</span><ul class="tight-list"><li>小さな納品</li><li>課題理解を蓄積</li></ul></article>
+            </div>
+            <div class="evidence-strip" aria-label="現実を見るためのチェックポイント">
+              <span><b>誤解</b>AIなら誰でもすぐ大きく稼げる</span>
+              <span><b>現実</b>成功例の裏に失敗と経験の蓄積がある</span>
+              <span><b>対策</b>小さな受託で実績と課題理解を作る</span>
+              <span><b>順番</b>学ぶ → 動くもの → 納品 → 自社化</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P17</span></footer>
+        <aside class="speaker-notes">AIで作れるようになったからといって、誰でもいきなり大きく稼げるわけではありません。</aside>
+      </section>
+
+      <section class="slide" id="P18" data-slide="P18" aria-label="moonshot神話">
+        <header class="slide-header"><span class="doc-label">Numbers</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">目立つ成功の裏で、多くの人が失敗している</h2>
+          <p class="lead-copy" data-role="lead">moonshot神話だけを見ると、再現性のない勝負になる。</p>
+          <div class="reality-funnel body-slot" data-role="body">
+            <div class="metric-wall" aria-label="失敗率を示す数字">
+              <div class="metric-tile"><b>80.9%</b><span>ソロファウンダーで $500 MRR 未満</span></div>
+              <div class="metric-tile"><b>4.8%</b><span>$10K MRR 以上に到達</span></div>
+              <div class="metric-tile"><b>80-85%</b><span>AIラッパーの24ヶ月失敗率</span></div>
+              <div class="metric-tile"><b>$200</b><span>正規AI副業収入の月中央値</span></div>
+            </div>
+            <div class="funnel-stack" aria-label="moonshot神話の落とし穴">
+              <div class="funnel-stage"><b>1</b><div><strong>派手な成功だけを見る</strong><span>成功者のスクリーンショットだけが目に入る。</span></div><em>話題化</em></div>
+              <div class="funnel-stage"><b>2</b><div><strong>同じように始める</strong><span>顧客、課題、導線がないまま作り始める。</span></div><em>参入</em></div>
+              <div class="funnel-stage"><b>3</b><div><strong>売れずに止まる</strong><span>完成後の販売・改善・継続運用で詰まる。</span></div><em>離脱</em></div>
+              <div class="funnel-stage"><b>4</b><div><strong>必要なのは段階設計</strong><span>学ぶ、受託、実績化、販売へ順番を作る。</span></div><em>再現性</em></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P18</span></footer>
+        <aside class="speaker-notes">派手な成功事例だけを見て飛び込むと、再現性のない勝負になります。</aside>
+      </section>
+
+      <section class="slide" id="P19" data-slide="P19" aria-label="海外スターの裏の蓄積">
+        <header class="slide-header"><span class="doc-label">Accumulation</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">海外スターにも、見えない蓄積がある</h2>
+          <p class="lead-copy" data-role="lead">ゼロから一足飛びに見える事例は、サバイバーシップ・バイアスを含む。</p>
+          <div class="accumulation-board body-slot" data-role="body">
+            <div class="accumulation-row" aria-label="表に見える成果">
+              <article class="accumulation-card"><b>Public</b><strong>Pieter Levels</strong><span>12 startups in 12 months が見える。</span><img class="p19-corner-icon" src="./assets/generated/image2-p19-pieter.png" alt=""></article>
+              <article class="accumulation-card"><b>Public</b><strong>Marc Lou</strong><span>月収 $1M 到達が見える。</span><img class="p19-corner-icon" src="./assets/generated/image2-p19-marc.png" alt=""></article>
+              <article class="accumulation-card"><b>Public</b><strong>Danny Postma</strong><span>ARR $3.6M が見える。</span><img class="p19-corner-icon" src="./assets/generated/image2-p19-danny.png" alt=""></article>
+            </div>
+            <div class="accumulation-row" aria-label="見えない蓄積">
+              <article class="accumulation-card hidden"><b>Hidden base</b><strong>長い独学と起業経験</strong><span>10代からのプログラミング経験、過去の試行錯誤。</span><img class="p19-corner-icon" src="./assets/generated/image2-p19-learning.png" alt=""></article>
+              <article class="accumulation-card hidden"><b>Hidden base</b><strong>連続失敗と環境変化</strong><span>4年連続SaaS失敗、解雇、移住などの蓄積。</span><img class="p19-corner-icon" src="./assets/generated/image2-p19-failure.png" alt=""></article>
+              <article class="accumulation-card hidden"><b>Hidden base</b><strong>早期起業と制作経験</strong><span>16歳からの起業、Web制作フリーランス経験。</span><img class="p19-corner-icon" src="./assets/generated/image2-p19-early.png" alt=""></article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P19</span></footer>
+        <aside class="speaker-notes">表に見える成功だけをコピーするのではなく、裏にある積み上げを理解する必要があります。</aside>
+      </section>
+
+      <section class="slide" id="P20" data-slide="P20" aria-label="黄金ルート">
+        <header class="slide-header"><span class="doc-label">Golden Route</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">稼ぐなら、段階的な黄金ルートが必要</h2>
+          <p class="lead-copy" data-role="lead">どの段階で止めても、すでに稼げている状態を作る。</p>
+          <div class="route-system body-slot" data-role="body">
+            <article class="route-stage"><b>01</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-route-learn.png" alt=""></div><strong>学ぶ</strong><span>AIに何をどう伝えるか、要件・画面・データの考え方を身につける。</span><ul class="tight-list"><li>指示力</li><li>画面設計</li><li>業務理解</li></ul><em>基礎を作る</em></article>
+            <article class="route-stage active"><b>02</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-route-start-client.png" alt=""></div><strong>動き出す</strong><span>身近な業務課題を受託テーマにし、小さな納品実績を作る。</span><ul class="tight-list"><li>日報</li><li>CRM</li><li>集計ツール</li></ul><em>月5〜10万円</em></article>
+            <article class="route-stage active"><b>03</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-route-expand.png" alt=""></div><strong>広げる</strong><span>日報、CRM、分析など、横展開しやすい型を増やして単価を上げる。</span><ul class="tight-list"><li>提案資料</li><li>レビュー</li><li>紹介導線</li></ul><em>月50万円帯</em></article>
+            <article class="route-stage"><b>04</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-route-polish.png" alt=""></div><strong>磨き込む</strong><span>リピート、紹介、品質レビューで継続案件に変える。</span><ul class="tight-list"><li>品質保証</li><li>運用改善</li><li>継続契約</li></ul><em>高単価化</em></article>
+            <article class="route-stage"><b>05</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-route-create-product.png" alt=""></div><strong>創る</strong><span>受託で見えた共通課題を、自社アプリやSaaSに発展させる。</span><ul class="tight-list"><li>共通化</li><li>販売</li><li>継続改善</li></ul><em>任意の飛躍</em></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P20</span></footer>
+        <aside class="speaker-notes">いきなりSaaSではなく、学ぶ、受託で月5万円から10万円、月50万円へ、必要ならSaaS化という順番です。</aside>
+      </section>
+
+      <section class="slide" id="P21" data-slide="P21" aria-label="課題発見力">
+        <header class="slide-header"><span class="doc-label">Human Domain</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">必要なのはアイディアではなく課題発見力</h2>
+          <p class="lead-copy" data-role="lead">AIがコードを書くほど、人間には何を作るべきかを判断する力が求められる。</p>
+          <div class="problem-board body-slot" data-role="body">
+            <div class="problem-card">
+              <strong>アイディアだけでは足りない</strong>
+              <span>思いつきの面白さだけでは、顧客の課題にも収益にも接続しない。</span>
+              <ul class="tight-list">
+                <li>利用者が具体的に見えているか</li>
+                <li>毎週・毎月発生する痛みか</li>
+                <li>お金を払う理由まで言えるか</li>
+                <li>運用の中で使い続けられるか</li>
+              </ul>
+            </div>
+            <div class="question-grid">
+              <div class="problem-card feature"><strong>誰が困っているか</strong><span>具体的な利用者と現場を特定する。</span></div>
+              <div class="problem-card"><strong>何を減らすか</strong><span>時間、手間、ミス、確認作業を明確にする。</span></div>
+              <div class="problem-card"><strong>いくらの価値か</strong><span>月額、受託費、削減効果へ翻訳する。</span></div>
+              <div class="problem-card feature"><strong>どう使われるか</strong><span>入力、判断、出力、運用を設計する。</span></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P21</span></footer>
+        <aside class="speaker-notes">残るのは、課題発見、ヒアリング、要件定義、顧客関係構築といった上流の力です。</aside>
+      </section>
+
+      <section class="slide" id="P22" data-slide="P22" aria-label="受託案件のレベル感">
+        <header class="slide-header"><span class="doc-label">Client Work</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">受託案件は、身近な業務アプリから始まる</h2>
+          <p class="lead-copy" data-role="lead">最初から巨大なSaaSである必要はない。月10〜50万円規模の案件として成立し得る。</p>
+          <div class="case-catalog body-slot" data-role="body">
+            <article class="case-card">
+              <div><span class="number">1</span><strong>社内の日報ツール</strong><span>現場入力、管理者確認、集計を小さく自動化。</span></div>
+              <div class="case-visual" aria-label="日報ツールの画面例">
+                <div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-case-daily-report.png" alt=""></div>
+              </div>
+              <span>月10万円規模から成立しやすい、最初の受託テーマ。</span>
+            </article>
+            <article class="case-card feature">
+              <div><span class="number">2</span><strong>顧客管理システム</strong><span>問い合わせ、商談、対応履歴を一覧化。</span></div>
+              <div class="case-visual" aria-label="顧客管理システムの画面例">
+                <div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-case-crm.png" alt=""></div>
+              </div>
+              <span>顧客対応の抜け漏れを減らし、継続改善しやすい。</span>
+            </article>
+            <article class="case-card">
+              <div><span class="number">3</span><strong>EC分析ダッシュボード</strong><span>商品、売上、改善対象を可視化。</span></div>
+              <div class="case-visual" aria-label="EC分析ダッシュボードの画面例">
+                <div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-case-ec-dashboard.png" alt=""></div>
+              </div>
+              <span>分析画面と改善提案で、月50万円帯まで広げやすい。</span>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P22</span></footer>
+        <aside class="speaker-notes">日報ツール、顧客管理、EC分析ダッシュボードなど、身近な業務課題を解くものから始まります。</aside>
+      </section>
+
+      <section class="slide" id="P23" data-slide="P23" aria-label="澤田さんのスタート">
+        <header class="slide-header"><span class="doc-label">Proof</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">澤田さんも非エンジニアから始めた</h2>
+          <p class="lead-copy" data-role="lead">特殊な天才の話ではなく、正しい順番と環境があれば入口に立てる。</p>
+          <div class="origin-timeline body-slot" data-role="body">
+            <article class="origin-step"><b>01</b><strong>経験ゼロから入る</strong><span>エンジニアとしてキャリアを始めたわけではない。入口は、作りたい課題を言葉にすること。</span><ul class="tight-list"><li>専門職の出発ではない</li><li>業務課題を見つける側から入る</li></ul></article>
+            <article class="origin-step feature"><b>02</b><strong>AIと対話して作る</strong><span>コードを書く前に、画面、機能、データ、制約をAIと整理する。</span><ul class="tight-list"><li>要件を日本語で渡す</li><li>試作と修正を短く回す</li></ul></article>
+            <article class="origin-step"><b>03</b><strong>1週間で形にする</strong><span>短期で動くものを作り、実績として見せられる状態へ進む。</span><ul class="tight-list"><li>完成物を見せられる</li><li>次の受託・販売の材料になる</li></ul></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P23</span></footer>
+        <aside class="speaker-notes">澤田さん自身も、非エンジニアからのスタートでした。経験ゼロでも、AIと対話しながら1週間で形にできました。</aside>
+      </section>
+
+      <section class="slide" id="P24" data-slide="P24" aria-label="澤田さんの両輪">
+        <header class="slide-header"><span class="doc-label">Revenue Proof</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">澤田さんは自社アプリと受託の両輪を持つ</h2>
+          <p class="lead-copy" data-role="lead">両方の実績を持ったうえで、いきなり自社アプリ一本ではなく、まず受託から始めることを推奨している。</p>
+          <div class="revenue-board body-slot" data-role="body">
+            <article class="revenue-card feature"><b>自社アプリ</b><strong>作った資産が積み上がる</strong><div class="revenue-number">200万円 → 400万円</div><div class="revenue-rows"><span>初月200万円の売上</span><span>現在は月400万円を継続</span><span>受託で得た課題理解が自社アプリにも効く</span></div><em>中長期の資産化</em></article>
+            <article class="revenue-card"><b>受託</b><strong>最初の収益化が早い</strong><div class="revenue-number" style="color: var(--kbp-ink);">13万 / 50万</div><div class="revenue-rows"><span>1ヶ月で短期実績化</span><span>顧客課題を直接聞ける</span><span>納品物が次の提案資料になる</span></div><em>入口として再現しやすい</em></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P24</span></footer>
+        <aside class="speaker-notes">澤田さんは、自社アプリと受託の両方を経験しています。そのうえで、まず受託から始めることをおすすめしています。</aside>
+      </section>
+
+      <section class="slide" id="P25" data-slide="P25" aria-label="それは澤田さんだから">
+        <header class="slide-header"><span class="doc-label">Question</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">「それは澤田さんだから」という疑問は正しい</h2>
+          <p class="lead-copy" data-role="lead">だからこそ、次に見るべきなのは、コミュニティの参加者にも再現が起きているかどうか。</p>
+          <div class="objection-board body-slot" data-role="body">
+            <div class="objection-core"><strong>その疑問は正しい。</strong><span>だから、個人の成功談ではなく「複数人で同じ方向の成果が出ているか」を見る。</span></div>
+            <div class="objection-grid">
+              <article class="objection-card"><b>Question</b><strong>澤田さんだからでは？</strong><span>強い個人の特殊解なら、聞き手にとって再現可能な道筋にはならない。</span></article>
+              <article class="objection-card feature"><b>Check</b><strong>参加者の成果を見る</strong><span>未経験者が、販売・納品・月額化まで進めているかを確認する。</span></article>
+              <article class="objection-card"><b>System</b><strong>仕組みで判断する</strong><span>学習、レビュー、案件導線、販売場所が再現性を支えているかを見る。</span></article>
+            </div>
+            <div class="evidence-strip" aria-label="再現性を判断する基準">
+              <span><b>個人差</b>本人だけの実績なら再現性は弱い</span>
+              <span><b>複数例</b>参加者にも販売・納品例があるか</span>
+              <span><b>構造</b>学習とレビューが成果を支えるか</span>
+              <span><b>次ページ</b>コミュニティの実績で確認する</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P25</span></footer>
+        <aside class="speaker-notes">この疑問は正しいです。だからこそ、コミュニティ参加者にも再現が起きているかを見る必要があります。</aside>
+      </section>
+
+      <section class="slide" id="P26" data-slide="P26" aria-label="コミュニティ実績">
+        <header class="slide-header"><span class="doc-label">Community Cases</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">コミュニティからマネタイズ済み事例が生まれている</h2>
+          <p class="lead-copy" data-role="lead">作って終わりではなく、販売や納品まで進んでいることが重要。</p>
+          <div class="community-case-board body-slot body-fit" data-role="body">
+            <div class="community-cases">
+              <article class="community-case feature"><b>月額販売</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-community-x-automation.png" alt=""></div><strong>X自動運用ツール</strong><span>toB向け月額サブスク（月3万円）で販売中。導入企業あり。</span><div class="case-meter"><i style="--w: 72%"></i><i style="--w: 44%"></i></div><em>販売まで到達</em></article>
+              <article class="community-case"><b>受託納品</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-community-doc-extraction.png" alt=""></div><strong>AI書類データ抽出</strong><span>受託案件として納品済み。数十万円規模。</span><div class="case-meter"><i style="--w: 58%"></i><i style="--w: 82%"></i></div><em>業務課題を解決</em></article>
+              <article class="community-case"><b>受託納品</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-community-gemini-bot.png" alt=""></div><strong>Gemini自動応答Bot</strong><span>ナレッジベース連携の受託案件として納品済み。</span><div class="case-meter"><i style="--w: 48%"></i><i style="--w: 76%"></i></div><em>AI活用を実装に接続</em></article>
+            </div>
+            <div class="community-proof">
+              <strong>再現性は「作った数」ではなく、販売・納品まで進んだかで見る。</strong>
+              <div class="proof-lanes">
+                <span><b>1</b>作る：課題をアプリに変える</span>
+                <span><b>2</b>売る：月額/受託の対価を得る</span>
+                <span><b>3</b>残る：実績が次の提案になる</span>
+              </div>
+              <div class="route-note">個人の特殊解ではなく、コミュニティ内で複数の収益化例が出ている点が重要。</div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P26</span></footer>
+        <aside class="speaker-notes">X自動運用ツール、AI書類データ抽出、Gemini Botなど、マネタイズ済みの事例が出ています。</aside>
+      </section>
+
+      <section class="slide" id="P27" data-slide="P27" aria-label="再現性の仕組み">
+        <header class="slide-header"><span class="doc-label">System</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">再現性のある仕組みが、未経験者を支える</h2>
+          <p class="lead-copy" data-role="lead">才能ではなく、学習とレビューと実践の構造があるから、作る力が収益につながる。</p>
+          <div class="support-loop body-slot" data-role="body">
+            <article class="loop-card"><strong>学ぶ順番</strong><span>入口から迷わない。何から作るか、どこで詰まるかを先回りする。</span><ul class="tight-list"><li>要件から入る</li><li>小さく完成させる</li></ul></article>
+            <article class="loop-card feature"><strong>相談できる場</strong><span>詰まりを一人で抱えない。相談から次の実装へ戻れる。</span><ul class="tight-list"><li>質問で止めない</li><li>他者の事例を学ぶ</li></ul></article>
+            <div class="loop-core"><strong>作り切る仕組み</strong><span>学習、相談、レビュー、販売導線を回し続けることで、未経験者の完走率を上げる。</span></div>
+            <article class="loop-card feature"><strong>レビュー</strong><span>動くだけで終わらせず、品質と完成度を上げる。</span><ul class="tight-list"><li>バグと不安を減らす</li><li>納品水準へ近づける</li></ul></article>
+            <article class="loop-card"><strong>売る導線</strong><span>完成後に収益へ接続する。受託や販売に進める形で残す。</span><ul class="tight-list"><li>提案資料にする</li><li>販売場所へつなぐ</li></ul></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P27</span></footer>
+        <aside class="speaker-notes">未経験者が実用的なプロダクトを生み出せる理由は、個人の才能だけではありません。</aside>
+      </section>
+
+      <section class="slide" id="P28" data-slide="P28" aria-label="Kikaiを作った理由">
+        <header class="slide-header"><span class="doc-label">Kikai</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">だから、Vibe Coding Salon -Kikai- を作りました</h2>
+          <p class="lead-copy" data-role="lead">単なるAIスクールではなく、作る人のためのコミュニティ。</p>
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
+            <div class="image-frame"><img src="./assets/generated/kikai-community-hub.png" alt="Kikaiで学習、レビュー、納品、販売がつながる生成ビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>学</b><div><strong>学ぶだけで終わらない</strong><span>講座とライブで入口を作る。</span></div></div>
+              <div class="insight"><b>作</b><div><strong>作り切る環境</strong><span>相談、レビュー、実案件に近い課題がある。</span></div></div>
+              <div class="insight"><b>売</b><div><strong>販売・受託へ接続する</strong><span>完成後の導線まで設計する。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="Kikaiが接続するもの">
+              <span><b>講座</b>AIに指示して作る基礎をそろえる</span>
+              <span><b>合宿</b>短期間で形にする実践機会を作る</span>
+              <span><b>レビュー</b>納品・販売前の品質不安を減らす</span>
+              <span><b>導線</b>受託、案件供給、マーケットへ接続する</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P28</span></footer>
+        <aside class="speaker-notes">単なるAIスクールではなく、作る人のためのコミュニティとしてKikaiを作りました。</aside>
+      </section>
+
+      <section class="slide" id="P29" data-slide="P29" aria-label="Kikaiのカバー範囲">
+        <header class="slide-header"><span class="doc-label">Coverage</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">Kikaiは黄金ルートの前半を全力で伴走する</h2>
+          <p class="lead-copy" data-role="lead">学ぶ、動き出す、広げるまでを支え、その先の磨き込みやSaaS化も挑戦できる下地を整える。</p>
+          <div class="coverage-board body-slot" data-role="body">
+            <article class="coverage-stage active"><b>01</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-coverage-learning.png" alt=""></div><strong>学ぶ</strong><span>講座、ライブ、合宿で、AIに指示して作る入口をそろえる。</span><ul class="tight-list"><li>基礎講座</li><li>実演</li><li>合宿</li></ul><em>Kikaiが伴走</em></article>
+            <article class="coverage-stage active"><b>02</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-coverage-first-client.png" alt=""></div><strong>動き出す</strong><span>身近な課題を小さな受託テーマにし、初回納品まで進める。</span><ul class="tight-list"><li>テーマ選定</li><li>要件整理</li><li>初回納品</li></ul><em>受託の土台</em></article>
+            <article class="coverage-stage active"><b>03</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-coverage-expand.png" alt=""></div><strong>広げる</strong><span>実績、提案、レビューを積み、月50万円帯の案件を狙う。</span><ul class="tight-list"><li>提案型化</li><li>実績化</li><li>単価アップ</li></ul><em>実績を増やす</em></article>
+            <article class="coverage-stage"><b>04</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-coverage-quality.png" alt=""></div><strong>磨き込む</strong><span>リピート、紹介、品質改善で単価と継続率を上げる。</span><ul class="tight-list"><li>品質</li><li>継続</li><li>紹介</li></ul><em>自社アプリの下地</em></article>
+            <article class="coverage-stage"><b>05</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-coverage-productize.png" alt=""></div><strong>創る</strong><span>共通課題をプロダクト化し、Made with Kikaiで販売へ接続する。</span><ul class="tight-list"><li>共通化</li><li>掲載</li><li>販売</li></ul><em>任意の飛躍</em></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P29</span></footer>
+        <aside class="speaker-notes">Kikaiがまず全力で伴走するのは、学ぶ、動き出す、広げるまでです。</aside>
+      </section>
+
+      <section class="slide" id="P30" data-slide="P30" aria-label="5要素一体パッケージ">
+        <header class="slide-header"><span class="doc-label">Package</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">Kikaiは5つを一体化し、学ぶ・作る・売るをつなぐ</h2>
+          <p class="lead-copy" data-role="lead">よくあるAIスクールのように学習で終わらせず、実践と収益化まで分断しない。</p>
+          <div class="package-system body-slot body-tall" data-role="body">
+            <div class="package-core">
+              <strong>Kikai</strong>
+              <span>学習、品質、案件、市場、共同体を一つの導線にする。</span>
+            </div>
+            <div class="package-flow" aria-label="Kikaiの5要素一体パッケージ">
+              <article><b>01</b><strong>教育</strong><span>講座、ライブ、合宿で入口をそろえる。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M14 18h16c5 0 8 3 8 8v24H22c-5 0-8-3-8-8V18Z" fill="none" stroke-width="3"/><path d="M38 18h12v28H38" fill="none" stroke-width="3"/><path d="M24 28h8M24 36h8" fill="none" stroke-width="3"/></svg><em>入口設計</em></article>
+              <article><b>02</b><strong>品質</strong><span>プロレビューで納品できる水準へ上げる。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M32 10 50 18v13c0 13-7 20-18 24-11-4-18-11-18-24V18l18-8Z" fill="none" stroke-width="3"/><path d="m23 32 6 6 13-15" fill="none" stroke-width="4"/></svg><em>納品水準</em></article>
+              <article><b>03</b><strong>案件</strong><span>実務テーマと受託の機会へ接続する。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M18 22h28c4 0 6 2 6 6v20H12V28c0-4 2-6 6-6Z" fill="none" stroke-width="3"/><path class="muted" d="M25 22v-5h14v5" fill="none" stroke-width="3"/><path d="M20 38h10l5-5 9 9" fill="none" stroke-width="3"/></svg><em>実務接続</em></article>
+              <article><b>04</b><strong>市場</strong><span>完成アプリを見せ、売れる状態にする。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M14 48h36M18 42V18h28v24" fill="none" stroke-width="3"/><path d="M24 36 31 29l6 5 9-12" fill="none" stroke-width="3"/><path d="M24 20h6M24 26h4" fill="none" stroke-width="3"/></svg><em>販売化</em></article>
+              <article><b>05</b><strong>共同体</strong><span>詰まりを共有し、完走する人を増やす。</span><svg viewBox="0 0 64 64" aria-hidden="true"><path class="muted" d="M24 27a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM42 29a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" fill="none" stroke-width="3"/><path d="M10 50c3-10 10-15 20-15s17 5 20 15" fill="none" stroke-width="3"/><path d="M36 50c2-6 7-9 15-9" fill="none" stroke-width="3"/></svg><em>完走支援</em></article>
+            </div>
+            <div class="package-contrast">
+              <div><strong>よくあるAIスクール</strong><span>学習で終わる。作って満足する。売る場所がない。</span></div>
+              <div><strong>Kikai</strong><span>学ぶ -> 作る -> レビューする -> 売る、までを分断しない。</span></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P30</span></footer>
+        <aside class="speaker-notes">Kikaiは、教育、品質チェック、案件供給、アプリマーケット、コミュニティを一体で設計しています。</aside>
+      </section>
+
+      <section class="slide" id="P31" data-slide="P31" aria-label="品質チェック">
+        <header class="slide-header"><span class="doc-label">Quality</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">品質チェックが、AI生成コードの不安を減らす</h2>
+          <p class="lead-copy" data-role="lead">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
+          <div class="quality-gate body-slot" data-role="body">
+            <div class="risk-card">
+              <div class="risk-visual board" aria-label="AI生成コードのリスクを示す図">
+                <div class="risk-slice feature"><b>Bug</b><strong>動くが壊れる</strong><span>例外入力、保存漏れ、画面遷移の抜けが残る。</span></div>
+                <div class="risk-slice"><b>Security</b><strong>権限が甘い</strong><span>認証、データ公開範囲、秘密情報の扱いに不安が残る。</span></div>
+                <div class="risk-slice"><b>Operation</b><strong>運用で詰まる</strong><span>修正依頼、ログ、保守、引き継ぎが決まっていない。</span></div>
+                <div class="risk-review-bar">
+                  <span>入力検証</span>
+                  <span>権限確認</span>
+                  <span>例外処理</span>
+                  <span>納品説明</span>
+                </div>
+              </div>
+              <strong>不安の正体</strong>
+              <span>AI生成コードには、動くけれど壊れやすい箇所、バグ、脆弱性、運用漏れが混入しやすい。</span>
+              <div class="risk-points"><span>壊れやすい</span><span>見えないバグ</span><span>運用漏れ</span></div>
+            </div>
+            <div class="gate-flow" aria-label="品質チェックの流れ">
+              <article class="gate-card"><span class="gate-badge">1</span><strong>生成</strong><span>AIで初稿を作る。</span><div class="gate-visual"><div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-gate-generate.png" alt=""></div></div></article>
+              <article class="gate-card feature"><span class="gate-badge">2</span><strong>点検</strong><span>プロが構造とリスクを見る。</span><div class="gate-visual"><div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-gate-inspect.png" alt=""></div></div></article>
+              <article class="gate-card"><span class="gate-badge">3</span><strong>修正</strong><span>納品前に不安を潰す。</span><div class="gate-visual"><div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-gate-fix.png" alt=""></div></div></article>
+              <article class="gate-card feature"><span class="gate-badge">4</span><strong>納品</strong><span>営業材料として品質を語れる。</span><div class="gate-visual"><div class="image2-panel" aria-hidden="true"><img src="./assets/generated/image2-gate-deliver.png" alt=""></div></div></article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P31</span></footer>
+        <aside class="speaker-notes">Kikaiでは、希望者向けにプロエンジニアによる品質チェックを利用できる仕組みを用意します。</aside>
+      </section>
+
+      <section class="slide" id="P32" data-slide="P32" aria-label="クローズド案件供給">
+        <header class="slide-header"><span class="doc-label">Future</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">将来的にクローズド案件供給まで広げる</h2>
+          <p class="lead-copy" data-role="lead">自分で取る力と、運営から降りてくる案件の両輪を作る。</p>
+          <div class="pipeline-roadmap body-slot" data-role="body">
+            <article class="pipeline-stage"><b class="pipe-mark">01</b><em>Now</em><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-pipeline-self-client.png" alt=""></div><strong>自分で案件を取る</strong><span>合宿、コンサル、動画講座で、まずは自力で受託の入口を作る。</span><ul class="tight-list"><li>提案先を作る</li><li>初回納品する</li></ul><div class="pipe-detail">入口を作る</div></article>
+            <article class="pipeline-stage feature"><b class="pipe-mark">02</b><em>Build</em><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-pipeline-proof-quality.png" alt=""></div><strong>事例と品質を積む</strong><span>納品実績、レビュー、提案テンプレートを蓄積する。</span><ul class="tight-list"><li>品質レビュー</li><li>提案資産化</li></ul><div class="pipe-detail">信頼を作る</div></article>
+            <article class="pipeline-stage"><b class="pipe-mark">03</b><em>Scale</em><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-pipeline-kikai-acquire.png" alt=""></div><strong>運営が案件を獲得</strong><span>サロン拡大に伴い、運営側でも案件獲得を進める。</span><ul class="tight-list"><li>企業課題を集める</li><li>会員の実績と接続</li></ul><div class="pipe-detail">供給源を作る</div></article>
+            <article class="pipeline-stage feature"><b class="pipe-mark">04</b><em>Future</em><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-pipeline-member-supply.png" alt=""></div><strong>会員へ供給する</strong><span>5〜50万円帯のクローズド案件を会員に接続する構想。</span><ul class="tight-list"><li>案件を紹介</li><li>両輪で収益化</li></ul><div class="pipe-detail">両輪で伸ばす</div></article>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P32</span></footer>
+        <aside class="speaker-notes">現時点では自分で案件を取る方法を学ぶことが中心ですが、将来的には運営側が獲得した案件供給も構想しています。</aside>
+      </section>
+
+      <section class="slide" id="P33" data-slide="P33" aria-label="Made with Kikai">
+        <header class="slide-header"><span class="doc-label">Marketplace</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">Made with Kikai は販売の壁を下げる</h2>
+          <p class="lead-copy" data-role="lead">マーケットプレイス機能で決済まで完結。Stripeの審査・開設なしに即販売開始できる。</p>
+          <div class="visual-led with-strip body-slot body-tall" data-role="body">
+            <div class="image-frame"><img src="./assets/generated/marketplace-ui.png" alt="Made with KikaiのマーケットプレイスUIビジュアル"></div>
+            <div class="insight-stack">
+              <div class="insight"><b>1</b><div><strong>掲載して見つけてもらう</strong><span>作った後に見てもらう場所を用意する。</span></div></div>
+              <div class="insight"><b>2</b><div><strong>決済まで完結</strong><span>Stripeの審査・開設なしに販売開始できる。</span></div></div>
+              <div class="insight"><b>3</b><div><strong>反応から改善する</strong><span>市場の反応を見て、売れるアプリへ修正する。</span></div></div>
+            </div>
+            <div class="evidence-strip" aria-label="Made with Kikaiの販売導線">
+              <span><b>Before</b>作っても見せる場所と決済準備で止まりやすい</span>
+              <span><b>List</b>プロダクトを掲載して反応を集める</span>
+              <span><b>Sell</b>決済まで一体化し販売開始の摩擦を下げる</span>
+              <span><b>Improve</b>反応を見て機能、価格、訴求を改善する</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P33</span></footer>
+        <aside class="speaker-notes">作った後の大きな壁は集客と販売です。Made with Kikaiは、掲載、反応確認、販売まで進める場です。</aside>
+      </section>
+
+      <section class="slide" id="P34" data-slide="P34" aria-label="Before After">
+        <header class="slide-header"><span class="doc-label">Before / After</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <div class="content">
+          <h2 data-role="title">Kikaiの前後で、AIとの関係が変わる</h2>
+          <p class="lead-copy" data-role="lead">消費者から創り手へ。この転換が、今日一番持ち帰ってほしいメッセージ。</p>
+          <div class="closing-shift body-slot" data-role="body">
+            <div class="closing-panel">
+              <strong>Before：消費者</strong>
+              <ul>
+                <li>AIに興味はあるが、何をすればいいかわからない</li>
+                <li>インプットばかりで何も形になっていない</li>
+                <li>プログラミングで挫折した経験がある</li>
+                <li>「作りたい」が頭の中だけで止まっている</li>
+                <li>一人で学んで、一人で挫折する</li>
+              </ul>
+              <span class="closing-kicker">AIを使う人</span>
+            </div>
+            <div class="path-pivot">→</div>
+            <div class="closing-panel feature">
+              <strong>After：創り手</strong>
+              <ul>
+                <li>AIに指示して、実際に動くアプリを作れる</li>
+                <li>受託で月5〜10万円から積み上げる</li>
+                <li>顧客の課題をAIで解決できる</li>
+                <li>自分のプロダクトという実体ある資産を持つ</li>
+                <li>仲間と作り、レビューし合い、完走できる</li>
+              </ul>
+              <span class="closing-kicker">AIで価値を作る人</span>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P34</span></footer>
+        <aside class="speaker-notes">Kikaiに入る前と後で、AIとの関係は消費者から創り手へ変わります。</aside>
+      </section>
+    </main>
+
+    <div class="controls" aria-label="Slide controls">
+      <button type="button" data-prev aria-label="前のスライド">‹</button>
+      <div class="counter" aria-live="polite">1 / 34</div>
+      <button type="button" data-next aria-label="次のスライド">›</button>
+    </div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+
+    <script>
+      class PresentationController {
+        constructor() {
+          this.slides = Array.from(document.querySelectorAll(".slide"));
+          this.counter = document.querySelector(".counter");
+          this.progress = document.querySelector(".progress span");
+          this.deckWidth = 1600;
+          this.deckHeight = 900;
+          this.index = this.getInitialIndex();
+          this.lastWheelAt = 0;
+          this.touchStartX = 0;
+          this.touchStartY = 0;
+          this.updateScale();
+          this.bind();
+          this.show(this.index, false);
+        }
+        getInitialIndex() {
+          const id = window.location.hash.replace("#", "");
+          const found = this.slides.findIndex((slide) => slide.id === id);
+          return found >= 0 ? found : 0;
+        }
+        updateScale() {
+          const marginX = 32;
+          const marginY = 28;
+          const availableW = window.innerWidth - marginX;
+          const availableH = window.innerHeight - 46 - marginY;
+          const scale = Math.min(availableW / this.deckWidth, availableH / this.deckHeight);
+          document.documentElement.style.setProperty("--deck-scale", Math.max(0.22, scale).toFixed(4));
+        }
+        bind() {
+          document.querySelector("[data-prev]").addEventListener("click", () => this.go(-1));
+          document.querySelector("[data-next]").addEventListener("click", () => this.go(1));
+          window.addEventListener("resize", () => this.updateScale());
+          window.addEventListener("keydown", (event) => {
+            if (["ArrowRight", "PageDown", " "].includes(event.key)) {
+              event.preventDefault();
+              this.go(1);
+            }
+            if (["ArrowLeft", "PageUp"].includes(event.key)) {
+              event.preventDefault();
+              this.go(-1);
+            }
+            if (event.key === "Home") this.show(0);
+            if (event.key === "End") this.show(this.slides.length - 1);
+          });
+          window.addEventListener("wheel", (event) => {
+            const now = Date.now();
+            if (now - this.lastWheelAt < 420 || Math.abs(event.deltaY) < 30) return;
+            this.lastWheelAt = now;
+            this.go(event.deltaY > 0 ? 1 : -1);
+          }, { passive: true });
+          window.addEventListener("touchstart", (event) => {
+            const touch = event.changedTouches[0];
+            this.touchStartX = touch.clientX;
+            this.touchStartY = touch.clientY;
+          }, { passive: true });
+          window.addEventListener("touchend", (event) => {
+            const touch = event.changedTouches[0];
+            const dx = touch.clientX - this.touchStartX;
+            const dy = touch.clientY - this.touchStartY;
+            if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) this.go(dx < 0 ? 1 : -1);
+          }, { passive: true });
+        }
+        go(delta) {
+          this.show(this.index + delta);
+        }
+        show(index, updateHash = true) {
+          this.index = Math.max(0, Math.min(index, this.slides.length - 1));
+          this.slides.forEach((slide, i) => {
+            const active = i === this.index;
+            slide.classList.toggle("is-active", active);
+            slide.setAttribute("aria-hidden", String(!active));
+          });
+          this.counter.textContent = `${this.index + 1} / ${this.slides.length}`;
+          this.progress.style.width = `${((this.index + 1) / this.slides.length) * 100}%`;
+          if (updateHash) history.replaceState(null, "", `#${this.slides[this.index].id}`);
+        }
+      }
+      new PresentationController();
+    </script>
+  </body>
+</html>
