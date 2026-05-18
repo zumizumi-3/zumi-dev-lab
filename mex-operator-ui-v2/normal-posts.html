@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>通常投稿 | MeX Operator UI v2</title>
+    <link rel="stylesheet" href="./prototype.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MeX Operator</div><div class="brand-subtitle">UI prototype</div></div></div>
+        <div class="nav-label">画面案</div>
+        <a class="nav-link" href="./index.html">処理ホーム</a>
+        <a class="nav-link active" href="./normal-posts.html">通常投稿</a>
+        <a class="nav-link" href="./quote-posts.html">引用投稿</a>
+        <a class="nav-link" href="./reactions.html">反応対応</a>
+        <a class="nav-link" href="./persona.html">ペルソナ</a>
+        <a class="nav-link" href="./issue-pool.html">論点プール</a>
+      </aside>
+      <main class="main">
+        <header class="top">
+          <div>
+            <h1 class="page-title">通常投稿</h1>
+            <p class="page-note">生成済み投稿を一覧で処理します。詳細ページへ飛ばず、この画面で編集、再生成、投稿、予約、否認まで完了する想定です。</p>
+          </div>
+          <label class="select-box">表示 <select><option>全アカウント</option><option>Kaz</option><option>DX Marketing</option></select></label>
+        </header>
+        <div class="grid-2">
+          <section class="panel">
+            <div class="panel-head">
+              <div><h2 class="panel-title">生成済み投稿一覧</h2><p class="panel-copy">上から処理。未処理、予約済み、否認済みを同じ場所で確認します。</p></div>
+              <div class="btns"><button class="btn primary">個別投稿案を生成</button><button class="btn">2時間分を生成</button></div>
+            </div>
+            <div class="section list">
+              <article class="item selected">
+                <div class="row"><h3 class="title-sm">Kaz / 13:20 生成</h3><span class="tag blue">未処理</span></div>
+                <p class="text">速く作れることと、続けられる条件を分けて考える投稿案。</p>
+                <div class="tagline"><span class="tag">通常投稿</span><span class="tag">S9 draft</span><span class="tag">重複確認済み</span></div>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">DX Marketing / 12:00 自動生成</h3><span class="tag amber">要確認</span></div>
+                <p class="text">広告運用の検証で、初期反応に寄せすぎない判断軸を扱う案。</p>
+                <div class="tagline"><span class="tag">通常投稿</span><span class="tag">自動生成</span></div>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">Kaz / 10:00 予約</h3><span class="tag green">予約済み</span></div>
+                <p class="text">価格差をつける時の説明責任について。</p>
+              </article>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2 class="panel-title">投稿案の処理</h2><p class="panel-copy">文面を読んで、その場で直して処理します。</p></div></div>
+            <div class="section stack">
+              <dl class="field-grid">
+                <dt>対象アカウント</dt><dd>Kaz / @kaz_tech4</dd>
+                <dt>生成根拠</dt><dd>論点プール、過去投稿、ペルソナ、今日の投稿数</dd>
+                <dt>見せ方</dt><dd>単発長文。主張を先に置き、末尾で判断を残す。</dd>
+              </dl>
+              <textarea class="draft">速く作れることは、本当に強い。
+
+ただ、画面が動いた瞬間に「事業側の確認まで終わった」気になるのは少し怖い。
+
+見るべきなのは完成度だけではなく、誰が払い続けるのか、どの場面で毎日使われるのか、前提が崩れた時に縮小できるのか。
+
+作る速度が上がるほど、作る前の問いは地味になる。でもたぶん、その地味な問いが残るサービスかどうかを分ける。</textarea>
+              <div class="btns">
+                <button class="btn primary">投稿する</button>
+                <button class="btn">再生成</button>
+                <button class="btn">長文にする</button>
+                <button class="btn">スレッドにする</button>
+                <button class="btn">予約</button>
+                <button class="btn danger">否認</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

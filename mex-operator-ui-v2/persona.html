@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ペルソナ | MeX Operator UI v2</title>
+    <link rel="stylesheet" href="./prototype.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MeX Operator</div><div class="brand-subtitle">UI prototype</div></div></div>
+        <div class="nav-label">画面案</div>
+        <a class="nav-link" href="./index.html">処理ホーム</a>
+        <a class="nav-link" href="./normal-posts.html">通常投稿</a>
+        <a class="nav-link" href="./quote-posts.html">引用投稿</a>
+        <a class="nav-link" href="./reactions.html">反応対応</a>
+        <a class="nav-link active" href="./persona.html">ペルソナ</a>
+        <a class="nav-link" href="./issue-pool.html">論点プール</a>
+      </aside>
+      <main class="main">
+        <header class="top">
+          <div>
+            <h1 class="page-title">ペルソナ</h1>
+            <p class="page-note">読むことを主軸にし、必要な部分だけ編集します。X既存投稿、手入力素材、外部ドキュメントからAIが再整理する前提です。</p>
+          </div>
+          <label class="select-box">対象 <select><option>Kaz / @kaz_tech4</option><option>DX Marketing / @dxmarketing_ad</option></select></label>
+        </header>
+        <div class="grid-2">
+          <section class="panel">
+            <div class="panel-head"><div><h2 class="panel-title">読むペルソナ</h2><p class="panel-copy">発話主体として必要なものだけを上から確認します。</p></div><button class="btn primary">AIで再整理</button></div>
+            <div class="section stack">
+              <article class="item">
+                <div class="row"><h3 class="title-sm">発話主体</h3><button class="btn">編集</button></div>
+                <p class="text">Vibe CodingとSaaS開発支援を実務で扱う、事業側の視点を持った開発者・プロデューサー。</p>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">価値観・判断基準</h3><button class="btn">編集</button></div>
+                <p class="text">作れるかより、誰が払い続けるか、現場で毎日使われるか、事業として崩れないかを見る。</p>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">文頭・文末・一人称</h3><button class="btn">編集</button></div>
+                <dl class="field-grid">
+                  <dt>一人称</dt><dd>基本は出しすぎない。必要な時だけ「自分」。</dd>
+                  <dt>文頭</dt><dd>短い観察、具体物、少し引っかかった点から入る。</dd>
+                  <dt>文末</dt><dd>教訓ではなく、判断や余白を残して閉じる。</dd>
+                </dl>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">運用ルール</h3><button class="btn">編集</button></div>
+                <p class="text">通常投稿は半自動。引用投稿は手動確認。自分への反応は返信または引用で対応し、実投稿は明示操作のみ。</p>
+              </article>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2 class="panel-title">素材の取り込み</h2><p class="panel-copy">個別素材はここから追加し、AIがペルソナ情報へ再整理します。</p></div></div>
+            <div class="section stack">
+              <textarea class="draft" placeholder="文章、配信メモ、GitHub URL、記事メモなどを貼り付け">最近の発信メモ:
+AIで作る速度が上がるほど、事業側の確認を先に置く必要がある。</textarea>
+              <div class="btns"><button class="btn primary">素材を追加</button><button class="btn">Xから再インポート</button><button class="btn">Git/URLから取り込む</button></div>
+              <div class="item">
+                <h3 class="title-sm">最近取り込んだ素材</h3>
+                <p class="text">X既存投稿 20件 / 手入力メモ 3件 / GitHub README 1件</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

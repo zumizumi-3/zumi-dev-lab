@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>論点プール | MeX Operator UI v2</title>
+    <link rel="stylesheet" href="./prototype.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand"><div class="brand-mark">M</div><div><div class="brand-title">MeX Operator</div><div class="brand-subtitle">UI prototype</div></div></div>
+        <div class="nav-label">画面案</div>
+        <a class="nav-link" href="./index.html">処理ホーム</a>
+        <a class="nav-link" href="./normal-posts.html">通常投稿</a>
+        <a class="nav-link" href="./quote-posts.html">引用投稿</a>
+        <a class="nav-link" href="./reactions.html">反応対応</a>
+        <a class="nav-link" href="./persona.html">ペルソナ</a>
+        <a class="nav-link active" href="./issue-pool.html">論点プール</a>
+      </aside>
+      <main class="main">
+        <header class="top">
+          <div>
+            <h1 class="page-title">論点プール</h1>
+            <p class="page-note">ニュースや外部素材はアカウントに紐づけません。AIが素材から論点、視点、タグを抽出し、生成時に各アカウントへ合うかを吟味します。</p>
+          </div>
+          <div class="btns"><button class="btn primary">ニュース取得</button><button class="btn">素材化を実行</button></div>
+        </header>
+        <div class="grid-2">
+          <section class="panel">
+            <div class="panel-head"><div><h2 class="panel-title">素材</h2><p class="panel-copy">Yahoo / NewsPicks / 手入力など。ここでは誰にも割り当てません。</p></div></div>
+            <div class="section list">
+              <article class="item selected">
+                <div class="row"><h3 class="title-sm">AI導入後の運用負荷に関する記事</h3><span class="tag green">素材化済み</span></div>
+                <p class="text">導入数ではなく、誰が判断を確認し続けるかが論点になりそうな素材。</p>
+                <div class="tagline"><span class="tag">AI導入</span><span class="tag">運用設計</span><span class="tag">継続利用</span></div>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">交通料金の価格差に関するニュース</h3><span class="tag amber">確認待ち</span></div>
+                <p class="text">価格差、納得感、説明責任の論点に変換できる可能性。</p>
+                <div class="tagline"><span class="tag">価格設計</span><span class="tag">信頼</span></div>
+              </article>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><h2 class="panel-title">抽出された論点</h2><p class="panel-copy">投稿生成では、ここからアカウント・過去文脈・当日ノルマに合うものだけを使います。</p></div></div>
+            <div class="section stack">
+              <article class="item">
+                <div class="row"><h3 class="title-sm">導入ではなく、確認し続ける設計が成果を分ける</h3><span class="tag blue">通常投稿向き</span></div>
+                <p class="text">入口施策ではなく、継続運用の責任範囲を主張にできる。</p>
+                <div class="btns"><button class="btn">通常投稿案に使う</button><button class="btn">保留</button><button class="btn danger">使わない</button></div>
+              </article>
+              <article class="item">
+                <div class="row"><h3 class="title-sm">価格差は機能差より先に扱われ方の差として受け取られる</h3><span class="tag purple">引用にも可</span></div>
+                <p class="text">顧客別価格、上位プラン、既存ユーザー向け値上げへの接続ができる。</p>
+                <div class="btns"><button class="btn">通常投稿案に使う</button><button class="btn">引用文脈で使う</button><button class="btn">保留</button></div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
