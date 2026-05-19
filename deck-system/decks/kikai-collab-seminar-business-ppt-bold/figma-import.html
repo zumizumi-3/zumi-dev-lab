@@ -2338,7 +2338,7 @@
         background: var(--kbp-orange);
       }
       .speaker-notes { display: none; }
-      /* Bold white/gold visual variant: keep the original deck intact and push this copy toward
+      /* Bold white/orange visual variant: keep the original deck intact and push this copy toward
          larger type, stronger hierarchy, explicit visual cues, and more image/SVG surfaces. */
       :root {
         --kbp-page-bg: #ffffff;
@@ -3204,7 +3204,7 @@
         height: 156px;
         opacity: 0.22;
       }
-      /* Reference-style mono visual pass: richer diagrams while keeping white/gold unified. */
+      /* Reference-style mono visual pass: richer diagrams while keeping white/orange unified. */
       .path-arena {
         grid-template-columns: minmax(0, 1fr) 224px minmax(0, 1fr);
         gap: 18px;
@@ -3635,18 +3635,23 @@
       #P19 .accumulation-board::before {
         inset: 0;
       }
-      /* Final white/gold polish: keep the rich image2/SVG density, but remove the red-heavy
+      /* Final white/orange polish: keep the rich image2/SVG density, but remove the red-heavy
          paper/background treatment and generic decorative marks that compete with the content. */
       :root {
+        --kikai-logo-orange: #ff7143;
         --kvb-bordeaux: #514c47;
         --kvb-bordeaux-deep: #343230;
-        --kvb-rose: #efc56b;
+        --kvb-rose: #ff7143;
+        --kvb-gold: #ff7143;
         --kvb-gold-soft: #ffffff;
-        --kbp-orange: #d88f1f;
+        --kbp-orange: #ff7143;
         --kbp-page-bg: #ffffff;
         --kbp-paper: #ffffff;
         --kbp-surface: #ffffff;
+        --kbp-surface-strong: #ff7143;
         --kbp-orange-soft: #ffffff;
+        --kbp-line: rgba(255, 113, 67, 0.22);
+        --kbp-line-soft: rgba(255, 113, 67, 0.12);
       }
       html,
       body,
@@ -3655,7 +3660,7 @@
         background: #ffffff !important;
       }
       .topbar {
-        border-bottom-color: rgba(214, 155, 54, 0.26);
+        border-bottom-color: rgba(255, 113, 67, 0.18);
         background: #ffffff !important;
         color: var(--kbp-muted);
       }
@@ -3666,14 +3671,20 @@
       }
       .slide::before,
       .cover::before {
-        background: linear-gradient(180deg, #f2b33d, #f6cf73 58%, #d88f1f);
+        background: #ff7143 !important;
       }
       .slide::after {
         content: none;
         display: none;
       }
+      h2 {
+        border-bottom-color: rgba(255, 113, 67, 0.72);
+      }
+      h2::after {
+        background: var(--kikai-logo-orange);
+      }
       .slide-footer {
-        border-top-color: rgba(214, 155, 54, 0.24);
+        border-top-color: rgba(255, 113, 67, 0.16);
       }
       .card,
       .panel,
@@ -3706,10 +3717,19 @@
       .chapter-canvas,
       .chapter-anchors span,
       .case-map-visual,
-      .case-node {
-        border-color: rgba(214, 155, 54, 0.28);
+      .case-node,
+      .image2-card-media,
+      .image2-panel,
+      .product-board,
+      .case-visual,
+      .svg-figure,
+      .risk-visual,
+      .gate-visual,
+      .knowledge-row,
+      .evidence-strip {
+        border-color: rgba(255, 113, 67, 0.18);
         background: #ffffff !important;
-        box-shadow: 0 14px 28px rgba(52, 50, 48, 0.08);
+        box-shadow: none;
       }
       .card.feature,
       .panel.feature,
@@ -3733,7 +3753,7 @@
       .reality-card.feature,
       .objection-card.feature,
       .risk-slice.feature {
-        border-color: rgba(214, 155, 54, 0.58);
+        border-color: rgba(255, 113, 67, 0.36);
         background: #ffffff !important;
       }
       .number,
@@ -3747,7 +3767,7 @@
       .chapter-index .chapter-no,
       .chapter-anchors b,
       .case-node b {
-        background: var(--kbp-orange);
+        background: var(--kikai-logo-orange);
         color: #ffffff;
       }
       .accent-rule,
@@ -3756,8 +3776,8 @@
       .case-meter i,
       .reality-scale i,
       .commodity-bar i {
-        background: var(--kbp-orange);
-        border-color: var(--kbp-orange);
+        background: var(--kikai-logo-orange);
+        border-color: var(--kikai-logo-orange);
       }
       .formula-strip,
       .chapter-number,
@@ -3770,7 +3790,63 @@
       .loop-core,
       .objection-core,
       .reality-core {
-        border-left-color: var(--kbp-orange);
+        border-left-color: var(--kikai-logo-orange);
+      }
+      .path-arena .path-pivot,
+      .formula-strip,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .objection-core,
+      .reality-core {
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
+      .path-arena .path-pivot {
+        border: 3px solid rgba(255, 113, 67, 0.24) !important;
+      }
+      .path-visual {
+        border-color: rgba(255, 113, 67, 0.18) !important;
+        background: #ffffff !important;
+      }
+      .path-visual::after {
+        content: none !important;
+        display: none !important;
+      }
+      #P30 .package-core {
+        border-left-color: var(--kikai-logo-orange);
+      }
+      #P08 .table-wrap table {
+        height: 100%;
+      }
+      #P08 .table-wrap th,
+      #P08 .table-wrap td {
+        vertical-align: middle;
+      }
+      .pill,
+      .path-label,
+      .mini-tag-row span,
+      .route-note,
+      .path-note,
+      .evidence-strip span,
+      .tight-list li,
+      .path-card li,
+      .revenue-rows span,
+      .proof-lanes span,
+      .risk-points span,
+      .risk-review-bar span {
+        border-color: rgba(255, 113, 67, 0.18);
+        background: #ffffff !important;
+      }
+      .flat,
+      .case-meter i:nth-child(2),
+      .reality-scale .muted i,
+      .mono-gold {
+        fill: var(--kikai-logo-orange);
+        stroke: var(--kikai-logo-orange);
+        background: var(--kikai-logo-orange);
+        border-color: var(--kikai-logo-orange);
       }
       .cover {
         background: #ffffff !important;
@@ -3778,7 +3854,7 @@
       .cover-logo {
         padding: 0;
         border: 0;
-        border-color: rgba(214, 155, 54, 0.34);
+        border-color: rgba(255, 113, 67, 0.18);
         background: transparent;
       }
       .cover .kicker {
@@ -3789,12 +3865,12 @@
         color: var(--kbp-ink);
       }
       .cover .slide-footer {
-        border-top-color: rgba(214, 155, 54, 0.26);
+        border-top-color: rgba(255, 113, 67, 0.16);
         color: var(--kbp-muted);
       }
       .cover-panel {
         border: 0;
-        border-color: rgba(214, 155, 54, 0.36);
+        border-color: rgba(255, 113, 67, 0.2);
         background: transparent !important;
       }
       .cover-panel::after,
@@ -3849,7 +3925,7 @@
       }
       .controls button,
       .counter {
-        border-color: rgba(214, 155, 54, 0.28);
+        border-color: rgba(255, 113, 67, 0.2);
         background: #ffffff;
         color: var(--kbp-ink);
       }
@@ -3898,6 +3974,29 @@
       #P21 .problem-board::before,
       #P22 .case-catalog::before,
       #P30 .package-system::before,
+      #P03 .grid-3::before,
+      #P05 .path-board::after,
+      #P06 .amplifier-model::after,
+      #P08 .table-wrap::after,
+      #P14 .change-board::after,
+      #P18 .reality-funnel::after,
+      #P23 .origin-timeline::after,
+      #P24 .revenue-board::after,
+      #P27 .support-loop::after,
+      #P32 .pipeline-roadmap::after,
+      #P02 .profile-layout::after,
+      #P09 .statement-layout::after,
+      #P12 .statement-layout::after,
+      #P15 .grid-4::after,
+      #P16 .global-case-board::after,
+      #P17 .reality-check-board::after,
+      #P19 .accumulation-board::after,
+      #P21 .problem-board::after,
+      #P22 .case-catalog::after,
+      #P25 .objection-board::after,
+      #P26 .community-case-board::after,
+      #P30 .package-system::after,
+      #P31 .quality-gate::after,
       #P34 .closing-shift::before,
       #P34 .closing-shift::after {
         content: none;
@@ -3912,10 +4011,16 @@
         height: auto;
         min-height: 100%;
         overflow: auto;
-        background: #f4f4f4 !important;
+        background: #ffffff !important;
+        scrollbar-width: none;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
       }
       body {
-        padding: 72px;
+        margin: 0;
+        padding: 0;
       }
       .topbar,
       .controls,
@@ -3927,7 +4032,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 72px;
+        gap: 0;
         width: var(--deck-w);
         height: auto;
         min-height: 0;
@@ -3948,6 +4053,51 @@
         break-after: page;
         background: #ffffff !important;
       }
+      body:has(.slide:target),
+      body:has(.slide:target) main {
+        width: var(--deck-w);
+        height: var(--deck-h);
+        min-height: var(--deck-h);
+        overflow: hidden;
+      }
+      body:has(.slide:target) .slide:not(:target) {
+        display: none !important;
+      }
+      body:has(.slide:target) .slide:target {
+        display: grid !important;
+      }
+      body.figma-fit-viewport {
+        --deck-w: 100vw;
+        --deck-h: 100vh;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      body.figma-fit-viewport main {
+        position: fixed;
+        inset: 0;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      body.figma-fit-viewport .slide,
+      body.figma-fit-viewport .slide.is-active {
+        position: absolute !important;
+        inset: 0 auto auto 0 !important;
+        display: none !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        transform-origin: top left !important;
+      }
+      body.figma-fit-viewport .slide.is-active {
+        display: grid !important;
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -3959,12 +4109,19 @@
     </style>
   </head>
   <body class="figma-import">
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("fit") !== "stretch") return;
+        document.body.classList.add("figma-fit-viewport");
+      })();
+    </script>
     <nav class="topbar" aria-label="Deck navigation">
       <a href="../">Decks</a>
       <span>/</span>
       <a href="../../formats/kikai-business-ppt/business-plain-patterns.html">Kikai Business PPT</a>
       <span class="nav-mark" aria-hidden="true"></span>
-      <span>Collab Seminar / Bold White Gold Visual</span>
+      <span>Collab Seminar / Bold White Orange Visual</span>
     </nav>
 
     <main aria-label="Kikai Collab Seminar slides">
@@ -3981,7 +4138,7 @@
             <img src="../../formats/kikai-business-ppt/assets/2.png" alt="Kikai icon">
             <span>Collab seminar</span>
             <span>〇〇様向け</span>
-            <span>Format: Bold White Gold Visual</span>
+            <span>Format: Bold White Orange Visual</span>
           </aside>
         </div>
         <footer class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P01</span></footer>
