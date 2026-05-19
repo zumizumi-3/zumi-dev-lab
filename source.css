@@ -1,0 +1,103 @@
+.source-filter-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 8px 12px 0;
+}
+
+.source-chip {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-quiet);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.source-chip.active {
+  border-color: #b9cff4;
+  background: #edf4ff;
+  color: #1d58a8;
+}
+
+.source-pill {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.source-pill.chatwork {
+  overflow: hidden;
+  background: #fff0ed;
+  color: #b63228;
+  text-overflow: ellipsis;
+}
+
+.source-pill.zoom {
+  background: #edf4ff;
+  color: #1d58a8;
+}
+
+.source-pill.manual {
+  background: #edf7f1;
+  color: #0e6848;
+}
+
+.candidate-origin {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.candidate-origin span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.due-note {
+  padding-top: 2px;
+  color: #526173;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.source-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.source-meta-grid div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-quiet);
+}
+
+.source-meta-grid dt {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.source-meta-grid dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.45;
+}
