@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Task Relay Mock</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./source.css" />
     <link rel="stylesheet" href="./responsive.css" />
     <script defer src="./app.js"></script>
   </head>
@@ -77,6 +78,7 @@
             <button class="icon-button" type="button" aria-label="再判定" title="再判定">
               <span aria-hidden="true">R</span>
             </button>
+            <button class="secondary-button" type="button" id="manualAddButton">手動追加</button>
             <button class="primary-button" type="button">レビュー開始</button>
           </div>
         </header>
@@ -95,7 +97,7 @@
             <strong id="metricAccepted">0</strong>
           </article>
           <article class="metric-tile">
-            <span>今日締切</span>
+            <span>期限あり</span>
             <strong id="metricToday">0</strong>
           </article>
         </section>
@@ -116,10 +118,16 @@
               <button class="filter-chip" type="button" data-filter="review">要確認</button>
               <button class="filter-chip" type="button" data-filter="accepted">採用済</button>
             </div>
+            <div class="source-filter-bar" role="tablist" aria-label="Source filters">
+              <button class="source-chip active" type="button" data-source-filter="all">全ソース</button>
+              <button class="source-chip" type="button" data-source-filter="chatwork">Chatwork</button>
+              <button class="source-chip" type="button" data-source-filter="zoom">Zoom</button>
+              <button class="source-chip" type="button" data-source-filter="manual">手動</button>
+            </div>
 
             <label class="search-field">
               <span>検索</span>
-              <input id="searchInput" type="search" placeholder="ルーム、相手、タスク名" />
+              <input id="searchInput" type="search" placeholder="企業、発生元、相手、タスク名" />
             </label>
 
             <div class="candidate-list" id="candidateList"></div>
@@ -142,6 +150,8 @@
                 </div>
                 <div class="confidence-ring" id="confidenceRing">0%</div>
               </div>
+
+              <dl class="source-meta-grid" id="sourceMetaGrid"></dl>
 
               <div class="ai-decision" id="aiDecision"></div>
 
@@ -171,6 +181,11 @@
 
             <form class="task-form" id="taskForm">
               <label>
+                <span>企業名</span>
+                <input id="taskCompanyInput" name="company" type="text" />
+              </label>
+
+              <label>
                 <span>タスク名</span>
                 <input id="taskTitleInput" name="title" type="text" />
               </label>
@@ -182,8 +197,8 @@
 
               <div class="form-grid">
                 <label>
-                  <span>期限</span>
-                  <input id="taskDueInput" name="due" type="date" />
+                  <span>登録日</span>
+                  <input id="taskRegisteredInput" name="registered" type="datetime-local" />
                 </label>
                 <label>
                   <span>優先度</span>
@@ -192,6 +207,17 @@
                     <option value="medium">中</option>
                     <option value="low">低</option>
                   </select>
+                </label>
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  <span>期限表現</span>
+                  <input id="taskDueTextInput" name="dueText" type="text" />
+                </label>
+                <label>
+                  <span>解釈後の期限</span>
+                  <input id="taskDueInput" name="due" type="date" />
                 </label>
               </div>
 
