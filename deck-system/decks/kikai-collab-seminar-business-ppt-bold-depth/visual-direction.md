@@ -75,3 +75,5 @@ body は lead がある場合は lead 下から footer 上まで、lead がな�
 - Source: `../kikai-collab-seminar-business-ppt/`
 - Output: `../kikai-collab-seminar-business-ppt-bold-depth/`
 - Slide count: 34
+- Palette reference: `color-palette.md`
+- Page audit reference: `page-depth-audit.md`
