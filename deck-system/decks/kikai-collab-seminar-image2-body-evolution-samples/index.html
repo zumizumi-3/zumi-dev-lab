@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Collab Seminar / Body Image Evolution Samples</title>
+    <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
+    <style>
+      :root {
+        --deck-w: 1600px;
+        --deck-h: 900px;
+        --deck-scale: 1;
+        --nav-h: 46px;
+        --orange: #ff7143;
+        --orange-dark: #e85f37;
+        --ink: #414242;
+        --muted: #6d7375;
+        --line: #e5eaec;
+      }
+      * { box-sizing: border-box; }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+        color: var(--ink);
+        font-family: var(--kbp-font, system-ui, sans-serif);
+        text-rendering: geometricPrecision;
+      }
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: var(--nav-h);
+        padding: 8px 18px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, .96);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      .topbar a { text-decoration: none; }
+      .nav-mark {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+      main {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      .slide {
+        position: absolute;
+        top: calc(var(--nav-h) + ((100dvh - var(--nav-h)) / 2));
+        left: 50%;
+        display: grid;
+        grid-template-rows: 32px auto auto minmax(0, 1fr) 30px;
+        gap: 8px;
+        width: var(--deck-w);
+        height: var(--deck-h);
+        padding: 42px 60px 38px 76px;
+        border: 1px solid var(--line);
+        background: #fff;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
+        transform-origin: center center;
+      }
+      .slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 10px;
+        background: linear-gradient(180deg, #ff8a64 0%, var(--orange) 52%, var(--orange-dark) 100%);
+      }
+      .slide-header,
+      .slide-footer,
+      h2,
+      .lead-copy,
+      .body-slot {
+        position: relative;
+        z-index: 1;
+      }
+      .slide-header,
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 820;
+        line-height: 1.35;
+      }
+      .doc-label {
+        color: var(--muted);
+        font-weight: 860;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      .header-logo {
+        width: 150px;
+        height: 30px;
+        object-fit: contain;
+        object-position: right center;
+      }
+      h2 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 11px;
+        border-bottom: 2px solid var(--orange);
+        color: var(--ink);
+        font-size: 42px;
+        font-weight: 830;
+        line-height: 1.15;
+        letter-spacing: 0;
+        text-wrap: balance;
+      }
+      .lead-copy {
+        max-width: 1180px;
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 22px;
+        font-weight: 680;
+        line-height: 1.42;
+        letter-spacing: 0;
+      }
+      .body-slot {
+        display: grid;
+        min-height: 0;
+        margin-top: 8px;
+        align-items: center;
+      }
+      .body-slot img {
+        display: block;
+        width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+        object-fit: contain;
+      }
+      .slide-footer {
+        justify-content: flex-end;
+        padding-top: 8px;
+        border-top: 1px solid var(--line);
+      }
+      .controls {
+        position: fixed;
+        right: 20px;
+        bottom: 18px;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .controls button,
+      .counter {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ink);
+        font-weight: 850;
+      }
+      .controls button {
+        width: 38px;
+        height: 38px;
+        cursor: pointer;
+      }
+      .counter {
+        min-width: 78px;
+        padding: 10px 14px;
+        text-align: center;
+      }
+      .progress {
+        position: fixed;
+        inset: auto 0 0;
+        z-index: 55;
+        height: 4px;
+        background: var(--line);
+      }
+      .progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: var(--orange);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar" aria-label="Deck navigation">
+      <a href="../">Decks</a>
+      <span>/</span>
+      <a href="../kikai-collab-seminar-business-ppt-bold/">Original</a>
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span>Body Image Evolution Samples</span>
+    </nav>
+
+    <main aria-label="Kikai body image evolution sample slides">
+      <section class="slide is-active" id="P05" data-slide="P05" aria-label="AI活用の2つの道">
+        <header class="slide-header">
+          <span class="doc-label">AI活用の2つの道</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
+        <h2>私たちはプロダクト側にこだわる</h2>
+        <p class="lead-copy">情報を消費する人ではなく、AIで価値を作る人を増やしたい。</p>
+        <div class="body-slot" data-role="image2-body"><img src="./assets/body-p05.png" alt="AIで価値を作る人を増やすというミッションを示した情報パネル"></div>
+        <footer class="slide-footer"><span>P05 sample</span></footer>
+      </section>
+
+      <section class="slide" id="P10" data-slide="P10" aria-label="章扉 バイブコーディング">
+        <header class="slide-header">
+          <span class="doc-label">バイブコーディングとは</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
+        <h2>「作る」の常識が変わる</h2>
+        <p class="lead-copy">作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
+        <div class="body-slot" data-role="image2-body"><img src="./assets/body-p10.png" alt="言葉からプロトタイプ、販売改善へ進むバイブコーディングの情報パネル"></div>
+        <footer class="slide-footer"><span>P10 sample</span></footer>
+      </section>
+
+      <section class="slide" id="P20" data-slide="P20" aria-label="黄金ルート">
+        <header class="slide-header">
+          <span class="doc-label">90%以上が失敗する理由</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
+        <h2>稼ぐなら、段階的な黄金ルートが必要</h2>
+        <p class="lead-copy">どの段階で止めても、すでに稼げている状態を作る。</p>
+        <div class="body-slot" data-role="image2-body"><img src="./assets/body-p20.png" alt="学習から受託、横展開、品質改善、プロダクト化までの黄金ルート"></div>
+        <footer class="slide-footer"><span>P20 sample</span></footer>
+      </section>
+
+      <section class="slide" id="P31" data-slide="P31" aria-label="品質チェック">
+        <header class="slide-header">
+          <span class="doc-label">Kikaiの提供価値</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
+        <h2>品質チェックが、AI生成コードの不安を減らす</h2>
+        <p class="lead-copy">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
+        <div class="body-slot" data-role="image2-body"><img src="./assets/body-p31.png" alt="AI生成コードの品質ゲートとチェック観点を示す情報パネル"></div>
+        <footer class="slide-footer"><span>P31 sample</span></footer>
+      </section>
+    </main>
+
+    <div class="controls" aria-label="Slide controls">
+      <button type="button" data-prev aria-label="前のスライド">‹</button>
+      <div class="counter" aria-live="polite">1 / 4</div>
+      <button type="button" data-next aria-label="次のスライド">›</button>
+    </div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+
+    <script>
+      class PresentationController {
+        constructor() {
+          this.slides = Array.from(document.querySelectorAll(".slide"));
+          this.counter = document.querySelector(".counter");
+          this.progress = document.querySelector(".progress span");
+          this.deckWidth = 1600;
+          this.deckHeight = 900;
+          this.index = this.getInitialIndex();
+          this.updateScale();
+          this.bind();
+          this.show(this.index, false);
+        }
+        getInitialIndex() {
+          const id = window.location.hash.replace("#", "");
+          const found = this.slides.findIndex((slide) => slide.id === id);
+          return found >= 0 ? found : 0;
+        }
+        updateScale() {
+          const availableW = window.innerWidth - 32;
+          const availableH = window.innerHeight - 46 - 28;
+          const scale = Math.min(availableW / this.deckWidth, availableH / this.deckHeight);
+          document.documentElement.style.setProperty("--deck-scale", Math.max(.22, scale).toFixed(4));
+        }
+        bind() {
+          document.querySelector("[data-prev]").addEventListener("click", () => this.go(-1));
+          document.querySelector("[data-next]").addEventListener("click", () => this.go(1));
+          window.addEventListener("resize", () => this.updateScale());
+          window.addEventListener("keydown", (event) => {
+            if (["ArrowRight", "PageDown", " "].includes(event.key)) {
+              event.preventDefault();
+              this.go(1);
+            }
+            if (["ArrowLeft", "PageUp"].includes(event.key)) {
+              event.preventDefault();
+              this.go(-1);
+            }
+          });
+        }
+        go(delta) {
+          this.show(this.index + delta);
+        }
+        show(index, updateHash = true) {
+          this.index = Math.max(0, Math.min(index, this.slides.length - 1));
+          this.slides.forEach((slide, i) => {
+            const active = i === this.index;
+            slide.classList.toggle("is-active", active);
+            slide.setAttribute("aria-hidden", String(!active));
+          });
+          this.counter.textContent = `${this.index + 1} / ${this.slides.length}`;
+          this.progress.style.width = `${((this.index + 1) / this.slides.length) * 100}%`;
+          if (updateHash) history.replaceState(null, "", `#${this.slides[this.index].id}`);
+        }
+      }
+      new PresentationController();
+    </script>
+  </body>
+</html>

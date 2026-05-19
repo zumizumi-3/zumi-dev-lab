@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Body Evolution Panels</title>
+    <style>
+      :root {
+        --w: 1416px;
+        --h: 560px;
+        --orange: #ff7143;
+        --orange-dark: #e85f37;
+        --orange-soft: #fff0e9;
+        --burgundy: #8b1e3f;
+        --ink: #333536;
+        --muted: #62686b;
+        --soft: #9aa3a7;
+        --line: #e2e6e8;
+        --paper: #fff;
+        --surface: #fbfcfc;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html,
+      body {
+        width: var(--w);
+        height: var(--h);
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+        color: var(--ink);
+        text-rendering: geometricPrecision;
+      }
+      .panel {
+        position: absolute;
+        inset: 0;
+        display: none;
+        width: var(--w);
+        height: var(--h);
+        padding: 24px;
+        background: linear-gradient(180deg, #fff 0%, #fbfcfc 100%);
+      }
+      .panel.is-active { display: block; }
+      .sheet {
+        position: relative;
+        display: grid;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, .96);
+        box-shadow: 0 18px 48px rgba(65, 66, 66, .12);
+        overflow: hidden;
+      }
+      .sheet::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 9px;
+        background: linear-gradient(180deg, #ff8c67, var(--orange), var(--orange-dark));
+      }
+      .eyebrow {
+        display: inline-flex;
+        width: max-content;
+        align-items: center;
+        gap: 8px;
+        color: var(--orange-dark);
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: .04em;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+      .big-copy {
+        margin: 0;
+        color: var(--ink);
+        font-size: 42px;
+        font-weight: 900;
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+      .body-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 690;
+        line-height: 1.55;
+      }
+      .orange { color: var(--orange-dark); }
+      .burgundy { color: var(--burgundy); }
+      .card {
+        min-width: 0;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: #fff;
+        box-shadow: 0 8px 22px rgba(65, 66, 66, .06);
+        overflow: hidden;
+      }
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: #f7f4f1;
+      }
+      .icon svg {
+        width: 35px;
+        height: 35px;
+        stroke: var(--ink);
+        stroke-width: 2.2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        font-size: 21px;
+        font-weight: 900;
+      }
+      .mini-label {
+        color: var(--orange-dark);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: .05em;
+      }
+      .card-title {
+        margin: 0;
+        color: var(--ink);
+        font-size: 24px;
+        font-weight: 890;
+        line-height: 1.28;
+      }
+      .card-text {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 660;
+        line-height: 1.5;
+      }
+      .mission-band {
+        display: grid;
+        grid-template-columns: 78px 1px 1fr;
+        gap: 22px;
+        align-items: center;
+        min-height: 66px;
+        padding: 10px 20px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: linear-gradient(90deg, #fff 0%, #fff8f5 100%);
+      }
+      .mission-band .divider {
+        width: 1px;
+        height: 38px;
+        background: var(--line);
+      }
+      .mission-band strong {
+        color: var(--ink);
+        font-size: 26px;
+        font-weight: 920;
+        line-height: 1.18;
+      }
+      .mission-band span {
+        color: var(--orange-dark);
+      }
+
+      .p05 .sheet {
+        grid-template-columns: .96fr 1fr;
+        grid-template-rows: 1fr auto;
+      }
+      .hero-card {
+        display: grid;
+        align-content: center;
+        min-height: 0;
+        padding: 30px 28px 26px 38px;
+      }
+      .p05 .hero-card .big-copy { font-size: 38px; }
+      .hero-card .big-copy {
+        padding-left: 26px;
+        border-left: 8px solid var(--orange);
+      }
+      .hero-note {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 18px;
+        align-items: center;
+        margin-top: 26px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+      .hero-note strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--orange-dark);
+        font-size: 24px;
+        font-weight: 900;
+      }
+      .insight-stack {
+        display: grid;
+        gap: 18px;
+        min-height: 0;
+      }
+      .insight-card {
+        display: grid;
+        grid-template-columns: 42px 76px 1fr;
+        gap: 18px;
+        align-items: center;
+        padding: 20px 24px;
+      }
+      .p05 .mission-band {
+        grid-column: 1 / -1;
+      }
+
+      .p10 .sheet {
+        grid-template-columns: .92fr 1.08fr;
+        grid-template-rows: auto 1fr auto;
+        gap: 14px;
+        padding: 20px;
+      }
+      .p10 .big-copy,
+      .p20 .big-copy,
+      .p31 .big-copy {
+        font-size: 38px;
+      }
+      .p10-head {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 390px;
+        gap: 28px;
+        align-items: end;
+      }
+      .workflow-hero {
+        display: grid;
+        grid-template-rows: 154px auto auto;
+        gap: 11px;
+        padding: 18px 20px;
+        min-height: 0;
+      }
+      .screen-mock {
+        position: relative;
+        min-height: 0;
+        height: 154px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background:
+          linear-gradient(90deg, rgba(255, 113, 67, .12), transparent 32%),
+          linear-gradient(180deg, #fff, #f7f8f8);
+        overflow: hidden;
+      }
+      .screen-mock::before {
+        content: "";
+        position: absolute;
+        inset: 26px 34px auto;
+        height: 34px;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 0 0 1px var(--line), 0 16px 35px rgba(65, 66, 66, .08);
+      }
+      .screen-mock::after {
+        content: "";
+        position: absolute;
+        right: 40px;
+        bottom: 22px;
+        width: 232px;
+        height: 86px;
+        border-radius: 8px;
+        background:
+          linear-gradient(90deg, var(--burgundy), #b94658),
+          repeating-linear-gradient(180deg, transparent 0 18px, rgba(255, 255, 255, .3) 18px 19px);
+        box-shadow: -148px -30px 0 -18px rgba(255, 113, 67, .15), -188px 56px 0 -30px rgba(139, 30, 63, .12);
+      }
+      .flow-stack {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .flow-card {
+        display: grid;
+        gap: 12px;
+        padding: 20px;
+      }
+      .flow-card .mark {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+      .conversion {
+        display: grid;
+        gap: 10px;
+        min-height: 0;
+      }
+      .conversion-row {
+        display: grid;
+        grid-template-columns: 54px 1fr 40px;
+        gap: 14px;
+        align-items: center;
+        padding: 14px 18px;
+      }
+      .conversion-row b {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 900;
+      }
+      .conversion-row small {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 680;
+        line-height: 1.45;
+      }
+      .p10 .mission-band {
+        grid-column: 1 / -1;
+      }
+
+      .p20 .sheet {
+        grid-template-rows: auto 1fr auto;
+        gap: 14px;
+        padding: 20px;
+      }
+      .route-head {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 22px;
+        align-items: end;
+      }
+      .route-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        min-height: 0;
+      }
+      .route-card {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto auto 1fr;
+        gap: 7px;
+        padding: 14px;
+        overflow: hidden;
+      }
+      .route-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 5px;
+        background: var(--orange);
+      }
+      .route-card .icon {
+        width: 44px;
+        height: 44px;
+      }
+      .route-card .icon svg {
+        width: 27px;
+        height: 27px;
+      }
+      .route-card strong {
+        color: var(--ink);
+        font-size: 19px;
+        font-weight: 900;
+        line-height: 1.23;
+      }
+      .route-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 660;
+        line-height: 1.5;
+      }
+      .route-card .result {
+        align-self: end;
+        padding: 7px 9px;
+        border-radius: 6px;
+        background: var(--orange-soft);
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      .p31 .sheet {
+        grid-template-columns: .92fr 1.08fr;
+        grid-template-rows: 84px minmax(0, 1fr) auto;
+        gap: 14px;
+        padding: 20px;
+      }
+      .p31 .mission-band {
+        grid-column: 1 / -1;
+      }
+      .p31-head {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 24px;
+        align-items: end;
+      }
+      .quality-main {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 12px;
+        min-height: 0;
+        padding: 16px 18px;
+      }
+      .quality-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .quality-tile {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 10px;
+      }
+      .quality-tile .icon {
+        width: 48px;
+        height: 48px;
+      }
+      .quality-tile strong {
+        display: block;
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 900;
+      }
+      .matrix {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 8px;
+        min-height: 0;
+        padding: 16px 18px;
+      }
+      .matrix-table {
+        display: grid;
+        grid-template-columns: 1.15fr repeat(3, .62fr);
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+      .cell {
+        min-height: 30px;
+        padding: 5px 8px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 730;
+        line-height: 1.38;
+      }
+      .cell.head {
+        background: var(--orange-soft);
+        color: var(--ink);
+        font-weight: 900;
+      }
+      .cell.ok {
+        display: grid;
+        place-items: center;
+        color: var(--orange-dark);
+        font-size: 22px;
+        font-weight: 900;
+      }
+      .p31 .matrix .card-title {
+        font-size: 23px;
+      }
+      .p31 .matrix .card-text {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="panel p05 is-active" id="P05" aria-label="P05 body">
+      <div class="sheet">
+        <article class="card hero-card">
+          <p class="big-copy">情報を消費する人ではなく、<br><span class="orange">AIで価値を作る人</span>を<br>増やしたい。</p>
+          <div class="hero-note">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M11 35c2-6 7-9 13-9s11 3 13 9"/><circle cx="24" cy="17" r="7"/><path d="M35 12l3-5 3 5M38 7v13"/></svg>
+            </div>
+            <div>
+              <strong>創造の民主化</strong>
+              <p class="body-copy">スキルがなくても始められ、やればやるほど差がつく。</p>
+            </div>
+          </div>
+        </article>
+        <div class="insight-stack">
+          <article class="card insight-card">
+            <div class="mark">A</div>
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M9 37h30"/><path d="M13 34V22h6v12M22 34V16h6v18M31 34V10h6v24"/><path d="M12 18l9-8 6 5 10-10"/></svg>
+            </div>
+            <div>
+              <h3 class="card-title">AIマーケで強くなるのは「もともと強い人」だけ</h3>
+              <p class="card-text">既存の知見・影響力・蓄積がある人ほど、AIでさらに伸びやすい。</p>
+            </div>
+          </article>
+          <article class="card insight-card">
+            <div class="mark">B</div>
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M10 34c8-1 16-7 23-18l5-8-8 5C19 20 13 27 10 34Z"/><path d="M28 16l4 4"/><path d="M17 31l-6 6"/></svg>
+            </div>
+            <div>
+              <h3 class="card-title">本当の意味で逆転可能なのは、プロダクト側</h3>
+              <p class="card-text">作るほど実力と実績が積み上がり、顧客課題を解く資産が残る。</p>
+            </div>
+          </article>
+          <article class="card insight-card">
+            <div class="mark">C</div>
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M8 18l8-8h16l8 8-16 20Z"/><path d="M8 18h32M16 10l8 28 8-28"/></svg>
+            </div>
+            <div>
+              <h3 class="card-title">価値を作れば、資産として残る</h3>
+              <p class="card-text">発信量ではなく、顧客の問題を解くものが信頼と成果につながる。</p>
+            </div>
+          </article>
+        </div>
+        <div class="mission-band">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="8"/><path d="M24 24l13-13"/><path d="M36 8l4 4-7 1 1-7Z"/></svg>
+          </div>
+          <div class="divider"></div>
+          <strong>これが、私たちの<span>ミッション</span>。</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel p10" id="P10" aria-label="P10 body">
+      <div class="sheet">
+        <div class="p10-head">
+          <div>
+            <div class="eyebrow">BODY IMAGE EVOLUTION</div>
+            <p class="big-copy">言葉を、<span class="orange">動くサービス</span>に変える。</p>
+          </div>
+          <p class="body-copy">バイブコーディングは、コードを書く行為ではなく、課題を言語化し、AIと確認しながら価値へ変換するプロセス。</p>
+        </div>
+        <article class="card workflow-hero">
+          <div class="screen-mock" aria-hidden="true"></div>
+          <h3 class="card-title">専門職だけの開発から、<br>事業理解を持つ人が作る開発へ</h3>
+        </article>
+        <div class="conversion">
+          <article class="card conversion-row">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 12h32v20H18l-8 7v-7H8Z"/><path d="M15 20h18M15 26h12"/></svg></div>
+            <div><b>言語化</b><br><small>誰の、どの業務を、どう楽にするかを決める。</small></div>
+            <div class="mark">1</div>
+          </article>
+          <article class="card conversion-row">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="24" rx="3"/><path d="M14 18h12M14 24h20M14 30h10M18 40h12"/></svg></div>
+            <div><b>プロトタイプ</b><br><small>AIに画面と動作を作らせ、使いながら修正する。</small></div>
+            <div class="mark">2</div>
+          </article>
+          <article class="card conversion-row">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 36h28"/><path d="M14 33V21h6v12M23 33V14h6v19M32 33V9h6v24"/><path d="M9 15l8 6 8-10 8 5 6-8"/></svg></div>
+            <div><b>販売・改善</b><br><small>小さく使ってもらい、実績と改善履歴を次の提案にする。</small></div>
+            <div class="mark">3</div>
+          </article>
+        </div>
+        <div class="mission-band">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6v10M24 32v10M6 24h10M32 24h10"/><circle cx="24" cy="24" r="8"/><path d="M16 16l-5-5M32 16l5-5M16 32l-5 5M32 32l5 5"/></svg></div>
+          <div class="divider"></div>
+          <strong>説明できることが、<span>プロトタイプ</span>になる。</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel p20" id="P20" aria-label="P20 body">
+      <div class="sheet">
+        <div class="route-head">
+          <div>
+            <div class="eyebrow">ROUTE DESIGN</div>
+            <p class="big-copy">いきなりSaaSではなく、<br><span class="orange">収益化の階段</span>を作る。</p>
+          </div>
+          <p class="body-copy">どの段階で止めても、すでに稼げている状態を作る。受託で顧客課題を学び、型化し、最後にプロダクト化する。</p>
+        </div>
+        <div class="route-grid">
+          <article class="card route-card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 12h20a8 8 0 0 1 8 8v16H18a8 8 0 0 1-8-8Z"/><path d="M17 20h14M17 26h10"/></svg></div>
+            <div class="mini-label">01 / LEARN</div>
+            <strong>AIへの指示力を整える</strong>
+            <p>課題を分解し、依頼できる粒度にする。</p>
+            <div class="result">成果: 作れる題材が見える</div>
+          </article>
+          <article class="card route-card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 18h30v20H9Z"/><path d="M16 18v-5h16v5"/><path d="M15 28h18"/></svg></div>
+            <div class="mini-label">02 / FIRST CLIENT</div>
+            <strong>小さな受託で動き出す</strong>
+            <p>身近な業務改善で初回売上を作る。</p>
+            <div class="result">成果: 月5〜10万円</div>
+          </article>
+          <article class="card route-card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 34h28"/><path d="M14 30v-8h5v8M22 30V15h5v15M30 30V10h5v20"/><path d="M11 16l9-6 8 5 9-9"/></svg></div>
+            <div class="mini-label">03 / EXPAND</div>
+            <strong>型化して横展開する</strong>
+            <p>似た課題を持つ業界へ提案を広げる。</p>
+            <div class="result">成果: 月50万円帯</div>
+          </article>
+          <article class="card route-card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 7l14 6v10c0 9-6 15-14 18-8-3-14-9-14-18V13Z"/><path d="M17 24l5 5 10-11"/></svg></div>
+            <div class="mini-label">04 / POLISH</div>
+            <strong>品質と継続性を磨く</strong>
+            <p>保守、改善、教育を組み合わせる。</p>
+            <div class="result">成果: 継続収益</div>
+          </article>
+          <article class="card route-card">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="10" width="14" height="14" rx="3"/><rect x="26" y="10" width="14" height="14" rx="3"/><rect x="8" y="28" width="14" height="10" rx="3"/><rect x="26" y="28" width="14" height="10" rx="3"/></svg></div>
+            <div class="mini-label">05 / PRODUCTIZE</div>
+            <strong>共通課題をアプリ化</strong>
+            <p>受託で見えた課題を自社サービスにする。</p>
+            <div class="result">成果: 資産化</div>
+          </article>
+        </div>
+        <div class="mission-band">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 34c8-13 14-18 23-22"/><path d="M30 9h10v10"/><path d="M30 9l10 10"/></svg></div>
+          <div class="divider"></div>
+          <strong>止まっても稼げる。進めば<span>資産化</span>する。</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel p31" id="P31" aria-label="P31 body">
+      <div class="sheet">
+        <div class="p31-head">
+          <div>
+            <div class="eyebrow">QUALITY GATE</div>
+            <p class="big-copy">不安の正体を、<span class="orange">納品前</span>に潰す。</p>
+          </div>
+          <p class="body-copy">AI生成コードを「動く」から「売れる・任せられる」へ引き上げる。品質保証そのものが営業材料になる。</p>
+        </div>
+        <article class="card quality-main">
+          <div>
+            <h3 class="card-title">品質チェックは、受託・販売の信頼を作る</h3>
+            <p class="card-text">権限、例外、データ、運用を見える化し、説明できる状態にする。</p>
+          </div>
+          <div class="quality-grid">
+            <div class="card quality-tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M8 12h32v24H8Z"/><path d="M15 20h18M15 26h12"/></svg></div><div><strong>生成</strong><p class="card-text">初期実装を作る</p></div></div>
+            <div class="card quality-tile"><div class="icon"><svg viewBox="0 0 48 48"><circle cx="22" cy="22" r="11"/><path d="M31 31l8 8"/><path d="M17 22l4 4 7-9"/></svg></div><div><strong>点検</strong><p class="card-text">危険箇所を見る</p></div></div>
+            <div class="card quality-tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M12 29l-3 10 10-3 19-19-7-7Z"/><path d="M28 13l7 7"/></svg></div><div><strong>修正</strong><p class="card-text">壊れにくく直す</p></div></div>
+            <div class="card quality-tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M10 14h28v24H10Z"/><path d="M16 10h16v8H16Z"/><path d="M16 27h16"/></svg></div><div><strong>納品</strong><p class="card-text">説明して渡す</p></div></div>
+          </div>
+        </article>
+        <article class="card matrix">
+          <div>
+            <h3 class="card-title">確認観点を明文化する</h3>
+            <p class="card-text">チェック済みと言える範囲が、営業時の安心材料になる。</p>
+          </div>
+          <div class="matrix-table">
+            <div class="cell head">確認観点</div><div class="cell head">受託</div><div class="cell head">販売</div><div class="cell head">運用</div>
+            <div class="cell">ユーザー権限と閲覧範囲</div><div class="cell ok">✓</div><div class="cell ok">✓</div><div class="cell ok">✓</div>
+            <div class="cell">入力ミス・例外時の挙動</div><div class="cell ok">✓</div><div class="cell ok">✓</div><div class="cell ok">✓</div>
+            <div class="cell">データ保存・復旧・監査</div><div class="cell ok">✓</div><div class="cell ok">✓</div><div class="cell ok">✓</div>
+            <div class="cell">説明できる改善履歴</div><div class="cell ok">✓</div><div class="cell ok">✓</div><div class="cell ok">✓</div>
+          </div>
+        </article>
+        <div class="mission-band">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 7l14 6v10c0 9-6 15-14 18-8-3-14-9-14-18V13Z"/><path d="M17 24l5 5 10-11"/></svg></div>
+          <div class="divider"></div>
+          <strong>品質保証が、不安を<span>信頼</span>に変える。</strong>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const target = window.location.hash.replace("#", "") || "P05";
+      document.querySelectorAll(".panel").forEach((panel) => {
+        panel.classList.toggle("is-active", panel.id === target);
+      });
+    </script>
+  </body>
+</html>
