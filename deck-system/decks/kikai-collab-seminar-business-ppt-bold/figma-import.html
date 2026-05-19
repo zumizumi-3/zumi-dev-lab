@@ -9,6 +9,7 @@
       :root {
         --deck-w: 1600px;
         --deck-h: 900px;
+        --figma-strip-h: 30600px;
         --deck-scale: 1;
         --nav-h: 46px;
         --logo: "../../formats/kikai-business-ppt/assets/3.png";
@@ -4022,10 +4023,13 @@
          all sections visible and remove browser-only navigation chrome. */
       html,
       body {
-        width: max-content;
-        height: auto;
-        min-height: 100%;
-        overflow: auto;
+        width: var(--deck-w) !important;
+        min-width: var(--deck-w) !important;
+        max-width: var(--deck-w) !important;
+        height: var(--figma-strip-h) !important;
+        min-height: var(--figma-strip-h) !important;
+        max-height: var(--figma-strip-h) !important;
+        overflow: hidden !important;
         background: #ffffff !important;
         scrollbar-width: none;
       }
@@ -4045,21 +4049,31 @@
       }
       main {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
+        display: block;
         width: var(--deck-w);
-        height: auto;
-        min-height: 0;
-        overflow: visible;
-        background: transparent !important;
+        min-width: var(--deck-w);
+        max-width: var(--deck-w);
+        height: var(--figma-strip-h);
+        min-height: var(--figma-strip-h);
+        max-height: var(--figma-strip-h);
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #ffffff !important;
       }
       .slide,
       .slide.is-active {
         position: relative !important;
         top: auto !important;
         left: auto !important;
-        flex: 0 0 auto;
+        display: grid !important;
+        width: var(--deck-w) !important;
+        min-width: var(--deck-w) !important;
+        max-width: var(--deck-w) !important;
+        height: var(--deck-h) !important;
+        min-height: var(--deck-h) !important;
+        max-height: var(--deck-h) !important;
+        margin: 0 !important;
         opacity: 1 !important;
         pointer-events: auto !important;
         transform: none !important;
