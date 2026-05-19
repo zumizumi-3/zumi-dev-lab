@@ -2348,25 +2348,25 @@
         --kbp-line: #dcc8ad;
         --kbp-line-soft: #efe2cf;
         --kbp-surface: #fff7ed;
-        --kbp-surface-strong: #d69b36;
-        --kbp-orange: #c9821f;
+        --kbp-surface-strong: #ff7143;
+        --kbp-orange: #ff7143;
         --kbp-orange-soft: #fff1d4;
         --kbp-shadow: 0 28px 74px rgba(52, 50, 48, 0.16);
         --kbp-radius: 8px;
         --kvb-bordeaux: #6f2534;
         --kvb-bordeaux-deep: #343230;
-        --kvb-rose: #efc56b;
-        --kvb-gold: #d69b36;
+        --kvb-rose: #ff7143;
+        --kvb-gold: #ff7143;
         --kvb-gold-soft: #fff0cc;
         --kvb-teal: #19756f;
         --kvb-cream: #ffffff;
-        --kvb-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='260' viewBox='0 0 360 260'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.18' stroke-width='3'%3E%3Cpath d='M20 210 160 70l58 58 112-112'/%3E%3Cpath d='M26 42h110M26 78h78M226 186h94M226 220h58'/%3E%3Crect x='220' y='28' width='94' height='94' rx='12'/%3E%3Ccircle cx='84' cy='178' r='38'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.2'%3E%3Crect x='246' y='55' width='42' height='42' rx='8'/%3E%3Ccircle cx='84' cy='178' r='15'/%3E%3C/g%3E%3C/svg%3E");
+        --kvb-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='260' viewBox='0 0 360 260'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.18' stroke-width='3'%3E%3Cpath d='M20 210 160 70l58 58 112-112'/%3E%3Cpath d='M26 42h110M26 78h78M226 186h94M226 220h58'/%3E%3Crect x='220' y='28' width='94' height='94' rx='12'/%3E%3Ccircle cx='84' cy='178' r='38'/%3E%3C/g%3E%3Cg fill='%23ff7143' fill-opacity='.2'%3E%3Crect x='246' y='55' width='42' height='42' rx='8'/%3E%3Ccircle cx='84' cy='178' r='15'/%3E%3C/g%3E%3C/svg%3E");
       }
       body {
         background: var(--kbp-page-bg);
       }
       .topbar {
-        border-bottom: 1px solid rgba(220, 200, 173, 0.86);
+        border-bottom: 1px solid rgba(255, 113, 67, 0.86);
         background: rgba(255, 255, 255, 0.94);
         color: var(--kbp-muted);
       }
@@ -2381,15 +2381,15 @@
         grid-template-rows: 32px minmax(0, 1fr) 30px;
         gap: 8px;
         padding: 40px 54px 38px 72px;
-        border: 3px solid rgba(214, 155, 54, 0.36);
+        border: 3px solid rgba(255, 113, 67, 0.36);
         background:
-          linear-gradient(90deg, rgba(214, 155, 54, 0.12) 0 11%, transparent 11%),
+          linear-gradient(90deg, rgba(255, 113, 67, 0.12) 0 11%, transparent 11%),
           linear-gradient(180deg, rgba(255, 244, 221, 0.48), rgba(255, 255, 255, 0) 36%),
           var(--kbp-paper);
       }
       .slide::before {
         width: 28px;
-        background: linear-gradient(180deg, #d69b36, #efc56b 64%, #c9821f);
+        background: linear-gradient(180deg, #ff7143, #ff7143 64%, #ff7143);
       }
       .slide::after {
         content: attr(data-slide);
@@ -2399,7 +2399,7 @@
         height: auto;
         border-radius: 0;
         background: transparent;
-        color: rgba(214, 155, 54, 0.12);
+        color: rgba(255, 113, 67, 0.12);
         font-size: 92px;
         font-weight: 900;
         line-height: 1;
@@ -2434,7 +2434,7 @@
       }
       h2 {
         padding-bottom: 9px;
-        border-bottom: 7px solid rgba(214, 155, 54, 0.84);
+        border-bottom: 7px solid rgba(255, 113, 67, 0.84);
         color: var(--kvb-bordeaux-deep);
         font-size: 50px;
         font-weight: 900;
@@ -2533,7 +2533,7 @@
         bottom: 12px;
         width: 58px;
         height: 58px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.55' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 44h44M16 38l10-12 10 7 12-17'/%3E%3Cpath d='M12 14h15M12 22h8'/%3E%3C/g%3E%3Ccircle cx='50' cy='18' r='6' fill='%23d69b36' fill-opacity='.72'/%3E%3C/svg%3E") center / contain no-repeat;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.55' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 44h44M16 38l10-12 10 7 12-17'/%3E%3Cpath d='M12 14h15M12 22h8'/%3E%3C/g%3E%3Ccircle cx='50' cy='18' r='6' fill='%23ff7143' fill-opacity='.72'/%3E%3C/svg%3E") center / contain no-repeat;
         opacity: 0.16;
         pointer-events: none;
       }
@@ -2541,17 +2541,17 @@
       .route-stage::before,
       .coverage-stage::before,
       .pipeline-stage::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 34h34'/%3E%3Cpath d='m35 22 12 12-12 12'/%3E%3Cpath d='M12 18h16M12 50h24'/%3E%3C/g%3E%3Crect x='44' y='10' width='10' height='10' rx='2' fill='%23d69b36' fill-opacity='.72'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 34h34'/%3E%3Cpath d='m35 22 12 12-12 12'/%3E%3Cpath d='M12 18h16M12 50h24'/%3E%3C/g%3E%3Crect x='44' y='10' width='10' height='10' rx='2' fill='%23ff7143' fill-opacity='.72'/%3E%3C/svg%3E");
       }
       .problem-card::after,
       .risk-card::before,
       .gate-card::after {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 8 52 18v14c0 12-7 19-20 24C19 51 12 44 12 32V18L32 8Z'/%3E%3Cpath d='m24 32 6 6 12-15'/%3E%3C/g%3E%3Ccircle cx='49' cy='18' r='5' fill='%23d69b36' fill-opacity='.76'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M32 8 52 18v14c0 12-7 19-20 24C19 51 12 44 12 32V18L32 8Z'/%3E%3Cpath d='m24 32 6 6 12-15'/%3E%3C/g%3E%3Ccircle cx='49' cy='18' r='5' fill='%23ff7143' fill-opacity='.76'/%3E%3C/svg%3E");
       }
       .community-case::after,
       .global-card::after,
       .revenue-card::after {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 48h38M18 42V18h28v24'/%3E%3Cpath d='M24 36 31 28l7 6 9-14'/%3E%3Cpath d='M24 22h8M24 28h5'/%3E%3C/g%3E%3Crect x='42' y='17' width='8' height='8' rx='2' fill='%23d69b36' fill-opacity='.72'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.62' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 48h38M18 42V18h28v24'/%3E%3Cpath d='M24 36 31 28l7 6 9-14'/%3E%3Cpath d='M24 22h8M24 28h5'/%3E%3C/g%3E%3Crect x='42' y='17' width='8' height='8' rx='2' fill='%23ff7143' fill-opacity='.72'/%3E%3C/svg%3E");
       }
       .card.feature,
       .panel.feature,
@@ -2682,7 +2682,7 @@
       .reality-core {
         border-left: 12px solid var(--kvb-bordeaux);
         background:
-          linear-gradient(135deg, rgba(122, 23, 48, 0.12), rgba(214, 155, 54, 0.15)),
+          linear-gradient(135deg, rgba(122, 23, 48, 0.12), rgba(255, 113, 67, 0.15)),
           var(--kbp-surface);
       }
       .statement-core strong,
@@ -2704,7 +2704,7 @@
       .risk-visual.board {
         border: 3px solid rgba(122, 23, 48, 0.28);
         background:
-          linear-gradient(135deg, rgba(122, 23, 48, 0.12), rgba(214, 155, 54, 0.16)),
+          linear-gradient(135deg, rgba(122, 23, 48, 0.12), rgba(255, 113, 67, 0.16)),
           var(--kbp-surface);
       }
       .image-frame img,
@@ -3089,7 +3089,7 @@
         position: absolute;
         inset: -8px;
         z-index: 0;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300' viewBox='0 0 520 300'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.15' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M34 238h452M66 216V86M164 216V132M262 216V64M360 216V116M458 216V42'/%3E%3Cpath d='M66 86c54 42 108 58 164 36s90-76 138-58 72 64 118 22'/%3E%3Cpath d='M84 54h96M84 82h54M316 246h116M316 270h78'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.22'%3E%3Ccircle cx='66' cy='86' r='13'/%3E%3Ccircle cx='262' cy='64' r='15'/%3E%3Ccircle cx='458' cy='42' r='13'/%3E%3C/g%3E%3C/svg%3E") center / 520px 300px no-repeat;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300' viewBox='0 0 520 300'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.15' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M34 238h452M66 216V86M164 216V132M262 216V64M360 216V116M458 216V42'/%3E%3Cpath d='M66 86c54 42 108 58 164 36s90-76 138-58 72 64 118 22'/%3E%3Cpath d='M84 54h96M84 82h54M316 246h116M316 270h78'/%3E%3C/g%3E%3Cg fill='%23ff7143' fill-opacity='.22'%3E%3Ccircle cx='66' cy='86' r='13'/%3E%3Ccircle cx='262' cy='64' r='15'/%3E%3Ccircle cx='458' cy='42' r='13'/%3E%3C/g%3E%3C/svg%3E") center / 520px 300px no-repeat;
         pointer-events: none;
       }
       #P03 .grid-3::before,
@@ -3160,7 +3160,7 @@
         bottom: 18px;
         width: 72px;
         height: 72px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.48' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48h48M18 42l12-14 9 8 15-22'/%3E%3Cpath d='M18 18h18M18 26h9'/%3E%3C/g%3E%3Ccircle cx='56' cy='16' r='7' fill='%23d69b36' fill-opacity='.58'/%3E%3C/svg%3E") center / contain no-repeat;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.48' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 48h48M18 42l12-14 9 8 15-22'/%3E%3Cpath d='M18 18h18M18 26h9'/%3E%3C/g%3E%3Ccircle cx='56' cy='16' r='7' fill='%23ff7143' fill-opacity='.58'/%3E%3C/svg%3E") center / contain no-repeat;
         opacity: 0.3;
         pointer-events: none;
       }
@@ -3215,7 +3215,7 @@
         position: absolute;
         inset: 18px 52px;
         z-index: 0;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1160' height='430' viewBox='0 0 1160 430'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.16' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M210 310c94-64 198-76 314-36M636 276c96-62 196-54 306 18'/%3E%3Cpath d='M491 251l42 27-47 18M895 258l49 37-58 20'/%3E%3Cpath d='M74 362h214M876 362h208'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.18'%3E%3Ccircle cx='168' cy='104' r='64'/%3E%3Ccircle cx='996' cy='118' r='74'/%3E%3Ccircle cx='581' cy='298' r='54'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1160' height='430' viewBox='0 0 1160 430'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.16' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M210 310c94-64 198-76 314-36M636 276c96-62 196-54 306 18'/%3E%3Cpath d='M491 251l42 27-47 18M895 258l49 37-58 20'/%3E%3Cpath d='M74 362h214M876 362h208'/%3E%3C/g%3E%3Cg fill='%23ff7143' fill-opacity='.18'%3E%3Ccircle cx='168' cy='104' r='64'/%3E%3Ccircle cx='996' cy='118' r='74'/%3E%3Ccircle cx='581' cy='298' r='54'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
         pointer-events: none;
       }
       #P05 .path-arena::after {
@@ -3251,7 +3251,7 @@
         border: 2px solid rgba(122, 23, 48, 0.18);
         border-radius: 8px;
         background:
-          radial-gradient(circle at 78% 18%, rgba(214, 155, 54, 0.24), transparent 28%),
+          radial-gradient(circle at 78% 18%, rgba(255, 113, 67, 0.24), transparent 28%),
           linear-gradient(135deg, rgba(122, 23, 48, 0.08), rgba(255, 249, 243, 0.94));
       }
       .path-visual::after {
@@ -3286,7 +3286,7 @@
         stroke: var(--kvb-bordeaux);
       }
       .mono-gold {
-        fill: rgba(214, 155, 54, 0.24);
+        fill: rgba(255, 113, 67, 0.24);
         stroke: var(--kvb-gold);
       }
       .path-arena .path-pivot {
@@ -3332,7 +3332,7 @@
         inset: 0;
         z-index: 0;
         background:
-          radial-gradient(circle at 79% 16%, rgba(214, 155, 54, 0.22), transparent 26%),
+          radial-gradient(circle at 79% 16%, rgba(255, 113, 67, 0.22), transparent 26%),
           url("./assets/generated/ai-product-bridge.png") right center / 54% auto no-repeat;
         opacity: 0.18;
         filter: grayscale(1) contrast(1.08);
@@ -3387,7 +3387,7 @@
         place-items: center;
         padding: 14px 16px;
         background:
-          radial-gradient(circle at 86% 18%, rgba(214, 155, 54, 0.2), transparent 24%),
+          radial-gradient(circle at 86% 18%, rgba(255, 113, 67, 0.2), transparent 24%),
           linear-gradient(135deg, rgba(122, 23, 48, 0.1), rgba(255, 249, 243, 0.92));
       }
       .chapter-canvas::before {
@@ -3465,7 +3465,7 @@
         inset: 0;
         z-index: 0;
         background:
-          radial-gradient(circle at 20% 16%, rgba(214, 155, 54, 0.18), transparent 26%),
+          radial-gradient(circle at 20% 16%, rgba(255, 113, 67, 0.18), transparent 26%),
           url("./assets/generated/product-case-board.png") left center / 60% auto no-repeat;
         opacity: 0.16;
         filter: grayscale(1) contrast(1.08);
@@ -3629,7 +3629,7 @@
         z-index: 0;
         width: 150px;
         height: 112px;
-        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='112' viewBox='0 0 150 112'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.22' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 82h118M30 70l22-26 21 17 32-41 26 22'/%3E%3Cpath d='M26 24h48M26 38h30'/%3E%3C/g%3E%3Cg fill='%23d69b36' fill-opacity='.18'%3E%3Ccircle cx='52' cy='44' r='12'/%3E%3Ccircle cx='106' cy='20' r='14'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='112' viewBox='0 0 150 112'%3E%3Cg fill='none' stroke='%237a1730' stroke-opacity='.22' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 82h118M30 70l22-26 21 17 32-41 26 22'/%3E%3Cpath d='M26 24h48M26 38h30'/%3E%3C/g%3E%3Cg fill='%23ff7143' fill-opacity='.18'%3E%3Ccircle cx='52' cy='44' r='12'/%3E%3Ccircle cx='106' cy='20' r='14'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
         pointer-events: none;
       }
       #P19 .accumulation-board::before {
@@ -3680,14 +3680,20 @@
         display: none;
       }
       h2 {
-        border-bottom-color: var(--kikai-logo-orange);
+        border-bottom: 7px solid var(--kikai-logo-orange) !important;
       }
       h2::after {
         content: none;
         display: none;
       }
       .slide-footer {
-        border-top-color: rgba(255, 113, 67, 0.16);
+        justify-content: flex-end;
+        border-top-color: rgba(255, 113, 67, 0.18);
+      }
+      .doc-label {
+        color: var(--kikai-logo-orange);
+        letter-spacing: 0.04em;
+        text-transform: none;
       }
       .card,
       .panel,
@@ -4048,12 +4054,12 @@
             <span>Format: Bold White Orange Visual</span>
           </aside>
         </div>
-        <footer class="slide-footer"><span>Vibe Coding Salon -Kikai-</span><span>P01</span></footer>
+        <footer class="slide-footer"><span>P01</span></footer>
         <aside class="speaker-notes">今日は「AIを便利に使う」という話から一歩進めて、AI時代に自分のサービスを作る側へ回る話をします。</aside>
       </section>
 
       <section class="slide" id="P02" data-slide="P02" aria-label="登壇者紹介">
-        <header class="slide-header"><span class="doc-label">Speaker</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Intro</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">澤田さんは非エンジニアから事業化まで経験している</h2>
           <p class="lead-copy" data-role="lead">自社アプリと受託の両輪を経験し、作る力を収益に変えるところまで実績化している。</p>
@@ -4082,12 +4088,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Intro</span><span>P02</span></footer>
+        <footer class="slide-footer"><span>P02</span></footer>
         <aside class="speaker-notes">澤田さんは、もともとエンジニアではありません。コーディング知識ゼロから独学でアプリやサービスを作り、売上と受託実績まで経験しています。</aside>
       </section>
 
       <section class="slide" id="P03" data-slide="P03" aria-label="今日起きてほしい変化">
-        <header class="slide-header"><span class="doc-label">Goal</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Intro</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">今日の45分で、視点と行動が変わる</h2>
           <p class="lead-copy" data-role="lead">知識を増やすだけではなく、AI時代の稼ぎ方と次の一歩を持ち帰る。</p>
@@ -4097,12 +4103,12 @@
             <article class="card"><span class="number">3</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p03-next-action.png" alt=""></div><strong>次の一歩を明確にする</strong><p>終わったあとに何を学び、何を試すべきかを見える状態にする。</p><ul class="tight-list"><li>黄金ルートを理解</li><li>受託の入口を知る</li><li>Kikaiで伴走する範囲を確認</li></ul></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>Intro</span><span>P03</span></footer>
+        <footer class="slide-footer"><span>P03</span></footer>
         <aside class="speaker-notes">今日のゴールは、転換点を理解し、自分にも作れると納得し、次の一歩が明確になっている状態を作ることです。</aside>
       </section>
 
       <section class="slide" id="P04" data-slide="P04" aria-label="AI活用は当たり前">
-        <header class="slide-header"><span class="doc-label">Context</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Intro</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">AIを使うこと自体は、もう優位性ではない</h2>
           <p class="lead-copy" data-role="lead">ライティング、画像生成、業務効率化は当たり前。重要なのは、AIを使って何を生み出すか。</p>
@@ -4124,12 +4130,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Intro</span><span>P04</span></footer>
+        <footer class="slide-footer"><span>P04</span></footer>
         <aside class="speaker-notes">すでにAIは多くの場面で当たり前になっています。つまり、AIを使っているだけでは差がつきません。</aside>
       </section>
 
       <section class="slide" id="P05" data-slide="P05" aria-label="AI活用の2つの道">
-        <header class="slide-header"><span class="doc-label">Two Paths</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">AI活用は「伝える」と「作る」に分かれる</h2>
           <p class="lead-copy" data-role="lead">どちらも正しい。ただし、個人が勝ち筋を作るうえでは構造がかなり違う。</p>
@@ -4178,12 +4184,12 @@
             </article>
           </div>
         </div>
-        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P05</span></footer>
+        <footer class="slide-footer"><span>P05</span></footer>
         <aside class="speaker-notes">AIマーケティングとAIプロダクト。どちらも正しいですが、個人の勝率は根本的に異なります。</aside>
       </section>
 
       <section class="slide" id="P06" data-slide="P06" aria-label="AIマーケは拡声器">
-        <header class="slide-header"><span class="doc-label">Marketing</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">AIマーケは、ナレッジを持つ人の拡声器</h2>
           <p class="lead-copy" data-role="lead">蓄積がある人は伸びる。ゼロを100倍しても、結果はゼロのまま。</p>
@@ -4213,12 +4219,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P06</span></footer>
+        <footer class="slide-footer"><span>P06</span></footer>
         <aside class="speaker-notes">AIマーケは初心者の逆転装置というより、強い人をさらに強くする拡声器です。</aside>
       </section>
 
       <section class="slide" id="P07" data-slide="P07" aria-label="作る側の壁">
-        <header class="slide-header"><span class="doc-label">Product</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">AIは「作る側」の壁を壊した</h2>
           <p class="lead-copy" data-role="lead">アイディアを言葉で伝え、AIと対話しながら、数日で動くものを作れるようになっている。</p>
@@ -4237,12 +4243,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P07</span></footer>
+        <footer class="slide-footer"><span>P07</span></footer>
         <aside class="speaker-notes">これまでサービスを作るには、スキル、資金、時間が必要でした。AIによって、その壁が大きく下がりました。</aside>
       </section>
 
       <section class="slide" id="P08" data-slide="P08" aria-label="何を売るか">
-        <header class="slide-header"><span class="doc-label">Shift</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">情報が無料化すると「何を作るか」が強くなる</h2>
           <p class="lead-copy" data-role="lead">大量にメッセージを出す側から、実際の解決策を生み出す側へ移る。</p>
@@ -4261,12 +4267,12 @@
             </table>
           </div>
         </div>
-        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P08</span></footer>
+        <footer class="slide-footer"><span>P08</span></footer>
         <aside class="speaker-notes">これからは「どう売るか」だけではなく、「何を作るか」を持っている人が強くなります。</aside>
       </section>
 
       <section class="slide" id="P09" data-slide="P09" aria-label="プロダクト側にこだわる理由">
-        <header class="slide-header"><span class="doc-label">Mission</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">私たちはプロダクト側にこだわる</h2>
           <p class="lead-copy" data-role="lead">情報を消費する人ではなく、AIで価値を作る人を増やしたい。</p>
@@ -4285,12 +4291,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>AI活用の2つの道</span><span>P09</span></footer>
+        <footer class="slide-footer"><span>P09</span></footer>
         <aside class="speaker-notes">私たちがプロダクト側にこだわるのは、AIで価値を作る人を増やしたいからです。</aside>
       </section>
 
       <section class="slide" id="P10" data-slide="P10" aria-label="章扉 バイブコーディング">
-        <header class="slide-header"><span class="doc-label">Section Divider</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">「作る」の常識が変わる</h2>
           <p class="lead-copy" data-role="lead">バイブコーディングとは、作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
@@ -4308,12 +4314,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P10</span></footer>
+        <footer class="slide-footer"><span>P10</span></footer>
         <aside class="speaker-notes">ここからは、バイブコーディングとは何かを具体的に見ていきます。</aside>
       </section>
 
       <section class="slide" id="P11" data-slide="P11" aria-label="言葉が形になる">
-        <header class="slide-header"><span class="doc-label">Prompt to App</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">言葉が、そのまま形になる</h2>
           <p class="lead-copy" data-role="lead">コードを一行も書かず、AIと自然言語で対話しながらプロダクトを開発する。</p>
@@ -4332,12 +4338,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P11</span></footer>
+        <footer class="slide-footer"><span>P11</span></footer>
         <aside class="speaker-notes">必要なのは完璧なコードではなく、何を作りたいかを言葉にする力です。</aside>
       </section>
 
       <section class="slide" id="P12" data-slide="P12" aria-label="簡単なものだけではない">
-        <header class="slide-header"><span class="doc-label">Reality</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">「簡単なものしか作れない」はもう古い</h2>
           <p class="lead-copy" data-role="lead">実務で使えるアプリや業務システムが、すでに生まれている。</p>
@@ -4358,12 +4364,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P12</span></footer>
+        <footer class="slide-footer"><span>P12</span></footer>
         <aside class="speaker-notes">重要なのは、AIに丸投げすることではなく、要件を整理しながら改善していくことです。</aside>
       </section>
 
       <section class="slide" id="P13" data-slide="P13" aria-label="非エンジニア開発実績">
-        <header class="slide-header"><span class="doc-label">Cases</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">非エンジニアでも実用サービスは作れる</h2>
           <p class="lead-copy" data-role="lead">業務上の具体的な課題が見えていれば、現場の手間や判断を減らすプロダクトにできる。</p>
@@ -4377,12 +4383,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P13</span></footer>
+        <footer class="slide-footer"><span>P13</span></footer>
         <aside class="speaker-notes">非エンジニアでも、課題が見えていれば実用的なサービスを作れるようになっています。</aside>
       </section>
 
       <section class="slide" id="P14" data-slide="P14" aria-label="開発の常識が変わった">
-        <header class="slide-header"><span class="doc-label">Before / After</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">開発期間、コスト、必要スキルが変わった</h2>
           <p class="lead-copy" data-role="lead">開発のハードルが下がっただけではなく、必要な能力の中心が変わっている。</p>
@@ -4407,12 +4413,12 @@
             </article>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P14</span></footer>
+        <footer class="slide-footer"><span>P14</span></footer>
         <aside class="speaker-notes">バイブコーディングでは、数日から数週間、ほぼゼロに近いコスト、日本語の指示力が入口になります。</aside>
       </section>
 
       <section class="slide" id="P15" data-slide="P15" aria-label="4つの可能性">
-        <header class="slide-header"><span class="doc-label">Potential</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">バイブコーディングには4つの可能性がある</h2>
           <p class="lead-copy" data-role="lead">個人が小さく作り、小さく売る選択肢が現実になる。</p>
@@ -4423,12 +4429,12 @@
             <article class="card feature"><span class="number">4</span><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-p15-business.png" alt=""></div><strong>Business</strong><p>低コストなので受託でも利益率を高めやすい。</p><ul class="tight-list"><li>小規模案件から始める</li><li>実績が次の提案になる</li><li>販売・自社アプリへ広がる</li></ul></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P15</span></footer>
+        <footer class="slide-footer"><span>P15</span></footer>
         <aside class="speaker-notes">コードを書かない、速い、実務品質まで近づけられる、低コストで受託にも向く。この4つが可能性です。</aside>
       </section>
 
       <section class="slide" id="P16" data-slide="P16" aria-label="海外事例">
-        <header class="slide-header"><span class="doc-label">Global Cases</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">海外では個人 × AIの開発が常識になり始めた</h2>
           <p class="lead-copy" data-role="lead">1人で作り、売り、改善する流れが現実に起きている。</p>
@@ -4438,12 +4444,12 @@
             <article class="global-card"><b>Pattern</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-global-loop.png" alt=""></div><strong>共通点は「小さく出して改善」</strong><span>大きなSaaSを最初から狙うのではなく、課題を絞り、早く出し、反応を見て磨く。</span><ul class="tight-list"><li>課題を絞る</li><li>早く市場に出す</li></ul><div class="case-meter"><i style="--w: 42%"></i><i style="--w: 92%"></i></div><em>個人でも回せる事業サイクル</em></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>バイブコーディングとは</span><span>P16</span></footer>
+        <footer class="slide-footer"><span>P16</span></footer>
         <aside class="speaker-notes">成功事例だけを真似すればいいわけではありませんが、1人で作り、売り、改善する流れが起きています。</aside>
       </section>
 
       <section class="slide" id="P17" data-slide="P17" aria-label="でも待ってください">
-        <header class="slide-header"><span class="doc-label">Reality Check</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">でも、待ってください</h2>
           <p class="lead-copy" data-role="lead">「自分にもできそう」の直後に、現実を見る必要がある。</p>
@@ -4470,12 +4476,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P17</span></footer>
+        <footer class="slide-footer"><span>P17</span></footer>
         <aside class="speaker-notes">AIで作れるようになったからといって、誰でもいきなり大きく稼げるわけではありません。</aside>
       </section>
 
       <section class="slide" id="P18" data-slide="P18" aria-label="moonshot神話">
-        <header class="slide-header"><span class="doc-label">Numbers</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">目立つ成功の裏で、多くの人が失敗している</h2>
           <p class="lead-copy" data-role="lead">moonshot神話だけを見ると、再現性のない勝負になる。</p>
@@ -4494,12 +4500,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P18</span></footer>
+        <footer class="slide-footer"><span>P18</span></footer>
         <aside class="speaker-notes">派手な成功事例だけを見て飛び込むと、再現性のない勝負になります。</aside>
       </section>
 
       <section class="slide" id="P19" data-slide="P19" aria-label="海外スターの裏の蓄積">
-        <header class="slide-header"><span class="doc-label">Accumulation</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">海外スターにも、見えない蓄積がある</h2>
           <p class="lead-copy" data-role="lead">ゼロから一足飛びに見える事例は、サバイバーシップ・バイアスを含む。</p>
@@ -4516,12 +4522,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P19</span></footer>
+        <footer class="slide-footer"><span>P19</span></footer>
         <aside class="speaker-notes">表に見える成功だけをコピーするのではなく、裏にある積み上げを理解する必要があります。</aside>
       </section>
 
       <section class="slide" id="P20" data-slide="P20" aria-label="黄金ルート">
-        <header class="slide-header"><span class="doc-label">Golden Route</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">稼ぐなら、段階的な黄金ルートが必要</h2>
           <p class="lead-copy" data-role="lead">どの段階で止めても、すでに稼げている状態を作る。</p>
@@ -4533,12 +4539,12 @@
             <article class="route-stage"><b>05</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-route-create-product.png" alt=""></div><strong>創る</strong><span>受託で見えた共通課題を、自社アプリやSaaSに発展させる。</span><ul class="tight-list"><li>共通化</li><li>販売</li><li>継続改善</li></ul><em>任意の飛躍</em></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P20</span></footer>
+        <footer class="slide-footer"><span>P20</span></footer>
         <aside class="speaker-notes">いきなりSaaSではなく、学ぶ、受託で月5万円から10万円、月50万円へ、必要ならSaaS化という順番です。</aside>
       </section>
 
       <section class="slide" id="P21" data-slide="P21" aria-label="課題発見力">
-        <header class="slide-header"><span class="doc-label">Human Domain</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">必要なのはアイディアではなく課題発見力</h2>
           <p class="lead-copy" data-role="lead">AIがコードを書くほど、人間には何を作るべきかを判断する力が求められる。</p>
@@ -4561,12 +4567,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>90%以上が失敗する理由</span><span>P21</span></footer>
+        <footer class="slide-footer"><span>P21</span></footer>
         <aside class="speaker-notes">残るのは、課題発見、ヒアリング、要件定義、顧客関係構築といった上流の力です。</aside>
       </section>
 
       <section class="slide" id="P22" data-slide="P22" aria-label="受託案件のレベル感">
-        <header class="slide-header"><span class="doc-label">Client Work</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">受託で稼ぐリアル</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">受託案件は、身近な業務アプリから始まる</h2>
           <p class="lead-copy" data-role="lead">最初から巨大なSaaSである必要はない。月10〜50万円規模の案件として成立し得る。</p>
@@ -4594,12 +4600,12 @@
             </article>
           </div>
         </div>
-        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P22</span></footer>
+        <footer class="slide-footer"><span>P22</span></footer>
         <aside class="speaker-notes">日報ツール、顧客管理、EC分析ダッシュボードなど、身近な業務課題を解くものから始まります。</aside>
       </section>
 
       <section class="slide" id="P23" data-slide="P23" aria-label="澤田さんのスタート">
-        <header class="slide-header"><span class="doc-label">Proof</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">受託で稼ぐリアル</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">澤田さんも非エンジニアから始めた</h2>
           <p class="lead-copy" data-role="lead">特殊な天才の話ではなく、正しい順番と環境があれば入口に立てる。</p>
@@ -4609,12 +4615,12 @@
             <article class="origin-step"><b>03</b><strong>1週間で形にする</strong><span>短期で動くものを作り、実績として見せられる状態へ進む。</span><ul class="tight-list"><li>完成物を見せられる</li><li>次の受託・販売の材料になる</li></ul></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P23</span></footer>
+        <footer class="slide-footer"><span>P23</span></footer>
         <aside class="speaker-notes">澤田さん自身も、非エンジニアからのスタートでした。経験ゼロでも、AIと対話しながら1週間で形にできました。</aside>
       </section>
 
       <section class="slide" id="P24" data-slide="P24" aria-label="澤田さんの両輪">
-        <header class="slide-header"><span class="doc-label">Revenue Proof</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">受託で稼ぐリアル</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">澤田さんは自社アプリと受託の両輪を持つ</h2>
           <p class="lead-copy" data-role="lead">両方の実績を持ったうえで、いきなり自社アプリ一本ではなく、まず受託から始めることを推奨している。</p>
@@ -4623,12 +4629,12 @@
             <article class="revenue-card"><b>受託</b><strong>最初の収益化が早い</strong><div class="revenue-number" style="color: var(--kbp-ink);">13万 / 50万</div><div class="revenue-rows"><span>1ヶ月で短期実績化</span><span>顧客課題を直接聞ける</span><span>納品物が次の提案資料になる</span></div><em>入口として再現しやすい</em></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P24</span></footer>
+        <footer class="slide-footer"><span>P24</span></footer>
         <aside class="speaker-notes">澤田さんは、自社アプリと受託の両方を経験しています。そのうえで、まず受託から始めることをおすすめしています。</aside>
       </section>
 
       <section class="slide" id="P25" data-slide="P25" aria-label="それは澤田さんだから">
-        <header class="slide-header"><span class="doc-label">Question</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">受託で稼ぐリアル</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">「それは澤田さんだから」という疑問は正しい</h2>
           <p class="lead-copy" data-role="lead">だからこそ、次に見るべきなのは、コミュニティの参加者にも再現が起きているかどうか。</p>
@@ -4647,12 +4653,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P25</span></footer>
+        <footer class="slide-footer"><span>P25</span></footer>
         <aside class="speaker-notes">この疑問は正しいです。だからこそ、コミュニティ参加者にも再現が起きているかを見る必要があります。</aside>
       </section>
 
       <section class="slide" id="P26" data-slide="P26" aria-label="コミュニティ実績">
-        <header class="slide-header"><span class="doc-label">Community Cases</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">受託で稼ぐリアル</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">コミュニティからマネタイズ済み事例が生まれている</h2>
           <p class="lead-copy" data-role="lead">作って終わりではなく、販売や納品まで進んでいることが重要。</p>
@@ -4673,12 +4679,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P26</span></footer>
+        <footer class="slide-footer"><span>P26</span></footer>
         <aside class="speaker-notes">X自動運用ツール、AI書類データ抽出、Gemini Botなど、マネタイズ済みの事例が出ています。</aside>
       </section>
 
       <section class="slide" id="P27" data-slide="P27" aria-label="再現性の仕組み">
-        <header class="slide-header"><span class="doc-label">System</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">受託で稼ぐリアル</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">再現性のある仕組みが、未経験者を支える</h2>
           <p class="lead-copy" data-role="lead">才能ではなく、学習とレビューと実践の構造があるから、作る力が収益につながる。</p>
@@ -4690,12 +4696,12 @@
             <article class="loop-card"><strong>売る導線</strong><span>完成後に収益へ接続する。受託や販売に進める形で残す。</span><ul class="tight-list"><li>提案資料にする</li><li>販売場所へつなぐ</li></ul></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>受託で稼ぐリアル</span><span>P27</span></footer>
+        <footer class="slide-footer"><span>P27</span></footer>
         <aside class="speaker-notes">未経験者が実用的なプロダクトを生み出せる理由は、個人の才能だけではありません。</aside>
       </section>
 
       <section class="slide" id="P28" data-slide="P28" aria-label="Kikaiを作った理由">
-        <header class="slide-header"><span class="doc-label">Kikai</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">だから、Vibe Coding Salon -Kikai- を作りました</h2>
           <p class="lead-copy" data-role="lead">単なるAIスクールではなく、作る人のためのコミュニティ。</p>
@@ -4714,12 +4720,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P28</span></footer>
+        <footer class="slide-footer"><span>P28</span></footer>
         <aside class="speaker-notes">単なるAIスクールではなく、作る人のためのコミュニティとしてKikaiを作りました。</aside>
       </section>
 
       <section class="slide" id="P29" data-slide="P29" aria-label="Kikaiのカバー範囲">
-        <header class="slide-header"><span class="doc-label">Coverage</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">Kikaiは黄金ルートの前半を全力で伴走する</h2>
           <p class="lead-copy" data-role="lead">学ぶ、動き出す、広げるまでを支え、その先の磨き込みやSaaS化も挑戦できる下地を整える。</p>
@@ -4731,12 +4737,12 @@
             <article class="coverage-stage"><b>05</b><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-coverage-productize.png" alt=""></div><strong>創る</strong><span>共通課題をプロダクト化し、Made with Kikaiで販売へ接続する。</span><ul class="tight-list"><li>共通化</li><li>掲載</li><li>販売</li></ul><em>任意の飛躍</em></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P29</span></footer>
+        <footer class="slide-footer"><span>P29</span></footer>
         <aside class="speaker-notes">Kikaiがまず全力で伴走するのは、学ぶ、動き出す、広げるまでです。</aside>
       </section>
 
       <section class="slide" id="P30" data-slide="P30" aria-label="5要素一体パッケージ">
-        <header class="slide-header"><span class="doc-label">Package</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">Kikaiは5つを一体化し、学ぶ・作る・売るをつなぐ</h2>
           <p class="lead-copy" data-role="lead">よくあるAIスクールのように学習で終わらせず、実践と収益化まで分断しない。</p>
@@ -4758,12 +4764,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P30</span></footer>
+        <footer class="slide-footer"><span>P30</span></footer>
         <aside class="speaker-notes">Kikaiは、教育、品質チェック、案件供給、アプリマーケット、コミュニティを一体で設計しています。</aside>
       </section>
 
       <section class="slide" id="P31" data-slide="P31" aria-label="品質チェック">
-        <header class="slide-header"><span class="doc-label">Quality</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">品質チェックが、AI生成コードの不安を減らす</h2>
           <p class="lead-copy" data-role="lead">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
@@ -4792,12 +4798,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P31</span></footer>
+        <footer class="slide-footer"><span>P31</span></footer>
         <aside class="speaker-notes">Kikaiでは、希望者向けにプロエンジニアによる品質チェックを利用できる仕組みを用意します。</aside>
       </section>
 
       <section class="slide" id="P32" data-slide="P32" aria-label="クローズド案件供給">
-        <header class="slide-header"><span class="doc-label">Future</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">将来的にクローズド案件供給まで広げる</h2>
           <p class="lead-copy" data-role="lead">自分で取る力と、運営から降りてくる案件の両輪を作る。</p>
@@ -4808,12 +4814,12 @@
             <article class="pipeline-stage feature"><b class="pipe-mark">04</b><em>Future</em><div class="image2-card-media" aria-hidden="true"><img src="./assets/generated/image2-pipeline-member-supply.png" alt=""></div><strong>会員へ供給する</strong><span>5〜50万円帯のクローズド案件を会員に接続する構想。</span><ul class="tight-list"><li>案件を紹介</li><li>両輪で収益化</li></ul><div class="pipe-detail">両輪で伸ばす</div></article>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P32</span></footer>
+        <footer class="slide-footer"><span>P32</span></footer>
         <aside class="speaker-notes">現時点では自分で案件を取る方法を学ぶことが中心ですが、将来的には運営側が獲得した案件供給も構想しています。</aside>
       </section>
 
       <section class="slide" id="P33" data-slide="P33" aria-label="Made with Kikai">
-        <header class="slide-header"><span class="doc-label">Marketplace</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">Made with Kikai は販売の壁を下げる</h2>
           <p class="lead-copy" data-role="lead">マーケットプレイス機能で決済まで完結。Stripeの審査・開設なしに即販売開始できる。</p>
@@ -4832,12 +4838,12 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P33</span></footer>
+        <footer class="slide-footer"><span>P33</span></footer>
         <aside class="speaker-notes">作った後の大きな壁は集客と販売です。Made with Kikaiは、掲載、反応確認、販売まで進める場です。</aside>
       </section>
 
       <section class="slide" id="P34" data-slide="P34" aria-label="Before After">
-        <header class="slide-header"><span class="doc-label">Before / After</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
         <div class="content">
           <h2 data-role="title">Kikaiの前後で、AIとの関係が変わる</h2>
           <p class="lead-copy" data-role="lead">消費者から創り手へ。この転換が、今日一番持ち帰ってほしいメッセージ。</p>
@@ -4867,7 +4873,7 @@
             </div>
           </div>
         </div>
-        <footer class="slide-footer"><span>Kikaiの提供価値</span><span>P34</span></footer>
+        <footer class="slide-footer"><span>P34</span></footer>
         <aside class="speaker-notes">Kikaiに入る前と後で、AIとの関係は消費者から創り手へ変わります。</aside>
       </section>
     </main>
