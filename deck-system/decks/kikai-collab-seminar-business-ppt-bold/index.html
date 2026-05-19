@@ -3672,6 +3672,8 @@
       .slide::before,
       .cover::before {
         background: #ff7143 !important;
+        background-color: var(--kikai-logo-orange) !important;
+        background-image: none !important;
       }
       .slide::after {
         content: none;
@@ -3823,6 +3825,13 @@
       #P08 .table-wrap th,
       #P08 .table-wrap td {
         vertical-align: middle;
+      }
+      #P06 .gain-bars span {
+        background: linear-gradient(90deg, var(--kikai-logo-orange) 0 var(--w), #ffffff var(--w) 100%) !important;
+        color: var(--kbp-ink);
+      }
+      #P06 .gain-bars.muted span {
+        background: linear-gradient(90deg, rgba(255, 113, 67, 0.34) 0 var(--w), #ffffff var(--w) 100%) !important;
       }
       .pill,
       .path-label,
