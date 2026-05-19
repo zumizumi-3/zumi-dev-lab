@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Collab Seminar / Image2 Rich Samples</title>
+    <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
+    <style>
+      :root {
+        --deck-w: 1600px;
+        --deck-h: 900px;
+        --deck-scale: 1;
+        --nav-h: 46px;
+        --logo-orange: #ff7143;
+        --ink: #343230;
+        --muted: #55504c;
+        --line: rgba(255, 113, 67, .2);
+      }
+      * { box-sizing: border-box; }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+        color: var(--ink);
+        font-family: var(--kbp-font, system-ui, sans-serif);
+        text-rendering: geometricPrecision;
+      }
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: var(--nav-h);
+        padding: 8px 18px;
+        border-bottom: 1px solid rgba(255, 113, 67, .18);
+        background: #fff;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      .topbar a { color: inherit; text-decoration: none; }
+      .nav-mark {
+        width: 12px;
+        height: 12px;
+        background: var(--logo-orange);
+        transform: rotate(45deg);
+      }
+      main {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      .slide {
+        position: absolute;
+        top: calc(var(--nav-h) + ((100dvh - var(--nav-h)) / 2));
+        left: 50%;
+        display: grid;
+        grid-template-rows: 32px auto auto minmax(0, 1fr) 30px;
+        gap: 8px;
+        width: var(--deck-w);
+        height: var(--deck-h);
+        padding: 40px 54px 38px 72px;
+        background: #fff;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
+        transform-origin: center center;
+      }
+      .slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 28px;
+        background: linear-gradient(180deg, #ff8a64 0%, var(--logo-orange) 48%, #e85f37 100%);
+      }
+      .slide-header,
+      .slide-footer,
+      h2,
+      .lead-copy,
+      .rich-body {
+        position: relative;
+        z-index: 1;
+      }
+      .slide-header,
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 850;
+      }
+      .doc-label {
+        color: var(--logo-orange);
+        font-weight: 900;
+      }
+      .header-logo {
+        width: 150px;
+        height: 30px;
+        object-fit: contain;
+        object-position: right center;
+      }
+      h2 {
+        margin: 0;
+        padding-bottom: 9px;
+        border-bottom: 7px solid var(--logo-orange);
+        color: var(--ink);
+        font-size: 50px;
+        font-weight: 900;
+        line-height: 1.13;
+        letter-spacing: 0;
+      }
+      .lead-copy {
+        max-width: 1260px;
+        margin: 0;
+        color: #222;
+        font-size: 26px;
+        font-weight: 820;
+        line-height: 1.35;
+        letter-spacing: 0;
+      }
+      .rich-body {
+        position: relative;
+        min-height: 0;
+        margin-top: 12px;
+        border: 1px solid rgba(255, 113, 67, .2);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .image-field {
+        position: absolute;
+        inset: 0;
+      }
+      .image-field img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(1.05) contrast(1.03);
+      }
+      .image-field.contain img {
+        object-fit: contain;
+        padding: 12px;
+      }
+      .image-field::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, .94) 0 27%, rgba(255, 255, 255, .56) 48%, rgba(255, 255, 255, .08) 100%),
+          radial-gradient(circle at 78% 18%, rgba(255, 113, 67, .16), transparent 30%);
+      }
+      .rich-body.full-visual .image-field::after {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, .9) 0 10%, rgba(255, 255, 255, .12) 42%, rgba(255, 255, 255, .84) 100%),
+          radial-gradient(circle at 80% 14%, rgba(255, 113, 67, .18), transparent 28%);
+      }
+      .story-panel {
+        position: absolute;
+        top: 36px;
+        left: 34px;
+        display: grid;
+        gap: 14px;
+        width: 390px;
+      }
+      .story-panel strong {
+        display: block;
+        color: var(--ink);
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 1.16;
+      }
+      .story-panel span,
+      .stage-chip span,
+      .callout span {
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 760;
+        line-height: 1.42;
+      }
+      .story-card,
+      .callout,
+      .stage-chip {
+        border: 1px solid rgba(255, 113, 67, .22);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, .86);
+        backdrop-filter: blur(8px);
+      }
+      .story-card {
+        padding: 18px 20px;
+      }
+      .story-kicker {
+        display: inline-flex;
+        width: fit-content;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: var(--logo-orange);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: .04em;
+      }
+      .callout {
+        position: absolute;
+        right: 38px;
+        bottom: 34px;
+        display: grid;
+        gap: 6px;
+        width: 340px;
+        padding: 18px 20px;
+      }
+      .callout b {
+        color: var(--logo-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .callout strong {
+        color: var(--ink);
+        font-size: 24px;
+        font-weight: 900;
+      }
+      .split-visual {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+      }
+      .split-pane {
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .split-pane img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .split-pane::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .72));
+      }
+      .split-label {
+        position: absolute;
+        left: 28px;
+        bottom: 26px;
+        z-index: 2;
+        display: grid;
+        gap: 7px;
+        max-width: 460px;
+        padding: 18px;
+        border: 1px solid rgba(255, 113, 67, .24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, .88);
+      }
+      .split-label b {
+        color: var(--logo-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+      .split-label strong {
+        color: var(--ink);
+        font-size: 28px;
+        font-weight: 900;
+      }
+      .route-overlay {
+        position: absolute;
+        inset: auto 28px 26px 28px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+      .stage-chip {
+        min-height: 112px;
+        padding: 14px;
+      }
+      .stage-chip b {
+        display: inline-grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 8px;
+        border-radius: 50%;
+        background: var(--logo-orange);
+        color: #fff;
+        font-size: 13px;
+      }
+      .stage-chip strong {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 900;
+      }
+      .gate-grid {
+        position: absolute;
+        inset: 34px;
+        display: grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: 22px;
+      }
+      .gate-hero,
+      .gate-stack {
+        min-width: 0;
+      }
+      .gate-hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .gate-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gate-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 20%, rgba(255, 255, 255, .7));
+      }
+      .gate-stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .gate-tile {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 113, 67, .22);
+        border-radius: 8px;
+        background: #fff;
+      }
+      .gate-tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gate-tile span {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        z-index: 2;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, .88);
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      .slide-footer {
+        justify-content: flex-end;
+        border-top: 1px solid rgba(255, 113, 67, .16);
+      }
+      .controls {
+        position: fixed;
+        right: 20px;
+        bottom: 18px;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .controls button,
+      .counter {
+        border: 1px solid rgba(255, 113, 67, .22);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ink);
+        font-weight: 850;
+      }
+      .controls button {
+        width: 38px;
+        height: 38px;
+        cursor: pointer;
+      }
+      .counter {
+        min-width: 78px;
+        padding: 10px 14px;
+        text-align: center;
+      }
+      .progress {
+        position: fixed;
+        inset: auto 0 0;
+        z-index: 55;
+        height: 4px;
+        background: rgba(255, 113, 67, .12);
+      }
+      .progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: var(--logo-orange);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar" aria-label="Deck navigation">
+      <a href="../">Decks</a>
+      <span>/</span>
+      <a href="../kikai-collab-seminar-business-ppt-bold/">Original</a>
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span>Image2 Rich Samples</span>
+    </nav>
+
+    <main aria-label="Kikai image2 rich sample slides">
+      <section class="slide is-active" id="P05" data-slide="P05" aria-label="AI活用の2つの道">
+        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <h2>AI活用は「伝える」と「作る」に分かれる</h2>
+        <p class="lead-copy">どちらも正しい。ただし、個人が勝ち筋を作るうえでは構造がかなり違う。</p>
+        <div class="rich-body" data-role="body">
+          <div class="split-visual">
+            <div class="split-pane">
+              <img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/ai-product-bridge.png" alt="">
+              <div class="split-label"><b>01 / 伝える道</b><strong>発信・集客を増幅する</strong><span>既にある知見や影響力をAIで広げる。強い人ほどさらに強くなる。</span></div>
+            </div>
+            <div class="split-pane">
+              <img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/prompt-to-product.png" alt="">
+              <div class="split-label"><b>02 / 作る道</b><strong>課題解決そのものを作る</strong><span>言葉から画面、業務、販売導線へ。動くものが資産として残る。</span></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>P05 sample</span></footer>
+      </section>
+
+      <section class="slide" id="P10" data-slide="P10" aria-label="章扉 バイブコーディング">
+        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <h2>「作る」の常識が変わる</h2>
+        <p class="lead-copy">作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
+        <div class="rich-body full-visual" data-role="body">
+          <div class="image-field contain"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-p10-vibe-coding-section.png" alt=""></div>
+          <div class="story-panel">
+            <div class="story-card">
+              <span class="story-kicker">SECTION 02</span>
+              <strong>言葉から、動くサービスへ。</strong>
+              <span>自然言語で要件を伝え、AIと画面を往復しながら、実用サービスまで近づける。</span>
+            </div>
+          </div>
+          <div class="callout"><b>3つの変換</b><strong>言葉 → 画面 → 事業</strong><span>「説明できること」が、そのままプロトタイプと販売可能性につながる。</span></div>
+        </div>
+        <footer class="slide-footer"><span>P10 sample</span></footer>
+      </section>
+
+      <section class="slide" id="P20" data-slide="P20" aria-label="黄金ルート">
+        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <h2>稼ぐなら、段階的な黄金ルートが必要</h2>
+        <p class="lead-copy">どの段階で止めても、すでに稼げている状態を作る。</p>
+        <div class="rich-body full-visual" data-role="body">
+          <div class="image-field"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/golden-route.png" alt=""></div>
+          <div class="story-panel">
+            <div class="story-card">
+              <span class="story-kicker">ROUTE DESIGN</span>
+              <strong>いきなりSaaSではなく、収益化の階段を作る</strong>
+              <span>学習、初回受託、横展開、品質改善、プロダクト化を順に進める。</span>
+            </div>
+          </div>
+          <div class="route-overlay">
+            <div class="stage-chip"><b>01</b><strong>学ぶ</strong><span>AIへの指示力と業務理解を整える。</span></div>
+            <div class="stage-chip"><b>02</b><strong>動き出す</strong><span>月5〜10万円の小さな受託へ。</span></div>
+            <div class="stage-chip"><b>03</b><strong>広げる</strong><span>実績を型化し月50万円帯へ。</span></div>
+            <div class="stage-chip"><b>04</b><strong>磨く</strong><span>品質と継続で単価を上げる。</span></div>
+            <div class="stage-chip"><b>05</b><strong>創る</strong><span>共通課題を自社アプリ化する。</span></div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>P20 sample</span></footer>
+      </section>
+
+      <section class="slide" id="P31" data-slide="P31" aria-label="品質チェック">
+        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <h2>品質チェックが、AI生成コードの不安を減らす</h2>
+        <p class="lead-copy">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
+        <div class="rich-body" data-role="body">
+          <div class="gate-grid">
+            <div class="gate-hero">
+              <img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-inspect.png" alt="">
+            </div>
+            <div class="gate-stack">
+              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-generate.png" alt=""><span>生成</span></div>
+              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-inspect.png" alt=""><span>点検</span></div>
+              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-fix.png" alt=""><span>修正</span></div>
+              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-deliver.png" alt=""><span>納品</span></div>
+            </div>
+          </div>
+          <div class="story-panel">
+            <div class="story-card">
+              <span class="story-kicker">QUALITY GATE</span>
+              <strong>不安の正体を、納品前に潰す</strong>
+              <span>動くけれど壊れやすい箇所、権限、例外処理、運用漏れをレビュー対象として見える化する。</span>
+            </div>
+          </div>
+          <div class="callout"><b>営業材料</b><strong>「品質を見ています」と言える状態へ</strong><span>受託で売るなら、品質保証そのものが信頼の根拠になる。</span></div>
+        </div>
+        <footer class="slide-footer"><span>P31 sample</span></footer>
+      </section>
+    </main>
+
+    <div class="controls" aria-label="Slide controls">
+      <button type="button" data-prev aria-label="前のスライド">‹</button>
+      <div class="counter" aria-live="polite">1 / 4</div>
+      <button type="button" data-next aria-label="次のスライド">›</button>
+    </div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+
+    <script>
+      class PresentationController {
+        constructor() {
+          this.slides = Array.from(document.querySelectorAll(".slide"));
+          this.counter = document.querySelector(".counter");
+          this.progress = document.querySelector(".progress span");
+          this.deckWidth = 1600;
+          this.deckHeight = 900;
+          this.index = this.getInitialIndex();
+          this.updateScale();
+          this.bind();
+          this.show(this.index, false);
+        }
+        getInitialIndex() {
+          const id = window.location.hash.replace("#", "");
+          const found = this.slides.findIndex((slide) => slide.id === id);
+          return found >= 0 ? found : 0;
+        }
+        updateScale() {
+          const availableW = window.innerWidth - 32;
+          const availableH = window.innerHeight - 46 - 28;
+          const scale = Math.min(availableW / this.deckWidth, availableH / this.deckHeight);
+          document.documentElement.style.setProperty("--deck-scale", Math.max(.22, scale).toFixed(4));
+        }
+        bind() {
+          document.querySelector("[data-prev]").addEventListener("click", () => this.go(-1));
+          document.querySelector("[data-next]").addEventListener("click", () => this.go(1));
+          window.addEventListener("resize", () => this.updateScale());
+          window.addEventListener("keydown", (event) => {
+            if (["ArrowRight", "PageDown", " "].includes(event.key)) {
+              event.preventDefault();
+              this.go(1);
+            }
+            if (["ArrowLeft", "PageUp"].includes(event.key)) {
+              event.preventDefault();
+              this.go(-1);
+            }
+          });
+        }
+        go(delta) {
+          this.show(this.index + delta);
+        }
+        show(index, updateHash = true) {
+          this.index = Math.max(0, Math.min(index, this.slides.length - 1));
+          this.slides.forEach((slide, i) => {
+            const active = i === this.index;
+            slide.classList.toggle("is-active", active);
+            slide.setAttribute("aria-hidden", String(!active));
+          });
+          this.counter.textContent = `${this.index + 1} / ${this.slides.length}`;
+          this.progress.style.width = `${((this.index + 1) / this.slides.length) * 100}%`;
+          if (updateHash) history.replaceState(null, "", `#${this.slides[this.index].id}`);
+        }
+      }
+      new PresentationController();
+    </script>
+  </body>
+</html>
