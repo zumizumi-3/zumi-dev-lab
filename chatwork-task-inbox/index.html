@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Task Relay Mock</title>
+    <title>Action Inbox</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./source.css" />
     <link rel="stylesheet" href="./responsive.css" />
@@ -15,18 +15,18 @@
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">TR</div>
           <div class="brand-copy">
-            <p>Chatwork AI Task</p>
-            <h1>Task Relay</h1>
+            <p>Action Inbox</p>
+            <h1>Intake</h1>
           </div>
         </div>
 
         <div class="sync-status">
           <div>
             <span class="status-dot"></span>
-            <span class="status-label">Webhook live</span>
+            <span class="status-label">自動取り込み</span>
           </div>
-          <strong>18件</strong>
-          <span>今日の受信</span>
+          <strong>7件</strong>
+          <span>未処理タスク候補</span>
         </div>
 
         <nav class="nav-stack">
@@ -71,13 +71,11 @@
       <main class="workspace">
         <header class="topbar">
           <div class="title-block">
-            <p>AI Inbox</p>
-            <h2>文脈から拾った自分のタスク</h2>
+            <p>Inbox</p>
+            <h2>未処理のタスク候補</h2>
           </div>
           <div class="top-actions">
-            <button class="icon-button" type="button" aria-label="再判定" title="再判定">
-              <span aria-hidden="true">R</span>
-            </button>
+            <button class="secondary-button" type="button">再判定</button>
             <button class="secondary-button" type="button" id="manualAddButton">手動追加</button>
             <button class="primary-button" type="button">レビュー開始</button>
           </div>
@@ -106,7 +104,7 @@
           <section class="inbox-column" aria-labelledby="inboxHeading">
             <div class="section-header">
               <div>
-                <p>Queue</p>
+                <p>Inbox</p>
                 <h3 id="inboxHeading">タスク候補</h3>
               </div>
               <span class="small-badge" id="visibleCount">0件</span>
@@ -136,8 +134,8 @@
           <section class="detail-column" aria-labelledby="detailHeading">
             <div class="section-header">
               <div>
-                <p>Context</p>
-                <h3 id="detailHeading">会話とAI判定</h3>
+                <p>Evidence</p>
+                <h3 id="detailHeading">発生元と根拠</h3>
               </div>
               <a class="source-link" id="sourceLink" href="#" target="_blank" rel="noreferrer">Chatwork</a>
             </div>
@@ -173,8 +171,8 @@
           <aside class="editor-column" aria-labelledby="editorHeading">
             <div class="section-header">
               <div>
-                <p>Action</p>
-                <h3 id="editorHeading">タスク化</h3>
+                <p>Edit</p>
+                <h3 id="editorHeading">タスク内容</h3>
               </div>
               <span class="small-badge" id="editorStatus">候補</span>
             </div>

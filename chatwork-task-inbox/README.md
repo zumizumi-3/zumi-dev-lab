@@ -1,4 +1,4 @@
-# Task Relay UI Mock
+# Action Inbox UI Prototype
 
 Chatworkの文脈からAIが拾った「自分のタスク候補」をレビューするための静的UIモックです。
 

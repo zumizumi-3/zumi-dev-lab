@@ -1,5 +1,5 @@
 :root {
-  --bg: #f4f6f8;
+  --bg: #f6f7f9;
   --surface: #ffffff;
   --surface-quiet: #f9fafb;
   --ink: #17202a;
@@ -11,7 +11,7 @@
   --green: #14845d;
   --amber: #b46512;
   --danger: #c73a31;
-  --shadow: 0 16px 38px rgba(25, 34, 45, 0.08);
+  --shadow: 0 1px 2px rgba(25, 34, 45, 0.04);
   --radius: 8px;
   --sidebar: 248px;
 }
@@ -57,8 +57,8 @@ button {
   gap: 22px;
   padding: 22px 16px;
   border-right: 1px solid var(--line);
-  background: #101820;
-  color: #f8fafc;
+  background: #ffffff;
+  color: var(--ink);
 }
 
 .brand {
@@ -74,7 +74,7 @@ button {
   height: 42px;
   place-items: center;
   border-radius: 8px;
-  background: var(--chatwork);
+  background: var(--ink);
   color: #fff;
   font-size: 13px;
   font-weight: 800;
@@ -94,14 +94,10 @@ button {
   text-transform: uppercase;
 }
 
-.brand-copy p {
-  color: #96a4b4;
-}
-
 .brand-copy h1 {
   margin: 0;
   overflow: hidden;
-  color: #fff;
+  color: var(--ink);
   font-size: 18px;
   line-height: 1.15;
   text-overflow: ellipsis;
@@ -112,9 +108,9 @@ button {
   display: grid;
   gap: 4px;
   padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--surface-quiet);
 }
 
 .sync-status div {
@@ -132,11 +128,12 @@ button {
 
 .status-label,
 .sync-status span {
-  color: #b8c3d0;
+  color: var(--muted);
   font-size: 12px;
 }
 
 .sync-status strong {
+  color: var(--ink);
   font-size: 28px;
   line-height: 1;
 }
@@ -155,14 +152,14 @@ button {
   border: 0;
   border-radius: var(--radius);
   background: transparent;
-  color: #c8d2dc;
+  color: #45556a;
   text-align: left;
 }
 
 .nav-item:hover,
 .nav-item.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: #edf4ff;
+  color: #1d58a8;
 }
 
 .nav-glyph {
@@ -171,8 +168,8 @@ button {
   height: 24px;
   place-items: center;
   border-radius: 7px;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
+  background: #edf0f3;
+  color: #526173;
   font-size: 11px;
   font-weight: 800;
 }
@@ -190,12 +187,12 @@ button {
   gap: 12px;
   min-height: 34px;
   padding: 0 2px;
-  color: #aebaca;
+  color: var(--muted);
   font-size: 12px;
 }
 
 .connection-row strong {
-  color: #f8fafc;
+  color: var(--ink);
   font-size: 12px;
 }
 
@@ -242,13 +239,6 @@ button {
   font-weight: 700;
 }
 
-.icon-button {
-  width: 40px;
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  color: var(--ink);
-}
-
 .primary-button {
   border: 1px solid #1f5fbe;
   background: var(--blue);
@@ -273,16 +263,16 @@ button {
 .metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .metric-tile {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  min-height: 82px;
-  padding: 16px;
+  min-height: 62px;
+  padding: 12px 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -296,7 +286,7 @@ button {
 }
 
 .metric-tile strong {
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1;
 }
 
@@ -327,8 +317,8 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 66px;
-  padding: 16px;
+  min-height: 60px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--line);
 }
 
