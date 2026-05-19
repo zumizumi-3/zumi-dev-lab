@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kikai Collab Seminar / Image2 Rich Samples</title>
+    <title>Kikai Collab Seminar / Image2 Body Document Samples</title>
     <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
     <style>
       :root {
@@ -11,10 +11,15 @@
         --deck-h: 900px;
         --deck-scale: 1;
         --nav-h: 46px;
-        --logo-orange: #ff7143;
-        --ink: #343230;
-        --muted: #55504c;
-        --line: rgba(255, 113, 67, .2);
+        --orange: #ff7143;
+        --orange-dark: #e85f37;
+        --orange-soft: #fff1eb;
+        --ink: #414242;
+        --muted: #6d7375;
+        --line: #d8dee1;
+        --line-soft: #edf1f2;
+        --paper: #fff;
+        --surface: #fbfcfc;
       }
       * { box-sizing: border-box; }
       html,
@@ -28,6 +33,11 @@
         font-family: var(--kbp-font, system-ui, sans-serif);
         text-rendering: geometricPrecision;
       }
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
       .topbar {
         position: fixed;
         inset: 0 0 auto;
@@ -37,18 +47,18 @@
         gap: 12px;
         height: var(--nav-h);
         padding: 8px 18px;
-        border-bottom: 1px solid rgba(255, 113, 67, .18);
-        background: #fff;
+        border-bottom: 1px solid var(--line-soft);
+        background: rgba(255, 255, 255, .96);
         color: var(--muted);
         font-size: 13px;
         font-weight: 800;
       }
-      .topbar a { color: inherit; text-decoration: none; }
+      .topbar a { text-decoration: none; }
       .nav-mark {
-        width: 12px;
-        height: 12px;
-        background: var(--logo-orange);
-        transform: rotate(45deg);
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--orange);
       }
       main {
         position: relative;
@@ -66,7 +76,8 @@
         gap: 8px;
         width: var(--deck-w);
         height: var(--deck-h);
-        padding: 40px 54px 38px 72px;
+        padding: 42px 60px 38px 76px;
+        border: 1px solid var(--line-soft);
         background: #fff;
         opacity: 0;
         overflow: hidden;
@@ -82,14 +93,14 @@
         content: "";
         position: absolute;
         inset: 0 auto 0 0;
-        width: 28px;
-        background: linear-gradient(180deg, #ff8a64 0%, var(--logo-orange) 48%, #e85f37 100%);
+        width: 10px;
+        background: linear-gradient(180deg, #ff8a64 0%, var(--orange) 52%, var(--orange-dark) 100%);
       }
       .slide-header,
       .slide-footer,
       h2,
       .lead-copy,
-      .rich-body {
+      .body-image-board {
         position: relative;
         z-index: 1;
       }
@@ -100,11 +111,14 @@
         justify-content: space-between;
         color: var(--muted);
         font-size: 15px;
-        font-weight: 850;
+        font-weight: 820;
+        line-height: 1.35;
       }
       .doc-label {
-        color: var(--logo-orange);
-        font-weight: 900;
+        color: var(--muted);
+        font-weight: 860;
+        letter-spacing: .08em;
+        text-transform: uppercase;
       }
       .header-logo {
         width: 150px;
@@ -113,256 +127,388 @@
         object-position: right center;
       }
       h2 {
+        width: 100%;
+        max-width: 100%;
         margin: 0;
-        padding-bottom: 9px;
-        border-bottom: 7px solid var(--logo-orange);
+        padding-bottom: 11px;
+        border-bottom: 2px solid var(--orange);
         color: var(--ink);
-        font-size: 50px;
-        font-weight: 900;
-        line-height: 1.13;
+        font-size: 42px;
+        font-weight: 830;
+        line-height: 1.15;
         letter-spacing: 0;
+        text-wrap: balance;
       }
       .lead-copy {
-        max-width: 1260px;
-        margin: 0;
-        color: #222;
-        font-size: 26px;
-        font-weight: 820;
-        line-height: 1.35;
+        max-width: 1140px;
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 22px;
+        font-weight: 680;
+        line-height: 1.42;
         letter-spacing: 0;
       }
-      .rich-body {
-        position: relative;
+      .body-image-board {
         min-height: 0;
-        margin-top: 12px;
-        border: 1px solid rgba(255, 113, 67, .2);
-        border-radius: 8px;
+        margin-top: 10px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: linear-gradient(180deg, #fff 0%, var(--surface) 100%);
         overflow: hidden;
-        background: #fff;
       }
-      .image-field {
-        position: absolute;
-        inset: 0;
-      }
-      .image-field img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: saturate(1.05) contrast(1.03);
-      }
-      .image-field.contain img {
-        object-fit: contain;
-        padding: 12px;
-      }
-      .image-field::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(255, 255, 255, .94) 0 27%, rgba(255, 255, 255, .56) 48%, rgba(255, 255, 255, .08) 100%),
-          radial-gradient(circle at 78% 18%, rgba(255, 113, 67, .16), transparent 30%);
-      }
-      .rich-body.full-visual .image-field::after {
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, .9) 0 10%, rgba(255, 255, 255, .12) 42%, rgba(255, 255, 255, .84) 100%),
-          radial-gradient(circle at 80% 14%, rgba(255, 113, 67, .18), transparent 28%);
-      }
-      .story-panel {
-        position: absolute;
-        top: 36px;
-        left: 34px;
-        display: grid;
-        gap: 14px;
-        width: 390px;
-      }
-      .story-panel strong {
-        display: block;
-        color: var(--ink);
-        font-size: 30px;
-        font-weight: 900;
-        line-height: 1.16;
-      }
-      .story-panel span,
-      .stage-chip span,
-      .callout span {
-        color: var(--muted);
-        font-size: 16px;
-        font-weight: 760;
-        line-height: 1.42;
-      }
-      .story-card,
-      .callout,
-      .stage-chip {
-        border: 1px solid rgba(255, 113, 67, .22);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, .86);
-        backdrop-filter: blur(8px);
-      }
-      .story-card {
-        padding: 18px 20px;
-      }
-      .story-kicker {
-        display: inline-flex;
-        width: fit-content;
-        padding: 5px 9px;
+      .board-kicker {
+        display: inline-grid;
+        width: max-content;
+        margin-bottom: 10px;
+        padding: 5px 10px;
         border-radius: 999px;
-        background: var(--logo-orange);
-        color: #fff;
+        background: var(--orange-soft);
+        color: var(--orange-dark);
         font-size: 13px;
         font-weight: 900;
-        letter-spacing: .04em;
       }
-      .callout {
-        position: absolute;
-        right: 38px;
-        bottom: 34px;
-        display: grid;
-        gap: 6px;
-        width: 340px;
-        padding: 18px 20px;
-      }
-      .callout b {
-        color: var(--logo-orange);
-        font-size: 14px;
-        font-weight: 900;
-      }
-      .callout strong {
+      .panel-title {
+        margin: 0 0 8px;
         color: var(--ink);
-        font-size: 24px;
-        font-weight: 900;
+        font-size: 27px;
+        font-weight: 860;
+        line-height: 1.22;
       }
-      .split-visual {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        height: 100%;
+      .panel-text,
+      .mini-copy,
+      .check-list li,
+      .result-band,
+      .step p,
+      .cell,
+      .axis-note {
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 650;
+        line-height: 1.46;
       }
-      .split-pane {
-        position: relative;
+      .visual-card,
+      .step,
+      .matrix,
+      .note-box,
+      .route-card,
+      .quality-card {
         min-width: 0;
-        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
       }
-      .split-pane img {
+      .image-strip,
+      .image-thumb,
+      .mini-thumb {
+        overflow: hidden;
+        border: 1px solid var(--line-soft);
+        border-radius: 5px;
+        background: #fff;
+      }
+      .image-strip img,
+      .image-thumb img,
+      .mini-thumb img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
       }
-      .split-pane::after {
+      .check-list {
+        display: grid;
+        gap: 8px;
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .check-list li {
+        position: relative;
+        padding-left: 22px;
+      }
+      .check-list li::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .72));
+        top: .62em;
+        left: 0;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--orange);
       }
-      .split-label {
-        position: absolute;
-        left: 28px;
-        bottom: 26px;
-        z-index: 2;
+      .slide-footer {
+        justify-content: flex-end;
+        padding-top: 8px;
+        border-top: 1px solid var(--line-soft);
+      }
+
+      .compare-board {
         display: grid;
-        gap: 7px;
-        max-width: 460px;
+        grid-template-columns: minmax(0, 1fr) 102px minmax(0, 1fr);
+        gap: 18px;
+        height: 100%;
+      }
+      .compare-card {
+        display: grid;
+        grid-template-rows: 154px auto 1fr auto;
+        gap: 14px;
         padding: 18px;
-        border: 1px solid rgba(255, 113, 67, .24);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, .88);
       }
-      .split-label b {
-        color: var(--logo-orange);
-        font-size: 14px;
-        font-weight: 900;
+      .compare-card.is-feature {
+        border-color: rgba(255, 113, 67, .54);
+        background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
       }
-      .split-label strong {
+      .result-band {
+        padding: 11px 14px;
+        border-radius: 5px;
+        background: var(--orange-soft);
         color: var(--ink);
-        font-size: 28px;
-        font-weight: 900;
+        font-weight: 820;
       }
-      .route-overlay {
-        position: absolute;
-        inset: auto 28px 26px 28px;
+      .axis {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
+        grid-template-rows: 1fr auto 1fr;
+        align-items: center;
+        justify-items: center;
+        min-height: 0;
+        color: var(--muted);
       }
-      .stage-chip {
-        min-height: 112px;
-        padding: 14px;
+      .axis-line {
+        width: 2px;
+        height: 100%;
+        min-height: 116px;
+        background: linear-gradient(180deg, transparent, var(--orange), transparent);
       }
-      .stage-chip b {
+      .axis-center {
+        display: grid;
+        place-items: center;
+        width: 86px;
+        height: 86px;
+        border: 2px solid var(--orange);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--orange-dark);
+        font-size: 15px;
+        font-weight: 900;
+        text-align: center;
+        line-height: 1.25;
+      }
+
+      .workflow-board {
+        display: grid;
+        grid-template-columns: 398px minmax(0, 1fr);
+        gap: 22px;
+        height: 100%;
+      }
+      .chapter-visual {
+        display: grid;
+        grid-template-rows: 206px auto 1fr;
+        gap: 16px;
+        padding: 18px;
+        background: #fff;
+      }
+      .chapter-visual .image-thumb {
+        height: 206px;
+      }
+      .flow-panel {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 16px;
+        padding: 18px;
+      }
+      .flow-map {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        align-items: stretch;
+      }
+      .step {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        gap: 9px;
+        padding: 15px 14px 14px;
+      }
+      .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -17px;
+        width: 22px;
+        height: 2px;
+        background: var(--orange);
+        transform: translateY(-50%);
+      }
+      .step b {
         display: inline-grid;
         place-items: center;
         width: 30px;
         height: 30px;
-        margin-bottom: 8px;
         border-radius: 50%;
-        background: var(--logo-orange);
+        background: var(--orange);
         color: #fff;
         font-size: 13px;
-      }
-      .stage-chip strong {
-        display: block;
-        margin-bottom: 5px;
-        color: var(--ink);
-        font-size: 20px;
         font-weight: 900;
       }
-      .gate-grid {
-        position: absolute;
-        inset: 34px;
-        display: grid;
-        grid-template-columns: 1.05fr .95fr;
-        gap: 22px;
+      .step strong {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 860;
+        line-height: 1.25;
       }
-      .gate-hero,
-      .gate-stack {
-        min-width: 0;
-      }
-      .gate-hero {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-      }
-      .gate-hero img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .gate-hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, transparent 20%, rgba(255, 255, 255, .7));
-      }
-      .gate-stack {
+      .flow-bottom {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
-      .gate-tile {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(255, 113, 67, .22);
-        border-radius: 8px;
-        background: #fff;
+      .note-box {
+        padding: 14px 16px;
       }
-      .gate-tile img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .gate-tile span {
-        position: absolute;
-        left: 12px;
-        bottom: 10px;
-        z-index: 2;
-        padding: 5px 8px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, .88);
+      .note-box strong {
+        display: block;
+        margin-bottom: 5px;
         color: var(--ink);
+        font-size: 18px;
+        font-weight: 860;
+      }
+
+      .route-board {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 16px;
+        height: 100%;
+      }
+      .route-summary {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .route-summary .note-box {
+        display: grid;
+        align-content: center;
+        min-height: 94px;
+      }
+      .route-line {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 13px;
+        min-height: 0;
+      }
+      .route-card {
+        display: grid;
+        grid-template-rows: 112px auto auto auto auto auto;
+        align-content: start;
+        gap: 10px;
+        padding: 14px;
+      }
+      .route-card .mini-thumb {
+        height: 112px;
+      }
+      .route-card b {
+        color: var(--orange-dark);
         font-size: 13px;
         font-weight: 900;
       }
-      .slide-footer {
-        justify-content: flex-end;
-        border-top: 1px solid rgba(255, 113, 67, .16);
+      .route-card strong {
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 860;
+        line-height: 1.24;
+      }
+      .route-card p {
+        margin: 0;
+        align-self: start;
+      }
+      .route-metric {
+        padding: 8px 10px;
+        border-radius: 5px;
+        background: var(--orange-soft);
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 830;
+      }
+      .route-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .route-tags span {
+        padding: 5px 8px;
+        border: 1px solid var(--line-soft);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 780;
+      }
+
+      .quality-board {
+        display: grid;
+        grid-template-columns: 1.04fr .96fr;
+        gap: 20px;
+        height: 100%;
+      }
+      .quality-flow {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 14px;
+        padding: 18px;
+      }
+      .quality-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        min-height: 0;
+      }
+      .quality-card {
+        display: grid;
+        grid-template-columns: 102px 1fr;
+        gap: 14px;
+        align-items: center;
+        padding: 12px;
+      }
+      .quality-card .mini-thumb {
+        width: 102px;
+        height: 102px;
+      }
+      .quality-card strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 860;
+      }
+      .matrix {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 14px;
+        padding: 18px;
+      }
+      .matrix-grid {
+        display: grid;
+        grid-template-columns: 1.05fr repeat(3, .65fr);
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+      .cell {
+        min-height: 54px;
+        padding: 12px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+      .cell.head {
+        background: var(--orange-soft);
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 860;
+      }
+      .cell.ok {
+        display: grid;
+        place-items: center;
+        color: var(--orange-dark);
+        font-size: 21px;
+        font-weight: 900;
       }
       .controls {
         position: fixed;
@@ -375,7 +521,7 @@
       }
       .controls button,
       .counter {
-        border: 1px solid rgba(255, 113, 67, .22);
+        border: 1px solid var(--line);
         border-radius: 999px;
         background: #fff;
         color: var(--ink);
@@ -396,13 +542,13 @@
         inset: auto 0 0;
         z-index: 55;
         height: 4px;
-        background: rgba(255, 113, 67, .12);
+        background: var(--line-soft);
       }
       .progress span {
         display: block;
         width: 0;
         height: 100%;
-        background: var(--logo-orange);
+        background: var(--orange);
       }
     </style>
   </head>
@@ -412,95 +558,218 @@
       <span>/</span>
       <a href="../kikai-collab-seminar-business-ppt-bold/">Original</a>
       <span class="nav-mark" aria-hidden="true"></span>
-      <span>Image2 Rich Samples</span>
+      <span>Image2 Body Document Samples</span>
     </nav>
 
-    <main aria-label="Kikai image2 rich sample slides">
+    <main aria-label="Kikai image2 body document sample slides">
       <section class="slide is-active" id="P05" data-slide="P05" aria-label="AI活用の2つの道">
-        <header class="slide-header"><span class="doc-label">AI活用の2つの道</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header">
+          <span class="doc-label">AI活用の2つの道</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
         <h2>AI活用は「伝える」と「作る」に分かれる</h2>
         <p class="lead-copy">どちらも正しい。ただし、個人が勝ち筋を作るうえでは構造がかなり違う。</p>
-        <div class="rich-body" data-role="body">
-          <div class="split-visual">
-            <div class="split-pane">
-              <img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/ai-product-bridge.png" alt="">
-              <div class="split-label"><b>01 / 伝える道</b><strong>発信・集客を増幅する</strong><span>既にある知見や影響力をAIで広げる。強い人ほどさらに強くなる。</span></div>
+        <div class="body-image-board compare-board" data-role="image2-body" role="img" aria-label="発信を広げる道と課題解決を作る道を比較する情報パネル">
+          <article class="visual-card compare-card">
+            <div class="image-strip"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/ai-product-bridge.png" alt=""></div>
+            <div>
+              <span class="board-kicker">01 / 伝える道</span>
+              <h3 class="panel-title">発信・集客を増幅する</h3>
+              <p class="panel-text">既にある知見や影響力をAIで広げ、コンテンツ量と接触頻度を増やす。</p>
             </div>
-            <div class="split-pane">
-              <img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/prompt-to-product.png" alt="">
-              <div class="split-label"><b>02 / 作る道</b><strong>課題解決そのものを作る</strong><span>言葉から画面、業務、販売導線へ。動くものが資産として残る。</span></div>
-            </div>
+            <ul class="check-list">
+              <li>SNS、メルマガ、LP、セミナー資料を高速化</li>
+              <li>元から強いテーマや信用があるほど伸びやすい</li>
+              <li>成果は「見込み客との接点増」に出やすい</li>
+            </ul>
+            <div class="result-band">主な成果: 認知拡大・リード獲得</div>
+          </article>
+          <div class="axis" aria-hidden="true">
+            <div class="axis-line"></div>
+            <div class="axis-center">AI<br>活用</div>
+            <div class="axis-line"></div>
           </div>
+          <article class="visual-card compare-card is-feature">
+            <div class="image-strip"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/prompt-to-product.png" alt=""></div>
+            <div>
+              <span class="board-kicker">02 / 作る道</span>
+              <h3 class="panel-title">課題解決そのものを作る</h3>
+              <p class="panel-text">言葉から画面、業務フロー、販売導線へ。動くものが資産として残る。</p>
+            </div>
+            <ul class="check-list">
+              <li>顧客の困りごとを具体的なツールに変換する</li>
+              <li>小さな受託から実績と型を積み上げられる</li>
+              <li>共通課題が見えたらプロダクト化に進める</li>
+            </ul>
+            <div class="result-band">主な成果: 受託・業務改善・自社サービス</div>
+          </article>
         </div>
         <footer class="slide-footer"><span>P05 sample</span></footer>
       </section>
 
       <section class="slide" id="P10" data-slide="P10" aria-label="章扉 バイブコーディング">
-        <header class="slide-header"><span class="doc-label">バイブコーディングとは</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header">
+          <span class="doc-label">バイブコーディングとは</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
         <h2>「作る」の常識が変わる</h2>
         <p class="lead-copy">作りたいものを言葉にし、AIと対話しながら形にする新しい開発スタイル。</p>
-        <div class="rich-body full-visual" data-role="body">
-          <div class="image-field contain"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-p10-vibe-coding-section.png" alt=""></div>
-          <div class="story-panel">
-            <div class="story-card">
-              <span class="story-kicker">SECTION 02</span>
-              <strong>言葉から、動くサービスへ。</strong>
-              <span>自然言語で要件を伝え、AIと画面を往復しながら、実用サービスまで近づける。</span>
+        <div class="body-image-board workflow-board" data-role="image2-body" role="img" aria-label="言葉からサービス化までのバイブコーディング手順を示す情報パネル">
+          <article class="visual-card chapter-visual">
+            <div class="image-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-p10-vibe-coding-section.png" alt=""></div>
+            <div>
+              <span class="board-kicker">SECTION 02</span>
+              <h3 class="panel-title">言葉から、動くサービスへ。</h3>
+              <p class="panel-text">専門職だけの開発から、事業理解を持つ人がAIと一緒に形にする開発へ。</p>
             </div>
-          </div>
-          <div class="callout"><b>3つの変換</b><strong>言葉 → 画面 → 事業</strong><span>「説明できること」が、そのままプロトタイプと販売可能性につながる。</span></div>
+            <div class="result-band">ポイント: 「説明できること」がプロトタイプの起点になる</div>
+          </article>
+          <article class="visual-card flow-panel">
+            <div>
+              <span class="board-kicker">BASIC FLOW</span>
+              <h3 class="panel-title">バイブコーディングは、対話と確認の反復で進む</h3>
+            </div>
+            <div class="flow-map">
+              <div class="step"><b>1</b><strong>課題を言語化</strong><p>誰の、どの業務を、どう楽にするかを決める。</p></div>
+              <div class="step"><b>2</b><strong>AIへ依頼</strong><p>画面、データ、動作条件を具体的に伝える。</p></div>
+              <div class="step"><b>3</b><strong>画面で確認</strong><p>見た目と操作感を使いながら確認する。</p></div>
+              <div class="step"><b>4</b><strong>修正を重ねる</strong><p>例外、権限、入力ミスなどを潰していく。</p></div>
+              <div class="step"><b>5</b><strong>公開・販売</strong><p>小さく使ってもらい、実績を次の提案にする。</p></div>
+            </div>
+            <div class="flow-bottom">
+              <div class="note-box"><strong>作る人に必要な力</strong><p class="mini-copy">コード暗記ではなく、業務理解・言語化・検証観点。</p></div>
+              <div class="note-box"><strong>AIに任せる範囲</strong><p class="mini-copy">実装案、UI生成、エラー調査、改善候補の洗い出し。</p></div>
+            </div>
+          </article>
         </div>
         <footer class="slide-footer"><span>P10 sample</span></footer>
       </section>
 
       <section class="slide" id="P20" data-slide="P20" aria-label="黄金ルート">
-        <header class="slide-header"><span class="doc-label">90%以上が失敗する理由</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header">
+          <span class="doc-label">90%以上が失敗する理由</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
         <h2>稼ぐなら、段階的な黄金ルートが必要</h2>
         <p class="lead-copy">どの段階で止めても、すでに稼げている状態を作る。</p>
-        <div class="rich-body full-visual" data-role="body">
-          <div class="image-field"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/golden-route.png" alt=""></div>
-          <div class="story-panel">
-            <div class="story-card">
-              <span class="story-kicker">ROUTE DESIGN</span>
-              <strong>いきなりSaaSではなく、収益化の階段を作る</strong>
-              <span>学習、初回受託、横展開、品質改善、プロダクト化を順に進める。</span>
+        <div class="body-image-board route-board" data-role="image2-body" role="img" aria-label="学習からプロダクト化までの黄金ルートを示す情報パネル">
+          <div class="route-summary">
+            <div class="note-box">
+              <span class="board-kicker">ROUTE DESIGN</span>
+              <h3 class="panel-title">いきなりSaaSではなく、収益化の階段を作る</h3>
+            </div>
+            <div class="note-box">
+              <strong>設計思想</strong>
+              <p class="mini-copy">受託で顧客課題を学び、型を作り、繰り返し売れる形へ近づける。</p>
             </div>
           </div>
-          <div class="route-overlay">
-            <div class="stage-chip"><b>01</b><strong>学ぶ</strong><span>AIへの指示力と業務理解を整える。</span></div>
-            <div class="stage-chip"><b>02</b><strong>動き出す</strong><span>月5〜10万円の小さな受託へ。</span></div>
-            <div class="stage-chip"><b>03</b><strong>広げる</strong><span>実績を型化し月50万円帯へ。</span></div>
-            <div class="stage-chip"><b>04</b><strong>磨く</strong><span>品質と継続で単価を上げる。</span></div>
-            <div class="stage-chip"><b>05</b><strong>創る</strong><span>共通課題を自社アプリ化する。</span></div>
+          <div class="route-line">
+            <article class="route-card">
+              <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-route-learn.png" alt=""></div>
+              <b>01 / LEARN</b>
+              <strong>AIへの指示力を整える</strong>
+              <p>作る前に、課題を分解して依頼できる状態にする。</p>
+              <div class="route-tags"><span>課題分解</span><span>プロンプト設計</span></div>
+              <div class="route-metric">成果: 作れる題材が見える</div>
+            </article>
+            <article class="route-card">
+              <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-route-start-client.png" alt=""></div>
+              <b>02 / FIRST CLIENT</b>
+              <strong>小さな受託で動き出す</strong>
+              <p>身近な業務改善から月5〜10万円の実績を作る。</p>
+              <div class="route-tags"><span>業務改善</span><span>初回提案</span></div>
+              <div class="route-metric">成果: 初回売上</div>
+            </article>
+            <article class="route-card">
+              <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-route-expand.png" alt=""></div>
+              <b>03 / EXPAND</b>
+              <strong>型化して横展開する</strong>
+              <p>似た課題を持つ業界へ提案し、月50万円帯を狙う。</p>
+              <div class="route-tags"><span>提案型化</span><span>実績転用</span></div>
+              <div class="route-metric">成果: 案件の再現性</div>
+            </article>
+            <article class="route-card">
+              <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-route-polish.png" alt=""></div>
+              <b>04 / POLISH</b>
+              <strong>品質と継続性を磨く</strong>
+              <p>保守、改善、教育を組み合わせて単価を上げる。</p>
+              <div class="route-tags"><span>品質保証</span><span>継続契約</span></div>
+              <div class="route-metric">成果: 継続収益</div>
+            </article>
+            <article class="route-card">
+              <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-route-create-product.png" alt=""></div>
+              <b>05 / PRODUCTIZE</b>
+              <strong>共通課題をアプリ化</strong>
+              <p>受託で見えた課題を自社サービスに変えていく。</p>
+              <div class="route-tags"><span>共通化</span><span>販売導線</span></div>
+              <div class="route-metric">成果: 資産化</div>
+            </article>
           </div>
         </div>
         <footer class="slide-footer"><span>P20 sample</span></footer>
       </section>
 
       <section class="slide" id="P31" data-slide="P31" aria-label="品質チェック">
-        <header class="slide-header"><span class="doc-label">Kikaiの提供価値</span><img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon"></header>
+        <header class="slide-header">
+          <span class="doc-label">Kikaiの提供価値</span>
+          <img class="header-logo" src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
+        </header>
         <h2>品質チェックが、AI生成コードの不安を減らす</h2>
         <p class="lead-copy">受託や販売を目指すなら、品質保証は営業材料にもなる。</p>
-        <div class="rich-body" data-role="body">
-          <div class="gate-grid">
-            <div class="gate-hero">
-              <img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-inspect.png" alt="">
+        <div class="body-image-board quality-board" data-role="image2-body" role="img" aria-label="AI生成コードの不安を減らす品質ゲートと確認表を示す情報パネル">
+          <article class="visual-card quality-flow">
+            <div>
+              <span class="board-kicker">QUALITY GATE</span>
+              <h3 class="panel-title">不安の正体を、納品前に潰す</h3>
+              <p class="panel-text">動くだけの状態から、受託・販売で説明できる品質へ引き上げる。</p>
             </div>
-            <div class="gate-stack">
-              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-generate.png" alt=""><span>生成</span></div>
-              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-inspect.png" alt=""><span>点検</span></div>
-              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-fix.png" alt=""><span>修正</span></div>
-              <div class="gate-tile"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-deliver.png" alt=""><span>納品</span></div>
+            <div class="quality-grid">
+              <div class="quality-card">
+                <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-generate.png" alt=""></div>
+                <div><strong>生成</strong><p class="mini-copy">AIで初期実装を作り、動作を確認する。</p></div>
+              </div>
+              <div class="quality-card">
+                <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-inspect.png" alt=""></div>
+                <div><strong>点検</strong><p class="mini-copy">権限、例外、データ破損、運用漏れを見る。</p></div>
+              </div>
+              <div class="quality-card">
+                <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-fix.png" alt=""></div>
+                <div><strong>修正</strong><p class="mini-copy">危ない箇所を直し、再発しない型にする。</p></div>
+              </div>
+              <div class="quality-card">
+                <div class="mini-thumb"><img src="../kikai-collab-seminar-business-ppt-bold/assets/generated/image2-gate-deliver.png" alt=""></div>
+                <div><strong>納品</strong><p class="mini-copy">説明資料と改善余地まで含めて渡す。</p></div>
+              </div>
             </div>
-          </div>
-          <div class="story-panel">
-            <div class="story-card">
-              <span class="story-kicker">QUALITY GATE</span>
-              <strong>不安の正体を、納品前に潰す</strong>
-              <span>動くけれど壊れやすい箇所、権限、例外処理、運用漏れをレビュー対象として見える化する。</span>
+          </article>
+          <article class="matrix">
+            <div>
+              <span class="board-kicker">CHECK MATRIX</span>
+              <h3 class="panel-title">品質保証は、営業上の信頼材料になる</h3>
             </div>
-          </div>
-          <div class="callout"><b>営業材料</b><strong>「品質を見ています」と言える状態へ</strong><span>受託で売るなら、品質保証そのものが信頼の根拠になる。</span></div>
+            <div class="matrix-grid">
+              <div class="cell head">確認観点</div>
+              <div class="cell head">受託</div>
+              <div class="cell head">販売</div>
+              <div class="cell head">運用</div>
+              <div class="cell">ユーザー権限と閲覧範囲</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell">入力ミス・例外時の挙動</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell">データ保存・復旧・監査</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell">説明できる改善履歴</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+              <div class="cell ok">✓</div>
+            </div>
+          </article>
         </div>
         <footer class="slide-footer"><span>P31 sample</span></footer>
       </section>
