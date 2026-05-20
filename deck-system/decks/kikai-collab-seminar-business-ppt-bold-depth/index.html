@@ -4099,10 +4099,23 @@
         line-height: 1.5;
       }
       .card,
+      .cover-panel,
       .panel,
       .metric,
       .table-wrap,
       .note,
+      .toc-row,
+      .section-checkpoints span,
+      .quote-panel,
+      .stat,
+      .step,
+      .mock-screen,
+      .mini-ui .screen > div,
+      .chart-card,
+      .insight,
+      .package-core,
+      .package-flow article,
+      .package-contrast div,
       .commodity-item,
       .equation-box,
       .path-card,
@@ -5446,6 +5459,212 @@
       #P29 .coverage-stage em {
         padding-top: 4px;
         font-size: 14px;
+      }
+      /* Object and image cleanup pass.
+         Cards own the border. Images/SVG objects do not carry frames, left accents, or shadows. */
+      .card,
+      .panel,
+      .metric,
+      .table-wrap,
+      .note,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof,
+      .chapter-index,
+      .chapter-canvas,
+      .chapter-anchors span,
+      .case-node,
+      .knowledge-row,
+      .reality-card,
+      .objection-card,
+      .proof-lanes span,
+      .process-node,
+      .layer-row,
+      .profile-card,
+      .profile-list li,
+      .profile-stats span,
+      .evidence-strip,
+      .evidence-strip span,
+      .caption-strip span,
+      .revenue-rows span,
+      .risk-slice,
+      .tight-list li,
+      .path-card li,
+      .risk-points span,
+      .risk-review-bar,
+      .risk-review-bar span,
+      .risk-review-checks span,
+      .path-note,
+      .route-note,
+      .mini-tag-row span,
+      .amplify-steps span {
+        border-style: solid !important;
+        border-width: 3pt !important;
+        border-left-width: 3pt !important;
+      }
+      .card,
+      .cover-panel,
+      .panel,
+      .metric,
+      .table-wrap,
+      .note,
+      .toc-row,
+      .section-checkpoints span,
+      .quote-panel,
+      .stat,
+      .step,
+      .mock-screen,
+      .mini-ui .screen > div,
+      .chart-card,
+      .insight,
+      .package-core,
+      .package-flow article,
+      .package-contrast div,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof,
+      .chapter-index,
+      .chapter-canvas,
+      .case-node,
+      .knowledge-row,
+      .reality-card,
+      .objection-card,
+      .process-node,
+      .profile-card,
+      .risk-review-bar,
+      .evidence-strip {
+        border-color: var(--card-border-outer, var(--kikai-orange-outer)) !important;
+      }
+      .tight-list li,
+      .path-card li,
+      .revenue-rows span,
+      .risk-points span,
+      .risk-review-bar span,
+      .risk-review-checks span,
+      .profile-list li,
+      .profile-stats span,
+      .path-note,
+      .route-note,
+      .mini-tag-row span,
+      .layer-row,
+      .proof-lanes span,
+      .amplify-steps span,
+      .evidence-strip span,
+      .caption-strip span,
+      .risk-slice {
+        border-color: var(--card-border-inner, var(--card-border-outer, var(--kikai-orange-outer))) !important;
+        box-shadow: none !important;
+        filter: none !important;
+      }
+      .image-frame,
+      .product-board,
+      .case-visual,
+      .case-map-visual,
+      .svg-figure,
+      .risk-visual,
+      .gate-visual,
+      .image2-card-media,
+      .image2-panel,
+      .case-icon,
+      .case-icon.blue,
+      .case-icon.green,
+      .speaker-photo {
+        border: 0 !important;
+        border-left: 0 !important;
+        background: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        filter: none !important;
+      }
+      .image-frame img,
+      .product-board img,
+      .image2-card-media img,
+      .image2-panel img,
+      .chapter-canvas img,
+      .case-visual img,
+      .case-map-visual img,
+      .gate-visual img,
+      .risk-visual img,
+      .speaker-photo img,
+      .case-icon svg,
+      .svg-figure svg,
+      .case-visual svg,
+      .gate-visual svg,
+      .risk-visual svg {
+        border: 0 !important;
+        box-shadow: none !important;
+        filter: none !important;
+      }
+      .number,
+      .commodity-item b,
+      .funnel-stage b,
+      .pipe-mark,
+      .gate-card .gate-badge,
+      .package-flow b,
+      .case-card .number,
+      .insight b,
+      .chapter-index .chapter-no,
+      .chapter-anchors b,
+      .case-node b {
+        box-shadow: none !important;
+        filter: none !important;
+      }
+      #P04 .differentiator,
+      .package-core,
+      .path-pivot,
+      .loop-core,
+      .statement-core,
+      .objection-core,
+      .reality-core {
+        border: 3pt solid var(--card-border-outer, var(--kikai-orange-outer)) !important;
+        border-left-width: 3pt !important;
+        border-left-color: var(--card-border-outer, var(--kikai-orange-outer)) !important;
+      }
+      #P06 .amplify-steps span,
+      #P06 .amplify-steps.muted span,
+      #P06 .gain-bars span,
+      #P06 .gain-bars.muted span {
+        border-left-width: 3pt !important;
+      }
+      .formula-strip {
+        border: 0 !important;
+        border-left: 0 !important;
       }
       @media (prefers-reduced-motion: reduce) {
         *,
