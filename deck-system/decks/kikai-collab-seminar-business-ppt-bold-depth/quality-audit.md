@@ -12,6 +12,20 @@ This file inherits the source deck quality decisions and adds a page-by-page dep
 - Generic bar-chart-like decorations are removed or suppressed on pages where they did not carry meaning.
 - The original `kikai-collab-seminar-business-ppt-bold` deck remains unchanged for side-by-side comparison.
 
+## 2026-05-22 Production Cleanup
+
+- Removed the cover placeholder (`〇〇様向け`) and format label from P01.
+- Flattened remaining card/core backgrounds that still rendered as gradients.
+- Removed residual image/SVG object frames and shadows on P05, P10, P28, and P33 while preserving card-side depth.
+- Kept P25's community visual as a low-opacity image layer without using a gradient card background.
+
+## 2026-05-23 Reviewer Cleanup
+
+- Set outer card borders thinner than nested card borders.
+- Added targeted inner spacing fixes for profile, table, chapter-anchor, route, and coverage cards.
+- Aligned nested card hue families in P06 and P26 so parent/child borders and fills do not mix orange, blue, and green unintentionally.
+- Reset P10 chapter-anchor inner text spans so they do not become accidental nested cards.
+
 ## Audit Criteria
 
 - image_need: 情報密度を上げるために画像・図解が必要か

@@ -5666,6 +5666,251 @@
         border: 0 !important;
         border-left: 0 !important;
       }
+      /* Final production cleanup.
+         Keep depth on cards, but make card fills flat and keep images/SVGs unframed. */
+      .cover-panel,
+      .insight,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .objection-core,
+      .reality-core,
+      .package-flow article,
+      .package-contrast div,
+      .community-proof,
+      #P06 .formula-strip,
+      #P06 .amplify-steps span,
+      #P06 .amplify-steps.muted span,
+      #P21 .problem-card,
+      #P25 .objection-core {
+        background-image: none !important;
+      }
+      #P21 .problem-card:first-child,
+      #P21 .question-grid .problem-card:first-child,
+      #P26 .community-proof {
+        background-image: none !important;
+      }
+      .cover-panel,
+      .insight,
+      .package-flow article,
+      .package-contrast div {
+        background: #ffffff !important;
+      }
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .objection-core,
+      .reality-core,
+      .community-proof {
+        background: var(--kikai-primary-soft) !important;
+      }
+      #P21 .problem-board > .problem-card:first-child {
+        background: #ffffff !important;
+      }
+      #P21 .question-grid .problem-card:first-child,
+      #P26 .community-proof {
+        background: var(--kikai-primary-soft) !important;
+      }
+      #P06 .formula-strip {
+        background: var(--kikai-primary) !important;
+      }
+      #P06 .amplify-steps span {
+        background: #fff2ed !important;
+      }
+      #P06 .amplify-steps.muted span {
+        background: #edf4fe !important;
+      }
+      #P05 .path-visual,
+      #P10 .chapter-canvas,
+      #P10 .chapter-canvas img,
+      #P28 .image-frame img,
+      #P33 .image-frame img {
+        border: 0 !important;
+        background: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        filter: none !important;
+      }
+      #P10 .chapter-canvas {
+        padding: 0 !important;
+      }
+      #P25 .objection-core {
+        position: relative;
+        overflow: hidden;
+      }
+      #P25 .objection-core::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("../kikai-collab-seminar-business-ppt-bold/assets/generated/community-workspace.png") center / cover no-repeat;
+        opacity: 0.14;
+        pointer-events: none;
+      }
+      #P25 .objection-core > * {
+        position: relative;
+        z-index: 1;
+      }
+      /* 2026-05-23 reviewer cleanup:
+         outer cards use thinner lines, nested cards use a slightly stronger line,
+         and nested fills stay in the same hue family as their parent. */
+      :root {
+        --kikai-card-outer-width: 2pt;
+        --kikai-card-inner-width: 3pt;
+      }
+      .card,
+      .cover-panel,
+      .panel,
+      .metric,
+      .table-wrap,
+      .note,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof,
+      .chapter-index,
+      .chapter-anchors > span,
+      .case-node,
+      .knowledge-row,
+      .reality-card,
+      .objection-card,
+      .objection-core,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .reality-core,
+      .insight,
+      .package-flow article,
+      .package-contrast div,
+      .process-node,
+      .profile-card,
+      .risk-review-bar,
+      .evidence-strip {
+        border-width: var(--kikai-card-outer-width) !important;
+        border-left-width: var(--kikai-card-outer-width) !important;
+      }
+      .tight-list li,
+      .path-card li,
+      .revenue-rows span,
+      .risk-points span,
+      .risk-review-bar span,
+      .risk-review-checks span,
+      .profile-list li,
+      .profile-stats span,
+      .path-note,
+      .route-note,
+      .mini-tag-row span,
+      .layer-row,
+      .proof-lanes span,
+      .amplify-steps span,
+      .evidence-strip span,
+      .caption-strip span,
+      .risk-slice {
+        border-width: var(--kikai-card-inner-width) !important;
+        border-left-width: var(--kikai-card-inner-width) !important;
+      }
+      .card,
+      .panel,
+      .metric,
+      .note,
+      .commodity-item,
+      .equation-box,
+      .path-card,
+      .change-card,
+      .metric-tile,
+      .funnel-stage,
+      .accumulation-card,
+      .problem-card,
+      .case-card,
+      .origin-step,
+      .loop-card,
+      .risk-card,
+      .gate-card,
+      .pipeline-stage,
+      .closing-panel,
+      .global-card,
+      .revenue-card,
+      .route-stage,
+      .coverage-stage,
+      .community-case,
+      .community-proof,
+      .knowledge-row,
+      .reality-card,
+      .objection-card,
+      .statement-core,
+      .differentiator,
+      .package-core,
+      .loop-core,
+      .reality-core,
+      .profile-card,
+      .evidence-strip {
+        gap: max(12px, 0.75rem);
+      }
+      #P02 .profile-card {
+        padding: 18px !important;
+      }
+      #P04 .differentiator {
+        border-width: var(--kikai-card-outer-width) !important;
+        border-left-width: var(--kikai-card-outer-width) !important;
+      }
+      #P08 .table-wrap {
+        padding: 14px !important;
+      }
+      #P10 .chapter-index {
+        padding: 20px !important;
+      }
+      #P10 .chapter-anchors > span {
+        padding: 14px 16px !important;
+      }
+      #P10 .chapter-anchors > span > span {
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      #P20 .route-stage li,
+      #P29 .coverage-stage li {
+        padding: 8px 10px !important;
+      }
+      #P31 .risk-review-checks span {
+        border-width: var(--kikai-card-inner-width) !important;
+        border-left-width: var(--kikai-card-inner-width) !important;
+      }
+      #P06 .knowledge-row:nth-child(2) {
+        --card-accent: var(--kikai-blue);
+        --card-border-outer: var(--kikai-blue-outer);
+        --card-border-inner: var(--kikai-blue-inner);
+        --card-surface: var(--kikai-blue-soft);
+        --card-inner-surface: #edf4fe;
+        border-color: var(--kikai-blue-outer) !important;
+        background: var(--kikai-blue-soft) !important;
+      }
+      #P26 .community-proof .proof-lanes span {
+        --card-accent: var(--kikai-primary);
+        --card-border-inner: var(--kikai-orange-inner);
+        --card-inner-surface: #fff2ed;
+        border-color: var(--kikai-orange-inner) !important;
+        background: #fff2ed !important;
+      }
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -5697,9 +5942,9 @@
           </div>
           <aside class="cover-panel" data-role="body">
             <img src="../../formats/kikai-business-ppt/assets/3.png" alt="Kikai Vibe Coding Salon">
-            <span>Collab seminar</span>
-            <span>〇〇様向け</span>
-            <span>Format: Bold Depth White Orange Visual</span>
+            <span>コラボセミナー資料</span>
+            <span>AI時代のサービスづくり</span>
+            <span>Vibe Coding Salon -Kikai-</span>
           </aside>
         </div>
         <footer class="slide-footer"><span>P01</span></footer>
