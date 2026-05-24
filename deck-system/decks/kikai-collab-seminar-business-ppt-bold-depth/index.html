@@ -5775,11 +5775,11 @@
         z-index: 1;
       }
       /* 2026-05-23 reviewer cleanup:
-         outer cards use thinner lines, nested cards use a slightly stronger line,
+         outer cards use slightly thinner lines, nested cards stay one step stronger,
          and nested fills stay in the same hue family as their parent. */
       :root {
-        --kikai-card-outer-width: 2pt;
-        --kikai-card-inner-width: 3pt;
+        --kikai-card-outer-width: 1.5pt;
+        --kikai-card-inner-width: 2pt;
       }
       .card,
       .cover-panel,
@@ -5932,6 +5932,101 @@
         --card-inner-surface: #fff2ed;
         border-color: var(--kikai-orange-inner) !important;
         background: #fff2ed !important;
+      }
+      /* 2026-05-24 follow-up:
+         P18/P20 should use the body area more evenly, and generated media should
+         not carry an extra visible frame inside the card that already owns one. */
+      #P18 .reality-funnel {
+        min-height: 516px;
+        align-items: stretch;
+      }
+      #P18 .metric-wall {
+        height: 100%;
+        align-content: stretch;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+      }
+      #P18 .funnel-stack {
+        height: 100%;
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        align-content: stretch;
+      }
+      #P18 .metric-tile,
+      #P18 .funnel-stage {
+        min-height: 0;
+      }
+      #P20 .route-system {
+        min-height: 548px;
+        align-items: stretch;
+        grid-auto-rows: 1fr;
+      }
+      #P20 .route-system::after {
+        content: none !important;
+        display: none !important;
+      }
+      #P20 .route-stage {
+        grid-template-rows: auto 112px auto minmax(96px, 1fr) auto auto;
+        height: 100%;
+        min-height: 0;
+      }
+      #P20 .route-stage .image2-card-media {
+        height: 112px;
+      }
+      .image-frame,
+      .product-board,
+      .case-visual,
+      .case-map-visual,
+      .chapter-canvas,
+      .svg-figure,
+      .risk-visual,
+      .gate-visual,
+      .image2-card-media,
+      .image2-panel,
+      .cover-panel,
+      .speaker-photo {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        filter: none !important;
+      }
+      .image-frame::before,
+      .image-frame::after,
+      .product-board::before,
+      .product-board::after,
+      .case-visual::before,
+      .case-visual::after,
+      .case-map-visual::before,
+      .case-map-visual::after,
+      .chapter-canvas::before,
+      .chapter-canvas::after,
+      .risk-visual::before,
+      .risk-visual::after,
+      .gate-visual::before,
+      .gate-visual::after,
+      .image2-card-media::before,
+      .image2-card-media::after,
+      .image2-panel::before,
+      .image2-panel::after {
+        content: none !important;
+        display: none !important;
+      }
+      .image2-card-media,
+      .image2-panel,
+      .image-frame,
+      .chapter-canvas,
+      .case-map-visual {
+        overflow: hidden !important;
+      }
+      .image2-card-media img,
+      .image2-panel img,
+      .image-frame img,
+      .chapter-canvas img,
+      .case-map-visual img {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        filter: none !important;
+        transform: scale(1.08);
+        transform-origin: center;
       }
       body.chrome-collapsed {
         --slide-nav-h: 8px;

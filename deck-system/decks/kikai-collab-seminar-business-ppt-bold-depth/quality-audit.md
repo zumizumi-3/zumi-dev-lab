@@ -26,6 +26,12 @@ This file inherits the source deck quality decisions and adds a page-by-page dep
 - Aligned nested card hue families in P06 and P26 so parent/child borders and fills do not mix orange, blue, and green unintentionally.
 - Reset P10 chapter-anchor inner text spans so they do not become accidental nested cards.
 
+## 2026-05-24 Follow-up Cleanup
+
+- Reduced nested card borders by 1pt while keeping them slightly stronger than outer cards.
+- Stretched the P18 metric/funnel body and P20 route cards so those layouts use the lower body space more intentionally.
+- Removed residual media-side frames, pseudo decorations, shadows, and filters; image containers now crop generated image edges slightly so baked-in image borders do not create a second frame inside cards.
+
 ## Audit Criteria
 
 - image_need: 情報密度を上げるために画像・図解が必要か
