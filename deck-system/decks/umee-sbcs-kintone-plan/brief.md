@@ -13,7 +13,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 ## Desired Action
 
 - kintone向けに出す商品階層を合意する
-- Team Packの価格、追加ID、他社比較、サポート分界を議論する
+- kintone Packの価格、ID積み上げ、他社比較、サポート分界を議論する
 - Log Liteをパートナー限定プランとして扱う前提を確認する
 
 ## Source
@@ -39,5 +39,5 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 
 - 価格は税抜案
 - Log Liteはパートナー限定プラン
-- kintone連携はTeam Pack以上
+- kintone Packも1IDから契約可能
 - 法務条文・保証・約款論点は本資料の対象外
