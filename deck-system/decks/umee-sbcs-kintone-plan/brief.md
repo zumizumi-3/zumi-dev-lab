@@ -13,13 +13,20 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 ## Desired Action
 
 - kintone向けに出す商品階層を合意する
-- Team Packの価格、追加ID、デバイス、サポート分界を議論する
+- Team Packの価格、追加ID、他社比較、サポート分界を議論する
 - Log Liteをパートナー限定プランとして扱う前提を確認する
 
 ## Source
 
 - `/home/zumi-dev/code/archive/kb-umee/wiki/outputs/umee-kintone-set-plan-20260524.md`
 - `kikai-business-ppt` format pack
+
+## Research References
+
+- kintone公式料金
+- Toyokumo PrintCreator料金
+- M-SOLUTIONS Smart at AI料金表
+- Notta / Rimo / AI議事録取れる君 / LINE WORKS AiNote公開料金
 
 ## Format
 
@@ -33,5 +40,4 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - 価格は税抜案
 - Log Liteはパートナー限定プラン
 - kintone連携はTeam Pack以上
-- 録音デバイスは必要に応じて別途購入
 - 法務条文・保証・約款論点は本資料の対象外

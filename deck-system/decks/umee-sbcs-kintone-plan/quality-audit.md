@@ -23,9 +23,10 @@ Result: no overflow failures.
 
 - `exports/cover-1280x720.png`
 - `exports/pricing-1280x720.png`
+- `exports/comparison-1280x720.png`
 
 ## Notes
 
 - The deck intentionally focuses on pricing and GTM only.
-- Legal terms, warranty language, device guarantee language, and unrelated upper-tier consulting plans are excluded.
+- Legal terms, warranty language, and unrelated upper-tier consulting plans are excluded.
 - `FrontAX`, `Business`, and unrelated analysis-plan positioning are not included in the deck.
