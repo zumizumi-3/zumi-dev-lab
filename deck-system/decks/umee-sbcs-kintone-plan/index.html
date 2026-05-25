@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FrontAgent x kintone / SB C&S Proposal</title>
+    <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
+    <style>
+      :root {
+        --deck-w: 1600px;
+        --deck-h: 900px;
+        --deck-scale: 1;
+        --nav-h: 46px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: var(--kbp-page-bg);
+        color: var(--kbp-ink);
+        font-family: var(--kbp-font);
+        text-rendering: geometricPrecision;
+      }
+
+      button { color: inherit; font: inherit; }
+
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        display: flex;
+        min-height: var(--nav-h);
+        align-items: center;
+        gap: 14px;
+        padding: 8px 18px;
+        border-bottom: 1px solid var(--kbp-line);
+        background: rgba(239, 242, 243, 0.94);
+        backdrop-filter: blur(10px);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 780;
+      }
+
+      .nav-mark {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+
+      .nav-spacer { flex: 1; }
+
+      .nav-button {
+        min-width: 34px;
+        height: 28px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+        cursor: pointer;
+      }
+
+      main {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        top: calc(var(--nav-h) + ((100dvh - var(--nav-h)) / 2));
+        left: 50%;
+        display: grid;
+        grid-template-rows: 34px minmax(0, 1fr) 34px;
+        gap: 10px;
+        width: var(--deck-w);
+        height: var(--deck-h);
+        padding: 48px 68px 44px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+        box-shadow: var(--kbp-shadow);
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
+        transform-origin: center center;
+      }
+
+      .slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 8px;
+        background: var(--kbp-surface-strong);
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        right: 34px;
+        bottom: 28px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+
+      .cover {
+        grid-template-rows: minmax(0, 1fr) 34px;
+        padding-top: 68px;
+      }
+
+      .cover::before {
+        width: 12px;
+        background: var(--kbp-orange);
+      }
+
+      .slide-header,
+      .slide-footer,
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .slide-header,
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--kbp-muted);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .slide-header { align-items: flex-start; }
+
+      .slide-footer {
+        padding-top: 12px;
+        border-top: 1px solid var(--kbp-line-soft);
+      }
+
+      .header-logo {
+        display: block;
+        width: 168px;
+        height: 34px;
+        object-fit: contain;
+        object-position: right center;
+      }
+
+      .content {
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 1060px;
+        margin-bottom: 0;
+        color: var(--kbp-ink);
+        font-size: 74px;
+        font-weight: 820;
+        line-height: 1.04;
+        text-wrap: balance;
+      }
+
+      h2 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 13px;
+        border-bottom: 1px solid var(--kbp-line-soft);
+        color: var(--kbp-ink);
+        font-size: 41px;
+        font-weight: 810;
+        line-height: 1.16;
+        text-wrap: balance;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: 24px;
+        font-weight: 830;
+        line-height: 1.25;
+      }
+
+      p,
+      li,
+      td,
+      th {
+        color: var(--kbp-muted);
+        font-size: 20px;
+        line-height: 1.48;
+      }
+
+      .lead-copy {
+        max-width: 1050px;
+        margin: 12px 0 0;
+        color: var(--kbp-muted);
+        font-size: 22px;
+        font-weight: 650;
+        line-height: 1.5;
+      }
+
+      .body-slot {
+        width: 100%;
+        min-height: 470px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .body-fit { min-height: auto; }
+      .body-tall { min-height: 520px; }
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+      .card,
+      .panel,
+      .metric,
+      .note,
+      .table-wrap {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+
+      .card,
+      .panel,
+      .metric,
+      .note {
+        display: grid;
+        align-content: center;
+        padding: 24px 26px;
+      }
+
+      .card.feature,
+      .panel.feature,
+      .metric.feature {
+        border-color: rgba(255, 113, 67, 0.56);
+        background: var(--kbp-orange-soft);
+      }
+
+      .card strong,
+      .panel strong,
+      .metric strong,
+      .note strong {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--kbp-ink);
+        font-size: 23px;
+        line-height: 1.25;
+      }
+
+      .card p,
+      .panel p,
+      .metric p,
+      .note p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.48;
+      }
+
+      .pill {
+        display: inline-grid;
+        width: max-content;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 860;
+      }
+
+      .cover-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 46px;
+        align-items: center;
+      }
+
+      .cover-logo {
+        display: block;
+        width: 620px;
+        max-width: 88%;
+        height: auto;
+        margin-bottom: 36px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .cover .lead-copy {
+        margin-top: 22px;
+        font-size: 24px;
+      }
+
+      .accent-rule {
+        width: 58px;
+        height: 4px;
+        margin-top: 28px;
+        background: var(--kbp-orange);
+      }
+
+      .cover-panel {
+        display: grid;
+        gap: 14px;
+        padding: 24px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+
+      .cover-panel span {
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 780;
+        line-height: 1.5;
+      }
+
+      .number {
+        display: inline-grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 12px;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        color: var(--kbp-ink);
+      }
+
+      th,
+      td {
+        padding: 13px 15px;
+        border: 1px solid var(--kbp-line-soft);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--kbp-surface);
+        color: var(--kbp-ink);
+        font-weight: 840;
+      }
+
+      td strong,
+      th strong {
+        color: var(--kbp-ink);
+      }
+
+      .table-wrap { overflow: hidden; }
+      .num { text-align: right; white-space: nowrap; }
+      .muted { color: var(--kbp-muted); }
+
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr 54px 1fr 54px 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .flow-arrow {
+        display: grid;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 26px;
+        font-weight: 900;
+      }
+
+      .check-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .check-list li {
+        display: grid;
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 13px 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-paper);
+      }
+
+      .check-list b {
+        display: grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .big-price {
+        color: var(--kbp-orange);
+        font-size: 54px;
+        font-weight: 860;
+        line-height: 1.05;
+      }
+
+      .small-note {
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .slide { transition: opacity 120ms ease; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar" aria-label="presentation controls">
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span>FrontAgent x kintone / SB C&S Proposal</span>
+      <span class="nav-spacer"></span>
+      <button class="nav-button" type="button" data-prev aria-label="Previous slide">‹</button>
+      <span data-counter>1 / 12</span>
+      <button class="nav-button" type="button" data-next aria-label="Next slide">›</button>
+    </nav>
+
+    <main>
+      <section class="slide cover is-active" id="p01" data-slide="P01">
+        <div class="cover-layout">
+          <div>
+            <img class="cover-logo" src="assets/frontagent.png" alt="FrontAgent">
+            <p class="pill">SB C&S 向け提案</p>
+            <h1>FrontAgent x kintone を、売りやすい料金体系にする</h1>
+            <p class="lead-copy">kintone利用企業に向けたセットプランの料金設計とGTM整理</p>
+            <div class="accent-rule"></div>
+          </div>
+          <aside class="cover-panel">
+            <span>作成日</span>
+            <strong>2026.05.25</strong>
+            <span>論点</span>
+            <strong>価格 / ID / デバイス / 支援範囲 / 販売条件</strong>
+          </aside>
+        </div>
+        <footer class="slide-footer">
+          <span>Umee Technologies</span>
+          <span>01</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p02" data-slide="P02">
+        <header class="slide-header">
+          <span>Executive Summary</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>提案の中心は、Log LiteとTeam Packの2層設計</h2>
+          <div class="body-slot grid-2">
+            <article class="card">
+              <span class="number">1</span>
+              <strong>Log Lite</strong>
+              <p>1IDで使える1000円台の入口。パートナー限定プランとして扱い、低価格の見え方を作る。</p>
+            </article>
+            <article class="card feature">
+              <span class="number">2</span>
+              <strong>kintone Team Pack</strong>
+              <p>SB C&Sが面で売る本命。10IDパック、kintone連携、問い合わせベースの標準支援で構成する。</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>安く見える入口と、kintone連携の本命を分ける</span>
+          <span>02</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p03" data-slide="P03">
+        <header class="slide-header">
+          <span>Market Context</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>kintone利用者の価格感覚は、1000円台から始まる</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>比較対象</th>
+                  <th>価格アンカー</th>
+                  <th>示唆</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>kintone本体</strong></td>
+                  <td>1,000円 / 1,800円 / 3,000円<br><span class="small-note">ライト・スタンダード・ワイド</span></td>
+                  <td>初見では、1IDあたり1000円台の印象が強い。</td>
+                </tr>
+                <tr>
+                  <td><strong>kintone連携サービス</strong></td>
+                  <td>月額7,000円から / 年額12万円など</td>
+                  <td>1ID単価だけでなく、環境単位・ID上限付きパックも説明しやすい。</td>
+                </tr>
+                <tr>
+                  <td><strong>AI議事録</strong></td>
+                  <td>1000円台から5000円台</td>
+                  <td>議事録単体に見えると、5,980円/IDは高く見える。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>価格表示は、kintoneの10ユーザー最小と合わせる</span>
+          <span>03</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p04" data-slide="P04">
+        <header class="slide-header">
+          <span>Design Policy</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>安く見せる入口と、連携価値を出す商品を分ける</h2>
+          <div class="body-slot grid-4">
+            <article class="card">
+              <span class="number">1</span>
+              <strong>1ID入口</strong>
+              <p>Log Liteは1IDから。低価格の受け皿にする。</p>
+            </article>
+            <article class="card feature">
+              <span class="number">2</span>
+              <strong>10IDパック</strong>
+              <p>Team Packはkintone文脈に合わせて10ID単位で見せる。</p>
+            </article>
+            <article class="card">
+              <span class="number">3</span>
+              <strong>追加ID</strong>
+              <p>11ID目以降は1ID単位。境界を複雑にしない。</p>
+            </article>
+            <article class="card">
+              <span class="number">4</span>
+              <strong>支援分離</strong>
+              <p>個別設定や定例支援は本体に含めず、別途提案する。</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>本体価格を軽く見せ、個別対応は別枠で回収する</span>
+          <span>04</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p05" data-slide="P05">
+        <header class="slide-header">
+          <span>Plan Matrix</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>2つのプランで、価格感度とkintone連携を分ける</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>プラン</th>
+                  <th>役割</th>
+                  <th>価格</th>
+                  <th>kintone連携</th>
+                  <th>デバイス</th>
+                  <th>支援</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Log Lite</strong></td>
+                  <td>1IDで始める低価格入口<br><span class="small-note">パートナー限定</span></td>
+                  <td>1,980円 / 1ID / 月</td>
+                  <td>なし</td>
+                  <td>なし</td>
+                  <td>ヘルプページ中心</td>
+                </tr>
+                <tr>
+                  <td><strong>kintone Team Pack</strong></td>
+                  <td>SB C&Sが面で売る本命</td>
+                  <td>通常59,800円 / 月<br>初年度29,800円 / 月</td>
+                  <td>あり</td>
+                  <td>必要に応じて別途購入</td>
+                  <td>問い合わせベース</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>Log Liteで価格の入口を作り、Team Packでkintone活用を売る</span>
+          <span>05</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p06" data-slide="P06">
+        <header class="slide-header">
+          <span>Log Lite</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>Log Liteは、1IDで始めるパートナー限定プラン</h2>
+          <div class="body-slot grid-3">
+            <article class="metric feature">
+              <strong>1,980円</strong>
+              <p>1ID / 月。最小契約は1ID。</p>
+            </article>
+            <article class="metric">
+              <strong>パートナー限定</strong>
+              <p>一般公開ではなく、SB C&Sなどのパートナー経由で扱う。</p>
+            </article>
+            <article class="metric">
+              <strong>連携なし</strong>
+              <p>kintone連携、デバイス、個別CS、分析機能は含めない。</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>価格感度が高い小規模顧客を受けるための入口</span>
+          <span>06</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p07" data-slide="P07">
+        <header class="slide-header">
+          <span>Team Pack Price</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>Team Packは、10IDパックで見た目の価格を下げる</h2>
+          <div class="body-slot split">
+            <article class="panel feature">
+              <span class="pill">ローンチ初年度</span>
+              <div class="big-price">29,800円/月</div>
+              <p>10IDパック。初期費用0円。12ヶ月契約。</p>
+            </article>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>通常</th>
+                    <th>ローンチ初年度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>基本料金</strong></td>
+                    <td>59,800円 / 月 / 10ID</td>
+                    <td>29,800円 / 月 / 10ID</td>
+                  </tr>
+                  <tr>
+                    <td><strong>初期費用</strong></td>
+                    <td>100,000円 / テナント</td>
+                    <td>0円</td>
+                  </tr>
+                  <tr>
+                    <td><strong>契約期間</strong></td>
+                    <td>12ヶ月</td>
+                    <td>12ヶ月</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>月5,980円/IDを前面に出さず、10IDパックとして見せる</span>
+          <span>07</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p08" data-slide="P08">
+        <header class="slide-header">
+          <span>Additional ID</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>11ID目以降は、1ID単位で素直に追加する</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>利用ID数</th>
+                  <th>通常月額</th>
+                  <th>ローンチ初年度月額</th>
+                  <th>考え方</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>10ID</strong></td>
+                  <td class="num">59,800円</td>
+                  <td class="num">29,800円</td>
+                  <td>基本パック</td>
+                </tr>
+                <tr>
+                  <td><strong>11ID</strong></td>
+                  <td class="num">65,780円</td>
+                  <td class="num">32,780円</td>
+                  <td>+1ID</td>
+                </tr>
+                <tr>
+                  <td><strong>15ID</strong></td>
+                  <td class="num">89,700円</td>
+                  <td class="num">44,700円</td>
+                  <td>+5ID</td>
+                </tr>
+                <tr>
+                  <td><strong>20ID</strong></td>
+                  <td class="num">119,600円</td>
+                  <td class="num">59,600円</td>
+                  <td>+10ID</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>通常追加ID 5,980円 / 初年度追加ID 2,980円</span>
+          <span>08</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p09" data-slide="P09">
+        <header class="slide-header">
+          <span>Device</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>録音デバイスは、必要な場合に別途購入する</h2>
+          <div class="body-slot split">
+            <article class="panel">
+              <span class="pill">価格</span>
+              <div class="big-price">19,800円/台</div>
+              <p>Team Pack本体とは別明細で提示する。</p>
+            </article>
+            <div class="grid-2">
+              <article class="card">
+                <strong>デバイス前提にしない</strong>
+                <p>Team Packは、kintone連携の月額プランとして見せる。</p>
+              </article>
+              <article class="card">
+                <strong>利用シーンで決める</strong>
+                <p>対面商談・接客録音が必要な場合に、必要台数を購入する。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>本体価格に混ぜず、必要台数だけ別途購入</span>
+          <span>09</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p10" data-slide="P10">
+        <header class="slide-header">
+          <span>Support Boundary</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>Team Pack本体は問い合わせベース、個別対応は有償にする</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>区分</th>
+                  <th>内容</th>
+                  <th>扱い</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>標準</strong></td>
+                  <td>ヘルプページ、FAQ、メール等の問い合わせ対応、既定のkintone連携手順案内</td>
+                  <td>Team Pack本体に含める</td>
+                </tr>
+                <tr>
+                  <td><strong>有償</strong></td>
+                  <td>初期設定支援、項目設計、フィールドマッピング、管理者向け説明会、月1回相談</td>
+                  <td>別途支援として提案</td>
+                </tr>
+                <tr>
+                  <td><strong>対象外</strong></td>
+                  <td>業務フロー整理、分析設計、個別ダッシュボード構築、個別レポート作成</td>
+                  <td>別提案</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>見た目の本体価格を安く保ち、個別対応は別枠で回収する</span>
+          <span>10</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p11" data-slide="P11">
+        <header class="slide-header">
+          <span>GTM</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>SB C&Sには、安く始められるkintone活用入口として売る</h2>
+          <div class="body-slot flow">
+            <article class="card">
+              <span class="number">1</span>
+              <strong>Log Lite</strong>
+              <p>パートナー限定の低価格入口。1IDから始める。</p>
+            </article>
+            <div class="flow-arrow">→</div>
+            <article class="card feature">
+              <span class="number">2</span>
+              <strong>Team Pack</strong>
+              <p>10IDで始めるkintone連携パック。面展開の本命。</p>
+            </article>
+            <div class="flow-arrow">→</div>
+            <article class="card">
+              <span class="number">3</span>
+              <strong>有償支援</strong>
+              <p>個別設定や相談が必要な顧客だけ、別途支援を提案する。</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>議事録ツールではなく、kintoneに顧客接点データを残す入口として売る</span>
+          <span>11</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p12" data-slide="P12">
+        <header class="slide-header">
+          <span>Decision Points</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>今日決めたいのは、価格と販売条件の境界</h2>
+          <div class="body-slot grid-2">
+            <ul class="check-list">
+              <li><b>1</b><span>Log Liteの対象パートナー、販売条件、録音時間、保存期間、共有機能</span></li>
+              <li><b>2</b><span>Team Packの通常価格を59,800円で置くか、49,800円に寄せるか</span></li>
+              <li><b>3</b><span>初年度キャンペーンを29,800円にするか、39,800円にするか</span></li>
+            </ul>
+            <ul class="check-list">
+              <li><b>4</b><span>録音デバイスの価格を19,800円/台で固定するか、期間限定価格にするか</span></li>
+              <li><b>5</b><span>SB C&S取り分を、通常価格とキャンペーン価格のどちらに対して計算するか</span></li>
+              <li><b>6</b><span>有償サポートの価格と範囲をどこまで標準化するか</span></li>
+            </ul>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>料金とGTMに絞って合意する</span>
+          <span>12</span>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const counter = document.querySelector("[data-counter]");
+      let current = 0;
+
+      function resizeSlides() {
+        const navH = 46;
+        const availableW = window.innerWidth - 48;
+        const availableH = window.innerHeight - navH - 36;
+        const scale = Math.min(availableW / 1600, availableH / 900, 1);
+        document.documentElement.style.setProperty("--deck-scale", scale.toFixed(4));
+      }
+
+      function showSlide(index) {
+        current = Math.max(0, Math.min(index, slides.length - 1));
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === current);
+        });
+        counter.textContent = `${current + 1} / ${slides.length}`;
+        location.hash = slides[current].id;
+      }
+
+      document.querySelector("[data-prev]").addEventListener("click", () => showSlide(current - 1));
+      document.querySelector("[data-next]").addEventListener("click", () => showSlide(current + 1));
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+          event.preventDefault();
+          showSlide(current + 1);
+        }
+        if (event.key === "ArrowLeft" || event.key === "PageUp") {
+          event.preventDefault();
+          showSlide(current - 1);
+        }
+      });
+
+      window.addEventListener("resize", resizeSlides);
+      resizeSlides();
+
+      const initial = slides.findIndex((slide) => `#${slide.id}` === location.hash);
+      showSlide(initial >= 0 ? initial : 0);
+    </script>
+  </body>
+</html>
