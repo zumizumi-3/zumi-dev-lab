@@ -22,6 +22,7 @@ Result: no overflow failures.
 ## Screenshot Artifacts
 
 - `exports/cover-1280x720.png`
+- `exports/loglite-1280x720.png`
 - `exports/pricing-1280x720.png`
 - `exports/comparison-1280x720.png`
 
