@@ -4,7 +4,7 @@
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
   <text x="82" y="94" fill="#414242" font-family="system-ui, sans-serif" font-size="28" font-weight="850">Log Lite Usage Cap</text>
-  <text x="82" y="126" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">1ID限定 / 1,980円 / 月</text>
+  <text x="82" y="126" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">1ID限定 / 980円 / 月</text>
 
   <g transform="translate(82 166)">
     <rect width="176" height="180" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
