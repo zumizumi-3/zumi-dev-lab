@@ -444,6 +444,28 @@
         min-height: 0;
       }
 
+      .summary-stack.compact {
+        gap: 10px;
+      }
+
+      .summary-stack.compact .card {
+        padding: 15px 18px;
+      }
+
+      .summary-stack.compact .number {
+        margin-bottom: 6px;
+      }
+
+      .summary-stack.compact .card strong {
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+
+      .summary-stack.compact .card p {
+        font-size: 14px;
+        line-height: 1.38;
+      }
+
       .cap-stack {
         display: grid;
         gap: 12px;
@@ -1069,12 +1091,12 @@
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
         </header>
         <div class="content">
-          <h2>SB C&Sには、見せ球と本命を分けて売る</h2>
+          <h2>SB C&Sには、見せ球・本命・FrontAX導線を分けて売る</h2>
           <div class="body-slot visual-led">
             <div class="image-frame contain">
-              <img src="assets/visuals/gtm-route.svg" alt="Log Liteを見せ球、kintone Packを本命、有償支援を別枠にする販売ルート">
+              <img src="assets/visuals/gtm-route.svg" alt="Log Liteを見せ球、kintone Packを本命、FrontAXを上位導線、有償支援を別枠にする販売ルート">
             </div>
-            <div class="summary-stack">
+            <div class="summary-stack compact">
               <article class="card">
                 <span class="number">1</span>
                 <strong>Log Lite</strong>
@@ -1085,8 +1107,13 @@
                 <strong>kintone Pack</strong>
                 <p>1IDで始めるkintone連携パック。初回契約限定価格はLog Lite移行には適用しない。</p>
               </article>
-              <article class="card">
+              <article class="card feature">
                 <span class="number">3</span>
+                <strong>FrontAX</strong>
+                <p>既存ユーザーのうち、年商200億円規模かつ営業利用の顧客を上位提案へ流す。</p>
+              </article>
+              <article class="card">
+                <span class="number">4</span>
                 <strong>有償支援</strong>
                 <p>個別設定や相談が必要な顧客だけ、別途支援を提案する。</p>
               </article>
@@ -1094,7 +1121,7 @@
           </div>
         </div>
         <footer class="slide-footer">
-          <span>Log Liteで価格感度を受け、本命はkintoneに顧客接点データを残すPackとして売る</span>
+          <span>FrontAXは、年商200億円規模の既存ユーザーかつ営業利用に絞って流す</span>
           <span>11</span>
         </footer>
       </section>

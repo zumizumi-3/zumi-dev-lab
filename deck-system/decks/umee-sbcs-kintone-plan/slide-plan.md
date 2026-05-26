@@ -12,4 +12,4 @@
 | P08 | ID Pricing | Table + Visual | 1IDから始め、2ID目以降も同じ単価で積み上げる | 1ID / 3ID / 5ID / 10IDの価格例 | Price ladder visual + calculation table |
 | P09 | Competitive Comparison | Table | 比較される相手は、3カテゴリに分かれる | kintone本体 / PrintCreator・Smart at AI / Notta・Rimo・AI議事録取れる君・LINE WORKS AiNote | Competitor positioning table |
 | P10 | Support Boundary | Table | 標準機能と個別支援を分け、本体価格を安く見せる | 標準機能 / 標準サポート / 有償支援 / 対象外 | Support boundary table |
-| P11 | GTM | Visual + Cards | SB C&Sには、見せ球と本命を分けて売る | Log Liteは価格アンカー / kintone Packが本命 / 有償支援は別枠 | GTM positioning visual + cards |
+| P11 | GTM | Visual + Cards | SB C&Sには、見せ球・本命・FrontAX導線を分けて売る | Log Liteは価格アンカー / kintone Packが本命 / 年商200億円規模かつ営業利用の既存ユーザーはFrontAXへ / 有償支援は別枠 | GTM positioning visual + cards |
