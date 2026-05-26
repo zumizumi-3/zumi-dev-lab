@@ -42,8 +42,8 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - 価格は税抜案
 - Notta比較の対象はフリープランではなくPremiumとする
 - Log Liteは1ID限定・980円/月の利用量制限案。安い入口ではなく、最低限ニーズを拾う見せ球として扱う
-- Log Liteの初期案は月10ログ、1ログ60分、AI要約10回まで
-- Log Liteは追加ID不可。ログ超過時は停止し、それ以上使いたい場合はkintone Packへの移管を必須にする
+- Log Liteの初期案は月1,800分、1ログ5時間、AI要約100回まで。Notta Premium基準に寄せる
+- Log Liteは追加ID不可。利用上限超過時は停止し、それ以上使いたい場合はkintone Packへの移管を必須にする
 - kintone Packも1IDから契約可能
 - kintone Packの2,980円/ID/月は初年度のみ適用する
 - LogLiteからの移管は、初年度限定価格の対象外とする

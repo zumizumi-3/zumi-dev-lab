@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
   <title id="title">Log Lite usage caps</title>
-  <desc id="desc">Usage caps for Log Lite: one ID only, ten logs, sixty minutes per log, and ten AI summaries.</desc>
+  <desc id="desc">Usage caps for Log Lite: one ID only, 1,800 minutes per month, five hours per log, and one hundred AI summaries.</desc>
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
   <text x="82" y="94" fill="#414242" font-family="system-ui, sans-serif" font-size="28" font-weight="850">Log Lite Usage Cap</text>
@@ -8,31 +8,31 @@
 
   <g transform="translate(82 166)">
     <rect width="176" height="180" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
-    <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">10</text>
-    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">ログ</text>
+    <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="38" font-weight="900">1,800</text>
+    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">分 / 月</text>
     <rect x="24" y="116" width="128" height="12" rx="6" fill="#e5eaec"/>
     <rect x="24" y="116" width="102" height="12" rx="6" fill="#ff7143"/>
-    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">月間上限</text>
+    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">Premium基準</text>
   </g>
 
   <g transform="translate(292 166)">
     <rect width="176" height="180" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
-    <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">60</text>
-    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">分 / ログ</text>
+    <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">5h</text>
+    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">/ ログ</text>
     <rect x="24" y="116" width="128" height="12" rx="6" fill="#e5eaec"/>
     <rect x="24" y="116" width="90" height="12" rx="6" fill="#ff7143"/>
-    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">月600分相当</text>
+    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">1回上限</text>
   </g>
 
   <g transform="translate(502 166)">
     <rect width="176" height="180" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
-    <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">10</text>
+    <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">100</text>
     <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">AI要約</text>
     <rect x="24" y="116" width="128" height="12" rx="6" fill="#e5eaec"/>
     <rect x="24" y="116" width="102" height="12" rx="6" fill="#ff7143"/>
-    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">要約10回まで</text>
+    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">要約100回/月</text>
   </g>
 
   <rect x="82" y="384" width="596" height="44" rx="22" fill="#e5eaec"/>
-  <text x="104" y="412" fill="#414242" font-family="system-ui, sans-serif" font-size="16" font-weight="850">ログ超過時は停止 / 継続利用は kintone Pack 移管必須</text>
+  <text x="104" y="412" fill="#414242" font-family="system-ui, sans-serif" font-size="16" font-weight="850">上限超過時は停止 / 継続利用は kintone Pack 移管必須</text>
 </svg>
