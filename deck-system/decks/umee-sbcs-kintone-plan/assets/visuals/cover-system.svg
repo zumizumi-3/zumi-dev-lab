@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-labelledby="title desc">
+  <title id="title">FrontAgent and kintone package system</title>
+  <desc id="desc">A clean business UI style diagram showing Log Lite, kintone Pack, and paid support connected as a product system.</desc>
+  <rect width="560" height="420" rx="10" fill="#f2f5f6"/>
+  <rect x="34" y="34" width="492" height="352" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
+  <rect x="34" y="34" width="492" height="44" rx="8" fill="#e5eaec"/>
+  <circle cx="58" cy="56" r="6" fill="#ff7143"/>
+  <circle cx="78" cy="56" r="6" fill="#bac2c8"/>
+  <circle cx="98" cy="56" r="6" fill="#bac2c8"/>
+  <text x="124" y="61" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16" font-weight="700">FrontAgent x kintone</text>
+
+  <g transform="translate(64 116)">
+    <rect width="132" height="86" rx="6" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
+    <rect x="16" y="18" width="34" height="34" rx="4" fill="#fff1ec" stroke="#ff7143"/>
+    <path d="M26 35h14M33 27v16" stroke="#ff7143" stroke-width="3" stroke-linecap="round"/>
+    <text x="16" y="66" fill="#414242" font-family="system-ui, sans-serif" font-size="17" font-weight="800">Log Lite</text>
+  </g>
+
+  <g transform="translate(226 116)">
+    <rect width="132" height="86" rx="6" fill="#fff8f5" stroke="#ff7143" stroke-width="2"/>
+    <rect x="16" y="17" width="78" height="12" rx="6" fill="#ff7143"/>
+    <rect x="16" y="39" width="96" height="8" rx="4" fill="#cfd6d9"/>
+    <rect x="16" y="55" width="66" height="8" rx="4" fill="#cfd6d9"/>
+    <text x="16" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="17" font-weight="800">kintone Pack</text>
+  </g>
+
+  <g transform="translate(388 116)">
+    <rect width="108" height="86" rx="6" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
+    <path d="M28 34c0-12 8-20 26-20s26 8 26 20-8 20-26 20-26-8-26-20Z" fill="#fff1ec" stroke="#ff7143" stroke-width="2"/>
+    <path d="M42 34h24M54 22v24" stroke="#ff7143" stroke-width="3" stroke-linecap="round"/>
+    <text x="19" y="72" fill="#414242" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Support</text>
+  </g>
+
+  <path d="M198 159h26M360 159h26" stroke="#ff7143" stroke-width="4" stroke-linecap="round"/>
+  <path d="m218 150 12 9-12 9M380 150l12 9-12 9" fill="none" stroke="#ff7143" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(70 255)">
+    <rect width="420" height="74" rx="6" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
+    <text x="24" y="32" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="800">会話ログを、kintone活用の入口にする</text>
+    <rect x="24" y="48" width="112" height="8" rx="4" fill="#ff7143"/>
+    <rect x="152" y="48" width="94" height="8" rx="4" fill="#bac2c8"/>
+    <rect x="262" y="48" width="130" height="8" rx="4" fill="#bac2c8"/>
+  </g>
+</svg>

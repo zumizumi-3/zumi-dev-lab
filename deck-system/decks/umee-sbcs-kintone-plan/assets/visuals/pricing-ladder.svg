@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
+  <title id="title">ID price ladder</title>
+  <desc id="desc">A price ladder showing one, three, five, and ten IDs with launch year monthly totals.</desc>
+  <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
+  <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
+  <text x="82" y="96" fill="#414242" font-family="system-ui, sans-serif" font-size="30" font-weight="850">ID Pricing Ladder</text>
+  <text x="82" y="128" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">launch year: 2,980円 / ID / 月</text>
+  <line x1="112" y1="402" x2="648" y2="402" stroke="#cfd6d9" stroke-width="2"/>
+  <g fill="#ff7143">
+    <rect x="122" y="342" width="84" height="60" rx="6"/>
+    <rect x="254" y="292" width="84" height="110" rx="6"/>
+    <rect x="386" y="238" width="84" height="164" rx="6"/>
+    <rect x="518" y="154" width="84" height="248" rx="6"/>
+  </g>
+  <g fill="#414242" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="850">
+    <text x="164" y="328" font-size="22">1ID</text>
+    <text x="296" y="278" font-size="22">3ID</text>
+    <text x="428" y="224" font-size="22">5ID</text>
+    <text x="560" y="140" font-size="22">10ID</text>
+  </g>
+  <g fill="#fff" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="900">
+    <text x="164" y="378" font-size="18">2,980</text>
+    <text x="296" y="348" font-size="18">8,940</text>
+    <text x="428" y="316" font-size="18">14,900</text>
+    <text x="560" y="282" font-size="18">29,800</text>
+  </g>
+  <text x="82" y="446" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16">1IDから始め、必要ID数で素直に積み上げる</text>
+</svg>

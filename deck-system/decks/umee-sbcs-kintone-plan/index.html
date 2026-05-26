@@ -394,6 +394,67 @@
       .num { text-align: right; white-space: nowrap; }
       .muted { color: var(--kbp-muted); }
 
+      .image-frame {
+        display: grid;
+        min-width: 0;
+        min-height: 420px;
+        overflow: hidden;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+
+      .image-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-frame.contain img {
+        object-fit: contain;
+        padding: 18px;
+      }
+
+      .cover-panel img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+      }
+
+      .visual-led {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .visual-led.reverse {
+        grid-template-columns: 1.08fr 0.92fr;
+      }
+
+      .summary-stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .summary-stack .card {
+        min-height: 0;
+      }
+
+      .compact-table th,
+      .compact-table td {
+        padding: 10px 12px;
+        font-size: 16px;
+        line-height: 1.36;
+      }
+
+      .compact-table .small-note {
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
       .flow {
         display: grid;
         grid-template-columns: 1fr 54px 1fr 54px 1fr;
@@ -488,8 +549,9 @@
             <div class="accent-rule"></div>
           </div>
           <aside class="cover-panel">
+            <img src="assets/visuals/cover-system.svg" alt="Log Liteからkintone Pack、有償支援へ進む商品構成">
             <span>作成日</span>
-            <strong>2026.05.25</strong>
+            <strong>2026.05.26</strong>
             <span>論点</span>
             <strong>価格 / ID / 比較軸 / 支援範囲 / 販売条件</strong>
           </aside>
@@ -507,17 +569,22 @@
         </header>
         <div class="content">
           <h2>提案の中心は、Log Liteとkintone Packの2層設計</h2>
-          <div class="body-slot grid-2">
-            <article class="card">
-              <span class="number">1</span>
-              <strong>Log Lite</strong>
-              <p>1ID 1,980円/月の入口。月10ログ、1ログ60分、AI要約10回までに制限する。</p>
-            </article>
-            <article class="card feature">
-              <span class="number">2</span>
-              <strong>kintone Pack</strong>
-              <p>SB C&Sが面で売る本命。1IDから使えるkintone連携、問い合わせベースの標準支援で構成する。</p>
-            </article>
+          <div class="body-slot visual-led">
+            <div class="image-frame contain">
+              <img src="assets/visuals/plan-layers.svg" alt="Log Liteからkintone Packへ展開する2層設計">
+            </div>
+            <div class="summary-stack">
+              <article class="card">
+                <span class="number">1</span>
+                <strong>Log Lite</strong>
+                <p>1ID 1,980円/月の入口。月10ログ、1ログ60分、AI要約10回までに制限する。</p>
+              </article>
+              <article class="card feature">
+                <span class="number">2</span>
+                <strong>kintone Pack</strong>
+                <p>SB C&Sが面で売る本命。1IDから使えるkintone連携、問い合わせベースの標準支援で構成する。</p>
+              </article>
+            </div>
           </div>
         </div>
         <footer class="slide-footer">
@@ -654,43 +721,48 @@
         </header>
         <div class="content">
           <h2>Log Liteは、1,980円に月10ログ・要約10回を組み込む</h2>
-          <div class="body-slot table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>設計項目</th>
-                  <th>Nottaでの見え方</th>
-                  <th>Log Lite案</th>
-                  <th>意図</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>入口</strong></td>
-                  <td>1アカウントから利用</td>
-                  <td>1ID 1,980円/月。パートナー限定。</td>
-                  <td>小規模顧客が試せる入口を残す。</td>
-                </tr>
-                <tr>
-                  <td><strong>利用上限</strong></td>
-                  <td>月間文字起こし分数<br><span class="small-note">無料120分 / Premium 1,800分</span></td>
-                  <td>月10ログまで<br><span class="small-note">1ログ60分まで / 月600分相当</span></td>
-                  <td>コストを読みやすくし、低価格の理由を作る。</td>
-                </tr>
-                <tr>
-                  <td><strong>AI要約</strong></td>
-                  <td>AI要約10回 / 100回 / 200回</td>
-                  <td>月10回まで<br><span class="small-note">1ログにつき1要約まで</span></td>
-                  <td>Notta同様、AI処理の重い部分でプラン差を出す。</td>
-                </tr>
-                <tr>
-                  <td><strong>超過時</strong></td>
-                  <td>上位プランで利用枠が増える</td>
-                  <td>追加10ログ 1,980円<br><span class="small-note">またはkintone Packへ誘導</span></td>
-                  <td>Liteは獲得用。本命は連携価値で回収する。</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="body-slot visual-led reverse">
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>設計項目</th>
+                    <th>Nottaでの見え方</th>
+                    <th>Log Lite案</th>
+                    <th>意図</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>入口</strong></td>
+                    <td>1アカウントから利用</td>
+                    <td>1ID 1,980円/月。パートナー限定。</td>
+                    <td>小規模顧客が試せる入口を残す。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>利用上限</strong></td>
+                    <td>月間文字起こし分数<br><span class="small-note">無料120分 / Premium 1,800分</span></td>
+                    <td>月10ログまで<br><span class="small-note">1ログ60分まで / 月600分相当</span></td>
+                    <td>コストを読みやすくし、低価格の理由を作る。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>AI要約</strong></td>
+                    <td>AI要約10回 / 100回 / 200回</td>
+                    <td>月10回まで<br><span class="small-note">1ログにつき1要約まで</span></td>
+                    <td>Notta同様、AI処理の重い部分でプラン差を出す。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>超過時</strong></td>
+                    <td>上位プランで利用枠が増える</td>
+                    <td>追加10ログ 1,980円<br><span class="small-note">またはkintone Packへ誘導</span></td>
+                    <td>Liteは獲得用。本命は連携価値で回収する。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="image-frame contain">
+              <img src="assets/visuals/usage-caps.svg" alt="月10ログ、1ログ60分、AI要約10回の利用上限">
+            </div>
           </div>
         </div>
         <footer class="slide-footer">
@@ -760,43 +832,48 @@
         </header>
         <div class="content">
           <h2>1IDから始め、2ID目以降も同じ単価で積み上げる</h2>
-          <div class="body-slot table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>利用ID数</th>
-                  <th>通常月額</th>
-                  <th>ローンチ初年度月額</th>
-                  <th>考え方</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>1ID</strong></td>
-                  <td class="num">5,980円</td>
-                  <td class="num">2,980円</td>
-                  <td>最小契約</td>
-                </tr>
-                <tr>
-                  <td><strong>3ID</strong></td>
-                  <td class="num">17,940円</td>
-                  <td class="num">8,940円</td>
-                  <td>小規模チーム</td>
-                </tr>
-                <tr>
-                  <td><strong>5ID</strong></td>
-                  <td class="num">29,900円</td>
-                  <td class="num">14,900円</td>
-                  <td>部門利用</td>
-                </tr>
-                <tr>
-                  <td><strong>10ID</strong></td>
-                  <td class="num">59,800円</td>
-                  <td class="num">29,800円</td>
-                  <td>複数部門展開</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="body-slot visual-led reverse">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>利用ID数</th>
+                    <th>通常月額</th>
+                    <th>ローンチ初年度月額</th>
+                    <th>考え方</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1ID</strong></td>
+                    <td class="num">5,980円</td>
+                    <td class="num">2,980円</td>
+                    <td>最小契約</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3ID</strong></td>
+                    <td class="num">17,940円</td>
+                    <td class="num">8,940円</td>
+                    <td>小規模チーム</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5ID</strong></td>
+                    <td class="num">29,900円</td>
+                    <td class="num">14,900円</td>
+                    <td>部門利用</td>
+                  </tr>
+                  <tr>
+                    <td><strong>10ID</strong></td>
+                    <td class="num">59,800円</td>
+                    <td class="num">29,800円</td>
+                    <td>複数部門展開</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="image-frame contain">
+              <img src="assets/visuals/pricing-ladder.svg" alt="1IDから10IDまでの初年度価格の積み上げ">
+            </div>
           </div>
         </div>
         <footer class="slide-footer">
@@ -900,24 +977,27 @@
         </header>
         <div class="content">
           <h2>SB C&Sには、安く始められるkintone活用入口として売る</h2>
-          <div class="body-slot flow">
-            <article class="card">
-              <span class="number">1</span>
-              <strong>Log Lite</strong>
-              <p>パートナー限定の1,980円入口。月10ログ・AI要約10回まで。</p>
-            </article>
-            <div class="flow-arrow">→</div>
-            <article class="card feature">
-              <span class="number">2</span>
-              <strong>kintone Pack</strong>
-              <p>1IDで始めるkintone連携パック。面展開の本命。</p>
-            </article>
-            <div class="flow-arrow">→</div>
-            <article class="card">
-              <span class="number">3</span>
-              <strong>有償支援</strong>
-              <p>個別設定や相談が必要な顧客だけ、別途支援を提案する。</p>
-            </article>
+          <div class="body-slot visual-led">
+            <div class="image-frame contain">
+              <img src="assets/visuals/gtm-route.svg" alt="Log Liteからkintone Pack、有償支援へ展開する販売ルート">
+            </div>
+            <div class="summary-stack">
+              <article class="card">
+                <span class="number">1</span>
+                <strong>Log Lite</strong>
+                <p>パートナー限定の1,980円入口。月10ログ・AI要約10回まで。</p>
+              </article>
+              <article class="card feature">
+                <span class="number">2</span>
+                <strong>kintone Pack</strong>
+                <p>1IDで始めるkintone連携パック。面展開の本命。</p>
+              </article>
+              <article class="card">
+                <span class="number">3</span>
+                <strong>有償支援</strong>
+                <p>個別設定や相談が必要な顧客だけ、別途支援を提案する。</p>
+              </article>
+            </div>
           </div>
         </div>
         <footer class="slide-footer">

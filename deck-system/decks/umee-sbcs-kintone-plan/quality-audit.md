@@ -22,9 +22,19 @@ Result: no overflow failures.
 ## Screenshot Artifacts
 
 - `exports/cover-1280x720.png`
+- `exports/summary-1280x720.png`
 - `exports/loglite-1280x720.png`
 - `exports/pricing-1280x720.png`
 - `exports/comparison-1280x720.png`
+- `exports/gtm-1280x720.png`
+
+## Visual Assets
+
+- `assets/visuals/cover-system.svg`
+- `assets/visuals/plan-layers.svg`
+- `assets/visuals/usage-caps.svg`
+- `assets/visuals/pricing-ladder.svg`
+- `assets/visuals/gtm-route.svg`
 
 ## Notes
 
