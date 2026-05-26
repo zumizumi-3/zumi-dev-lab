@@ -9,28 +9,28 @@
   <g transform="translate(82 166)">
     <rect width="176" height="180" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
     <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">10</text>
-    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">Logs</text>
+    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">ログ</text>
     <rect x="24" y="116" width="128" height="12" rx="6" fill="#e5eaec"/>
     <rect x="24" y="116" width="102" height="12" rx="6" fill="#ff7143"/>
-    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">monthly cap</text>
+    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">月間上限</text>
   </g>
 
   <g transform="translate(292 166)">
     <rect width="176" height="180" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
     <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">60</text>
-    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">min / log</text>
+    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">分 / ログ</text>
     <rect x="24" y="116" width="128" height="12" rx="6" fill="#e5eaec"/>
     <rect x="24" y="116" width="90" height="12" rx="6" fill="#ff7143"/>
-    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">600 min / month</text>
+    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">月600分相当</text>
   </g>
 
   <g transform="translate(502 166)">
     <rect width="176" height="180" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
     <text x="24" y="48" fill="#ff7143" font-family="system-ui, sans-serif" font-size="44" font-weight="900">10</text>
-    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">Summaries</text>
+    <text x="24" y="82" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">AI要約</text>
     <rect x="24" y="116" width="128" height="12" rx="6" fill="#e5eaec"/>
     <rect x="24" y="116" width="102" height="12" rx="6" fill="#ff7143"/>
-    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">AI cost control</text>
+    <text x="24" y="152" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">要約10回まで</text>
   </g>
 
   <rect x="82" y="384" width="596" height="44" rx="22" fill="#e5eaec"/>

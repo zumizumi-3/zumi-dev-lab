@@ -41,4 +41,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - Log Liteは1,980円/月の利用量制限案
 - Log Liteの初期案は月10ログ、1ログ60分、AI要約10回まで
 - kintone Packも1IDから契約可能
+- kintone Packの初回契約限定価格は、初回のkintone Pack契約時のみ適用する
+- Log Liteからkintone Packへ移行するユーザーには、初回契約限定価格を適用しない
+- kintone Packの標準機能は、録音、文字起こし、AI要約、kintone活動履歴登録、レコード紐付け、チーム内データ確認とする
 - 法務条文・保証・約款論点は本資料の対象外

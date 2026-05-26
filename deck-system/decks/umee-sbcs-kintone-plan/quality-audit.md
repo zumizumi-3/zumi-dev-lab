@@ -23,9 +23,12 @@ Result: no overflow failures.
 
 - `exports/cover-1280x720.png`
 - `exports/summary-1280x720.png`
+- `exports/matrix-1280x720.png`
 - `exports/loglite-1280x720.png`
+- `exports/kintone-price-1280x720.png`
 - `exports/pricing-1280x720.png`
 - `exports/comparison-1280x720.png`
+- `exports/support-1280x720.png`
 - `exports/gtm-1280x720.png`
 
 ## Visual Assets

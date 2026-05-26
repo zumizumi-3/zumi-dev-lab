@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
   <title id="title">ID price ladder</title>
-  <desc id="desc">A price ladder showing one, three, five, and ten IDs with launch year monthly totals.</desc>
+  <desc id="desc">A price ladder showing one, three, five, and ten IDs with first-contract monthly totals.</desc>
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
   <text x="82" y="96" fill="#414242" font-family="system-ui, sans-serif" font-size="30" font-weight="850">ID Pricing Ladder</text>
-  <text x="82" y="128" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">launch year: 2,980円 / ID / 月</text>
+  <text x="82" y="128" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">初回契約限定: 2,980円 / ID / 月</text>
   <line x1="112" y1="402" x2="648" y2="402" stroke="#cfd6d9" stroke-width="2"/>
   <g fill="#ff7143">
     <rect x="122" y="342" width="84" height="60" rx="6"/>
@@ -24,5 +24,5 @@
     <text x="428" y="316" font-size="18">14,900</text>
     <text x="560" y="282" font-size="18">29,800</text>
   </g>
-  <text x="82" y="446" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16">1IDから始め、必要ID数で素直に積み上げる</text>
+  <text x="82" y="446" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16">初回契約時のみ、必要ID数で素直に積み上げる</text>
 </svg>
