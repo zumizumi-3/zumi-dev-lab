@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
   <title id="title">Log Lite usage caps</title>
-  <desc id="desc">Usage caps for Log Lite: ten logs, sixty minutes per log, and ten AI summaries.</desc>
+  <desc id="desc">Usage caps for Log Lite: one ID only, ten logs, sixty minutes per log, and ten AI summaries.</desc>
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
   <text x="82" y="94" fill="#414242" font-family="system-ui, sans-serif" font-size="28" font-weight="850">Log Lite Usage Cap</text>
-  <text x="82" y="126" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">1ID / 1,980円 / 月</text>
+  <text x="82" y="126" fill="#6d7375" font-family="system-ui, sans-serif" font-size="17" font-weight="700">1ID限定 / 1,980円 / 月</text>
 
   <g transform="translate(82 166)">
     <rect width="176" height="180" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
@@ -34,5 +34,5 @@
   </g>
 
   <rect x="82" y="384" width="596" height="44" rx="22" fill="#e5eaec"/>
-  <text x="112" y="412" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="850">超過: 追加10ログ 1,980円 / 連携利用は kintone Pack</text>
+  <text x="104" y="412" fill="#414242" font-family="system-ui, sans-serif" font-size="16" font-weight="850">ID追加・2ID以上は kintone Pack / ログ超過は追加10ログ</text>
 </svg>
