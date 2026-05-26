@@ -14,7 +14,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 
 - SB C&S向けに、kintone利用企業へ売りやすい商品階層として提示する
 - Log Liteとkintone Packの価格、利用上限、支援範囲を説明する
-- 他社比較を踏まえ、初見で高く見えない価格設計として見せる
+- Log Liteを最低限ニーズの受け皿兼価格アンカー、kintone Packを本命として見せる
 
 ## Source
 
@@ -38,7 +38,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 ## Assumptions
 
 - 価格は税抜案
-- Log Liteは1,980円/月の利用量制限案
+- Log Liteは1,980円/月の利用量制限案。安い入口ではなく、最低限ニーズを拾う見せ球として扱う
 - Log Liteの初期案は月10ログ、1ログ60分、AI要約10回まで
 - kintone Packも1IDから契約可能
 - kintone Packの初回契約限定価格は、初回のkintone Pack契約時のみ適用する

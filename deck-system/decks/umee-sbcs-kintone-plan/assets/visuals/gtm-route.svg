@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
   <title id="title">GTM route</title>
-  <desc id="desc">A GTM route from Log Lite to kintone Pack to paid support.</desc>
+  <desc id="desc">A GTM positioning route that separates Log Lite as a price anchor, kintone Pack as the core offer, and paid support as the expansion offer.</desc>
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
-  <text x="82" y="96" fill="#414242" font-family="system-ui, sans-serif" font-size="30" font-weight="850">GTM Route</text>
+  <text x="82" y="96" fill="#414242" font-family="system-ui, sans-serif" font-size="30" font-weight="850">GTM Positioning</text>
   <path d="M138 260h176M380 260h176" stroke="#ff7143" stroke-width="6" stroke-linecap="round"/>
   <path d="m298 242 28 18-28 18M540 242l28 18-28 18" fill="none" stroke="#ff7143" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 
@@ -12,7 +12,7 @@
     <circle cx="72" cy="50" r="26" fill="#fff1ec" stroke="#ff7143" stroke-width="2"/>
     <text x="62" y="59" fill="#ff7143" font-family="system-ui, sans-serif" font-size="26" font-weight="900">1</text>
     <text x="28" y="102" fill="#414242" font-family="system-ui, sans-serif" font-size="20" font-weight="850">Log Lite</text>
-    <text x="28" y="132" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">低価格入口</text>
+    <text x="28" y="132" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">見せ球</text>
   </g>
   <g transform="translate(308 178)">
     <rect width="144" height="164" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
@@ -28,5 +28,5 @@
     <text x="30" y="102" fill="#414242" font-family="system-ui, sans-serif" font-size="20" font-weight="850">Support</text>
     <text x="30" y="132" fill="#6d7375" font-family="system-ui, sans-serif" font-size="15">個別対応</text>
   </g>
-  <text x="82" y="424" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16">議事録ではなく、kintoneに顧客接点データを残す入口として売る</text>
+  <text x="82" y="424" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16">Log Liteは価格感度を受け、本命はkintone Packとして売る</text>
 </svg>

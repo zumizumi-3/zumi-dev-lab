@@ -23,6 +23,7 @@ Result: no overflow failures.
 
 - `exports/cover-1280x720.png`
 - `exports/summary-1280x720.png`
+- `exports/policy-1280x720.png`
 - `exports/matrix-1280x720.png`
 - `exports/loglite-1280x720.png`
 - `exports/kintone-price-1280x720.png`
