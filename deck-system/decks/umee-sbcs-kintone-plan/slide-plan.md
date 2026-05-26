@@ -13,4 +13,3 @@
 | P09 | Competitive Comparison | Table | 比較される相手は、3カテゴリに分かれる | kintone本体 / PrintCreator・Smart at AI / Notta・Rimo・AI議事録取れる君・LINE WORKS AiNote | Competitor positioning table |
 | P10 | Support Boundary | Table | kintone Pack本体は問い合わせベース、個別対応は有償にする | 標準 / 有償 / 対象外 | Support boundary table |
 | P11 | GTM | Visual + Cards | SB C&Sには、安く始められるkintone活用入口として売る | Log Lite -> kintone Pack -> 有償支援 | GTM route visual + cards |
-| P12 | Decision Points | Checklist | 今日決めたいのは、価格と販売条件の境界 | Log Lite月10ログ案、kintone Pack価格、比較軸、サポート、取り分 | Checklist |

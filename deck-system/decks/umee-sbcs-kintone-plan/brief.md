@@ -10,11 +10,11 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - SB C&S 関係者
 - Umee社内の事業・営業・パートナー担当
 
-## Desired Action
+## Desired Audience Action
 
-- kintone向けに出す商品階層を合意する
-- kintone Packの価格、ID積み上げ、他社比較、サポート分界を議論する
-- Log Liteをパートナー限定の1,980円・利用量制限プランとして扱う前提を確認する
+- SB C&S向けに、kintone利用企業へ売りやすい商品階層として提示する
+- Log Liteとkintone Packの価格、利用上限、支援範囲を説明する
+- 他社比較を踏まえ、初見で高く見えない価格設計として見せる
 
 ## Source
 
@@ -30,7 +30,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 
 ## Format
 
-- Kikai Business PPT formatのトーンを利用
+- Kikai資料フォーマットのトーンを利用
 - 16:9 HTML deck
 - グレー基調、細いオレンジアクセント、表・カード中心
 - 過度な装飾やマーケティング色を避け、提案資料として読める密度にする

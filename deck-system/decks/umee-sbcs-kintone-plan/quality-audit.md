@@ -2,14 +2,14 @@
 
 ## Checked
 
-- Slide count: 12
+- Slide count: 11
 - Format: HTML/CSS deck using `kikai-business-ppt` tone
 - Source content: `/home/zumi-dev/code/archive/kb-umee/wiki/outputs/umee-kintone-set-plan-20260524.md`
 - Browser validation: Playwright Chromium
 
 ## Viewport Fit
 
-Checked all 12 slides at:
+Checked all 11 slides at:
 
 - 1920 x 1080
 - 1280 x 720
@@ -40,4 +40,4 @@ Result: no overflow failures.
 
 - The deck intentionally focuses on pricing and GTM only.
 - Legal terms, warranty language, and unrelated upper-tier consulting plans are excluded.
-- `FrontAX`, `Business`, and unrelated analysis-plan positioning are not included in the deck.
+- Unrelated analysis-plan positioning is not included in the deck.

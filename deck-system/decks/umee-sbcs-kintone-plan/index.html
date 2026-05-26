@@ -101,8 +101,8 @@
         content: "";
         position: absolute;
         inset: 0 auto 0 0;
-        width: 8px;
-        background: var(--kbp-surface-strong);
+        width: 26px;
+        background: var(--kbp-orange);
       }
 
       .slide::after {
@@ -122,7 +122,7 @@
       }
 
       .cover::before {
-        width: 12px;
+        width: 26px;
         background: var(--kbp-orange);
       }
 
@@ -145,7 +145,7 @@
         line-height: 1.35;
       }
 
-      .slide-header { align-items: flex-start; }
+      .slide-header { align-items: center; }
 
       .slide-footer {
         padding-top: 12px;
@@ -154,8 +154,8 @@
 
       .header-logo {
         display: block;
-        width: 168px;
-        height: 34px;
+        width: 150px;
+        height: 28px;
         object-fit: contain;
         object-position: right center;
       }
@@ -188,10 +188,10 @@
         width: 100%;
         max-width: 100%;
         margin: 0;
-        padding-bottom: 13px;
-        border-bottom: 1px solid var(--kbp-line-soft);
+        padding-bottom: 8px;
+        border-bottom: 5px solid var(--kbp-orange);
         color: var(--kbp-ink);
-        font-size: 41px;
+        font-size: 38px;
         font-weight: 810;
         line-height: 1.16;
         text-wrap: balance;
@@ -225,7 +225,7 @@
 
       .body-slot {
         width: 100%;
-        min-height: 470px;
+        min-height: 430px;
         margin-top: auto;
         margin-bottom: auto;
       }
@@ -262,14 +262,14 @@
       .note {
         display: grid;
         align-content: center;
-        padding: 24px 26px;
+        padding: 20px 22px;
       }
 
       .card.feature,
       .panel.feature,
       .metric.feature {
-        border-color: rgba(255, 113, 67, 0.56);
-        background: var(--kbp-orange-soft);
+        border-color: rgba(255, 113, 67, 0.76);
+        background: var(--kbp-paper);
       }
 
       .card strong,
@@ -279,7 +279,7 @@
         display: block;
         margin-bottom: 9px;
         color: var(--kbp-ink);
-        font-size: 23px;
+        font-size: 22px;
         line-height: 1.25;
       }
 
@@ -288,8 +288,8 @@
       .metric p,
       .note p {
         margin: 0;
-        font-size: 18px;
-        line-height: 1.48;
+        font-size: 16px;
+        line-height: 1.44;
       }
 
       .pill {
@@ -353,15 +353,15 @@
 
       .number {
         display: inline-grid;
-        width: 34px;
-        height: 34px;
+        width: 28px;
+        height: 28px;
         margin-bottom: 12px;
         place-items: center;
-        border: 1px solid var(--kbp-line);
+        border: 1px solid rgba(255, 113, 67, 0.7);
         border-radius: 50%;
         background: var(--kbp-orange-soft);
         color: var(--kbp-orange);
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 900;
       }
 
@@ -397,7 +397,7 @@
       .image-frame {
         display: grid;
         min-width: 0;
-        min-height: 420px;
+        min-height: 388px;
         overflow: hidden;
         place-items: center;
         border: 1px solid var(--kbp-line);
@@ -425,8 +425,8 @@
 
       .visual-led {
         display: grid;
-        grid-template-columns: 0.92fr 1.08fr;
-        gap: 22px;
+        grid-template-columns: 0.94fr 1.06fr;
+        gap: 18px;
         align-items: stretch;
       }
 
@@ -436,11 +436,74 @@
 
       .summary-stack {
         display: grid;
-        gap: 18px;
+        gap: 12px;
       }
 
       .summary-stack .card {
+        align-content: start;
         min-height: 0;
+      }
+
+      .cap-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .cap-card {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+        min-height: 96px;
+        padding: 17px 18px;
+        border: 1px solid rgba(255, 113, 67, 0.28);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+
+      .cap-card.feature {
+        border-color: rgba(255, 113, 67, 0.76);
+      }
+
+      .cap-mark {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .cap-card strong {
+        margin-bottom: 4px;
+        color: var(--kbp-ink);
+        font-size: 21px;
+      }
+
+      .cap-card p {
+        margin: 0;
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.38;
+      }
+
+      .evidence-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .evidence-strip span {
+        padding: 9px 10px;
+        border: 1px solid rgba(255, 113, 67, 0.2);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.25;
       }
 
       .compact-table th,
@@ -519,7 +582,7 @@
 
       .small-note {
         color: var(--kbp-muted);
-        font-size: 15px;
+        font-size: 13px;
         line-height: 1.45;
       }
 
@@ -534,7 +597,7 @@
       <span>FrontAgent x kintone / SB C&S Proposal</span>
       <span class="nav-spacer"></span>
       <button class="nav-button" type="button" data-prev aria-label="Previous slide">‹</button>
-      <span data-counter>1 / 12</span>
+      <span data-counter>1 / 11</span>
       <button class="nav-button" type="button" data-next aria-label="Next slide">›</button>
     </nav>
 
@@ -722,43 +785,42 @@
         <div class="content">
           <h2>Log Liteは、1,980円に月10ログ・要約10回を組み込む</h2>
           <div class="body-slot visual-led reverse">
-            <div class="table-wrap compact-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>設計項目</th>
-                    <th>Nottaでの見え方</th>
-                    <th>Log Lite案</th>
-                    <th>意図</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>入口</strong></td>
-                    <td>1アカウントから利用</td>
-                    <td>1ID 1,980円/月。パートナー限定。</td>
-                    <td>小規模顧客が試せる入口を残す。</td>
-                  </tr>
-                  <tr>
-                    <td><strong>利用上限</strong></td>
-                    <td>月間文字起こし分数<br><span class="small-note">無料120分 / Premium 1,800分</span></td>
-                    <td>月10ログまで<br><span class="small-note">1ログ60分まで / 月600分相当</span></td>
-                    <td>コストを読みやすくし、低価格の理由を作る。</td>
-                  </tr>
-                  <tr>
-                    <td><strong>AI要約</strong></td>
-                    <td>AI要約10回 / 100回 / 200回</td>
-                    <td>月10回まで<br><span class="small-note">1ログにつき1要約まで</span></td>
-                    <td>Notta同様、AI処理の重い部分でプラン差を出す。</td>
-                  </tr>
-                  <tr>
-                    <td><strong>超過時</strong></td>
-                    <td>上位プランで利用枠が増える</td>
-                    <td>追加10ログ 1,980円<br><span class="small-note">またはkintone Packへ誘導</span></td>
-                    <td>Liteは獲得用。本命は連携価値で回収する。</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div>
+              <div class="cap-stack">
+                <article class="cap-card feature">
+                  <span class="cap-mark">¥</span>
+                  <div>
+                    <strong>1ID 1,980円/月</strong>
+                    <p>パートナー限定の低価格入口。kintone連携は含めず、利用量で境界を作る。</p>
+                  </div>
+                </article>
+                <article class="cap-card">
+                  <span class="cap-mark">10</span>
+                  <div>
+                    <strong>月10ログ / 1ログ60分</strong>
+                    <p>月600分相当まで。回数と時間で、コストを読みやすくする。</p>
+                  </div>
+                </article>
+                <article class="cap-card">
+                  <span class="cap-mark">AI</span>
+                  <div>
+                    <strong>AI要約10回まで</strong>
+                    <p>Notta同様、AI処理の重い部分に上限を置いて価格差を説明する。</p>
+                  </div>
+                </article>
+                <article class="cap-card">
+                  <span class="cap-mark">+</span>
+                  <div>
+                    <strong>追加10ログ 1,980円</strong>
+                    <p>高頻度利用や連携利用は、kintone Packへ自然に誘導する。</p>
+                  </div>
+                </article>
+              </div>
+              <div class="evidence-strip">
+                <span>Notta: 月間分数</span>
+                <span>Notta: 1回上限</span>
+                <span>Notta: AI要約回数</span>
+              </div>
             </div>
             <div class="image-frame contain">
               <img src="assets/visuals/usage-caps.svg" alt="月10ログ、1ログ60分、AI要約10回の利用上限">
@@ -1003,32 +1065,6 @@
         <footer class="slide-footer">
           <span>議事録ツールではなく、kintoneに顧客接点データを残す入口として売る</span>
           <span>11</span>
-        </footer>
-      </section>
-
-      <section class="slide" id="p12" data-slide="P12">
-        <header class="slide-header">
-          <span>Decision Points</span>
-          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
-        </header>
-        <div class="content">
-          <h2>今日決めたいのは、価格と販売条件の境界</h2>
-          <div class="body-slot grid-2">
-            <ul class="check-list">
-              <li><b>1</b><span>Log Liteの上限を月10ログ・1ログ60分・AI要約10回・追加10ログ1,980円で置くか</span></li>
-              <li><b>2</b><span>kintone Packの通常価格を5,980円/ID/月で置くか、4,980円に寄せるか</span></li>
-              <li><b>3</b><span>初年度キャンペーンを2,980円/ID/月にするか、3,980円にするか</span></li>
-            </ul>
-            <ul class="check-list">
-              <li><b>4</b><span>他社比較で、kintone本体・連携サービス・AI議事録のどこまでを資料に出すか</span></li>
-              <li><b>5</b><span>SB C&S取り分を、通常価格とキャンペーン価格のどちらに対して計算するか</span></li>
-              <li><b>6</b><span>有償サポートの価格と範囲をどこまで標準化するか</span></li>
-            </ul>
-          </div>
-        </div>
-        <footer class="slide-footer">
-          <span>料金とGTMに絞って合意する</span>
-          <span>12</span>
         </footer>
       </section>
     </main>
