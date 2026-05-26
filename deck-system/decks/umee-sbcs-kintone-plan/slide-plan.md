@@ -8,7 +8,7 @@
 | P04 | Design Policy | Four Cards | 見せ球と本命を分け、価格感度と連携価値を両立する | 1ID限定の見せ球 / 1ID連携 / 追加IDはPack / 個別支援は別料金 | Four principles |
 | P05 | Plan Matrix | Table | 2つのプランで、価格感度とkintone連携を分ける | Log Lite / kintone Pack / 主な機能 / 契約条件 | Plan comparison |
 | P06 | Log Lite | Benchmark Table + Visual | Log Liteは、1ID限定で月10ログ・要約10回までに絞る | 1ID限定 / 月10ログ / 1ログ60分 / AI要約10回 / ログ超過は追加10ログ1,980円 / ID追加はPack | Usage cap visual + benchmark table |
-| P07 | kintone Pack Price | Table | kintone Packは、1IDから追加IDまで同じ単価で積み上げる | 通常5,980円/ID、初年度限定2,980円/ID、2年目以降は通常単価、初期費用0円、12ヶ月契約、Log Lite移行は対象外、2ID以上はこちら | Price table |
+| P07 | kintone Pack Price | Table | kintone Packは、1IDから追加IDまで同じ単価で積み上げる | 通常5,980円/ID、初年度限定2,980円/ID、2年目以降は通常単価、初期費用0円、12ヶ月契約、LogLiteからの移管は対象外、2ID以上はこちら | Price table |
 | P08 | ID Pricing | Table + Visual | 2ID以上・追加IDはkintone Packで同じ単価を積み上げる | 1ID / 2ID / 5ID / 10IDの初年度価格例。2年目以降は通常単価 | Price ladder visual + calculation table |
 | P09 | Competitive Comparison | Table | 比較される相手は、3カテゴリに分かれる | kintone本体 / PrintCreator・Smart at AI / Notta・Rimo・AI議事録取れる君・LINE WORKS AiNote | Competitor positioning table |
 | P10 | Support Boundary | Table | 標準機能と個別支援を分け、本体価格を安く見せる | 標準機能 / 標準サポート / 有償支援 / 対象外 | Support boundary table |
