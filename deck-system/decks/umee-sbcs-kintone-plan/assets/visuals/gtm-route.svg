@@ -3,42 +3,42 @@
   <desc id="desc">A GTM positioning map that places Log Lite, kintone Pack, and FrontAX by customer condition, with paid support as an optional attachment rather than a product route.</desc>
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
-  <text x="82" y="96" fill="#414242" font-family="system-ui, sans-serif" font-size="30" font-weight="850">GTM Positioning</text>
-  <text x="82" y="126" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16" font-weight="750">移管導線ではなく、顧客条件ごとの置き場所</text>
+  <text x="82" y="96" fill="#414242" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="30" font-weight="850">GTM Positioning</text>
+  <text x="82" y="126" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="16" font-weight="750">移管導線ではなく、顧客条件ごとの置き場所</text>
 
   <g transform="translate(82 158)">
     <rect width="180" height="188" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
     <circle cx="32" cy="34" r="19" fill="#fff1ec" stroke="#ff7143" stroke-width="2"/>
-    <text x="25" y="42" fill="#ff7143" font-family="system-ui, sans-serif" font-size="21" font-weight="900">1</text>
-    <text x="24" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">Log Lite</text>
-    <text x="24" y="108" fill="#ff7143" font-family="system-ui, sans-serif" font-size="15" font-weight="850">見せ球</text>
-    <text x="24" y="138" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">1ID限定・連携なし</text>
-    <text x="24" y="162" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">追加ID不可</text>
+    <text x="25" y="42" fill="#ff7143" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="21" font-weight="900">1</text>
+    <text x="24" y="78" fill="#414242" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="22" font-weight="850">Log Lite</text>
+    <text x="24" y="108" fill="#ff7143" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="15" font-weight="850">見せ球</text>
+    <text x="24" y="138" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">1ID限定・連携なし</text>
+    <text x="24" y="162" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">追加ID不可</text>
   </g>
 
   <g transform="translate(290 158)">
     <rect width="180" height="188" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
     <circle cx="32" cy="34" r="19" fill="#ff7143"/>
-    <text x="25" y="42" fill="#fff" font-family="system-ui, sans-serif" font-size="21" font-weight="900">2</text>
-    <text x="24" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">kintone Pack</text>
-    <text x="24" y="108" fill="#ff7143" font-family="system-ui, sans-serif" font-size="15" font-weight="850">本命</text>
-    <text x="24" y="138" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">新規・部門利用</text>
-    <text x="24" y="162" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">2ID以上はこちら</text>
+    <text x="25" y="42" fill="#fff" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="21" font-weight="900">2</text>
+    <text x="24" y="78" fill="#414242" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="22" font-weight="850">kintone Pack</text>
+    <text x="24" y="108" fill="#ff7143" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="15" font-weight="850">本命</text>
+    <text x="24" y="138" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">新規・部門利用</text>
+    <text x="24" y="162" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">2ID以上はこちら</text>
   </g>
 
   <g transform="translate(498 158)">
     <rect width="180" height="188" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
     <circle cx="32" cy="34" r="19" fill="#ff7143"/>
-    <text x="25" y="42" fill="#fff" font-family="system-ui, sans-serif" font-size="21" font-weight="900">3</text>
-    <text x="24" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">FrontAX</text>
-    <text x="24" y="108" fill="#ff7143" font-family="system-ui, sans-serif" font-size="15" font-weight="850">上位導線</text>
-    <text x="24" y="138" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">既存ユーザー</text>
-    <text x="24" y="162" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">年商200億 / 営業利用</text>
+    <text x="25" y="42" fill="#fff" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="21" font-weight="900">3</text>
+    <text x="24" y="78" fill="#414242" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="22" font-weight="850">FrontAX</text>
+    <text x="24" y="108" fill="#ff7143" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="15" font-weight="850">上位導線</text>
+    <text x="24" y="138" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">既存ユーザー</text>
+    <text x="24" y="162" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">年商200億 / 営業利用</text>
   </g>
 
   <g transform="translate(82 376)">
     <rect width="596" height="58" rx="8" fill="#e5eaec" stroke="#cfd6d9" stroke-width="2"/>
-    <text x="24" y="25" fill="#414242" font-family="system-ui, sans-serif" font-size="17" font-weight="850">有償支援は商品導線ではなく、必要時に付帯</text>
-    <text x="24" y="47" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">初期設定 / 項目設計 / フィールドマッピング / 相談対応</text>
+    <text x="24" y="25" fill="#414242" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="17" font-weight="850">有償支援は商品導線ではなく、必要時に付帯</text>
+    <text x="24" y="47" fill="#6d7375" font-family="Noto Sans JP, Noto Sans, sans-serif" font-size="14">初期設定 / 項目設計 / フィールドマッピング / 相談対応</text>
   </g>
 </svg>
