@@ -16,6 +16,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - Log Liteとkintone Packの価格、利用上限、支援範囲を説明する
 - Log Liteを最低限ニーズの受け皿兼価格アンカー、kintone Packを本命として見せる
 - 既存ユーザーのうち、年商200億円規模かつ営業利用の顧客はFrontAXへの上位導線として扱う
+- GTMはLog Liteからkintone Packへの移管導線ではなく、顧客条件ごとの置き場所として整理する
 
 ## Source
 
@@ -46,4 +47,5 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - Log Liteからkintone Packへ移行するユーザーには、初回契約限定価格を適用しない
 - kintone Packの標準機能は、録音、文字起こし、AI要約、kintone活動履歴登録、レコード紐付け、チーム内データ確認とする
 - FrontAXはkintone Packには含めず、既存ユーザーのうち年商200億円規模かつ営業利用の顧客に限って上位提案へ流す
+- 有償支援は独立した商品導線ではなく、kintone PackまたはFrontAXに必要時だけ付帯する
 - 法務条文・保証・約款論点は本資料の対象外

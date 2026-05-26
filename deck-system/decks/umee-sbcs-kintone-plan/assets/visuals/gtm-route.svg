@@ -1,39 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
-  <title id="title">GTM route</title>
-  <desc id="desc">A GTM positioning route that separates Log Lite as a price anchor, kintone Pack as the core offer, FrontAX as the upper-tier route for large sales-use customers, and paid support as the support offer.</desc>
+  <title id="title">GTM positioning</title>
+  <desc id="desc">A GTM positioning map that places Log Lite, kintone Pack, and FrontAX by customer condition, with paid support as an optional attachment rather than a product route.</desc>
   <rect width="760" height="520" rx="12" fill="#f2f5f6"/>
   <rect x="48" y="48" width="664" height="424" rx="8" fill="#fbfcfc" stroke="#cfd6d9" stroke-width="2"/>
   <text x="82" y="96" fill="#414242" font-family="system-ui, sans-serif" font-size="30" font-weight="850">GTM Positioning</text>
-  <path d="M132 260h116M304 260h116M476 260h116" stroke="#ff7143" stroke-width="6" stroke-linecap="round"/>
-  <path d="m230 242 28 18-28 18M402 242l28 18-28 18M574 242l28 18-28 18" fill="none" stroke="#ff7143" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="82" y="126" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16" font-weight="750">移管導線ではなく、顧客条件ごとの置き場所</text>
 
-  <g transform="translate(74 178)">
-    <rect width="120" height="164" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
-    <circle cx="60" cy="50" r="25" fill="#fff1ec" stroke="#ff7143" stroke-width="2"/>
-    <text x="51" y="59" fill="#ff7143" font-family="system-ui, sans-serif" font-size="25" font-weight="900">1</text>
-    <text x="18" y="102" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="850">Log Lite</text>
-    <text x="22" y="132" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">見せ球</text>
+  <g transform="translate(82 158)">
+    <rect width="180" height="188" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
+    <circle cx="32" cy="34" r="19" fill="#fff1ec" stroke="#ff7143" stroke-width="2"/>
+    <text x="25" y="42" fill="#ff7143" font-family="system-ui, sans-serif" font-size="21" font-weight="900">1</text>
+    <text x="24" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">Log Lite</text>
+    <text x="24" y="108" fill="#ff7143" font-family="system-ui, sans-serif" font-size="15" font-weight="850">見せ球</text>
+    <text x="24" y="138" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">最低限ニーズ</text>
+    <text x="24" y="162" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">月10ログ / 連携なし</text>
   </g>
-  <g transform="translate(246 178)">
-    <rect width="120" height="164" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
-    <circle cx="60" cy="50" r="25" fill="#ff7143"/>
-    <text x="51" y="59" fill="#fff" font-family="system-ui, sans-serif" font-size="25" font-weight="900">2</text>
-    <text x="18" y="102" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="850">kintone</text>
-    <text x="32" y="128" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="850">Pack</text>
+
+  <g transform="translate(290 158)">
+    <rect width="180" height="188" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
+    <circle cx="32" cy="34" r="19" fill="#ff7143"/>
+    <text x="25" y="42" fill="#fff" font-family="system-ui, sans-serif" font-size="21" font-weight="900">2</text>
+    <text x="24" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">kintone Pack</text>
+    <text x="24" y="108" fill="#ff7143" font-family="system-ui, sans-serif" font-size="15" font-weight="850">本命</text>
+    <text x="24" y="138" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">新規・部門利用</text>
+    <text x="24" y="162" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">活動履歴として登録</text>
   </g>
-  <g transform="translate(418 178)">
-    <rect width="120" height="164" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
-    <circle cx="60" cy="50" r="25" fill="#ff7143"/>
-    <text x="51" y="59" fill="#fff" font-family="system-ui, sans-serif" font-size="25" font-weight="900">3</text>
-    <text x="20" y="102" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="850">FrontAX</text>
-    <text x="22" y="130" fill="#6d7375" font-family="system-ui, sans-serif" font-size="13">200億 / 営業</text>
+
+  <g transform="translate(498 158)">
+    <rect width="180" height="188" rx="8" fill="#fff8f5" stroke="#ff7143" stroke-width="3"/>
+    <circle cx="32" cy="34" r="19" fill="#ff7143"/>
+    <text x="25" y="42" fill="#fff" font-family="system-ui, sans-serif" font-size="21" font-weight="900">3</text>
+    <text x="24" y="78" fill="#414242" font-family="system-ui, sans-serif" font-size="22" font-weight="850">FrontAX</text>
+    <text x="24" y="108" fill="#ff7143" font-family="system-ui, sans-serif" font-size="15" font-weight="850">上位導線</text>
+    <text x="24" y="138" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">既存ユーザー</text>
+    <text x="24" y="162" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">年商200億 / 営業利用</text>
   </g>
-  <g transform="translate(590 178)">
-    <rect width="120" height="164" rx="8" fill="#fff" stroke="#cfd6d9" stroke-width="2"/>
-    <circle cx="60" cy="50" r="25" fill="#fff1ec" stroke="#ff7143" stroke-width="2"/>
-    <text x="51" y="59" fill="#ff7143" font-family="system-ui, sans-serif" font-size="25" font-weight="900">4</text>
-    <text x="26" y="102" fill="#414242" font-family="system-ui, sans-serif" font-size="18" font-weight="850">Support</text>
-    <text x="26" y="132" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">個別対応</text>
+
+  <g transform="translate(82 376)">
+    <rect width="596" height="58" rx="8" fill="#e5eaec" stroke="#cfd6d9" stroke-width="2"/>
+    <text x="24" y="25" fill="#414242" font-family="system-ui, sans-serif" font-size="17" font-weight="850">有償支援は商品導線ではなく、必要時に付帯</text>
+    <text x="24" y="47" fill="#6d7375" font-family="system-ui, sans-serif" font-size="14">初期設定 / 項目設計 / フィールドマッピング / 相談対応</text>
   </g>
-  <text x="82" y="424" fill="#6d7375" font-family="system-ui, sans-serif" font-size="16">既存ユーザーのうち、年商200億円規模かつ営業利用はFrontAXへ流す</text>
 </svg>
