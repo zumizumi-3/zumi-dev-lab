@@ -34,5 +34,5 @@
   </g>
 
   <rect x="82" y="384" width="596" height="44" rx="22" fill="#e5eaec"/>
-  <text x="104" y="412" fill="#414242" font-family="system-ui, sans-serif" font-size="16" font-weight="850">ID追加・2ID以上は kintone Pack / ログ超過は追加10ログ</text>
+  <text x="104" y="412" fill="#414242" font-family="system-ui, sans-serif" font-size="16" font-weight="850">ログ超過時は停止 / 継続利用は kintone Pack 移管必須</text>
 </svg>
