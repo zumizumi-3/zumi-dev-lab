@@ -659,6 +659,48 @@
         line-height: 1.45;
       }
 
+      .metric-value {
+        color: var(--kbp-orange);
+        font-size: 42px;
+        font-weight: 890;
+        line-height: 1.05;
+      }
+
+      .source-note {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 720;
+        line-height: 1.4;
+      }
+
+      .calc-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .calc-list span {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 113, 67, 0.24);
+        background: var(--kbp-paper);
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 760;
+        line-height: 1.3;
+      }
+
+      .calc-list b {
+        color: var(--kbp-ink);
+        white-space: nowrap;
+      }
+
       @media (prefers-reduced-motion: no-preference) {
         .slide { transition: opacity 120ms ease; }
       }
@@ -1166,6 +1208,264 @@
         <footer class="slide-footer">
           <span>Log Liteは単独の見せ球。有償支援は必要時だけ付帯する</span>
           <span>11</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p12" data-slide="P12">
+        <header class="slide-header">
+          <span>Wholesale Price</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>仕切り価格は、顧客提示価格を1.3で割って設計する</h2>
+          <div class="body-slot split">
+            <article class="panel feature">
+              <span class="pill">kintone Pack 初年度</span>
+              <div class="big-price">3,062円/ID/月<small>3,980円 ÷ 1.3 / 税抜</small></div>
+              <div class="calc-list">
+                <span><b>顧客提示</b> 3,980円 / ID / 月</span>
+                <span><b>仕切り</b> 3,062円 / ID / 月</span>
+                <span><b>SBC&S粗利目安</b> 918円 / ID / 月</span>
+              </div>
+            </article>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>商品</th>
+                    <th>顧客提示価格</th>
+                    <th>仕切り価格</th>
+                    <th>粗利目安</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Log Lite</strong></td>
+                    <td>980円 / 月</td>
+                    <td>754円 / 月</td>
+                    <td>226円 / 月</td>
+                  </tr>
+                  <tr>
+                    <td><strong>kintone Pack 初年度</strong></td>
+                    <td>3,980円 / ID / 月</td>
+                    <td>3,062円 / ID / 月</td>
+                    <td>918円 / ID / 月</td>
+                  </tr>
+                  <tr>
+                    <td><strong>kintone Pack 通常</strong></td>
+                    <td>5,980円 / ID / 月</td>
+                    <td>4,600円 / ID / 月</td>
+                    <td>1,380円 / ID / 月</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FrontAX アップセル</strong></td>
+                    <td>10,000円 / ID / 月</td>
+                    <td>7,692円 / ID / 月</td>
+                    <td>2,308円 / ID / 月</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="source-note">Umee価格はすべて税抜。仕切り価格は小数点以下を四捨五入した表示。</p>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>販売価格、仕切り、SBC&S粗利を同じロジックで説明できる状態にする</span>
+          <span>12</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p13" data-slide="P13">
+        <header class="slide-header">
+          <span>Feature Comparison</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>競合比較は、議事録ではなくkintone接点データ化で差分を出す</h2>
+          <div class="body-slot table-wrap compact-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>比較軸</th>
+                  <th>AI議事録</th>
+                  <th>kintone連携サービス</th>
+                  <th>kintone Pack</th>
+                  <th>FrontAX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>録音・文字起こし・AI要約</strong></td>
+                  <td>標準</td>
+                  <td>原則対象外</td>
+                  <td>標準</td>
+                  <td>標準</td>
+                </tr>
+                <tr>
+                  <td><strong>kintone活動履歴登録</strong></td>
+                  <td>なし</td>
+                  <td>サービス次第</td>
+                  <td>標準</td>
+                  <td>標準</td>
+                </tr>
+                <tr>
+                  <td><strong>レコード紐付け</strong></td>
+                  <td>なし</td>
+                  <td>設定次第</td>
+                  <td>標準</td>
+                  <td>標準</td>
+                </tr>
+                <tr>
+                  <td><strong>チーム確認</strong></td>
+                  <td>プラン依存</td>
+                  <td>限定的</td>
+                  <td>標準</td>
+                  <td>標準</td>
+                </tr>
+                <tr>
+                  <td><strong>営業利用・商談分析</strong></td>
+                  <td>議事録中心</td>
+                  <td>対象外</td>
+                  <td>接点データ蓄積</td>
+                  <td>営業AX</td>
+                </tr>
+                <tr>
+                  <td><strong>主対象</strong></td>
+                  <td>個人・小規模</td>
+                  <td>kintone管理者</td>
+                  <td>新規・部門利用</td>
+                  <td>年商200億円以上・営業利用</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>kintone Packは、議事録単体ではなく顧客接点データ化の入口として置く</span>
+          <span>13</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p14" data-slide="P14">
+        <header class="slide-header">
+          <span>Revenue Ramp</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>2,000万円の回収ラインは、FY28Q1に粗利累計で超える</h2>
+          <div class="body-slot split">
+            <div class="summary-stack compact">
+              <article class="metric feature">
+                <strong>回収ライン</strong>
+                <div class="metric-value">2,000万円</div>
+                <p>投資いただく金額の回収目安</p>
+              </article>
+              <article class="metric">
+                <strong>到達タイミング</strong>
+                <div class="metric-value">FY28Q1</div>
+                <p>kintone Pack粗利累計のみで到達</p>
+              </article>
+              <article class="metric">
+                <strong>FY28Q1累計</strong>
+                <div class="metric-value">2,272万円</div>
+                <p>添付Excel「清書」シートの粗利行列より算出</p>
+              </article>
+            </div>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>四半期</th>
+                    <th>Q粗利</th>
+                    <th>累計粗利</th>
+                    <th>状態</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>FY26Q3</td><td class="num">346万円</td><td class="num">346万円</td><td>販売開始</td></tr>
+                  <tr><td>FY26Q4</td><td class="num">322万円</td><td class="num">668万円</td><td>初期積上げ</td></tr>
+                  <tr><td>FY27Q1</td><td class="num">355万円</td><td class="num">1,023万円</td><td>継続獲得</td></tr>
+                  <tr><td>FY27Q2</td><td class="num">355万円</td><td class="num">1,378万円</td><td>半分超過</td></tr>
+                  <tr><td>FY27Q3</td><td class="num">322万円</td><td class="num">1,700万円</td><td>継続反映</td></tr>
+                  <tr><td>FY27Q4</td><td class="num">282万円</td><td class="num">1,982万円</td><td>回収手前</td></tr>
+                  <tr><td>FY28Q1</td><td class="num">290万円</td><td class="num">2,272万円</td><td>回収ライン超過</td></tr>
+                  <tr><td>FY28Q2</td><td class="num">261万円</td><td class="num">2,532万円</td><td>上振れ</td></tr>
+                  <tr><td>FY28Q3</td><td class="num">208万円</td><td class="num">2,741万円</td><td>上振れ</td></tr>
+                </tbody>
+              </table>
+              <p class="source-note">根拠: 期待値.xlsx「清書」シート。Tier3企業をkintone議事録セット売りユーザとみなし、SB期待50%、5ID/法人、1年後継続率50%、以降80%の前提。</p>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>添付資料のTier3計画から、kintone議事録セット売り分の期待値として提示する</span>
+          <span>14</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p15" data-slide="P15">
+        <header class="slide-header">
+          <span>FrontAX Upsell</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>FrontAXへのアップセルは、契約数の1.3%を1年後に置く</h2>
+          <div class="body-slot visual-led">
+            <div class="summary-stack">
+              <article class="card feature">
+                <span class="number">1</span>
+                <strong>アップセル率</strong>
+                <p>1年後のFrontAX移行は、契約数の1.3%。年商200億円以上企業の分布を根拠に置く。</p>
+              </article>
+              <article class="card">
+                <span class="number">2</span>
+                <strong>アップセル単価</strong>
+                <p>FrontAXは10,000円/ID/月（税抜）。仕切りは7,692円/ID/月、粗利目安は2,308円/ID/月。</p>
+              </article>
+              <article class="card">
+                <span class="number">3</span>
+                <strong>扱い</strong>
+                <p>投資回収の主線はkintone Pack粗利。FrontAXは年商200億円以上・営業利用の上振れ導線として別置きする。</p>
+              </article>
+            </div>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>前提</th>
+                    <th>置き方</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>対象母集団</strong></td>
+                    <td>kintone Pack契約のうち、年商200億円以上かつ営業利用に該当する企業</td>
+                  </tr>
+                  <tr>
+                    <td><strong>アップセル発生</strong></td>
+                    <td>契約開始から1年後</td>
+                  </tr>
+                  <tr>
+                    <td><strong>アップセル率</strong></td>
+                    <td>契約数の1.3%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ID前提</strong></td>
+                    <td>期待値モデルと同じく5ID/法人を基準に置く</td>
+                  </tr>
+                  <tr>
+                    <td><strong>価格</strong></td>
+                    <td>10,000円/ID/月（税抜）</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="source-note">1.3%は、200億円以上企業の分布をもとにした上位提案候補の期待値。実績化時は商談化率・移行率で別管理する。</p>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>Log Lite / kintone Packで面を取り、条件が合う既存ユーザーだけFrontAXへ流す</span>
+          <span>15</span>
         </footer>
       </section>
     </main>

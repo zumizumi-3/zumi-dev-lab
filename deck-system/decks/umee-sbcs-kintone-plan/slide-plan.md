@@ -13,3 +13,7 @@
 | P09 | Competitive Comparison | Table | 比較される相手は、3カテゴリに分かれる | kintone本体 / PrintCreator・Smart at AI / Notta・Rimo・AI議事録取れる君・LINE WORKS AiNote | Competitor positioning table |
 | P10 | Support Boundary | Table | 標準機能と個別支援を分け、本体価格を安く見せる | 標準機能 / 標準サポート / 有償支援 / 対象外 | Support boundary table |
 | P11 | GTM | Visual + Table | GTMは移管導線ではなく、顧客条件ごとの置き場所にする | Log Liteは1ID限定の見せ球 / 2ID以上・追加ID・kintone連携はkintone Pack / 年商200億円規模かつ営業利用の既存ユーザーはFrontAXへ / 有償支援は必要時に付帯 | GTM positioning map + segment table |
+| P12 | Wholesale Price | Split + Table | 仕切り価格は、顧客提示価格を1.3で割って設計する | 2,980円/ID/月の仕切りは2,292円、FrontAXは10,000円/ID/月、すべて税抜 | Wholesale calculation table |
+| P13 | Feature Comparison | Dense Table | 競合比較は、議事録ではなくkintone接点データ化で差分を出す | AI議事録 / kintone連携サービス / kintone Pack / FrontAX の機能比較 | Feature comparison table |
+| P14 | Revenue Ramp | Metrics + Table | 2,000万円の回収ラインは、FY28Q3に粗利累計で超える | 添付ExcelのTier3計画をkintone議事録セット売りユーザとして扱い、SBC&S粗利累計で回収時期を見る | Revenue ramp table |
+| P15 | FrontAX Upsell | Cards + Table | FrontAXへのアップセルは、契約数の1.3%を1年後に置く | 年商200億円以上企業の分布を根拠に、1年後のAX移行率を1.3%、価格を10,000円/ID/月として置く | Upsell assumption table |
