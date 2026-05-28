@@ -762,6 +762,58 @@
       @media (prefers-reduced-motion: no-preference) {
         .slide { transition: opacity 120ms ease; }
       }
+
+      @media print {
+        @page {
+          size: 1600px 900px;
+          margin: 0;
+        }
+
+        html,
+        body {
+          width: 1600px;
+          height: auto;
+          overflow: visible;
+          background: #fff;
+        }
+
+        .topbar { display: none; }
+
+        main {
+          position: static;
+          width: 1600px;
+          height: auto;
+          overflow: visible;
+        }
+
+        .slide {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: 1600px;
+          height: 900px;
+          margin: 0;
+          border: 0;
+          box-shadow: none;
+          opacity: 1;
+          pointer-events: auto;
+          transform: none;
+          break-after: page;
+          break-before: page;
+          page-break-after: always;
+          page-break-before: always;
+        }
+
+        .slide:first-child {
+          break-before: auto;
+          page-break-before: auto;
+        }
+
+        .slide:last-child {
+          break-after: auto;
+          page-break-after: auto;
+        }
+      }
     </style>
   </head>
   <body>
