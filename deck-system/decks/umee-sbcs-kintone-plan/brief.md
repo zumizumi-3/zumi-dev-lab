@@ -13,7 +13,7 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 ## Desired Audience Action
 
 - SB C&S向けに、kintone利用企業へ売りやすい商品階層として提示する
-- Log Liteとkintone Packの価格、利用上限、ID追加時の扱い、支援範囲を説明する
+- Log Liteとkintone Packの価格、利用上限、ID追加時の扱いを説明する
 - Log Liteを最低限ニーズの受け皿兼価格アンカー、kintone Packを本命として見せる
 - 既存ユーザーのうち、年商200億円規模かつ営業利用の顧客はFrontAgent解析プランへの上位導線として扱う
 - GTMはLog Liteからkintone Packへの移管導線ではなく、顧客条件ごとの置き場所として整理する
@@ -54,5 +54,4 @@ SB C&S向けに、FrontAgent x kintone の販売プランを提案する。
 - LogLiteからの移管は、初年度限定価格の対象外とする
 - kintone Packの標準機能は、録音、文字起こし、AI要約、kintone活動履歴登録、レコード紐付け、チーム内データ確認とする
 - FrontAgent解析プランはkintone Packには含めず、既存ユーザーのうち年商200億円規模かつ営業利用の顧客に限って上位提案へ流す
-- 有償支援は独立した商品導線ではなく、kintone PackまたはFrontAgent解析プランに必要時だけ付帯する
 - 法務条文・保証・約款論点は本資料の対象外
