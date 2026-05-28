@@ -602,6 +602,13 @@
         line-height: 1.16;
       }
 
+      .revenue-quarter-table th,
+      .revenue-quarter-table td {
+        padding: 7px 9px;
+        font-size: 14px;
+        line-height: 1.24;
+      }
+
       .assumption-grid .card {
         min-height: 150px;
         align-content: start;
@@ -1340,22 +1347,22 @@
 
       <section class="slide" id="p13" data-slide="P13">
         <header class="slide-header">
-          <span>Investment Recovery</span>
+          <span>Revenue Share</span>
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
         </header>
         <div class="content">
-          <h2>添付元データでは、FY29Q2時点で累計貴社利益が23,135千円となる</h2>
+          <h2>5か年累計のレベニューシェアは、FY31Q2時点で66,668千円となる</h2>
           <div class="body-slot body-fit">
             <div class="grid-2 summary-metrics">
               <article class="metric feature">
-                <strong>累計貴社利益</strong>
-                <div class="metric-value">23,135千円</div>
-                <p>顧客提示額からSBC&S様仕切り価格を控除した利益の累計。</p>
+                <strong>累計レベニューシェア</strong>
+                <div class="metric-value">66,668千円</div>
+                <p>顧客定価売上からUmee向け仕切値を控除した差分を、FY26Q3からFY31Q2まで積み上げる。</p>
               </article>
               <article class="metric">
-                <strong>FY29Q2 稼働契約法人数</strong>
-                <div class="metric-value">276.2社</div>
-                <p>稼働IDは1,381ID。FrontAgent解析プラン候補算定の母数。</p>
+                <strong>FY31Q2 稼働契約法人数</strong>
+                <div class="metric-value">359.0社</div>
+                <p>期末稼働IDは1,795ID。Kintone Packの積み上げ数値として見る。</p>
               </article>
             </div>
             <div class="table-wrap compact-table annual-table">
@@ -1365,21 +1372,23 @@
                     <th>年度</th>
                     <th>対象期間</th>
                     <th>期末Umee全体売上（千円）</th>
-                    <th>期末SBC&S稼働ID</th>
                     <th>期末稼働契約法人</th>
-                    <th>年度貴社仕切値（千円）</th>
-                    <th>年度貴社利益（千円）</th>
-                    <th>累計貴社利益（千円）</th>
+                    <th>年度定価売上（千円）</th>
+                    <th>年度仕切値（千円）</th>
+                    <th>年度レベニューシェア（千円）</th>
+                    <th>累計レベニューシェア（千円）</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Year 1</td><td>FY26Q3-FY27Q2</td><td class="num">39,000</td><td class="num">504</td><td class="num">100.8</td><td class="num">8,239</td><td class="num">2,472</td><td class="num">2,472</td></tr>
-                  <tr><td>Year 2</td><td>FY27Q3-FY28Q2</td><td class="num">50,700</td><td class="num">908</td><td class="num">181.6</td><td class="num">24,626</td><td class="num">7,388</td><td class="num">9,859</td></tr>
-                  <tr><td>Year 3</td><td>FY28Q3-FY29Q2</td><td class="num">65,910</td><td class="num">1,381</td><td class="num">276.2</td><td class="num">44,250</td><td class="num">13,275</td><td class="num">23,135</td></tr>
+                  <tr><td>Year 1</td><td>FY26Q3-FY27Q2</td><td class="num">39,000</td><td class="num">100.8</td><td class="num">12,507</td><td class="num">9,621</td><td class="num">2,886</td><td class="num">2,886</td></tr>
+                  <tr><td>Year 2</td><td>FY27Q3-FY28Q2</td><td class="num">50,700</td><td class="num">181.6</td><td class="num">35,583</td><td class="num">27,371</td><td class="num">8,211</td><td class="num">11,098</td></tr>
+                  <tr><td>Year 3</td><td>FY28Q3-FY29Q2</td><td class="num">65,910</td><td class="num">276.1</td><td class="num">62,154</td><td class="num">47,811</td><td class="num">14,343</td><td class="num">25,441</td></tr>
+                  <tr><td>Year 4</td><td>FY29Q3-FY30Q2</td><td class="num">82,355</td><td class="num">321.8</td><td class="num">83,809</td><td class="num">64,469</td><td class="num">19,341</td><td class="num">44,782</td></tr>
+                  <tr><td>Year 5</td><td>FY30Q3-FY31Q2</td><td class="num">100,104</td><td class="num">359.0</td><td class="num">94,841</td><td class="num">72,955</td><td class="num">21,886</td><td class="num">66,668</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="source-note">前提: 添付の期待値.xlsx「清書」シートを根拠に、Umee新規IDの50%をSBC&S様の新規IDとして丸める。貴社仕切値は顧客提示額 ÷ 1.3、貴社利益は顧客提示額から仕切値を控除した差分。FY29Q2までの元データ範囲をそのまま表示。</p>
+            <p class="source-note">前提: 添付の期待値FY31あり.xlsx「清書」シートの「定価ー卸価格」ブロック（行84-103）をレベニューシェアとして使用。仕切値はUmeeがSBC&S様へ販売する卸価格。FY31Q3-Q4は5か年計上対象外。</p>
           </div>
         </div>
         <footer class="slide-footer">
@@ -1389,39 +1398,36 @@
 
       <section class="slide" id="p14" data-slide="P14">
         <header class="slide-header">
-          <span>Quarterly Revenue</span>
+          <span>Quarterly Revenue Share</span>
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
         </header>
         <div class="content">
-          <h2>四半期明細は、清書シートの仕切値と貴社利益で見る</h2>
-          <div class="body-slot table-wrap compact-table five-year-table">
+          <h2>四半期明細は、FY26Q3からFY28Q4までを積み上げ数値で見る</h2>
+          <div class="body-slot table-wrap compact-table five-year-table revenue-quarter-table">
             <table>
               <thead>
                 <tr>
                   <th>四半期</th>
-                  <th>Umee全体売上計画（千円）</th>
-                  <th>SBC&S新規ID</th>
-                  <th>新規契約法人</th>
+                  <th>Umee全体売上（千円）</th>
                   <th>SBC&S稼働ID</th>
                   <th>稼働契約法人</th>
-                  <th>貴社仕切値（千円）</th>
-                  <th>貴社利益（千円）</th>
-                  <th>累計貴社利益（千円）</th>
+                  <th>定価売上（千円）</th>
+                  <th>仕切値（千円）</th>
+                  <th>レベニューシェア（千円）</th>
+                  <th>累計レベニューシェア（千円）</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>FY26Q3</td><td class="num">32,000</td><td class="num">112</td><td class="num">22</td><td class="num">112</td><td class="num">22.4</td><td class="num">770</td><td class="num">231</td><td class="num">231</td></tr>
-                <tr><td>FY26Q4</td><td class="num">34,000</td><td class="num">112</td><td class="num">22</td><td class="num">224</td><td class="num">44.8</td><td class="num">1,540</td><td class="num">462</td><td class="num">693</td></tr>
-                <tr><td>FY27Q1</td><td class="num">36,400</td><td class="num">134</td><td class="num">27</td><td class="num">358</td><td class="num">71.6</td><td class="num">2,462</td><td class="num">739</td><td class="num">1,432</td></tr>
-                <tr><td>FY27Q2</td><td class="num">39,000</td><td class="num">146</td><td class="num">29</td><td class="num">504</td><td class="num">100.8</td><td class="num">3,466</td><td class="num">1,040</td><td class="num">2,472</td></tr>
-                <tr><td>FY27Q3</td><td class="num">41,600</td><td class="num">146</td><td class="num">29</td><td class="num">594</td><td class="num">118.8</td><td class="num">4,473</td><td class="num">1,342</td><td class="num">3,813</td></tr>
-                <tr><td>FY27Q4</td><td class="num">44,200</td><td class="num">146</td><td class="num">29</td><td class="num">684</td><td class="num">136.8</td><td class="num">5,479</td><td class="num">1,644</td><td class="num">5,457</td></tr>
-                <tr><td>FY28Q1</td><td class="num">47,320</td><td class="num">175</td><td class="num">35</td><td class="num">792</td><td class="num">158.4</td><td class="num">6,686</td><td class="num">2,006</td><td class="num">7,463</td></tr>
-                <tr><td>FY28Q2</td><td class="num">50,700</td><td class="num">189</td><td class="num">38</td><td class="num">908</td><td class="num">181.6</td><td class="num">7,989</td><td class="num">2,397</td><td class="num">9,859</td></tr>
-                <tr><td>FY28Q3</td><td class="num">54,080</td><td class="num">189</td><td class="num">38</td><td class="num">1,013</td><td class="num">202.6</td><td class="num">9,137</td><td class="num">2,741</td><td class="num">12,601</td></tr>
-                <tr><td>FY28Q4</td><td class="num">57,460</td><td class="num">189</td><td class="num">38</td><td class="num">1,118</td><td class="num">223.6</td><td class="num">10,286</td><td class="num">3,086</td><td class="num">15,686</td></tr>
-                <tr><td>FY29Q1</td><td class="num">61,516</td><td class="num">227</td><td class="num">45</td><td class="num">1,244</td><td class="num">248.8</td><td class="num">11,666</td><td class="num">3,500</td><td class="num">19,186</td></tr>
-                <tr><td>FY29Q2</td><td class="num">65,910</td><td class="num">246</td><td class="num">49</td><td class="num">1,381</td><td class="num">276.2</td><td class="num">13,161</td><td class="num">3,948</td><td class="num">23,135</td></tr>
+                <tr><td>FY26Q3</td><td class="num">32,000</td><td class="num">112</td><td class="num">22.4</td><td class="num">1,169</td><td class="num">899</td><td class="num">270</td><td class="num">270</td></tr>
+                <tr><td>FY26Q4</td><td class="num">34,000</td><td class="num">224</td><td class="num">44.8</td><td class="num">2,339</td><td class="num">1,799</td><td class="num">540</td><td class="num">810</td></tr>
+                <tr><td>FY27Q1</td><td class="num">36,400</td><td class="num">358</td><td class="num">71.6</td><td class="num">3,738</td><td class="num">2,875</td><td class="num">863</td><td class="num">1,672</td></tr>
+                <tr><td>FY27Q2</td><td class="num">39,000</td><td class="num">504</td><td class="num">100.8</td><td class="num">5,262</td><td class="num">4,048</td><td class="num">1,214</td><td class="num">2,886</td></tr>
+                <tr><td>FY27Q3</td><td class="num">41,600</td><td class="num">594</td><td class="num">118.8</td><td class="num">6,621</td><td class="num">5,093</td><td class="num">1,528</td><td class="num">4,414</td></tr>
+                <tr><td>FY27Q4</td><td class="num">44,200</td><td class="num">684</td><td class="num">136.8</td><td class="num">7,981</td><td class="num">6,139</td><td class="num">1,842</td><td class="num">6,256</td></tr>
+                <tr><td>FY28Q1</td><td class="num">47,320</td><td class="num">792</td><td class="num">158.4</td><td class="num">9,611</td><td class="num">7,393</td><td class="num">2,218</td><td class="num">8,474</td></tr>
+                <tr><td>FY28Q2</td><td class="num">50,700</td><td class="num">908</td><td class="num">181.6</td><td class="num">11,370</td><td class="num">8,746</td><td class="num">2,624</td><td class="num">11,098</td></tr>
+                <tr><td>FY28Q3</td><td class="num">54,080</td><td class="num">1,013</td><td class="num">202.6</td><td class="num">12,927</td><td class="num">9,944</td><td class="num">2,983</td><td class="num">14,081</td></tr>
+                <tr><td>FY28Q4</td><td class="num">57,460</td><td class="num">1,118</td><td class="num">223.5</td><td class="num">14,485</td><td class="num">11,142</td><td class="num">3,343</td><td class="num">17,423</td></tr>
               </tbody>
             </table>
           </div>
@@ -1433,7 +1439,48 @@
 
       <section class="slide" id="p15" data-slide="P15">
         <header class="slide-header">
-          <span>Calculation Notes</span>
+          <span>Quarterly Revenue Share</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>四半期明細は、FY29Q1からFY31Q2までを積み上げ数値で見る</h2>
+          <div class="body-slot table-wrap compact-table five-year-table revenue-quarter-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>四半期</th>
+                  <th>Umee全体売上（千円）</th>
+                  <th>SBC&S稼働ID</th>
+                  <th>稼働契約法人</th>
+                  <th>定価売上（千円）</th>
+                  <th>仕切値（千円）</th>
+                  <th>レベニューシェア（千円）</th>
+                  <th>累計レベニューシェア（千円）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>FY29Q1</td><td class="num">61,516</td><td class="num">1,244</td><td class="num">248.7</td><td class="num">16,357</td><td class="num">12,582</td><td class="num">3,775</td><td class="num">21,198</td></tr>
+                <tr><td>FY29Q2</td><td class="num">65,910</td><td class="num">1,381</td><td class="num">276.1</td><td class="num">18,385</td><td class="num">14,143</td><td class="num">4,243</td><td class="num">25,441</td></tr>
+                <tr><td>FY29Q3</td><td class="num">70,304</td><td class="num">1,473</td><td class="num">294.5</td><td class="num">19,610</td><td class="num">15,085</td><td class="num">4,525</td><td class="num">29,966</td></tr>
+                <tr><td>FY29Q4</td><td class="num">74,698</td><td class="num">1,565</td><td class="num">313.0</td><td class="num">20,835</td><td class="num">16,027</td><td class="num">4,808</td><td class="num">34,775</td></tr>
+                <tr><td>FY30Q1</td><td class="num">78,433</td><td class="num">1,589</td><td class="num">317.8</td><td class="num">21,408</td><td class="num">16,467</td><td class="num">4,940</td><td class="num">39,715</td></tr>
+                <tr><td>FY30Q2</td><td class="num">82,355</td><td class="num">1,609</td><td class="num">321.8</td><td class="num">21,956</td><td class="num">16,889</td><td class="num">5,067</td><td class="num">44,782</td></tr>
+                <tr><td>FY30Q3</td><td class="num">86,473</td><td class="num">1,640</td><td class="num">327.9</td><td class="num">22,619</td><td class="num">17,400</td><td class="num">5,220</td><td class="num">50,001</td></tr>
+                <tr><td>FY30Q4</td><td class="num">90,797</td><td class="num">1,681</td><td class="num">336.3</td><td class="num">23,398</td><td class="num">17,998</td><td class="num">5,399</td><td class="num">55,401</td></tr>
+                <tr><td>FY31Q1</td><td class="num">95,337</td><td class="num">1,738</td><td class="num">347.6</td><td class="num">24,079</td><td class="num">18,522</td><td class="num">5,557</td><td class="num">60,958</td></tr>
+                <tr><td>FY31Q2</td><td class="num">100,104</td><td class="num">1,795</td><td class="num">359.0</td><td class="num">24,746</td><td class="num">19,035</td><td class="num">5,711</td><td class="num">66,668</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>15</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p16" data-slide="P16">
+        <header class="slide-header">
+          <span>Source Logic</span>
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
         </header>
         <div class="content">
@@ -1448,17 +1495,17 @@
               <article class="card">
                 <span class="number">2</span>
                 <strong>ID算定</strong>
-                <p>添付元データでは、新規QRRを3ヶ月で割り、新規MRRを2,980円前提で増加IDに換算。増加IDの50%をSBC&S様の新規IDとして丸める。</p>
+                <p>「清書」シートの行5-9に合わせ、新規ID数と新規契約法人数を四半期ごとに置く。</p>
               </article>
               <article class="card">
                 <span class="number">3</span>
                 <strong>継続率</strong>
-                <p>契約開始から1年間は100%。1年後に50%、以降は1年ごとに80%として稼働IDを積み上げる。</p>
+                <p>行15-36の継続ID数を使用。各四半期の稼働IDを積み上げ、5ID/法人で契約法人数に換算する。</p>
               </article>
               <article class="card">
                 <span class="number">4</span>
-                <strong>利益算定</strong>
-                <p>貴社仕切値は顧客提示額を1.3で割る。貴社利益は顧客提示額から仕切値を控除した差分で見る。</p>
+                <strong>レベニューシェア算定</strong>
+                <p>行84-103の「定価ー卸価格」を使用。定価売上とUmee向け仕切値の差分をレベニューシェアとして見る。</p>
               </article>
             </div>
             <div class="table-wrap compact-table">
@@ -1466,19 +1513,19 @@
                 <tbody>
                   <tr>
                     <td><strong>修正版Excel</strong></td>
-                    <td><a href="exports/umee-kintonepack-revenue-profit-plan.xlsx">umee-kintonepack-revenue-profit-plan.xlsx</a></td>
+                    <td><a href="exports/umee-kintonepack-revenue-plan.xlsx">umee-kintonepack-revenue-plan.xlsx</a></td>
                   </tr>
                   <tr>
                     <td><strong>元データ範囲</strong></td>
-                    <td>FY26Q3-FY29Q2。添付の期待値.xlsx「清書」シートを基準にする</td>
+                    <td>FY26Q3-FY31Q2。添付の期待値FY31あり.xlsx「清書」シートを基準にする</td>
                   </tr>
                   <tr>
                     <td><strong>収録シート</strong></td>
-                    <td>前提、2,980円版四半期、2,980円版集計、3,980円版四半期、3,980円版集計</td>
+                    <td>前提、2,980円版四半期、2,980円版集計</td>
                   </tr>
                   <tr>
                     <td><strong>FrontAgent解析プラン</strong></td>
-                    <td>FY29Q2時点の稼働契約法人数276.2社 × 1.3% = 3.59社を参考候補として別管理する</td>
+                    <td>FY31Q2時点の稼働契約法人数359.0社 × 1.3% = 4.67社を参考候補として別管理する</td>
                   </tr>
                 </tbody>
               </table>
@@ -1486,11 +1533,11 @@
           </div>
         </div>
         <footer class="slide-footer">
-          <span>15</span>
+          <span>16</span>
         </footer>
       </section>
 
-      <section class="slide" id="p16" data-slide="P16">
+      <section class="slide" id="p17" data-slide="P17">
         <header class="slide-header">
           <span>FrontAgent解析プラン</span>
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
@@ -1502,17 +1549,17 @@
               <article class="card feature">
                 <span class="number">1</span>
                 <strong>計画対象外</strong>
-                <p>Kintone Packの仕切値・貴社利益の試算には含めない。上振れ候補として別管理する。</p>
+                <p>Kintone Packのレベニューシェア試算には含めない。上振れ候補として別管理する。</p>
               </article>
               <article class="card">
                 <span class="number">2</span>
                 <strong>参考条件</strong>
-                <p>FY29Q2時点の稼働契約法人数276.2社に対し、1.3%を候補として置く。</p>
+                <p>FY31Q2時点の稼働契約法人数359.0社に対し、1.3%を候補として置く。</p>
               </article>
               <article class="card">
                 <span class="number">3</span>
                 <strong>候補数</strong>
-                <p>276.2社 × 1.3% = 3.59社。商談化率・移行時期は別途管理する。</p>
+                <p>359.0社 × 1.3% = 4.67社。商談化率・移行時期は別途管理する。</p>
               </article>
             </div>
             <div class="table-wrap compact-table">
@@ -1526,11 +1573,11 @@
                 <tbody>
                   <tr>
                     <td><strong>対象母集団</strong></td>
-                    <td>FY29Q2時点のKintone Pack稼働契約法人数276.2社</td>
+                    <td>FY31Q2時点のKintone Pack稼働契約法人数359.0社</td>
                   </tr>
                   <tr>
                     <td><strong>参考候補</strong></td>
-                    <td>3.59社</td>
+                    <td>4.67社</td>
                   </tr>
                   <tr>
                     <td><strong>アップセル率</strong></td>
@@ -1546,12 +1593,12 @@
                   </tr>
                 </tbody>
               </table>
-              <p class="source-note">FrontAgent解析プランは上振れ候補の参考導線。Kintone Packの仕切値・貴社利益を計上対象とする試算とは分けて管理する。</p>
+              <p class="source-note">FrontAgent解析プランは上振れ候補の参考導線。Kintone Packのレベニューシェア計上対象とは分けて管理する。</p>
             </div>
           </div>
         </div>
         <footer class="slide-footer">
-          <span>16</span>
+          <span>17</span>
         </footer>
       </section>
     </main>
