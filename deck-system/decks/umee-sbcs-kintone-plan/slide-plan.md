@@ -15,7 +15,7 @@
 | P11 | Wholesale Price | Split + Table | 仕切り価格は、顧客提示価格を1.3で割って設計する | 2,980円/ID/月の仕切りは2,292円、FrontAgent解析プランは10,000円/ID/月、すべて税抜 | Wholesale calculation table |
 | P12 | Feature Comparison | Dense Table | 競合比較は、議事録ではなくkintone接点データ化で差分を出す | AI議事録 / kintone連携サービス / kintone Pack / FrontAgent解析プラン の機能比較 | Feature comparison table |
 | P13 | Revenue Share | Metrics + Table | 5か年累計のレベニューシェアは、FY31Q2時点で66,668千円となる | 定価売上、Umee向け仕切値、レベニューシェアを年度別に表示 | Revenue share table |
-| P14 | Quarterly Revenue Share | Dense Table | 四半期明細は、FY26Q3からFY28Q4までを積み上げ数値で見る | Umee全体売上、稼働ID、稼働契約法人、定価売上、仕切値、レベニューシェア、累計レベニューシェア | Quarterly revenue share table |
-| P15 | Quarterly Revenue Share | Dense Table | 四半期明細は、FY29Q1からFY31Q2までを積み上げ数値で見る | Umee全体売上、稼働ID、稼働契約法人、定価売上、仕切値、レベニューシェア、累計レベニューシェア | Quarterly revenue share table |
+| P14 | Quarterly Revenue Share | Dense Table | 四半期明細 | Umee全体売上、稼働ID、稼働契約法人、定価売上、仕切値、レベニューシェア、累計レベニューシェア | Quarterly revenue share table |
+| P15 | Quarterly Revenue Share | Dense Table | 四半期明細 | Umee全体売上、稼働ID、稼働契約法人、定価売上、仕切値、レベニューシェア、累計レベニューシェア | Quarterly revenue share table |
 | P16 | Calculation Notes | Cards + Table | 算定前提は、添付の清書シートの行定義に合わせる | 期待値FY31あり.xlsxの行5-9、行15-36、行84-103の定義 | Assumption cards |
 | P17 | FrontAgent解析プラン | Cards + Table | FrontAgent解析プランは、Kintone Pack試算には含めない参考導線とする | FY31Q2稼働契約法人数359.0社 × 1.3% = 4.67社を参考候補として置く | Upsell assumption table |
