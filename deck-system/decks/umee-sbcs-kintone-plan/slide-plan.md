@@ -14,7 +14,7 @@
 | P10 | GTM | Visual + Table | GTMは移管導線ではなく、顧客条件ごとの置き場所にする | Log Liteは1ID限定の見せ球 / 2ID以上・追加ID・kintone連携はkintone Pack / 年商200億円規模かつ営業利用の既存ユーザーはFrontAgent解析プランへ | GTM positioning map + segment table |
 | P11 | Wholesale Price | Split + Table | 仕切り価格は、顧客提示価格を1.3で割って設計する | 2,980円/ID/月の仕切りは2,292円、FrontAgent解析プランは10,000円/ID/月、すべて税抜 | Wholesale calculation table |
 | P12 | Feature Comparison | Dense Table | 競合比較は、議事録ではなくkintone接点データ化で差分を出す | AI議事録 / kintone連携サービス / kintone Pack / FrontAgent解析プラン の機能比較 | Feature comparison table |
-| P13 | Revenue Ramp | Metrics + Table | 5か年の貴社支払いレベニュー額を、更新済み前提で見る | 添付ExcelのTier3計画をkintone議事録セット売りユーザとして扱い、Kintone Packの貴社支払いレベニュー額を見る | Revenue ramp table |
-| P14 | Quarterly Revenue | Dense Table | 四半期明細は、5か年を一続きの積み上げ数値で見る | FY26Q3からFY31Q2までのUmee全体売上計画、SBC&S積上ID、積上契約法人、貴社支払いレベニュー額 | Quarterly revenue table |
-| P15 | Calculation Notes | Cards + Table | 算定前提は、追加提示値を反映して5か年に延長する | DDチーム提出済み計画 / FY29Q3・FY29Q4追加提示値 / 1.05倍成長 / 仕切り価格 | Assumption cards |
-| P16 | FrontAgent解析プラン | Cards + Table | FrontAgent解析プランは、投資回収計画には含めない参考導線とする | 年商200億円以上企業の分布を根拠に、1年後のFrontAgent解析プラン移行率を1.3%、価格を10,000円/ID/月として置く | Upsell assumption table |
+| P13 | Revenue Ramp | Metrics + Table | 添付元データでは、FY29Q2時点で累計貴社利益が20,000千円を超える | 清書シートの貴社仕切値・貴社利益・稼働契約法人数を表示 | Revenue ramp table |
+| P14 | Quarterly Revenue | Dense Table | 四半期明細は、清書シートの仕切値と貴社利益で見る | FY26Q3からFY29Q2までのUmee全体売上、SBC&S新規ID、稼働ID、仕切値、貴社利益、累計貴社利益 | Quarterly revenue table |
+| P15 | Calculation Notes | Cards + Table | 算定前提は、添付の清書シートの行定義に合わせる | 新規QRR、ID算定、50%期待値、継続率、仕切値、貴社利益の定義 | Assumption cards |
+| P16 | FrontAgent解析プラン | Cards + Table | FrontAgent解析プランは、Kintone Pack試算には含めない参考導線とする | FY29Q2稼働契約法人数276.2社 × 1.3% = 3.59社を参考候補として置く | Upsell assumption table |
