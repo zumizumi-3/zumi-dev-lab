@@ -576,6 +576,42 @@
         line-height: 1.35;
       }
 
+      .summary-metrics {
+        min-height: auto;
+        margin-bottom: 14px;
+      }
+
+      .summary-metrics .metric {
+        padding: 15px 17px;
+      }
+
+      .summary-metrics .metric-value {
+        font-size: 34px;
+      }
+
+      .summary-metrics .metric p {
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .five-year-table th,
+      .five-year-table td {
+        padding: 5px 7px;
+        font-size: 12px;
+        line-height: 1.16;
+      }
+
+      .assumption-grid .card {
+        min-height: 150px;
+        align-content: start;
+      }
+
+      a {
+        color: var(--kbp-orange);
+        font-weight: 850;
+        text-decoration: none;
+      }
+
       .flow {
         display: grid;
         grid-template-columns: 1fr 54px 1fr 54px 1fr;
@@ -726,7 +762,7 @@
       <span>SBC&S様向け資料｜FrontAgent 販売プランご提案</span>
       <span class="nav-spacer"></span>
       <button class="nav-button" type="button" data-prev aria-label="Previous slide">‹</button>
-      <span data-counter>1 / 15</span>
+      <span data-counter>1 / 17</span>
       <button class="nav-button" type="button" data-next aria-label="Next slide">›</button>
     </nav>
 
@@ -1380,64 +1416,169 @@
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
         </header>
         <div class="content">
-          <h2>投資回収は、Umee Tier3計画の積み上げ数値で見る</h2>
-          <div class="body-slot split">
-            <div class="summary-stack compact">
+          <h2>5か年の貴社支払いレベニュー額を、1本の成長前提で見る</h2>
+          <div class="body-slot body-fit">
+            <div class="grid-4 summary-metrics">
               <article class="metric feature">
                 <strong>回収目標</strong>
                 <div class="metric-value">2,000万円</div>
-                <p>SBC&S様からの投資額に対する販売粗利ベースの回収ライン。</p>
+                <p>SBC&S様からの投資額に対する回収ライン。</p>
               </article>
               <article class="metric">
                 <strong>回収期間</strong>
-                <div class="metric-value">約36ヶ月</div>
-                <p>FY26Q3開始、FY29Q2に累計2,313万円で到達</p>
+                <div class="metric-value">約21ヶ月</div>
+                <p>FY28Q1に累計2,487万円で到達。</p>
               </article>
               <article class="metric">
-                <strong>粗利LTV</strong>
-                <div class="metric-value">24.8万円</div>
-                <p>5ID/法人、チャーン反映。初年度粗利688円/ID/月、通常粗利1,380円/ID/月。</p>
+                <strong>5か年累計</strong>
+                <div class="metric-value">75,135万円</div>
+                <p>貴社支払いレベニュー額の5か年累計。</p>
               </article>
-              <p class="source-note">注: 起点はDD提出済みのUmee全体販売計画のうちTier3。計上対象はKintone Pack販売粗利で、FrontAXは含めない。</p>
+              <article class="metric">
+                <strong>5年目着地</strong>
+                <div class="metric-value">23,642ID</div>
+                <p>SBC&S積上ID。積上契約法人は4,728法人。</p>
+              </article>
             </div>
-            <div class="table-wrap compact-table recovery-table">
+            <div class="table-wrap compact-table annual-table">
               <table>
                 <thead>
                   <tr>
-                    <th>四半期</th>
-                    <th>Umee Tier3積上ID</th>
-                    <th>SBC&S積上ID</th>
-                    <th>積上契約法人</th>
-                    <th>当期計上粗利</th>
-                    <th>累計計上粗利</th>
+                    <th>年度</th>
+                    <th>対象期間</th>
+                    <th>年度末Umee全体売上</th>
+                    <th>年度末SBC&S積上ID</th>
+                    <th>年度末積上契約法人</th>
+                    <th>年度貴社支払いレベニュー額</th>
+                    <th>累計</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>FY26Q3</td><td class="num">224</td><td class="num">112</td><td class="num">22</td><td class="num">23万円</td><td class="num">23万円</td></tr>
-                  <tr><td>FY26Q4</td><td class="num">448</td><td class="num">224</td><td class="num">45</td><td class="num">46万円</td><td class="num">69万円</td></tr>
-                  <tr><td>FY27Q1</td><td class="num">716</td><td class="num">358</td><td class="num">72</td><td class="num">74万円</td><td class="num">143万円</td></tr>
-                  <tr><td>FY27Q2</td><td class="num">1,007</td><td class="num">504</td><td class="num">101</td><td class="num">104万円</td><td class="num">247万円</td></tr>
-                  <tr><td>FY27Q3</td><td class="num">1,186</td><td class="num">594</td><td class="num">119</td><td class="num">134万円</td><td class="num">381万円</td></tr>
-                  <tr><td>FY27Q4</td><td class="num">1,365</td><td class="num">684</td><td class="num">137</td><td class="num">164万円</td><td class="num">546万円</td></tr>
-                  <tr><td>FY28Q1</td><td class="num">1,580</td><td class="num">792</td><td class="num">158</td><td class="num">201万円</td><td class="num">746万円</td></tr>
-                  <tr><td>FY28Q2</td><td class="num">1,812</td><td class="num">908</td><td class="num">182</td><td class="num">240万円</td><td class="num">986万円</td></tr>
-                  <tr><td>FY28Q3</td><td class="num">2,023</td><td class="num">1,013</td><td class="num">203</td><td class="num">274万円</td><td class="num">1,260万円</td></tr>
-                  <tr><td>FY28Q4</td><td class="num">2,233</td><td class="num">1,118</td><td class="num">224</td><td class="num">309万円</td><td class="num">1,569万円</td></tr>
-                  <tr><td>FY29Q1</td><td class="num">2,485</td><td class="num">1,244</td><td class="num">249</td><td class="num">350万円</td><td class="num">1,919万円</td></tr>
-                  <tr><td>FY29Q2</td><td class="num">2,758</td><td class="num">1,381</td><td class="num">276</td><td class="num">395万円</td><td class="num">2,313万円</td></tr>
+                  <tr><td>Year 1</td><td>FY26Q3-FY27Q2</td><td class="num">3,900万円</td><td class="num">504</td><td class="num">101</td><td class="num">824万円</td><td class="num">824万円</td></tr>
+                  <tr><td>Year 2</td><td>FY27Q3-FY28Q2</td><td class="num">5,070万円</td><td class="num">907</td><td class="num">181</td><td class="num">2,461万円</td><td class="num">3,285万円</td></tr>
+                  <tr><td>Year 3</td><td>FY28Q3-FY29Q2</td><td class="num">6,591万円</td><td class="num">1,380</td><td class="num">276</td><td class="num">4,422万円</td><td class="num">7,707万円</td></tr>
+                  <tr><td>Year 4</td><td>FY29Q3-FY30Q2</td><td class="num">18,824万円</td><td class="num">7,692</td><td class="num">1,538</td><td class="num">15,170万円</td><td class="num">22,877万円</td></tr>
+                  <tr><td>Year 5</td><td>FY30Q3-FY31Q2</td><td class="num">53,764万円</td><td class="num">23,642</td><td class="num">4,728</td><td class="num">52,258万円</td><td class="num">75,135万円</td></tr>
                 </tbody>
               </table>
-              <p class="source-note">前提: Umee全体販売計画はSBC&S様DDチームに提出済み。本ページはTier3（kintone議事録セット売りユーザー）を対象に、Umee Tier3計画ID × 50% をSBC&S取扱見込IDとして置く。ID・契約法人は各四半期末時点の積み上げ数値。各四半期の継続IDを積み上げた当期計上粗利を表示。年間チャーンは1年後50%、以降20%。</p>
             </div>
+            <p class="source-note">前提: Umee全体販売計画はSBC&S様DDチームに提出済み。既存Excelが切れるFY29Q2以降は、Umee全体売上が四半期ごとに1.3倍成長すると置く。表示額はKintone Packの卸価格ベースで算出した貴社支払いレベニュー額。</p>
           </div>
         </div>
         <footer class="slide-footer">
-          <span>DD提出済みのUmee Tier3計画から、積み上げ数値・当期計上粗利・回収期間を明示する</span>
+          <span>5か年を通して、四半期あたり1.3倍成長の単一前提で見る</span>
           <span>14</span>
         </footer>
       </section>
 
       <section class="slide" id="p15" data-slide="P15">
+        <header class="slide-header">
+          <span>Quarterly Revenue</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>四半期明細は、5か年を一続きの積み上げ数値で見る</h2>
+          <div class="body-slot table-wrap compact-table five-year-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>四半期</th>
+                  <th>Umee全体売上計画</th>
+                  <th>Umee Tier3積上ID</th>
+                  <th>SBC&S積上ID</th>
+                  <th>積上契約法人</th>
+                  <th>貴社支払いレベニュー額</th>
+                  <th>累計貴社支払いレベニュー額</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>FY26Q3</td><td class="num">3,200万円</td><td class="num">224</td><td class="num">112</td><td class="num">22</td><td class="num">77万円</td><td class="num">77万円</td></tr>
+                <tr><td>FY26Q4</td><td class="num">3,400万円</td><td class="num">448</td><td class="num">224</td><td class="num">45</td><td class="num">154万円</td><td class="num">231万円</td></tr>
+                <tr><td>FY27Q1</td><td class="num">3,640万円</td><td class="num">716</td><td class="num">358</td><td class="num">72</td><td class="num">246万円</td><td class="num">477万円</td></tr>
+                <tr><td>FY27Q2</td><td class="num">3,900万円</td><td class="num">1,007</td><td class="num">504</td><td class="num">101</td><td class="num">347万円</td><td class="num">824万円</td></tr>
+                <tr><td>FY27Q3</td><td class="num">4,160万円</td><td class="num">1,186</td><td class="num">594</td><td class="num">119</td><td class="num">447万円</td><td class="num">1,271万円</td></tr>
+                <tr><td>FY27Q4</td><td class="num">4,420万円</td><td class="num">1,365</td><td class="num">684</td><td class="num">137</td><td class="num">548万円</td><td class="num">1,819万円</td></tr>
+                <tr><td>FY28Q1</td><td class="num">4,732万円</td><td class="num">1,580</td><td class="num">791</td><td class="num">158</td><td class="num">668万円</td><td class="num">2,487万円</td></tr>
+                <tr><td>FY28Q2</td><td class="num">5,070万円</td><td class="num">1,812</td><td class="num">907</td><td class="num">181</td><td class="num">798万円</td><td class="num">3,285万円</td></tr>
+                <tr><td>FY28Q3</td><td class="num">5,408万円</td><td class="num">2,023</td><td class="num">1,012</td><td class="num">202</td><td class="num">913万円</td><td class="num">4,198万円</td></tr>
+                <tr><td>FY28Q4</td><td class="num">5,746万円</td><td class="num">2,233</td><td class="num">1,117</td><td class="num">223</td><td class="num">1,028万円</td><td class="num">5,226万円</td></tr>
+                <tr><td>FY29Q1</td><td class="num">6,152万円</td><td class="num">2,485</td><td class="num">1,243</td><td class="num">249</td><td class="num">1,166万円</td><td class="num">6,392万円</td></tr>
+                <tr><td>FY29Q2</td><td class="num">6,591万円</td><td class="num">2,758</td><td class="num">1,380</td><td class="num">276</td><td class="num">1,315万円</td><td class="num">7,707万円</td></tr>
+                <tr><td>FY29Q3</td><td class="num">8,568万円</td><td class="num">4,734</td><td class="num">2,368</td><td class="num">474</td><td class="num">2,044万円</td><td class="num">9,751万円</td></tr>
+                <tr><td>FY29Q4</td><td class="num">11,139万円</td><td class="num">7,373</td><td class="num">3,688</td><td class="num">738</td><td class="num">3,001万円</td><td class="num">12,752万円</td></tr>
+                <tr><td>FY30Q1</td><td class="num">14,480万円</td><td class="num">10,828</td><td class="num">5,415</td><td class="num">1,083</td><td class="num">4,248万円</td><td class="num">17,000万円</td></tr>
+                <tr><td>FY30Q2</td><td class="num">18,824万円</td><td class="num">15,380</td><td class="num">7,692</td><td class="num">1,538</td><td class="num">5,877万円</td><td class="num">22,877万円</td></tr>
+                <tr><td>FY30Q3</td><td class="num">24,472万円</td><td class="num">20,516</td><td class="num">10,259</td><td class="num">2,052</td><td class="num">7,999万円</td><td class="num">30,876万円</td></tr>
+                <tr><td>FY30Q4</td><td class="num">31,813万円</td><td class="num">27,215</td><td class="num">13,608</td><td class="num">2,722</td><td class="num">10,774万円</td><td class="num">41,651万円</td></tr>
+                <tr><td>FY31Q1</td><td class="num">41,357万円</td><td class="num">35,932</td><td class="num">17,967</td><td class="num">3,593</td><td class="num">14,387万円</td><td class="num">56,038万円</td></tr>
+                <tr><td>FY31Q2</td><td class="num">53,764万円</td><td class="num">47,282</td><td class="num">23,642</td><td class="num">4,728</td><td class="num">19,097万円</td><td class="num">75,135万円</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>FY29Q2以降もUmee全体売上は四半期あたり1.3倍成長として延長</span>
+          <span>15</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p16" data-slide="P16">
+        <header class="slide-header">
+          <span>Calculation Notes</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>算定前提は、DD提出済み計画を5か年に延長する</h2>
+          <div class="body-slot body-fit">
+            <div class="grid-4 assumption-grid">
+              <article class="card feature">
+                <span class="number">1</span>
+                <strong>起点</strong>
+                <p>SBC&S様DDチーム提出済みのUmee全体販売計画のうち、Tier3（kintone議事録セット売りユーザー）を対象にする。</p>
+              </article>
+              <article class="card">
+                <span class="number">2</span>
+                <strong>売上成長</strong>
+                <p>既存Excelが切れるFY29Q2以降は、Umee全体売上が四半期ごとに1.3倍成長すると置く。</p>
+              </article>
+              <article class="card">
+                <span class="number">3</span>
+                <strong>SBC&S取扱</strong>
+                <p>Umee Tier3計画IDの50%をSBC&S様の取扱見込IDにする。契約法人は5ID/法人で算出。</p>
+              </article>
+              <article class="card">
+                <span class="number">4</span>
+                <strong>表示金額</strong>
+                <p>Kintone Pack販売価格を1.3で割った卸価格を、貴社支払いレベニュー額として表示する。</p>
+              </article>
+            </div>
+            <div class="table-wrap compact-table">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>修正版Excel</strong></td>
+                    <td><a href="exports/umee-kintonepack-5yr-revenue-plan.xlsx">umee-kintonepack-5yr-revenue-plan.xlsx</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>収録シート</strong></td>
+                    <td>前提、2,980円版四半期、2,980円版年次、3,980円版四半期、3,980円版年次</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FrontAX</strong></td>
+                    <td>投資回収のレベニュー試算には含めず、上振れ候補として別管理する</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>起点計画・1.3倍成長・SBC&S取扱見込・貴社支払いレベニュー額の算定条件</span>
+          <span>16</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p17" data-slide="P17">
         <header class="slide-header">
           <span>FrontAX Upsell</span>
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
@@ -1449,7 +1590,7 @@
               <article class="card feature">
                 <span class="number">1</span>
                 <strong>計画対象外</strong>
-                <p>2,000万円の投資回収に計上するのはKintone Pack販売粗利。FrontAXの粗利は含めない。</p>
+                <p>2,000万円の投資回収に計上するのはKintone Packの貴社支払いレベニュー額。FrontAXは含めない。</p>
               </article>
               <article class="card">
                 <span class="number">2</span>
@@ -1493,13 +1634,13 @@
                   </tr>
                 </tbody>
               </table>
-              <p class="source-note">FrontAXは上振れ候補の参考導線。Kintone Pack販売粗利を計上対象とする投資回収試算とは別に、商談化率・移行率・導入時期を管理する。</p>
+              <p class="source-note">FrontAXは上振れ候補の参考導線。Kintone Packの貴社支払いレベニュー額を計上対象とする投資回収試算とは別に、商談化率・移行率・導入時期を管理する。</p>
             </div>
           </div>
         </div>
         <footer class="slide-footer">
           <span>FrontAXは入れるが、2,000万円回収の計画対象には含めない</span>
-          <span>15</span>
+          <span>17</span>
         </footer>
       </section>
     </main>
