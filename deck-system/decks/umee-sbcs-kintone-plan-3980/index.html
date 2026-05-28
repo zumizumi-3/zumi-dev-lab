@@ -562,6 +562,20 @@
         line-height: 1.35;
       }
 
+      .recovery-table th,
+      .recovery-table td {
+        padding: 7px 9px;
+        font-size: 14px;
+        line-height: 1.25;
+      }
+
+      .recovery-table .source-note {
+        margin-top: 8px;
+        padding: 8px 10px;
+        font-size: 11.5px;
+        line-height: 1.35;
+      }
+
       .flow {
         display: grid;
         grid-template-columns: 1fr 54px 1fr 54px 1fr;
@@ -1366,7 +1380,7 @@
           <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
         </header>
         <div class="content">
-          <h2>投資回収は、DD提出済みのUmee Tier3計画を分解して見る</h2>
+          <h2>投資回収は、Umee Tier3計画の稼働粗利で見る</h2>
           <div class="body-slot split">
             <div class="summary-stack compact">
               <article class="metric feature">
@@ -1375,14 +1389,14 @@
                 <p>SBC&S様DDチーム提出済みのUmee全体販売計画のうち、kintone議事録セット売りユーザー群。</p>
               </article>
               <article class="metric">
-                <strong>回収対象</strong>
+                <strong>計上対象</strong>
                 <div class="metric-value">2,000万円</div>
-                <p>Kintone Pack販売粗利のみで見る。FrontAXは計画対象外。</p>
+                <p>Kintone Pack販売粗利。FrontAXは回収計画に計上しない。</p>
               </article>
               <article class="metric">
                 <strong>回収期間</strong>
-                <div class="metric-value">約21ヶ月</div>
-                <p>FY26Q3開始、FY28Q1に累計2,272万円で到達</p>
+                <div class="metric-value">約33ヶ月</div>
+                <p>FY26Q3開始、FY29Q1に累計2,321万円で到達</p>
               </article>
               <article class="metric">
                 <strong>粗利LTV</strong>
@@ -1390,7 +1404,7 @@
                 <p>5ID/法人、チャーン反映。初年度粗利918円/ID/月、通常粗利1,380円/ID/月。</p>
               </article>
             </div>
-            <div class="table-wrap compact-table">
+            <div class="table-wrap compact-table recovery-table">
               <table>
                 <thead>
                   <tr>
@@ -1398,28 +1412,31 @@
                     <th>Umee Tier3計画ID</th>
                     <th>SBC&S取扱ID</th>
                     <th>契約法人</th>
-                    <th>Kintone Pack粗利</th>
-                    <th>累計粗利</th>
+                    <th>当期計上粗利</th>
+                    <th>累計計上粗利</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>FY26Q3</td><td class="num">224</td><td class="num">112</td><td class="num">22</td><td class="num">346万円</td><td class="num">346万円</td></tr>
-                  <tr><td>FY26Q4</td><td class="num">224</td><td class="num">112</td><td class="num">22</td><td class="num">322万円</td><td class="num">668万円</td></tr>
-                  <tr><td>FY27Q1</td><td class="num">268</td><td class="num">134</td><td class="num">27</td><td class="num">355万円</td><td class="num">1,023万円</td></tr>
-                  <tr><td>FY27Q2</td><td class="num">291</td><td class="num">146</td><td class="num">29</td><td class="num">355万円</td><td class="num">1,378万円</td></tr>
-                  <tr><td>FY27Q3</td><td class="num">291</td><td class="num">146</td><td class="num">29</td><td class="num">322万円</td><td class="num">1,700万円</td></tr>
-                  <tr><td>FY27Q4</td><td class="num">291</td><td class="num">146</td><td class="num">29</td><td class="num">282万円</td><td class="num">1,982万円</td></tr>
-                  <tr><td>FY28Q1</td><td class="num">349</td><td class="num">175</td><td class="num">35</td><td class="num">290万円</td><td class="num">2,272万円</td></tr>
-                  <tr><td>FY28Q2</td><td class="num">378</td><td class="num">189</td><td class="num">38</td><td class="num">261万円</td><td class="num">2,532万円</td></tr>
-                  <tr><td>FY28Q3</td><td class="num">378</td><td class="num">189</td><td class="num">38</td><td class="num">208万円</td><td class="num">2,741万円</td></tr>
+                  <tr><td>FY26Q3</td><td class="num">224</td><td class="num">112</td><td class="num">22</td><td class="num">31万円</td><td class="num">31万円</td></tr>
+                  <tr><td>FY26Q4</td><td class="num">224</td><td class="num">112</td><td class="num">22</td><td class="num">62万円</td><td class="num">93万円</td></tr>
+                  <tr><td>FY27Q1</td><td class="num">268</td><td class="num">134</td><td class="num">27</td><td class="num">99万円</td><td class="num">191万円</td></tr>
+                  <tr><td>FY27Q2</td><td class="num">291</td><td class="num">146</td><td class="num">29</td><td class="num">139万円</td><td class="num">330万円</td></tr>
+                  <tr><td>FY27Q3</td><td class="num">291</td><td class="num">146</td><td class="num">29</td><td class="num">171万円</td><td class="num">502万円</td></tr>
+                  <tr><td>FY27Q4</td><td class="num">291</td><td class="num">146</td><td class="num">29</td><td class="num">204万円</td><td class="num">705万円</td></tr>
+                  <tr><td>FY28Q1</td><td class="num">349</td><td class="num">175</td><td class="num">35</td><td class="num">243万円</td><td class="num">949万円</td></tr>
+                  <tr><td>FY28Q2</td><td class="num">378</td><td class="num">189</td><td class="num">38</td><td class="num">285万円</td><td class="num">1,234万円</td></tr>
+                  <tr><td>FY28Q3</td><td class="num">378</td><td class="num">189</td><td class="num">38</td><td class="num">323万円</td><td class="num">1,556万円</td></tr>
+                  <tr><td>FY28Q4</td><td class="num">378</td><td class="num">189</td><td class="num">38</td><td class="num">360万円</td><td class="num">1,916万円</td></tr>
+                  <tr><td>FY29Q1</td><td class="num">454</td><td class="num">227</td><td class="num">45</td><td class="num">405万円</td><td class="num">2,321万円</td></tr>
+                  <tr><td>FY29Q2</td><td class="num">491</td><td class="num">246</td><td class="num">49</td><td class="num">454万円</td><td class="num">2,775万円</td></tr>
                 </tbody>
               </table>
-              <p class="source-note">前提: Umee全体販売計画はSBC&S様DDチームに提出済み。本ページはそのうちTier3（kintone議事録セット売りユーザー）を対象に、Umee Tier3計画ID × 50% をSBC&S取扱見込IDとして置いた回収試算。契約法人は5ID/法人、粗利はKintone Packのみ、FrontAXは含めない。粗利LTVは初年度粗利 + 通常粗利×継続率の長期累計で、年間チャーンは1年後50%、以降20%として反映。</p>
+              <p class="source-note">前提: Umee全体販売計画はSBC&S様DDチームに提出済み。本ページはTier3（kintone議事録セット売りユーザー）を対象に、Umee Tier3計画ID × 50% をSBC&S取扱見込IDとして置く。各四半期の継続IDを積み上げた当期計上粗利を表示し、計上対象はKintone Pack販売粗利。FrontAXは含めない。年間チャーンは1年後50%、以降20%。</p>
             </div>
           </div>
         </div>
         <footer class="slide-footer">
-          <span>DD提出済みのUmee Tier3計画から、SBC&S取扱ID・契約法人・Kintone Pack粗利・回収期間を明示する</span>
+          <span>DD提出済みのUmee Tier3計画から、SBC&S取扱ID・契約法人・当期計上粗利・回収期間を明示する</span>
           <span>14</span>
         </footer>
       </section>
@@ -1436,7 +1453,7 @@
               <article class="card feature">
                 <span class="number">1</span>
                 <strong>計画対象外</strong>
-                <p>2,000万円の投資回収はKintone Packのみで見る。FrontAXの粗利は回収計画に含めない。</p>
+                <p>2,000万円の投資回収に計上するのはKintone Pack販売粗利。FrontAXの粗利は含めない。</p>
               </article>
               <article class="card">
                 <span class="number">2</span>
@@ -1480,7 +1497,7 @@
                   </tr>
                 </tbody>
               </table>
-              <p class="source-note">FrontAXは上振れ候補の参考導線。Kintone Pack回収計画とは別に、商談化率・移行率・導入時期を管理する。</p>
+              <p class="source-note">FrontAXは上振れ候補の参考導線。Kintone Pack販売粗利を計上対象とする投資回収試算とは別に、商談化率・移行率・導入時期を管理する。</p>
             </div>
           </div>
         </div>
