@@ -1,0 +1,1589 @@
+<!doctype html>
+<html lang="ja" class="figma-export-root">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1600, initial-scale=1">
+    <title>SBC&S様向け資料｜FrontAgent 販売プランご提案｜Figma取込用</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../formats/kikai-business-ppt/tokens.css">
+    <style>
+      :root {
+        --deck-w: 1600px;
+        --deck-h: 900px;
+        --deck-scale: 1;
+        --nav-h: 46px;
+        --kbp-font: "Noto Sans JP", "Noto Sans", "IPAGothic", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: var(--kbp-page-bg);
+        color: var(--kbp-ink);
+        font-family: var(--kbp-font);
+        text-rendering: geometricPrecision;
+      }
+
+      button { color: inherit; font: inherit; }
+
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 50;
+        display: flex;
+        min-height: var(--nav-h);
+        align-items: center;
+        gap: 14px;
+        padding: 8px 18px;
+        border-bottom: 1px solid var(--kbp-line);
+        background: rgba(239, 242, 243, 0.94);
+        backdrop-filter: blur(10px);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 780;
+      }
+
+      .nav-mark {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+
+      .nav-spacer { flex: 1; }
+
+      .nav-button {
+        min-width: 34px;
+        height: 28px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+        cursor: pointer;
+      }
+
+      main {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        top: calc(var(--nav-h) + ((100dvh - var(--nav-h)) / 2));
+        left: 50%;
+        display: grid;
+        grid-template-rows: 34px minmax(0, 1fr) 34px;
+        gap: 10px;
+        width: var(--deck-w);
+        height: var(--deck-h);
+        padding: 48px 68px 44px;
+        border: 1px solid var(--kbp-line);
+        background: var(--kbp-paper);
+        box-shadow: var(--kbp-shadow);
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(var(--deck-scale));
+        transform-origin: center center;
+      }
+
+      .slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 26px;
+        background: var(--kbp-orange);
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        right: 34px;
+        bottom: 28px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+      }
+
+      .cover {
+        grid-template-rows: minmax(0, 1fr) 34px;
+        padding-top: 68px;
+      }
+
+      .cover::before {
+        width: 26px;
+        background: var(--kbp-orange);
+      }
+
+      .slide-header,
+      .slide-footer,
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .slide-header,
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--kbp-muted);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .slide-header { align-items: center; }
+
+      .slide-footer {
+        justify-content: flex-end;
+        padding-top: 12px;
+        border-top: 1px solid var(--kbp-line-soft);
+      }
+
+      .header-logo {
+        display: block;
+        width: 150px;
+        height: 28px;
+        object-fit: contain;
+        object-position: right center;
+      }
+
+      .content {
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 1060px;
+        margin-bottom: 0;
+        color: var(--kbp-ink);
+        font-size: 74px;
+        font-weight: 820;
+        line-height: 1.14;
+        text-wrap: balance;
+      }
+
+      h2 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 8px;
+        border-bottom: 5px solid var(--kbp-orange);
+        color: var(--kbp-ink);
+        font-size: 38px;
+        font-weight: 810;
+        line-height: 1.16;
+        text-wrap: balance;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        color: var(--kbp-ink);
+        font-size: 24px;
+        font-weight: 830;
+        line-height: 1.25;
+      }
+
+      p,
+      li,
+      td,
+      th {
+        color: var(--kbp-muted);
+        font-size: 20px;
+        line-height: 1.48;
+      }
+
+      .lead-copy {
+        max-width: 1050px;
+        margin: 12px 0 0;
+        color: var(--kbp-muted);
+        font-size: 22px;
+        font-weight: 650;
+        line-height: 1.5;
+      }
+
+      .body-slot {
+        width: 100%;
+        min-height: 430px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      .body-fit { min-height: auto; }
+      .body-tall { min-height: 520px; }
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+      .card,
+      .panel,
+      .metric,
+      .note,
+      .table-wrap {
+        min-width: 0;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+
+      .card,
+      .panel,
+      .metric,
+      .note {
+        display: grid;
+        align-content: center;
+        padding: 20px 22px;
+      }
+
+      .card.feature,
+      .panel.feature,
+      .metric.feature {
+        border-color: rgba(255, 113, 67, 0.76);
+        background: var(--kbp-paper);
+      }
+
+      .card strong,
+      .panel strong,
+      .metric strong,
+      .note strong {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--kbp-ink);
+        font-size: 22px;
+        line-height: 1.25;
+      }
+
+      .card p,
+      .panel p,
+      .metric p,
+      .note p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.44;
+      }
+
+      .pill {
+        display: inline-grid;
+        width: max-content;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+        font-weight: 860;
+      }
+
+      .cover-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 46px;
+        align-items: center;
+      }
+
+      .cover-logo {
+        display: block;
+        width: 620px;
+        max-width: 88%;
+        height: auto;
+        margin-bottom: 36px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .cover .lead-copy {
+        margin-top: 22px;
+        font-size: 24px;
+      }
+
+      .accent-rule {
+        width: 58px;
+        height: 4px;
+        margin-top: 28px;
+        background: var(--kbp-orange);
+      }
+
+      .cover-panel {
+        display: grid;
+        gap: 14px;
+        padding: 24px;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+
+      .cover-panel span {
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 780;
+        line-height: 1.5;
+      }
+
+      .number {
+        display: inline-grid;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 12px;
+        place-items: center;
+        border: 1px solid rgba(255, 113, 67, 0.7);
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        color: var(--kbp-ink);
+      }
+
+      th,
+      td {
+        padding: 13px 15px;
+        border: 1px solid var(--kbp-line-soft);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--kbp-surface);
+        color: var(--kbp-ink);
+        font-weight: 840;
+      }
+
+      td strong,
+      th strong {
+        color: var(--kbp-ink);
+      }
+
+      .table-wrap { overflow: hidden; }
+      .body-slot.table-wrap { min-height: auto; }
+      .split > .table-wrap,
+      .visual-led > .table-wrap {
+        align-self: start;
+      }
+      .num { text-align: right; white-space: nowrap; }
+      .muted { color: var(--kbp-muted); }
+
+      .price-table th:first-child,
+      .price-table td:first-child {
+        width: 112px;
+        white-space: nowrap;
+      }
+
+      .price-table th:nth-child(2),
+      .price-table td:nth-child(2),
+      .price-table th:nth-child(3),
+      .price-table td:nth-child(3) {
+        width: calc((100% - 112px) / 2);
+      }
+
+      .image-frame {
+        display: grid;
+        min-width: 0;
+        min-height: 388px;
+        overflow: hidden;
+        place-items: center;
+        border: 1px solid var(--kbp-line);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-surface);
+      }
+
+      .image-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-frame.contain img {
+        object-fit: contain;
+        padding: 18px;
+      }
+
+      .cover-panel img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+      }
+
+      .visual-led {
+        display: grid;
+        grid-template-columns: 0.94fr 1.06fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .visual-led.reverse {
+        grid-template-columns: 1.08fr 0.92fr;
+      }
+
+      .summary-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .summary-stack .card {
+        align-content: start;
+        min-height: 0;
+      }
+
+      .summary-stack.compact {
+        gap: 10px;
+      }
+
+      .summary-stack.compact .card {
+        padding: 15px 18px;
+      }
+
+      .summary-stack.compact .number {
+        margin-bottom: 6px;
+      }
+
+      .summary-stack.compact .card strong {
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+
+      .summary-stack.compact .card p {
+        font-size: 14px;
+        line-height: 1.38;
+      }
+
+      .cap-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .cap-card {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+        min-height: 96px;
+        padding: 17px 18px;
+        border: 1px solid rgba(255, 113, 67, 0.28);
+        border-radius: var(--kbp-radius);
+        background: var(--kbp-paper);
+      }
+
+      .cap-card.feature {
+        border-color: rgba(255, 113, 67, 0.76);
+      }
+
+      .cap-mark {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .cap-card strong {
+        margin-bottom: 4px;
+        color: var(--kbp-ink);
+        font-size: 21px;
+      }
+
+      .cap-card p {
+        margin: 0;
+        color: var(--kbp-muted);
+        font-size: 15px;
+        line-height: 1.38;
+      }
+
+      .evidence-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .evidence-strip span {
+        padding: 9px 10px;
+        border: 1px solid rgba(255, 113, 67, 0.2);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 760;
+        line-height: 1.25;
+      }
+
+      .compact-table th,
+      .compact-table td {
+        padding: 10px 12px;
+        font-size: 16px;
+        line-height: 1.36;
+      }
+
+      .compact-table .small-note {
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .recovery-table th,
+      .recovery-table td {
+        padding: 7px 9px;
+        font-size: 14px;
+        line-height: 1.25;
+      }
+
+      .recovery-table .source-note {
+        margin-top: 8px;
+        padding: 8px 10px;
+        font-size: 11.5px;
+        line-height: 1.35;
+      }
+
+      .summary-metrics {
+        min-height: auto;
+        margin-bottom: 14px;
+      }
+
+      .summary-metrics .metric {
+        padding: 15px 17px;
+      }
+
+      .summary-metrics .metric-value {
+        font-size: 34px;
+      }
+
+      .summary-metrics .metric p {
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .five-year-table th,
+      .five-year-table td {
+        padding: 5px 7px;
+        font-size: 12px;
+        line-height: 1.16;
+      }
+
+      .revenue-quarter-table th,
+      .revenue-quarter-table td {
+        padding: 7px 9px;
+        font-size: 14px;
+        line-height: 1.24;
+      }
+
+      .assumption-grid .card {
+        min-height: 150px;
+        align-content: start;
+      }
+
+      a {
+        color: var(--kbp-orange);
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr 54px 1fr 54px 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .flow-arrow {
+        display: grid;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 26px;
+        font-weight: 900;
+      }
+
+      .check-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .check-list li {
+        display: grid;
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 13px 14px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-paper);
+      }
+
+      .check-list b {
+        display: grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--kbp-orange-soft);
+        color: var(--kbp-orange);
+        font-size: 14px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .big-price {
+        color: var(--kbp-orange);
+        font-size: 54px;
+        font-weight: 860;
+        line-height: 1.05;
+      }
+
+      .big-price small {
+        display: block;
+        margin-top: 7px;
+        color: var(--kbp-muted);
+        font-size: 18px;
+        font-weight: 820;
+        line-height: 1.2;
+      }
+
+      .price-conditions {
+        display: grid;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .price-conditions span {
+        display: block;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 113, 67, 0.24);
+        background: var(--kbp-paper);
+        color: var(--kbp-muted);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+
+      .price-conditions b {
+        color: var(--kbp-ink);
+      }
+
+      .small-note {
+        color: var(--kbp-muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .metric-value {
+        color: var(--kbp-orange);
+        font-size: 42px;
+        font-weight: 890;
+        line-height: 1.22;
+      }
+
+      .source-note {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--kbp-line-soft);
+        background: var(--kbp-surface);
+        color: var(--kbp-muted);
+        font-size: 13px;
+        font-weight: 720;
+        line-height: 1.4;
+      }
+
+      .calc-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .calc-list span {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 113, 67, 0.24);
+        background: var(--kbp-paper);
+        color: var(--kbp-muted);
+        font-size: 16px;
+        font-weight: 760;
+        line-height: 1.3;
+      }
+
+      .calc-list b {
+        color: var(--kbp-ink);
+        white-space: nowrap;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .slide { transition: opacity 120ms ease; }
+      }
+
+      @media print {
+        @page {
+          size: 1600px 900px;
+          margin: 0;
+        }
+
+        html,
+        body {
+          width: 1600px;
+          height: auto;
+          overflow: visible;
+          background: #fff;
+        }
+
+        .topbar { display: none; }
+
+        main {
+          position: static;
+          width: 1600px;
+          height: auto;
+          overflow: visible;
+        }
+
+        .slide {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: 1600px;
+          height: 900px;
+          margin: 0;
+          border: 0;
+          box-shadow: none;
+          opacity: 1;
+          pointer-events: auto;
+          transform: none;
+          break-after: page;
+          break-before: page;
+          page-break-after: always;
+          page-break-before: always;
+        }
+
+        .slide:first-child {
+          break-before: auto;
+          page-break-before: auto;
+        }
+
+        .slide:last-child {
+          break-after: auto;
+          page-break-after: auto;
+        }
+      }
+
+      html.figma-export-root,
+      html.figma-export-root body {
+        width: 1600px;
+        min-width: 1600px;
+        height: auto;
+        min-height: 13500px;
+        overflow: visible;
+        background: #fff;
+      }
+
+      html.figma-export-root .topbar {
+        display: none;
+      }
+
+      html.figma-export-root main {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        width: 1600px;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+      }
+
+      html.figma-export-root .slide {
+        position: relative;
+        top: auto;
+        left: auto;
+        flex: 0 0 auto;
+        width: 1600px;
+        height: 900px;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="slide cover is-active" id="p01" data-slide="P01">
+        <div class="cover-layout">
+          <div>
+            <img class="cover-logo" src="assets/frontagent.png" alt="FrontAgent">
+            <p class="pill">SBC&S様向け資料</p>
+            <h1>SBC&S様向け FrontAgent販売プランのご提案</h1>
+            <p class="lead-copy">Log Lite / Kintone Pack / FrontAgent解析プランによる、kintone利用企業向け販売プラン</p>
+            <div class="accent-rule"></div>
+          </div>
+          <aside class="cover-panel">
+            <span>販売ライン</span>
+            <strong>Log Lite / Kintone Pack / FrontAgent解析プラン</strong>
+            <span>SBC&S様向け新設</span>
+            <strong>Log Lite / Kintone Pack</strong>
+            <span>作成日</span>
+            <strong>2026.05.26</strong>
+            <span>論点</span>
+            <strong>3ライン / 価格 / 卸価格 / 回収計画 / 販売導線</strong>
+          </aside>
+        </div>
+        <footer class="slide-footer">
+          <span>01</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p02" data-slide="P02">
+        <header class="slide-header">
+          <span>Sales Plan</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>初手から3ラインで、SBC&S様が売り分けやすい形にする</h2>
+          <div class="body-slot grid-3">
+            <article class="card">
+              <span class="number">1</span>
+              <strong>Log Lite</strong>
+              <p>1ID限定の低単価ライン。議事録ニーズを拾い、Kintone Packへ広げるための入口としてSBC&S様向けに新設する。</p>
+              <p class="small-note">980円 / 月（税抜）、月1,800分・AI要約100回まで</p>
+            </article>
+            <article class="card feature">
+              <span class="number">2</span>
+              <strong>Kintone Pack</strong>
+              <p>kintone連携を含む中核ライン。初年度割引を用意し、kintone利用企業に提案しやすい価格にする。</p>
+              <p class="small-note">初年度 2,980円 / ID / 月（税抜）、通常 5,980円</p>
+            </article>
+            <article class="card">
+              <span class="number">3</span>
+              <strong>FrontAgent解析プラン</strong>
+              <p>解析機能付きの上位ライン。年商200億円以上かつ営業利用の企業へ、1年後のアップセルとして提案する。</p>
+              <p class="small-note">10,000円 / ID / 月（税抜）</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>02</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p03" data-slide="P03">
+        <header class="slide-header">
+          <span>Market Context</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>kintone利用者の価格感覚は、1,000円台から始まる</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>比較対象</th>
+                  <th>価格アンカー</th>
+                  <th>示唆</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>kintone本体</strong></td>
+                  <td>1,000円 / 1,800円 / 3,000円<br><span class="small-note">ライト・スタンダード・ワイド</span></td>
+                  <td>初見では、1IDあたり1,000円台の印象が強い。</td>
+                </tr>
+                <tr>
+                  <td><strong>kintone連携サービス</strong></td>
+                  <td>月額7,000円から / 年額12万円など</td>
+                  <td>1ID単価だけでなく、環境単位・ID上限付きパックも説明しやすい。</td>
+                </tr>
+                <tr>
+                  <td><strong>AI議事録</strong></td>
+                  <td>1,000円台から5,000円台</td>
+                  <td>Nottaは分数・1回上限・AI要約回数でプラン差を出している。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>03</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p04" data-slide="P04">
+        <header class="slide-header">
+          <span>Design Policy</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>SBC&S様向けに、低単価入口と連携パックを新設する</h2>
+          <div class="body-slot grid-3">
+            <article class="card">
+              <span class="number">1</span>
+              <strong>Log Lite</strong>
+              <p>1ID限定 980円/月（税抜）。個人利用に近い価格感度の顧客へ、導入しやすい入口を用意する。</p>
+            </article>
+            <article class="card feature">
+              <span class="number">2</span>
+              <strong>Kintone Pack</strong>
+              <p>kintone連携・活動履歴登録・レコード紐付けを含む、SBC&S様向けの中核販売ライン。</p>
+            </article>
+            <article class="card">
+              <span class="number">3</span>
+              <strong>FrontAgent解析プラン</strong>
+              <p>解析機能付きの上位ライン。営業利用が明確な大企業顧客に限って提案する。</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>04</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p05" data-slide="P05">
+        <header class="slide-header">
+          <span>Plan Matrix</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>3ラインで、入口・連携・解析までを売り分ける</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>プラン</th>
+                  <th>役割・価格</th>
+                  <th>主な機能</th>
+                  <th>契約条件</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Log Lite</strong></td>
+                  <td>低単価入口ライン<br><span class="small-note">980円 / 1ID / 月（税抜）</span></td>
+                  <td>録音、文字起こし、AI要約<br><span class="small-note">月1,800分・1ログ5時間・要約100回まで。kintone連携なし。</span></td>
+                  <td>パートナー限定。月契約可。追加ID不可。2ID以上はPack。</td>
+                </tr>
+                <tr>
+                  <td><strong>Kintone Pack</strong></td>
+                  <td>1IDから使えるkintone連携プラン<br><span class="small-note">通常5,980円 / ID / 月（税抜）</span></td>
+                  <td>録音、文字起こし、AI要約、活動履歴登録、レコード紐付け、チーム確認</td>
+                  <td>12ヶ月契約。2,980円/ID/月（税抜）は初年度のみ。（Log Liteからの移管は対象外）</td>
+                </tr>
+                <tr>
+                  <td><strong>FrontAgent解析プラン</strong></td>
+                  <td>解析機能付き上位ライン<br><span class="small-note">10,000円 / ID / 月（税抜）</span></td>
+                  <td>Kintone Packの範囲に加え、営業利用向けの解析・示唆提供</td>
+                  <td>年商200億円以上かつ営業利用の顧客へアップセル提案。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>05</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p06" data-slide="P06">
+        <header class="slide-header">
+          <span>Log Lite</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>Log Liteは、Notta Premium基準の利用上限に寄せる</h2>
+          <div class="body-slot visual-led reverse">
+            <div>
+              <div class="cap-stack">
+                <article class="cap-card feature">
+                  <span class="cap-mark">ID</span>
+                  <div>
+                    <strong>1ID限定 980円/月（税抜）</strong>
+                    <p>追加ID不可。2ID以上・複数名利用はKintone Packで受ける。</p>
+                  </div>
+                </article>
+                <article class="cap-card">
+                  <span class="cap-mark">分</span>
+                  <div>
+                    <strong>月1,800分 / 1ログ5時間</strong>
+                    <p>Notta Premiumと同じ分数・1回上限を置き、Premium比較で見劣りしない設計にする。</p>
+                  </div>
+                </article>
+                <article class="cap-card">
+                  <span class="cap-mark">AI</span>
+                  <div>
+                    <strong>AI要約100回/月</strong>
+                    <p>Notta Premiumの要約100回/月に合わせ、要約回数でも見劣りさせない。</p>
+                  </div>
+                </article>
+                <article class="cap-card">
+                  <span class="cap-mark">止</span>
+                  <div>
+                    <strong>上限超過時は停止</strong>
+                    <p>追加利用は不可。それ以上使いたい場合はKintone Packへの移管を必須にする。</p>
+                  </div>
+                </article>
+              </div>
+              <div class="evidence-strip">
+                <span>Premium: 1,800分/月</span>
+                <span>Premium: 5時間/回</span>
+                <span>Premium: 要約100回/月</span>
+              </div>
+            </div>
+            <div class="image-frame contain">
+              <img src="assets/visuals/usage-caps.svg" alt="月1,800分、1ログ5時間、AI要約100回の利用上限">
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>06</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p07" data-slide="P07">
+        <header class="slide-header">
+          <span>Kintone Pack Price</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>Kintone Packは、1IDから追加IDまで同じ単価で積み上げる</h2>
+          <div class="body-slot split">
+            <article class="panel feature">
+              <span class="pill">初年度限定</span>
+              <div class="big-price">2,980円/ID/月<small>Umee価格は税抜</small></div>
+              <div class="price-conditions">
+                <span><b>対象</b> 契約開始から12ヶ月</span>
+                <span><b>対象外</b> Log Liteからの移管</span>
+                <span><b>ID</b> 2ID以上・追加IDはこちら</span>
+                <span><b>2年目以降</b> 通常5,980円/ID/月（税抜）</span>
+              </div>
+            </article>
+            <div class="table-wrap">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>通常（税抜）</th>
+                    <th>初年度限定（税抜）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>ID単価</strong></td>
+                    <td>5,980円 / ID / 月</td>
+                    <td>2,980円 / ID / 月</td>
+                  </tr>
+                  <tr>
+                    <td><strong>最小契約</strong></td>
+                    <td>1ID</td>
+                    <td>1ID</td>
+                  </tr>
+                  <tr>
+                    <td><strong>初期費用</strong></td>
+                    <td>0円</td>
+                    <td>0円</td>
+                  </tr>
+                  <tr>
+                    <td><strong>契約期間</strong></td>
+                    <td>12ヶ月</td>
+                    <td>初年度12ヶ月</td>
+                  </tr>
+                  <tr>
+                    <td><strong>適用条件</strong></td>
+                    <td>継続・移管時はこちら</td>
+                    <td>初年度のみ。（Log Liteからの移管は対象外）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>07</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p08" data-slide="P08">
+        <header class="slide-header">
+          <span>ID Pricing</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>2ID以上・追加IDはKintone Packで同じ単価を積み上げる</h2>
+          <div class="body-slot visual-led reverse">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>利用ID数</th>
+                    <th>通常月額（税抜）</th>
+                    <th>初年度限定月額（税抜）</th>
+                    <th>考え方</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1ID</strong></td>
+                    <td class="num">5,980円</td>
+                    <td class="num">2,980円</td>
+                    <td>Packの最小契約</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2ID</strong></td>
+                    <td class="num">11,960円</td>
+                    <td class="num">5,960円</td>
+                    <td>LiteではなくPack</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5ID</strong></td>
+                    <td class="num">29,900円</td>
+                    <td class="num">14,900円</td>
+                    <td>部門利用</td>
+                  </tr>
+                  <tr>
+                    <td><strong>10ID</strong></td>
+                    <td class="num">59,800円</td>
+                    <td class="num">29,800円</td>
+                    <td>複数部門展開</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="image-frame contain">
+              <img src="assets/visuals/pricing-ladder.svg" alt="1IDから10IDまでの初年度限定価格の積み上げ">
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>08</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p09" data-slide="P09">
+        <header class="slide-header">
+          <span>Competitive Comparison</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>比較される相手は、3カテゴリに分かれる</h2>
+          <div class="body-slot table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>カテゴリ</th>
+                  <th>代表例 / 価格アンカー</th>
+                  <th>顧客の見え方</th>
+                  <th>Kintone Packでの返し方</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>kintone本体</strong></td>
+                  <td>ライト 1,000円 / ID / 月<br>スタンダード 1,800円 / ID / 月<br>ワイド 3,000円 / ID / 月</td>
+                  <td>「kintoneより高いのか」という初見反応が出やすい。</td>
+                  <td>kintone連携も1IDから始められるため、導入初期の心理的ハードルを下げられる。</td>
+                </tr>
+                <tr>
+                  <td><strong>kintone連携サービス</strong></td>
+                  <td>PrintCreator 7,000円 / 月から<br>Smart at AI 84,000円 / 年から</td>
+                  <td>環境単位、年額、初期費用付きの売り方は受け入れられている。</td>
+                  <td>Kintone Packは1ID開始 + ID従量で、連携価値の価格として説明する。</td>
+                </tr>
+                <tr>
+                  <td><strong>AI議事録</strong></td>
+                  <td>Notta 1,185円 / 月から<br>Rimo 1,650円 / 月から<br>AI議事録取れる君 5,500円 / 月から<br>LINE WORKS AiNote 法人 19,800円 / 月から</td>
+                  <td>議事録単体に見えると、5,980円 / ID（税抜）は高く見える。</td>
+                  <td>初年度限定2,980円/ID（税抜）を価格アンカーにし、議事録ではなく顧客接点データ化として売る。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>09</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p10" data-slide="P10">
+        <header class="slide-header">
+          <span>GTM</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>GTMは、顧客条件ごとに3ラインを出し分ける</h2>
+          <div class="body-slot visual-led">
+            <div class="image-frame contain">
+              <img src="assets/visuals/gtm-route.svg" alt="Log Lite、Kintone Pack、FrontAgent解析プランを顧客条件別に配置するGTMポジショニング">
+            </div>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>位置づけ</th>
+                    <th>対象</th>
+                    <th>扱い</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Log Lite</strong><br><span class="small-note">入口ライン</span></td>
+                    <td>1名だけで最低限使いたい顧客、価格比較が強い顧客</td>
+                    <td>1ID限定・追加ID不可。2ID以上はKintone Packで受ける。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kintone Pack</strong><br><span class="small-note">中核ライン</span></td>
+                    <td>kintoneに顧客接点データを残したい新規・部門利用</td>
+                    <td>1IDからの連携パック。追加IDも同一単価で積み上げる。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FrontAgent<br>解析プラン</strong><br><span class="small-note">解析ライン</span></td>
+                    <td>既存ユーザーのうち、年商200億円規模かつ営業利用</td>
+                    <td>解析機能付きの上位提案。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>10</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p11" data-slide="P11">
+        <header class="slide-header">
+          <span>Wholesale Price</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>SBC＆S様仕切り価格</h2>
+          <div class="body-slot split">
+            <article class="panel feature">
+              <span class="pill">Kintone Pack 初年度</span>
+              <div class="big-price">2,292円/ID/月<small>SBC&S様 仕切り価格 / 税抜</small></div>
+              <div class="calc-list">
+                <span><b>定価</b> 2,980円 / ID / 月</span>
+                <span><b>仕切り価格</b> 2,292円 / ID / 月</span>
+                <span><b>算定</b> 定価 ÷ 1.3</span>
+              </div>
+            </article>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>商品</th>
+                    <th>定価</th>
+                    <th>SBC&S様仕切り価格</th>
+                    <th>算定</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Log Lite</strong></td>
+                    <td>980円 / 月</td>
+                    <td>754円 / 月</td>
+                    <td>定価 ÷ 1.3</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kintone Pack 初年度</strong></td>
+                    <td>2,980円 / ID / 月</td>
+                    <td>2,292円 / ID / 月</td>
+                    <td>定価 ÷ 1.3</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kintone Pack 通常</strong></td>
+                    <td>5,980円 / ID / 月</td>
+                    <td>4,600円 / ID / 月</td>
+                    <td>定価 ÷ 1.3</td>
+                  </tr>
+                  <tr>
+                    <td><strong>FrontAgent解析プラン</strong></td>
+                    <td>10,000円 / ID / 月</td>
+                    <td>7,692円 / ID / 月</td>
+                    <td>定価 ÷ 1.3</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>11</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p12" data-slide="P12">
+        <header class="slide-header">
+          <span>Feature Comparison</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>Notta比較は、無制限利用とkintone対応の有無を横並びで見る</h2>
+          <div class="body-slot table-wrap compact-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>比較軸</th>
+                  <th>Notta Premium</th>
+                  <th>Notta ビジネス</th>
+                  <th>Log Lite</th>
+                  <th>Kintone Pack</th>
+                  <th>FrontAgent解析プラン</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>月額</strong></td>
+                  <td>1,185円 / 月（税込）<br><span class="small-note">12ヶ月分一括払いの月額表示</span></td>
+                  <td>2,508円 / 月（税込）<br><span class="small-note">12ヶ月分一括払いの月額表示</span></td>
+                  <td>980円 / 月（税抜）<br><span class="small-note">1ID限定</span></td>
+                  <td>初年度 2,980円 / ID / 月（税抜）<br><span class="small-note">通常 5,980円</span></td>
+                  <td>10,000円 / ID / 月（税抜）</td>
+                </tr>
+                <tr>
+                  <td><strong>対象・契約</strong></td>
+                  <td>個人・小規模利用<br><span class="small-note">1アカウント前提</span></td>
+                  <td>チーム利用<br><span class="small-note">ワークスペース・権限管理</span></td>
+                  <td>1ID限定<br><span class="small-note">追加ID不可</span></td>
+                  <td>1IDから契約可<br><span class="small-note">2ID以上・追加ID対応</span></td>
+                  <td>営業組織・部門利用</td>
+                </tr>
+                <tr>
+                  <td><strong>文字起こし・要約</strong></td>
+                  <td>1,800分 / 月、5時間 / 回、AI要約100回 / 月</td>
+                  <td>文字起こし無制限、5時間 / 回、AI要約200回 / 月</td>
+                  <td>1,800分 / 月、5時間 / ログ、AI要約100回 / 月</td>
+                  <td>無制限<br><span class="small-note">Log Lite上限超過・複数IDを受ける</span></td>
+                  <td>無制限 + 解析機能</td>
+                </tr>
+                <tr>
+                  <td><strong>kintone対応</strong></td>
+                  <td>×</td>
+                  <td>×</td>
+                  <td>×</td>
+                  <td>〇</td>
+                  <td>〇</td>
+                </tr>
+                <tr>
+                  <td><strong>提案上の扱い</strong></td>
+                  <td>個人向けAI議事録の比較対象</td>
+                  <td>チームAI議事録の比較対象</td>
+                  <td>Premium対抗の1ID入口</td>
+                  <td>Notta ビジネスに対し、kintone業務接点化で差分化</td>
+                  <td>年商200億円以上・営業利用の参考導線</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>12</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p13" data-slide="P13">
+        <header class="slide-header">
+          <span>Revenue Share</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>5か年累計のレベニューシェアは、FY31Q2時点で66,668千円となる</h2>
+          <div class="body-slot body-fit">
+            <div class="grid-2 summary-metrics">
+              <article class="metric feature">
+                <strong>累計レベニューシェア</strong>
+                <div class="metric-value">66,668千円</div>
+                <p>顧客定価売上からUmee向け仕切値を控除した差分を、FY26Q3からFY31Q2まで積み上げる。</p>
+              </article>
+              <article class="metric">
+                <strong>FY31Q2 稼働契約法人数</strong>
+                <div class="metric-value">359.0社</div>
+                <p>期末稼働IDは1,795ID。Kintone Packの積み上げ数値として見る。</p>
+              </article>
+            </div>
+            <div class="table-wrap compact-table annual-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>年度</th>
+                    <th>対象期間</th>
+                    <th>期末Umee全体売上（千円）</th>
+                    <th>期末稼働契約法人</th>
+                    <th>年度定価売上（千円）</th>
+                    <th>年度仕切値（千円）</th>
+                    <th>年度レベニューシェア（千円）</th>
+                    <th>累計レベニューシェア（千円）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Year 1</td><td>FY26Q3-FY27Q2</td><td class="num">39,000</td><td class="num">100.8</td><td class="num">12,507</td><td class="num">9,621</td><td class="num">2,886</td><td class="num">2,886</td></tr>
+                  <tr><td>Year 2</td><td>FY27Q3-FY28Q2</td><td class="num">50,700</td><td class="num">181.6</td><td class="num">35,583</td><td class="num">27,371</td><td class="num">8,211</td><td class="num">11,098</td></tr>
+                  <tr><td>Year 3</td><td>FY28Q3-FY29Q2</td><td class="num">65,910</td><td class="num">276.1</td><td class="num">62,154</td><td class="num">47,811</td><td class="num">14,343</td><td class="num">25,441</td></tr>
+                  <tr><td>Year 4</td><td>FY29Q3-FY30Q2</td><td class="num">82,355</td><td class="num">321.8</td><td class="num">83,809</td><td class="num">64,469</td><td class="num">19,341</td><td class="num">44,782</td></tr>
+                  <tr><td>Year 5</td><td>FY30Q3-FY31Q2</td><td class="num">100,104</td><td class="num">359.0</td><td class="num">94,841</td><td class="num">72,955</td><td class="num">21,886</td><td class="num">66,668</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="source-note">前提: ① 貴社DDチーム様提示済の事業計画のうち、議事録販売領域（呼称Tier3）における売り上げ目標をベースに算出。② 四半期ごとの売上増額のうち50%を貴社からの新規流入による増加と期待。③ 算出は全数KintonePackのみを対象。④ LTVは2年目以降率を50%、3年目以降率を80%に設定。</p>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>13</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p14" data-slide="P14">
+        <header class="slide-header">
+          <span>Quarterly Revenue Share</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>四半期明細</h2>
+          <div class="body-slot table-wrap compact-table five-year-table revenue-quarter-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>四半期</th>
+                  <th>Umee全体売上（千円）</th>
+                  <th>SBC&S稼働ID</th>
+                  <th>稼働契約法人</th>
+                  <th>定価売上（千円）</th>
+                  <th>仕切値（千円）</th>
+                  <th>レベニューシェア（千円）</th>
+                  <th>累計レベニューシェア（千円）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>FY29Q1</td><td class="num">61,516</td><td class="num">1,244</td><td class="num">248.7</td><td class="num">16,357</td><td class="num">12,582</td><td class="num">3,775</td><td class="num">21,198</td></tr>
+                <tr><td>FY29Q2</td><td class="num">65,910</td><td class="num">1,381</td><td class="num">276.1</td><td class="num">18,385</td><td class="num">14,143</td><td class="num">4,243</td><td class="num">25,441</td></tr>
+                <tr><td>FY29Q3</td><td class="num">70,304</td><td class="num">1,473</td><td class="num">294.5</td><td class="num">19,610</td><td class="num">15,085</td><td class="num">4,525</td><td class="num">29,966</td></tr>
+                <tr><td>FY29Q4</td><td class="num">74,698</td><td class="num">1,565</td><td class="num">313.0</td><td class="num">20,835</td><td class="num">16,027</td><td class="num">4,808</td><td class="num">34,775</td></tr>
+                <tr><td>FY30Q1</td><td class="num">78,433</td><td class="num">1,589</td><td class="num">317.8</td><td class="num">21,408</td><td class="num">16,467</td><td class="num">4,940</td><td class="num">39,715</td></tr>
+                <tr><td>FY30Q2</td><td class="num">82,355</td><td class="num">1,609</td><td class="num">321.8</td><td class="num">21,956</td><td class="num">16,889</td><td class="num">5,067</td><td class="num">44,782</td></tr>
+                <tr><td>FY30Q3</td><td class="num">86,473</td><td class="num">1,640</td><td class="num">327.9</td><td class="num">22,619</td><td class="num">17,400</td><td class="num">5,220</td><td class="num">50,001</td></tr>
+                <tr><td>FY30Q4</td><td class="num">90,797</td><td class="num">1,681</td><td class="num">336.3</td><td class="num">23,398</td><td class="num">17,998</td><td class="num">5,399</td><td class="num">55,401</td></tr>
+                <tr><td>FY31Q1</td><td class="num">95,337</td><td class="num">1,738</td><td class="num">347.6</td><td class="num">24,079</td><td class="num">18,522</td><td class="num">5,557</td><td class="num">60,958</td></tr>
+                <tr><td>FY31Q2</td><td class="num">100,104</td><td class="num">1,795</td><td class="num">359.0</td><td class="num">24,746</td><td class="num">19,035</td><td class="num">5,711</td><td class="num">66,668</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>14</span>
+        </footer>
+      </section>
+
+      <section class="slide" id="p15" data-slide="P15">
+        <header class="slide-header">
+          <span>FrontAgent解析プラン</span>
+          <img class="header-logo" src="assets/frontagent.png" alt="FrontAgent">
+        </header>
+        <div class="content">
+          <h2>FrontAgent解析プランは、上振れ候補の参考導線とする</h2>
+          <div class="body-slot visual-led">
+            <div class="summary-stack">
+              <article class="card feature">
+                <span class="number">1</span>
+                <strong>計画対象外</strong>
+                <p>本試算には含めない。上振れ候補として別管理する。</p>
+              </article>
+              <article class="card">
+                <span class="number">2</span>
+                <strong>参考条件</strong>
+                <p>FY31Q2時点の稼働契約法人数359.0社に対し、1.3%を候補として置く。</p>
+              </article>
+              <article class="card">
+                <span class="number">3</span>
+                <strong>候補数</strong>
+                <p>359.0社 × 1.3% = 4.67社。商談化率・移行時期は別途管理する。</p>
+              </article>
+            </div>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>前提</th>
+                    <th>参考条件</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>対象母集団</strong></td>
+                    <td>FY31Q2時点の稼働契約法人数359.0社</td>
+                  </tr>
+                  <tr>
+                    <td><strong>参考候補</strong></td>
+                    <td>4.67社</td>
+                  </tr>
+                  <tr>
+                    <td><strong>アップセル率</strong></td>
+                    <td>稼働契約法人数の1.3%。本試算には算入しない。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ID前提</strong></td>
+                    <td>5ID/法人を基準に置く</td>
+                  </tr>
+                  <tr>
+                    <td><strong>価格</strong></td>
+                    <td>10,000円/ID/月（税抜）</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="source-note">FrontAgent解析プランは上振れ候補の参考導線。レベニューシェア計上対象とは分けて管理する。</p>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer">
+          <span>15</span>
+        </footer>
+      </section>
+    </main>
+
+  </body>
+</html>
