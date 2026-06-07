@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>業務AI実装パートナー | WorkAsHobby</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #101418;
+      --muted: #626a72;
+      --paper: #fbfaf6;
+      --paper-2: #f1eee5;
+      --line: #d7d2c7;
+      --dark: #101418;
+      --dark-2: #1b252b;
+      --teal: #0d9488;
+      --blue: #1d4ed8;
+      --gold: #b7791f;
+      --red: #c2410c;
+      --white: #ffffff;
+      --slide-pad: clamp(24px, 5vmin, 64px);
+      --gap: clamp(14px, 2.3vmin, 28px);
+      --radius: 8px;
+      --font: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;
+      --title: 68px;
+      --h2: 46px;
+      --h3: 24px;
+      --body: 20px;
+      --small: 14px;
+      --fit-scale: 1;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    body { background: var(--dark); color: var(--ink); font-family: var(--font); }
+    button { font: inherit; }
+
+    .deck {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        var(--dark);
+      background-size: 72px 72px;
+    }
+
+    .slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1600px;
+      height: 900px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: var(--gap);
+      padding: 64px;
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 10px)) scale(var(--fit-scale));
+      transform-origin: center;
+      pointer-events: none;
+      transition: opacity 240ms ease, transform 240ms ease;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(var(--fit-scale));
+      pointer-events: auto;
+    }
+
+    .slide.light {
+      background:
+        linear-gradient(90deg, rgba(16,20,24,.045) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(16,20,24,.045) 1px, transparent 1px),
+        var(--paper);
+      background-size: 56px 56px;
+      color: var(--ink);
+    }
+
+    .slide.dark {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(135deg, var(--dark), var(--dark-2));
+      background-size: 60px 60px;
+      color: var(--white);
+    }
+
+    .topbar,
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 34px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--teal);
+      font-size: var(--small);
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .label::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .dark .label { color: #67e8f9; }
+    .logo {
+      width: 178px;
+      height: auto;
+      display: block;
+    }
+    .dark .logo { filter: brightness(0) invert(1); }
+
+    .content {
+      min-height: 0;
+      display: grid;
+      align-content: center;
+      gap: var(--gap);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      max-width: 1040px;
+      font-size: var(--title);
+      line-height: 1.08;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+    h2 {
+      max-width: 1120px;
+      font-size: var(--h2);
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 920;
+    }
+    h3 {
+      font-size: var(--h3);
+      line-height: 1.34;
+      letter-spacing: 0;
+      font-weight: 850;
+    }
+    p, li, td, th {
+      font-size: var(--body);
+      line-height: 1.62;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 940px;
+      color: var(--muted);
+      font-size: 28px;
+      line-height: 1.55;
+      font-weight: 760;
+    }
+    .dark .lead { color: rgba(255,255,255,.78); }
+    .small { color: var(--muted); font-size: var(--small); line-height: 1.5; }
+    .dark .small { color: rgba(255,255,255,.58); }
+    .line { display: block; }
+    .accent { color: var(--teal); }
+    .blue { color: var(--blue); }
+    .gold { color: var(--gold); }
+
+    .hero {
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: clamp(28px, 5vmin, 72px);
+    }
+    .hero-copy { display: grid; gap: 24px; }
+    .hero-panel {
+      min-height: 460px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.07);
+    }
+    .hero-panel .logo { width: 230px; }
+    .hero-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-content: center;
+    }
+    .hero-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .hero-step b { color: #67e8f9; font-size: 22px; line-height: 1; }
+
+    .split {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(24px, 5vmin, 62px);
+      align-items: center;
+      min-height: 0;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 16px;
+      min-height: 0;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card,
+    .metric,
+    .phase,
+    .plan,
+    .boundary {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      padding: 22px;
+      min-height: 0;
+    }
+    .dark .card,
+    .dark .metric,
+    .dark .phase,
+    .dark .plan,
+    .dark .boundary {
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+    }
+    .card strong,
+    .phase strong,
+    .boundary strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--teal);
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+    .dark .card strong,
+    .dark .phase strong,
+    .dark .boundary strong { color: #67e8f9; }
+
+    .number {
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 950;
+      color: var(--blue);
+    }
+    .dark .number { color: #67e8f9; }
+
+    ul { margin: 0; padding-left: 1.15em; }
+    li { margin: .25em 0; }
+    .plain-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .plain-list li {
+      margin: 0;
+      padding: 13px 14px;
+      border-left: 4px solid var(--teal);
+      background: rgba(255,255,255,.62);
+    }
+    .dark .plain-list li {
+      background: rgba(255,255,255,.08);
+      border-left-color: #67e8f9;
+    }
+
+    .map {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .map-cell {
+      min-height: 260px;
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      display: grid;
+      align-content: space-between;
+      gap: 16px;
+    }
+    .map-cell:last-child { border-right: 0; }
+    .map-cell .index {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .phase {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 12px;
+      min-height: 310px;
+    }
+    .phase .month {
+      color: var(--gold);
+      font-weight: 950;
+      font-size: 18px;
+    }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .deliverable {
+      min-height: 170px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--teal);
+      background: rgba(255,255,255,.76);
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .plan {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 14px;
+      min-height: 360px;
+    }
+    .price {
+      color: var(--blue);
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 950;
+    }
+    .price small { font-size: 20px; color: var(--muted); }
+
+    .fit-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .fit-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.74);
+      padding: 24px;
+    }
+    .fit-box.yes { border-top: 8px solid var(--teal); }
+    .fit-box.no { border-top: 8px solid var(--red); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .metric {
+      min-height: 190px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+    }
+    .metric b {
+      color: var(--teal);
+      font-size: 42px;
+      line-height: 1.08;
+      font-weight: 950;
+    }
+
+    .quote {
+      max-width: 1180px;
+      font-size: 52px;
+      line-height: 1.24;
+      font-weight: 900;
+    }
+
+    .footer {
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .light .footer { color: #737373; }
+    .progress {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .bar {
+      width: 108px;
+      height: 4px;
+      background: rgba(255,255,255,.2);
+      overflow: hidden;
+    }
+    .light .bar { background: rgba(16,20,24,.16); }
+    .bar span {
+      display: block;
+      height: 100%;
+      background: #67e8f9;
+      width: 0%;
+    }
+    .light .bar span { background: var(--teal); }
+
+    .controls {
+      position: fixed;
+      right: 20px;
+      bottom: 18px;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+    }
+    .controls button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      background: rgba(16,20,24,.74);
+      color: #fff;
+      cursor: pointer;
+    }
+    .controls button:hover { background: var(--teal); }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 340ms ease, transform 340ms ease;
+    }
+    .active [data-reveal] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .active [data-reveal="2"] { transition-delay: 80ms; }
+    .active [data-reveal="3"] { transition-delay: 140ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      @page { size: 16in 9in; margin: 0; }
+      html, body { overflow: visible; background: white; }
+      .deck { width: 16in; height: auto; background: white; }
+      .slide {
+        position: relative;
+        inset: auto;
+        top: auto;
+        left: auto;
+        width: 16in;
+        height: 9in;
+        min-height: 0;
+        display: grid !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+        break-after: page;
+      }
+      .slide:last-of-type { page-break-after: auto; break-after: auto; }
+      .controls { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="業務AI実装パートナー提案資料">
+    <section class="slide dark active" data-title="表紙">
+      <div class="topbar">
+        <div class="label">Business AI Implementation</div>
+        <img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby">
+      </div>
+      <div class="content hero">
+        <div class="hero-copy">
+          <h1 data-reveal="1"><span class="line">業務を、AI前提で</span><span class="line">作り直す。</span></h1>
+          <p class="lead" data-reveal="2">WorkAsHobbyは、業務可視化からAI活用設計、現場実装、運用定着まで伴走する業務AI実装パートナーです。</p>
+        </div>
+        <aside class="hero-panel" data-reveal="3">
+          <img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby">
+          <div class="hero-steps">
+            <div class="hero-step"><b>01</b><p>業務を見える化する</p></div>
+            <div class="hero-step"><b>02</b><p>人とAIの役割を設計する</p></div>
+            <div class="hero-step"><b>03</b><p>現場で回る運用に落とす</p></div>
+          </div>
+          <p class="small">Business Consulting Service</p>
+        </aside>
+      </div>
+      <div class="footer"><span>WAH Business Consulting</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="問題設定">
+      <div class="topbar"><div class="label">Problem</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content split">
+        <div>
+          <h2 data-reveal="1">AI導入が止まる原因は、ツール不足ではありません。</h2>
+          <p class="lead" data-reveal="2">多くの場合、止まっているのは業務そのものの設計です。</p>
+        </div>
+        <ul class="plain-list" data-reveal="3">
+          <li>業務手順と判断基準が言語化されていない</li>
+          <li>情報が複数のツールや担当者に分散している</li>
+          <li>AIに任せる範囲と人が見る範囲が決まっていない</li>
+          <li>導入後に誰が運用を改善するか決まっていない</li>
+        </ul>
+      </div>
+      <div class="footer"><span>Problem Framing</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="立ち位置">
+      <div class="topbar"><div class="label">Positioning</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">WAHは「提言」より先の、実装と定着を担当します。</h2>
+        <div class="grid-3" data-reveal="2">
+          <div class="card"><strong>外から見る</strong><h3>業務を分解する</h3><p>工程、担当、情報、判断、例外対応を整理し、改善対象を明確にします。</p></div>
+          <div class="card"><strong>中に入る</strong><h3>運用を設計する</h3><p>AIを入れる場所だけでなく、人が判断すべき場所も含めて業務を作り直します。</p></div>
+          <div class="card"><strong>回るまで見る</strong><h3>現場に定着させる</h3><p>手順、ルール、資料、改善サイクルまで落とし込み、継続運用に接続します。</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>Implementation Partner</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="サービス全体像">
+      <div class="topbar"><div class="label">Service Map</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">支援範囲は、業務の棚卸しから運用改善まで。</h2>
+        <div class="map" data-reveal="2">
+          <div class="map-cell"><span class="index">1</span><h3>業務可視化</h3><p>現状フロー、担当、情報の流れ、属人化ポイントを整理。</p></div>
+          <div class="map-cell"><span class="index">2</span><h3>AI適用判断</h3><p>AIに任せる作業、人が見る判断、導入しない領域を切り分け。</p></div>
+          <div class="map-cell"><span class="index">3</span><h3>業務実装</h3><p>手順書、入力フォーム、管理表、プロンプト、運用ルールに落とし込み。</p></div>
+          <div class="map-cell"><span class="index">4</span><h3>運用改善</h3><p>現場で使いながら改善し、担当者が回せる状態へ調整。</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>Service Scope</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="90日ロードマップ">
+      <div class="topbar"><div class="label">First 90 Days</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">最初の90日で、改善テーマを「使える運用」に変えます。</h2>
+        <div class="timeline" data-reveal="2">
+          <div class="phase"><div class="month">Month 1</div><h3>見える化</h3><ul><li>対象業務の選定</li><li>現状フロー整理</li><li>課題と例外の洗い出し</li></ul></div>
+          <div class="phase"><div class="month">Month 2</div><h3>設計</h3><ul><li>新業務フロー作成</li><li>人とAIの役割分担</li><li>必要ツール・資料の設計</li></ul></div>
+          <div class="phase"><div class="month">Month 3</div><h3>実装</h3><ul><li>手順とルール整備</li><li>現場で試行</li><li>改善点の反映</li></ul></div>
+        </div>
+      </div>
+      <div class="footer"><span>90 Day Roadmap</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="成果物">
+      <div class="topbar"><div class="label">Deliverables</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">成果物は、現場が使える形式で残します。</h2>
+        <div class="deliverables" data-reveal="2">
+          <div class="deliverable"><h3>業務フロー</h3><p>誰が何をするかを可視化</p></div>
+          <div class="deliverable"><h3>課題リスト</h3><p>改善対象と優先度を整理</p></div>
+          <div class="deliverable"><h3>AI適用表</h3><p>任せる作業と見送る作業を分解</p></div>
+          <div class="deliverable"><h3>手順書</h3><p>実務担当者が迷わない形へ</p></div>
+          <div class="deliverable"><h3>運用ルール</h3><p>例外対応と確認観点を定義</p></div>
+          <div class="deliverable"><h3>改善レポート</h3><p>継続判断に使える形で報告</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>Concrete Outputs</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide dark" data-title="料金プラン">
+      <div class="topbar"><div class="label">Plans</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">関与度に応じて、3つのプランから始められます。</h2>
+        <div class="plans" data-reveal="2">
+          <div class="plan"><h3>ライト</h3><div class="price">5万円<small> / 月</small></div><p>面談中心。社内で実作業できる企業向け。</p><ul><li>月1回MTG</li><li>改善方針の壁打ち</li><li>優先順位の整理</li></ul></div>
+          <div class="plan"><h3>スタンダード</h3><div class="price">10万円<small> / 月</small></div><p>業務設計と軽い実作業まで進める標準プラン。</p><ul><li>チャット相談</li><li>業務工程の可視化</li><li>運用ルール整理</li></ul></div>
+          <div class="plan"><h3>ハンズオン</h3><div class="price">30万円<small> / 月</small></div><p>外部の改善担当として実行まで深く伴走。</p><ul><li>高頻度支援</li><li>業務実装</li><li>継続改善提案</li></ul></div>
+        </div>
+      </div>
+      <div class="footer"><span>Pricing</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="向いている企業">
+      <div class="topbar"><div class="label">Fit</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">向いている企業と、別の支援が向いている企業を明確にします。</h2>
+        <div class="fit-table" data-reveal="2">
+          <div class="fit-box yes"><h3>向いている</h3><ul><li>AI導入前に業務整理が必要</li><li>属人化している業務を標準化したい</li><li>改善を進める社内リソースが足りない</li><li>小さく始めて成果を見たい</li></ul></div>
+          <div class="fit-box no"><h3>別途見積もり</h3><ul><li>本格的なシステム開発</li><li>大規模な自動化基盤</li><li>常駐・専任稼働</li><li>複数部署への大規模研修</li></ul></div>
+        </div>
+      </div>
+      <div class="footer"><span>Fit / Boundary</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="なぜWAHか">
+      <div class="topbar"><div class="label">Why WAH</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content split">
+        <div>
+          <h2 data-reveal="1">戦略・営業・業務・組織を、実務として作ってきた経験があります。</h2>
+          <p class="lead" data-reveal="2">代表 小泉頌二郎は、NTT東日本、Huawei Japan、カケハシ、プラゴを経て、WorkAsHobbyを創業。事業推進と業務実装を横断して担ってきました。</p>
+        </div>
+        <div class="grid-2" data-reveal="3">
+          <div class="card"><strong>事業推進</strong><p>営業戦略、事業開発、アライアンス、パートナー拡大。</p></div>
+          <div class="card"><strong>業務実装</strong><p>業務オペレーション、品質保証、Salesforce等の導入。</p></div>
+          <div class="card"><strong>組織運営</strong><p>COO代行、組織立ち上げ、改善サイクルの運用。</p></div>
+          <div class="card"><strong>AI事業</strong><p>AI企業2社の事業責任者として現在進行形で推進。</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>Experience Base</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="実績">
+      <div class="topbar"><div class="label">Track Record</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">現場で数字をつくる実行経験があります。</h2>
+        <div class="metrics" data-reveal="2">
+          <div class="metric"><b>全国1位</b><p>NTT東日本 量販店部門販売実績</p></div>
+          <div class="metric"><b>150%</b><p>Huawei Japan 主要販社売上 前年比</p></div>
+          <div class="metric"><b>4→30社</b><p>カケハシ パートナー拡大</p></div>
+          <div class="metric"><b>900%</b><p>カケハシ リード獲得数 前年比</p></div>
+          <div class="metric"><b>12億円</b><p>プラゴ 売上規模への成長推進</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>Execution Results</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide dark" data-title="AI実務経験">
+      <div class="topbar"><div class="label">AI Business Context</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content split">
+        <div>
+          <h2 data-reveal="1">AIを「語る」だけではなく、AI事業を現在進行形で動かしています。</h2>
+          <p class="lead" data-reveal="2">AI活用を、現場業務・事業推進・運用改善の文脈で扱えることが強みです。</p>
+        </div>
+        <div class="grid-2" data-reveal="3">
+          <div class="card"><div class="number">2社</div><h3>AI企業の事業責任者</h3><p>事業推進、業務設計、実装支援を担当。</p></div>
+          <div class="card"><div class="number">自社</div><h3>AIプロダクトの企画・運用</h3><p>WAH内でもAIを前提に業務基盤を設計。</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>AI Implementation Experience</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide light" data-title="進め方">
+      <div class="topbar"><div class="label">How To Start</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <h2 data-reveal="1">最初に選ぶのは、会社全体ではなく「1つの業務」です。</h2>
+        <div class="grid-4" data-reveal="2">
+          <div class="card"><strong>時間がかかる</strong><p>毎週・毎月くり返し発生している業務。</p></div>
+          <div class="card"><strong>属人化している</strong><p>特定担当者だけが判断できる業務。</p></div>
+          <div class="card"><strong>情報が散らばる</strong><p>確認先や入力先が複数ある業務。</p></div>
+          <div class="card"><strong>効果が見える</strong><p>短期間で改善前後を比較しやすい業務。</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>Start Small</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+
+    <section class="slide dark" data-title="クロージング">
+      <div class="topbar"><div class="label">Next Step</div><img class="logo" src="./assets/wah-logo.png" alt="WorkAsHobby"></div>
+      <div class="content">
+        <p class="quote" data-reveal="1">まずは、1つの業務を選び、AI前提で「回る形」まで作り直しましょう。</p>
+        <div class="grid-3" data-reveal="2">
+          <div class="card"><strong>Step 1</strong><h3>対象業務を決める</h3><p>改善効果が見えやすい業務を1つ選定。</p></div>
+          <div class="card"><strong>Step 2</strong><h3>現状を分解する</h3><p>担当、情報、判断、例外を整理。</p></div>
+          <div class="card"><strong>Step 3</strong><h3>90日で実装する</h3><p>運用ルールと改善サイクルまで定着。</p></div>
+        </div>
+      </div>
+      <div class="footer"><span>WorkAsHobby</span><span class="progress"><span class="bar"><span></span></span><span class="page"></span></span></div>
+    </section>
+  </main>
+
+  <nav class="controls" aria-label="スライド操作">
+    <button type="button" id="prev" aria-label="前のスライド" title="前のスライド">←</button>
+    <button type="button" id="next" aria-label="次のスライド" title="次のスライド">→</button>
+  </nav>
+
+  <script>
+    class Presentation {
+      constructor() {
+        this.slides = Array.from(document.querySelectorAll(".slide"));
+        this.current = this.initialIndex();
+        this.bind();
+        this.fit();
+        this.render();
+      }
+
+      initialIndex() {
+        const raw = Number((location.hash || "").replace(/[^0-9]/g, ""));
+        if (raw >= 1 && raw <= document.querySelectorAll(".slide").length) return raw - 1;
+        return 0;
+      }
+
+      bind() {
+        document.getElementById("prev").addEventListener("click", () => this.go(-1));
+        document.getElementById("next").addEventListener("click", () => this.go(1));
+        window.addEventListener("resize", () => this.fit());
+        window.addEventListener("keydown", (event) => {
+          if (["ArrowRight", "PageDown", " "].includes(event.key)) this.go(1);
+          if (["ArrowLeft", "PageUp"].includes(event.key)) this.go(-1);
+          if (event.key === "Home") this.show(0);
+          if (event.key === "End") this.show(this.slides.length - 1);
+        });
+        let wheelLock = false;
+        window.addEventListener("wheel", (event) => {
+          if (wheelLock || Math.abs(event.deltaY) < 18) return;
+          wheelLock = true;
+          this.go(event.deltaY > 0 ? 1 : -1);
+          setTimeout(() => { wheelLock = false; }, 260);
+        }, { passive: true });
+        let touchStartX = null;
+        window.addEventListener("touchstart", (event) => { touchStartX = event.touches[0].clientX; }, { passive: true });
+        window.addEventListener("touchend", (event) => {
+          if (touchStartX === null) return;
+          const delta = event.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(delta) > 50) this.go(delta < 0 ? 1 : -1);
+          touchStartX = null;
+        }, { passive: true });
+      }
+
+      go(delta) {
+        this.show(this.current + delta);
+      }
+
+      show(index) {
+        this.current = Math.max(0, Math.min(this.slides.length - 1, index));
+        this.render();
+      }
+
+      render() {
+        this.slides.forEach((slide, index) => {
+          const active = index === this.current;
+          slide.classList.toggle("active", active);
+          const page = slide.querySelector(".page");
+          const bar = slide.querySelector(".bar span");
+          if (page) page.textContent = `${index + 1} / ${this.slides.length}`;
+          if (bar) bar.style.width = `${((index + 1) / this.slides.length) * 100}%`;
+        });
+        document.title = `${this.slides[this.current].dataset.title || "Slide"} | 業務AI実装パートナー`;
+        const nextHash = `#${this.current + 1}`;
+        if (location.hash !== nextHash) history.replaceState(null, "", nextHash);
+      }
+
+      fit() {
+        const scale = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+        document.documentElement.style.setProperty("--fit-scale", String(scale));
+      }
+    }
+
+    new Presentation();
+  </script>
+</body>
+</html>

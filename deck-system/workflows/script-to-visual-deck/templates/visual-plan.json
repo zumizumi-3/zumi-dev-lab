@@ -1,0 +1,29 @@
+{
+  "deckId": "",
+  "formatId": "",
+  "version": "draft",
+  "slides": [
+    {
+      "slide": "P01",
+      "patternId": "",
+      "visualPolicy": "",
+      "visualUnit": "",
+      "aspectRatio": "",
+      "typeScale": "",
+      "densityAction": "",
+      "slots": [
+        {
+          "slot": "",
+          "type": "",
+          "aspectRatio": "",
+          "semanticRole": "",
+          "depiction": "",
+          "sourceType": "generate",
+          "avoid": []
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}
+

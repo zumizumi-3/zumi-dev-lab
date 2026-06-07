@@ -1,0 +1,10 @@
+{
+  "name": "zumi-dev-lab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clipper:api": "node chatwork-clipper/server/local-server.cjs",
+    "clipper:gateway": "node chatwork-clipper/server/ssh-dev-gateway.cjs",
+    "test": "node --test"
+  }
+}

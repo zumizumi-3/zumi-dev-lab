@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Chatwork Clipper",
+  "version": "0.1.0",
+  "description": "Chatwork Webのメッセージ、選択テキスト、URLをRouting APIへ送る小さなキャプチャ拡張です。",
+  "permissions": ["activeTab", "contextMenus", "scripting", "storage"],
+  "host_permissions": ["https://www.chatwork.com/*", "http://127.0.0.1:8787/*", "http://localhost:8787/*"],
+  "optional_host_permissions": ["https://*/*"],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.chatwork.com/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Chatwork Clipper",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

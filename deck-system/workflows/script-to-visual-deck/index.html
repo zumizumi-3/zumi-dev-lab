@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Script to Visual Deck Workflow</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+        --bg: #f8fafc;
+        --paper: #ffffff;
+        --ink: #111827;
+        --muted: #667085;
+        --line: #d0d5dd;
+        --soft: #eef2f6;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      main { width: min(1120px, calc(100vw - 40px)); margin: 0 auto; padding: 40px 0 56px; }
+      a { color: inherit; }
+      .back { color: var(--muted); font-size: 14px; font-weight: 700; text-decoration: none; }
+      header { margin: 18px 0 30px; }
+      .eyebrow { margin: 0 0 10px; color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      h1 { margin: 0; font-size: clamp(32px, 6vw, 64px); line-height: 1.08; letter-spacing: 0; }
+      .lead { max-width: 860px; margin: 18px 0 0; color: var(--muted); font-size: 18px; line-height: 1.75; }
+      .flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 30px 0; }
+      .step, .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+      .step { min-height: 210px; padding: 18px; }
+      .num {
+        display: inline-flex;
+        width: 34px;
+        height: 34px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--soft);
+        color: #344054;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      h2 { margin: 0 0 10px; font-size: 22px; line-height: 1.25; }
+      p, li { color: var(--muted); line-height: 1.7; }
+      .step p, .panel p { margin: 0; }
+      .panel { padding: 22px; margin-top: 14px; }
+      .links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+      .link {
+        display: block;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        text-decoration: none;
+      }
+      .link strong { display: block; margin-bottom: 4px; }
+      .link span { color: var(--muted); font-size: 14px; line-height: 1.5; }
+      code { padding: 2px 5px; border-radius: 4px; background: var(--soft); color: #344054; }
+      @media (max-width: 940px) {
+        .flow, .links { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="../">← Deck Workflows</a>
+      <header>
+        <p class="eyebrow">Workflow</p>
+        <h1>Script to Visual Deck</h1>
+        <p class="lead">Company/Purpose Formatの有無を確認し、台本をContent Pack化し、Visual PlanとAsset Promptsを経てHTMLスライドへ合成する標準工程です。</p>
+      </header>
+
+      <section class="flow" aria-label="工程">
+        <article class="step">
+          <span class="num">0</span>
+          <h2>Format Check</h2>
+          <p>既存Company/Purpose Formatが使えるかを確認。なければPlain Baseから作成する分岐へ進みます。</p>
+        </article>
+        <article class="step">
+          <span class="num">1</span>
+          <h2>Content Pack</h2>
+          <p>既存のscript-inputとslide-planを正式化し、台本をbrief、narrative、slide-plan、speaker-notes、claimsへ分解します。</p>
+        </article>
+        <article class="step">
+          <span class="num">2</span>
+          <h2>Visual Plan</h2>
+          <p>各スライドにpatternとvisual slotを割り当て、image2/SVG/icon/photo/noneを決めます。</p>
+        </article>
+        <article class="step">
+          <span class="num">3</span>
+          <h2>Deck & QA</h2>
+          <p>Asset Promptsを生成し、HTMLへ差し込み、全ページ監査とスクショ確認を通します。</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Artifacts</h2>
+        <p>工程間の受け渡しは会話メモではなく、必ず成果物に残します。</p>
+        <div class="links">
+          <a class="link" href="./workflow.md"><strong>workflow.md</strong><span>全体工程とゲート。</span></a>
+          <a class="link" href="./artifacts.md"><strong>artifacts.md</strong><span>成果物契約。</span></a>
+          <a class="link" href="./skill-map.md"><strong>skill-map.md</strong><span>親ワークフローと原子スキルの分割。</span></a>
+          <a class="link" href="./templates/format-check.md"><strong>format-check.md</strong><span>Formatあり/なし分岐。</span></a>
+          <a class="link" href="./templates/content-pack.md"><strong>content-pack.md</strong><span>台本から作るContent Pack。</span></a>
+          <a class="link" href="./templates/slide-plan.md"><strong>slide-plan.md</strong><span>スライド単位の計画表。</span></a>
+          <a class="link" href="./templates/visual-plan.json"><strong>visual-plan.json</strong><span>レイアウトと視覚スロットの計画。</span></a>
+          <a class="link" href="./templates/asset-prompts.json"><strong>asset-prompts.json</strong><span>画像/SVG生成プロンプト。</span></a>
+          <a class="link" href="./templates/qa-report.md"><strong>qa-report.md</strong><span>最終監査レポート。</span></a>
+          <a class="link" href="./skills/deck-format-check/SKILL.md"><strong>deck-format-check</strong><span>Formatあり/なしを判定するStep 0の原子スキル仕様。</span></a>
+          <a class="link" href="./skills/script-to-content-pack/SKILL.md"><strong>script-to-content-pack</strong><span>既存の台本入力とslide-planをContent Packへ正規化するStep 2の原子スキル仕様。</span></a>
+          <a class="link" href="./examples/kikai-format-check.md"><strong>Kikai example</strong><span>Kikai visual-rich seminarでのFormat Checkサンプル。</span></a>
+          <a class="link" href="./examples/kikai-content-pack.md"><strong>Kikai Content Pack</strong><span>Kikai既存デックを新しいContent Pack契約へ変換した34枚の実地サンプル。</span></a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Entry Rule</h2>
+        <p><code>Company / Purpose Format</code> がある場合は台本工程から開始します。ない場合だけ、<code>Plain Base → Company / Purpose Format</code> の工程を先に実行します。</p>
+      </section>
+
+      <section class="panel">
+        <h2>Current Kikai Status</h2>
+        <p><code>kikai-business-visual-ppt</code> は視覚重視デックの現行候補です。固定画像スロット、brand visual style、prompt template、QAを持ちますが、正式なCompany Formatとして扱う前に正規化表に沿ってレビューします。</p>
+      </section>
+    </main>
+  </body>
+</html>

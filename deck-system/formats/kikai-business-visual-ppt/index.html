@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kikai Business Visual PPT Format</title>
+    <link rel="stylesheet" href="./tokens.css">
+    <style>
+      * { box-sizing: border-box; }
+      html {
+        background: var(--kbv-page-bg);
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+      }
+      body {
+        margin: 0;
+        background: var(--kbv-page-bg);
+        color: var(--kbv-ink);
+        font-family: var(--kbv-font);
+        text-rendering: geometricPrecision;
+      }
+      a { color: inherit; }
+      .format-nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 48px;
+        padding: 8px 18px;
+        border-bottom: 1px solid rgba(252, 117, 74, 0.22);
+        background: rgba(244, 245, 245, 0.96);
+        backdrop-filter: blur(10px);
+        color: var(--kbv-muted);
+        font-size: 0.86rem;
+        font-weight: 760;
+      }
+      .format-nav a { text-decoration: none; }
+      .nav-mark {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--kbv-primary);
+      }
+      .deck {
+        display: grid;
+        gap: 30px;
+        justify-items: center;
+        padding: 30px 0;
+      }
+      .slide {
+        scroll-snap-align: start;
+        scroll-margin-top: 70px;
+      }
+      .slide-header,
+      .slide-footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--kbv-muted);
+        font-size: var(--kbv-small);
+        font-weight: 820;
+        line-height: 1.35;
+      }
+      .slide-header {
+        min-height: 28px;
+        margin-bottom: var(--kbv-header-gap);
+      }
+      .slide-footer {
+        margin-top: 0;
+        padding-top: 13px;
+        border-top: 1px solid var(--kbv-line-soft);
+      }
+      .header-logo {
+        display: block;
+        width: 150px;
+        height: 30px;
+        object-fit: contain;
+        object-position: right center;
+      }
+      .doc-label,
+      .page-code,
+      .kicker {
+        color: var(--kbv-primary);
+        font-size: var(--kbv-small);
+        font-weight: 860;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        letter-spacing: 0;
+      }
+      h1,
+      h2 {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        color: var(--kbv-ink);
+        font-weight: 880;
+        line-height: 1.12;
+        text-wrap: balance;
+      }
+      h1 { font-size: clamp(3.6rem, 6vw, 5.2rem); }
+      h2 { font-size: var(--kbv-title); }
+      .title-rule {
+        width: 100%;
+        height: 6px;
+        margin-top: var(--kbv-title-gap);
+        border-radius: 999px;
+        background: var(--kbv-primary);
+      }
+      .lead-copy {
+        max-width: 1120px;
+        margin: var(--kbv-lead-gap) 0 0;
+        color: var(--kbv-muted);
+        font-size: var(--kbv-lead);
+        font-weight: 760;
+        line-height: 1.4;
+      }
+      .body-slot {
+        display: grid;
+        flex: 1 1 auto;
+        min-height: 0;
+        margin-top: 22px;
+        align-items: center;
+      }
+      .cover-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.04fr) 330px;
+        gap: 28px;
+        align-items: stretch;
+      }
+      .cover-panel {
+        display: grid;
+        align-content: center;
+        gap: 14px;
+        padding: 26px;
+      }
+      .cover-panel img {
+        display: block;
+        width: 210px;
+        height: auto;
+      }
+      .cover-panel span,
+      .slot-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 7px 10px;
+        border: var(--kbv-card-border) solid var(--kbv-line-soft);
+        border-radius: 5px;
+        background: var(--kbv-paper);
+        color: var(--kbv-muted);
+        font-size: 0.94rem;
+        font-weight: 780;
+        box-shadow: none;
+      }
+      .pipeline {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .pipeline-card,
+      .media-card,
+      .diagram-card,
+      .qa-card,
+      .table-card {
+        display: grid;
+        min-width: 0;
+        padding: 20px;
+        gap: 12px;
+      }
+      .pipeline-card strong,
+      .media-card strong,
+      .diagram-card strong,
+      .qa-card strong,
+      .table-card strong {
+        color: var(--kbv-ink);
+        font-size: var(--kbv-card-title);
+        line-height: 1.16;
+      }
+      .pipeline-card p,
+      .media-card p,
+      .diagram-card p,
+      .qa-card p,
+      .table-card p {
+        margin: 0;
+        color: var(--kbv-muted);
+        font-size: var(--kbv-card-body);
+        font-weight: 620;
+        line-height: 1.42;
+      }
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .media-card {
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        min-height: 405px;
+      }
+      .media-card .kbv-media-slot {
+        height: 128px;
+        border-radius: 5px;
+        background:
+          radial-gradient(circle at 20% 30%, rgba(252, 117, 74, 0.26), transparent 18%),
+          linear-gradient(135deg, #ffffff 0%, var(--kbv-primary-soft) 100%);
+      }
+      .media-card:nth-child(2) .kbv-media-slot {
+        background:
+          radial-gradient(circle at 74% 28%, rgba(102, 151, 234, 0.26), transparent 18%),
+          linear-gradient(135deg, #ffffff 0%, var(--kbv-blue-soft) 100%);
+      }
+      .media-card:nth-child(3) .kbv-media-slot {
+        background:
+          radial-gradient(circle at 72% 70%, rgba(105, 176, 134, 0.28), transparent 18%),
+          linear-gradient(135deg, #ffffff 0%, var(--kbv-green-soft) 100%);
+      }
+      .slot-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .slot-list li {
+        padding: 9px 10px;
+        color: var(--kbv-muted);
+        font-size: 0.98rem;
+        font-weight: 720;
+      }
+      .split-grid {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .split-visual {
+        display: grid;
+        min-height: 420px;
+        padding: 20px;
+        align-content: center;
+        background:
+          linear-gradient(135deg, rgba(252, 117, 74, 0.08), rgba(255, 255, 255, 0) 58%),
+          var(--kbv-paper);
+      }
+      .split-visual .kbv-media-slot {
+        display: grid;
+        aspect-ratio: 16 / 9;
+        place-items: center;
+        border-radius: 5px;
+        background:
+          linear-gradient(90deg, rgba(52, 50, 48, 0.08), transparent 1px),
+          linear-gradient(180deg, rgba(52, 50, 48, 0.08), transparent 1px),
+          var(--kbv-primary-soft);
+        background-size: 34px 34px;
+        color: var(--kbv-muted);
+        font-weight: 860;
+      }
+      .diagram-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .diagram-stage {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        align-items: center;
+      }
+      .diagram-node {
+        display: grid;
+        min-height: 128px;
+        place-items: center;
+        text-align: center;
+        color: var(--kbv-ink);
+        font-size: 1.04rem;
+        font-weight: 850;
+      }
+      .svg-flow {
+        width: 100%;
+        height: 180px;
+        color: var(--kbv-primary);
+      }
+      .table-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+      }
+      .rows {
+        display: grid;
+        gap: 10px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 160px minmax(0, 1fr) 118px;
+        gap: 10px;
+        align-items: center;
+        min-height: 54px;
+        padding: 9px 12px;
+      }
+      .row b {
+        color: var(--kbv-primary);
+        font-size: 1rem;
+      }
+      .row span {
+        color: var(--kbv-muted);
+        font-size: 1rem;
+        font-weight: 690;
+      }
+      .qa-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .qa-card {
+        min-height: 154px;
+      }
+      code {
+        color: var(--kbv-primary);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.92em;
+      }
+      @media (max-width: 900px) {
+        .deck { align-items: start; padding: 18px 0; }
+        .kbv-slide-shell {
+          width: calc(100vw - 24px);
+          padding: 28px 30px 28px 42px;
+        }
+        h2 { font-size: 2rem; }
+        .lead-copy { font-size: 1.08rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="format-nav" aria-label="Format navigation">
+      <a href="../../">Deck System</a>
+      <span>/</span>
+      <a href="../">Formats</a>
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span>Kikai Business Visual PPT</span>
+    </nav>
+
+    <main class="deck" aria-label="Kikai Business Visual PPT pattern catalog">
+      <section
+        id="KBV-00"
+        class="slide kbv-slide-shell"
+        data-visual-policy="hybrid"
+        data-visual-unit="per_element"
+        data-aspect-ratio="1:1"
+        data-type-scale="cover"
+        data-density-action="keep"
+        data-visual-required="icon+svg"
+        data-visual-insert="metric-1-base-slot-corner:icon:1:1;metric-2-brand-style-corner:icon:1:1;metric-3-content-brief-corner:icon:1:1;pipeline-base-brand-content:svg:wide"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="Kikai visual format cover">
+        <div class="content">
+          <div class="cover-grid body-slot">
+            <div>
+              <p class="kicker">Kikai Current Base</p>
+              <h1>画像スロットと可変プロンプトを持つ<br>企業フォーマット</h1>
+              <div class="title-rule" aria-hidden="true"></div>
+              <p class="lead-copy">Baseが位置と役割を決め、Brandが表現ルールを決め、Contentが描く対象を決める。</p>
+            </div>
+            <aside class="cover-panel kbv-card" aria-label="Format assets">
+              <img src="../kikai-business-ppt/assets/6.png" alt="Kikai Vibe Coding Salon">
+              <span>Parent: plain-business-visual-ppt</span>
+              <span>Primary: #FC754A</span>
+              <span>Output: HTML / image2 / SVG</span>
+            </aside>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-00</span><span>Format cover</span></footer>
+      </section>
+
+      <section
+        id="KBV-01"
+        class="slide kbv-slide-shell"
+        data-visual-policy="hybrid"
+        data-visual-unit="per_element"
+        data-aspect-ratio="wide"
+        data-type-scale="diagram"
+        data-density-action="keep"
+        data-visual-required="svg"
+        data-visual-insert="pipeline-base-to-brand-to-content:svg:wide;prompt-output-manifest-corner:icon:1:1"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="Prompt composition pipeline">
+        <header class="slide-header"><span class="doc-label">Prompt System</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>画像生成は Base × Brand × Content で組み立てる</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">AIに自由に描かせず、固定スロット、ブランド断片、スライド内容を合成してプロンプト化する。</p>
+          <div class="body-slot">
+            <div class="pipeline">
+              <article class="pipeline-card kbv-card">
+                <span class="slot-chip">Base</span>
+                <strong>位置・役割・比率</strong>
+                <p><code>card-1-media-top:image2:4:3</code> のように、どこへ何を入れるかを先に固定する。</p>
+              </article>
+              <article class="pipeline-card kbv-card-feature">
+                <span class="slot-chip">Brand</span>
+                <strong>色・線・禁止事項</strong>
+                <p>白背景、濃グレー、#FC754A、画像枠なし、カード枠3pt、ロゴ非生成を固定する。</p>
+              </article>
+              <article class="pipeline-card kbv-card">
+                <span class="slot-chip">Content</span>
+                <strong>描く対象・誤解回避</strong>
+                <p>カードや図解が何を意味するかを指定し、生成画像が装飾だけにならないようにする。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-01</span><span>Prompt composition</span></footer>
+      </section>
+
+      <section
+        id="KBV-02"
+        class="slide kbv-slide-shell"
+        data-visual-policy="image2_card_media"
+        data-visual-unit="per_element"
+        data-aspect-ratio="4:3"
+        data-type-scale="card_catalog"
+        data-density-action="add_card_media"
+        data-visual-required="image2"
+        data-visual-insert="card-1-learning-media-top:image2:4:3;card-2-client-work-media-top:image2:4:3;card-3-productize-media-top:image2:4:3"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="Card media slots">
+        <header class="slide-header"><span class="doc-label">Card Slots</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>カード型はカードごとに異なる画像スロットを持つ</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">共通画像の使い回しではなく、各カードの意味に対応するimage2を別々に生成する。</p>
+          <div class="body-slot">
+            <div class="media-grid">
+              <article class="media-card kbv-card">
+                <div class="kbv-media-slot" aria-hidden="true"></div>
+                <strong>学ぶ</strong>
+                <p>基礎講座、実演、合宿を通じて、AIに指示して作る入口を整える。</p>
+                <ul class="slot-list">
+                  <li class="kbv-inner-object">slot: learning-media-top</li>
+                  <li class="kbv-inner-object">aspect: 4:3</li>
+                </ul>
+              </article>
+              <article class="media-card kbv-card-feature">
+                <div class="kbv-media-slot" aria-hidden="true"></div>
+                <strong>受託化</strong>
+                <p>身近な業務課題を小さな納品物にし、初回実績と提案導線を作る。</p>
+                <ul class="slot-list">
+                  <li class="kbv-inner-object">slot: client-work-media-top</li>
+                  <li class="kbv-inner-object">aspect: 4:3</li>
+                </ul>
+              </article>
+              <article class="media-card kbv-card">
+                <div class="kbv-media-slot" aria-hidden="true"></div>
+                <strong>プロダクト化</strong>
+                <p>受託で見えた共通課題を自社アプリや販売導線へ発展させる。</p>
+                <ul class="slot-list">
+                  <li class="kbv-inner-object">slot: productize-media-top</li>
+                  <li class="kbv-inner-object">aspect: 4:3</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-02</span><span>Per-card image2</span></footer>
+      </section>
+
+      <section
+        id="KBV-03"
+        class="slide kbv-slide-shell"
+        data-visual-policy="image2_split"
+        data-visual-unit="targeted_frame"
+        data-aspect-ratio="16:9"
+        data-type-scale="headline"
+        data-density-action="add_evidence"
+        data-visual-required="image2"
+        data-visual-insert="right-evidence-workbench-frame:image2:16:9;left-proof-point-icons:icon:1:1"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="Split image2 slot">
+        <header class="slide-header"><span class="doc-label">Split Visual</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>本文はHTMLに残し、右側だけを具体化画像にする</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">画像は雰囲気ではなく、説明を具体化する証拠・場面・UIとして使う。</p>
+          <div class="body-slot">
+            <div class="split-grid">
+              <div class="diagram-card kbv-card">
+                <strong>HTMLで残す情報</strong>
+                <p>タイトル、リード、要点、数値、注釈は編集可能なHTMLとして保持する。</p>
+                <ul class="slot-list">
+                  <li class="kbv-inner-object">主張</li>
+                  <li class="kbv-inner-object">補足情報</li>
+                  <li class="kbv-inner-object">話者メモ</li>
+                </ul>
+              </div>
+              <div class="split-visual kbv-card-feature">
+                <div class="kbv-media-slot">right-evidence-workbench-frame</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-03</span><span>Split image2</span></footer>
+      </section>
+
+      <section
+        id="KBV-04"
+        class="slide kbv-slide-shell"
+        data-visual-policy="svg_diagram"
+        data-visual-unit="svg_parts"
+        data-aspect-ratio="body-fit"
+        data-type-scale="diagram"
+        data-density-action="switch_layout"
+        data-visual-required="svg"
+        data-visual-insert="gate-1-generate-node:svg:1:1;gate-2-review-node:svg:1:1;gate-3-fix-node:svg:1:1;gate-4-deliver-node:svg:1:1;quality-flow-arrow:svg:wide"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="SVG diagram slots">
+        <header class="slide-header"><span class="doc-label">SVG Diagram</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>流れ・比較・品質ゲートはSVGで構造を見せる</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">画像ではなく、矢印、ノード、ゲート、分岐で読解順序を固定する。</p>
+          <div class="body-slot">
+            <div class="diagram-grid">
+              <article class="diagram-card kbv-card">
+                <strong>SVG優先の対象</strong>
+                <p>品質チェック、ルート、ループ、分岐、リスク、比較、依存関係。</p>
+                <ul class="slot-list">
+                  <li class="kbv-inner-object">意味のない棒線は禁止</li>
+                  <li class="kbv-inner-object">汎用の盾/グラフ装飾は禁止</li>
+                  <li class="kbv-inner-object">各ノードに意味を持たせる</li>
+                </ul>
+              </article>
+              <article class="diagram-card kbv-card-feature">
+                <div class="diagram-stage">
+                  <div class="diagram-node kbv-inner-object">生成</div>
+                  <div class="diagram-node kbv-inner-object">点検</div>
+                  <div class="diagram-node kbv-inner-object">修正</div>
+                  <div class="diagram-node kbv-inner-object">納品</div>
+                </div>
+                <svg class="svg-flow" viewBox="0 0 520 180" aria-hidden="true">
+                  <path d="M56 92h400" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"></path>
+                  <path d="m424 58 42 34-42 34" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <circle cx="88" cy="92" r="22" fill="#fff" stroke="currentColor" stroke-width="6"></circle>
+                  <circle cx="210" cy="92" r="22" fill="#fff" stroke="currentColor" stroke-width="6"></circle>
+                  <circle cx="332" cy="92" r="22" fill="#fff" stroke="currentColor" stroke-width="6"></circle>
+                </svg>
+              </article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-04</span><span>SVG structure</span></footer>
+      </section>
+
+      <section
+        id="KBV-05"
+        class="slide kbv-slide-shell"
+        data-visual-policy="none"
+        data-visual-unit="none"
+        data-aspect-ratio="none"
+        data-type-scale="dense_table"
+        data-density-action="add_evidence"
+        data-visual-required="none"
+        data-visual-insert="none"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="Table density rule">
+        <header class="slide-header"><span class="doc-label">No Visual Pattern</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>表や運用リストは画像で埋めず、編集可能な密度を上げる</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">画像が不要なページにも判断が必要。余白はコメント列、状態、注釈、数値で処理する。</p>
+          <div class="body-slot">
+            <div class="table-layout">
+              <div class="rows kbv-card">
+                <div class="row kbv-inner-object"><b>判断軸</b><span>画像が意味を持つか</span><span>原則なし</span></div>
+                <div class="row kbv-inner-object"><b>密度</b><span>空白行を残さず、示唆列を追加する</span><span>HTML</span></div>
+                <div class="row kbv-inner-object"><b>可読性</b><span>本文を小さくしすぎず、行間を保つ</span><span>20px前後</span></div>
+                <div class="row kbv-inner-object"><b>例外</b><span>状態を示す小型アイコンだけ許可する</span><span>icon</span></div>
+              </div>
+              <article class="table-card kbv-card-feature">
+                <strong>none も明示する</strong>
+                <p><code>data-visual-required="none"</code> を入れて、AIが余白に装飾画像を足さないようにする。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-05</span><span>Editable density</span></footer>
+      </section>
+
+      <section
+        id="KBV-06"
+        class="slide kbv-slide-shell"
+        data-visual-policy="photo_or_screenshot"
+        data-visual-unit="real_asset"
+        data-aspect-ratio="3:2"
+        data-type-scale="large_body"
+        data-density-action="keep"
+        data-visual-required="photo_or_screenshot"
+        data-visual-insert="profile-real-photo-left:photo_or_screenshot:3:2;metric-proof-row-icons:icon:1:1"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="Real asset rule">
+        <header class="slide-header"><span class="doc-label">Real Asset</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>人物・実績・画面は生成より実素材を優先する</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">プロフィール、プロダクト、販売実績、UI画面は、信頼の根拠として実写真やスクショを使う。</p>
+          <div class="body-slot">
+            <div class="split-grid">
+              <div class="split-visual kbv-card">
+                <div class="kbv-media-slot">profile-real-photo-left</div>
+              </div>
+              <article class="diagram-card kbv-card-feature">
+                <strong>生成しない対象</strong>
+                <p>実在人物、ロゴ、商標、既存プロダクト画面、出典が必要な証拠画像。</p>
+                <ul class="slot-list">
+                  <li class="kbv-inner-object">supplied photo</li>
+                  <li class="kbv-inner-object">actual screenshot</li>
+                  <li class="kbv-inner-object">rights assumption logged</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-06</span><span>Real proof first</span></footer>
+      </section>
+
+      <section
+        id="KBV-07"
+        class="slide kbv-slide-shell"
+        data-visual-policy="hybrid"
+        data-visual-unit="per_element"
+        data-aspect-ratio="none"
+        data-type-scale="large_body"
+        data-density-action="keep"
+        data-visual-required="none"
+        data-visual-insert="qa-card-1-slot-contract-check:icon:1:1;qa-card-2-prompt-manifest-check:icon:1:1;qa-card-3-render-screenshot-check:icon:1:1;qa-card-4-asset-hygiene-check:icon:1:1"
+        data-prompt-template="./image-prompt-template.md"
+        aria-label="QA gates">
+        <header class="slide-header"><span class="doc-label">QA Gate</span><img class="header-logo" src="../kikai-business-ppt/assets/3.png" alt="Kikai"></header>
+        <div class="content">
+          <h2>生成後はスロット、画像、表示、差分をまとめて検査する</h2>
+          <div class="title-rule" aria-hidden="true"></div>
+          <p class="lead-copy">フォーマットが完成していても、最終deckでは全ページ監査を必ず通す。</p>
+          <div class="body-slot">
+            <div class="qa-grid">
+              <article class="qa-card kbv-card"><strong>Slot</strong><p>全スライドに visual policy と semantic insert がある。</p></article>
+              <article class="qa-card kbv-card-feature"><strong>Prompt</strong><p>各画像が Base × Brand × Content の入力から作られている。</p></article>
+              <article class="qa-card kbv-card"><strong>Render</strong><p>スクショで余白、潰れ、重なり、背景色、文字サイズを確認する。</p></article>
+              <article class="qa-card kbv-card-feature"><strong>Asset</strong><p>画像の使い回し、枠線付き画像、意味のないSVGを残さない。</p></article>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-footer"><span>KBV-07</span><span>Generation QA</span></footer>
+      </section>
+    </main>
+  </body>
+</html>
+
