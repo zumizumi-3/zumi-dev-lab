@@ -1,0 +1,9 @@
+{
+  "remote.autoForwardPorts": true,
+  "remote.portsAttributes": {
+    "18080": {
+      "label": "SSH Dev Gateway",
+      "onAutoForward": "notify"
+    }
+  }
+}

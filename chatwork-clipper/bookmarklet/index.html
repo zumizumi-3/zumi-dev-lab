@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatwork Clipper Bookmarklet</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f7f9;
+        --paper: #ffffff;
+        --ink: #101828;
+        --muted: #667085;
+        --line: #d0d5dd;
+        --primary: #1455d9;
+        --primary-hover: #0f46b6;
+        --success: #027a48;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+        letter-spacing: 0;
+      }
+
+      main {
+        width: min(760px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px 0;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 5vw, 44px);
+        line-height: 1.15;
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 0 0 24px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .panel {
+        display: grid;
+        gap: 16px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        color: #344054;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      input,
+      select {
+        width: 100%;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 0 10px;
+        background: #ffffff;
+        color: var(--ink);
+        font: inherit;
+        font-size: 14px;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--primary);
+        outline: 2px solid rgba(20, 85, 217, 0.16);
+      }
+
+      .bookmark-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        padding-top: 4px;
+      }
+
+      .bookmark {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+        border: 1px solid var(--primary);
+        border-radius: 6px;
+        padding: 0 14px;
+        background: var(--primary);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .bookmark:hover {
+        background: var(--primary-hover);
+        border-color: var(--primary-hover);
+      }
+
+      button {
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 0 12px;
+        background: #ffffff;
+        color: var(--primary);
+        cursor: pointer;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .note,
+      .status {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .status[data-tone="success"] {
+        color: var(--success);
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 92px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 10px;
+        background: #ffffff;
+        color: var(--muted);
+        font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        resize: vertical;
+      }
+
+      @media (max-width: 680px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Chatwork Clipper Bookmarklet</h1>
+      <p class="lead">
+        Chrome拡張を入れずに、Chatwork画面の選択テキストとURLをRouting APIへ送ります。
+      </p>
+
+      <section class="panel">
+        <div class="grid">
+          <label>
+            <span>Routing API URL</span>
+            <input id="apiBaseUrl" type="url" placeholder="http://127.0.0.1:8787" required>
+          </label>
+
+          <label>
+            <span>Clipperトークン</span>
+            <input id="clipperToken" type="password" autocomplete="off">
+          </label>
+
+          <label>
+            <span>送信先タイプ</span>
+            <select id="destinationType">
+              <option value="copy">リンク形式でコピー</option>
+              <option value="action_inbox">Action Inbox</option>
+              <option value="chatwork_room">Chatworkルーム</option>
+            </select>
+          </label>
+
+          <label>
+            <span>送信先ID</span>
+            <input id="destinationId" type="text" value="copy">
+          </label>
+
+          <label>
+            <span>送信先名</span>
+            <input id="destinationName" type="text" value="リンク形式でコピー">
+          </label>
+        </div>
+
+        <div class="bookmark-row">
+          <a id="bookmarklet" class="bookmark" href="#">Chatwork Clip</a>
+          <button id="copyButton" type="button">URLをコピー</button>
+        </div>
+
+        <p class="note">
+          上のリンクをブックマークバーへドラッグします。Chatworkで文章を選択して、そのブックマークを押すと送信します。
+        </p>
+
+        <textarea id="bookmarkletUrl" readonly></textarea>
+        <p id="status" class="status" role="status"></p>
+      </section>
+    </main>
+
+    <script>
+      const fields = [
+        "apiBaseUrl",
+        "clipperToken",
+        "destinationType",
+        "destinationId",
+        "destinationName",
+      ];
+
+      function defaultApiBaseUrlForLocation() {
+        if (!location.protocol.startsWith("http")) {
+          return "http://127.0.0.1:8787";
+        }
+
+        const marker = "/chatwork-clipper/bookmarklet";
+        const markerIndex = location.pathname.indexOf(marker);
+
+        if (markerIndex >= 0) {
+          return `${location.origin}${location.pathname.slice(0, markerIndex)}`;
+        }
+
+        return location.origin;
+      }
+
+      const defaultApiBaseUrl = defaultApiBaseUrlForLocation();
+
+      const source = String.raw`(async()=>{const config=__CONFIG__;const clean=(value)=>String(value||"").replace(/\s+\n/g,"\n").replace(/\n{3,}/g,"\n\n").replace(/[ \t]{2,}/g," ").trim();const ids=(String(location.href).match(/rid(\d+)(?:-(\d+))?/)||[]);const selected=clean(String(getSelection&&getSelection()||""));const roomName=clean(document.title.replace(/\s*[-|]\s*Chatwork.*$/i,""));const payload={source_platform:"chatwork",source_url:location.href,source_room_name:roomName,source_room_id:ids[1]||"",source_message_id:ids[2]||"",selected_text:selected,captured_text:selected,company_name:"",project_name:"",user_note:"",destination:config.destination,created_at:new Date().toISOString()};const route=config.destination.type==="action_inbox"?"inbox":"share";const headers={"content-type":"application/json"};if(config.token){headers["x-clipper-token"]=config.token}try{const response=await fetch(config.apiBaseUrl.replace(/\/+$/,"")+"/api/clipper/"+route,{method:"POST",headers,body:JSON.stringify(payload)});const data=await response.json();if(!response.ok||!data.success){throw new Error(data&&data.error&&data.error.message||"送信に失敗しました")}if(data.data&&data.data.formatted_text&&navigator.clipboard){await navigator.clipboard.writeText(data.data.formatted_text);alert("Chatwork Clipper: コピーしました")}else{alert("Chatwork Clipper: 送信しました")}}catch(error){alert("Chatwork Clipper: "+(error&&error.message||"失敗しました"))}})()`;
+
+      function readConfig() {
+        return {
+          apiBaseUrl: document.getElementById("apiBaseUrl").value.trim().replace(/\/+$/, ""),
+          token: document.getElementById("clipperToken").value.trim(),
+          destination: {
+            type: document.getElementById("destinationType").value,
+            id: document.getElementById("destinationId").value.trim(),
+            name: document.getElementById("destinationName").value.trim(),
+          },
+        };
+      }
+
+      function buildBookmarklet() {
+        const config = readConfig();
+        const script = source.replace("__CONFIG__", JSON.stringify(config));
+
+        return `javascript:${encodeURIComponent(script)}`;
+      }
+
+      function updateDestinationDefaults() {
+        const type = document.getElementById("destinationType").value;
+        const id = document.getElementById("destinationId");
+        const name = document.getElementById("destinationName");
+
+        if (type === "copy") {
+          id.value = "copy";
+          name.value = "リンク形式でコピー";
+        }
+
+        if (type === "action_inbox") {
+          id.value = "default";
+          name.value = "Action Inbox";
+        }
+      }
+
+      function render() {
+        const url = buildBookmarklet();
+
+        document.getElementById("bookmarklet").href = url;
+        document.getElementById("bookmarkletUrl").value = url;
+      }
+
+      async function copyUrl() {
+        const url = buildBookmarklet();
+
+        await navigator.clipboard.writeText(url);
+        document.getElementById("status").textContent = "コピーしました。";
+        document.getElementById("status").dataset.tone = "success";
+      }
+
+      fields.forEach((id) => {
+        document.getElementById(id).addEventListener("input", render);
+      });
+
+      document.getElementById("destinationType").addEventListener("change", () => {
+        updateDestinationDefaults();
+        render();
+      });
+
+      document.getElementById("copyButton").addEventListener("click", () => {
+        copyUrl().catch(() => {
+          document.getElementById("status").textContent = "コピーできませんでした。";
+          document.getElementById("status").dataset.tone = "";
+        });
+      });
+
+      document.getElementById("apiBaseUrl").value = defaultApiBaseUrl;
+      render();
+    </script>
+  </body>
+</html>

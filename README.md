@@ -5,6 +5,8 @@ Public workspace for shared drafts, slide previews, landing page roughs, and lig
 ## Structure
 
 - `docs/` - reference notes and shared documents.
+- `chatwork-clipper/` - Chrome extension and Routing API for clipping Chatwork messages.
+- `chatwork-task-inbox/` - static UI prototype for reviewing captured task candidates.
 - `deck-system/` - base slide formats and purpose-specific format registry.
 - `deck-system/workflows/` - repeatable slide production flows such as Plain-to-company-format-to-script-input.
 - `landing-drafts/` - rough landing page drafts and copy experiments.
