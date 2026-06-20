@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatwork Clipper</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup-shell">
+    <main class="popup">
+      <header class="popup-header">
+        <h1>Chatwork Clipper</h1>
+        <a href="options.html" target="_blank" rel="noreferrer">設定</a>
+      </header>
+
+      <section class="source-panel" aria-live="polite">
+        <p class="label">キャプチャ</p>
+        <p id="sourceRoom" class="source-room">読み込み中...</p>
+        <p id="sourceText" class="source-text"></p>
+        <p id="sourceUrl" class="source-url"></p>
+      </section>
+
+      <form id="clipperForm" class="form">
+        <label>
+          <span>送信先</span>
+          <select id="destination" required></select>
+        </label>
+
+        <label>
+          <span>会社名</span>
+          <input id="companyName" type="text" maxlength="200" autocomplete="organization">
+        </label>
+
+        <label>
+          <span>プロジェクト</span>
+          <input id="projectName" type="text" maxlength="200">
+        </label>
+
+        <label>
+          <span>メモ</span>
+          <textarea id="userNote" maxlength="2000" rows="3"></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="sendButton" type="submit">送信</button>
+          <button id="copyButton" type="button" class="secondary">コピー</button>
+        </div>
+
+        <p id="status" class="status" role="status"></p>
+      </form>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

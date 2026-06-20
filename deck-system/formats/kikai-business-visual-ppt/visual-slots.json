@@ -1,0 +1,64 @@
+{
+  "format": "kikai-business-visual-ppt",
+  "version": "2026-05-21.current-base",
+  "parent": {
+    "format": "plain-business-visual-ppt",
+    "slotManifest": "../../base-formats/plain-business-visual-ppt/page-visual-slots.json",
+    "policy": "../../base-formats/plain-business-visual-ppt/visual-policy.md"
+  },
+  "purpose": "Kikai brand override for the visual-aware base format. The base fixes layout slot positions; this file fixes Kikai brand behavior and prompt composition.",
+  "requiredHtmlAttributes": [
+    "data-visual-policy",
+    "data-visual-unit",
+    "data-aspect-ratio",
+    "data-type-scale",
+    "data-density-action",
+    "data-visual-required",
+    "data-visual-insert",
+    "data-prompt-template"
+  ],
+  "brandRules": {
+    "slideBackground": "#FFFFFF",
+    "text": "#343230",
+    "primaryOrange": "#FC754A",
+    "primarySoft": "#FEF8F6",
+    "cardBorderWidth": "3pt",
+    "imageBorder": "none",
+    "imageShadow": "none",
+    "innerObjectShadow": "none",
+    "noLeftOrangeLineOnImagesOrObjects": true
+  },
+  "promptComposition": [
+    "baseSlotContract",
+    "brandVisualStyle",
+    "contentPackSlideMessage",
+    "contentPackSlotDepiction",
+    "negativePrompt"
+  ],
+  "visualPolicyOverrides": {
+    "image2_card_media": {
+      "brandInstruction": "Generate one distinct image per card slot. Keep the image borderless because the HTML card owns the 3pt frame.",
+      "requiredManifestFields": ["slide", "slot", "file", "aspectRatio", "promptInputs"]
+    },
+    "svg_diagram": {
+      "brandInstruction": "Use dark gray monoline structure with #FC754A route markers. SVG must explain flow, branch, loop, gate, comparison, or risk.",
+      "requiredManifestFields": ["slide", "slot", "svgRole", "semanticParts"]
+    },
+    "photo_or_screenshot": {
+      "brandInstruction": "Use supplied real assets first. Do not recreate real people, logos, or products with generated imagery.",
+      "requiredManifestFields": ["slide", "slot", "source", "rightsAssumption"]
+    },
+    "none": {
+      "brandInstruction": "Do not fill whitespace with decoration. Increase density through editable text, comments, labels, rows, or metrics."
+    }
+  },
+  "qaChecks": [
+    "allDemoSlidesHaveRequiredVisualAttributes",
+    "allDemoSlidesReferencePromptTemplate",
+    "tokensDefineKikaiCurrentPalette",
+    "cardBorderWidthIs3pt",
+    "mediaSlotsHaveNoBorderOrShadow",
+    "parentSlotManifestExists"
+  ]
+}
+

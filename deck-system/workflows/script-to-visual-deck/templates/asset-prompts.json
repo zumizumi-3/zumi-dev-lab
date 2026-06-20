@@ -1,0 +1,27 @@
+{
+  "deckId": "",
+  "formatId": "",
+  "promptTemplate": "",
+  "brandVisualStyle": "",
+  "assets": [
+    {
+      "id": "",
+      "slide": "P01",
+      "slot": "",
+      "visualPolicy": "",
+      "aspectRatio": "",
+      "expectedOutputPath": "",
+      "promptInputs": {
+        "deckTitle": "",
+        "slideMessage": "",
+        "patternId": "",
+        "semanticRole": "",
+        "depiction": "",
+        "composition": "",
+        "mustAvoid": []
+      },
+      "finalPrompt": ""
+    }
+  ]
+}
+

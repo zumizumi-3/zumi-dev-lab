@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatwork Clipper 設定</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="options-shell">
+    <main class="options">
+      <h1>Chatwork Clipper 設定</h1>
+
+      <form id="optionsForm" class="form">
+        <label>
+          <span>Routing API URL</span>
+          <input id="apiBaseUrl" type="url" placeholder="http://127.0.0.1:8787" required>
+        </label>
+
+        <label>
+          <span>拡張機能トークン</span>
+          <input id="extensionToken" type="password" autocomplete="off">
+        </label>
+
+        <label>
+          <span>既定の送信先キー</span>
+          <input id="defaultDestinationId" type="text" placeholder="chatwork_room:998877">
+        </label>
+
+        <div class="actions">
+          <button type="submit">保存</button>
+          <button id="permissionButton" type="button" class="secondary">API権限を許可</button>
+        </div>
+
+        <p id="status" class="status" role="status"></p>
+      </form>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>
