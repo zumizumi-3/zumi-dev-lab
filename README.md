@@ -1,25 +1,25 @@
 # zumi-dev-lab
 
-Public workspace for shared drafts, slide previews, landing page roughs, and lightweight reference materials.
+共有用の下書き、スライドプレビュー、ランディングページのラフ案、軽量な参考資料を置く公開ワークスペースです。
 
-## Structure
+## 構成
 
-- `docs/` - reference notes and shared documents.
-- `chatwork-clipper/` - Chrome extension and Routing API for clipping Chatwork messages.
-- `chatwork-task-inbox/` - static UI prototype for reviewing captured task candidates.
-- `deck-system/` - base slide formats and purpose-specific format registry.
-- `deck-system/workflows/` - repeatable slide production flows such as Plain-to-company-format-to-script-input.
-- `landing-drafts/` - rough landing page drafts and copy experiments.
-- `slide-previews/` - static slide previews that can be opened from GitHub Pages.
-- `assets/` - public images, logos, and other reusable assets.
+- `docs/` - 参考メモと共有ドキュメント。
+- `chatwork-clipper/` - Chatworkメッセージを取り込むためのChrome拡張機能とRouting API。
+- `chatwork-task-inbox/` - 取り込んだタスク候補を確認するための静的UIプロトタイプ。
+- `deck-system/` - スライドの基本フォーマットと用途別フォーマットの登録場所。
+- `deck-system/workflows/` - Plain形式から会社指定フォーマット、スクリプト入力へ変換する処理など、再利用可能なスライド制作フロー。
+- `landing-drafts/` - ランディングページのラフ案とコピーの試作。
+- `slide-previews/` - GitHub Pagesから開ける静的なスライドプレビュー。
+- `assets/` - 公開画像、ロゴ、その他の再利用可能な素材。
 
-## Publishing Rules
+## 公開ルール
 
-This repository is public. Do not commit API keys, customer data, internal URLs, private pricing, credentials, or unreleased confidential material.
+このリポジトリは公開されています。APIキー、顧客データ、社内URL、非公開の価格情報、認証情報、未公開の機密資料はコミットしないでください。
 
-Use the folders as follows:
+各フォルダは次のように使用します。
 
-- Put rough work in `landing-drafts/` or a clearly named draft folder.
-- Put reusable slide base formats and purpose-specific format previews in `deck-system/`.
-- Put reviewable slide screenshots in `slide-previews/`.
-- Move stable reference material into `docs/`.
+- ラフ段階の制作物は`landing-drafts/`、または用途が明確な名前の下書きフォルダに置きます。
+- 再利用可能なスライドの基本フォーマットと用途別フォーマットのプレビューは`deck-system/`に置きます。
+- レビュー用のスライド画像は`slide-previews/`に置きます。
+- 内容が確定した参考資料は`docs/`へ移します。
